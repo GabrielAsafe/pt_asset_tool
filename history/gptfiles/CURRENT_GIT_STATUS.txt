@@ -1,0 +1,62 @@
+ M dev_tests/test_binding_coverage.py
+ M dev_tests/test_generic_import.py
+ M dev_tests/test_inx_writer.py
+ M dev_tests/test_new_cli_contracts.py
+ M dev_tests/test_smb_writer.py
+ M dev_tests/test_ui_semantic_taxonomy.py
+ M DEVELOPMENT_STATUS.md
+ M pt_asset.py
+ M pt_asset_tool/app_config.py
+ M pt_asset_tool/binding_coverage.py
+ M pt_asset_tool/cli.py
+ M pt_asset_tool/entity_catalog.py
+ M pt_asset_tool/inx_writer.py
+ M pt_asset_tool/monster_npc_census.py
+ M pt_asset_tool/motion_core.py
+ M pt_asset_tool/profile_registry.py
+ M pt_asset_tool/smb_writer.py
+ M pt_asset_tool/ui_actions.py
+ M pt_asset_tool/ui_app.py
+ M pt_asset_tool/ui_capabilities.py
+ M pt_asset_tool/ui_catalog.py
+ M pt_asset_tool/ui_jobs.py
+ M pt_asset_tool/ui_static/app.css
+ M pt_asset_tool/ui_static/app.js
+ M pt_asset_tool/ui_static/index.html
+ M pt_asset_tool/validation.py
+?? conftest.py
+?? dev_tests/test_animation_certification_plan.py
+?? dev_tests/test_animation_corpus.py
+?? dev_tests/test_app_config_discovery.py
+?? dev_tests/test_authoring.py
+?? dev_tests/test_build_provenance.py
+?? dev_tests/test_deployment_plan.py
+?? dev_tests/test_developer_docs_inventory.py
+?? dev_tests/test_development_readiness.py
+?? dev_tests/test_entity_registry_enrichment.py
+?? dev_tests/test_interactive_ui_jobs.py
+?? dev_tests/test_monster_npc_first_run.py
+?? dev_tests/test_object_local_writer.py
+?? dev_tests/test_profile_authoring.py
+?? dev_tests/test_profile_candidates.py
+?? dev_tests/test_stage072_authoring_candidate.py
+?? dev_tests/test_writer_corpus_audit.py
+?? pt_asset_tool/animation_certification.py
+?? pt_asset_tool/animation_corpus.py
+?? pt_asset_tool/authoring.py
+?? pt_asset_tool/blender/extract_stage072_saved_edit.py
+?? pt_asset_tool/build_provenance.py
+?? pt_asset_tool/deployment.py
+?? pt_asset_tool/development_readiness.py
+?? pt_asset_tool/object_local_writer.py
+?? pt_asset_tool/profile_authoring.py
+?? pt_asset_tool/profile_candidates.py
+?? pt_asset_tool/rigid_authoring_candidate.py
+?? pt_asset_tool/rigid_model_info.py
+?? pt_asset_tool/semantic_path.py
+?? pt_asset_tool/stage072_authoring_candidate.py
+?? pt_asset_tool/static_authoring_candidate.py
+?? pt_asset_tool/writer_corpus_audit.py
+?? data/development_evidence/rigid_saved_blender_external_witnesses_v1.json
+?? dev_tests/test_rigid_authoring_evidence.py
+?? pt_asset_tool/rigid_authoring_evidence.py

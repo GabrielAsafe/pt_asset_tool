@@ -1,0 +1,43 @@
+{
+  "format": "PT_RIGID_SAVED_BLENDER_EXTERNAL_WITNESS_REGISTRY_V1",
+  "status": "PASS",
+  "witnesses": [
+    {
+      "format": "PT_RIGID_SAVED_BLENDER_EXTERNAL_WITNESS_V1",
+      "status": "PASS_REPORTED",
+      "evidence_origin": "USER_EXECUTED_REAL_BLENDER_LOG",
+      "source_log_name": "Texto colado (20260902-171401).txt",
+      "source_log_sha256": "e870268ae2c6b9c5e723536a0d6f7cfbb8413d12c44be24d2ff07b03d3ede2af",
+      "captured_date": "2026-09-02",
+      "asset_id": "AST-1484EC428CEB",
+      "asset": "char/tmABCD/MfbC01.smd",
+      "profile_id": "priestess_c01_m5",
+      "profile_version": 3,
+      "lod": "default",
+      "object": "MbmC01",
+      "source_sha256": "9ec6be4cc148125e56156b5a35da0f2939c2e0b52f17103c9253bfe8bb87120b",
+      "artifact_sha256": "6ec9b5273cde73669972c1819851b6503ce64c2517671fdcb43c5f71fb653704",
+      "source_counts": {"vertices": 86, "faces": 138, "texlinks": 138},
+      "output_counts": {"vertices": 86, "faces": 138, "texlinks": 138},
+      "input_size": 290229,
+      "output_size": 290229,
+      "unrelated_object_blocks_byte_identical": 14,
+      "max_vertex_fit_error": 0.0,
+      "edit_observed": true,
+      "edit_required": true,
+      "non_target_changed": [],
+      "unknown_physique_bones": [],
+      "verification_errors": [],
+      "candidate_only": true,
+      "production_authorized": false,
+      "client_write_authorized": false,
+      "client_modified": false,
+      "limitations": [
+        "The artifact bytes and sibling build provenance were not uploaded with this log, so R12 cannot independently re-verify this historical witness.",
+        "This is real-Blender controlled-edit evidence, not human visual/runtime/game certification and not production authorization."
+      ]
+    }
+  ],
+  "production_authorized": false,
+  "client_write_authorized": false
+}

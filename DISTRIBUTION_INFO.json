@@ -1,0 +1,16 @@
+{
+  "format": "PT_ASSET_TOOL_DISTRIBUTION_INFO_V1",
+  "version": "1.0.0",
+  "edition": "DOCUMENTATION_COMPLETE",
+  "date": "2026-09-14",
+  "code_basis": "PT_ASSET_TOOL_1_0_CERTIFIED_SAFETY_LOCKED",
+  "application_code_changed_by_docs_refresh": false,
+  "automatic_gate_status": "PASS",
+  "automatic_blockers": 0,
+  "production_authorized": false,
+  "client_write_authorized": false,
+  "server_write_authorized": false,
+  "documentation_index": "docs/README.md",
+  "cli_leaf_route_count": 117,
+  "module_count": 153
+}

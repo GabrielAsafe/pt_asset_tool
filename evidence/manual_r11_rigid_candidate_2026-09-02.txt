@@ -1,0 +1,4057 @@
+gabriel@unknown18c04d2e4dbe:~/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app$ python3 pt_asset.py import "char/tmABCD/MfbC01.smd" \
+  --profile priestess_c01_m5 \
+  --lod default \
+  --no-open
+
+python3 pt_asset.py build "char/tmABCD/MfbC01.smd" --plan
+{
+  "format": "PT_GENERIC_BLENDER_IMPORT_V1",
+  "status": "READY",
+  "asset": "char/tmABCD/MfbC01.smd",
+  "family": "SMD_MODEL_062_RIGID_PHYSIQUE",
+  "kind": "SMD_MODEL_062",
+  "mode": "RIGID",
+  "lod": "default",
+  "workspace": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01",
+  "blend": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/imported.blend",
+  "workspace_info": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/workspace_info.json",
+  "authoring_manifest": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/authoring_manifest.json",
+  "workspace_provenance": {
+    "format": "PT_ASSET_AUTHORING_WORKSPACE_VERIFY_V1",
+    "status": "PASS",
+    "manifest": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/authoring_manifest.json",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "provenance_state": "VERIFIED_AT_IMPORT",
+    "errors": [],
+    "dependencies": [
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/mC001.inx",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/mC002.inx",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+        "ok": true,
+        "reason": null
+      }
+    ],
+    "selected_context": {
+      "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_V1",
+      "model_info_inx": {
+        "logical": "char/tmABCD/M5Bip.inx",
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+        "size": 95268,
+        "sha256": "3d096b1572386ca856d5e51cbad0b14249320a6778acd22913f0c34653500790"
+      },
+      "skeleton_smb": {
+        "logical": "char/tmabcd/m5.smb",
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+        "size": 13931704,
+        "sha256": "14cfac93a08d807bb2dd93c73b4426ad6b402ed5d96877bcf1952da95da3b072"
+      },
+      "lod": "default",
+      "lod_groups": {
+        "high": [
+          "MbhC01",
+          "MshC01",
+          "MlhC01"
+        ],
+        "default": [
+          "MbmC01",
+          "MsmC01",
+          "MlmC01"
+        ],
+        "low": [
+          "MblC01",
+          "MslC01",
+          "MllC01"
+        ]
+      },
+      "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+      "selected_lod_nodes": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "selection_basis": {
+        "kind": "CANONICAL_PROFILE",
+        "profile_id": "priestess_c01_m5",
+        "profile_version": 3,
+        "roundtrip_target": "char/tmABCD/MfbC01.smd"
+      }
+    },
+    "selected_context_verification": {
+      "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_VERIFY_V1",
+      "status": "PASS",
+      "errors": [],
+      "lod": "default",
+      "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+      "identities": {
+        "model_info_inx": {
+          "logical": "char/tmABCD/M5Bip.inx",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+          "ok": true,
+          "errors": []
+        },
+        "skeleton_smb": {
+          "logical": "char/tmabcd/m5.smb",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+          "ok": true,
+          "errors": []
+        }
+      },
+      "client_modified": false
+    },
+    "build_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false
+  },
+  "selected_context": {
+    "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_V1",
+    "model_info_inx": {
+      "logical": "char/tmABCD/M5Bip.inx",
+      "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+      "size": 95268,
+      "sha256": "3d096b1572386ca856d5e51cbad0b14249320a6778acd22913f0c34653500790"
+    },
+    "skeleton_smb": {
+      "logical": "char/tmabcd/m5.smb",
+      "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+      "size": 13931704,
+      "sha256": "14cfac93a08d807bb2dd93c73b4426ad6b402ed5d96877bcf1952da95da3b072"
+    },
+    "lod": "default",
+    "lod_groups": {
+      "high": [
+        "MbhC01",
+        "MshC01",
+        "MlhC01"
+      ],
+      "default": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "low": [
+        "MblC01",
+        "MslC01",
+        "MllC01"
+      ]
+    },
+    "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+    "selected_lod_nodes": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "selection_basis": {
+      "kind": "CANONICAL_PROFILE",
+      "profile_id": "priestess_c01_m5",
+      "profile_version": 3,
+      "roundtrip_target": "char/tmABCD/MfbC01.smd"
+    }
+  },
+  "authoring_plan": {
+    "format": "PT_ASSET_AUTHORING_PLAN_V1",
+    "asset_id": "AST-1484EC428CEB",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "family": "SMD_MODEL_062_RIGID_PHYSIQUE",
+    "kind": "SMD_MODEL_062",
+    "physique_mode": "RIGID",
+    "build_plan": {
+      "format": "PT_ASSET_WORKFLOW_PLAN_V1",
+      "operation": "build",
+      "asset_id": "AST-1484EC428CEB",
+      "asset": "char/tmABCD/MfbC01.smd",
+      "kind": "SMD_MODEL_062",
+      "family": "SMD_MODEL_062_RIGID_PHYSIQUE",
+      "authorized": false,
+      "adapter": null,
+      "client_write": false,
+      "output_policy": "PT_BUILD_ONLY",
+      "reason": "rigid Physique import/animation context may exist, but generic geometry build is not certified for this asset"
+    },
+    "source_analysis": {
+      "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/MfbC01.smd",
+      "sha256": "9ec6be4cc148125e56156b5a35da0f2939c2e0b52f17103c9253bfe8bb87120b",
+      "size": 290229,
+      "mode": "RIGID",
+      "object_count": 15,
+      "objects": [
+        {
+          "name": "MsmC01",
+          "physique": true,
+          "vertices": 125,
+          "faces": 238,
+          "texlinks": 238,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MshC01",
+          "physique": true,
+          "vertices": 173,
+          "faces": 331,
+          "texlinks": 331,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MslC01",
+          "physique": true,
+          "vertices": 93,
+          "faces": 174,
+          "texlinks": 174,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MsmC03",
+          "physique": true,
+          "vertices": 157,
+          "faces": 270,
+          "texlinks": 270,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MslC03",
+          "physique": true,
+          "vertices": 109,
+          "faces": 190,
+          "texlinks": 190,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlhC01",
+          "physique": true,
+          "vertices": 46,
+          "faces": 78,
+          "texlinks": 78,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlhC03",
+          "physique": true,
+          "vertices": 68,
+          "faces": 120,
+          "texlinks": 120,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MbhC01",
+          "physique": true,
+          "vertices": 130,
+          "faces": 217,
+          "texlinks": 217,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MshC03",
+          "physique": true,
+          "vertices": 231,
+          "faces": 415,
+          "texlinks": 415,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlmC01",
+          "physique": true,
+          "vertices": 34,
+          "faces": 56,
+          "texlinks": 56,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlmC03",
+          "physique": true,
+          "vertices": 46,
+          "faces": 76,
+          "texlinks": 76,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MbmC01",
+          "physique": true,
+          "vertices": 86,
+          "faces": 138,
+          "texlinks": 138,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MllC01",
+          "physique": true,
+          "vertices": 28,
+          "faces": 44,
+          "texlinks": 44,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MllC03",
+          "physique": true,
+          "vertices": 36,
+          "faces": 60,
+          "texlinks": 60,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MblC01",
+          "physique": true,
+          "vertices": 82,
+          "faces": 130,
+          "texlinks": 130,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        }
+      ],
+      "objects_with_object_local_animation": 0,
+      "objects_with_object_local_pos_scale_keys": [],
+      "objects_with_object_local_rotation_keys": [],
+      "objects_with_multilayer_texlinks": 0,
+      "static_saved_blender_candidate_objects": [],
+      "rigid_saved_blender_candidate_objects": [
+        "MsmC01",
+        "MshC01",
+        "MslC01",
+        "MsmC03",
+        "MslC03",
+        "MlhC01",
+        "MlhC03",
+        "MbhC01",
+        "MshC03",
+        "MlmC01",
+        "MlmC03",
+        "MbmC01",
+        "MllC01",
+        "MllC03",
+        "MblC01"
+      ]
+    },
+    "channels": {
+      "geometry": {
+        "maturity": "CANDIDATE_PER_OBJECT",
+        "writer": "pt_blender_to_smd_free_mesh_v3.py",
+        "eligible_objects": [
+          "MsmC01",
+          "MshC01",
+          "MslC01",
+          "MsmC03",
+          "MslC03",
+          "MlhC01",
+          "MlhC03",
+          "MbhC01",
+          "MshC03",
+          "MlmC01",
+          "MlmC03",
+          "MbmC01",
+          "MllC01",
+          "MllC03",
+          "MblC01"
+        ],
+        "constraints": [
+          "rigid 1.0 bone assignment per vertex",
+          "known skeleton bone names",
+          "existing material IDs"
+        ]
+      },
+      "physique": {
+        "maturity": "IMPORT_PROVEN_GENERIC_WRITE_NOT_CERTIFIED",
+        "writer": "pt_blender_to_smd_free_mesh_v3.py"
+      },
+      "animation": {
+        "maturity": "SOURCE_AND_BLENDER_REVIEW_PIPELINE",
+        "writer": "candidate SMB writer for existing keys only"
+      },
+      "config_motioninfo": {
+        "maturity": "CANDIDATE_EDIT_CORPUS_PROVEN",
+        "writer": "pt_asset_tool.inx_writer"
+      },
+      "skeleton_motion_keys": {
+        "maturity": "CANDIDATE_EDIT_CORPUS_PROVEN",
+        "writer": "pt_asset_tool.smb_writer"
+      },
+      "saved_blender_build": {
+        "maturity": "CANDIDATE_NOT_PROMOTED",
+        "writer": "pt_blender_to_smd_free_mesh_v3.py"
+      }
+    },
+    "blockers": [
+      "GENERIC_RIGID_SAVED_BLENDER_WRITER_NOT_PRODUCTION_PROMOTED"
+    ],
+    "generic_build_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false
+  },
+  "reused_existing": false,
+  "build_supported": false,
+  "client_modified": false,
+  "profile_authoring_plan": {
+    "format": "PT_CHARACTER_PROFILE_AUTHORING_PLAN_V1",
+    "status": "READY",
+    "profile_id": "priestess_c01_m5",
+    "profile_version": 3,
+    "roundtrip_target": "char/tmABCD/MfbC01.smd",
+    "asset_id": "AST-1484EC428CEB",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "model_info_inx": "char/tmABCD/M5Bip.inx",
+    "skeleton_smb": "char/tmABCD/m5.smb",
+    "lod": "default",
+    "lod_groups": {
+      "high": [
+        "MbhC01",
+        "MshC01",
+        "MlhC01"
+      ],
+      "default": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "low": [
+        "MblC01",
+        "MslC01",
+        "MllC01"
+      ]
+    },
+    "selected_lod_nodes": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "lod_node_coverage": {
+      "status": "PASS",
+      "lod": "default",
+      "requested_nodes": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "missing_nodes": [],
+      "matched_chunk_count": 3,
+      "inventory_node_names_available": true
+    },
+    "profile_runtime_proven": true,
+    "profile_verification_status": "PASS",
+    "exact_registry_context_match": true,
+    "errors": [],
+    "selection_basis": {
+      "kind": "CANONICAL_PROFILE",
+      "profile_id": "priestess_c01_m5",
+      "profile_version": 3,
+      "roundtrip_target": "char/tmABCD/MfbC01.smd"
+    },
+    "import_context_authorized": true,
+    "writer_authorized": false,
+    "production_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false
+  }
+}
+asset_import=READY family=SMD_MODEL_062_RIGID_PHYSIQUE kind=SMD_MODEL_062 blend=/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/imported.blend reused=false build_supported=false client_modified=false
+{
+  "build_plan": {
+    "format": "PT_ASSET_WORKFLOW_PLAN_V1",
+    "operation": "build",
+    "asset_id": "AST-1484EC428CEB",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "kind": "SMD_MODEL_062",
+    "family": "SMD_MODEL_062_RIGID_PHYSIQUE",
+    "authorized": false,
+    "adapter": null,
+    "client_write": false,
+    "output_policy": "PT_BUILD_ONLY",
+    "reason": "rigid Physique import/animation context may exist, but generic geometry build is not certified for this asset"
+  },
+  "authoring_plan": {
+    "format": "PT_ASSET_AUTHORING_PLAN_V1",
+    "asset_id": "AST-1484EC428CEB",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "family": "SMD_MODEL_062_RIGID_PHYSIQUE",
+    "kind": "SMD_MODEL_062",
+    "physique_mode": "RIGID",
+    "build_plan": {
+      "format": "PT_ASSET_WORKFLOW_PLAN_V1",
+      "operation": "build",
+      "asset_id": "AST-1484EC428CEB",
+      "asset": "char/tmABCD/MfbC01.smd",
+      "kind": "SMD_MODEL_062",
+      "family": "SMD_MODEL_062_RIGID_PHYSIQUE",
+      "authorized": false,
+      "adapter": null,
+      "client_write": false,
+      "output_policy": "PT_BUILD_ONLY",
+      "reason": "rigid Physique import/animation context may exist, but generic geometry build is not certified for this asset"
+    },
+    "source_analysis": {
+      "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/MfbC01.smd",
+      "sha256": "9ec6be4cc148125e56156b5a35da0f2939c2e0b52f17103c9253bfe8bb87120b",
+      "size": 290229,
+      "mode": "RIGID",
+      "object_count": 15,
+      "objects": [
+        {
+          "name": "MsmC01",
+          "physique": true,
+          "vertices": 125,
+          "faces": 238,
+          "texlinks": 238,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MshC01",
+          "physique": true,
+          "vertices": 173,
+          "faces": 331,
+          "texlinks": 331,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MslC01",
+          "physique": true,
+          "vertices": 93,
+          "faces": 174,
+          "texlinks": 174,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MsmC03",
+          "physique": true,
+          "vertices": 157,
+          "faces": 270,
+          "texlinks": 270,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MslC03",
+          "physique": true,
+          "vertices": 109,
+          "faces": 190,
+          "texlinks": 190,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlhC01",
+          "physique": true,
+          "vertices": 46,
+          "faces": 78,
+          "texlinks": 78,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlhC03",
+          "physique": true,
+          "vertices": 68,
+          "faces": 120,
+          "texlinks": 120,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MbhC01",
+          "physique": true,
+          "vertices": 130,
+          "faces": 217,
+          "texlinks": 217,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MshC03",
+          "physique": true,
+          "vertices": 231,
+          "faces": 415,
+          "texlinks": 415,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlmC01",
+          "physique": true,
+          "vertices": 34,
+          "faces": 56,
+          "texlinks": 56,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MlmC03",
+          "physique": true,
+          "vertices": 46,
+          "faces": 76,
+          "texlinks": 76,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MbmC01",
+          "physique": true,
+          "vertices": 86,
+          "faces": 138,
+          "texlinks": 138,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MllC01",
+          "physique": true,
+          "vertices": 28,
+          "faces": 44,
+          "texlinks": 44,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MllC03",
+          "physique": true,
+          "vertices": 36,
+          "faces": 60,
+          "texlinks": 60,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        },
+        {
+          "name": "MblC01",
+          "physique": true,
+          "vertices": 82,
+          "faces": 130,
+          "texlinks": 130,
+          "object_local_rot_keys": 0,
+          "object_local_pos_keys": 0,
+          "object_local_scale_keys": 0,
+          "texlink_min_layers": 1,
+          "texlink_max_layers": 1,
+          "object_local_key_counts": [
+            0,
+            0,
+            0
+          ],
+          "has_object_local_animation": false,
+          "static_saved_blender_candidate": false,
+          "rigid_saved_blender_candidate": true
+        }
+      ],
+      "objects_with_object_local_animation": 0,
+      "objects_with_object_local_pos_scale_keys": [],
+      "objects_with_object_local_rotation_keys": [],
+      "objects_with_multilayer_texlinks": 0,
+      "static_saved_blender_candidate_objects": [],
+      "rigid_saved_blender_candidate_objects": [
+        "MsmC01",
+        "MshC01",
+        "MslC01",
+        "MsmC03",
+        "MslC03",
+        "MlhC01",
+        "MlhC03",
+        "MbhC01",
+        "MshC03",
+        "MlmC01",
+        "MlmC03",
+        "MbmC01",
+        "MllC01",
+        "MllC03",
+        "MblC01"
+      ]
+    },
+    "channels": {
+      "geometry": {
+        "maturity": "CANDIDATE_PER_OBJECT",
+        "writer": "pt_blender_to_smd_free_mesh_v3.py",
+        "eligible_objects": [
+          "MsmC01",
+          "MshC01",
+          "MslC01",
+          "MsmC03",
+          "MslC03",
+          "MlhC01",
+          "MlhC03",
+          "MbhC01",
+          "MshC03",
+          "MlmC01",
+          "MlmC03",
+          "MbmC01",
+          "MllC01",
+          "MllC03",
+          "MblC01"
+        ],
+        "constraints": [
+          "rigid 1.0 bone assignment per vertex",
+          "known skeleton bone names",
+          "existing material IDs"
+        ]
+      },
+      "physique": {
+        "maturity": "IMPORT_PROVEN_GENERIC_WRITE_NOT_CERTIFIED",
+        "writer": "pt_blender_to_smd_free_mesh_v3.py"
+      },
+      "animation": {
+        "maturity": "SOURCE_AND_BLENDER_REVIEW_PIPELINE",
+        "writer": "candidate SMB writer for existing keys only"
+      },
+      "config_motioninfo": {
+        "maturity": "CANDIDATE_EDIT_CORPUS_PROVEN",
+        "writer": "pt_asset_tool.inx_writer"
+      },
+      "skeleton_motion_keys": {
+        "maturity": "CANDIDATE_EDIT_CORPUS_PROVEN",
+        "writer": "pt_asset_tool.smb_writer"
+      },
+      "saved_blender_build": {
+        "maturity": "CANDIDATE_NOT_PROMOTED",
+        "writer": "pt_blender_to_smd_free_mesh_v3.py"
+      }
+    },
+    "blockers": [
+      "GENERIC_RIGID_SAVED_BLENDER_WRITER_NOT_PRODUCTION_PROMOTED"
+    ],
+    "generic_build_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false
+  },
+  "candidate_scope": {
+    "format": "PT_RIGID_SAVED_BLENDER_CANDIDATE_SCOPE_V1",
+    "selected_lod": "default",
+    "selected_lod_nodes": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "eligible_objects": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "source_contract_eligible_objects": [
+      "MsmC01",
+      "MshC01",
+      "MslC01",
+      "MsmC03",
+      "MslC03",
+      "MlhC01",
+      "MlhC03",
+      "MbhC01",
+      "MshC03",
+      "MlmC01",
+      "MlmC03",
+      "MbmC01",
+      "MllC01",
+      "MllC03",
+      "MblC01"
+    ],
+    "selected_lod_ineligible_objects": [],
+    "scope_complete": true,
+    "selection_required": true,
+    "client_modified": false,
+    "workspace": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01",
+    "manifest_verification_status": "PASS",
+    "status": "READY"
+  }
+}
+gabriel@unknown18c04d2e4dbe:~/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app$ python3 pt_asset.py import "char/tmABCD/MfbC01.smd" \
+  --profile priestess_c01_m5 \
+  --lod default
+{
+  "format": "PT_GENERIC_BLENDER_IMPORT_V1",
+  "status": "READY",
+  "asset": "char/tmABCD/MfbC01.smd",
+  "family": "SMD_MODEL_062_RIGID_PHYSIQUE",
+  "kind": "SMD_MODEL_062",
+  "workspace": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01",
+  "blend": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/imported.blend",
+  "workspace_info": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/workspace_info.json",
+  "authoring_manifest": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/authoring_manifest.json",
+  "workspace_provenance": {
+    "format": "PT_ASSET_AUTHORING_WORKSPACE_VERIFY_V1",
+    "status": "PASS",
+    "manifest": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/authoring_manifest.json",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "provenance_state": "VERIFIED_AT_IMPORT",
+    "errors": [],
+    "dependencies": [
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/mC001.inx",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/mC002.inx",
+        "ok": true,
+        "reason": null
+      },
+      {
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+        "ok": true,
+        "reason": null
+      }
+    ],
+    "selected_context": {
+      "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_V1",
+      "model_info_inx": {
+        "logical": "char/tmABCD/M5Bip.inx",
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+        "size": 95268,
+        "sha256": "3d096b1572386ca856d5e51cbad0b14249320a6778acd22913f0c34653500790"
+      },
+      "skeleton_smb": {
+        "logical": "char/tmabcd/m5.smb",
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+        "size": 13931704,
+        "sha256": "14cfac93a08d807bb2dd93c73b4426ad6b402ed5d96877bcf1952da95da3b072"
+      },
+      "lod": "default",
+      "lod_groups": {
+        "high": [
+          "MbhC01",
+          "MshC01",
+          "MlhC01"
+        ],
+        "default": [
+          "MbmC01",
+          "MsmC01",
+          "MlmC01"
+        ],
+        "low": [
+          "MblC01",
+          "MslC01",
+          "MllC01"
+        ]
+      },
+      "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+      "selected_lod_nodes": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "selection_basis": {
+        "kind": "CANONICAL_PROFILE",
+        "profile_id": "priestess_c01_m5",
+        "profile_version": 3,
+        "roundtrip_target": "char/tmABCD/MfbC01.smd"
+      }
+    },
+    "selected_context_verification": {
+      "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_VERIFY_V1",
+      "status": "PASS",
+      "errors": [],
+      "lod": "default",
+      "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+      "identities": {
+        "model_info_inx": {
+          "logical": "char/tmABCD/M5Bip.inx",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+          "ok": true,
+          "errors": []
+        },
+        "skeleton_smb": {
+          "logical": "char/tmabcd/m5.smb",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+          "ok": true,
+          "errors": []
+        }
+      },
+      "client_modified": false
+    },
+    "build_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false
+  },
+  "selected_context": {
+    "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_V1",
+    "model_info_inx": {
+      "logical": "char/tmABCD/M5Bip.inx",
+      "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+      "size": 95268,
+      "sha256": "3d096b1572386ca856d5e51cbad0b14249320a6778acd22913f0c34653500790"
+    },
+    "skeleton_smb": {
+      "logical": "char/tmabcd/m5.smb",
+      "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+      "size": 13931704,
+      "sha256": "14cfac93a08d807bb2dd93c73b4426ad6b402ed5d96877bcf1952da95da3b072"
+    },
+    "lod": "default",
+    "lod_groups": {
+      "high": [
+        "MbhC01",
+        "MshC01",
+        "MlhC01"
+      ],
+      "default": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "low": [
+        "MblC01",
+        "MslC01",
+        "MllC01"
+      ]
+    },
+    "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+    "selected_lod_nodes": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "selection_basis": {
+      "kind": "CANONICAL_PROFILE",
+      "profile_id": "priestess_c01_m5",
+      "profile_version": 3,
+      "roundtrip_target": "char/tmABCD/MfbC01.smd"
+    }
+  },
+  "reused_existing": true,
+  "build_supported": false,
+  "client_modified": false,
+  "profile_authoring_plan": {
+    "format": "PT_CHARACTER_PROFILE_AUTHORING_PLAN_V1",
+    "status": "READY",
+    "profile_id": "priestess_c01_m5",
+    "profile_version": 3,
+    "roundtrip_target": "char/tmABCD/MfbC01.smd",
+    "asset_id": "AST-1484EC428CEB",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "model_info_inx": "char/tmABCD/M5Bip.inx",
+    "skeleton_smb": "char/tmABCD/m5.smb",
+    "lod": "default",
+    "lod_groups": {
+      "high": [
+        "MbhC01",
+        "MshC01",
+        "MlhC01"
+      ],
+      "default": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "low": [
+        "MblC01",
+        "MslC01",
+        "MllC01"
+      ]
+    },
+    "selected_lod_nodes": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "lod_node_coverage": {
+      "status": "PASS",
+      "lod": "default",
+      "requested_nodes": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "missing_nodes": [],
+      "matched_chunk_count": 3,
+      "inventory_node_names_available": true
+    },
+    "profile_runtime_proven": true,
+    "profile_verification_status": "PASS",
+    "exact_registry_context_match": true,
+    "errors": [],
+    "selection_basis": {
+      "kind": "CANONICAL_PROFILE",
+      "profile_id": "priestess_c01_m5",
+      "profile_version": 3,
+      "roundtrip_target": "char/tmABCD/MfbC01.smd"
+    },
+    "import_context_authorized": true,
+    "writer_authorized": false,
+    "production_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false
+  }
+}
+asset_import=READY family=SMD_MODEL_062_RIGID_PHYSIQUE kind=SMD_MODEL_062 blend=/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/imported.blend reused=true build_supported=false client_modified=false
+00:02.649  blend            | Read blend: "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/imported.blend"
+00:29.717  operator         | Saved "imported.blend"
+00:43.879  blend            | Saved session recovery to "/tmp/quit.blend"
+
+Blender quit
+gabriel@unknown18c04d2e4dbe:~/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app$ python3 pt_asset.py build "char/tmABCD/MfbC01.smd" \
+  --candidate \
+  --object MbmC01 \
+  --require-edit
+{
+  "format": "PT_ASSET_CANDIDATE_BUILD_V1",
+  "status": "PASS",
+  "candidate_kind": "RIGID",
+  "authorization": "CANDIDATE_PT_BUILD_ONLY",
+  "candidate_plan": {
+    "format": "PT_RIGID_SAVED_BLENDER_CANDIDATE_PLAN_V1",
+    "status": "READY",
+    "authorization": "CANDIDATE_PT_BUILD_ONLY",
+    "asset_id": "AST-1484EC428CEB",
+    "asset": "char/tmABCD/MfbC01.smd",
+    "source": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/MfbC01.smd",
+    "source_sha256": "9ec6be4cc148125e56156b5a35da0f2939c2e0b52f17103c9253bfe8bb87120b",
+    "skeleton": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+    "skeleton_logical": "char/tmabcd/m5.smb",
+    "selected_context": {
+      "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_V1",
+      "model_info_inx": {
+        "logical": "char/tmABCD/M5Bip.inx",
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+        "size": 95268,
+        "sha256": "3d096b1572386ca856d5e51cbad0b14249320a6778acd22913f0c34653500790"
+      },
+      "skeleton_smb": {
+        "logical": "char/tmabcd/m5.smb",
+        "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+        "size": 13931704,
+        "sha256": "14cfac93a08d807bb2dd93c73b4426ad6b402ed5d96877bcf1952da95da3b072"
+      },
+      "lod": "default",
+      "lod_groups": {
+        "high": [
+          "MbhC01",
+          "MshC01",
+          "MlhC01"
+        ],
+        "default": [
+          "MbmC01",
+          "MsmC01",
+          "MlmC01"
+        ],
+        "low": [
+          "MblC01",
+          "MslC01",
+          "MllC01"
+        ]
+      },
+      "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+      "selected_lod_nodes": [
+        "MbmC01",
+        "MsmC01",
+        "MlmC01"
+      ],
+      "selection_basis": {
+        "kind": "CANONICAL_PROFILE",
+        "profile_id": "priestess_c01_m5",
+        "profile_version": 3,
+        "roundtrip_target": "char/tmABCD/MfbC01.smd"
+      }
+    },
+    "selected_context_verification": {
+      "format": "PT_ASSET_SELECTED_CONTEXT_ASSET_VERIFY_V1",
+      "status": "PASS",
+      "errors": [],
+      "lod": "default",
+      "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+      "identities": {
+        "model_info_inx": {
+          "logical": "char/tmABCD/M5Bip.inx",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+          "ok": true,
+          "errors": []
+        },
+        "skeleton_smb": {
+          "logical": "char/tmabcd/m5.smb",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+          "ok": true,
+          "errors": []
+        }
+      },
+      "client_modified": false,
+      "asset_id": "AST-1484EC428CEB",
+      "asset": "char/tmABCD/MfbC01.smd"
+    },
+    "workspace": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01",
+    "blend": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/imported.blend",
+    "authoring_manifest": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/authoring_manifest.json",
+    "manifest_verification": {
+      "format": "PT_ASSET_AUTHORING_WORKSPACE_VERIFY_V1",
+      "status": "PASS",
+      "manifest": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/authoring_manifest.json",
+      "asset": "char/tmABCD/MfbC01.smd",
+      "provenance_state": "VERIFIED_AT_IMPORT",
+      "errors": [],
+      "dependencies": [
+        {
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/mC001.inx",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/mC002.inx",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "selected_context": {
+        "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_V1",
+        "model_info_inx": {
+          "logical": "char/tmABCD/M5Bip.inx",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+          "size": 95268,
+          "sha256": "3d096b1572386ca856d5e51cbad0b14249320a6778acd22913f0c34653500790"
+        },
+        "skeleton_smb": {
+          "logical": "char/tmabcd/m5.smb",
+          "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+          "size": 13931704,
+          "sha256": "14cfac93a08d807bb2dd93c73b4426ad6b402ed5d96877bcf1952da95da3b072"
+        },
+        "lod": "default",
+        "lod_groups": {
+          "high": [
+            "MbhC01",
+            "MshC01",
+            "MlhC01"
+          ],
+          "default": [
+            "MbmC01",
+            "MsmC01",
+            "MlmC01"
+          ],
+          "low": [
+            "MblC01",
+            "MslC01",
+            "MllC01"
+          ]
+        },
+        "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+        "selected_lod_nodes": [
+          "MbmC01",
+          "MsmC01",
+          "MlmC01"
+        ],
+        "selection_basis": {
+          "kind": "CANONICAL_PROFILE",
+          "profile_id": "priestess_c01_m5",
+          "profile_version": 3,
+          "roundtrip_target": "char/tmABCD/MfbC01.smd"
+        }
+      },
+      "selected_context_verification": {
+        "format": "PT_ASSET_SELECTED_AUTHORING_CONTEXT_VERIFY_V1",
+        "status": "PASS",
+        "errors": [],
+        "lod": "default",
+        "lod_groups_signature": "158314c56017de49f9d2be42fcb329b5dd1d28ce5d8a37db132df28b6a22f1c6",
+        "identities": {
+          "model_info_inx": {
+            "logical": "char/tmABCD/M5Bip.inx",
+            "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/M5Bip.inx",
+            "ok": true,
+            "errors": []
+          },
+          "skeleton_smb": {
+            "logical": "char/tmabcd/m5.smb",
+            "path": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+            "ok": true,
+            "errors": []
+          }
+        },
+        "client_modified": false
+      },
+      "build_authorized": false,
+      "client_write_authorized": false,
+      "client_modified": false
+    },
+    "object": "MbmC01",
+    "eligible_objects": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "source_contract_eligible_objects": [
+      "MsmC01",
+      "MshC01",
+      "MslC01",
+      "MsmC03",
+      "MslC03",
+      "MlhC01",
+      "MlhC03",
+      "MbhC01",
+      "MshC03",
+      "MlmC01",
+      "MlmC03",
+      "MbmC01",
+      "MllC01",
+      "MllC03",
+      "MblC01"
+    ],
+    "selected_lod_nodes": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "selected_lod_ineligible_objects": [],
+    "output": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/candidate_build/char__tmABCD__MfbC01/MfbC01.smd",
+    "blockers": [],
+    "production_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false
+  },
+  "writer_report": {
+    "tool": "PT_SMD_MODEL_062_FREE_MESH_WRITER_V3",
+    "blend": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/blender_edits/generic_import/char__tmABCD__MfbC01/imported.blend",
+    "object": "MbmC01",
+    "mode_sync": {
+      "original_mode": "EDIT",
+      "current_mode": "OBJECT",
+      "edit_mode_synchronized": true
+    },
+    "source_smd": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/MfbC01.smd",
+    "source_sha256": "9ec6be4cc148125e56156b5a35da0f2939c2e0b52f17103c9253bfe8bb87120b",
+    "output": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/candidate_build/char__tmABCD__MfbC01/MfbC01.smd",
+    "output_sha256": "6ec9b5273cde73669972c1819851b6503ce64c2517671fdcb43c5f71fb653704",
+    "source_counts": {
+      "vertices": 86,
+      "faces": 138,
+      "texlinks": 138
+    },
+    "artist_mesh": {
+      "vertices": 86,
+      "source_polygons": 138,
+      "export_triangles": 138,
+      "triangulation_delta": 0,
+      "triangulation": {
+        "method": "TEMP_BMESH_BEAUTY",
+        "source_vertices": 86,
+        "source_polygons": 138,
+        "export_triangles": 138,
+        "vertex_count_preserved": true,
+        "artist_mesh_modified": false
+      }
+    },
+    "output_counts": {
+      "vertices": 86,
+      "faces": 138,
+      "texlinks": 138
+    },
+    "vertex_delta": 0,
+    "face_delta": 0,
+    "artist_mesh_triangulated_in_memory": true,
+    "artist_mesh_saved_topology_unchanged": true,
+    "all_vertices_rebuilt": true,
+    "all_faces_rebuilt": true,
+    "all_texlinks_rebuilt": true,
+    "all_physique_rebuilt": true,
+    "max_vertex_fit_error": 0.0,
+    "mean_vertex_fit_error": 0.0,
+    "allowed_materials": [
+      1,
+      2
+    ],
+    "hTexture_by_material": {
+      "1": 552301608,
+      "2": 552301928
+    },
+    "unique_rigid_bones": [
+      "Bip-0007",
+      "Bip-0008",
+      "Bip-0010",
+      "Bip-0011",
+      "Bip-0014",
+      "Bip-0015",
+      "Bip-0016",
+      "Bip-0019",
+      "Bip-0020",
+      "Bip-0022",
+      "Bip-0023",
+      "Bip-0037",
+      "Bip-0038",
+      "Bip01 L Calf",
+      "Bip01 L Thigh",
+      "Bip01 Pelvis",
+      "Bip01 R Calf",
+      "Bip01 R Thigh",
+      "Bip01 Spine",
+      "Bip01 Spine1"
+    ],
+    "rigid_bone_count": 20,
+    "unrelated_object_blocks_byte_identical": 14,
+    "input_size": 290229,
+    "output_size": 290229,
+    "growth_bytes": 0,
+    "object_table": [
+      {
+        "name": "MsmC01",
+        "old_start": 3309,
+        "new_start": 3309,
+        "old_length": 25420,
+        "new_length": 25420
+      },
+      {
+        "name": "MshC01",
+        "old_start": 28729,
+        "new_start": 28729,
+        "old_length": 34432,
+        "new_length": 34432
+      },
+      {
+        "name": "MslC01",
+        "old_start": 63161,
+        "new_start": 63161,
+        "old_length": 19276,
+        "new_length": 19276
+      },
+      {
+        "name": "MsmC03",
+        "old_start": 82437,
+        "new_start": 82437,
+        "old_length": 29388,
+        "new_length": 29388
+      },
+      {
+        "name": "MslC03",
+        "old_start": 111825,
+        "new_start": 111825,
+        "old_length": 21260,
+        "new_length": 21260
+      },
+      {
+        "name": "MlhC01",
+        "old_start": 133085,
+        "new_start": 133085,
+        "old_length": 10116,
+        "new_length": 10116
+      },
+      {
+        "name": "MlhC03",
+        "old_start": 143201,
+        "new_start": 143201,
+        "old_length": 14204,
+        "new_length": 14204
+      },
+      {
+        "name": "MbhC01",
+        "old_start": 157405,
+        "new_start": 157405,
+        "old_length": 24272,
+        "new_length": 24272
+      },
+      {
+        "name": "MshC03",
+        "old_start": 181677,
+        "new_start": 181677,
+        "old_length": 43392,
+        "new_length": 43392
+      },
+      {
+        "name": "MlmC01",
+        "old_start": 225069,
+        "new_start": 225069,
+        "old_length": 7948,
+        "new_length": 7948
+      },
+      {
+        "name": "MlmC03",
+        "old_start": 233017,
+        "new_start": 233017,
+        "old_length": 9980,
+        "new_length": 9980
+      },
+      {
+        "name": "MbmC01",
+        "old_start": 242997,
+        "new_start": 242997,
+        "old_length": 16436,
+        "new_length": 16436
+      },
+      {
+        "name": "MllC01",
+        "old_start": 259433,
+        "new_start": 259433,
+        "old_length": 6796,
+        "new_length": 6796
+      },
+      {
+        "name": "MllC03",
+        "old_start": 266229,
+        "new_start": 266229,
+        "old_length": 8332,
+        "new_length": 8332
+      },
+      {
+        "name": "MblC01",
+        "old_start": 274561,
+        "new_start": 274561,
+        "old_length": 15668,
+        "new_length": 15668
+      }
+    ],
+    "vertex_rows": [
+      {
+        "index": 0,
+        "bone": "Bip01 Spine1",
+        "world": [
+          0.85546875,
+          -1.5703125,
+          29.62890625
+        ],
+        "local_fixed": [
+          -307,
+          576,
+          219
+        ],
+        "represented_world": [
+          0.85546875,
+          -1.5703125,
+          29.62890625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -6726,
+          29494,
+          6386
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 1,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          1.7578125,
+          1.95703125,
+          26.20703125
+        ],
+        "local_fixed": [
+          732,
+          -325,
+          450
+        ],
+        "represented_world": [
+          1.7578125,
+          1.95703125,
+          26.20703125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          8115,
+          -23536,
+          12742
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 2,
+        "bone": "Bip-0016",
+        "world": [
+          2.0078125,
+          3.828125,
+          22.2265625
+        ],
+        "local_fixed": [
+          529,
+          228,
+          377
+        ],
+        "represented_world": [
+          2.0078125,
+          3.828125,
+          22.2265625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          7958,
+          -29002,
+          -6544
+        ],
+        "normal_scale": 30777.50420741874
+      },
+      {
+        "index": 3,
+        "bone": "Bip01 Spine",
+        "world": [
+          1.63671875,
+          1.9375,
+          27.55078125
+        ],
+        "local_fixed": [
+          486,
+          -298,
+          419
+        ],
+        "represented_world": [
+          1.63671875,
+          1.9375,
+          27.55078125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          76,
+          -25783,
+          12195
+        ],
+        "normal_scale": 28521.833408811573
+      },
+      {
+        "index": 4,
+        "bone": "Bip01 Spine1",
+        "world": [
+          1.7890625,
+          3.06640625,
+          30.96875
+        ],
+        "local_fixed": [
+          355,
+          -472,
+          458
+        ],
+        "represented_world": [
+          1.7890625,
+          3.06640625,
+          30.96875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -2855,
+          -23894,
+          19413
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 5,
+        "bone": "Bip01 Spine",
+        "world": [
+          2.4296875,
+          0.11328125,
+          27.4375
+        ],
+        "local_fixed": [
+          436,
+          167,
+          622
+        ],
+        "represented_world": [
+          2.4296875,
+          0.11328125,
+          27.4375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          2452,
+          2047,
+          28342
+        ],
+        "normal_scale": 28521.833408811573
+      },
+      {
+        "index": 6,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          2.71875,
+          -1.12890625,
+          25.359375
+        ],
+        "local_fixed": [
+          515,
+          465,
+          696
+        ],
+        "represented_world": [
+          2.71875,
+          -1.12890625,
+          25.359375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          6479,
+          17917,
+          20474
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 7,
+        "bone": "Bip01 Spine",
+        "world": [
+          1.31640625,
+          -1.59765625,
+          27.46875
+        ],
+        "local_fixed": [
+          423,
+          604,
+          337
+        ],
+        "represented_world": [
+          1.31640625,
+          -1.59765625,
+          27.46875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          1157,
+          25984,
+          11704
+        ],
+        "normal_scale": 28521.833408811573
+      },
+      {
+        "index": 8,
+        "bone": "Bip01 Spine1",
+        "world": [
+          2.828125,
+          1.0,
+          29.92578125
+        ],
+        "local_fixed": [
+          -50,
+          -37,
+          724
+        ],
+        "represented_world": [
+          2.828125,
+          1.0,
+          29.92578125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -4911,
+          -6351,
+          29857
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 9,
+        "bone": "Bip01 Spine1",
+        "world": [
+          2.39453125,
+          -0.43359375,
+          29.5546875
+        ],
+        "local_fixed": [
+          -244,
+          290,
+          613
+        ],
+        "represented_world": [
+          2.39453125,
+          -0.43359375,
+          29.5546875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -5301,
+          16545,
+          25575
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 10,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          3.078125,
+          0.37890625,
+          26.08984375
+        ],
+        "local_fixed": [
+          702,
+          79,
+          788
+        ],
+        "represented_world": [
+          3.078125,
+          0.37890625,
+          26.08984375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          9599,
+          -5147,
+          25759
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 11,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          1.609375,
+          -1.6484375,
+          24.83984375
+        ],
+        "local_fixed": [
+          382,
+          598,
+          412
+        ],
+        "represented_world": [
+          1.609375,
+          -1.6484375,
+          24.83984375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          2452,
+          27039,
+          6713
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 12,
+        "bone": "Bip-0019",
+        "world": [
+          4.26953125,
+          0.43359375,
+          22.17578125
+        ],
+        "local_fixed": [
+          196,
+          -31,
+          342
+        ],
+        "represented_world": [
+          4.26953125,
+          0.43359375,
+          22.17578125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          5733,
+          -30001,
+          -4123
+        ],
+        "normal_scale": 30820.76691170418
+      },
+      {
+        "index": 13,
+        "bone": "Bip-0037",
+        "world": [
+          2.97265625,
+          -1.37890625,
+          22.42578125
+        ],
+        "local_fixed": [
+          195,
+          -89,
+          -214
+        ],
+        "represented_world": [
+          2.97265625,
+          -1.37890625,
+          22.42578125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          11034,
+          -29879,
+          3625
+        ],
+        "normal_scale": 32057.008367186176
+      },
+      {
+        "index": 14,
+        "bone": "Bip-0019",
+        "world": [
+          3.8828125,
+          2.27734375,
+          22.234375
+        ],
+        "local_fixed": [
+          -273,
+          81,
+          334
+        ],
+        "represented_world": [
+          3.8828125,
+          2.27734375,
+          22.234375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -18027,
+          -24227,
+          -6163
+        ],
+        "normal_scale": 30820.76691170418
+      },
+      {
+        "index": 15,
+        "bone": "Bip-0037",
+        "world": [
+          1.71875,
+          -1.90234375,
+          22.6171875
+        ],
+        "local_fixed": [
+          -151,
+          -131,
+          -159
+        ],
+        "represented_world": [
+          1.71875,
+          -1.90234375,
+          22.6171875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -4183,
+          -31684,
+          2502
+        ],
+        "normal_scale": 32057.008367186176
+      },
+      {
+        "index": 16,
+        "bone": "Bip-0019",
+        "world": [
+          4.72265625,
+          0.38671875,
+          18.51171875
+        ],
+        "local_fixed": [
+          232,
+          -104,
+          1282
+        ],
+        "represented_world": [
+          4.72265625,
+          0.38671875,
+          18.51171875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          6771,
+          -30046,
+          -1139
+        ],
+        "normal_scale": 30820.76691170418
+      },
+      {
+        "index": 17,
+        "bone": "Bip-0019",
+        "world": [
+          4.21875,
+          2.52734375,
+          18.5078125
+        ],
+        "local_fixed": [
+          -312,
+          41,
+          1291
+        ],
+        "represented_world": [
+          4.21875,
+          2.52734375,
+          18.5078125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -13412,
+          -27637,
+          -2499
+        ],
+        "normal_scale": 30820.76691170418
+      },
+      {
+        "index": 18,
+        "bone": "Bip-0037",
+        "world": [
+          3.4140625,
+          -1.61328125,
+          18.546875
+        ],
+        "local_fixed": [
+          269,
+          -172,
+          -1209
+        ],
+        "represented_world": [
+          3.4140625,
+          -1.61328125,
+          18.546875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          9051,
+          -30722,
+          1369
+        ],
+        "normal_scale": 32057.008367186176
+      },
+      {
+        "index": 19,
+        "bone": "Bip-0010",
+        "world": [
+          1.90234375,
+          4.59375,
+          18.515625
+        ],
+        "local_fixed": [
+          -285,
+          132,
+          1348
+        ],
+        "represented_world": [
+          1.90234375,
+          4.59375,
+          18.515625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -8911,
+          -29457,
+          -2367
+        ],
+        "normal_scale": 30866.563138775266
+      },
+      {
+        "index": 20,
+        "bone": "Bip-0037",
+        "world": [
+          1.15234375,
+          -2.04296875,
+          18.54296875
+        ],
+        "local_fixed": [
+          -321,
+          -121,
+          -1198
+        ],
+        "represented_world": [
+          1.15234375,
+          -2.04296875,
+          18.54296875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -6534,
+          -31384,
+          -12
+        ],
+        "normal_scale": 32057.008367186176
+      },
+      {
+        "index": 21,
+        "bone": "Bip-0020",
+        "world": [
+          4.99609375,
+          0.88671875,
+          15.08984375
+        ],
+        "local_fixed": [
+          135,
+          -121,
+          827
+        ],
+        "represented_world": [
+          4.99609375,
+          0.88671875,
+          15.08984375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -175,
+          -31103,
+          -999
+        ],
+        "normal_scale": 31120.035969102788
+      },
+      {
+        "index": 22,
+        "bone": "Bip-0020",
+        "world": [
+          4.4609375,
+          3.421875,
+          14.83203125
+        ],
+        "local_fixed": [
+          -508,
+          37,
+          904
+        ],
+        "represented_world": [
+          4.4609375,
+          3.421875,
+          14.83203125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -19602,
+          -23863,
+          -3847
+        ],
+        "normal_scale": 31120.035969102788
+      },
+      {
+        "index": 23,
+        "bone": "Bip-0038",
+        "world": [
+          3.61328125,
+          -1.45703125,
+          14.8515625
+        ],
+        "local_fixed": [
+          311,
+          -149,
+          -901
+        ],
+        "represented_world": [
+          3.61328125,
+          -1.45703125,
+          14.8515625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          14603,
+          -28233,
+          -441
+        ],
+        "normal_scale": 31789.274441995178
+      },
+      {
+        "index": 24,
+        "bone": "Bip-0011",
+        "world": [
+          2.00390625,
+          5.26171875,
+          15.03515625
+        ],
+        "local_fixed": [
+          -356,
+          87,
+          868
+        ],
+        "represented_world": [
+          2.00390625,
+          5.26171875,
+          15.03515625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -14477,
+          -27716,
+          -2704
+        ],
+        "normal_scale": 31386.467561673773
+      },
+      {
+        "index": 25,
+        "bone": "Bip-0038",
+        "world": [
+          1.23046875,
+          -1.9453125,
+          14.59375
+        ],
+        "local_fixed": [
+          -314,
+          -103,
+          -954
+        ],
+        "represented_world": [
+          1.23046875,
+          -1.9453125,
+          14.59375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -4603,
+          -31446,
+          -712
+        ],
+        "normal_scale": 31789.274441995178
+      },
+      {
+        "index": 26,
+        "bone": "Bip01 L Calf",
+        "world": [
+          1.93359375,
+          2.2734375,
+          13.6171875
+        ],
+        "local_fixed": [
+          282,
+          -447,
+          29
+        ],
+        "represented_world": [
+          1.93359375,
+          2.2734375,
+          13.6171875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          642,
+          -24693,
+          -573
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 27,
+        "bone": "Bip01 L Calf",
+        "world": [
+          2.4375,
+          3.41015625,
+          10.0
+        ],
+        "local_fixed": [
+          1241,
+          -609,
+          -100
+        ],
+        "represented_world": [
+          2.4375,
+          3.41015625,
+          10.0
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -4408,
+          -24189,
+          -2441
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 28,
+        "bone": "Bip01 L Calf",
+        "world": [
+          3.66015625,
+          1.8359375,
+          10.0078125
+        ],
+        "local_fixed": [
+          1184,
+          -209,
+          -413
+        ],
+        "represented_world": [
+          3.66015625,
+          1.8359375,
+          10.0078125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -3987,
+          -1101,
+          -24360
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 29,
+        "bone": "Bip01 L Thigh",
+        "world": [
+          1.8046875,
+          -1.26171875,
+          15.0234375
+        ],
+        "local_fixed": [
+          2143,
+          440,
+          62
+        ],
+        "represented_world": [
+          1.8046875,
+          -1.26171875,
+          15.0234375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          5366,
+          22140,
+          -375
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 30,
+        "bone": "Bip01 L Calf",
+        "world": [
+          3.11328125,
+          1.08984375,
+          13.51953125
+        ],
+        "local_fixed": [
+          265,
+          -143,
+          -273
+        ],
+        "represented_world": [
+          3.11328125,
+          1.08984375,
+          13.51953125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          563,
+          2030,
+          -24618
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 31,
+        "bone": "Bip01 L Calf",
+        "world": [
+          1.84375,
+          -0.69140625,
+          13.55859375
+        ],
+        "local_fixed": [
+          193,
+          308,
+          52
+        ],
+        "represented_world": [
+          1.84375,
+          -0.69140625,
+          13.55859375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          993,
+          24687,
+          276
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 32,
+        "bone": "Bip01 L Calf",
+        "world": [
+          0.6015625,
+          1.08984375,
+          13.51953125
+        ],
+        "local_fixed": [
+          265,
+          -143,
+          370
+        ],
+        "represented_world": [
+          0.6015625,
+          1.08984375,
+          13.51953125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          1555,
+          1316,
+          24624
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 33,
+        "bone": "Bip01 L Calf",
+        "world": [
+          0.44140625,
+          1.8359375,
+          9.98046875
+        ],
+        "local_fixed": [
+          1191,
+          -208,
+          411
+        ],
+        "represented_world": [
+          0.44140625,
+          1.8359375,
+          9.98046875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -1151,
+          -3346,
+          24454
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 34,
+        "bone": "Bip01 L Calf",
+        "world": [
+          1.93359375,
+          -0.390625,
+          9.9921875
+        ],
+        "local_fixed": [
+          1110,
+          357,
+          29
+        ],
+        "represented_world": [
+          1.93359375,
+          -0.390625,
+          9.9921875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -1296,
+          24661,
+          813
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 35,
+        "bone": "Bip01 L Thigh",
+        "world": [
+          3.68359375,
+          1.13671875,
+          18.3515625
+        ],
+        "local_fixed": [
+          1274,
+          -150,
+          -419
+        ],
+        "represented_world": [
+          3.68359375,
+          1.13671875,
+          18.3515625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          136,
+          -1549,
+          -22731
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 36,
+        "bone": "Bip01 L Thigh",
+        "world": [
+          0.12109375,
+          0.68359375,
+          18.57421875
+        ],
+        "local_fixed": [
+          1221,
+          -33,
+          493
+        ],
+        "represented_world": [
+          0.12109375,
+          0.68359375,
+          18.57421875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          775,
+          -3622,
+          22481
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 37,
+        "bone": "Bip01 L Thigh",
+        "world": [
+          1.9140625,
+          -1.421875,
+          18.0546875
+        ],
+        "local_fixed": [
+          1368,
+          502,
+          34
+        ],
+        "represented_world": [
+          1.9140625,
+          -1.421875,
+          18.0546875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          450,
+          22342,
+          4445
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 38,
+        "bone": "Bip01 L Thigh",
+        "world": [
+          1.89453125,
+          2.83984375,
+          18.16015625
+        ],
+        "local_fixed": [
+          1311,
+          -587,
+          39
+        ],
+        "represented_world": [
+          1.89453125,
+          2.83984375,
+          18.16015625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -234,
+          -22734,
+          1493
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 39,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          1.6484375,
+          2.45703125,
+          22.2578125
+        ],
+        "local_fixed": [
+          -279,
+          -453,
+          422
+        ],
+        "represented_world": [
+          1.6484375,
+          2.45703125,
+          22.2578125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          3061,
+          -27780,
+          -1019
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 40,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          3.3671875,
+          0.44921875,
+          22.23828125
+        ],
+        "local_fixed": [
+          -284,
+          61,
+          862
+        ],
+        "represented_world": [
+          3.3671875,
+          0.44921875,
+          22.23828125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          2006,
+          1478,
+          27856
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 41,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          1.76953125,
+          -1.1171875,
+          22.40625
+        ],
+        "local_fixed": [
+          -241,
+          462,
+          453
+        ],
+        "represented_world": [
+          1.76953125,
+          -1.1171875,
+          22.40625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          266,
+          26013,
+          10268
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 42,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          0.109375,
+          0.6875,
+          22.4375
+        ],
+        "local_fixed": [
+          -233,
+          0,
+          28
+        ],
+        "represented_world": [
+          0.109375,
+          0.6875,
+          22.4375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          219,
+          7965,
+          -26808
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 43,
+        "bone": "Bip01 Spine",
+        "world": [
+          -1.31640625,
+          -1.59765625,
+          27.46875
+        ],
+        "local_fixed": [
+          423,
+          604,
+          -337
+        ],
+        "represented_world": [
+          -1.31640625,
+          -1.59765625,
+          27.46875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          1115,
+          25985,
+          -11705
+        ],
+        "normal_scale": 28521.833408811573
+      },
+      {
+        "index": 44,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -1.609375,
+          -1.6484375,
+          24.83984375
+        ],
+        "local_fixed": [
+          382,
+          598,
+          -412
+        ],
+        "represented_world": [
+          -1.609375,
+          -1.6484375,
+          24.83984375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          2289,
+          27456,
+          -4806
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 45,
+        "bone": "Bip01 Spine",
+        "world": [
+          -1.63671875,
+          1.9375,
+          27.55078125
+        ],
+        "local_fixed": [
+          486,
+          -298,
+          -419
+        ],
+        "represented_world": [
+          -1.63671875,
+          1.9375,
+          27.55078125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          1527,
+          -22750,
+          -17135
+        ],
+        "normal_scale": 28521.833408811573
+      },
+      {
+        "index": 46,
+        "bone": "Bip01 Spine1",
+        "world": [
+          -1.79296875,
+          3.06640625,
+          30.96875
+        ],
+        "local_fixed": [
+          355,
+          -472,
+          -459
+        ],
+        "represented_world": [
+          -1.79296875,
+          3.06640625,
+          30.96875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -2518,
+          -27049,
+          -14762
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 47,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -1.7578125,
+          1.95703125,
+          26.20703125
+        ],
+        "local_fixed": [
+          732,
+          -325,
+          -450
+        ],
+        "represented_world": [
+          -1.7578125,
+          1.95703125,
+          26.20703125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          7752,
+          -25269,
+          -9141
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 48,
+        "bone": "Bip-0016",
+        "world": [
+          -2.01171875,
+          3.828125,
+          22.2265625
+        ],
+        "local_fixed": [
+          -500,
+          228,
+          377
+        ],
+        "represented_world": [
+          -2.01171875,
+          3.828125,
+          22.2265625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -8042,
+          -29298,
+          -4923
+        ],
+        "normal_scale": 30777.50420741874
+      },
+      {
+        "index": 49,
+        "bone": "Bip-0007",
+        "world": [
+          -1.71484375,
+          -1.90234375,
+          22.62109375
+        ],
+        "local_fixed": [
+          168,
+          137,
+          156
+        ],
+        "represented_world": [
+          -1.71484375,
+          -1.90234375,
+          22.62109375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          4286,
+          32068,
+          -2450
+        ],
+        "normal_scale": 32445.87022133782
+      },
+      {
+        "index": 50,
+        "bone": "Bip01 Spine1",
+        "world": [
+          -0.859375,
+          -1.5703125,
+          29.62890625
+        ],
+        "local_fixed": [
+          -307,
+          576,
+          -220
+        ],
+        "represented_world": [
+          -0.859375,
+          -1.5703125,
+          29.62890625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -5827,
+          28793,
+          -9641
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 51,
+        "bone": "Bip-0014",
+        "world": [
+          -1.83984375,
+          4.5703125,
+          18.5703125
+        ],
+        "local_fixed": [
+          318,
+          -141,
+          -1345
+        ],
+        "represented_world": [
+          -1.83984375,
+          4.5703125,
+          18.5703125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          7490,
+          29872,
+          2139
+        ],
+        "normal_scale": 30870.563377872317
+      },
+      {
+        "index": 52,
+        "bone": "Bip-0007",
+        "world": [
+          -1.11328125,
+          -2.015625,
+          18.515625
+        ],
+        "local_fixed": [
+          354,
+          112,
+          1202
+        ],
+        "represented_world": [
+          -1.11328125,
+          -2.015625,
+          18.515625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          8262,
+          31374,
+          -398
+        ],
+        "normal_scale": 32445.87022133782
+      },
+      {
+        "index": 53,
+        "bone": "Bip-0015",
+        "world": [
+          -1.9609375,
+          5.24609375,
+          15.0703125
+        ],
+        "local_fixed": [
+          403,
+          -104,
+          -834
+        ],
+        "represented_world": [
+          -1.9609375,
+          5.24609375,
+          15.0703125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          9766,
+          29514,
+          2482
+        ],
+        "normal_scale": 31186.99443678406
+      },
+      {
+        "index": 54,
+        "bone": "Bip-0008",
+        "world": [
+          -1.19140625,
+          -1.93359375,
+          14.5703125
+        ],
+        "local_fixed": [
+          365,
+          99,
+          957
+        ],
+        "represented_world": [
+          -1.19140625,
+          -1.93359375,
+          14.5703125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          7513,
+          31228,
+          506
+        ],
+        "normal_scale": 32123.29275775868
+      },
+      {
+        "index": 55,
+        "bone": "Bip01 Spine",
+        "world": [
+          -2.4296875,
+          0.11328125,
+          27.4375
+        ],
+        "local_fixed": [
+          436,
+          167,
+          -622
+        ],
+        "represented_world": [
+          -2.4296875,
+          0.11328125,
+          27.4375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          2427,
+          2043,
+          -28345
+        ],
+        "normal_scale": 28521.833408811573
+      },
+      {
+        "index": 56,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -2.71875,
+          -1.12890625,
+          25.359375
+        ],
+        "local_fixed": [
+          515,
+          465,
+          -696
+        ],
+        "represented_world": [
+          -2.71875,
+          -1.12890625,
+          25.359375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          6464,
+          17933,
+          -20464
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 57,
+        "bone": "Bip01 Spine1",
+        "world": [
+          -2.83203125,
+          1.0,
+          29.92578125
+        ],
+        "local_fixed": [
+          -50,
+          -37,
+          -725
+        ],
+        "represented_world": [
+          -2.83203125,
+          1.0,
+          29.92578125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -4955,
+          -6376,
+          -29845
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 58,
+        "bone": "Bip01 Spine1",
+        "world": [
+          -2.3984375,
+          -0.43359375,
+          29.5546875
+        ],
+        "local_fixed": [
+          -244,
+          290,
+          -614
+        ],
+        "represented_world": [
+          -2.3984375,
+          -0.43359375,
+          29.5546875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -5344,
+          16530,
+          -25576
+        ],
+        "normal_scale": 30918.07705836906
+      },
+      {
+        "index": 59,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -3.078125,
+          0.37890625,
+          26.08984375
+        ],
+        "local_fixed": [
+          702,
+          79,
+          -788
+        ],
+        "represented_world": [
+          -3.078125,
+          0.37890625,
+          26.08984375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          9601,
+          -5177,
+          -25752
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 60,
+        "bone": "Bip-0022",
+        "world": [
+          -4.2734375,
+          0.4375,
+          22.17578125
+        ],
+        "local_fixed": [
+          -2,
+          -200,
+          -371
+        ],
+        "represented_world": [
+          -4.2734375,
+          0.4375,
+          22.17578125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -29575,
+          -6546,
+          3678
+        ],
+        "normal_scale": 30513.228131418677
+      },
+      {
+        "index": 61,
+        "bone": "Bip-0007",
+        "world": [
+          -2.96484375,
+          -1.37890625,
+          22.421875
+        ],
+        "local_fixed": [
+          -179,
+          116,
+          216
+        ],
+        "represented_world": [
+          -2.96484375,
+          -1.37890625,
+          22.421875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -9274,
+          30899,
+          -3462
+        ],
+        "normal_scale": 32445.87022133782
+      },
+      {
+        "index": 62,
+        "bone": "Bip-0014",
+        "world": [
+          -3.87109375,
+          2.26953125,
+          22.25390625
+        ],
+        "local_fixed": [
+          -449,
+          -187,
+          -385
+        ],
+        "represented_world": [
+          -3.87109375,
+          2.26953125,
+          22.25390625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -8975,
+          29218,
+          4329
+        ],
+        "normal_scale": 30870.563377872317
+      },
+      {
+        "index": 63,
+        "bone": "Bip-0022",
+        "world": [
+          -4.7109375,
+          0.39453125,
+          18.5234375
+        ],
+        "local_fixed": [
+          -59,
+          -236,
+          -1309
+        ],
+        "represented_world": [
+          -4.7109375,
+          0.39453125,
+          18.5234375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -29502,
+          -7747,
+          823
+        ],
+        "normal_scale": 30513.228131418677
+      },
+      {
+        "index": 64,
+        "bone": "Bip-0022",
+        "world": [
+          -4.19921875,
+          2.54296875,
+          18.5234375
+        ],
+        "local_fixed": [
+          73,
+          314,
+          -1316
+        ],
+        "represented_world": [
+          -4.19921875,
+          2.54296875,
+          18.5234375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -27636,
+          12749,
+          2177
+        ],
+        "normal_scale": 30513.228131418677
+      },
+      {
+        "index": 65,
+        "bone": "Bip-0007",
+        "world": [
+          -3.3671875,
+          -1.59375,
+          18.51171875
+        ],
+        "local_fixed": [
+          -230,
+          201,
+          1219
+        ],
+        "represented_world": [
+          -3.3671875,
+          -1.59375,
+          18.51171875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -7027,
+          31651,
+          -1261
+        ],
+        "normal_scale": 32445.87022133782
+      },
+      {
+        "index": 66,
+        "bone": "Bip-0023",
+        "world": [
+          -4.9921875,
+          0.89453125,
+          15.1015625
+        ],
+        "local_fixed": [
+          -92,
+          -124,
+          -852
+        ],
+        "represented_world": [
+          -4.9921875,
+          0.89453125,
+          15.1015625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -31011,
+          -681,
+          1074
+        ],
+        "normal_scale": 31037.045398247123
+      },
+      {
+        "index": 67,
+        "bone": "Bip-0023",
+        "world": [
+          -4.4453125,
+          3.4296875,
+          14.84375
+        ],
+        "local_fixed": [
+          52,
+          523,
+          -929
+        ],
+        "represented_world": [
+          -4.4453125,
+          3.4296875,
+          14.84375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -24127,
+          19128,
+          3912
+        ],
+        "normal_scale": 31037.045398247123
+      },
+      {
+        "index": 68,
+        "bone": "Bip-0008",
+        "world": [
+          -3.58203125,
+          -1.44921875,
+          14.82421875
+        ],
+        "local_fixed": [
+          -259,
+          185,
+          909
+        ],
+        "represented_world": [
+          -3.58203125,
+          -1.44921875,
+          14.82421875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -12682,
+          29511,
+          406
+        ],
+        "normal_scale": 32123.29275775868
+      },
+      {
+        "index": 69,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -1.93359375,
+          2.2734375,
+          13.6171875
+        ],
+        "local_fixed": [
+          282,
+          -447,
+          -29
+        ],
+        "represented_world": [
+          -1.93359375,
+          2.2734375,
+          13.6171875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          691,
+          -24698,
+          144
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 70,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -2.1875,
+          3.41015625,
+          10.0
+        ],
+        "local_fixed": [
+          1241,
+          -609,
+          36
+        ],
+        "represented_world": [
+          -2.1875,
+          3.41015625,
+          10.0
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -4157,
+          -24344,
+          771
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 71,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -3.66015625,
+          1.8359375,
+          10.0078125
+        ],
+        "local_fixed": [
+          1184,
+          -209,
+          413
+        ],
+        "represented_world": [
+          -3.66015625,
+          1.8359375,
+          10.0078125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -3710,
+          -1670,
+          24371
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 72,
+        "bone": "Bip01 R Thigh",
+        "world": [
+          -1.8046875,
+          -1.26171875,
+          15.0234375
+        ],
+        "local_fixed": [
+          2143,
+          440,
+          -62
+        ],
+        "represented_world": [
+          -1.8046875,
+          -1.26171875,
+          15.0234375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          5366,
+          22140,
+          375
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 73,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -3.11328125,
+          1.08984375,
+          13.51953125
+        ],
+        "local_fixed": [
+          265,
+          -143,
+          273
+        ],
+        "represented_world": [
+          -3.11328125,
+          1.08984375,
+          13.51953125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          563,
+          2030,
+          24618
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 74,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -1.84375,
+          -0.69140625,
+          13.55859375
+        ],
+        "local_fixed": [
+          193,
+          308,
+          -52
+        ],
+        "represented_world": [
+          -1.84375,
+          -0.69140625,
+          13.55859375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          993,
+          24687,
+          -276
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 75,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -0.6015625,
+          1.08984375,
+          13.51953125
+        ],
+        "local_fixed": [
+          265,
+          -143,
+          -370
+        ],
+        "represented_world": [
+          -0.6015625,
+          1.08984375,
+          13.51953125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          1555,
+          1316,
+          -24624
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 76,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -0.44140625,
+          1.8359375,
+          9.98046875
+        ],
+        "local_fixed": [
+          1191,
+          -208,
+          -411
+        ],
+        "represented_world": [
+          -0.44140625,
+          1.8359375,
+          9.98046875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -1389,
+          -2953,
+          -24492
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 77,
+        "bone": "Bip01 R Calf",
+        "world": [
+          -1.93359375,
+          -0.390625,
+          9.9921875
+        ],
+        "local_fixed": [
+          1110,
+          357,
+          -29
+        ],
+        "represented_world": [
+          -1.93359375,
+          -0.390625,
+          9.9921875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -1296,
+          24661,
+          -813
+        ],
+        "normal_scale": 24708.183066709084
+      },
+      {
+        "index": 78,
+        "bone": "Bip01 R Thigh",
+        "world": [
+          -3.68359375,
+          1.13671875,
+          18.3515625
+        ],
+        "local_fixed": [
+          1274,
+          -150,
+          419
+        ],
+        "represented_world": [
+          -3.68359375,
+          1.13671875,
+          18.3515625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          136,
+          -1549,
+          22731
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 79,
+        "bone": "Bip01 R Thigh",
+        "world": [
+          -0.12109375,
+          0.68359375,
+          18.57421875
+        ],
+        "local_fixed": [
+          1221,
+          -33,
+          -493
+        ],
+        "represented_world": [
+          -0.12109375,
+          0.68359375,
+          18.57421875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          775,
+          -3622,
+          -22481
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 80,
+        "bone": "Bip01 R Thigh",
+        "world": [
+          -1.9140625,
+          -1.421875,
+          18.0546875
+        ],
+        "local_fixed": [
+          1368,
+          502,
+          -34
+        ],
+        "represented_world": [
+          -1.9140625,
+          -1.421875,
+          18.0546875
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          450,
+          22342,
+          -4445
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 81,
+        "bone": "Bip01 R Thigh",
+        "world": [
+          -1.89453125,
+          2.83984375,
+          18.16015625
+        ],
+        "local_fixed": [
+          1311,
+          -587,
+          -39
+        ],
+        "represented_world": [
+          -1.89453125,
+          2.83984375,
+          18.16015625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          -234,
+          -22734,
+          -1493
+        ],
+        "normal_scale": 22784.03364200466
+      },
+      {
+        "index": 82,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -1.6484375,
+          2.45703125,
+          22.2578125
+        ],
+        "local_fixed": [
+          -279,
+          -453,
+          -422
+        ],
+        "represented_world": [
+          -1.6484375,
+          2.45703125,
+          22.2578125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          3061,
+          -27780,
+          1019
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 83,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -3.3671875,
+          0.44921875,
+          22.23828125
+        ],
+        "local_fixed": [
+          -284,
+          61,
+          -862
+        ],
+        "represented_world": [
+          -3.3671875,
+          0.44921875,
+          22.23828125
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          2006,
+          1478,
+          -27856
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 84,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -1.76953125,
+          -1.1171875,
+          22.40625
+        ],
+        "local_fixed": [
+          -241,
+          462,
+          -453
+        ],
+        "represented_world": [
+          -1.76953125,
+          -1.1171875,
+          22.40625
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          266,
+          26013,
+          -10268
+        ],
+        "normal_scale": 27967.20599689231
+      },
+      {
+        "index": 85,
+        "bone": "Bip01 Pelvis",
+        "world": [
+          -0.109375,
+          0.6875,
+          22.4375
+        ],
+        "local_fixed": [
+          -233,
+          0,
+          -28
+        ],
+        "represented_world": [
+          -0.109375,
+          0.6875,
+          22.4375
+        ],
+        "fit_error": 0.0,
+        "normal_local": [
+          219,
+          7965,
+          26808
+        ],
+        "normal_scale": 27967.20599689231
+      }
+    ],
+    "semantic_check": "PASS",
+    "free_mesh_writer_check": "PASS"
+  },
+  "verification": {
+    "format": "PT_RIGID_SAVED_BLENDER_CANDIDATE_VERIFY_V1",
+    "status": "PASS",
+    "source": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/MfbC01.smd",
+    "output": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/candidate_build/char__tmABCD__MfbC01/MfbC01.smd",
+    "skeleton": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente/char/tmABCD/m5.smb",
+    "object": "MbmC01",
+    "target": {
+      "source_counts": [
+        86,
+        138,
+        138
+      ],
+      "output_counts": [
+        86,
+        138,
+        138
+      ],
+      "topology_changed": false,
+      "target_block_byte_identical": false,
+      "texlink_layer_depths": [
+        1
+      ],
+      "unique_physique_bones": [
+        "Bip-0007",
+        "Bip-0008",
+        "Bip-0010",
+        "Bip-0011",
+        "Bip-0014",
+        "Bip-0015",
+        "Bip-0016",
+        "Bip-0019",
+        "Bip-0020",
+        "Bip-0022",
+        "Bip-0023",
+        "Bip-0037",
+        "Bip-0038",
+        "Bip01 L Calf",
+        "Bip01 L Thigh",
+        "Bip01 Pelvis",
+        "Bip01 R Calf",
+        "Bip01 R Thigh",
+        "Bip01 Spine",
+        "Bip01 Spine1"
+      ]
+    },
+    "unknown_physique_bones": [],
+    "non_target_changed": [],
+    "errors": [],
+    "edit_observed": true,
+    "candidate_only": true,
+    "production_authorized": false,
+    "client_write_authorized": false,
+    "client_modified": false,
+    "edit_required": true
+  },
+  "log": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/candidate_build/char__tmABCD__MfbC01/MfbC01.smd.build.log",
+  "production_authorized": false,
+  "client_write_authorized": false,
+  "client_modified": false,
+  "build_provenance": "/home/gabriel/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app/pt_build/candidate_build/char__tmABCD__MfbC01/MfbC01.smd.build.json"
+}
+gabriel@unknown18c04d2e4dbe:~/Transferências/PT_Asset_Tool_dev_snapshot_2026-09-02_r11_autonomous/app$ 

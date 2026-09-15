@@ -1,0 +1,489 @@
+diff --git a/mnt/data/_r14inspect/hotfix/pt_asset_tool/writer_corpus_audit.py b/mnt/data/_r14hotfix2/pt_asset_tool/writer_corpus_audit.py
+index 3b5ba21..68d8c8a 100644
+--- a/mnt/data/_r14inspect/hotfix/pt_asset_tool/writer_corpus_audit.py
++++ b/mnt/data/_r14hotfix2/pt_asset_tool/writer_corpus_audit.py
+@@ -2,8 +2,12 @@ from __future__ import annotations
+ 
+ import collections
+ import hashlib
++import json
+ import pathlib
++import signal
+ import tempfile
++import time
++from contextlib import contextmanager
+ from typing import Any, Iterable
+ 
+ from .inx_writer import patch_motion, validate_noop_roundtrip
+@@ -471,6 +475,134 @@ def _semantic_smb_edit(project_root: pathlib.Path, inx: pathlib.Path, smb: pathl
+     }
+ 
+ 
++class _MotionSemanticTimeout(TimeoutError):
++    pass
++
++
++@contextmanager
++def _motion_semantic_timeout(seconds: float):
++    """Best-effort POSIX wall timeout for one semantic writer operation.
++
++    The Release 1 external gate currently runs on Linux.  Where SIGALRM is not
++    available (or the caller is not the main thread), this degrades to no timer
++    rather than weakening source-integrity checks.
++    """
++    seconds = float(seconds or 0)
++    if seconds <= 0 or not hasattr(signal, "SIGALRM") or not hasattr(signal, "setitimer"):
++        yield
++        return
++    old_handler = None
++    old_timer = (0.0, 0.0)
++    armed = False
++
++    def _raise_timeout(signum, frame):  # pragma: no cover - frame is interpreter supplied
++        raise _MotionSemanticTimeout(f"semantic writer operation exceeded {seconds:g}s")
++
++    try:
++        old_handler = signal.getsignal(signal.SIGALRM)
++        old_timer = signal.setitimer(signal.ITIMER_REAL, 0.0)
++        signal.signal(signal.SIGALRM, _raise_timeout)
++        signal.setitimer(signal.ITIMER_REAL, seconds)
++        armed = True
++    except (ValueError, OSError):
++        # signal.signal() is main-thread-only.  Direct library users on other
++        # threads still get the audit, just without the watchdog.
++        if old_timer and old_timer[0] > 0:
++            try:
++                signal.setitimer(signal.ITIMER_REAL, *old_timer)
++            except Exception:
++                pass
++        yield
++        return
++    try:
++        yield
++    finally:
++        if armed:
++            signal.setitimer(signal.ITIMER_REAL, 0.0)
++            if old_handler is not None:
++                signal.signal(signal.SIGALRM, old_handler)
++            if old_timer and old_timer[0] > 0:
++                signal.setitimer(signal.ITIMER_REAL, *old_timer)
++
++
++def _motion_context_key(ctx: dict[str, Any]) -> str:
++    raw = f"{str(ctx.get('motion_inx') or '').casefold()}\0{str(ctx.get('motion_smb') or '').casefold()}"
++    return hashlib.sha256(raw.encode("utf-8", errors="surrogatepass")).hexdigest()
++
++
++def _load_motion_semantic_checkpoint(path: pathlib.Path | None) -> dict[str, dict[str, Any]]:
++    if path is None or not pathlib.Path(path).is_file():
++        return {}
++    entries: dict[str, dict[str, Any]] = {}
++    try:
++        with pathlib.Path(path).open("r", encoding="utf-8") as fh:
++            for raw in fh:
++                raw = raw.strip()
++                if not raw:
++                    continue
++                try:
++                    row = json.loads(raw)
++                except Exception:
++                    # A killed process may leave one incomplete final line.  All
++                    # earlier complete checkpoints remain valid.
++                    continue
++                if row.get("format") != "PT_MOTION_SEMANTIC_CHECKPOINT_V1":
++                    continue
++                key = str(row.get("context_key") or "")
++                if key:
++                    entries[key] = row
++    except Exception:
++        return {}
++    return entries
++
++
++def _append_motion_semantic_checkpoint(path: pathlib.Path | None, entry: dict[str, Any]) -> None:
++    if path is None:
++        return
++    path = pathlib.Path(path)
++    path.parent.mkdir(parents=True, exist_ok=True)
++    payload = dict(entry)
++    payload["format"] = "PT_MOTION_SEMANTIC_CHECKPOINT_V1"
++    with path.open("a", encoding="utf-8") as fh:
++        fh.write(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n")
++        fh.flush()
++
++
++def _write_motion_semantic_in_progress(path: pathlib.Path | None, payload: dict[str, Any] | None) -> None:
++    if path is None:
++        return
++    path = pathlib.Path(path)
++    marker = path.with_name(path.name + ".in_progress.json")
++    if payload is None:
++        try:
++            marker.unlink()
++        except FileNotFoundError:
++            pass
++        return
++    marker.parent.mkdir(parents=True, exist_ok=True)
++    tmp = marker.with_name(marker.name + ".tmp")
++    tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    tmp.replace(marker)
++
++
++def _checkpoint_row_reusable(entry: dict[str, Any] | None, *, inx_sha: str, smb_sha: str) -> bool:
++    if not isinstance(entry, dict):
++        return False
++    row = entry.get("row")
++    if not isinstance(row, dict):
++        return False
++    if entry.get("inx_sha256") != inx_sha or entry.get("smb_sha256") != smb_sha:
++        return False
++    if str(row.get("source_integrity") or "") != "PASS":
++        return False
++    # FAIL/TIMEOUT rows are deliberately retried on --resume.  Only completed
++    # PASS/SKIP semantic evidence is reusable for byte-identical sources.
++    for key in ("inx_edit", "smb_edit"):
++        if str((row.get(key) or {}).get("status") or "") == "FAIL":
++            return False
++    return True
++
++
+ def audit_motion_writer_semantic_edit_corpus(
+     project_root: pathlib.Path,
+     registry,
+@@ -479,13 +611,22 @@ def audit_motion_writer_semantic_edit_corpus(
+     pair_limit: int = 0,
+     sample_limit: int = 50,
+     progress: bool = False,
++    operation_timeout_seconds: float = 120.0,
++    checkpoint_path: pathlib.Path | None = None,
++    resume: bool = False,
+ ) -> dict[str, Any]:
+     """Prove candidate INX/SMB edits remain source-side evaluable.
+ 
+     This is stronger than a reparse/byte-allowlist probe, but deliberately weaker
+     than Blender visual or game-runtime certification. All edits are temporary.
++
++    Each INX and SMB semantic operation has an independent watchdog on POSIX so
++    one pathological physical context cannot stall the entire Release 1 gate.
++    Completed PASS/SKIP rows can be checkpointed and reused on --resume only when
++    both original source SHA-256 values still match exactly.
+     """
+     project_root = pathlib.Path(project_root).resolve()
++    checkpoint_path = pathlib.Path(checkpoint_path).resolve() if checkpoint_path is not None else None
+     contexts, unresolved = _registry_motion_contexts(registry, resolver)
+     selected = contexts[: int(pair_limit)] if pair_limit and pair_limit > 0 else contexts
+     from .release_1_coverage import CONTENT_DOMAINS, content_domain
+@@ -493,23 +634,53 @@ def audit_motion_writer_semantic_edit_corpus(
+         str(asset.primary_path or "").replace("\\", "/").casefold(): content_domain(asset)
+         for asset in registry.assets
+     }
+-    failures: list[dict[str, Any]] = []
+     rows: list[dict[str, Any]] = []
+-    inx_pass = smb_pass = inx_skip = smb_skip = 0
++    resumed_contexts = 0
++    checkpoint_entries = _load_motion_semantic_checkpoint(checkpoint_path) if resume else {}
+     if progress:
+-        print(f"[release-1-auto] MOTION_SEMANTIC begin contexts={len(selected)} total={len(contexts)}", flush=True)
++        print(
++            f"[release-1-auto] MOTION_SEMANTIC begin contexts={len(selected)} total={len(contexts)} "
++            f"timeout={float(operation_timeout_seconds):g}s resume_checkpoint={bool(checkpoint_entries)}",
++            flush=True,
++        )
+     with tempfile.TemporaryDirectory(prefix="pt_motion_semantic_edit_") as td:
+         td_root = pathlib.Path(td)
+         for index, ctx in enumerate(selected):
+-            if progress and (index == 0 or (index + 1) % 25 == 0 or index + 1 == len(selected)):
+-                print(
+-                    f"[release-1-auto] MOTION_SEMANTIC {index + 1}/{len(selected)} {ctx.get('motion_inx')} + {ctx.get('motion_smb')}",
+-                    flush=True,
+-                )
+             inx = pathlib.Path(ctx["inx_path"])
+             smb = pathlib.Path(ctx["smb_path"])
+             inx_sha = _sha_path(inx)
+             smb_sha = _sha_path(smb)
++            context_key = _motion_context_key(ctx)
++            cached = checkpoint_entries.get(context_key)
++            if resume and _checkpoint_row_reusable(cached, inx_sha=inx_sha, smb_sha=smb_sha):
++                row = dict(cached["row"])
++                rows.append(row)
++                resumed_contexts += 1
++                if progress:
++                    print(
++                        f"[release-1-auto] MOTION_SEMANTIC {index + 1}/{len(selected)} RESUME "
++                        f"inx={row.get('motion_inx')} smb={row.get('motion_smb')}",
++                        flush=True,
++                    )
++                continue
++
++            label = f"{ctx.get('motion_inx')} + {ctx.get('motion_smb')}"
++            if progress:
++                print(
++                    f"[release-1-auto] MOTION_SEMANTIC {index + 1}/{len(selected)} START {label}",
++                    flush=True,
++                )
++            _write_motion_semantic_in_progress(checkpoint_path, {
++                "format": "PT_MOTION_SEMANTIC_IN_PROGRESS_V1",
++                "index": index + 1,
++                "total": len(selected),
++                "motion_inx": ctx.get("motion_inx"),
++                "motion_smb": ctx.get("motion_smb"),
++                "inx_sha256": inx_sha,
++                "smb_sha256": smb_sha,
++                "timeout_seconds_per_writer": float(operation_timeout_seconds),
++            })
++            started = time.monotonic()
+             row: dict[str, Any] = {
+                 "motion_inx": ctx["motion_inx"],
+                 "motion_smb": ctx["motion_smb"],
+@@ -522,27 +693,75 @@ def audit_motion_writer_semantic_edit_corpus(
+                 }),
+             }
+             try:
+-                inx_result = _semantic_inx_edit(project_root, inx, smb, td_root / f"{index:04d}_edit.inx")
++                with _motion_semantic_timeout(operation_timeout_seconds):
++                    inx_result = _semantic_inx_edit(project_root, inx, smb, td_root / f"{index:04d}_edit.inx")
+                 row["inx_edit"] = inx_result
+-                if inx_result.get("status") == "PASS": inx_pass += 1
+-                else: inx_skip += 1
++            except _MotionSemanticTimeout as exc:
++                row["inx_edit"] = {
++                    "status": "FAIL", "reason": "TIMEOUT", "error": str(exc),
++                    "timeout_seconds": float(operation_timeout_seconds),
++                }
+             except Exception as exc:
+                 row["inx_edit"] = {"status": "FAIL", "error": f"{type(exc).__name__}: {exc}"}
+-                failures.append({"motion_inx": ctx["motion_inx"], "motion_smb": ctx["motion_smb"], "writer": "INX", "error": row["inx_edit"]["error"]})
+             try:
+-                smb_result = _semantic_smb_edit(project_root, inx, smb, td_root / f"{index:04d}_edit.smb")
++                with _motion_semantic_timeout(operation_timeout_seconds):
++                    smb_result = _semantic_smb_edit(project_root, inx, smb, td_root / f"{index:04d}_edit.smb")
+                 row["smb_edit"] = smb_result
+-                if smb_result.get("status") == "PASS": smb_pass += 1
+-                else: smb_skip += 1
++            except _MotionSemanticTimeout as exc:
++                row["smb_edit"] = {
++                    "status": "FAIL", "reason": "TIMEOUT", "error": str(exc),
++                    "timeout_seconds": float(operation_timeout_seconds),
++                }
+             except Exception as exc:
+                 row["smb_edit"] = {"status": "FAIL", "error": f"{type(exc).__name__}: {exc}"}
+-                failures.append({"motion_inx": ctx["motion_inx"], "motion_smb": ctx["motion_smb"], "writer": "SMB", "error": row["smb_edit"]["error"]})
+             if _sha_path(inx) != inx_sha or _sha_path(smb) != smb_sha:
+-                failures.append({"motion_inx": ctx["motion_inx"], "motion_smb": ctx["motion_smb"], "writer": "SOURCE", "error": "SOURCE_CHANGED_DURING_TEMP_EDIT_AUDIT"})
+                 row["source_integrity"] = "FAIL"
+             else:
+                 row["source_integrity"] = "PASS"
++            row["elapsed_seconds"] = round(time.monotonic() - started, 6)
+             rows.append(row)
++            entry = {
++                "context_key": context_key,
++                "inx_sha256": inx_sha,
++                "smb_sha256": smb_sha,
++                "row": row,
++            }
++            _append_motion_semantic_checkpoint(checkpoint_path, entry)
++            checkpoint_entries[context_key] = entry
++            _write_motion_semantic_in_progress(checkpoint_path, None)
++            if progress:
++                print(
++                    f"[release-1-auto] MOTION_SEMANTIC {index + 1}/{len(selected)} DONE "
++                    f"inx={(row.get('inx_edit') or {}).get('status')} "
++                    f"smb={(row.get('smb_edit') or {}).get('status')} "
++                    f"source={row.get('source_integrity')} elapsed={row.get('elapsed_seconds')}s",
++                    flush=True,
++                )
++
++    _write_motion_semantic_in_progress(checkpoint_path, None)
++    failures: list[dict[str, Any]] = []
++    for row in rows:
++        for writer, key in (("INX", "inx_edit"), ("SMB", "smb_edit")):
++            result = row.get(key) or {}
++            if str(result.get("status") or "") == "FAIL":
++                failures.append({
++                    "motion_inx": row.get("motion_inx"), "motion_smb": row.get("motion_smb"),
++                    "writer": writer, "error": result.get("error"), "reason": result.get("reason"),
++                })
++        if str(row.get("source_integrity") or "") != "PASS":
++            failures.append({
++                "motion_inx": row.get("motion_inx"), "motion_smb": row.get("motion_smb"),
++                "writer": "SOURCE", "error": "SOURCE_CHANGED_DURING_TEMP_EDIT_AUDIT",
++            })
++
++    inx_pass = sum(str((row.get("inx_edit") or {}).get("status") or "") == "PASS" for row in rows)
++    smb_pass = sum(str((row.get("smb_edit") or {}).get("status") or "") == "PASS" for row in rows)
++    inx_skip = sum(str((row.get("inx_edit") or {}).get("status") or "") == "SKIP" for row in rows)
++    smb_skip = sum(str((row.get("smb_edit") or {}).get("status") or "") == "SKIP" for row in rows)
++    timeout_count = sum(
++        str((row.get(key) or {}).get("reason") or "") == "TIMEOUT"
++        for row in rows for key in ("inx_edit", "smb_edit")
++    )
+     complete_selection = len(selected) == len(contexts)
+     by_domain: dict[str, dict[str, Any]] = {
+         d: {
+@@ -592,7 +811,6 @@ def audit_motion_writer_semantic_edit_corpus(
+             summary["status"] = "PASS"
+             pass_domains.append(domain)
+ 
+-    attempted = inx_pass + smb_pass
+     status = (
+         "PASS"
+         if selected and complete_selection and not unresolved and not failures
+@@ -603,15 +821,19 @@ def audit_motion_writer_semantic_edit_corpus(
+         "status": status,
+         "scope": "TEMP_EDIT_SOURCE_SIDE_SEMANTIC_SANITY_NOT_BLENDER_OR_RUNTIME_CERTIFICATION",
+         "registry_motion_contexts": len(contexts),
+-        "audited_contexts": len(selected),
+-        "corpus_complete": complete_selection,
++        "audited_contexts": len(rows),
++        "corpus_complete": complete_selection and len(rows) == len(selected),
+         "selection_limited": not complete_selection,
+         "pair_limit": int(pair_limit),
+-        "inx_semantic_edit_pass": inx_pass,
+-        "inx_semantic_edit_skip": inx_skip,
+-        "smb_semantic_edit_pass": smb_pass,
+-        "smb_semantic_edit_skip": smb_skip,
++        "inx_semantic_edit_pass": int(inx_pass),
++        "inx_semantic_edit_skip": int(inx_skip),
++        "smb_semantic_edit_pass": int(smb_pass),
++        "smb_semantic_edit_skip": int(smb_skip),
+         "fail_count": len(failures),
++        "timeout_count": int(timeout_count),
++        "operation_timeout_seconds": float(operation_timeout_seconds),
++        "checkpoint_path": str(checkpoint_path) if checkpoint_path is not None else None,
++        "resumed_contexts": int(resumed_contexts),
+         "unresolved_physical_assets": len(unresolved),
+         "by_domain": by_domain,
+         "pass_domains": sorted(pass_domains),
+diff --git a/mnt/data/_r14inspect/hotfix/pt_asset_tool/release_1_auto.py b/mnt/data/_r14hotfix2/pt_asset_tool/release_1_auto.py
+index 6b6aa9a..4d5b054 100644
+--- a/mnt/data/_r14inspect/hotfix/pt_asset_tool/release_1_auto.py
++++ b/mnt/data/_r14hotfix2/pt_asset_tool/release_1_auto.py
+@@ -441,6 +441,7 @@ def run_release_1_automated_gate(
+     rigid_per_domain: int = 3, static_per_domain: int = 3,
+     object_local_limit: int = 4, texlink_limit: int = 4,
+     animation_fps: int = 30, motion_pair_limit: int = 0, resume: bool = False,
++    motion_semantic_timeout_seconds: float = 120.0,
+ ) -> dict[str, Any]:
+     root=pathlib.Path(settings.project_root).resolve()
+     plan=build_release_1_automated_gate_plan(
+@@ -707,6 +708,9 @@ def run_release_1_automated_gate(
+     gates["motion_semantic_edit"] = _run_logged(
+         "motion_semantic_edit_full_corpus", lambda: audit_motion_writer_semantic_edit_corpus(
+             root, registry, resolver, pair_limit=int(motion_pair_limit), sample_limit=25, progress=True,
++            operation_timeout_seconds=float(motion_semantic_timeout_seconds),
++            checkpoint_path=root / "pt_build" / "devtest" / "release_1_auto" / "motion_semantic_checkpoint.jsonl",
++            resume=bool(resume),
+         )
+     )
+ 
+diff --git a/mnt/data/_r14inspect/hotfix/pt_asset_tool/cli.py b/mnt/data/_r14hotfix2/pt_asset_tool/cli.py
+index e497dc2..37ea3d5 100644
+--- a/mnt/data/_r14inspect/hotfix/pt_asset_tool/cli.py
++++ b/mnt/data/_r14hotfix2/pt_asset_tool/cli.py
+@@ -2900,6 +2900,7 @@ def cmd_validate_release_1_auto(a):
+         rigid_per_domain=int(a.rigid_per_domain), static_per_domain=int(a.static_per_domain),
+         object_local_limit=int(a.object_local_limit), texlink_limit=int(a.texlink_limit),
+         animation_fps=int(a.fps), motion_pair_limit=int(a.motion_pair_limit), resume=bool(a.resume),
++        motion_semantic_timeout_seconds=float(a.motion_semantic_timeout),
+     )
+     shown = {
+         "format": result.get("format"), "status": result.get("status"),
+@@ -3685,9 +3686,13 @@ def build_parser():
+         help="limit motion semantic edit contexts (0 = full corpus; Release 1.0 PASS requires the full corpus)",
+     )
+     x.add_argument("--fps", type=int, default=30)
++    x.add_argument(
++        "--motion-semantic-timeout", type=float, default=120.0,
++        help="per-writer watchdog in seconds for each INX/SMB semantic context (default 120; timeout fails that context and continues)",
++    )
+     x.add_argument(
+         "--resume", action="store_true",
+-        help="reuse exact PASS Blender batch reports already in this app/pt_build when their selected asset sets match; corpus/client audits always rerun",
++        help="reuse exact PASS Blender batches plus SHA-validated completed motion-semantic checkpoints in this app/pt_build; physical corpus audits are rerun",
+     )
+     x.set_defaults(func=cmd_validate_release_1_auto)
+ 
+diff --git a/mnt/data/_r14inspect/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_writer_corpus_audit.py b/mnt/data/_r14hotfix2/dev_tests/test_writer_corpus_audit.py
+index 29b633c..2577b32 100644
+--- a/mnt/data/_r14inspect/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_writer_corpus_audit.py
++++ b/mnt/data/_r14hotfix2/dev_tests/test_writer_corpus_audit.py
+@@ -102,3 +102,79 @@ def test_motion_writer_semantic_edit_corpus_fails_closed_when_pair_limit_truncat
+     assert report['corpus_complete'] is False
+     assert report['audited_contexts']==1
+     assert report['registry_motion_contexts']==2
++
++
++def test_motion_writer_semantic_edit_checkpoint_resumes_only_sha_identical_completed_rows(tmp_path, monkeypatch):
++    from types import SimpleNamespace
++    import pt_asset_tool.writer_corpus_audit as mod
++
++    inx = tmp_path / 'a.inx'; smb = tmp_path / 'a.smb'
++    inx.write_bytes(b'inx-source'); smb.write_bytes(b'smb-source')
++    contexts = [{
++        'motion_inx':'char/A/A.inx','motion_smb':'char/A/A.smb',
++        'inx_path':inx,'smb_path':smb,'assets':['char/A/A.smd'],
++    }]
++    monkeypatch.setattr(mod, '_registry_motion_contexts', lambda *a, **k: (contexts, []))
++    calls = {'inx':0, 'smb':0}
++    def fake_inx(*a, **k):
++        calls['inx'] += 1
++        return {'status':'PASS'}
++    def fake_smb(*a, **k):
++        calls['smb'] += 1
++        return {'status':'PASS'}
++    monkeypatch.setattr(mod, '_semantic_inx_edit', fake_inx)
++    monkeypatch.setattr(mod, '_semantic_smb_edit', fake_smb)
++    reg = SimpleNamespace(assets=[SimpleNamespace(primary_path='char/A/A.smd', category='CHARACTER')])
++    checkpoint = tmp_path / 'checkpoint.jsonl'
++
++    first = audit_motion_writer_semantic_edit_corpus(
++        tmp_path, reg, object(), checkpoint_path=checkpoint, resume=False,
++        operation_timeout_seconds=1,
++    )
++    assert first['status'] == 'PASS'
++    assert calls == {'inx':1, 'smb':1}
++    assert checkpoint.is_file()
++
++    monkeypatch.setattr(mod, '_semantic_inx_edit', lambda *a, **k: (_ for _ in ()).throw(AssertionError('must resume')))
++    monkeypatch.setattr(mod, '_semantic_smb_edit', lambda *a, **k: (_ for _ in ()).throw(AssertionError('must resume')))
++    second = audit_motion_writer_semantic_edit_corpus(
++        tmp_path, reg, object(), checkpoint_path=checkpoint, resume=True,
++        operation_timeout_seconds=1,
++    )
++    assert second['status'] == 'PASS'
++    assert second['resumed_contexts'] == 1
++    assert second['audited_contexts'] == 1
++
++
++def test_motion_writer_semantic_edit_timeout_fails_one_writer_and_continues(tmp_path, monkeypatch):
++    import signal
++    import time
++    from types import SimpleNamespace
++    import pt_asset_tool.writer_corpus_audit as mod
++
++    if not hasattr(signal, 'SIGALRM') or not hasattr(signal, 'setitimer'):
++        pytest.skip('POSIX semantic watchdog requires SIGALRM/setitimer')
++    inx = tmp_path / 'slow.inx'; smb = tmp_path / 'slow.smb'
++    inx.write_bytes(b'inx-source'); smb.write_bytes(b'smb-source')
++    contexts = [{
++        'motion_inx':'char/A/slow.inx','motion_smb':'char/A/slow.smb',
++        'inx_path':inx,'smb_path':smb,'assets':['char/A/A.smd'],
++    }]
++    monkeypatch.setattr(mod, '_registry_motion_contexts', lambda *a, **k: (contexts, []))
++    def slow_inx(*a, **k):
++        time.sleep(0.25)
++        return {'status':'PASS'}
++    monkeypatch.setattr(mod, '_semantic_inx_edit', slow_inx)
++    monkeypatch.setattr(mod, '_semantic_smb_edit', lambda *a, **k: {'status':'PASS'})
++    reg = SimpleNamespace(assets=[SimpleNamespace(primary_path='char/A/A.smd', category='CHARACTER')])
++
++    report = audit_motion_writer_semantic_edit_corpus(
++        tmp_path, reg, object(), operation_timeout_seconds=0.05,
++        checkpoint_path=tmp_path/'checkpoint.jsonl', resume=False,
++    )
++    assert report['status'] == 'FAIL'
++    assert report['timeout_count'] == 1
++    assert report['audited_contexts'] == 1
++    assert report['rows'][0]['inx_edit']['reason'] == 'TIMEOUT'
++    assert report['rows'][0]['smb_edit']['status'] == 'PASS'
++    assert report['rows'][0]['source_integrity'] == 'PASS'

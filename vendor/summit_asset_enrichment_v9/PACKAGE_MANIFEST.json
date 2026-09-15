@@ -1,0 +1,251 @@
+{
+  "version": "v9-fix136",
+  "generated_for": "Summit asset enrichment — Fix 136 evidence-aware EU skill asset recovery",
+  "key_changes": [
+    "target-lineage source inference",
+    "Mechanician/Mecha narrow path alias",
+    "Fighter TF26 WarCry/TF26 Roar narrow slot alias",
+    "PART donor-bundle coherence and runtime destination recovery",
+    "global shared-runtime collision reconciliation with baseline protection",
+    "basename TGA destination inference from target peers",
+    "fuzzy near-match report for true missing assets",
+    "actionable staging decisions separated from informational review"
+  ],
+  "files": [
+    {
+      "path": "CURRENT_V3_DIAGNOSIS.md",
+      "size": 913,
+      "sha256": "2c3a7c3df792264f177bf4975b17f84c170ca73df639e66b7db84c191ae73fae"
+    },
+    {
+      "path": "PATCH_NOTES_v2.md",
+      "size": 1795,
+      "sha256": "0003bf819ffa9b549172982b707f697fb7628e640668be5bd1ec66640f870202"
+    },
+    {
+      "path": "PATCH_NOTES_v3.md",
+      "size": 717,
+      "sha256": "e0fe01707c0ad1fe7652721573bcf714aa6b0cb81667f150e0ae619062097a16"
+    },
+    {
+      "path": "PATCH_NOTES_v4.md",
+      "size": 1699,
+      "sha256": "f6aa1ebe5f077277864792b0704d89ee5057ea1b336189ea59c2651e1a332efb"
+    },
+    {
+      "path": "PATCH_NOTES_v5.md",
+      "size": 1766,
+      "sha256": "c7db2596975de8c4af76f6d7a5b6e972a0f92d050642e354739e14fbdf4294b8"
+    },
+    {
+      "path": "PATCH_NOTES_v6.md",
+      "size": 3210,
+      "sha256": "073e4843251ffaa8916db40a7215837e8d6e3893fbf9ec8fc356e48add594790"
+    },
+    {
+      "path": "PATCH_NOTES_v7.md",
+      "size": 2118,
+      "sha256": "fee9fe2b65c90d136d7f0717175184e9a1e1220ed464a7e33da1403f308f19b9"
+    },
+    {
+      "path": "PATCH_NOTES_v8.md",
+      "size": 2413,
+      "sha256": "cd3281a395414687f36eed37e549d6102079cd25256c8cd7589cc3fa705028b5"
+    },
+    {
+      "path": "PATCH_NOTES_v9.md",
+      "size": 1150,
+      "sha256": "49bb2c55f83fdd0d2a6f8ae79cf5a0dfe257de917ca7f133520147f1bf763d34"
+    },
+    {
+      "path": "README.md",
+      "size": 15002,
+      "sha256": "ccece365fe454feb252ea8d71ffd0f702f1967fbe154179b2b698c28d985409f"
+    },
+    {
+      "path": "analyze_reverse_samples.py",
+      "size": 18440,
+      "sha256": "e96d90107e3058244406101aac713288d80b6d7a747182080a45a223ef90b48b"
+    },
+    {
+      "path": "asset_common.py",
+      "size": 12584,
+      "sha256": "9b6712b41d48e5b62e3c86a7c3999d5afd4c25479e758b2bfe8ba8209b7c0e4b"
+    },
+    {
+      "path": "audit_data/GAPS_active_items_current_client.csv",
+      "size": 182866,
+      "sha256": "742b4935f64b41f7c071e03c166575abe946aba5616eabe36bdb6ef3f82515eb"
+    },
+    {
+      "path": "audit_data/classificacao_206_openitems_ausentes.csv",
+      "size": 114551,
+      "sha256": "e7fb82189027360af09b0433364b52dbce915eacd5b98d79919c1c8163a230de"
+    },
+    {
+      "path": "audit_data/classificacao_final_35_modelos_monstros.csv",
+      "size": 11467,
+      "sha256": "7215e209a6ce62abb28ae88520390169899badcd74b79cf8a181d9302c5dc1bc"
+    },
+    {
+      "path": "audit_data/classificacao_final_cliente_atual.csv",
+      "size": 7911,
+      "sha256": "b45798aa6da2f541c683112975eeaca1744ef16119f595197ab7184b96b98445"
+    },
+    {
+      "path": "audit_data/classificacao_final_npcs.csv",
+      "size": 26054,
+      "sha256": "2c9b152bb4190c7b032e2cd448f05e0164b2ff187c227a30dfef3ff4686788a8"
+    },
+    {
+      "path": "audit_data/classificacao_lacunas_fields.csv",
+      "size": 2797,
+      "sha256": "faf74eb7375e2a10866e4dd24a77a7fe9d50ef250adb7cde459fd018e9188e7a"
+    },
+    {
+      "path": "audit_data/codigos_drop_nao_resolvidos_openitem.csv",
+      "size": 18704,
+      "sha256": "22e08520cb2d1b68562bd6b59dee13d8de9563141dbf2f49f7a5e141f53fa725"
+    },
+    {
+      "path": "audit_data/fix136/EU_SKILL_BUTTON_ASSETS.csv",
+      "size": 38653,
+      "sha256": "ec3c1a48827c1f4de4635e7e26bc4cf3d11f9c80ceb084d0634bde499ac3d721"
+    },
+    {
+      "path": "audit_data/fix136/EU_SKILL_EFFECT_ASSET_LITERALS.csv",
+      "size": 4021,
+      "sha256": "d65b9d4e4a747874b060628a5e3823cf0e78fd150b878f9fe3950abd8b00d001"
+    },
+    {
+      "path": "audit_data/fix136/EU_T5_EXPECTED_ASSETS.md",
+      "size": 8827,
+      "sha256": "bcf495098e3e5e102c0fa35cf64ce97d68492aba288a53e296f4e07ba5b385a7"
+    },
+    {
+      "path": "audit_data/fix136/FIX136_REFERENCE_README.md",
+      "size": 6359,
+      "sha256": "7a2dbbf1fa652812c65c0a6ea8e35b15c0c9ea65fc65d9c65004c7791384588e"
+    },
+    {
+      "path": "audit_data/recovered_item_catalog.csv",
+      "size": 126293,
+      "sha256": "8923fc85b0a70b6e0535c29a69c414a856776888972b6d2ea24ea49e7b052a82"
+    },
+    {
+      "path": "audit_data/source_armor_032_034_current_client.csv",
+      "size": 3021,
+      "sha256": "f300d9cf96aabac7363dd1328d1bebc43872f338c29bb82196ff6dbfe94b5f0b"
+    },
+    {
+      "path": "audit_data/tmabcd_armaduras_source_confirmed.csv",
+      "size": 4460,
+      "sha256": "f3b7449f2e32e59c880f99f1f367173f5990f050dcebd1fc9007448d99d6fd32"
+    },
+    {
+      "path": "audit_fix136_skill_assets.py",
+      "size": 47343,
+      "sha256": "b4d2382a3b2e8121f67b27f2c16fb5da299e5ac70cd94ae209b992961e097ff4"
+    },
+    {
+      "path": "build_dependency_graph.py",
+      "size": 12092,
+      "sha256": "66eaaa11fdb4cb7c01d6583ba6fcb73a1c88c4de1d06f223163ece85b9c36e06"
+    },
+    {
+      "path": "character_bundle_tool.py",
+      "size": 24322,
+      "sha256": "c1a67a2f729b6fa40f19256b36d784267afbf755dc1442c0900c920f84781e78"
+    },
+    {
+      "path": "collect_reverse_samples.py",
+      "size": 10210,
+      "sha256": "1dfd28cfc09cdddb11820bde3c4c1a983387f919bacd6079160325c02889c744"
+    },
+    {
+      "path": "create_known_files.py",
+      "size": 2881,
+      "sha256": "908420d12b789284e2803aa9e9c64e286fcd905a1dbf375b152b35e6d4733d54"
+    },
+    {
+      "path": "docs/CREATING_NEW_CONTENT.md",
+      "size": 9112,
+      "sha256": "c47fb3fa890f8a3ff237911b16a2024c3b06bcc8479fec85fd4e1a93e3075efa"
+    },
+    {
+      "path": "docs/FILETYPE_RELATIONSHIPS.md",
+      "size": 4507,
+      "sha256": "2c9f4cc2fc97fc779af0a9ebfcdee35130badb253c6b391a18549163af03f6a0"
+    },
+    {
+      "path": "docs/GAPS_AND_BUGFIX_CANDIDATES.md",
+      "size": 2719,
+      "sha256": "1152619aba35b0e4e5e7a0b6ce54ed59139f078ae9390d575e1bf44cf3f86ff0"
+    },
+    {
+      "path": "docs/MIGRATION_POLICY.md",
+      "size": 2448,
+      "sha256": "5ab0a19d091f97541b6a92549aaf4a2a39641c99876b70a7ce04357f9e31d3db"
+    },
+    {
+      "path": "docs/REVERSE_CORPUS_FINDINGS_2026-09-04.md",
+      "size": 7368,
+      "sha256": "7f574c35d98afe00a41c81e6710d73ccd3e56e4621e4ced3631921a29c400975"
+    },
+    {
+      "path": "docs/SOURCE_FINDINGS.md",
+      "size": 2213,
+      "sha256": "a149b441e0242b2b30dd7802765b5354154b770754fa985463634d1054c34ffd"
+    },
+    {
+      "path": "docs/WRITER_REVERSE_MATRIX.md",
+      "size": 3045,
+      "sha256": "ed4e359ec13f0ec88ca1034ff86c2a319a5ac7a9c16daf67bf99d025b70de8ee"
+    },
+    {
+      "path": "example_monster.json",
+      "size": 415,
+      "sha256": "9d42b960da9e415b61b32678912c0288c60e498f401dce0be4d76baee251cb06"
+    },
+    {
+      "path": "example_npc.json",
+      "size": 457,
+      "sha256": "397f0c1244411aac9cdec02bac9a226ed108076bc972f5e3099bb183d3a4957d"
+    },
+    {
+      "path": "fix136_paths.json",
+      "size": 615,
+      "sha256": "cfdbfc85d5563dd1754350e5caa7da6cbe8af03555cab44d70ae8ffcef8e5d90"
+    },
+    {
+      "path": "migrate_assets.py",
+      "size": 25624,
+      "sha256": "da5381b98b5ac21de725ebb2f6e14663fd0670a169bc85182585d4c12e9924cc"
+    },
+    {
+      "path": "reports/FIX136_V7_RUN_DIAGNOSIS_2026-09-05.md",
+      "size": 3722,
+      "sha256": "eedab8a48c9252b3de41174b1e4657e3e9fc0c81a6d5a0c39bbdf2e9ee9c1e8b"
+    },
+    {
+      "path": "reports/fix136_v7_resolution_plan.csv",
+      "size": 23306,
+      "sha256": "2818ff4ffb97f100df32a267a1ea5dfd49fcc95f78960b46d439e7e6cbe6e497"
+    },
+    {
+      "path": "reverse_inspect.py",
+      "size": 9647,
+      "sha256": "25db4042d709d1980f6d936e506b381f529338340a210bf2e23c1fc1f9990b72"
+    },
+    {
+      "path": "summit_paths.json",
+      "size": 1271,
+      "sha256": "99c8929a6e3bd0f2a8f94a161748cf565912a3bc11bb50dda7ed8f8600b17b5e"
+    },
+    {
+      "path": "tests/test_fix136_asset_audit.py",
+      "size": 12741,
+      "sha256": "72765ac00001968773f2a7d98f9372454ad427145eec9f8a3c717d584f994023"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "profile_version": 3,
+  "profile_id": "priestess_c01_m5",
+  "asset_set_id": "CHARSET-PRIESTESS-C01-M5",
+  "display_name": "Priestess C01 / M5",
+  "class_code": "C",
+  "owner_name": "Priestess",
+  "description": "Corrected identity for the runtime-proven MfbC01.smd + m5.smb + M5Bip.inx character set. Previously mislabeled as Pikeman in the toolchain.",
+  "model_smd": "MfbC01.smd",
+  "model_smd_sha256": "9ec6be4cc148125e56156b5a35da0f2939c2e0b52f17103c9253bfe8bb87120b",
+  "skeleton_smb": "m5.smb",
+  "model_info_inx": "M5Bip.inx",
+  "roundtrip_target": "char/tmABCD/MfbC01.smd",
+  "runtime_object_limit": 128,
+  "runtime_vertex_limit_per_object": 30000,
+  "runtime_face_limit_per_object": 30000,
+  "lod_groups": {
+    "high": [
+      "MbhC01",
+      "MshC01",
+      "MlhC01"
+    ],
+    "default": [
+      "MbmC01",
+      "MsmC01",
+      "MlmC01"
+    ],
+    "low": [
+      "MblC01",
+      "MslC01",
+      "MllC01"
+    ]
+  },
+  "known_mesh_objects": [
+    "MsmC01",
+    "MshC01",
+    "MslC01",
+    "MsmC03",
+    "MslC03",
+    "MlhC01",
+    "MlhC03",
+    "MbhC01",
+    "MshC03",
+    "MlmC01",
+    "MlmC03",
+    "MbmC01",
+    "MllC01",
+    "MllC03",
+    "MblC01"
+  ],
+  "baseline_counts": {
+    "MsmC01": {
+      "vertices": 125,
+      "faces": 238
+    },
+    "MshC01": {
+      "vertices": 173,
+      "faces": 331
+    },
+    "MslC01": {
+      "vertices": 93,
+      "faces": 174
+    },
+    "MsmC03": {
+      "vertices": 157,
+      "faces": 270
+    },
+    "MslC03": {
+      "vertices": 109,
+      "faces": 190
+    },
+    "MlhC01": {
+      "vertices": 46,
+      "faces": 78
+    },
+    "MlhC03": {
+      "vertices": 68,
+      "faces": 120
+    },
+    "MbhC01": {
+      "vertices": 130,
+      "faces": 217
+    },
+    "MshC03": {
+      "vertices": 231,
+      "faces": 415
+    },
+    "MlmC01": {
+      "vertices": 34,
+      "faces": 56
+    },
+    "MlmC03": {
+      "vertices": 46,
+      "faces": 76
+    },
+    "MbmC01": {
+      "vertices": 86,
+      "faces": 138
+    },
+    "MllC01": {
+      "vertices": 28,
+      "faces": 44
+    },
+    "MllC03": {
+      "vertices": 36,
+      "faces": 60
+    },
+    "MblC01": {
+      "vertices": 82,
+      "faces": 130
+    }
+  },
+  "components": [
+    {
+      "role": "model",
+      "required": true,
+      "editable": true,
+      "local_source": "MfbC01.smd",
+      "roundtrip_target": "char/tmABCD/MfbC01.smd",
+      "workspace_path": "Characters/Priestess/C01/Model/MfbC01.smd",
+      "category": "Characters",
+      "subcategory": "Character Model",
+      "representation": "Equipped Body Mesh"
+    },
+    {
+      "role": "skeleton",
+      "required": true,
+      "editable": false,
+      "local_source": "m5.smb",
+      "discover_client_by_basename": "m5.smb",
+      "workspace_path": "Characters/Priestess/C01/Skeleton/m5.smb",
+      "category": "Characters",
+      "subcategory": "Character Skeleton",
+      "representation": "Skeleton"
+    },
+    {
+      "role": "model_info",
+      "required": true,
+      "editable": false,
+      "local_source": "M5Bip.inx",
+      "discover_client_by_basename": "M5Bip.inx",
+      "workspace_path": "Characters/Priestess/C01/Config/M5Bip.inx",
+      "category": "Characters",
+      "subcategory": "Character Model Info",
+      "representation": "INX"
+    },
+    {
+      "role": "texture",
+      "required": true,
+      "editable": true,
+      "roundtrip_target": "char/tmABCD/MfbC01.bmp",
+      "workspace_path": "Characters/Priestess/C01/Textures/MfbC01.bmp",
+      "category": "Textures",
+      "subcategory": "Character Texture",
+      "representation": "Diffuse/Character Texture",
+      "material_slots": [
+        1,
+        2
+      ]
+    },
+    {
+      "role": "texture_variant",
+      "required": true,
+      "editable": true,
+      "roundtrip_target": "char/tmABCD/MfbC03.bmp",
+      "workspace_path": "Characters/Priestess/C01/Textures/MfbC03.bmp",
+      "category": "Textures",
+      "subcategory": "Character Texture",
+      "representation": "Variant Character Texture",
+      "material_slots": [
+        3,
+        4
+      ]
+    },
+    {
+      "role": "texture_aux",
+      "required": true,
+      "editable": true,
+      "roundtrip_target": "char/tmABCD/mo-p-ac.BMP",
+      "workspace_path": "Characters/Priestess/C01/Textures/mo-p-ac.BMP",
+      "category": "Textures",
+      "subcategory": "Character Texture",
+      "representation": "Auxiliary Character Texture",
+      "material_slots": [
+        5
+      ]
+    }
+  ],
+  "geometry_status": {
+    "single_object_runtime_proven": true,
+    "high_lod_runtime_proven": true,
+    "all_lods_runtime_proven": true,
+    "artist_free_topology_runtime_proven": true,
+    "production_force_test_allowed": false
+  },
+  "identity_evidence": {
+    "status": "PROVEN_VISUALLY_AND_BY_MOTION_SET",
+    "model": "MfbC01.smd",
+    "motion_set": "m5.smb",
+    "model_info": "M5Bip.inx",
+    "note": "Historical/source audit and visual Blender validation identify this set as Priestess. m5 is associated with Priestess; Pikeman uses m4."
+  },
+  "legacy_aliases": {
+    "deprecated_profile_id": "pikeman_c01_m5",
+    "legacy_workspace_root_name": "blender_workspace_pikeman",
+    "legacy_workspace_owner_label": "Pikeman",
+    "migration_policy": "do_not_rewrite_existing_runtime-proven history automatically"
+  }
+}

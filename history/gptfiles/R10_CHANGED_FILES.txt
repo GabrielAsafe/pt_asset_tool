@@ -1,0 +1,19 @@
+R10 files changed relative to R9 snapshot
+
+app/DEVELOPMENT_STATUS.md
+app/dev_tests/test_app_config_discovery.py
+app/dev_tests/test_generic_import.py
+app/pt_asset_tool/app_config.py
+app/pt_asset_tool/profile_authoring.py
+app/pt_asset_tool/rigid_model_info.py
+app/pt_asset_tool/validation.py
+AUTONOMOUS_CONTINUATION.md
+AUTONOMOUS_CONTINUATION_R9.md
+VALIDATION_STATUS_AUTONOMOUS.md
+VALIDATION_STATUS_AUTONOMOUS_R9.md
+README_SNAPSHOT.md
+RETOMADA_DESENVOLVIMENTO.md
+CURRENT_GIT_STATUS.txt
+evidence/manual_r9_test_2026-09-02_part1.txt
+evidence/manual_r9_test_2026-09-02_part2.txt
+evidence/rigid_model_info_real_lod_coverage_r10.summary.json

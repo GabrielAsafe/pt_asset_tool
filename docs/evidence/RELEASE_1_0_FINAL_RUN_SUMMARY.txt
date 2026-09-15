@@ -1,0 +1,14 @@
+PT_ASSET_RELEASE_1_0_FINAL_RUN_V1
+generated_at=2026-09-14T18:07:43+01:00
+01_finalize_release10:0
+02_release_1_auto_post_version:0
+03_verify_package:0
+04_assert_release_contract:0
+05_rebuild_clean_release:0
+version=1.0.0
+expected_final_state=RELEASE_1_0_CERTIFIED_SAFETY_LOCKED
+production_authorized=0
+client_write_authorized=0
+server_write_authorized=0
+game_client_server_writes_requested=0
+original_release_archive_sha256=eb1ab03a6fdf64c41f921aae3592b3ae6874bf4e1a4c2bf7c26e92faf9d92ce9

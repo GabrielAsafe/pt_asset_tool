@@ -1,0 +1,929 @@
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION.md	2026-09-02 16:50:16.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION.md	2026-09-02 17:06:26.928502864 +0000
+@@ -1,128 +1,133 @@
+-# Continuação autónoma — R10 — 2026-09-02
++# Continuação autónoma — R11 — 2026-09-02
+ 
+-Esta continuação usa os testes manuais executados no snapshot R9 no client real e no Blender real. Nenhum resultado desta etapa promove writer, produção ou deploy no client.
++Esta etapa parte da confirmação manual R10 enviada pelo utilizador. Nenhum writer, runtime gate, produção ou deploy apply foi promovido.
+ 
+-## Evidência manual recebida
++## Confirmação externa recebida
+ 
+-Os logs foram congelados em:
++No snapshot R10, no ambiente real do utilizador:
+ 
+-- `evidence/manual_r9_test_2026-09-02_part1.txt`
+-- `evidence/manual_r9_test_2026-09-02_part2.txt`
++- `pt_asset.py status` => `PASS`;
++- `pt_asset.py smoke` => `PASS`;
++- o client foi descoberto pelo app em `~/Área de Trabalho/summit/Summit Tale Client Full/cliente` via `LEGACY_HOME_DESKTOP_LAYOUT`;
++- `Bcn02f.inx` + `lod=default` + `--reset` falhou host-side antes do Blender com `MODEL_INFO_LOD_REFERENCES_MISSING_SMD_NODES` e `missing=['hart']`.
+ 
+-Resultados confirmados:
++Isso confirma externamente os dois fixes principais de R10: descoberta consistente do client e preflight INX-LOD→SMD antes de destruir/recriar workspace.
+ 
+-1. `status`/`smoke` inicialmente não encontravam o client pelo app-level discovery, enquanto `doctor` encontrava o caminho histórico real. Isso revelou uma inconsistência entre `app_config.resolve_client_root()` e `Settings.discover()`.
+-2. `import char/npc/Bcn02/Bcn02.smd --no-open` falhou corretamente com `AMBIGUOUS_MODEL_INFO_CONFIG`.
+-3. Seleção explícita de `Bcn02.inx` + `lod=default` importou com `selected_context` verificado e hashes físicos de INX/SMB.
+-4. Reutilização do workspace com `Bcn02f.inx` sem `--reset` falhou corretamente com `EXISTING_RIGID_WORKSPACE_CONTEXT_MISMATCH`.
+-5. O `--reset` com `Bcn02f.inx` revelou uma falha real: o INX pede nós de LOD (`hart`, `T-npc-12-H02`) ausentes do SMD associado. O erro só aparecia tarde, dentro do Blender, depois de o workspace já ter sido removido.
+-6. `profiles authoring-plan priestess_c01_m5 --lod default` retornou `READY`, exact registry context match e client/write false.
+-7. `import ... --profile priestess_c01_m5 --lod default` criou workspace/provenance válidos e abriu no Blender. O utilizador relatou visualmente que “estava tudo correto”. Esta observação é preliminar e não é promovida a certificação runtime/visual formal.
+-8. `build --plan` permaneceu fail-closed para produção, embora o authoring plan exponha objetos elegíveis ao candidate writer.
++A evidência resumida está em `evidence/manual_r10_confirmation_2026-09-02.md`.
+ 
+-## Nova análise do audit real multi-INX
++## Problema adicional revelado pelo plano Priestess
+ 
+-As 106 rows / 258 choices do audit real R9 foram cruzadas com os NodeName do SMD canónico. Resultado congelado em:
+-
+-`evidence/rigid_model_info_real_lod_coverage_r10.summary.json`
++O profile `priestess_c01_m5` em `lod=default` seleciona exatamente:
+ 
+ ```text
+-rows verificadas                     106
+-choices INX verificadas              258
+-assets com nó LOD ausente              2
+-choices com nó LOD ausente             2
++MbmC01
++MsmC01
++MlmC01
+ ```
+ 
+-Casos afetados:
++Mas o `authoring_plan` source-side do SMD contém 15 objetos fisicamente elegíveis ao writer rigid, incluindo outros LODs/variantes como C03. A elegibilidade física do writer não deve permitir que um candidate produzido a partir de um workspace `default/C01` edite silenciosamente um objeto fora do contexto salvo.
+ 
+-- `char/npc/Bcn02/Bcn02.smd` + `Bcn02f.inx`
+-  - HIGH: faltam `hart`, `T-npc-12-H02`
+-  - DEFAULT: falta `hart`
+-- `char/tmABCD/tmbC03.smd` + `C004.inx`
+-  - HIGH: falta `TshC03`
+-  - DEFAULT: falta `TsmC03`
+-  - LOW: falta `TslC03`
++## Implementado em R11
+ 
+-A política continua conservadora: isso não afirma que o jogo rejeita esses INX; afirma apenas que o generic Blender importer atual não consegue materializar fielmente um nó que não existe no SMD associado.
++### 1. Candidate rigid limitado ao `selected_context.selected_lod_nodes`
+ 
+-## Implementado em R10
++`pt_asset_tool/rigid_authoring_candidate.py` agora calcula dois conjuntos separados:
+ 
+-### 1. Preflight de cobertura INX LOD → SMD NodeName
++- `source_contract_eligible_objects`: tudo que satisfaz o contrato físico do writer no SMD;
++- `eligible_objects`: somente a interseção desse conjunto com os nós do LOD salvo no `selected_context`.
+ 
+-`pt_asset_tool/rigid_model_info.py` agora expõe cobertura por LOD usando NodeName serializado, preservando semântica case-insensitive e chunks duplicados.
++`--object` fora do contexto salvo é rejeitado mesmo que seja fisicamente gravável pelo writer.
+ 
+-Cada cobertura informa:
++O plano expõe também:
+ 
+-- nós pedidos pelo INX;
+-- nós ausentes do SMD;
+-- quantidade de chunks SMD efetivamente selecionáveis;
+-- estado `PASS` / `FAIL` / `UNKNOWN`.
++- `selected_lod_nodes`;
++- `selected_lod_ineligible_objects`;
++- `selection_required` via `inspect_rigid_candidate_scope()`.
+ 
+-O audit `rigid-model-info-contexts` passa a incluir `lod_node_coverage` por choice e contagens de contexts incompatíveis com o generic importer.
++Isso é uma restrição de authoring/candidate, não uma afirmação sobre o que o runtime do jogo aceita.
+ 
+-### 2. Generic import falha antes do Blender
++### 2. `build --plan` mostra o scope do workspace rigid salvo
+ 
+-Antes de iniciar Blender, rigid import agora recusa contextos com:
++Quando existe um `authoring_manifest.json` rigid válido, `build <asset> --plan` acrescenta `candidate_scope`, permitindo distinguir claramente:
+ 
+-`MODEL_INFO_LOD_REFERENCES_MISSING_SMD_NODES`
++- os objetos fisicamente elegíveis no source;
++- os objetos candidate permitidos no LOD/contexto efetivamente importado.
+ 
+-Isso substitui a falha tardia observada no teste manual de `Bcn02f.inx` por um erro host-side explícito e auditável.
++Para a Priestess/default confirmada pelo utilizador, o esperado é o scope candidato ficar limitado a `MbmC01`, `MsmC01`, `MlmC01`.
+ 
+-### 3. `--reset` não destrói workspace antes do preflight
++### 3. Prova explícita de que uma edição realmente ocorreu
+ 
+-Para rigid assets, um reset agora resolve e valida o novo INX/LOD **antes** de apagar o workspace existente.
++Os verificadores static/rigid agora reportam:
+ 
+-Se o contexto pedido for incompatível, o `.blend` anterior permanece intacto. Isso fecha uma lacuna de preservação de edição artística descoberta diretamente no teste manual R9.
++```text
++edit_observed = true | false
++```
+ 
+-### 4. Profile authoring também expõe cobertura
++Um roundtrip/no-op byte-idêntico continua válido como preservação, mas já não deve ser confundido com prova de edição controlada.
+ 
+-`profiles authoring-plan` inclui `lod_node_coverage`. Um profile cujo contexto exato peça nós ausentes do SMD fica bloqueado com `PROFILE_LOD_REFERENCES_MISSING_SMD_NODES`.
++Foi adicionado:
+ 
+-### 5. UI/choice metadata enriquecido
++```bash
++--require-edit
++```
+ 
+-As opções rigid model-info usadas pela UI passam a carregar cobertura por LOD para permitir apresentação explícita de contextos importáveis vs fail-closed.
++em `build --candidate`. Para static/rigid, se o target sair byte-idêntico ao source, o build fica `FAIL` com:
+ 
+-### 6. Descoberta de client consistente entre status/smoke e doctor
++```text
++TARGET_EDIT_NOT_OBSERVED
++```
+ 
+-`app_config` agora inclui os mesmos layouts históricos de home/Desktop já suportados pelo fallback de `Settings.discover()`.
++Assim, o próximo teste manual pode provar que a alteração feita no `.blend` chegou realmente ao candidate output.
+ 
+-No ambiente real reportado, isso cobre:
++### 4. Readiness de código enriquecido sem promoção
+ 
+-`~/Área de Trabalho/summit/Summit Tale Client Full/cliente`
++`development_readiness.py` passa a expor como capacidades ligadas:
+ 
+-Também foi incluído `~/Desktop/summit/...` para a variante não localizada.
++- `selected_lod_candidate_scope_enforced=true`;
++- `candidate_require_edit_gate_available=true`.
+ 
+-## Validação R10
++Os blockers/maturidade continuam inalterados em essência: rigid saved-Blender ainda precisa de execução real controlada e runtime/produção continuam bloqueados.
++
++## Validação R11
+ 
+ ```text
+-58 PASS / 0 FAIL   dev tests reproduzíveis sem fixture_client
+-175 PASS / 1 SKIP  suíte histórica/maintained
+-106 rows / 258 choices do audit real cruzadas com SMD NodeName
+-2 choices incompatíveis detectadas e documentadas
++58 PASS / 0 FAIL   lote amplo reproduzível sem fixture_client
++8 PASS / 0 FAIL    testes focados de authoring/candidate novos/relevantes
++175 PASS / 1 SKIP  suíte histórica/maintained com symlink test-only temporário
+ compileall          PASS
+ node --check        PASS
+-bash -n             PASS
++bash -n              PASS
+ certified hashes    unchanged
+ ```
+ 
+-Os quatro writers certificados continuam byte-for-byte nos hashes congelados. O symlink test-only `payload -> .` usado pela suíte histórica foi removido ao final.
++O symlink test-only `payload -> .` foi removido ao final.
++
++## Próximo teste manual objetivo
++
++No snapshot R11:
++
++1. abrir/recriar a Priestess com profile `priestess_c01_m5`, LOD `default`;
++2. executar `build char/tmABCD/MfbC01.smd --plan` e confirmar `candidate_scope.eligible_objects` = `MbmC01`, `MsmC01`, `MlmC01`;
++3. no Blender, editar minimamente **um único** desses objetos, preferencialmente `MbmC01`, sem alterar skeleton/material assignment/topologia desnecessariamente;
++4. salvar o `.blend`;
++5. executar:
++
++```bash
++python3 pt_asset.py build "char/tmABCD/MfbC01.smd" \
++  --candidate \
++  --object MbmC01 \
++  --require-edit
++```
+ 
+-`CURRENT_READINESS.json` não foi regenerado neste ambiente porque o client real não está montado aqui. A matriz R9 continua válida quanto a maturidade/blockers; R10 não promove nenhuma área nem remove blockers, e a evidência nova fica separada em `evidence/`.
++Resultado desejado nesta fase:
+ 
+-## Estado de confiança após R10
++- candidate `PASS`;
++- `verification.edit_observed=true`;
++- `non_target_changed=[]`;
++- `unknown_physique_bones=[]`;
++- build provenance criado;
++- `production_authorized=false`;
++- `client_write_authorized=false`;
++- `client_modified=false`.
+ 
+-- Multi-INX ambiguity guard: evidência real PASS.
+-- Selected-context physical identity: evidência real PASS em `Bcn02.inx` e profile Priestess.
+-- Workspace context mismatch guard: evidência real PASS.
+-- Missing-LOD-node preflight: implementado a partir de uma falha Blender real; precisa de rerun manual R10 para confirmar a nova mensagem host-side e preservação do workspace.
+-- Priestess profile import: observação visual preliminar positiva; ainda não é Blender visual certification formal.
+-- Rigid saved-Blender candidate: continua candidate-only; ainda precisa de uma edição controlada + `build --candidate --object ...` no Blender real.
+-- Runtime/game acceptance: pendente.
+-- Production/deploy apply: bloqueado.
+-
+-## Próximo teste manual recomendado
+-
+-1. Repetir `Bcn02f.inx --reset`: agora deve falhar **antes do Blender** com `MODEL_INFO_LOD_REFERENCES_MISSING_SMD_NODES` e preservar o workspace anterior.
+-2. Executar `status` e `smoke` novamente: `status` deve resolver o mesmo client que `doctor` encontra; `smoke` deve deixar de falhar apenas por `client_root_resolved=false`.
+-3. No workspace Priestess já validado visualmente, escolher um único objeto elegível, fazer uma alteração geométrica mínima e controlada no Blender, salvar e executar `build --candidate --object <nome>`.
+-4. Validar o output candidate/provenance; não executar deploy/apply.
++Não executar deploy/apply no client.
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION_R10.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION_R10.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION_R10.md	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/AUTONOMOUS_CONTINUATION_R10.md	2026-09-02 17:04:24.277874536 +0000
+@@ -0,0 +1,128 @@
++# Continuação autónoma — R10 — 2026-09-02
++
++Esta continuação usa os testes manuais executados no snapshot R9 no client real e no Blender real. Nenhum resultado desta etapa promove writer, produção ou deploy no client.
++
++## Evidência manual recebida
++
++Os logs foram congelados em:
++
++- `evidence/manual_r9_test_2026-09-02_part1.txt`
++- `evidence/manual_r9_test_2026-09-02_part2.txt`
++
++Resultados confirmados:
++
++1. `status`/`smoke` inicialmente não encontravam o client pelo app-level discovery, enquanto `doctor` encontrava o caminho histórico real. Isso revelou uma inconsistência entre `app_config.resolve_client_root()` e `Settings.discover()`.
++2. `import char/npc/Bcn02/Bcn02.smd --no-open` falhou corretamente com `AMBIGUOUS_MODEL_INFO_CONFIG`.
++3. Seleção explícita de `Bcn02.inx` + `lod=default` importou com `selected_context` verificado e hashes físicos de INX/SMB.
++4. Reutilização do workspace com `Bcn02f.inx` sem `--reset` falhou corretamente com `EXISTING_RIGID_WORKSPACE_CONTEXT_MISMATCH`.
++5. O `--reset` com `Bcn02f.inx` revelou uma falha real: o INX pede nós de LOD (`hart`, `T-npc-12-H02`) ausentes do SMD associado. O erro só aparecia tarde, dentro do Blender, depois de o workspace já ter sido removido.
++6. `profiles authoring-plan priestess_c01_m5 --lod default` retornou `READY`, exact registry context match e client/write false.
++7. `import ... --profile priestess_c01_m5 --lod default` criou workspace/provenance válidos e abriu no Blender. O utilizador relatou visualmente que “estava tudo correto”. Esta observação é preliminar e não é promovida a certificação runtime/visual formal.
++8. `build --plan` permaneceu fail-closed para produção, embora o authoring plan exponha objetos elegíveis ao candidate writer.
++
++## Nova análise do audit real multi-INX
++
++As 106 rows / 258 choices do audit real R9 foram cruzadas com os NodeName do SMD canónico. Resultado congelado em:
++
++`evidence/rigid_model_info_real_lod_coverage_r10.summary.json`
++
++```text
++rows verificadas                     106
++choices INX verificadas              258
++assets com nó LOD ausente              2
++choices com nó LOD ausente             2
++```
++
++Casos afetados:
++
++- `char/npc/Bcn02/Bcn02.smd` + `Bcn02f.inx`
++  - HIGH: faltam `hart`, `T-npc-12-H02`
++  - DEFAULT: falta `hart`
++- `char/tmABCD/tmbC03.smd` + `C004.inx`
++  - HIGH: falta `TshC03`
++  - DEFAULT: falta `TsmC03`
++  - LOW: falta `TslC03`
++
++A política continua conservadora: isso não afirma que o jogo rejeita esses INX; afirma apenas que o generic Blender importer atual não consegue materializar fielmente um nó que não existe no SMD associado.
++
++## Implementado em R10
++
++### 1. Preflight de cobertura INX LOD → SMD NodeName
++
++`pt_asset_tool/rigid_model_info.py` agora expõe cobertura por LOD usando NodeName serializado, preservando semântica case-insensitive e chunks duplicados.
++
++Cada cobertura informa:
++
++- nós pedidos pelo INX;
++- nós ausentes do SMD;
++- quantidade de chunks SMD efetivamente selecionáveis;
++- estado `PASS` / `FAIL` / `UNKNOWN`.
++
++O audit `rigid-model-info-contexts` passa a incluir `lod_node_coverage` por choice e contagens de contexts incompatíveis com o generic importer.
++
++### 2. Generic import falha antes do Blender
++
++Antes de iniciar Blender, rigid import agora recusa contextos com:
++
++`MODEL_INFO_LOD_REFERENCES_MISSING_SMD_NODES`
++
++Isso substitui a falha tardia observada no teste manual de `Bcn02f.inx` por um erro host-side explícito e auditável.
++
++### 3. `--reset` não destrói workspace antes do preflight
++
++Para rigid assets, um reset agora resolve e valida o novo INX/LOD **antes** de apagar o workspace existente.
++
++Se o contexto pedido for incompatível, o `.blend` anterior permanece intacto. Isso fecha uma lacuna de preservação de edição artística descoberta diretamente no teste manual R9.
++
++### 4. Profile authoring também expõe cobertura
++
++`profiles authoring-plan` inclui `lod_node_coverage`. Um profile cujo contexto exato peça nós ausentes do SMD fica bloqueado com `PROFILE_LOD_REFERENCES_MISSING_SMD_NODES`.
++
++### 5. UI/choice metadata enriquecido
++
++As opções rigid model-info usadas pela UI passam a carregar cobertura por LOD para permitir apresentação explícita de contextos importáveis vs fail-closed.
++
++### 6. Descoberta de client consistente entre status/smoke e doctor
++
++`app_config` agora inclui os mesmos layouts históricos de home/Desktop já suportados pelo fallback de `Settings.discover()`.
++
++No ambiente real reportado, isso cobre:
++
++`~/Área de Trabalho/summit/Summit Tale Client Full/cliente`
++
++Também foi incluído `~/Desktop/summit/...` para a variante não localizada.
++
++## Validação R10
++
++```text
++58 PASS / 0 FAIL   dev tests reproduzíveis sem fixture_client
++175 PASS / 1 SKIP  suíte histórica/maintained
++106 rows / 258 choices do audit real cruzadas com SMD NodeName
++2 choices incompatíveis detectadas e documentadas
++compileall          PASS
++node --check        PASS
++bash -n             PASS
++certified hashes    unchanged
++```
++
++Os quatro writers certificados continuam byte-for-byte nos hashes congelados. O symlink test-only `payload -> .` usado pela suíte histórica foi removido ao final.
++
++`CURRENT_READINESS.json` não foi regenerado neste ambiente porque o client real não está montado aqui. A matriz R9 continua válida quanto a maturidade/blockers; R10 não promove nenhuma área nem remove blockers, e a evidência nova fica separada em `evidence/`.
++
++## Estado de confiança após R10
++
++- Multi-INX ambiguity guard: evidência real PASS.
++- Selected-context physical identity: evidência real PASS em `Bcn02.inx` e profile Priestess.
++- Workspace context mismatch guard: evidência real PASS.
++- Missing-LOD-node preflight: implementado a partir de uma falha Blender real; precisa de rerun manual R10 para confirmar a nova mensagem host-side e preservação do workspace.
++- Priestess profile import: observação visual preliminar positiva; ainda não é Blender visual certification formal.
++- Rigid saved-Blender candidate: continua candidate-only; ainda precisa de uma edição controlada + `build --candidate --object ...` no Blender real.
++- Runtime/game acceptance: pendente.
++- Production/deploy apply: bloqueado.
++
++## Próximo teste manual recomendado
++
++1. Repetir `Bcn02f.inx --reset`: agora deve falhar **antes do Blender** com `MODEL_INFO_LOD_REFERENCES_MISSING_SMD_NODES` e preservar o workspace anterior.
++2. Executar `status` e `smoke` novamente: `status` deve resolver o mesmo client que `doctor` encontra; `smoke` deve deixar de falhar apenas por `client_root_resolved=false`.
++3. No workspace Priestess já validado visualmente, escolher um único objeto elegível, fazer uma alteração geométrica mínima e controlada no Blender, salvar e executar `build --candidate --object <nome>`.
++4. Validar o output candidate/provenance; não executar deploy/apply.
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/R11_MANUAL_TEST.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/R11_MANUAL_TEST.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/R11_MANUAL_TEST.md	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/R11_MANUAL_TEST.md	2026-09-02 17:04:24.284584056 +0000
+@@ -0,0 +1,62 @@
++# R11 manual test — Priestess rigid saved-Blender candidate
++
++This test is intentionally candidate-only and must not write the client.
++
++## 1. Confirm the saved profile/LOD scope
++
++```bash
++python3 pt_asset.py import "char/tmABCD/MfbC01.smd" \
++  --profile priestess_c01_m5 \
++  --lod default \
++  --no-open
++
++python3 pt_asset.py build "char/tmABCD/MfbC01.smd" --plan
++```
++
++Expected `candidate_scope`:
++
++```text
++selected_lod = default
++eligible_objects = [MbmC01, MsmC01, MlmC01]
++selection_required = true
++manifest_verification_status = PASS
++status = READY
++```
++
++## 2. Make one minimal controlled edit
++
++Open the workspace `.blend` and edit only `MbmC01`.
++
++Recommended first witness: move one existing vertex by a very small amount. Do not delete/add vertices or faces, do not rename the object, do not change material assignment, and do not edit the armature.
++
++Save the `.blend`.
++
++## 3. Build the candidate and require real edit evidence
++
++```bash
++python3 pt_asset.py build "char/tmABCD/MfbC01.smd" \
++  --candidate \
++  --object MbmC01 \
++  --require-edit
++```
++
++Desired result:
++
++```text
++status = PASS
++candidate_kind = RIGID
++verification.status = PASS
++verification.edit_required = true
++verification.edit_observed = true
++verification.non_target_changed = []
++verification.unknown_physique_bones = []
++production_authorized = false
++client_write_authorized = false
++client_modified = false
++```
++
++If `TARGET_EDIT_NOT_OBSERVED` appears, the candidate remained byte-identical for the target and the Blender edit did not reach the writer output. Do not weaken this gate.
++
++If any non-target block changed or an unknown Physique bone appears, treat it as a real failure and keep the writer unpromoted.
++
++Do not run deploy/apply.
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/README_SNAPSHOT.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/README_SNAPSHOT.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/README_SNAPSHOT.md	2026-09-02 16:48:45.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/README_SNAPSHOT.md	2026-09-02 17:06:26.928678097 +0000
+@@ -1,4 +1,4 @@
+-# PT Asset Tool — R10 autonomous development snapshot
++# PT Asset Tool — R11 autonomous development snapshot
+ 
+ Internal version: `0.12.0` (unreleased development).
+ 
+@@ -6,12 +6,15 @@
+ 
+ 1. `RETOMADA_DESENVOLVIMENTO.md`
+ 2. `AUTONOMOUS_CONTINUATION.md`
+-3. `VALIDATION_STATUS_AUTONOMOUS.md`
+-4. `CURRENT_READINESS.json`
+-5. `CURRENT_GIT_STATUS.txt`
++3. `R11_MANUAL_TEST.md`
++4. `VALIDATION_STATUS_AUTONOMOUS.md`
++5. `CURRENT_READINESS.json`
++6. `CURRENT_GIT_STATUS.txt`
+ 
+-R10 is based on R9 plus real manual client/Blender evidence. It adds a fail-closed INX-LOD-to-SMD NodeName preflight, preserves existing workspaces when an invalid `--reset` context is requested, enriches profile/UI context coverage, and aligns app-level client discovery with `doctor`/`Settings` historical layouts.
++R11 is based on R10 plus the user's external confirmation that R10 `status/smoke` and the Bcn02f missing-LOD-node preflight work in the real environment. R11 then tightens the rigid saved-Blender candidate so a target must belong to the exact LOD saved in `selected_context`, exposes that scope in `build --plan`, and adds `--require-edit`/`edit_observed` so a controlled Blender edit cannot be confused with a no-op roundtrip.
+ 
+ No writer was promoted. No client write or deploy apply is enabled.
+ 
+-Real evidence is under `evidence/`.
++Real/manual evidence is under `evidence/`.
++
++`CURRENT_READINESS.json` is the last real-client machine snapshot carried forward; R11 adds code-level readiness evidence flags but does not manually rewrite corpus counts without the real client. Rerun `audit development-readiness` in the real environment to refresh it.
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/RETOMADA_DESENVOLVIMENTO.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/RETOMADA_DESENVOLVIMENTO.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/RETOMADA_DESENVOLVIMENTO.md	2026-09-02 16:48:59.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/RETOMADA_DESENVOLVIMENTO.md	2026-09-02 16:59:45.076708903 +0000
+@@ -902,3 +902,15 @@
+ ### Novo ponto de retomada em uma frase
+ 
+ > **Usar o contexto multi-INX real já classificado para executar profiles/candidates no Blender real e fechar pose-space/runtime; não ampliar parser nem promover writer antes dessa evidência.**
++
++---
++
++## Atualização R11 — scope do candidate rigid e prova de edit
++
++A confirmação manual R10 validou `status=PASS`, `smoke=PASS` e o preflight host-side de `Bcn02f.inx` antes do Blender.
++
++O candidate rigid foi endurecido novamente: a elegibilidade física do writer já não basta. O `--object` precisa também pertencer a `selected_context.selected_lod_nodes`, isto é, ao LOD exato salvo no workspace. Isso impede que um SMD que carrega vários LODs/variantes exponha objetos fora do contexto importado como alvo candidate.
++
++Além disso, `build --candidate` para static/rigid passa a reportar `edit_observed`. A opção `--require-edit` transforma um no-op byte-idêntico em `TARGET_EDIT_NOT_OBSERVED`, permitindo que um teste manual de edição controlada prove que o caminho de escrita realmente observou a alteração Blender.
++
++Essas mudanças continuam `CANDIDATE_PT_BUILD_ONLY`; não alteram produção, runtime ou deploy.
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS.md	2026-09-02 16:48:45.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS.md	2026-09-02 17:06:26.928629866 +0000
+@@ -1,21 +1,21 @@
+-# Validation Status — R10 autonomous continuation
++# Validation Status — R11 autonomous continuation
+ 
+ - Internal version: `0.12.0` (unreleased dev).
+-- Manual R9 real-client/Blender logs reviewed and frozen as evidence.
+-- Multi-INX fail-closed manual test: PASS.
+-- Explicit `Bcn02.inx` selected-context import/provenance: PASS.
+-- Existing-workspace context mismatch guard: PASS.
+-- Manual `Bcn02f.inx --reset`: exposed missing-LOD-node failure; fixed in R10 with host-side preflight.
+-- Real audit cross-check: **106 rows / 258 choices**, **2 choices** reference SMD-missing LOD nodes.
+-- Priestess canonical profile authoring-plan: READY / exact context match.
+-- Priestess Blender import: user-observed visually correct; recorded as preliminary, not formal certification.
+-- Focused/reproducible dev batch: **58 PASS / 0 FAIL**.
++- Manual R10 real-environment confirmation received: `status=PASS`, `smoke=PASS`.
++- R10 legacy-home client discovery: externally confirmed.
++- R10 `Bcn02f/default` missing-LOD-node host-side preflight: externally confirmed.
++- Rigid candidate target scope now restricted to the saved `selected_context.selected_lod_nodes`.
++- Rigid/static candidate verification now reports `edit_observed`.
++- `build --candidate --require-edit` fails no-op static/rigid candidates with `TARGET_EDIT_NOT_OBSERVED`.
++- `build --plan` now exposes saved-workspace `candidate_scope` for rigid assets.
++- Broad reproducible dev batch: **58 PASS / 0 FAIL**.
++- Focused candidate/authoring batch: **8 PASS / 0 FAIL**.
+ - Historical/maintained suite: **175 PASS / 1 SKIP** (temporary test-only `payload -> .` symlink removed after run).
+ - `compileall`: PASS.
+ - JavaScript `node --check`: PASS.
+-- shell `bash -n`: PASS.
++- shell `bash -n`: PASS (`install_desktop_entry.sh`).
+ - Certified writer hashes: unchanged.
+-- Client modified by R10 development/analysis: **false**.
++- Client modified by R11 development/analysis: **false**.
+ - Production authorization changed: **false**.
+ 
+-`fixture_client` remains intentionally absent from the snapshot. The new missing-LOD-node preflight and app-level client discovery fixes require a short real-environment rerun for external confirmation.
++`fixture_client` remains intentionally absent from the snapshot. The next evidence gate is a real Blender controlled edit of one selected Priestess/default object followed by `build --candidate --require-edit`; that test must remain `pt_build`-only.
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS_R10.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS_R10.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS_R10.md	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/VALIDATION_STATUS_AUTONOMOUS_R10.md	2026-09-02 17:04:24.279126686 +0000
+@@ -0,0 +1,21 @@
++# Validation Status — R10 autonomous continuation
++
++- Internal version: `0.12.0` (unreleased dev).
++- Manual R9 real-client/Blender logs reviewed and frozen as evidence.
++- Multi-INX fail-closed manual test: PASS.
++- Explicit `Bcn02.inx` selected-context import/provenance: PASS.
++- Existing-workspace context mismatch guard: PASS.
++- Manual `Bcn02f.inx --reset`: exposed missing-LOD-node failure; fixed in R10 with host-side preflight.
++- Real audit cross-check: **106 rows / 258 choices**, **2 choices** reference SMD-missing LOD nodes.
++- Priestess canonical profile authoring-plan: READY / exact context match.
++- Priestess Blender import: user-observed visually correct; recorded as preliminary, not formal certification.
++- Focused/reproducible dev batch: **58 PASS / 0 FAIL**.
++- Historical/maintained suite: **175 PASS / 1 SKIP** (temporary test-only `payload -> .` symlink removed after run).
++- `compileall`: PASS.
++- JavaScript `node --check`: PASS.
++- shell `bash -n`: PASS.
++- Certified writer hashes: unchanged.
++- Client modified by R10 development/analysis: **false**.
++- Production authorization changed: **false**.
++
++`fixture_client` remains intentionally absent from the snapshot. The new missing-LOD-node preflight and app-level client discovery fixes require a short real-environment rerun for external confirmation.
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_authoring.py /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_authoring.py
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_authoring.py	2026-09-02 15:04:07.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_authoring.py	2026-09-02 17:05:38.065310538 +0000
+@@ -173,6 +173,7 @@
+     result = validate_static_candidate_output(src, out, "obj")
+     assert result["status"] == "PASS"
+     assert result["target"]["target_block_byte_identical"] is True
++    assert result["edit_observed"] is False
+     assert result["production_authorized"] is False
+ 
+ 
+@@ -231,6 +232,7 @@
+     assert verify["status"] == "PASS"
+     assert verify["target"]["unique_physique_bones"]
+     assert verify["unknown_physique_bones"] == []
++    assert verify["edit_observed"] is False
+     assert verify["production_authorized"] is False
+ 
+ 
+@@ -354,3 +356,102 @@
+     blocked = rigid_candidate_mod.plan_rigid_saved_blender_candidate(tmp_path, Resolver(), asset)
+     assert blocked["status"] == "BLOCKED"
+     assert "RIGID_SELECTED_CONTEXT_MISMATCH" in blocked["blockers"]
++
++
++def test_rigid_candidate_is_scoped_to_saved_selected_lod(monkeypatch, tmp_path):
++    import pt_asset_tool.rigid_authoring_candidate as rigid_candidate_mod
++    from pt_asset_tool.authoring import build_selected_authoring_context
++    from pt_asset_tool.blender_workspace import blender_edit_root
++
++    source = tmp_path / "client" / "body.smd"; source.parent.mkdir(); source.write_bytes(b"smd")
++    inx = tmp_path / "client" / "body.inx"; inx.write_bytes(b"inx")
++    smb = tmp_path / "client" / "body.smb"; smb.write_bytes(b"smb")
++    asset = SimpleNamespace(
++        asset_id="AST-RIGID-LOD", primary_path="char/test/body.smd",
++        family="SMD_MODEL_062_RIGID_PHYSIQUE", kind="SMD_MODEL_062",
++        rigid_binding_ready=True, binding_mode="ROOT_SKELETON_BOUND", binding_source="TEST",
++        binding_skeleton_smb="char/test/body.smb",
++        configs=[{
++            "inx":"char/test/body.inx", "motion_smb":"char/test/body.smb",
++            "lod_groups":{"high":["BodyHi"], "default":["BodyA", "BodyB"], "low":["BodyLow"]},
++        }],
++    )
++    context = build_selected_authoring_context(
++        model_info_logical="char/test/body.inx", model_info_path=inx,
++        skeleton_logical="char/test/body.smb", skeleton_path=smb,
++        lod="default", lod_groups=asset.configs[0]["lod_groups"],
++    )
++    workspace = blender_edit_root(tmp_path, "generic_import", asset.primary_path)
++    workspace.mkdir(parents=True)
++    (workspace / "imported.blend").write_bytes(b"blend")
++    write_workspace_manifest(
++        workspace, asset, source, {"generic_build_authorized":False}, [inx, smb],
++        selected_context=context,
++    )
++
++    class Resolver:
++        def resolve(self, logical, required=True):
++            logical=str(logical).replace("\\", "/")
++            return {
++                "char/test/body.smd":source,
++                "char/test/body.inx":inx,
++                "char/test/body.smb":smb,
++            }[logical]
++
++    monkeypatch.setattr(rigid_candidate_mod, "authoring_plan", lambda asset, source: {
++        "source_analysis": {"sha256":"source-sha", "objects":[
++            {"name":"BodyA", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++            {"name":"BodyB", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++            {"name":"BodyHi", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++            {"name":"OtherVariant", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++        ]},
++    })
++
++    candidate = rigid_candidate_mod.plan_rigid_saved_blender_candidate(
++        tmp_path, Resolver(), asset, object_name="BodyA"
++    )
++    assert candidate["status"] == "READY"
++    assert candidate["eligible_objects"] == ["BodyA", "BodyB"]
++    assert candidate["selected_lod_nodes"] == ["BodyA", "BodyB"]
++    assert candidate["source_contract_eligible_objects"] == ["BodyA", "BodyB", "BodyHi", "OtherVariant"]
++
++    try:
++        rigid_candidate_mod.plan_rigid_saved_blender_candidate(
++            tmp_path, Resolver(), asset, object_name="OtherVariant"
++        )
++    except RuntimeError as exc:
++        assert "saved rigid LOD context" in str(exc)
++        assert "BodyA" in str(exc) and "BodyB" in str(exc)
++    else:
++        raise AssertionError("out-of-context rigid object must be rejected")
++
++
++def test_rigid_candidate_scope_reports_only_saved_lod_nodes():
++    from pt_asset_tool.rigid_authoring_candidate import inspect_rigid_candidate_scope
++
++    plan = {"source_analysis": {"objects": [
++        {"name":"DefaultA", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++        {"name":"DefaultB", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++        {"name":"HighA", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++    ]}}
++    context = {"lod":"default", "selected_lod_nodes":["DefaultA", "DefaultB"]}
++    scope = inspect_rigid_candidate_scope(plan, context)
++    assert scope["eligible_objects"] == ["DefaultA", "DefaultB"]
++    assert scope["source_contract_eligible_objects"] == ["DefaultA", "DefaultB", "HighA"]
++    assert scope["selection_required"] is True
++    assert scope["scope_complete"] is True
++
++
++def test_rigid_candidate_scope_allows_partial_lod_when_target_is_eligible():
++    from pt_asset_tool.rigid_authoring_candidate import inspect_rigid_candidate_scope
++
++    plan = {"source_analysis": {"objects": [
++        {"name":"Editable", "physique":True, "has_object_local_animation":False, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++        {"name":"NotEditable", "physique":True, "has_object_local_animation":True, "faces":1, "vertices":3, "texlink_min_layers":1, "texlink_max_layers":1},
++    ]}}
++    context = {"lod":"default", "selected_lod_nodes":["Editable", "NotEditable"]}
++    scope = inspect_rigid_candidate_scope(plan, context)
++    assert scope["eligible_objects"] == ["Editable"]
++    assert scope["selected_lod_ineligible_objects"] == ["NotEditable"]
++    assert scope["scope_complete"] is False
++    assert scope["selection_required"] is False
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_new_cli_contracts.py /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_new_cli_contracts.py
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_new_cli_contracts.py	2026-09-02 11:12:24.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/dev_tests/test_new_cli_contracts.py	2026-09-02 16:58:58.384170712 +0000
+@@ -121,3 +121,27 @@
+         )
+         assert proc.returncode == 0, f"{topic}: {proc.stdout}"
+         assert marker.lower() in proc.stdout.lower(), (topic, proc.stdout)
++
++
++def test_candidate_require_edit_policy_distinguishes_noop_from_controlled_edit():
++    from pt_asset_tool.cli import _enforce_candidate_edit_requirement
++
++    noop = _enforce_candidate_edit_requirement(
++        "RIGID", {"status":"PASS", "errors":[], "edit_observed":False}, True
++    )
++    assert noop["status"] == "FAIL"
++    assert "TARGET_EDIT_NOT_OBSERVED" in noop["errors"]
++    assert noop["edit_required"] is True
++
++    edited = _enforce_candidate_edit_requirement(
++        "RIGID", {"status":"PASS", "errors":[], "edit_observed":True}, True
++    )
++    assert edited["status"] == "PASS"
++    assert edited["errors"] == []
++    assert edited["edit_required"] is True
++
++    legacy_noop = _enforce_candidate_edit_requirement(
++        "RIGID", {"status":"PASS", "errors":[], "edit_observed":False}, False
++    )
++    assert legacy_noop["status"] == "PASS"
++    assert legacy_noop["edit_required"] is False
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/cli.py /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/cli.py
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/cli.py	2026-09-02 15:29:14.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/cli.py	2026-09-02 17:05:38.065034575 +0000
+@@ -49,7 +49,7 @@
+ from .deployment import plan_deployment, prepare_deployment_transaction, verify_deployment_transaction, simulate_deployment_transaction, classify_client_transaction_state, plan_restore_transaction
+ from .authoring import authoring_plan, audit_model062_authoring, verify_workspace_manifest
+ from .static_authoring_candidate import plan_static_saved_blender_candidate, validate_static_candidate_output, build_static_candidate_blender_command
+-from .rigid_authoring_candidate import plan_rigid_saved_blender_candidate, validate_rigid_candidate_output, build_rigid_candidate_blender_command
++from .rigid_authoring_candidate import plan_rigid_saved_blender_candidate, validate_rigid_candidate_output, build_rigid_candidate_blender_command, inspect_rigid_candidate_scope
+ from .stage072_authoring_candidate import (
+     plan_stage072_saved_blender_candidate,
+     build_stage072_edit_extract_command,
+@@ -2819,7 +2819,21 @@
+     return int(proc.returncode or 0)
+ 
+ 
++def _enforce_candidate_edit_requirement(kind: str, verification: dict, required: bool) -> dict:
++    result = dict(verification or {})
++    result["edit_required"] = bool(required)
++    if required and kind in {"STATIC", "RIGID"} and not bool(result.get("edit_observed")):
++        errors = list(result.get("errors") or [])
++        if "TARGET_EDIT_NOT_OBSERVED" not in errors:
++            errors.append("TARGET_EDIT_NOT_OBSERVED")
++        result["errors"] = errors
++        result["status"] = "FAIL"
++    return result
++
++
+ def cmd_build_asset(a):
++    if bool(getattr(a, "require_edit", False)) and not bool(getattr(a, "candidate", False)):
++        raise RuntimeError("--require-edit requires --candidate")
+     s, reg, cert, resolver = make_context(a)
+     asset = reg.resolve(a.target)
+     plan = build_plan(asset)
+@@ -2831,7 +2845,23 @@
+             source_for_authoring = None
+     authoring = authoring_plan(asset, source_for_authoring)
+     if a.plan:
+-        print(json.dumps({"build_plan": plan, "authoring_plan": authoring}, ensure_ascii=False, indent=2))
++        shown = {"build_plan": plan, "authoring_plan": authoring}
++        if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE":
++            workspace = blender_edit_root(s.project_root, "generic_import", asset.primary_path)
++            manifest = workspace / "authoring_manifest.json"
++            if manifest.is_file():
++                manifest_verify = verify_workspace_manifest(manifest)
++                selected_context = manifest_verify.get("selected_context")
++                candidate_scope = inspect_rigid_candidate_scope(authoring, selected_context)
++                candidate_scope["workspace"] = str(workspace)
++                candidate_scope["manifest_verification_status"] = manifest_verify.get("status")
++                candidate_scope["status"] = (
++                    "READY" if manifest_verify.get("status") == "PASS"
++                    and candidate_scope.get("eligible_objects")
++                    else "BLOCKED"
++                )
++                shown["candidate_scope"] = candidate_scope
++        print(json.dumps(shown, ensure_ascii=False, indent=2))
+         return 0
+ 
+     if bool(getattr(a, "candidate", False)):
+@@ -2879,6 +2909,8 @@
+             run_logged(cmd, log)
+             writer_report = json.loads(extract_report.read_text(encoding="utf-8"))
+             verification = apply_stage072_candidate_witness(candidate, witness)
++        require_edit = bool(getattr(a, "require_edit", False))
++        verification = _enforce_candidate_edit_requirement(kind, verification, require_edit)
+         shown = {
+             "format": "PT_ASSET_CANDIDATE_BUILD_V1",
+             "status": "PASS" if verification.get("status") == "PASS" else "FAIL",
+@@ -3055,7 +3087,8 @@
+     x.add_argument("target", help="asset id/path")
+     x.add_argument("--plan", action="store_true", help="show production adapter plus per-channel authoring decision without building")
+     x.add_argument("--candidate", action="store_true", help="run the explicit static/rigid saved-Blender candidate writer; output remains pt_build-only and never authorizes publish")
+-    x.add_argument("--object", help="target object for --candidate when more than one static object is eligible")
++    x.add_argument("--object", help="target object for --candidate when more than one static/rigid object is eligible in the saved authoring context")
++    x.add_argument("--require-edit", action="store_true", help="for static/rigid --candidate, fail unless the target object block differs from the source; useful for controlled manual Blender certification tests")
+     x.add_argument("--output", help="optional output path; must remain under pt_build")
+     x.set_defaults(func=cmd_build_asset)
+ 
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/development_readiness.py /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/development_readiness.py
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/development_readiness.py	2026-09-02 15:35:36.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/development_readiness.py	2026-09-02 16:59:44.911627619 +0000
+@@ -124,6 +124,8 @@
+                 "generic_build_authorized_assets": len(authorized_builds),
+                 "saved_blender_candidate_wired": True,
+                 "selected_context_manifest_wired": True,
++                "selected_lod_candidate_scope_enforced": True,
++                "candidate_require_edit_gate_available": True,
+                 "multi_inx_context_audit_wired": True,
+                 "single_config_assets": rigid_model_info.get("single_config_assets", 0),
+                 "multi_config_assets": rigid_model_info.get("multi_config_assets", 0),
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/rigid_authoring_candidate.py /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/rigid_authoring_candidate.py
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/rigid_authoring_candidate.py	2026-09-02 14:56:43.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/rigid_authoring_candidate.py	2026-09-02 17:05:38.064390341 +0000
+@@ -31,6 +31,51 @@
+     ]
+ 
+ 
++def _restrict_to_selected_lod(eligible: list[str], selected_context: dict[str, Any] | None) -> tuple[list[str], list[str], list[str]]:
++    """Restrict candidate targets to the exact LOD nodes saved at import time.
++
++    A Model0.62 container may carry meshes for several LODs/variants.  Physical
++    writer eligibility alone is therefore not enough: a candidate edit must also
++    belong to the authoring context that produced the saved Blender workspace.
++    """
++    context = dict(selected_context or {})
++    selected_nodes = [str(x) for x in (context.get("selected_lod_nodes") or []) if str(x)]
++    if not selected_nodes:
++        return list(eligible), [], []
++
++    by_key: dict[str, list[str]] = {}
++    for name in eligible:
++        by_key.setdefault(name.casefold(), []).append(name)
++
++    scoped: list[str] = []
++    ineligible: list[str] = []
++    for requested in selected_nodes:
++        hits = by_key.get(requested.casefold(), [])
++        if not hits:
++            ineligible.append(requested)
++            continue
++        for hit in hits:
++            if hit not in scoped:
++                scoped.append(hit)
++    return scoped, selected_nodes, ineligible
++
++
++def inspect_rigid_candidate_scope(plan: dict[str, Any], selected_context: dict[str, Any] | None) -> dict[str, Any]:
++    source_eligible = _eligible_objects(plan)
++    eligible, selected_lod_nodes, selected_lod_ineligible = _restrict_to_selected_lod(source_eligible, selected_context)
++    return {
++        "format": "PT_RIGID_SAVED_BLENDER_CANDIDATE_SCOPE_V1",
++        "selected_lod": str((selected_context or {}).get("lod") or ""),
++        "selected_lod_nodes": selected_lod_nodes,
++        "eligible_objects": eligible,
++        "source_contract_eligible_objects": source_eligible,
++        "selected_lod_ineligible_objects": selected_lod_ineligible,
++        "scope_complete": not bool(selected_lod_ineligible),
++        "selection_required": len(eligible) > 1,
++        "client_modified": False,
++    }
++
++
+ def plan_rigid_saved_blender_candidate(project_root, resolver, asset, *, object_name: str | None = None, output: pathlib.Path | str | None = None) -> dict[str, Any]:
+     project_root = pathlib.Path(project_root).resolve()
+     if asset.family != "SMD_MODEL_062_RIGID_PHYSIQUE":
+@@ -39,18 +84,7 @@
+         raise RuntimeError(f"rigid saved-Blender candidate requires resolved binding, got {asset.binding_mode}/{asset.binding_source}")
+     source = pathlib.Path(resolver.resolve(asset.primary_path, required=True)).resolve()
+     plan = authoring_plan(asset, source)
+-    eligible = _eligible_objects(plan)
+-    if object_name:
+-        hits = [x for x in eligible if x.casefold() == str(object_name).casefold()]
+-        if not hits:
+-            raise RuntimeError(f"object is not eligible for rigid candidate writer: {object_name}; eligible={eligible}")
+-        selected = hits[0]
+-    elif len(eligible) == 1:
+-        selected = eligible[0]
+-    elif not eligible:
+-        raise RuntimeError("no object satisfies the rigid saved-Blender candidate contract")
+-    else:
+-        raise RuntimeError(f"multiple eligible objects; choose --object explicitly: {eligible}")
++    source_eligible = _eligible_objects(plan)
+ 
+     workspace = blender_edit_root(project_root, "generic_import", asset.primary_path)
+     blend = workspace / "imported.blend"
+@@ -73,6 +107,30 @@
+     context_verify = verify_selected_context_for_asset(selected_context, asset, resolver=resolver)
+     if context_verify.get("status") != "PASS":
+         blockers.append("RIGID_SELECTED_CONTEXT_MISMATCH")
++
++    scope = inspect_rigid_candidate_scope(plan, selected_context)
++    eligible = list(scope["eligible_objects"])
++    selected_lod_nodes = list(scope["selected_lod_nodes"])
++    selected_lod_ineligible = list(scope["selected_lod_ineligible_objects"])
++    if object_name:
++        hits = [x for x in eligible if x.casefold() == str(object_name).casefold()]
++        if not hits:
++            raise RuntimeError(
++                f"object is not eligible within the saved rigid LOD context: {object_name}; "
++                f"selected_lod_nodes={selected_lod_nodes}; eligible={eligible}"
++            )
++        selected = hits[0]
++    elif len(eligible) == 1:
++        selected = eligible[0]
++    elif not eligible:
++        raise RuntimeError(
++            "no object satisfies the rigid saved-Blender candidate contract within the saved LOD context"
++        )
++    else:
++        raise RuntimeError(
++            f"multiple eligible objects in saved LOD context; choose --object explicitly: {eligible}"
++        )
++
+     skeleton_row = dict((selected_context or {}).get("skeleton_smb") or {})
+     skeleton = pathlib.Path(str(skeleton_row.get("path") or resolver.resolve(asset.binding_skeleton_smb, required=True))).resolve()
+     skeleton_logical = str(skeleton_row.get("logical") or asset.binding_skeleton_smb or "").replace("\\", "/")
+@@ -107,6 +165,9 @@
+         "manifest_verification": manifest_verify,
+         "object": selected,
+         "eligible_objects": eligible,
++        "source_contract_eligible_objects": source_eligible,
++        "selected_lod_nodes": selected_lod_nodes,
++        "selected_lod_ineligible_objects": selected_lod_ineligible,
+         "output": str(output_path),
+         "blockers": blockers,
+         "production_authorized": False,
+@@ -205,6 +266,7 @@
+         "object": target_object, "target": target,
+         "unknown_physique_bones": unknown_bones,
+         "non_target_changed": non_target_changed, "errors": errors,
++        "edit_observed": bool(target is not None and not target.get("target_block_byte_identical", True)),
+         "candidate_only": True, "production_authorized": False,
+         "client_write_authorized": False, "client_modified": False,
+     }
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/static_authoring_candidate.py /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/static_authoring_candidate.py
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/static_authoring_candidate.py	2026-09-02 12:43:26.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/app/pt_asset_tool/static_authoring_candidate.py	2026-09-02 16:58:30.084999970 +0000
+@@ -145,6 +145,7 @@
+         "target": target,
+         "non_target_changed": non_target_changed,
+         "errors": errors,
++        "edit_observed": bool(target is not None and not target.get("target_block_byte_identical", True)),
+         "candidate_only": True,
+         "production_authorized": False,
+         "client_write_authorized": False,
+diff -ruN '--exclude=SNAPSHOT_SHA256SUMS.txt' '--exclude=AUTONOMOUS_CHANGESET_R10_TO_R11.diff' '--exclude=AUTONOMOUS_CHANGESET.diff' '--exclude=R11_CHANGED_FILES.txt' '--exclude=AUTONOMOUS_CHANGED_FILES.txt' '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/evidence/manual_r10_confirmation_2026-09-02.md /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/evidence/manual_r10_confirmation_2026-09-02.md
+--- /mnt/data/pt_asset_r11_baseline/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/evidence/manual_r10_confirmation_2026-09-02.md	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r11_work/PT_Asset_Tool_dev_snapshot_2026-09-02_r10_autonomous/evidence/manual_r10_confirmation_2026-09-02.md	2026-09-02 16:59:45.076140205 +0000
+@@ -0,0 +1,19 @@
++# Manual R10 confirmation — 2026-09-02
++
++Environment reported by the user: real Summit Tale client + Blender installation, snapshot R10.
++
++Observed results:
++
++- `python3 pt_asset.py status` => `status: PASS`.
++- app-level client discovery resolved `/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente` with source `LEGACY_HOME_DESKTOP_LAYOUT`.
++- `python3 pt_asset.py smoke` => `status: PASS`; all listed smoke contracts were true and `client_modified=false`.
++- `import char/npc/Bcn02/Bcn02.smd --model-info char/npc/Bcn02/Bcn02f.inx --lod default --reset --no-open`
++  failed host-side with:
++  `MODEL_INFO_LOD_REFERENCES_MISSING_SMD_NODES ... missing=['hart']`.
++- No Blender-side failure was needed for the invalid Bcn02f/default context in this rerun.
++
++Interpretation:
++
++- R10 client-root discovery fix is externally confirmed in the reported environment.
++- R10 missing-LOD-node preflight is externally confirmed for Bcn02f/default.
++- This evidence does not promote any writer, runtime acceptance, production authorization, or client-write capability.

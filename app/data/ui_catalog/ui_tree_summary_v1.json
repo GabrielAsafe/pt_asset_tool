@@ -1,0 +1,64 @@
+{
+  "format": "PT_UI_TREE_EVIDENCE_V1",
+  "status": "PASS",
+  "file_count": 6876,
+  "total_bytes": 395176098,
+  "policy": {
+    "classification": "path/folder evidence only",
+    "writer": "UNAUTHORIZED",
+    "runtime": "no runtime claim from path alone"
+  },
+  "root_counts": {
+    "image": 6433,
+    "StartImage": 443
+  },
+  "extension_counts": {
+    ".ase": 37,
+    ".bak": 1,
+    ".bmp": 3389,
+    ".cam": 1,
+    ".db": 46,
+    ".ini": 7,
+    ".inx": 1,
+    ".json": 1,
+    ".msg": 6,
+    ".png": 9,
+    ".sin": 430,
+    ".smb": 12,
+    ".smd": 1173,
+    ".tga": 1727,
+    ".txt": 1,
+    ".wav": 30,
+    ".zif": 5
+  },
+  "sinimage_subfolder_counts": {
+    "Items": 4220,
+    "skill": 723,
+    "Quest": 375,
+    "Effect": 202,
+    "AssaEffect": 190,
+    "shopall": 150,
+    "help": 142,
+    "Inter": 94,
+    "Premium": 91,
+    "Siege": 57,
+    "Inven": 32,
+    "Sound": 28,
+    "indishop": 20,
+    "MessageBox": 20,
+    "Player": 20,
+    "PetData": 19,
+    "Event": 15,
+    "Status": 13,
+    "WarpGateDoc": 13,
+    "Cursor": 9
+  },
+  "startimage_subfolder_counts": {
+    "login": 159,
+    "Opening": 152,
+    "MessageBox": 96,
+    "sky": 32,
+    "Loading": 3,
+    "StartImage": 1
+  }
+}

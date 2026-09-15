@@ -1,0 +1,177 @@
+from __future__ import annotations
+
+import pathlib
+from collections import Counter
+from typing import Any
+
+from .release_1_coverage import CONTENT_DOMAINS, content_domain
+from .static_roundtrip import _parse as parse_model062_bytes
+
+FORMAT = "PT_MODEL062_PHYSICAL_CORPUS_AUDIT_V1"
+FAMILIES = {
+    "SMD_MODEL_062_RIGID_PHYSIQUE": "RIGID",
+    "SMD_MODEL_062_STATIC": "STATIC",
+    "SMD_MODEL_062_MIXED_PHYSIQUE": "MIXED",
+}
+
+
+def _physical_mode(objects: list[dict[str, Any]]) -> str:
+    if not objects:
+        return "UNKNOWN"
+    n_phys = sum(1 for o in objects if bool(o.get("phys")))
+    if n_phys == 0:
+        return "STATIC"
+    if n_phys == len(objects):
+        return "RIGID"
+    return "MIXED"
+
+
+def audit_model062_physical_corpus(registry, resolver, *, sample_limit: int = 100) -> dict[str, Any]:
+    """Physically parse every canonical Model0.62 container.
+
+    This gate is deliberately format-wide.  Binding/LOD/material/texture gates
+    prove separate semantics; here we prove that every shipped Model0.62 body
+    closes under the same fixed object/TexLink/key/Physique layout and that its
+    physical counts/mode agree with the canonical inventory classification.
+    """
+    by_domain = {d: Counter() for d in CONTENT_DOMAINS}
+    by_family: dict[str, Counter] = {f: Counter() for f in FAMILIES}
+    by_family_domain: dict[str, dict[str, Counter]] = {f: {d: Counter() for d in CONTENT_DOMAINS} for f in FAMILIES}
+    rows: list[dict[str, Any]] = []
+    failures: list[dict[str, Any]] = []
+
+    for asset in registry.assets:
+        family = str(asset.family or "")
+        if family not in FAMILIES:
+            continue
+        domain = content_domain(asset)
+        if domain not in by_domain:
+            continue
+        by_domain[domain]["ASSET_COUNT"] += 1
+        by_domain[domain][family] += 1
+        by_family[family]["ASSET_COUNT"] += 1
+        by_family_domain[family][domain]["ASSET_COUNT"] += 1
+        try:
+            source = pathlib.Path(resolver.resolve(asset.primary_path, required=True)).resolve()
+            parsed = parse_model062_bytes(source.read_bytes())
+            objects = list((parsed.get("objects") or {}).values())
+            mode = _physical_mode(objects)
+            expected_mode = FAMILIES[family]
+            object_count = len(objects)
+            vertices = sum(int(o.get("nv") or 0) for o in objects)
+            faces = sum(int(o.get("nf") or 0) for o in objects)
+            texlinks = sum(int(o.get("nt") or 0) for o in objects)
+            local_key_objects = sum(
+                1 for o in objects if any(int(o.get(k) or 0) > 0 for k in ("nr", "np", "ns"))
+            )
+            expected_object = int(getattr(asset, "object_count", 0) or 0)
+            expected_vertices = int(getattr(asset, "total_vertices", 0) or 0)
+            expected_faces = int(getattr(asset, "total_faces", 0) or 0)
+            expected_materials = int(getattr(asset, "material_count", 0) or 0)
+            expected_texlinks = int((getattr(asset, "source_record", {}) or {}).get("total_texlinks") or 0)
+            errors: list[str] = []
+            if mode != expected_mode:
+                errors.append(f"PHYSIQUE_MODE:{expected_mode}!={mode}")
+            if expected_object and object_count != expected_object:
+                errors.append(f"OBJECT_COUNT:{expected_object}!={object_count}")
+            if expected_vertices and vertices != expected_vertices:
+                errors.append(f"VERTEX_COUNT:{expected_vertices}!={vertices}")
+            if expected_faces and faces != expected_faces:
+                errors.append(f"FACE_COUNT:{expected_faces}!={faces}")
+            if int(parsed.get("mat_count") or 0) != expected_materials:
+                errors.append(f"MATERIAL_COUNT:{expected_materials}!={int(parsed.get('mat_count') or 0)}")
+            if expected_texlinks and texlinks != expected_texlinks:
+                errors.append(f"TEXLINK_COUNT:{expected_texlinks}!={texlinks}")
+            if errors:
+                raise RuntimeError(";".join(errors))
+            by_domain[domain]["OBJECT_COUNT"] += object_count
+            by_domain[domain]["VERTEX_COUNT"] += vertices
+            by_domain[domain]["FACE_COUNT"] += faces
+            by_domain[domain]["TEXLINK_COUNT"] += texlinks
+            by_domain[domain]["OBJECTS_WITH_LOCAL_KEYS"] += local_key_objects
+            by_family[family]["PASS_COUNT"] += 1
+            by_family_domain[family][domain]["PASS_COUNT"] += 1
+            rows.append({
+                "asset_id": asset.asset_id,
+                "asset": asset.primary_path,
+                "domain": domain,
+                "family": family,
+                "physical_mode": mode,
+                "status": "PASS",
+                "object_count": object_count,
+                "material_count": int(parsed.get("mat_count") or 0),
+                "vertices": vertices,
+                "faces": faces,
+                "texlinks": texlinks,
+                "objects_with_local_keys": local_key_objects,
+            })
+        except Exception as exc:
+            by_domain[domain]["FAIL_COUNT"] += 1
+            by_family[family]["FAIL_COUNT"] += 1
+            by_family_domain[family][domain]["FAIL_COUNT"] += 1
+            row = {
+                "asset_id": asset.asset_id,
+                "asset": asset.primary_path,
+                "domain": domain,
+                "family": family,
+                "status": "FAIL",
+                "error": f"{type(exc).__name__}: {exc}",
+            }
+            rows.append(row)
+            failures.append(row)
+
+    pass_domains: list[str] = []
+    domain_summary: dict[str, Any] = {}
+    for domain, c in by_domain.items():
+        count = int(c.get("ASSET_COUNT") or 0)
+        fail = int(c.get("FAIL_COUNT") or 0)
+        status = "PASS" if count and fail == 0 else ("NOT_PRESENT" if count == 0 else "FAIL")
+        domain_summary[domain] = {**dict(sorted(c.items())), "status": status}
+        if status == "PASS":
+            pass_domains.append(domain)
+
+    family_summary: dict[str, Any] = {}
+    for family, c in by_family.items():
+        count = int(c.get("ASSET_COUNT") or 0)
+        fail = int(c.get("FAIL_COUNT") or 0)
+        family_summary[family] = {
+            **dict(sorted(c.items())),
+            "status": "PASS" if count and fail == 0 else ("NOT_PRESENT" if count == 0 else "FAIL"),
+        }
+
+    pass_domains_by_family: dict[str, list[str]] = {}
+    family_domain_summary: dict[str, Any] = {}
+    for family, domain_rows in by_family_domain.items():
+        family_domain_summary[family] = {}
+        passed: list[str] = []
+        for domain, c in domain_rows.items():
+            count = int(c.get("ASSET_COUNT") or 0)
+            fail = int(c.get("FAIL_COUNT") or 0)
+            status = "PASS" if count and fail == 0 else ("NOT_PRESENT" if count == 0 else "FAIL")
+            family_domain_summary[family][domain] = {**dict(sorted(c.items())), "status": status}
+            if status == "PASS":
+                passed.append(domain)
+        pass_domains_by_family[family] = sorted(passed)
+
+    return {
+        "format": FORMAT,
+        "status": "PASS" if rows and not failures else ("EMPTY" if not rows else "FAIL"),
+        "asset_count": len(rows),
+        "failure_count": len(failures),
+        "pass_domains": sorted(pass_domains),
+        "by_domain": domain_summary,
+        "by_family": family_summary,
+        "by_family_domain": family_domain_summary,
+        "pass_domains_by_family": pass_domains_by_family,
+        "physical_mixed_count": int((by_family.get("SMD_MODEL_062_MIXED_PHYSIQUE") or {}).get("ASSET_COUNT") or 0),
+        "failure_sample": failures[: max(0, int(sample_limit))],
+        "rows": rows,
+        "policy": {
+            "corpus_wide_physical_parse": True,
+            "inventory_mode_must_match_physical_physique_mode": True,
+            "binding_lod_material_texture_semantics_are_separate_gates": True,
+            "production_authorized": False,
+            "client_write_authorized": False,
+        },
+        "client_modified": False,
+    }

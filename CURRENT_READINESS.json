@@ -1,0 +1,92 @@
+{
+  "format": "PT_ASSET_CURRENT_READINESS_V5",
+  "version": "1.0.0",
+  "date": "2026-09-14",
+  "status": "RELEASE_1_0_CERTIFIED_SAFETY_LOCKED",
+  "release_1_0": true,
+  "release_target": "1.0",
+  "automatic_gate_status": "PASS",
+  "release_gate_status": "BLOCKED_EXTERNAL",
+  "package_safety_mode": "LOCKED_BY_DEFAULT",
+  "production_authorized": false,
+  "client_write_authorized": false,
+  "server_write_authorized": false,
+  "client_modified_by_certification": false,
+  "runtime_game_acceptance": {
+    "status": "OUT_OF_SCOPE_PT_ASSET_TOOL_1_0",
+    "release_1_blocking": false
+  },
+  "tool_capability": {
+    "status": "PASS",
+    "automatic_blocker_count": 0,
+    "model062_material_corpus_status": "PASS",
+    "model062_material_asset_count": 3144,
+    "model062_material_writer_pass_domains": [
+      "EFFECT",
+      "MAP",
+      "MONSTER",
+      "NPC",
+      "PLAYER",
+      "WEAPON_ITEM"
+    ],
+    "model062_texture_audit_status": "PASS",
+    "proprietary_texture_codec_capability_status": "PASS"
+  },
+  "target_content_readiness": {
+    "status": "FAIL_DOCUMENTED_NONBLOCKING",
+    "model062_texture_strict_status": "FAIL",
+    "model062_texture_failure_count": 19,
+    "fix23_unique_expected_texture_gaps": 15,
+    "proprietary_texture_target_content_status": "FAIL",
+    "proprietary_texture_invalid_payload_count": 2,
+    "release_1_blocking": false
+  },
+  "known_limitations": {
+    "missing_expected_texture_paths_fix23": [
+      "char/tmABCD/LLhead.tga",
+      "char/tmABCD/TfhD02b.bmp",
+      "char/tmABCD/hair06_yun.tga",
+      "Effect/Sky/losttemple/day/space.bmp",
+      "Effect/Sky/Sky08/day/02dayhill.TGA",
+      "image/Sinimage/AssaEffect/TwistJavelin/fire01_01.bmp",
+      "field/forest/07-g9 copy.bmp",
+      "char/monster/d_kn/MMHA02.BMP",
+      "char/monster/Kakoa/Kakoa_BB copy.tga",
+      "char/monster/Monhobgoblin/hobgoblin-w01.bmp",
+      "Char/Monster/Monrebion/Mon-Rebion-1.bmp",
+      "char/monster/RibbonHopy/Packjjangpy.tga",
+      "char/npc/TN-017/______--a.jpg",
+      "StartImage/Opening/npc/mm.bmp",
+      "Effect/AssaEffect/Skill3Mesh/itws213.TGA"
+    ],
+    "invalid_target_tga_payloads": {
+      "Field/Ricarten/ch_tree1.tga": "HTML_ERROR_DOCUMENT / IIS 404 payload",
+      "Effect/AssaEffect/MonsterFury/m_fury.tga": "ZERO_FILLED_FILE"
+    },
+    "mixed_physique": "NOT_CERTIFIED_OUT_OF_SCOPE",
+    "assassin_shaman": "OUT_OF_SCOPE_FOR_EIGHT_ACTIVE_CLASS_1_0_LINE"
+  },
+  "external_operational_gate": {
+    "pending": [
+      "WRITER_PROMOTION_AND_PUBLISH_RESTORE"
+    ],
+    "manual_review_required_now": true,
+    "blocks_release_package": false,
+    "meaning": "Production writer promotion/publish/restore remains explicit and safety-locked; it is not silently enabled by installing 1.0.0."
+  },
+  "evidence": {
+    "release_report": "app/pt_build/devtest/release_1_auto/result.json",
+    "source_gate_generated_at": null,
+    "finalized_at": "2026-09-14T17:20:47+00:00",
+    "fix_chain": [
+      "FIX21",
+      "FIX22",
+      "FIX24",
+      "FIX25"
+    ],
+    "bundled_release_report": "docs/evidence/RELEASE_1_AUTO_FINAL_RESULT.json",
+    "original_runtime_report": "app/pt_build/devtest/release_1_auto/result.json (working-tree evidence; pt_build excluded from clean distribution)"
+  },
+  "documentation_complete": true,
+  "documentation_index": "docs/README.md"
+}

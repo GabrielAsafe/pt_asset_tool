@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import argparse, hashlib, json, os, re
+from collections import Counter
+from dataclasses import asdict, dataclass
+from pathlib import Path
+
+FORMAT='PT_PARTICLE_PART_READONLY_V1'
+REF_RE=re.compile("(?ix)(?:[\\\"']([^\\\"'\\r\\n]+\\.(?:tga|bmp|png|dds|jpg|jpeg|smd|ase|part|wav|ogg|mp3))[\\\"']|([A-Za-z0-9_./\\\\()@+\\-\\[\\] ]+\\.(?:tga|bmp|png|dds|jpg|jpeg|smd|ase|part|wav|ogg|mp3)))")
+ASSIGN_RE=re.compile(r'^\s*([A-Za-z_][A-Za-z0-9_.-]*)\s*(?:=|:|\s)\s*(.*?)\s*$')
+
+def sha(b: bytes) -> str:
+    return hashlib.sha256(b).hexdigest()
+
+def detect(data: bytes):
+    if b'\x00' in data:
+        return 'BINARY_NUL',''
+    try:
+        return 'ASCII',data.decode('ascii')
+    except UnicodeDecodeError:
+        pass
+    try:
+        return 'UTF8',data.decode('utf-8')
+    except UnicodeDecodeError:
+        return 'LATIN1',data.decode('latin-1')
+
+def eol(data: bytes) -> str:
+    crlf=data.count(b'\r\n'); rest=data.replace(b'\r\n',b'')
+    lf=rest.count(b'\n'); cr=rest.count(b'\r')
+    n=sum(bool(x) for x in (crlf,lf,cr))
+    if n==0:return 'NONE'
+    if n>1:return 'MIXED'
+    return 'CRLF' if crlf else ('LF' if lf else 'CR')
+
+@dataclass
+class Analysis:
+    format:str; relative_path:str; size:int; sha256:str; text_kind:str; eol:str
+    line_count:int; blank_lines:int; comment_lines:int; brace_open_count:int
+    brace_close_count:int; assignment_count:int; key_counts:dict
+    references:list; parse_status:str
+
+def analyze_bytes(data: bytes, rel: str) -> Analysis:
+    kind,text=detect(data)
+    if kind=='BINARY_NUL':
+        return Analysis(FORMAT,rel,len(data),sha(data),kind,eol(data),0,0,0,0,0,0,{},[],'BLOCKED_BINARY_NUL')
+    lines=text.splitlines(); blank=comments=op=cl=0; keys=Counter(); refs=[]
+    for no,line in enumerate(lines,1):
+        s=line.strip()
+        if not s:
+            blank+=1; continue
+        if s.startswith(('//','#',';')):
+            comments+=1
+        op+=line.count('{'); cl+=line.count('}')
+        m=ASSIGN_RE.match(line)
+        if m and not s.startswith(('{','}','//','#',';')):
+            keys[m.group(1)]+=1
+        for rm in REF_RE.finditer(line):
+            raw=(rm.group(1) or rm.group(2) or '').strip()
+            norm=re.sub(r'/+', '/', raw.strip('\"\'').replace('\\','/').strip())
+            if norm:
+                refs.append({'line':no,'raw':raw,'normalized':norm,'extension':Path(norm).suffix.lower()})
+    status='PASS_LEXICAL' if op==cl else 'REVIEW_UNBALANCED_BRACES'
+    return Analysis(FORMAT,rel,len(data),sha(data),kind,eol(data),len(lines),blank,comments,op,cl,sum(keys.values()),dict(sorted(keys.items())),refs,status)
+
+def analyze_file(p: Path, root: Path) -> Analysis:
+    return analyze_bytes(p.read_bytes(),p.relative_to(root).as_posix())
+
+def iter_parts(root: Path):
+    for dp,dn,fn in os.walk(root):
+        dn.sort(key=str.casefold)
+        for n in sorted(fn,key=str.casefold):
+            if n.lower().endswith('.part'):
+                yield Path(dp)/n
+
+def write_json(p: Path, obj):
+    p.parent.mkdir(parents=True,exist_ok=True)
+    p.write_text(json.dumps(obj,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+
+def census(root: Path):
+    rows=[]; kinds=Counter(); eols=Counter(); stats=Counter(); refs=Counter(); keys=Counter()
+    for p in iter_parts(root):
+        a=analyze_file(p,root); rows.append(asdict(a)); kinds[a.text_kind]+=1; eols[a.eol]+=1; stats[a.parse_status]+=1; keys.update(a.key_counts)
+        for r in a.references: refs[r['extension']]+=1
+    return {'format':'PT_PARTICLE_PART_CENSUS_V1','status':'PASS' if not stats['BLOCKED_BINARY_NUL'] else 'REVIEW',
+            'asset_count':len(rows),'text_kind_counts':dict(kinds),'eol_counts':dict(eols),'parse_status_counts':dict(stats),
+            'reference_extension_counts':dict(refs),'top_lexical_keys':keys.most_common(100),'rows':rows,
+            'production_authorized':False,'client_write_authorized':False,'client_modified':False}
+
+def noop_one(src: Path, root: Path, build: Path):
+    data=src.read_bytes(); rel=src.relative_to(root)
+    out=build/'part_roundtrip'/rel; out.parent.mkdir(parents=True,exist_ok=True); out.write_bytes(data)
+    cand=out.read_bytes()
+    return {'asset':rel.as_posix(),'status':'PASS' if cand==data else 'FAIL','byte_identical':cand==data,
+            'source_sha256':sha(data),'candidate_sha256':sha(cand),'candidate':str(out),'client_modified':False}
+
+def main():
+    ap=argparse.ArgumentParser(description='PT Asset Tool R14 .part particle read-only support')
+    sub=ap.add_subparsers(dest='cmd',required=True)
+    p=sub.add_parser('census'); p.add_argument('--client-root',required=True); p.add_argument('--out',default='')
+    p=sub.add_parser('inspect'); p.add_argument('--client-root',required=True); p.add_argument('asset')
+    p=sub.add_parser('roundtrip-corpus'); p.add_argument('--client-root',required=True); p.add_argument('--build-root',default='pt_build/devtest')
+    a=ap.parse_args(); root=Path(a.client_root).expanduser().resolve()
+    if a.cmd=='census':
+        r=census(root); out=Path(a.out) if a.out else Path('pt_build/devtest/part_census/result.json'); write_json(out,r)
+        print(json.dumps({k:r[k] for k in ['status','asset_count','text_kind_counts','eol_counts','parse_status_counts','reference_extension_counts']}|{'report':str(out)},indent=2,ensure_ascii=False))
+    elif a.cmd=='inspect':
+        print(json.dumps(asdict(analyze_file(root/a.asset,root)),indent=2,ensure_ascii=False))
+    else:
+        build=Path(a.build_root).resolve(); rows=[noop_one(p,root,build) for p in iter_parts(root)]; f=[x for x in rows if x['status']!='PASS']
+        r={'format':'PT_PARTICLE_PART_NOOP_CORPUS_V1','status':'PASS' if not f else 'FAIL','asset_count':len(rows),'pass_count':len(rows)-len(f),'failure_count':len(f),'rows':rows,'client_modified':False,'client_write_authorized':False,'production_authorized':False}
+        out=build/'part_roundtrip/corpus_result.json'; write_json(out,r)
+        print(json.dumps({k:r[k] for k in ['status','asset_count','pass_count','failure_count']}|{'report':str(out)},indent=2))
+if __name__=='__main__': main()

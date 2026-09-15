@@ -1,0 +1,3026 @@
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt	2026-09-03 10:48:46.916677847 +0000
+@@ -0,0 +1,18 @@
++Only in /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03: R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt
++Only in /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03: RETOMADA_DESENVOLVIMENTO_R14_AUTONOMOUS_2026-09-03.md
++Only in /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03: VALIDATION_STATUS_R14_AUTONOMOUS_2026-09-03.md
++Only in app/dev_tests: test_mixed_real_devtest.py
++Files app/dev_tests/test_model062_material_devtest.py and app/dev_tests/test_model062_material_devtest.py differ
++Files app/dev_tests/test_release_1_auto.py and app/dev_tests/test_release_1_auto.py differ
++Files app/dev_tests/test_release_1_coverage.py and app/dev_tests/test_release_1_coverage.py differ
++Files app/dev_tests/test_writer_corpus_audit.py and app/dev_tests/test_writer_corpus_audit.py differ
++Only in app/pt_asset_tool/blender: apply_mixed_semantic_devtest.py
++Files app/pt_asset_tool/cli.py and app/pt_asset_tool/cli.py differ
++Only in app/pt_asset_tool: mixed_real_devtest.py
++Files app/pt_asset_tool/model062_material_devtest.py and app/pt_asset_tool/model062_material_devtest.py differ
++Files app/pt_asset_tool/release_1_auto.py and app/pt_asset_tool/release_1_auto.py differ
++Files app/pt_asset_tool/release_1_coverage.py and app/pt_asset_tool/release_1_coverage.py differ
++Files app/pt_asset_tool/writer_corpus_audit.py and app/pt_asset_tool/writer_corpus_audit.py differ
++Only in app/pt_build/devtest: release_1_coverage_autonomous_2026-09-03.json
++Files docs/MANUAL_DESENVOLVEDOR.md and docs/MANUAL_DESENVOLVEDOR.md differ
++Files docs/MAPA_MODULOS_SCRIPTS.md and docs/MAPA_MODULOS_SCRIPTS.md differ
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_TO_AUTONOMOUS_EXTERNAL_GATE_2026-09-03.diff /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_TO_AUTONOMOUS_EXTERNAL_GATE_2026-09-03.diff
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_TO_AUTONOMOUS_EXTERNAL_GATE_2026-09-03.diff	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_TO_AUTONOMOUS_EXTERNAL_GATE_2026-09-03.diff	2026-09-03 10:48:46.948677052 +0000
+@@ -0,0 +1,22 @@
++diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt
++--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt	1970-01-01 00:00:00.000000000 +0000
+++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt	2026-09-03 10:48:46.916677847 +0000
++@@ -0,0 +1,18 @@
+++Only in /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03: R14_AUTONOMOUS_CHANGED_FILES_2026-09-03.txt
+++Only in /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03: RETOMADA_DESENVOLVIMENTO_R14_AUTONOMOUS_2026-09-03.md
+++Only in /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03: VALIDATION_STATUS_R14_AUTONOMOUS_2026-09-03.md
+++Only in app/dev_tests: test_mixed_real_devtest.py
+++Files app/dev_tests/test_model062_material_devtest.py and app/dev_tests/test_model062_material_devtest.py differ
+++Files app/dev_tests/test_release_1_auto.py and app/dev_tests/test_release_1_auto.py differ
+++Files app/dev_tests/test_release_1_coverage.py and app/dev_tests/test_release_1_coverage.py differ
+++Files app/dev_tests/test_writer_corpus_audit.py and app/dev_tests/test_writer_corpus_audit.py differ
+++Only in app/pt_asset_tool/blender: apply_mixed_semantic_devtest.py
+++Files app/pt_asset_tool/cli.py and app/pt_asset_tool/cli.py differ
+++Only in app/pt_asset_tool: mixed_real_devtest.py
+++Files app/pt_asset_tool/model062_material_devtest.py and app/pt_asset_tool/model062_material_devtest.py differ
+++Files app/pt_asset_tool/release_1_auto.py and app/pt_asset_tool/release_1_auto.py differ
+++Files app/pt_asset_tool/release_1_coverage.py and app/pt_asset_tool/release_1_coverage.py differ
+++Files app/pt_asset_tool/writer_corpus_audit.py and app/pt_asset_tool/writer_corpus_audit.py differ
+++Only in app/pt_build/devtest: release_1_coverage_autonomous_2026-09-03.json
+++Files docs/MANUAL_DESENVOLVEDOR.md and docs/MANUAL_DESENVOLVEDOR.md differ
+++Files docs/MAPA_MODULOS_SCRIPTS.md and docs/MAPA_MODULOS_SCRIPTS.md differ
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/RETOMADA_DESENVOLVIMENTO_R14_AUTONOMOUS_2026-09-03.md /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/RETOMADA_DESENVOLVIMENTO_R14_AUTONOMOUS_2026-09-03.md
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/RETOMADA_DESENVOLVIMENTO_R14_AUTONOMOUS_2026-09-03.md	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/RETOMADA_DESENVOLVIMENTO_R14_AUTONOMOUS_2026-09-03.md	2026-09-03 10:48:30.461072147 +0000
+@@ -0,0 +1,85 @@
++# PT Asset Tool — continuação autónoma R14 (gate externo 2026-09-03)
++
++## Estado desta continuação
++
++Este snapshot continua o handoff `RETOMADA_DESENVOLVIMENTO_R14.md` e preserva os invariantes fail-closed: client read-only, candidates apenas em `pt_build`, nenhuma autorização de produção e `deploy apply` não habilitado.
++
++A tabela antiga do utilizador foi tratada apenas como referência histórica. Em particular, R14 já tinha ROT object-local com rebuild cumulativo de `TmPrevRot` e Stage 0.72 multi-vértice XYZ.
++
++## Endurecimentos realizados
++
++1. **Materiais Model0.62 por família física**
++   - a seleção de witnesses passa a cobrir cada família Model0.62 presente no domínio, em vez de permitir dois representatives da mesma família;
++   - uma célula MATERIALS só fica verde quando cada família física presente recebeu writer witness executado.
++
++2. **Stage 0.72 corpus-wide**
++   - o gate 1.0 exige explicitamente os 63 Stage canónicos em parser físico, StageArea, normais, texturas e materiais;
++   - 62/63 ou qualquer subaudit parcial permanece fail-closed mesmo que o subset reporte PASS.
++
++3. **INX/SMB semantic edit corpus**
++   - `release-1-auto` usa `motion_pair_limit=0` por defeito;
++   - truncar o corpus por `pair_limit` não pode produzir PASS de Release 1.0;
++   - o resultado semântico é atribuído por domínio e condiciona o PASS INX/SMB de cada domínio.
++
++4. **Mixed-Physique físico**
++   - novo `pt_asset_tool/mixed_real_devtest.py`;
++   - todos os Mixed reais presentes são testados, sem sampling;
++   - skeleton/model-info é escolhido apenas por contexto determinístico e sempre confirmado por structural gate;
++   - o Blender aplica edição automática a targets rigid e static do mesmo container;
++   - o candidate é reconstruído sequencialmente pelos adapters rigid/static existentes;
++   - verifica modos Physique, bytes não-target, bones, edição observada em todos os targets e reimport;
++   - simples presença de uma amostra Mixed já não remove o blocker: ela precisa passar o gate físico.
++
++5. **Sem falso PASS final**
++   - `automatic_gate_status=PASS` significa apenas que a automação ficou verde;
++   - o estado global fica `BLOCKED_EXTERNAL` enquanto faltarem runtime/game integrado e promoção controlada dos writers/publish-restore;
++   - se não existir Mixed real, o primeiro gate externo continua sendo especificamente uma amostra Mixed-Physique autêntica com skeleton/config context quando disponível.
++
++6. **Coverage Mixed por domínio**
++   - domínios sem Mixed agora mostram `NOT_PRESENT_IN_CANONICAL_CORPUS`;
++   - domínios com Mixed só recebem `PHYSICAL_AUTOMATED_EDIT_BUILD_REIMPORT_PASS` após certificação física;
++   - a matriz agora explicita também os gates globais `RUNTIME_GAME_ACCEPTANCE` e `PUBLISH_RESTORE`.
++
++## Validação reproduzida neste ambiente
++
++- SHA-256 do ZIP recebido verificado: `87735cf58b824914f62e0f99630b7a63b6ee6b9c3abd97c5a48915bc26871570`.
++- `python3 -m compileall -q .`: PASS.
++- suíte diretamente afetada por release/coverage/Mixed: **47 PASS**.
++- todos os dev tests sem referência à fixture física, executados em lotes reproduzíveis:
++  - **82 PASS**;
++  - **58 PASS**;
++  - **29 PASS**.
++- nenhum FAIL nesses três lotes.
++- writers raros certificados mantêm exatamente os quatro SHA-256 do handoff R14.
++
++Os 19 ficheiros de teste que dependem textualmente de `fixture_client` não podem ser executados de forma válida aqui porque o handoff não contém essa fixture. Também não existe client físico `.smd/.smb/.inx` montado neste ambiente; não transformar essa ausência em PASS.
++
++## Coverage offline atual
++
++Gerado em `app/pt_build/devtest/release_1_coverage_autonomous_2026-09-03.json`.
++
++Estado: `PARTIAL`. O documento agora inclui blockers globais explícitos para:
++
++- amostra/certificação física Mixed-Physique enquanto o corpus não possui Mixed real;
++- runtime/game integrado;
++- promoção dos writers e publish/restore.
++
++Os blockers offline continuam a incluir gates que só podem ser pintados pela execução no client real; não equivalem a features de código ausentes.
++
++## Próximo gate externo — uma única execução
++
++No ambiente que possui o client real e Blender configurado, executar a partir de `app/`:
++
++```bash
++python3 pt_asset.py --client-root "/caminho/para/Cliente" validate release-1-auto
++```
++
++Não executar microtestes manuais por objeto/vértice/LOD. O runner deve fazer os gates automáticos completos e reportar o próximo bloqueio real.
++
++### Interpretação esperada
++
++- `status=FAIL`: existe um gate automático/physical real a corrigir; usar o relatório em `pt_build/devtest/release_1_auto/result.json`.
++- `status=BLOCKED_EXTERNAL`, `external_input_required=true`: os automáticos passaram e falta a amostra Mixed-Physique real/autoritativa.
++- `status=BLOCKED_EXTERNAL`, `manual_review_required_now=true`: Mixed físico e automáticos passaram; o próximo gate é somente runtime/game integrado, seguido da promoção controlada/publish-restore.
++
++Nunca considerar este snapshot como produção 1.0 antes desses gates externos.
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/VALIDATION_STATUS_R14_AUTONOMOUS_2026-09-03.md /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/VALIDATION_STATUS_R14_AUTONOMOUS_2026-09-03.md
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/VALIDATION_STATUS_R14_AUTONOMOUS_2026-09-03.md	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/VALIDATION_STATUS_R14_AUTONOMOUS_2026-09-03.md	2026-09-03 10:48:30.465991703 +0000
+@@ -0,0 +1,10 @@
++# Validation status — R14 autonomous continuation — 2026-09-03
++
++- Source handoff ZIP SHA-256: PASS (`87735cf58b824914f62e0f99630b7a63b6ee6b9c3abd97c5a48915bc26871570`).
++- Compileall: PASS.
++- Focused release/coverage/Mixed tests: 47 PASS / 0 FAIL.
++- Non-`fixture_client` dev tests, reproducible split: 82 PASS + 58 PASS + 29 PASS / 0 FAIL.
++- Physical client/fixture: unavailable in this environment; no claim of physical Release 1.0 PASS.
++- Certified rare writer hashes: unchanged.
++- Offline Release 1 coverage: PARTIAL; see `app/pt_build/devtest/release_1_coverage_autonomous_2026-09-03.json`.
++- Next legitimate external action: one `validate release-1-auto` execution against the real client.
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_mixed_real_devtest.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_mixed_real_devtest.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_mixed_real_devtest.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_mixed_real_devtest.py	2026-09-03 10:42:28.238764814 +0000
+@@ -0,0 +1,51 @@
++from types import SimpleNamespace
++
++from pt_asset_tool.mixed_real_devtest import (
++    choose_mixed_physique_representatives,
++    choose_mixed_physical_context,
++    mixed_skeleton_candidates,
++)
++
++
++def _asset(**kw):
++    base=dict(
++        asset_id='MIX', primary_path='Effect/Mixed/mix.smd', family='SMD_MODEL_062_MIXED_PHYSIQUE',
++        category='EFFECT', object_count=3, total_vertices=9, total_faces=3,
++        configs=[], binding_skeleton_smb='', source_record={'object_count':3,'physique_objects':1},
++    )
++    base.update(kw)
++    return SimpleNamespace(**base)
++
++
++def test_mixed_representative_planner_never_samples_physical_mixed_assets():
++    mixed1=_asset(asset_id='A',primary_path='Effect/Mixed/a.smd')
++    mixed2=_asset(asset_id='B',primary_path='char/monster/M/b.smd',category='MONSTER')
++    static=SimpleNamespace(asset_id='S',primary_path='Effect/s.smd',family='SMD_MODEL_062_STATIC',category='EFFECT',object_count=1,total_vertices=3,total_faces=1)
++    registry=SimpleNamespace(assets=[mixed2,static,mixed1])
++    rows=choose_mixed_physique_representatives(registry)
++    assert {r['asset'] for r in rows}=={'Effect/Mixed/a.smd','char/monster/M/b.smd'}
++    assert len(rows)==2
++
++
++def test_mixed_skeleton_candidate_prefers_authoritative_config_over_sibling_hypothesis():
++    asset=_asset(configs=[{'motion_smb':'Effect/Mixed/auth.smb'}])
++    registry=SimpleNamespace(records=[
++        {'extension':'.smb','relative_path':'Effect/Mixed/mix.smb'},
++    ])
++    rows=mixed_skeleton_candidates(registry,asset)
++    assert rows[0]=={'skeleton_smb':'Effect/Mixed/auth.smb','basis':'MODEL_INFO_MOTION_SMB'}
++
++
++def test_mixed_physical_context_standalone_requires_and_covers_both_adapters():
++    asset=_asset(binding_skeleton_smb='Effect/Mixed/mix.smb')
++    registry=SimpleNamespace(records=[])
++    analysis={
++        'eligible_rigid_objects':['rigidA'],
++        'eligible_static_objects':['staticA','staticB'],
++    }
++    context=choose_mixed_physical_context(registry,asset,analysis)
++    assert context['mode']=='STANDALONE_SKELETON'
++    assert context['skeleton_smb']=='Effect/Mixed/mix.smb'
++    assert context['rigid_targets']==['rigidA']
++    assert context['static_targets']==['staticA','staticB']
++    assert context['target_count']==3
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_model062_material_devtest.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_model062_material_devtest.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_model062_material_devtest.py	2026-09-03 08:39:47.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_model062_material_devtest.py	2026-09-03 10:32:04.537812664 +0000
+@@ -51,3 +51,14 @@
+     r=audit_model062_material_physical_corpus(reg,R())
+     assert r['status']=='FAIL'
+     assert r['by_domain']['EFFECT']['FAIL_COUNT']==1
++
++
++def test_material_representatives_cover_every_present_model062_family_before_complexity_fill():
++    reg=SimpleNamespace(assets=[
++        _asset(1,'char/npc/R1/R1.smd',family='SMD_MODEL_062_RIGID_PHYSIQUE',materials=8),
++        _asset(2,'char/npc/R2/R2.smd',family='SMD_MODEL_062_RIGID_PHYSIQUE',materials=7),
++        _asset(3,'char/npc/S1/S1.smd',family='SMD_MODEL_062_STATIC',materials=1),
++    ])
++    rows=choose_model062_material_representatives(reg,'NPC',limit=2)
++    assert len(rows)==2
++    assert {x['family'] for x in rows} == {'SMD_MODEL_062_RIGID_PHYSIQUE','SMD_MODEL_062_STATIC'}
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_auto.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_auto.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_auto.py	2026-09-03 09:34:16.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_auto.py	2026-09-03 10:42:28.103395881 +0000
+@@ -43,10 +43,10 @@
+     monkeypatch.setattr('pt_asset_tool.release_1_auto.run_standalone_rigid_automated_devtest_batch',lambda *a,**k:_batch('RS'))
+     monkeypatch.setattr('pt_asset_tool.release_1_auto.run_static_semantic_automated_devtest_batch',lambda *a,**k:_batch('S'))
+     monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_model062_static_physical_corpus',lambda *a,**k:{'status':'PASS','asset_count':100,'failure_count':0,'pass_domains':['WEAPON_ITEM']})
+-    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_physical_corpus',lambda *a,**k:{'status':'PASS','full_parse_pass_files':63})
+-    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_stagearea_rebuild',lambda *a,**k:{'status':'PASS'})
+-    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_normals',lambda *a,**k:{'status':'PASS'})
+-    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_texture_presence',lambda *a,**k:{'status':'PASS','texture_reference_classification_complete_candidate':True,'texture_presence_complete_candidate':True})
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_physical_corpus',lambda *a,**k:{'status':'PASS','candidate_files_expected':63,'physical_files_audited':63,'full_parse_pass_files':63,'structural_fail_files':0,'stage072_physical_complete_candidate':True})
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_stagearea_rebuild',lambda *a,**k:{'status':'PASS','candidate_files_expected':63,'physical_files_audited':63,'reconstruction_pass_files':63})
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_normals',lambda *a,**k:{'status':'PASS','candidate_files_expected':63,'physical_files_audited':63,'audit_pass_files':63})
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_texture_presence',lambda *a,**k:{'status':'PASS','candidate_files_expected':63,'physical_files_audited':63,'texture_reference_classification_complete_candidate':True,'texture_presence_complete_candidate':True})
+     monkeypatch.setattr('pt_asset_tool.release_1_auto.run_stage072_automated_devtest_batch',lambda *a,**k:_batch('G'))
+     monkeypatch.setattr('pt_asset_tool.release_1_auto.run_stage072_material_automated_devtest_batch',lambda *a,**k:_batch('GM'))
+     monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_stage072_material_physical_corpus',lambda *a,**k:{'status':'PASS','pass_domains':['MAP'],'asset_count':63,'failure_count':0})
+@@ -84,6 +84,36 @@
+     assert result['client_write_authorized'] is False
+ 
+ 
++
++
++def test_release_1_auto_real_mixed_present_but_physical_gate_failure_is_internal_failure(tmp_path,monkeypatch):
++    _patch_all(monkeypatch)
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.choose_mixed_physique_representatives',lambda *a,**k:[{'asset':'mix.smd','domain':'EFFECT'}])
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.run_mixed_physique_physical_automated_devtest_batch',lambda *a,**k:{'status':'FAIL','requested':1,'passed':0,'failed':[{'asset':'mix.smd'}],'results':[],'physical_mixed_certified':False})
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_model062_physical_corpus',lambda *a,**k:{'status':'PASS','asset_count':2601,'failure_count':0,'physical_mixed_count':1,'pass_domains_by_family':{'SMD_MODEL_062_RIGID_PHYSIQUE':['PLAYER'],'SMD_MODEL_062_STATIC':['WEAPON_ITEM'],'SMD_MODEL_062_MIXED_PHYSIQUE':['EFFECT']}})
++    settings=_settings(tmp_path); settings.client_root.mkdir()
++    result=run_release_1_automated_gate(settings,_registry(),object(),object())
++    assert result['automatic_gate_status']=='FAIL'
++    assert result['status']=='FAIL'
++    assert result['external_input_required'] is False
++    assert any(x.get('gate')=='MODEL062_MIXED_PHYSICAL' for x in result['blockers'])
++
++
++def test_release_1_auto_real_mixed_physical_pass_still_requires_runtime_and_promotion(tmp_path,monkeypatch):
++    _patch_all(monkeypatch)
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.choose_mixed_physique_representatives',lambda *a,**k:[{'asset':'mix.smd','domain':'EFFECT'}])
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.run_mixed_physique_physical_automated_devtest_batch',lambda *a,**k:{'status':'PASS','requested':1,'passed':1,'failed':[],'results':[{'status':'PASS','asset':'mix.smd','domain':'EFFECT'}],'physical_mixed_certified':True})
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.audit_model062_physical_corpus',lambda *a,**k:{'status':'PASS','asset_count':2601,'failure_count':0,'physical_mixed_count':1,'pass_domains_by_family':{'SMD_MODEL_062_RIGID_PHYSIQUE':['PLAYER'],'SMD_MODEL_062_STATIC':['WEAPON_ITEM'],'SMD_MODEL_062_MIXED_PHYSIQUE':['EFFECT']}})
++    settings=_settings(tmp_path); settings.client_root.mkdir()
++    result=run_release_1_automated_gate(settings,_registry(),object(),object())
++    assert result['automatic_gate_status']=='PASS'
++    assert result['status']=='BLOCKED_EXTERNAL'
++    assert result['external_input_required'] is False
++    assert result['manual_review_required_now'] is True
++    assert result['summary']['mixed_physical']['physical_mixed_certified'] is True
++    assert result['external_gates_pending']==['INTEGRATED_RUNTIME_GAME_ACCEPTANCE','WRITER_PROMOTION_AND_PUBLISH_RESTORE']
++    assert result['production_authorized'] is False
++
+ def test_release_1_auto_reports_internal_failure_before_mixed_external_gate(tmp_path,monkeypatch):
+     _patch_all(monkeypatch)
+     monkeypatch.setattr('pt_asset_tool.release_1_auto.run_stage072_automated_devtest_batch',lambda *a,**k:{'status':'FAIL','requested':1,'passed_assets':[],'failed_assets':[{'asset':'m'}]})
+@@ -411,7 +441,8 @@
+     monkeypatch.setattr(
+         'pt_asset_tool.release_1_auto.audit_stage072_texture_presence',
+         lambda *a,**k:{
+-            'status':'PASS','texture_reference_classification_complete_candidate':False,
++            'status':'PASS','candidate_files_expected':63,'physical_files_audited':63,
++            'texture_reference_classification_complete_candidate':False,
+             'unclassified_unique_texture_references':1,'texture_presence_complete_candidate':False,
+         },
+     )
+@@ -426,7 +457,8 @@
+     monkeypatch.setattr(
+         'pt_asset_tool.release_1_auto.audit_stage072_texture_presence',
+         lambda *a,**k:{
+-            'status':'PASS','texture_reference_classification_complete_candidate':True,
++            'status':'PASS','candidate_files_expected':63,'physical_files_audited':63,
++            'texture_reference_classification_complete_candidate':True,
+             'texture_presence_complete_candidate':False,'client_missing_unique_texture_references':2,
+             'serialized_invalid_unique_texture_references':1,'unclassified_unique_texture_references':0,
+         },
+@@ -458,3 +490,84 @@
+     result=run_release_1_automated_gate(settings,_registry(),object(),object())
+     assert result['automatic_gate_status']=='FAIL'
+     assert any(x.get('gate')=='proprietary_texture_corpus' for x in result['blockers'])
++
++
++def test_model062_material_family_coverage_requires_each_physical_family_witness():
++    from pt_asset_tool.release_1_auto import _model062_material_family_coverage
++    physical={
++        'status':'PASS',
++        'rows':[
++            {'asset':'char/a.smd','domain':'PLAYER','family':'SMD_MODEL_062_RIGID_PHYSIQUE','status':'PASS'},
++            {'asset':'char/b.smd','domain':'PLAYER','family':'SMD_MODEL_062_STATIC','status':'PASS'},
++        ],
++    }
++    selected=[
++        {'asset':'char/a.smd','domain':'PLAYER','family':'SMD_MODEL_062_RIGID_PHYSIQUE'},
++        {'asset':'char/b.smd','domain':'PLAYER','family':'SMD_MODEL_062_STATIC'},
++    ]
++    passed,details=_model062_material_family_coverage(
++        physical,selected,{'passed_assets':['char/a.smd'],'results':[]},
++    )
++    assert 'PLAYER' not in passed
++    assert details['PLAYER']['missing']==['SMD_MODEL_062_STATIC']
++
++
++def test_release_1_auto_blocks_stage_subset_even_if_every_subset_audit_reports_pass(tmp_path,monkeypatch):
++    _patch_all(monkeypatch)
++    monkeypatch.setattr(
++        'pt_asset_tool.release_1_auto.audit_stage072_physical_corpus',
++        lambda *a,**k:{
++            'status':'PASS','candidate_files_expected':62,'physical_files_audited':62,
++            'full_parse_pass_files':62,'structural_fail_files':0,
++            'stage072_physical_complete_candidate':False,
++        },
++    )
++    monkeypatch.setattr(
++        'pt_asset_tool.release_1_auto.audit_stage072_stagearea_rebuild',
++        lambda *a,**k:{'status':'PASS','candidate_files_expected':62,'physical_files_audited':62,'reconstruction_pass_files':62},
++    )
++    monkeypatch.setattr(
++        'pt_asset_tool.release_1_auto.audit_stage072_normals',
++        lambda *a,**k:{'status':'PASS','candidate_files_expected':62,'physical_files_audited':62,'audit_pass_files':62},
++    )
++    monkeypatch.setattr(
++        'pt_asset_tool.release_1_auto.audit_stage072_texture_presence',
++        lambda *a,**k:{
++            'status':'PASS','candidate_files_expected':62,'physical_files_audited':62,
++            'texture_reference_classification_complete_candidate':True,
++            'texture_presence_complete_candidate':True,
++        },
++    )
++    monkeypatch.setattr(
++        'pt_asset_tool.release_1_auto.audit_stage072_material_physical_corpus',
++        lambda *a,**k:{'status':'PASS','pass_domains':['MAP'],'asset_count':62,'failure_count':0},
++    )
++    settings=_settings(tmp_path); settings.client_root.mkdir()
++    result=run_release_1_automated_gate(settings,_registry(),object(),object())
++    assert result['automatic_gate_status']=='FAIL'
++    assert any(x.get('status')=='BLOCKED_INCOMPLETE_PHYSICAL_CORPUS' for x in result['blockers'])
++
++
++def test_release_1_auto_domain_writer_pass_requires_motion_semantic_domain_pass(tmp_path,monkeypatch):
++    _patch_all(monkeypatch)
++    monkeypatch.setattr(
++        'pt_asset_tool.release_1_auto.audit_motion_writer_semantic_edit_corpus',
++        lambda *a,**k:{
++            'status':'PASS','audited_contexts':4,
++            'by_domain':{
++                'PLAYER':{'context_count':2,'unresolved_asset_count':0,'status':'FAIL'},
++            },
++        },
++    )
++    captured={}
++    def fake_coverage(*a,**k):
++        if k.get('external_evidence'):
++            captured.update(k['external_evidence'])
++        return {'status':'PASS','inventory':{'by_domain':{'PLAYER':{'PHYSICAL_INX_FILE':1,'PHYSICAL_SMB_FILE':1}}}}
++    monkeypatch.setattr('pt_asset_tool.release_1_auto.build_release_1_coverage',fake_coverage)
++    settings=_settings(tmp_path); settings.client_root.mkdir()
++    result=run_release_1_automated_gate(settings,_registry(),object(),object())
++    assert result['automatic_gate_status']=='FAIL'
++    assert 'PLAYER' not in set(captured.get('inx_writer_pass_domains') or [])
++    assert 'PLAYER' not in set(captured.get('smb_writer_pass_domains') or [])
++    assert any(x.get('gate')=='MOTION_SEMANTIC_EDIT' and x.get('domain')=='PLAYER' for x in result['blockers'])
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_coverage.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_coverage.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_coverage.py	2026-09-03 09:49:02.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_release_1_coverage.py	2026-09-03 10:42:28.102819394 +0000
+@@ -25,8 +25,9 @@
+     assert report['matrix']['MONSTER']['MODEL062_RIGID']['asset_count'] >= 390
+     assert report['matrix']['WEAPON_ITEM']['MODEL062_STATIC']['asset_count'] > 100
+     assert report['matrix']['MAP']['STAGE072']['asset_count'] > 50
+-    assert report['matrix']['PLAYER']['MODEL062_MIXED']['state']=='PIPELINE_IMPLEMENTED_SYNTHETIC_AWAITING_REAL_REPRESENTATIVE'
+-    assert report['matrix']['PLAYER']['MODEL062_MIXED']['evidence']['mixed_dispatch_wired'] is True
++    assert report['matrix']['PLAYER']['MODEL062_MIXED']['state']=='NOT_PRESENT_IN_CANONICAL_CORPUS'
++    mixed_global=next(x for x in report['global_gates'] if x['capability']=='MODEL062_MIXED')
++    assert mixed_global['state']=='PIPELINE_IMPLEMENTED_SYNTHETIC_AWAITING_REAL_REPRESENTATIVE'
+     assert report['policy']['automatic_tests_preferred'] is True
+     assert report['policy']['production_authorized'] is False
+     assert report['blocking_gate_count'] == len(report['blocking_gates'])
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_writer_corpus_audit.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_writer_corpus_audit.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_writer_corpus_audit.py	2026-09-02 12:54:20.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/dev_tests/test_writer_corpus_audit.py	2026-09-03 10:34:40.005851185 +0000
+@@ -64,9 +64,11 @@
+     settings = Settings.discover(ROOT, CLIENT)
+     resolver = ClientResolver(CLIENT)
+     registry = AssetRegistry(settings.inventory, settings.pairing, resolver=resolver)
+-    report = audit_motion_writer_semantic_edit_corpus(ROOT, registry, resolver, pair_limit=2, sample_limit=10)
++    report = audit_motion_writer_semantic_edit_corpus(ROOT, registry, resolver, pair_limit=0, sample_limit=10)
+     assert report["status"] == "PASS"
+-    assert 1 <= report["audited_contexts"] <= 2
++    assert report["audited_contexts"] == report["registry_motion_contexts"]
++    assert report["corpus_complete"] is True
++    assert report["selection_limited"] is False
+     assert report["inx_semantic_edit_pass"] >= 1
+     assert report["smb_semantic_edit_pass"] >= 1
+     assert report["fail_count"] == 0
+@@ -75,3 +77,28 @@
+     assert report["game_runtime_certification"] is False
+     assert report["production_authorized"] is False
+     assert report["client_modified"] is False
++
++
++def test_motion_writer_semantic_edit_corpus_fails_closed_when_pair_limit_truncates_contexts(tmp_path, monkeypatch):
++    from types import SimpleNamespace
++    import pt_asset_tool.writer_corpus_audit as mod
++
++    inx1=tmp_path/'a.inx'; smb1=tmp_path/'a.smb'; inx2=tmp_path/'b.inx'; smb2=tmp_path/'b.smb'
++    for p in (inx1,smb1,inx2,smb2): p.write_bytes(b'x')
++    contexts=[
++        {'motion_inx':'a.inx','motion_smb':'a.smb','inx_path':inx1,'smb_path':smb1,'assets':['char/A/A.smd']},
++        {'motion_inx':'b.inx','motion_smb':'b.smb','inx_path':inx2,'smb_path':smb2,'assets':['char/B/B.smd']},
++    ]
++    monkeypatch.setattr(mod,'_registry_motion_contexts',lambda *a,**k:(contexts,[]))
++    monkeypatch.setattr(mod,'_semantic_inx_edit',lambda *a,**k:{'status':'PASS'})
++    monkeypatch.setattr(mod,'_semantic_smb_edit',lambda *a,**k:{'status':'PASS'})
++    reg=SimpleNamespace(assets=[
++        SimpleNamespace(primary_path='char/A/A.smd',category='CHARACTER'),
++        SimpleNamespace(primary_path='char/B/B.smd',category='CHARACTER'),
++    ])
++    report=audit_motion_writer_semantic_edit_corpus(tmp_path,reg,object(),pair_limit=1)
++    assert report['status']=='FAIL'
++    assert report['selection_limited'] is True
++    assert report['corpus_complete'] is False
++    assert report['audited_contexts']==1
++    assert report['registry_motion_contexts']==2
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/blender/apply_mixed_semantic_devtest.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/blender/apply_mixed_semantic_devtest.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/blender/apply_mixed_semantic_devtest.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/blender/apply_mixed_semantic_devtest.py	2026-09-03 10:39:16.883511767 +0000
+@@ -0,0 +1,96 @@
++from __future__ import annotations
++
++import argparse
++import json
++import math
++import pathlib
++import sys
++
++import bpy
++
++FORMAT = "PT_MIXED_PHYSIQUE_AUTOMATED_EDIT_V1"
++
++
++def _argv():
++    return sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
++
++
++def _bbox(obj):
++    pts = [obj.matrix_world @ v.co for v in obj.data.vertices]
++    if not pts:
++        return [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
++    return [
++        [min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts)],
++        [max(p.x for p in pts), max(p.y for p in pts), max(p.z for p in pts)],
++    ]
++
++
++def _deform(obj, amplitude: float, seed: int):
++    for vi, vertex in enumerate(obj.data.vertices):
++        phase = (vi + 1) * (seed + 7)
++        vertex.co.x += amplitude * math.sin(phase * 0.53)
++        vertex.co.y += amplitude * 0.65 * math.cos(phase * 0.41)
++        vertex.co.z += amplitude * 0.45 * math.sin(phase * 0.29 + 0.3)
++    obj.data.update()
++
++
++def main():
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--plan", required=True)
++    ap.add_argument("--out", required=True)
++    ap.add_argument("--report", required=True)
++    ns = ap.parse_args(_argv())
++    plan = json.loads(pathlib.Path(ns.plan).read_text(encoding="utf-8"))
++    targets = list(plan.get("targets") or [])
++    amplitude = float(plan.get("amplitude") or 0.08)
++    if not targets:
++        raise RuntimeError("mixed semantic devtest has no targets")
++
++    rows = []
++    missing = []
++    for index, target in enumerate(targets):
++        name = str(target.get("object") or "")
++        adapter = str(target.get("adapter") or "")
++        obj = bpy.data.objects.get(name)
++        if obj is None or obj.type != "MESH":
++            missing.append(name)
++            continue
++        before = _bbox(obj)
++        counts = [len(obj.data.vertices), len(obj.data.polygons)]
++        _deform(obj, amplitude, index)
++        after = _bbox(obj)
++        rows.append({
++            "object": name,
++            "adapter": adapter,
++            "counts": counts,
++            "bbox_before": before,
++            "bbox_after": after,
++            "bbox_changed": before != after,
++        })
++    if missing:
++        raise RuntimeError(f"mixed semantic devtest missing objects: {missing}")
++    if any(not row["bbox_changed"] for row in rows):
++        raise RuntimeError("one or more mixed targets did not receive a geometric edit")
++    adapters = {row["adapter"] for row in rows}
++    if not {"RIGID", "STATIC"}.issubset(adapters):
++        raise RuntimeError(f"mixed semantic devtest must exercise rigid and static adapters: {sorted(adapters)}")
++
++    out = pathlib.Path(ns.out).resolve()
++    out.parent.mkdir(parents=True, exist_ok=True)
++    bpy.ops.wm.save_as_mainfile(filepath=str(out), check_existing=False)
++    report = {
++        "format": FORMAT,
++        "status": "PASS",
++        "target_count": len(rows),
++        "targets": rows,
++        "adapter_counts": {kind: sum(1 for row in rows if row["adapter"] == kind) for kind in ("RIGID", "STATIC")},
++        "materials_intentionally_changed": False,
++        "client_modified": False,
++    }
++    rp = pathlib.Path(ns.report).resolve()
++    rp.parent.mkdir(parents=True, exist_ok=True)
++    rp.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/cli.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/cli.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/cli.py	2026-09-03 08:40:53.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/cli.py	2026-09-03 10:43:51.971329427 +0000
+@@ -2908,6 +2908,7 @@
+         "blockers": result.get("blockers"), "manual_review_required_now": result.get("manual_review_required_now"),
+         "external_input_required": result.get("external_input_required"),
+         "external_input_request": result.get("external_input_request"),
++        "external_gates_pending": result.get("external_gates_pending"),
+         "runtime_game_acceptance_pending": result.get("runtime_game_acceptance_pending"),
+         "production_authorized": False, "client_write_authorized": False, "client_modified": False,
+         "report": result.get("report"),
+@@ -3679,7 +3680,10 @@
+     x.add_argument("--static-per-domain", type=int, default=3)
+     x.add_argument("--object-local-limit", type=int, default=4)
+     x.add_argument("--texlink-limit", type=int, default=4)
+-    x.add_argument("--motion-pair-limit", type=int, default=16)
++    x.add_argument(
++        "--motion-pair-limit", type=int, default=0,
++        help="limit motion semantic edit contexts (0 = full corpus; Release 1.0 PASS requires the full corpus)",
++    )
+     x.add_argument("--fps", type=int, default=30)
+     x.set_defaults(func=cmd_validate_release_1_auto)
+ 
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/mixed_real_devtest.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/mixed_real_devtest.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/mixed_real_devtest.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/mixed_real_devtest.py	2026-09-03 10:40:17.607502016 +0000
+@@ -0,0 +1,369 @@
++from __future__ import annotations
++
++import json
++import pathlib
++import shutil
++from typing import Any
++
++from .blender_workspace import asset_workspace_name
++from .build_provenance import sha256_file, write_build_provenance
++from .mixed_authoring_candidate import (
++    analyze_mixed_source,
++    build_mixed_candidate_step_command,
++    validate_mixed_candidate_output,
++)
++from .release_1_coverage import content_domain
++from .rigid_model_info import effective_lod_node_coverage, lod_model_info_configs
++from .static_roundtrip import _parse as parse_model062_bytes
++from .utils import run_logged
++from .validation import ValidationContext, ValidationRunner
++
++FORMAT = "PT_MIXED_PHYSIQUE_PHYSICAL_AUTOMATED_DEVTEST_V1"
++BATCH_FORMAT = "PT_MIXED_PHYSIQUE_PHYSICAL_AUTOMATED_DEVTEST_BATCH_V1"
++
++
++def _norm(value: str | None) -> str:
++    return str(value or "").replace("\\", "/").strip("/")
++
++
++def choose_mixed_physique_representatives(registry) -> list[dict[str, Any]]:
++    """Return every physical Mixed-Physique asset; Release 1.0 does not sample Mixed."""
++    rows = []
++    for asset in registry.assets:
++        if asset.family != "SMD_MODEL_062_MIXED_PHYSIQUE":
++            continue
++        rows.append({
++            "asset_id": asset.asset_id,
++            "asset": asset.primary_path,
++            "domain": content_domain(asset),
++            "object_count": int(asset.object_count or 0),
++            "total_vertices": int(asset.total_vertices or 0),
++            "total_faces": int(asset.total_faces or 0),
++        })
++    rows.sort(key=lambda row: (str(row["domain"]), str(row["asset"]).casefold()))
++    return rows
++
++
++def _sibling_smbs(registry, asset) -> list[dict[str, str]]:
++    rel = pathlib.PurePosixPath(_norm(asset.primary_path))
++    parent = rel.parent.as_posix().casefold()
++    stem = rel.stem.casefold()
++    siblings = []
++    for record in registry.records:
++        if str(record.get("extension") or "").casefold() != ".smb":
++            continue
++        logical = _norm(record.get("relative_path"))
++        if pathlib.PurePosixPath(logical).parent.as_posix().casefold() == parent:
++            siblings.append(logical)
++    siblings = sorted(set(siblings), key=str.casefold)
++    exact = [logical for logical in siblings if pathlib.PurePosixPath(logical).stem.casefold() == stem]
++    if len(exact) == 1:
++        return [{"skeleton_smb": exact[0], "basis": "EXACT_SIBLING_STEM"}]
++    if len(siblings) == 1:
++        return [{"skeleton_smb": siblings[0], "basis": "UNIQUE_DIRECTORY_SMB"}]
++    return []
++
++
++def mixed_skeleton_candidates(registry, asset) -> list[dict[str, str]]:
++    """Build deterministic skeleton hypotheses; the structural gate is authoritative."""
++    candidates: list[dict[str, str]] = []
++    for cfg in asset.configs:
++        logical = _norm(cfg.get("motion_smb"))
++        if logical:
++            candidates.append({"skeleton_smb": logical, "basis": "MODEL_INFO_MOTION_SMB"})
++    bound = _norm(getattr(asset, "binding_skeleton_smb", ""))
++    if bound:
++        candidates.append({"skeleton_smb": bound, "basis": "RESOLVED_BINDING_SKELETON"})
++    candidates.extend(_sibling_smbs(registry, asset))
++    rank = {
++        "MODEL_INFO_MOTION_SMB": 0,
++        "RESOLVED_BINDING_SKELETON": 1,
++        "EXACT_SIBLING_STEM": 2,
++        "UNIQUE_DIRECTORY_SMB": 3,
++    }
++    dedup: dict[str, dict[str, str]] = {}
++    for row in sorted(candidates, key=lambda r: (rank.get(r["basis"], 9), r["skeleton_smb"].casefold())):
++        dedup.setdefault(row["skeleton_smb"].casefold(), row)
++    return list(dedup.values())
++
++
++def choose_mixed_physical_context(registry, asset, analysis: dict[str, Any]) -> dict[str, Any]:
++    rigid = set(analysis.get("eligible_rigid_objects") or [])
++    static = set(analysis.get("eligible_static_objects") or [])
++    if not rigid or not static:
++        raise RuntimeError("mixed source does not contain writer-eligible rigid and static objects")
++    skeletons = mixed_skeleton_candidates(registry, asset)
++    if not skeletons:
++        raise RuntimeError("mixed source has no deterministic skeleton candidate; authoritative skeleton context is required")
++
++    # Prefer an exact model-info/LOD context when one exists.  It must expose
++    # both sides of the mixed container so the physical gate exercises both adapters.
++    contexts = []
++    for cfg in lod_model_info_configs(asset):
++        cfg_smb = _norm(cfg.get("motion_smb"))
++        skeleton_options = [row for row in skeletons if not cfg_smb or row["skeleton_smb"].casefold() == cfg_smb.casefold()]
++        if not skeleton_options:
++            continue
++        for lod_rank, lod in enumerate(("default", "high", "low")):
++            coverage = effective_lod_node_coverage(asset, cfg, lod)
++            if coverage.get("status") != "PASS":
++                continue
++            selected = list(coverage.get("effective_selected_nodes") or [])
++            target_rigid = sorted(rigid.intersection(selected), key=str.casefold)
++            target_static = sorted(static.intersection(selected), key=str.casefold)
++            if not target_rigid or not target_static:
++                continue
++            for skeleton in skeleton_options:
++                contexts.append({
++                    "mode": "MODEL_INFO_LOD",
++                    "model_info_inx": _norm(cfg.get("inx")),
++                    "lod": lod,
++                    "lod_rank": lod_rank,
++                    "lod_selection_mode": str(coverage.get("selection_mode") or "MODEL_GROUP_KEYS"),
++                    "skeleton_smb": skeleton["skeleton_smb"],
++                    "skeleton_basis": skeleton["basis"],
++                    "rigid_targets": target_rigid,
++                    "static_targets": target_static,
++                    "target_count": len(target_rigid) + len(target_static),
++                })
++    if contexts:
++        contexts.sort(key=lambda row: (-int(row["target_count"]), int(row["lod_rank"]), str(row["model_info_inx"]).casefold(), str(row["skeleton_smb"]).casefold()))
++        return contexts[0]
++
++    # If any authorable LOD exists but none exposes both modes, fail closed;
++    # do not bypass a real model-info context through a standalone hypothesis.
++    if any(
++        effective_lod_node_coverage(asset, cfg, lod).get("status") == "PASS"
++        for cfg in lod_model_info_configs(asset)
++        for lod in ("default", "high", "low")
++    ):
++        raise RuntimeError("mixed model-info/LOD contexts do not expose eligible rigid and static targets together")
++
++    chosen = skeletons[0]
++    return {
++        "mode": "STANDALONE_SKELETON",
++        "model_info_inx": None,
++        "lod": "standalone",
++        "lod_selection_mode": "FULL_CONTAINER",
++        "skeleton_smb": chosen["skeleton_smb"],
++        "skeleton_basis": chosen["basis"],
++        "rigid_targets": sorted(rigid, key=str.casefold),
++        "static_targets": sorted(static, key=str.casefold),
++        "target_count": len(rigid) + len(static),
++    }
++
++
++def _work_root(project_root: pathlib.Path, domain: str, asset_path: str) -> pathlib.Path:
++    return project_root / "pt_build" / "devtest" / "mixed_physical_auto" / str(domain).lower() / asset_workspace_name(asset_path)
++
++
++def run_mixed_physique_physical_automated_devtest(
++    settings, registry, resolver, certifications, *, asset_path: str, domain: str, amplitude: float = 0.08,
++) -> dict[str, Any]:
++    asset = registry.resolve(asset_path)
++    if asset.family != "SMD_MODEL_062_MIXED_PHYSIQUE":
++        raise RuntimeError(f"mixed physical devtest requires SMD_MODEL_062_MIXED_PHYSIQUE, got {asset.family}")
++    project_root = pathlib.Path(settings.project_root).resolve()
++    source = pathlib.Path(resolver.resolve(asset.primary_path, required=True)).resolve()
++    analysis = analyze_mixed_source(source)
++    if analysis.get("status") != "PASS":
++        raise RuntimeError(f"mixed source analysis failed: mode={analysis.get('mode')}")
++    context = choose_mixed_physical_context(registry, asset, analysis)
++    skeleton_logical = context["skeleton_smb"]
++    skeleton = pathlib.Path(resolver.resolve(skeleton_logical, required=True)).resolve()
++
++    work = _work_root(project_root, domain, asset.primary_path)
++    if work.exists():
++        shutil.rmtree(work)
++    import_work, edit_work, build_work, reimport_work = [work / name for name in ("01_import", "02_edit", "03_candidate", "04_reimport")]
++    for path in (import_work, edit_work, build_work, reimport_work):
++        path.mkdir(parents=True, exist_ok=True)
++
++    runner = ValidationRunner(ValidationContext(settings, resolver, certifications))
++    overlay, texture_report = runner._texture_overlay(asset, import_work)
++    model_info = None
++    if context["mode"] == "MODEL_INFO_LOD":
++        preflight = runner._preflight_explicit_skeleton_lod_import(
++            asset, context["lod"], model_info=context["model_info_inx"],
++            skeleton_logical=skeleton_logical, require_unambiguous=True,
++        )
++        source, pristine = runner._prepare_explicit_skeleton_lod_blend(asset, import_work, overlay, preflight)
++        model_info = pathlib.Path(preflight["model_info"]).resolve()
++        context["lod_selection_mode"] = str((preflight.get("lod_node_coverage") or {}).get("selection_mode") or context["lod_selection_mode"])
++    else:
++        preflight = runner._preflight_standalone_rigid_import(asset, skeleton_logical)
++        source, pristine = runner._prepare_standalone_rigid_blend(asset, import_work, overlay, preflight)
++
++    rigid_targets = list(context["rigid_targets"])
++    static_targets = list(context["static_targets"])
++    targets = rigid_targets + static_targets
++    adapters = {name: "pt_blender_to_smd_free_mesh_v3.py" for name in rigid_targets}
++    adapters.update({name: "pt_blender_to_smd_static_v1.py" for name in static_targets})
++    edit_plan = {
++        "format": "PT_MIXED_PHYSIQUE_AUTOMATED_EDIT_PLAN_V1",
++        "domain": domain,
++        "asset": asset.primary_path,
++        "amplitude": float(amplitude),
++        "targets": [{"object": name, "adapter": "RIGID" if name in rigid_targets else "STATIC"} for name in targets],
++        "source_sha256": sha256_file(source),
++        "context": context,
++    }
++    edit_plan_path = edit_work / "edit_plan.json"
++    edit_plan_path.write_text(json.dumps(edit_plan, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    edited_blend = edit_work / "automatically_edited.blend"
++    edit_report_path = edit_work / "edit_report.json"
++    edit_script = project_root / "pt_asset_tool" / "blender" / "apply_mixed_semantic_devtest.py"
++    run_logged(settings.blender_command() + [
++        "--background", str(pristine), "--python-exit-code", "1", "--python", str(edit_script), "--",
++        "--plan", str(edit_plan_path), "--out", str(edited_blend), "--report", str(edit_report_path),
++    ], edit_work / "01_automatic_edit.log")
++    edit_report = json.loads(edit_report_path.read_text(encoding="utf-8"))
++    if edit_report.get("status") != "PASS" or int(edit_report.get("target_count") or 0) != len(targets):
++        raise RuntimeError(f"automatic mixed edit failed: {edit_report}")
++
++    output = build_work / pathlib.PurePosixPath(asset.primary_path).name
++    steps_dir = build_work / "steps"
++    steps_dir.mkdir(parents=True, exist_ok=True)
++    current_source = pathlib.Path(source).resolve()
++    steps = []
++    candidate = {
++        "status": "READY",
++        "blend": str(edited_blend),
++        "source": str(source),
++        "source_sha256": sha256_file(source),
++        "skeleton": str(skeleton),
++        "objects": targets,
++        "object_adapters": adapters,
++        "output": str(output),
++    }
++    for index, object_name in enumerate(targets, start=1):
++        step_output = output if index == len(targets) else steps_dir / f"{index:02d}_{object_name}.smd"
++        step_report = steps_dir / f"{index:02d}_{object_name}.writer.json"
++        step_log = steps_dir / f"{index:02d}_{object_name}.log"
++        cmd = build_mixed_candidate_step_command(
++            settings, candidate, object_name=object_name, source=current_source, output=step_output, report=step_report,
++        )
++        run_logged(cmd, step_log)
++        data = json.loads(step_report.read_text(encoding="utf-8"))
++        steps.append({
++            "index": index,
++            "object": object_name,
++            "adapter": adapters[object_name],
++            "input_sha256": sha256_file(current_source),
++            "output_sha256": sha256_file(step_output),
++            "source_counts": data.get("source_counts"),
++            "output_counts": data.get("output_counts"),
++            "unrelated_object_blocks_byte_identical": data.get("unrelated_object_blocks_byte_identical"),
++            "max_vertex_fit_error": data.get("max_vertex_fit_error"),
++        })
++        current_source = step_output.resolve()
++
++    verification = validate_mixed_candidate_output(
++        source, output, target_objects=targets, project_root=project_root, skeleton=skeleton,
++    )
++    if verification.get("status") != "PASS" or not verification.get("all_target_edits_observed"):
++        raise RuntimeError(f"combined mixed candidate failed: {verification.get('errors')} targets_without_edit={verification.get('targets_without_observed_edit')}")
++    if set(row.get("adapter") for row in verification.get("target_results") or []) != {"RIGID", "STATIC"}:
++        raise RuntimeError("combined mixed candidate did not verify both rigid and static adapters")
++
++    writer_summary = build_work / "writer_summary.json"
++    writer_summary.write_text(json.dumps({
++        "tool": "PT_MIXED_PHYSIQUE_PHYSICAL_AUTOMATED_DEVTEST_WRITER_V1",
++        "step_count": len(steps), "steps": steps, "output_sha256": sha256_file(output),
++    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    provenance = write_build_provenance(
++        output, asset=asset, source=source, build_mode="CANDIDATE_MIXED_PHYSICAL_AUTOMATED_DEVTEST",
++        adapter="pt_asset_tool.mixed_authoring_candidate", build_status="PASS", production_authorized=False,
++        evidence={
++            "automated_devtest": True, "semantic_domain": domain, "physical_mixed": True,
++            "context": context, "candidate_objects": targets, "object_adapters": adapters,
++            "all_target_edits_observed": True,
++            "non_target_changed": list(verification.get("non_target_changed") or []),
++            "unknown_physique_bones_by_object": dict(verification.get("unknown_physique_bones_by_object") or {}),
++            "verification_errors": list(verification.get("errors") or []), "writer_summary": str(writer_summary),
++        },
++    )
++
++    parsed = parse_model062_bytes(output.read_bytes())
++    expected = {"format": "PT_MIXED_PHYSIQUE_AUTOMATED_REIMPORT_EXPECTED_V1", "objects": {}}
++    for name in targets:
++        obj = parsed["objects"].get(name)
++        if obj is None:
++            raise RuntimeError(f"mixed candidate missing target before reimport: {name}")
++        expected["objects"][name] = {"vertices": int(obj["nv"]), "faces": int(obj["nf"])}
++    expected_path = reimport_work / "expected.json"
++    expected_path.write_text(json.dumps(expected, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    reimport_blend = reimport_work / "candidate_reimport.blend"
++    importer = project_root / "history_py" / "pt_smd_blender_import_v3_static_armature.py"
++    reimport_cmd = settings.blender_command() + [
++        "--background", "--python-exit-code", "1", "--python", str(importer), "--",
++        "--smd", str(output), "--skeleton", str(skeleton),
++    ]
++    if model_info is not None:
++        reimport_cmd += ["--model-info", str(model_info), "--lod", str(context["lod"])]
++    reimport_cmd += ["--client-root", str(overlay), "--out", str(reimport_blend), "--no-pack"]
++    if model_info is not None and context.get("lod_selection_mode") == "SINGLE_TIER_FULL_CONTAINER":
++        reimport_cmd.append("--single-tier-full-container")
++    run_logged(reimport_cmd, reimport_work / "01_import.log")
++    check_report = reimport_work / "check.json"
++    check_script = project_root / "pt_asset_tool" / "blender" / "check_static_semantic_devtest.py"
++    run_logged(settings.blender_command() + [
++        "--background", str(reimport_blend), "--python-exit-code", "1", "--python", str(check_script), "--",
++        "--expected", str(expected_path), "--report", str(check_report),
++    ], reimport_work / "02_check.log")
++    checked = json.loads(check_report.read_text(encoding="utf-8"))
++    if checked.get("status") != "PASS":
++        raise RuntimeError(f"mixed candidate reimport check failed: {checked.get('errors')}")
++
++    result = {
++        "format": FORMAT, "status": "PASS", "domain": domain, "asset": asset.primary_path,
++        "source_sha256": sha256_file(source), "context": context,
++        "texture_ready": bool(texture_report.get("ready", True)),
++        "automatic_edit": {"status": edit_report.get("status"), "target_count": edit_report.get("target_count"), "report": str(edit_report_path)},
++        "candidate": {
++            "status": verification.get("status"), "artifact": str(output), "artifact_sha256": sha256_file(output),
++            "provenance": str(provenance), "writer_step_count": len(steps), "all_target_edits_observed": True,
++            "non_target_changed": list(verification.get("non_target_changed") or []),
++            "unknown_physique_bones_by_object": dict(verification.get("unknown_physique_bones_by_object") or {}),
++            "writer_summary": str(writer_summary),
++        },
++        "reimport": {"status": checked.get("status"), "checked_object_count": checked.get("checked_object_count"), "blend": str(reimport_blend), "check_report": str(check_report)},
++        "physical_mixed_certified": True, "automatic_devtest_pass": True,
++        "runtime_authorized": False, "production_authorized": False, "client_write_authorized": False, "client_modified": False,
++        "workdir": str(work),
++    }
++    report_path = work / "result.json"
++    result["report"] = str(report_path)
++    report_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    return result
++
++
++def run_mixed_physique_physical_automated_devtest_batch(
++    settings, registry, resolver, certifications, rows: list[dict[str, Any]], *, amplitude: float = 0.08,
++) -> dict[str, Any]:
++    results = []
++    failed = []
++    for row in rows:
++        try:
++            results.append(run_mixed_physique_physical_automated_devtest(
++                settings, registry, resolver, certifications,
++                asset_path=row["asset"], domain=row["domain"], amplitude=amplitude,
++            ))
++        except Exception as exc:
++            failed.append({"asset": row.get("asset"), "domain": row.get("domain"), "error": f"{type(exc).__name__}: {exc}"})
++    if not rows:
++        status = "EMPTY"
++    else:
++        status = "PASS" if len(results) == len(rows) and not failed else "FAIL"
++    result = {
++        "format": BATCH_FORMAT, "status": status, "requested": len(rows), "passed": len(results),
++        "failed": failed, "results": results,
++        "physical_mixed_certified": bool(rows) and status == "PASS" and all(bool(r.get("physical_mixed_certified")) for r in results),
++        "automatic_only": True, "runtime_authorized": False, "production_authorized": False,
++        "client_write_authorized": False, "client_modified": False,
++    }
++    out = pathlib.Path(settings.project_root).resolve() / "pt_build" / "devtest" / "mixed_physical_auto" / "batch_result.json"
++    out.parent.mkdir(parents=True, exist_ok=True)
++    result["report"] = str(out)
++    out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    return result
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/model062_material_devtest.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/model062_material_devtest.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/model062_material_devtest.py	2026-09-03 08:39:47.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/model062_material_devtest.py	2026-09-03 10:29:08.065125778 +0000
+@@ -35,24 +35,42 @@
+         })
+     if not rows or int(limit) <= 0:
+         return []
+-    # Prefer a complex and a small representative. Material layout is global to
+-    # the Model0.62 container, while content-domain coverage protects against
+-    # path/family-specific parser assumptions.
+-    rows.sort(key=lambda r: (-r["material_count"], -r["object_count"], -r["size"], r["asset"].casefold()))
+-    if len(rows) <= int(limit):
+-        return rows
+-    out = [rows[0]]
+-    if int(limit) > 1:
+-        smallest = min(rows[1:], key=lambda r: (r["material_count"], r["object_count"], r["size"], r["asset"].casefold()))
+-        out.append(smallest)
+-    seen = {x["asset_id"] for x in out}
++    # A Release 1.0 domain can contain more than one physical Model0.62 family
++    # (notably rigid + static).  A material writer witness from one family must
++    # never paint the other family green merely because their material structs
++    # look similar.  Cover every present family first, then spend any remaining
++    # budget on layout-complexity extremes.  The requested limit is therefore a
++    # minimum budget; family coverage is mandatory even if a future real Mixed
++    # sample makes the domain require three representatives.
++    by_family: dict[str, list[dict[str, Any]]] = {}
+     for row in rows:
+-        if row["asset_id"] in seen:
++        by_family.setdefault(str(row["family"]), []).append(row)
++    for family_rows in by_family.values():
++        family_rows.sort(key=lambda r: (-r["material_count"], -r["object_count"], -r["size"], r["asset"].casefold()))
++
++    target = max(int(limit), len(by_family))
++    out: list[dict[str, Any]] = []
++    seen: set[str] = set()
++    for family in sorted(by_family):
++        row = by_family[family][0]
++        out.append(row); seen.add(str(row["asset_id"]))
++
++    # Fill with globally simple/complex layouts after family diversity is
++    # guaranteed. This catches fixed-layout edge cases without sacrificing the
++    # family x domain contract.
++    ordered = sorted(rows, key=lambda r: (r["material_count"], r["object_count"], r["size"], r["asset"].casefold()))
++    fill_order = []
++    if ordered:
++        fill_order.extend((ordered[0], ordered[-1]))
++    fill_order.extend(reversed(ordered))
++    for row in fill_order:
++        aid = str(row["asset_id"])
++        if aid in seen:
+             continue
+-        out.append(row); seen.add(row["asset_id"])
+-        if len(out) >= int(limit):
++        out.append(row); seen.add(aid)
++        if len(out) >= target:
+             break
+-    return out[: int(limit)]
++    return out[:target]
+ 
+ 
+ def run_model062_material_automated_devtest(settings, registry, resolver, row: dict[str, Any]) -> dict[str, Any]:
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_auto.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_auto.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_auto.py	2026-09-03 09:49:02.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_auto.py	2026-09-03 10:40:57.007218723 +0000
+@@ -10,13 +10,14 @@
+ from .model062_material_devtest import choose_all_model062_material_representatives, run_model062_material_automated_devtest_batch, audit_model062_material_physical_corpus
+ from .model062_texture_audit import audit_model062_texture_presence
+ from .mixed_synthetic_devtest import run_mixed_physique_synthetic_devtest
++from .mixed_real_devtest import choose_mixed_physique_representatives, run_mixed_physique_physical_automated_devtest_batch
+ from .object_local_corpus import audit_object_local_physical_corpus
+ from .object_local_writer import audit_object_local_writer_corpus
+ from .rare_outliers import audit_rare_outliers_and_tga
+ from .rare_support import audit_rare_support
+ from .release_1_coverage import (
+     CONTENT_DOMAINS, build_release_1_automated_gate_plan, build_release_1_coverage,
+-    content_domain_from_values,
++    content_domain, content_domain_from_values,
+ )
+ from .rigid_semantic_devtest import run_rigid_semantic_automated_devtest_batch
+ from .rigid_context_census import audit_rigid_context_census
+@@ -202,6 +203,154 @@
+     return pass_domains, details
+ 
+ 
++def _model062_material_family_coverage(
++    physical: dict[str, Any], selected_rows: list[dict[str, Any]], batch: dict[str, Any] | None,
++) -> tuple[set[str], dict[str, dict[str, list[str]]]]:
++    """Require an executed material-writer witness for every physical Model0.62 family.
++
++    The material binary structure is shared, but Release 1.0 is a domain x
++    physical-family contract.  A rigid witness cannot implicitly certify static
++    (or a future authentic Mixed) material authoring in the same content domain.
++    """
++    # Compatibility for synthetic/unit stubs written before the corpus audit
++    # exposed row-level family evidence.  The real V1 corpus audit always emits
++    # ``rows``; only that path is used for release evidence.
++    if "rows" not in (physical or {}):
++        passed = _passed_domains(selected_rows, batch)
++        return passed, {
++            d: {"required": [], "witnessed": [], "missing": [], "evidence": "LEGACY_STUB"}
++            for d in CONTENT_DOMAINS
++        }
++
++    required = {d: set() for d in CONTENT_DOMAINS}
++    for row in (physical or {}).get("rows") or []:
++        domain = str(row.get("domain") or "")
++        family = str(row.get("family") or "")
++        if domain in required and family:
++            required[domain].add(family)
++
++    passed_assets = {str(x).replace("\\", "/").casefold() for x in ((batch or {}).get("passed_assets") or [])}
++    passed_assets.update(
++        str(x.get("asset") or "").replace("\\", "/").casefold()
++        for x in ((batch or {}).get("results") or [])
++        if str(x.get("status") or "") == "PASS"
++    )
++    witnessed = {d: set() for d in CONTENT_DOMAINS}
++    for row in selected_rows:
++        domain = str(row.get("domain") or "")
++        family = str(row.get("family") or "")
++        asset = str(row.get("asset") or "").replace("\\", "/").casefold()
++        if domain in witnessed and family and asset in passed_assets:
++            witnessed[domain].add(family)
++
++    details: dict[str, dict[str, list[str]]] = {}
++    pass_domains: set[str] = set()
++    for domain in CONTENT_DOMAINS:
++        req = required[domain]
++        wit = witnessed[domain]
++        missing = sorted(req - wit)
++        details[domain] = {"required": sorted(req), "witnessed": sorted(wit), "missing": missing}
++        if req and not missing:
++            pass_domains.add(domain)
++    return pass_domains, details
++
++
++def _stage072_full_corpus_proven(row: dict[str, Any] | None) -> bool:
++    """Release 1.0 Stage evidence is the known canonical 63-file corpus, not a subset."""
++    if not _status_pass(row):
++        return False
++    data = row or {}
++    if data.get("stage072_physical_complete_candidate") is True:
++        return True
++    # Backward-compatible evidence shape used by earlier R14 reports/tests.
++    full = int(data.get("full_parse_pass_files") or 0)
++    expected = data.get("candidate_files_expected")
++    audited = data.get("physical_files_audited")
++    structural_fail = int(data.get("structural_fail_files") or 0)
++    return bool(
++        full == 63
++        and structural_fail == 0
++        and (expected is None or int(expected) == 63)
++        and (audited is None or int(audited) == 63)
++    )
++
++
++def _stage072_aux_corpus_proven(row: dict[str, Any] | None, pass_count_key: str) -> bool:
++    """Require an auxiliary Stage corpus audit to cover all 63 canonical files."""
++    if not _status_pass(row):
++        return False
++    data = row or {}
++    return bool(
++        int(data.get("candidate_files_expected") or 0) == 63
++        and int(data.get("physical_files_audited") or 0) == 63
++        and int(data.get(pass_count_key) or 0) == 63
++    )
++
++
++def _stage072_material_corpus_proven(row: dict[str, Any] | None) -> bool:
++    if not _status_pass(row):
++        return False
++    data = row or {}
++    return bool(
++        int(data.get("asset_count") or 0) == 63
++        and int(data.get("failure_count") or 0) == 0
++        and "MAP" in set(data.get("pass_domains") or [])
++    )
++
++
++def _motion_semantic_domain_passes(registry, report: dict[str, Any] | None) -> tuple[set[str], set[str], dict[str, Any]]:
++    """Return domains requiring semantic motion evidence and those that passed it."""
++    data = report or {}
++    by_domain = data.get("by_domain")
++    if isinstance(by_domain, dict):
++        required = {
++            d for d, row in by_domain.items()
++            if d in CONTENT_DOMAINS and (
++                int((row or {}).get("context_count") or 0) > 0
++                or int((row or {}).get("unresolved_asset_count") or 0) > 0
++            )
++        }
++        passed = {
++            d for d in required
++            if str((by_domain.get(d) or {}).get("status") or "") == "PASS"
++        }
++        return required, passed, by_domain
++
++    # Older test doubles did not expose per-domain semantic evidence.  Real
++    # audit output does; avoid breaking historical focused tests while keeping
++    # production evidence strict.
++    if "rows" not in data:
++        return set(), set(CONTENT_DOMAINS) if _status_pass(data) else set(), {}
++
++    asset_domains = {
++        str(a.primary_path or "").replace("\\", "/").casefold(): content_domain(a)
++        for a in registry.assets
++    }
++    touched = {d: [] for d in CONTENT_DOMAINS}
++    for row in data.get("rows") or []:
++        domains = set(str(x) for x in (row.get("domains") or []) if str(x) in CONTENT_DOMAINS)
++        if not domains:
++            for asset in row.get("assets") or []:
++                domain = asset_domains.get(str(asset).replace("\\", "/").casefold(), "")
++                if domain in CONTENT_DOMAINS:
++                    domains.add(domain)
++        for domain in domains:
++            touched[domain].append(row)
++    required = {d for d, rows in touched.items() if rows}
++    passed = set()
++    details: dict[str, Any] = {}
++    for domain, rows in touched.items():
++        if not rows:
++            continue
++        failed = [r for r in rows if str(r.get("source_integrity") or "PASS") != "PASS" or any(
++            str((r.get(k) or {}).get("status") or "") == "FAIL" for k in ("inx_edit", "smb_edit")
++        )]
++        details[domain] = {"context_count": len(rows), "failed_context_count": len(failed), "status": "PASS" if not failed else "FAIL"}
++        if not failed:
++            passed.add(domain)
++    return required, passed, details
++
++
+ def _physical_files_by_domain(registry, suffix: str) -> dict[str, list[str]]:
+     """Return exact physical logical files attributed to each Release 1 domain."""
+     wanted = str(suffix).casefold()
+@@ -239,7 +388,7 @@
+     settings, registry, resolver, certifications, *,
+     rigid_per_domain: int = 3, static_per_domain: int = 3,
+     object_local_limit: int = 4, texlink_limit: int = 4,
+-    animation_fps: int = 30, motion_pair_limit: int = 16,
++    animation_fps: int = 30, motion_pair_limit: int = 0,
+ ) -> dict[str, Any]:
+     root=pathlib.Path(settings.project_root).resolve()
+     plan=build_release_1_automated_gate_plan(
+@@ -266,6 +415,8 @@
+     )
+     standalone_animation_rows = _flatten(standalone_animation_groups)
+     plan["standalone_animation_representatives"] = standalone_animation_groups
++    mixed_rows = choose_mixed_physique_representatives(registry)
++    plan["mixed_physique_physical_assets"] = mixed_rows
+ 
+     gates: dict[str, Any] = {}
+     blockers: list[dict[str, Any]] = []
+@@ -274,6 +425,9 @@
+     # dispatch/verifier must still pass synthetically before an external sample
+     # can be the only remaining format gate.
+     gates["model062_mixed_synthetic"] = run_mixed_physique_synthetic_devtest(root)
++    gates["model062_mixed_physical"] = run_mixed_physique_physical_automated_devtest_batch(
++        settings, registry, resolver, certifications, mixed_rows, amplitude=0.08,
++    ) if mixed_rows else {"status":"EMPTY","requested":0,"passed":0,"failed":[],"results":[],"physical_mixed_certified":False}
+ 
+     gates["model062_physical_corpus"] = audit_model062_physical_corpus(registry, resolver, sample_limit=100)
+ 
+@@ -401,6 +555,7 @@
+     # an explicit external blocker below and can never be silently EMPTY-pass.
+     required = {
+         "model062_mixed_synthetic": False,
++        "model062_mixed_physical": not bool(mixed_rows),
+         "model062_physical_corpus": False,
+         "rigid_context_census": False,
+         "rigid_lod_context_corpus": False,
+@@ -550,6 +705,41 @@
+ 
+ 
+     stage_texture = gates.get("stage072_texture_corpus") or {}
++    stage_physical = gates.get("stage072_physical_corpus") or {}
++    if _status_pass(stage_physical) and not _stage072_full_corpus_proven(stage_physical):
++        blockers.append({
++            "gate":"STAGE072", "domain":"MAP",
++            "status":"BLOCKED_INCOMPLETE_PHYSICAL_CORPUS",
++            "candidate_files_expected":stage_physical.get("candidate_files_expected"),
++            "physical_files_audited":stage_physical.get("physical_files_audited"),
++            "full_parse_pass_files":stage_physical.get("full_parse_pass_files"),
++            "reason":"RELEASE_1_STAGE072_REQUIRES_THE_KNOWN_CANONICAL_63_FILE_PHYSICAL_CORPUS",
++        })
++    stage_aux_specs = (
++        ("stage072_stagearea_corpus", "reconstruction_pass_files", "STAGEAREA"),
++        ("stage072_normals_corpus", "audit_pass_files", "NORMALS"),
++        ("stage072_texture_corpus", "physical_files_audited", "TEXTURES"),
++    )
++    for gate_name, pass_key, label in stage_aux_specs:
++        row = gates.get(gate_name) or {}
++        if _status_pass(row) and not _stage072_aux_corpus_proven(row, pass_key):
++            blockers.append({
++                "gate":"STAGE072", "domain":"MAP",
++                "status":"BLOCKED_INCOMPLETE_" + label + "_CORPUS",
++                "candidate_files_expected":row.get("candidate_files_expected"),
++                "physical_files_audited":row.get("physical_files_audited"),
++                "pass_files":row.get(pass_key),
++                "reason":"STAGE072_AUXILIARY_CORPUS_GATE_DID_NOT_PROVE_ALL_63_CANONICAL_FILES",
++            })
++    stage_material_corpus = gates.get("stage072_material_corpus") or {}
++    if _status_pass(stage_material_corpus) and not _stage072_material_corpus_proven(stage_material_corpus):
++        blockers.append({
++            "gate":"STAGE072", "domain":"MAP",
++            "status":"BLOCKED_INCOMPLETE_MATERIAL_CORPUS",
++            "asset_count":stage_material_corpus.get("asset_count"),
++            "failure_count":stage_material_corpus.get("failure_count"),
++            "reason":"STAGE072_MATERIAL_CORPUS_GATE_DID_NOT_PROVE_ALL_63_CANONICAL_FILES",
++        })
+     if _status_pass(stage_texture) and stage_texture.get("texture_reference_classification_complete_candidate") is not True:
+         blockers.append({
+             "gate":"STAGE072", "domain":"MAP",
+@@ -576,6 +766,14 @@
+         except Exception:
+             physique_counts={}
+         mixed_count=int(physique_counts.get("MIXED") or 0)
++    mixed_physical = gates.get("model062_mixed_physical") or {}
++    mixed_physical_certified = bool(
++        mixed_count > 0
++        and str(mixed_physical.get("status") or "") == "PASS"
++        and bool(mixed_physical.get("physical_mixed_certified"))
++        and int(mixed_physical.get("requested") or 0) == mixed_count
++        and int(mixed_physical.get("passed") or 0) == mixed_count
++    )
+     if mixed_count == 0:
+         blockers.append({
+             "gate":"MODEL062_MIXED","status":"BLOCKED_NO_REPRESENTATIVE",
+@@ -583,6 +781,14 @@
+             "pipeline_wired":True,
+             "requires_user_input":True,
+         })
++    elif not mixed_physical_certified:
++        blockers.append({
++            "gate":"MODEL062_MIXED_PHYSICAL","status":str(mixed_physical.get("status") or "MISSING"),
++            "reason":"REAL_MIXED_CORPUS_PRESENT_BUT_PHYSICAL_EDIT_BUILD_REIMPORT_GATE_NOT_CERTIFIED",
++            "physical_mixed_count":mixed_count,
++            "requested":int(mixed_physical.get("requested") or 0),
++            "passed":int(mixed_physical.get("passed") or 0),
++        })
+ 
+     model062_family_pass = dict((gates.get("model062_physical_corpus") or {}).get("pass_domains_by_family") or {})
+     rigid_physical_parse_pass_domains = set(model062_family_pass.get("SMD_MODEL_062_RIGID_PHYSIQUE") or [])
+@@ -631,9 +837,20 @@
+                 "status":"BLOCKED_NO_POSE_SPACE_DOMAIN_WITNESS", "animated_smb_file_count":count,
+                 "reason":"PHYSICAL_ANIMATED_SMB_PRESENT_BUT_NO_AUTOMATED_POSE_SPACE_PASS",
+             })
+-    material_edit_pass_domains = _passed_domains(material_rows, gates.get("model062_materials"))
++    material_family_pass_domains, material_family_coverage = _model062_material_family_coverage(
++        gates.get("model062_material_corpus") or {}, material_rows, gates.get("model062_materials"),
++    )
+     material_corpus_pass_domains = set((gates.get("model062_material_corpus") or {}).get("pass_domains") or [])
+-    material_pass_domains = material_edit_pass_domains & material_corpus_pass_domains
++    material_pass_domains = material_family_pass_domains & material_corpus_pass_domains
++    for domain, detail in material_family_coverage.items():
++        missing = list((detail or {}).get("missing") or [])
++        if missing:
++            blockers.append({
++                "gate":"MATERIALS", "domain":domain,
++                "status":"BLOCKED_MODEL062_FAMILY_WITHOUT_WRITER_WITNESS",
++                "missing_families":missing,
++                "reason":"PHYSICAL_MODEL062_MATERIAL_FAMILY_PRESENT_WITHOUT_EXECUTED_CANDIDATE_WRITER_WITNESS",
++            })
+     model062_texture_presence_pass_domains = set((gates.get("model062_texture_presence") or {}).get("pass_domains") or [])
+     object_local_corpus_ok = (
+         _status_pass(gates.get("object_local_writer_corpus"))
+@@ -654,7 +871,10 @@
+     )
+     stage_geometry_domains = _passed_domains(stage_rows, gates.get("stage072"))
+     stage_material_corpus_domains = set((gates.get("stage072_material_corpus") or {}).get("pass_domains") or [])
+-    stage_material_domains = _passed_domains(stage_rows, gates.get("stage072_materials")) & stage_material_corpus_domains
++    stage_material_domains = (
++        _passed_domains(stage_rows, gates.get("stage072_materials")) & stage_material_corpus_domains
++        if _stage072_material_corpus_proven(gates.get("stage072_material_corpus")) else set()
++    )
+     stage_texture = gates.get("stage072_texture_corpus") or {}
+     stage_texture_transport_ok = bool(
+         _status_pass(stage_texture)
+@@ -662,25 +882,36 @@
+     )
+     stage_pass_domains = {"MAP"} if (
+         "MAP" in stage_geometry_domains and "MAP" in stage_material_domains
+-        and all(_status_pass(gates.get(name)) for name in (
+-            "stage072_physical_corpus", "stage072_stagearea_corpus",
+-            "stage072_normals_corpus",
+-        ))
++        and _stage072_full_corpus_proven(gates.get("stage072_physical_corpus"))
++        and _stage072_aux_corpus_proven(gates.get("stage072_stagearea_corpus"), "reconstruction_pass_files")
++        and _stage072_aux_corpus_proven(gates.get("stage072_normals_corpus"), "audit_pass_files")
++        and _stage072_aux_corpus_proven(gates.get("stage072_texture_corpus"), "physical_files_audited")
+         and stage_texture_transport_ok
+     ) else set()
+     inventory_by_domain = (build_release_1_coverage(registry, external_evidence={}).get("inventory") or {}).get("by_domain") or {}
++    semantic_required_domains, semantic_pass_domains, motion_semantic_by_domain = _motion_semantic_domain_passes(
++        registry, gates.get("motion_semantic_edit"),
++    )
+     inx_pass_domains = {
+         d for d, counts in inventory_by_domain.items()
+         if int((counts or {}).get("PHYSICAL_INX_FILE") or 0) > 0
+         and str(((gates.get("inx_noop_corpus") or {}).get("by_domain") or {}).get(d, {}).get("status") or "") == "PASS"
+         and str(((gates.get("inx_edit_corpus") or {}).get("by_domain") or {}).get(d, {}).get("status") or "") == "PASS"
++        and (d not in semantic_required_domains or d in semantic_pass_domains)
+     }
+     smb_pass_domains = {
+         d for d, counts in inventory_by_domain.items()
+         if int((counts or {}).get("PHYSICAL_SMB_FILE") or 0) > 0
+         and str(((gates.get("smb_noop_corpus") or {}).get("by_domain") or {}).get(d, {}).get("status") or "") == "PASS"
+         and str(((gates.get("smb_edit_corpus") or {}).get("by_domain") or {}).get(d, {}).get("status") or "") == "PASS"
++        and (d not in semantic_required_domains or d in semantic_pass_domains)
+     }
++    for domain in sorted(semantic_required_domains - semantic_pass_domains):
++        blockers.append({
++            "gate":"MOTION_SEMANTIC_EDIT", "domain":domain,
++            "status":"BLOCKED_DOMAIN_SEMANTIC_EDIT_CORPUS",
++            "reason":"PHYSICAL_MOTION_CONTEXT_DOMAIN_DID_NOT_COMPLETE_TEMP_INX_SMB_SEMANTIC_EDIT_AUDIT",
++        })
+ 
+     lod_corpus = gates.get("rigid_lod_context_corpus") or {}
+     lod_rows_by_domain = {d: [] for d in CONTENT_DOMAINS}
+@@ -748,6 +979,7 @@
+         "animation_pose_pass_domains": sorted(animation_pass_domains),
+         "animated_smb_physical_by_domain": animated_smb_by_domain,
+         "model062_material_pass_domains": sorted(material_pass_domains),
++        "model062_material_family_coverage": material_family_coverage,
+         "model062_texture_presence_pass_domains": sorted(model062_texture_presence_pass_domains),
+         "stage072_material_pass_domains": sorted(stage_material_domains),
+         "stage072_pass_domains": sorted(stage_pass_domains),
+@@ -763,6 +995,11 @@
+         ),
+         "inx_writer_pass_domains": sorted(inx_pass_domains),
+         "smb_writer_pass_domains": sorted(smb_pass_domains),
++        "motion_semantic_required_domains": sorted(semantic_required_domains),
++        "motion_semantic_pass_domains": sorted(semantic_pass_domains),
++        "motion_semantic_by_domain": motion_semantic_by_domain,
++        "mixed_physical_certified": mixed_physical_certified,
++        "mixed_physical_pass_domains": sorted({str(r.get("domain")) for r in mixed_rows if any(str(x.get("asset")) == str(r.get("asset")) and str(x.get("status")) == "PASS" for x in (mixed_physical.get("results") or []))}),
+     }
+     coverage=build_release_1_coverage(registry, external_evidence=evidence)
+     # The executable matrix and the runner must never disagree.  Domain-level
+@@ -784,7 +1021,10 @@
+             })
+             existing_keys.add(key)
+     automatic_status="PASS" if not [b for b in blockers if b.get("gate") != "MODEL062_MIXED"] else "FAIL"
+-    overall="BLOCKED_EXTERNAL" if automatic_status=="PASS" and mixed_count==0 else automatic_status
++    # release-1-auto certifies automatic readiness only.  A real 1.0 claim still
++    # requires the integrated runtime/game acceptance and controlled writer
++    # promotion/publish-restore gate, so an automatic PASS is externally blocked.
++    overall="BLOCKED_EXTERNAL" if automatic_status=="PASS" else "FAIL"
+     result={
+         "format":FORMAT,"status":overall,"automatic_gate_status":automatic_status,
+         "release_target":"1.0","plan":plan,
+@@ -877,6 +1117,13 @@
+                 "status": (gates.get("model062_mixed_synthetic") or {}).get("status"),
+                 "real_corpus_certified": (gates.get("model062_mixed_synthetic") or {}).get("real_corpus_certified"),
+             },
++            "mixed_physical": {
++                "status": mixed_physical.get("status"),
++                "requested": mixed_physical.get("requested"),
++                "passed": mixed_physical.get("passed"),
++                "physical_mixed_certified": mixed_physical_certified,
++                "failed": mixed_physical.get("failed"),
++            },
+             "object_local_physical_by_domain": object_local_physical_by_domain,
+             "object_local_selected_by_domain": object_local_selected_by_domain,
+             "object_local_feature_coverage": object_local_feature_coverage,
+@@ -889,9 +1136,10 @@
+             "animation_track_witness_by_domain": animation_track_witness_by_domain,
+         },
+         "blockers":blockers,"coverage":coverage,"gates":gates,
+-        "manual_review_required_now": False,
++        "manual_review_required_now": bool(automatic_status == "PASS" and mixed_physical_certified),
+         "external_input_required": mixed_count == 0 and automatic_status == "PASS",
+         "external_input_request": "authoritative real Mixed-Physique Model0.62 sample/bundle with its skeleton/config context if available" if mixed_count == 0 and automatic_status == "PASS" else None,
++        "external_gates_pending": (["AUTHORITATIVE_REAL_MIXED_PHYSIQUE_SAMPLE"] if mixed_count == 0 else []) + (["INTEGRATED_RUNTIME_GAME_ACCEPTANCE", "WRITER_PROMOTION_AND_PUBLISH_RESTORE"] if automatic_status == "PASS" and mixed_count > 0 else []),
+         "runtime_game_acceptance_pending": True,
+         "production_authorized":False,"client_write_authorized":False,"client_modified":False,
+     }
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_coverage.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_coverage.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_coverage.py	2026-09-03 09:47:50.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/release_1_coverage.py	2026-09-03 10:41:21.569489110 +0000
+@@ -214,6 +214,8 @@
+     texture_codec_auto = set(ext.get("texture_codec_pass_domains") or [])
+     inx_auto = set(ext.get("inx_writer_pass_domains") or [])
+     smb_auto = set(ext.get("smb_writer_pass_domains") or [])
++    mixed_physical_certified = bool(ext.get("mixed_physical_certified"))
++    mixed_physical_pass_domains = set(ext.get("mixed_physical_pass_domains") or [])
+     object_local_physical = {str(k): int(v or 0) for k, v in (ext.get("object_local_physical_by_domain") or {}).items()}
+     object_local_census_available = "object_local_physical_by_domain" in ext
+     multilayer_physical = {str(k): int(v or 0) for k, v in (ext.get("multilayer_physical_by_domain") or {}).items()}
+@@ -225,6 +227,7 @@
+         c = by_domain[domain]
+         rigid_count = int(c.get("SMD_MODEL_062_RIGID_PHYSIQUE", 0))
+         static_count = int(c.get("SMD_MODEL_062_STATIC", 0))
++        mixed_domain_count = int(c.get("SMD_MODEL_062_MIXED_PHYSIQUE", 0))
+         stage_count = int(c.get("STAGE_072_MAP_SEPARATE", 0))
+         domain_cells: dict[str, Any] = {}
+ 
+@@ -276,7 +279,21 @@
+         else:
+             domain_cells["MODEL062_STATIC"] = _cell(0, "NOT_PRESENT_IN_CANONICAL_CORPUS")
+ 
+-        domain_cells["MODEL062_MIXED"] = _cell(0, "PIPELINE_IMPLEMENTED_SYNTHETIC_AWAITING_REAL_REPRESENTATIVE", next_gate="obtain authoritative real Mixed-Physique sample and run physical candidate/build/reimport gate", evidence={"mixed_dispatch_wired": True, "rigid_adapter": "pt_blender_to_smd_free_mesh_v3.py", "static_adapter": "pt_blender_to_smd_static_v1.py"})
++        if mixed_domain_count:
++            mixed_ok = mixed_physical_certified and domain in mixed_physical_pass_domains
++            mixed_state = "PHYSICAL_AUTOMATED_EDIT_BUILD_REIMPORT_PASS" if mixed_ok else "REPRESENTATIVE_PRESENT_PHYSICAL_GATE_REQUIRED"
++            mixed_gate = "representative runtime/game Mixed-Physique acceptance" if mixed_ok else "execute physical mixed rigid+static edit/build/reimport gate"
++            if not mixed_ok:
++                blockers.append({"domain": domain, "capability": "MODEL062_MIXED", "blocker": mixed_gate})
++            domain_cells["MODEL062_MIXED"] = _cell(
++                mixed_domain_count, mixed_state, next_gate=mixed_gate,
++                evidence={
++                    "mixed_dispatch_wired": True, "physical_gate_certified": mixed_ok,
++                    "rigid_adapter": "pt_blender_to_smd_free_mesh_v3.py", "static_adapter": "pt_blender_to_smd_static_v1.py",
++                },
++            )
++        else:
++            domain_cells["MODEL062_MIXED"] = _cell(0, "NOT_PRESENT_IN_CANONICAL_CORPUS")
+ 
+         inx_count = int(c.get("PHYSICAL_INX_FILE", 0))
+         smb_count = int(c.get("PHYSICAL_SMB_FILE", 0))
+@@ -503,33 +520,50 @@
+         matrix[domain] = domain_cells
+ 
+     mixed_count = int(counts["family_totals"].get("SMD_MODEL_062_MIXED_PHYSIQUE", 0))
++    mixed_global_ready = bool(mixed_count > 0 and mixed_physical_certified)
+     global_gates = [
+         {
+             "capability": "MODEL062_MIXED",
+-            "state": "PIPELINE_IMPLEMENTED_SYNTHETIC_AWAITING_REAL_REPRESENTATIVE" if mixed_count == 0 else "REPRESENTATIVE_PRESENT_PHYSICAL_GATE_REQUIRED",
++            "state": (
++                "PIPELINE_IMPLEMENTED_SYNTHETIC_AWAITING_REAL_REPRESENTATIVE" if mixed_count == 0
++                else ("PHYSICAL_AUTOMATED_GATE_PASS" if mixed_global_ready else "REPRESENTATIVE_PRESENT_PHYSICAL_GATE_REQUIRED")
++            ),
+             "count": mixed_count,
+-            "next_gate": "obtain authoritative Mixed-Physique fixture/sample and execute physical gate" if mixed_count == 0 else "execute physical mixed import/build/reimport gate",
++            "next_gate": (
++                "obtain authoritative Mixed-Physique fixture/sample and execute physical gate" if mixed_count == 0
++                else ("representative runtime/game Mixed-Physique acceptance" if mixed_global_ready else "execute physical mixed import/edit/build/reimport gate")
++            ),
++        },
++        {
++            "capability": "RUNTIME_GAME_ACCEPTANCE",
++            "state": "EXTERNAL_INTEGRATED_RUNTIME_GATE_PENDING",
++            "next_gate": "run representative integrated visual/runtime acceptance in the game after all automatic gates are green",
+         },
+         {
+             "capability": "PUBLISH_RESTORE",
+             "state": "POLICY_BLOCKED_UNTIL_WRITER_PROMOTION",
+-            "next_gate": "enable only after per-family automatic/runtime gates",
++            "next_gate": "enable only after per-family automatic/runtime gates and explicit writer promotion",
+         },
+     ]
+ 
+-    # Global blockers are explicit rows too.  A coverage document that still
+-    # contains release blockers must never label itself PASS; that previously
+-    # made an in-progress matrix look release-ready even though its own rows
+-    # said otherwise.
++    # Global blockers are external Release 1.0 gates.  Mixed disappears as a
++    # blocker only after a real physical edit/build/reimport certification;
++    # runtime and publish/restore remain explicit even when automation is green.
++    if not mixed_global_ready:
++        blockers.append({
++            "domain": "GLOBAL",
++            "capability": "MODEL062_MIXED",
++            "blocker": global_gates[0]["next_gate"],
++        })
+     blockers.append({
+         "domain": "GLOBAL",
+-        "capability": "MODEL062_MIXED",
+-        "blocker": global_gates[0]["next_gate"],
++        "capability": "RUNTIME_GAME_ACCEPTANCE",
++        "blocker": global_gates[1]["next_gate"],
+     })
+     blockers.append({
+         "domain": "GLOBAL",
+         "capability": "PUBLISH_RESTORE",
+-        "blocker": global_gates[1]["next_gate"],
++        "blocker": global_gates[2]["next_gate"],
+     })
+ 
+     return {
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/writer_corpus_audit.py /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/writer_corpus_audit.py
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/writer_corpus_audit.py	2026-09-03 09:10:45.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_asset_tool/writer_corpus_audit.py	2026-09-03 10:30:24.985850545 +0000
+@@ -487,6 +487,11 @@
+     project_root = pathlib.Path(project_root).resolve()
+     contexts, unresolved = _registry_motion_contexts(registry, resolver)
+     selected = contexts[: int(pair_limit)] if pair_limit and pair_limit > 0 else contexts
++    from .release_1_coverage import CONTENT_DOMAINS, content_domain
++    asset_domains = {
++        str(asset.primary_path or "").replace("\\", "/").casefold(): content_domain(asset)
++        for asset in registry.assets
++    }
+     failures: list[dict[str, Any]] = []
+     rows: list[dict[str, Any]] = []
+     inx_pass = smb_pass = inx_skip = smb_skip = 0
+@@ -502,6 +507,11 @@
+                 "motion_smb": ctx["motion_smb"],
+                 "asset_count": len(ctx["assets"]),
+                 "assets": list(ctx["assets"]),
++                "domains": sorted({
++                    asset_domains.get(str(x).replace("\\", "/").casefold(), "")
++                    for x in ctx["assets"]
++                    if asset_domains.get(str(x).replace("\\", "/").casefold(), "") in CONTENT_DOMAINS
++                }),
+             }
+             try:
+                 inx_result = _semantic_inx_edit(project_root, inx, smb, td_root / f"{index:04d}_edit.inx")
+@@ -525,20 +535,78 @@
+             else:
+                 row["source_integrity"] = "PASS"
+             rows.append(row)
++    complete_selection = len(selected) == len(contexts)
++    by_domain: dict[str, dict[str, Any]] = {
++        d: {
++            "context_count": 0,
++            "inx_semantic_edit_pass": 0,
++            "inx_semantic_edit_skip": 0,
++            "smb_semantic_edit_pass": 0,
++            "smb_semantic_edit_skip": 0,
++            "failed_context_count": 0,
++            "unresolved_asset_count": 0,
++        }
++        for d in CONTENT_DOMAINS
++    }
++    for row in rows:
++        failed_row = (
++            str(row.get("source_integrity") or "PASS") != "PASS"
++            or str((row.get("inx_edit") or {}).get("status") or "") == "FAIL"
++            or str((row.get("smb_edit") or {}).get("status") or "") == "FAIL"
++        )
++        for domain in row.get("domains") or []:
++            if domain not in by_domain:
++                continue
++            summary = by_domain[domain]
++            summary["context_count"] += 1
++            if failed_row:
++                summary["failed_context_count"] += 1
++            for key, prefix in (("inx_edit", "inx_semantic_edit"), ("smb_edit", "smb_semantic_edit")):
++                state = str((row.get(key) or {}).get("status") or "")
++                if state == "PASS":
++                    summary[prefix + "_pass"] += 1
++                elif state == "SKIP":
++                    summary[prefix + "_skip"] += 1
++    for row in unresolved:
++        domain = asset_domains.get(str(row.get("asset") or "").replace("\\", "/").casefold(), "")
++        if domain in by_domain:
++            by_domain[domain]["unresolved_asset_count"] += 1
++    pass_domains: list[str] = []
++    for domain, summary in by_domain.items():
++        count = int(summary["context_count"])
++        unresolved_count = int(summary["unresolved_asset_count"])
++        failed_count = int(summary["failed_context_count"])
++        if not count and not unresolved_count:
++            summary["status"] = "NOT_PRESENT"
++        elif unresolved_count or failed_count or not complete_selection:
++            summary["status"] = "FAIL"
++        else:
++            summary["status"] = "PASS"
++            pass_domains.append(domain)
++
+     attempted = inx_pass + smb_pass
+-    status = "PASS" if selected and attempted and not failures else ("EMPTY" if not selected else "FAIL")
++    status = (
++        "PASS"
++        if selected and complete_selection and not unresolved and not failures
++        else ("EMPTY" if not selected and not contexts and not unresolved else "FAIL")
++    )
+     return {
+         "format": MOTION_SEMANTIC_EDIT_FORMAT,
+         "status": status,
+         "scope": "TEMP_EDIT_SOURCE_SIDE_SEMANTIC_SANITY_NOT_BLENDER_OR_RUNTIME_CERTIFICATION",
+         "registry_motion_contexts": len(contexts),
+         "audited_contexts": len(selected),
++        "corpus_complete": complete_selection,
++        "selection_limited": not complete_selection,
++        "pair_limit": int(pair_limit),
+         "inx_semantic_edit_pass": inx_pass,
+         "inx_semantic_edit_skip": inx_skip,
+         "smb_semantic_edit_pass": smb_pass,
+         "smb_semantic_edit_skip": smb_skip,
+         "fail_count": len(failures),
+         "unresolved_physical_assets": len(unresolved),
++        "by_domain": by_domain,
++        "pass_domains": sorted(pass_domains),
+         "rows": rows,
+         "failure_sample": failures[: max(0, int(sample_limit))],
+         "unresolved_sample": unresolved[: max(0, int(sample_limit))],
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_build/devtest/release_1_coverage_autonomous_2026-09-03.json /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_build/devtest/release_1_coverage_autonomous_2026-09-03.json
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_build/devtest/release_1_coverage_autonomous_2026-09-03.json	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/app/pt_build/devtest/release_1_coverage_autonomous_2026-09-03.json	2026-09-03 10:47:37.235436848 +0000
+@@ -0,0 +1,1353 @@
++{
++  "format": "PT_ASSET_RELEASE_1_COVERAGE_V1",
++  "status": "PARTIAL",
++  "release_target": "1.0",
++  "development_state": "IN_PROGRESS",
++  "content_domains": [
++    "PLAYER",
++    "NPC",
++    "MONSTER",
++    "WEAPON_ITEM",
++    "EFFECT",
++    "MAP"
++  ],
++  "required_capabilities": [
++    "MODEL062_RIGID",
++    "MODEL062_STATIC",
++    "MODEL062_MIXED",
++    "SMB_EXISTING",
++    "INX_MODERN_LEGACY_OUTLIERS",
++    "BMP_TGA_PROPRIETARY",
++    "STAGE072",
++    "OBJECT_LOCAL_ANIMATION",
++    "MULTILAYER_TEXLINK",
++    "LOD",
++    "MATERIALS",
++    "TEXTURES",
++    "RIGGING",
++    "EXISTING_ANIMATION"
++  ],
++  "inventory": {
++    "by_domain": {
++      "PLAYER": {
++        "PHYSICAL_INX_FILE": 1504,
++        "PHYSICAL_SMB_FILE": 78,
++        "BMP_PROTECTED_PREFIX14_VARIANT": 142,
++        "SMD_MODEL_062_STATIC": 1,
++        "HAS_INX_CONFIG": 1389,
++        "HAS_TEXTURE_REFS": 1395,
++        "MODEL062_HAS_TEXTURE_REFS": 1395,
++        "HAS_MATERIALS": 1395,
++        "MODEL062_HAS_MATERIALS": 1395,
++        "TGA_NONSTANDARD_OR_PROTECTED": 610,
++        "BMP_STANDARD_24BPP": 63,
++        "BMP_PROTECTED_PREFIX14_EXACT": 110,
++        "TGA_STANDARD": 17,
++        "SMD_MODEL_062_RIGID_PHYSIQUE": 1393,
++        "SMD_OTHER": 5,
++        "HAS_LOD_GROUPS": 1350,
++        "SMD_MODEL_062_VARIANT_OR_DAMAGED": 1,
++        "MULTILAYER_TEXLINK_CANDIDATE": 2,
++        "HAS_SMB_BINDING": 7,
++        "ANIMATION_BINDING_READY": 7,
++        "RIGGING_READY": 7,
++        "STANDALONE_SIBLING_SMB_HYPOTHESIS": 3
++      },
++      "NPC": {
++        "PHYSICAL_INX_FILE": 143,
++        "PHYSICAL_SMB_FILE": 164,
++        "TGA_NONSTANDARD_OR_PROTECTED": 90,
++        "SMD_MODEL_062_RIGID_PHYSIQUE": 102,
++        "HAS_INX_CONFIG": 95,
++        "HAS_SMB_BINDING": 95,
++        "ANIMATION_BINDING_READY": 95,
++        "RIGGING_READY": 95,
++        "HAS_TEXTURE_REFS": 102,
++        "MODEL062_HAS_TEXTURE_REFS": 102,
++        "HAS_MATERIALS": 102,
++        "MODEL062_HAS_MATERIALS": 102,
++        "HAS_LOD_GROUPS": 82,
++        "BMP_PROTECTED_PREFIX14_VARIANT": 154,
++        "BMP_PROTECTED_PREFIX14_EXACT": 66,
++        "STANDALONE_SIBLING_SMB_HYPOTHESIS": 7,
++        "BMP_STANDARD_24BPP": 5,
++        "TGA_STANDARD": 5
++      },
++      "MONSTER": {
++        "PHYSICAL_INX_FILE": 399,
++        "PHYSICAL_SMB_FILE": 656,
++        "SMD_MODEL_062_RIGID_PHYSIQUE": 393,
++        "HAS_INX_CONFIG": 392,
++        "HAS_SMB_BINDING": 392,
++        "ANIMATION_BINDING_READY": 392,
++        "RIGGING_READY": 392,
++        "HAS_TEXTURE_REFS": 402,
++        "MODEL062_HAS_TEXTURE_REFS": 402,
++        "HAS_MATERIALS": 403,
++        "MODEL062_HAS_MATERIALS": 403,
++        "HAS_LOD_GROUPS": 356,
++        "TGA_NONSTANDARD_OR_PROTECTED": 412,
++        "BMP_PROTECTED_PREFIX14_VARIANT": 240,
++        "BMP_PROTECTED_PREFIX14_EXACT": 181,
++        "MULTILAYER_TEXLINK_CANDIDATE": 30,
++        "TGA_STANDARD": 33,
++        "STANDALONE_SIBLING_SMB_HYPOTHESIS": 1,
++        "BMP_STANDARD_24BPP": 12,
++        "SMD_MODEL_062_STATIC": 10,
++        "OBJECT_LOCAL_CANDIDATE": 10
++      },
++      "WEAPON_ITEM": {
++        "SMD_MODEL_062_STATIC": 604,
++        "HAS_TEXTURE_REFS": 603,
++        "MODEL062_HAS_TEXTURE_REFS": 603,
++        "HAS_MATERIALS": 604,
++        "MODEL062_HAS_MATERIALS": 604,
++        "TGA_STANDARD": 4,
++        "BMP_STANDARD_24BPP": 21,
++        "TGA_NONSTANDARD_OR_PROTECTED": 415,
++        "BMP_PROTECTED_PREFIX14_VARIANT": 1196,
++        "BMP_PROTECTED_PREFIX14_EXACT": 1,
++        "OBJECT_LOCAL_CANDIDATE": 5
++      },
++      "EFFECT": {
++        "PHYSICAL_SMB_FILE": 23,
++        "BMP_STANDARD_24BPP": 416,
++        "SMD_MODEL_062_RIGID_PHYSIQUE": 27,
++        "STANDALONE_SIBLING_SMB_HYPOTHESIS": 27,
++        "HAS_TEXTURE_REFS": 250,
++        "MODEL062_HAS_TEXTURE_REFS": 250,
++        "HAS_MATERIALS": 250,
++        "MODEL062_HAS_MATERIALS": 250,
++        "TGA_STANDARD": 303,
++        "SMD_MODEL_062_STATIC": 223,
++        "BMP_OTHER": 2,
++        "BMP_STANDARD_32BPP": 3,
++        "TGA_NONSTANDARD_OR_PROTECTED": 168,
++        "BMP_PROTECTED_PREFIX14_VARIANT": 117,
++        "OBJECT_LOCAL_CANDIDATE": 63
++      },
++      "MAP": {
++        "PHYSICAL_SMB_FILE": 36,
++        "BMP_STANDARD_24BPP": 6063,
++        "STAGE_072_MAP_SEPARATE": 63,
++        "TGA_STANDARD": 1261,
++        "SMD_MODEL_062_STATIC": 355,
++        "HAS_TEXTURE_REFS": 391,
++        "MODEL062_HAS_TEXTURE_REFS": 391,
++        "HAS_MATERIALS": 391,
++        "MODEL062_HAS_MATERIALS": 391,
++        "TGA_NONSTANDARD_OR_PROTECTED": 501,
++        "MULTILAYER_TEXLINK_CANDIDATE": 87,
++        "SMD_MODEL_062_RIGID_PHYSIQUE": 36,
++        "STANDALONE_SIBLING_SMB_HYPOTHESIS": 36,
++        "BMP_PROTECTED_PREFIX14_VARIANT": 1043,
++        "BMP_PROTECTED_PREFIX14_EXACT": 32,
++        "BMP_OTHER": 10,
++        "OBJECT_LOCAL_CANDIDATE": 353
++      }
++    },
++    "family_totals": {
++      "BMP_PROTECTED_PREFIX14_VARIANT": 2892,
++      "SMD_MODEL_062_STATIC": 1193,
++      "TGA_NONSTANDARD_OR_PROTECTED": 2196,
++      "BMP_STANDARD_24BPP": 6580,
++      "BMP_PROTECTED_PREFIX14_EXACT": 390,
++      "TGA_STANDARD": 1623,
++      "SMD_MODEL_062_RIGID_PHYSIQUE": 1951,
++      "SMD_OTHER": 5,
++      "SMD_MODEL_062_VARIANT_OR_DAMAGED": 1,
++      "BMP_OTHER": 12,
++      "BMP_STANDARD_32BPP": 3,
++      "STAGE_072_MAP_SEPARATE": 63
++    },
++    "examples": {
++      "PLAYER": {
++        "BMP_PROTECTED_PREFIX14_VARIANT": [
++          "char/Flag/wow.bmp",
++          "char/Flag/wow01.bmp",
++          "char/tmABCD/_MfbB09-Ob.bmp"
++        ],
++        "SMD_MODEL_062_STATIC": [
++          "char/Flag/wow.smd"
++        ],
++        "TGA_NONSTANDARD_OR_PROTECTED": [
++          "char/tmABCD/815mask_M.tga",
++          "char/tmABCD/815mask_W.tga",
++          "char/tmABCD/_MfbB18_02.tga"
++        ],
++        "BMP_STANDARD_24BPP": [
++          "char/tmABCD/_MfbB-ac.BMP",
++          "char/tmABCD/_MfbB01.bmp",
++          "char/tmABCD/_MfbB03.bmp"
++        ],
++        "BMP_PROTECTED_PREFIX14_EXACT": [
++          "char/tmABCD/_MfbB09.bmp",
++          "char/tmABCD/_MfbB15.bmp",
++          "char/tmABCD/_MfbB18.bmp"
++        ],
++        "TGA_STANDARD": [
++          "char/tmABCD/angryMG.tga",
++          "char/tmABCD/angryMS.tga",
++          "char/tmABCD/ar_drago2.tga"
++        ],
++        "SMD_MODEL_062_RIGID_PHYSIQUE": [
++          "char/tmABCD/ar0nASH.smd",
++          "char/tmABCD/ar0nDrac.smd",
++          "char/tmABCD/ar0nDress.smd"
++        ],
++        "SMD_OTHER": [
++          "char/tmABCD/ar0nass.smd",
++          "char/tmABCD/CartolaFS.smd",
++          "char/tmABCD/CartolaMG.smd"
++        ],
++        "SMD_MODEL_062_VARIANT_OR_DAMAGED": [
++          "char/tmABCD/at_dragon.smd"
++        ]
++      },
++      "NPC": {
++        "TGA_NONSTANDARD_OR_PROTECTED": [
++          "char/npc/Ahin/Ahin-body.tga",
++          "char/npc/Ahin/Ahin-head.tga",
++          "char/npc/arad/arad_hair1.tga"
++        ],
++        "SMD_MODEL_062_RIGID_PHYSIQUE": [
++          "char/npc/Ahin/Ahin.smd",
++          "char/npc/arad/arad.smd",
++          "char/npc/Ascam/Ascam.smd"
++        ],
++        "BMP_PROTECTED_PREFIX14_VARIANT": [
++          "char/npc/arad/arad.bmp",
++          "char/npc/arad/arad_wea.bmp",
++          "char/npc/Ascam/Ascam-a.BMP"
++        ],
++        "BMP_PROTECTED_PREFIX14_EXACT": [
++          "char/npc/Ascam/Ascam-b.BMP",
++          "char/npc/Barba/Npcb07.BMP",
++          "char/npc/Baurin/baurin.bmp"
++        ],
++        "BMP_STANDARD_24BPP": [
++          "char/npc/Bcn05_/Bcn05_body.bmp",
++          "char/npc/Bcn05_/Bcn05_book.BMP",
++          "Effect/AssaEffect/Shelltom/monpc-it01.BMP"
++        ],
++        "TGA_STANDARD": [
++          "char/npc/Bcn05_/Bcn05_head.tga",
++          "char/npc/cashshop/cash.tga",
++          "char/npc/Enzo/tex.tga"
++        ]
++      },
++      "MONSTER": {
++        "SMD_MODEL_062_RIGID_PHYSIQUE": [
++          "char/monster/Bear/Maplebear.smd",
++          "char/monster/Acero/Acero.smd",
++          "char/monster/Adevayo/worldtogo.smd"
++        ],
++        "TGA_NONSTANDARD_OR_PROTECTED": [
++          "char/monster/EvilMaple/MapleLeaf.TGA",
++          "char/monster/Acero/Acero.tga",
++          "char/monster/Adevayo/world_togo2.tga"
++        ],
++        "BMP_PROTECTED_PREFIX14_VARIANT": [
++          "char/monster/Adevayo/baall.BMP",
++          "char/monster/bal_crystal/top_j_9.bmp",
++          "char/monster/Bguardian/env.bmp"
++        ],
++        "BMP_PROTECTED_PREFIX14_EXACT": [
++          "char/monster/Adevayo/world_togo.bmp",
++          "char/monster/ArmBeetle/ArmBeetle.bmp",
++          "char/monster/Bebechick/Bebechick.bmp"
++        ],
++        "TGA_STANDARD": [
++          "char/monster/Billy/Billy.tga",
++          "char/monster/Billy/weapon1.TGA",
++          "char/monster/Billy_s/Billy_s.tga"
++        ],
++        "BMP_STANDARD_24BPP": [
++          "char/monster/RPThell/axe1.bmp",
++          "char/monster/RPThell/shieldRPT.bmp",
++          "char/monster/RPTxxxPrince/PRINCEknight_sword.bmp"
++        ],
++        "SMD_MODEL_062_STATIC": [
++          "Effect/AssaEffect/MonsterFury/m_fury-jin.smd",
++          "Effect/AssaEffect/MonsterFury/m_fury-jin_b.smd",
++          "Effect/AssaEffect/MonsterFury/m_fury-jin_g.smd"
++        ]
++      },
++      "WEAPON_ITEM": {
++        "SMD_MODEL_062_STATIC": [
++          "Effect/AssaEffect/EnchantWeapon/Ase/Enchant.smd",
++          "Effect/AssaEffect/EnchantWeapon/Ase/EW-ice.smd",
++          "Effect/AssaEffect/Skill3Mesh/dancesword.smd"
++        ],
++        "TGA_STANDARD": [
++          "Effect/AssaEffect/EnchantWeapon/Ase/maam-g2.tga",
++          "Effect/AssaEffect/EnchantWeapon/maam2.tga",
++          "Effect/ImageData/WeaponFix1/WeaponFix.tga"
++        ],
++        "BMP_STANDARD_24BPP": [
++          "Effect/AssaEffect/EnchantWeapon/fire-b3.bmp",
++          "Effect/AssaEffect/Skill3Mesh/pikeman5_FinalSpear.bmp",
++          "Effect/AssaEffect/Skill3Mesh/pk3_VenomSpear.bmp"
++        ],
++        "TGA_NONSTANDARD_OR_PROTECTED": [
++          "game/shop/itembox.tga",
++          "game/shop/itembox_.tga",
++          "game/timeshop/itembox.tga"
++        ],
++        "BMP_PROTECTED_PREFIX14_VARIANT": [
++          "image/Sinimage/Effect/SkillEffect/SwordBlast/SWBLAST.bmp",
++          "image/Sinimage/Effect/SkillEffect/SwordBlast/SWBLAST_O.bmp",
++          "image/Sinimage/Items/Accessory/itfo101.bmp"
++        ],
++        "BMP_PROTECTED_PREFIX14_EXACT": [
++          "weapons/Mc3_sparkShield.bmp"
++        ]
++      },
++      "EFFECT": {
++        "BMP_STANDARD_24BPP": [
++          "Effect/AssaEffect/BossRunic/R_e001.bmp",
++          "Effect/AssaEffect/BossRunic/R_e002.bmp",
++          "Effect/AssaEffect/BossRunic/R_e003.bmp"
++        ],
++        "SMD_MODEL_062_RIGID_PHYSIQUE": [
++          "Effect/AssaEffect/CaveMummy/b_m_CaveMummy.smd",
++          "Effect/AssaEffect/CaveMummy/b_m_CaveMummy1.smd",
++          "Effect/AssaEffect/Muspell/b_muspel.smd"
++        ],
++        "TGA_STANDARD": [
++          "Effect/AssaEffect/CaveMummy/m_CaveMummy.tga",
++          "Effect/AssaEffect/devine_nature_cross.tga",
++          "Effect/AssaEffect/EvilMaple/m_evilplant.TGA"
++        ],
++        "SMD_MODEL_062_STATIC": [
++          "Effect/AssaEffect/ChaosKara/chao_glacial.smd",
++          "Effect/AssaEffect/ColumnOfWater/ColumnOfWaterHit.smd",
++          "Effect/AssaEffect/ColumnOfWater/ColumnOfWaterLV_10.smd"
++        ],
++        "BMP_OTHER": [
++          "Effect/AssaEffect/force.bmp",
++          "Effect/sky/s.bmp"
++        ],
++        "BMP_STANDARD_32BPP": [
++          "Effect/NewEffect/Res/TextureHit/circle_001.bmp",
++          "Effect/NewEffect/Res/TextureHit/circle_002.bmp",
++          "Effect/NewEffect/Res/TextureHit/circle_003.bmp"
++        ],
++        "TGA_NONSTANDARD_OR_PROTECTED": [
++          "Effect/Particle/MidrandaMember1.tga",
++          "image/Bellatra/effect_item01.tga",
++          "image/Bellatra/effect_item02.tga"
++        ],
++        "BMP_PROTECTED_PREFIX14_VARIANT": [
++          "image/Sinimage/AssaEffect/Ball/GeoSphere_01.bmp",
++          "image/Sinimage/AssaEffect/brandish/Fire.bmp",
++          "image/Sinimage/AssaEffect/brandish/Fire1.bmp"
++        ]
++      },
++      "MAP": {
++        "BMP_STANDARD_24BPP": [
++          "Field/AncientW/anc_hLightingMap.bmp",
++          "Field/AncientW/anc_le01LightingMap.bmp",
++          "Field/AncientW/anc_re01LightingMap.bmp"
++        ],
++        "STAGE_072_MAP_SEPARATE": [
++          "Field/AncientW/ancientW.smd",
++          "Field/Boss/Boss.smd",
++          "Field/Boss/dark_boss.smd"
++        ],
++        "TGA_STANDARD": [
++          "Field/AncientW/flame_0.tga",
++          "Field/AncientW/flame_1.tga",
++          "Field/AncientW/flame_2.tga"
++        ],
++        "SMD_MODEL_062_STATIC": [
++          "Field/AncientW/RotObj01.smd",
++          "Field/AncientW/RotObj02.smd",
++          "Field/AncientW/RotObj03.smd"
++        ],
++        "TGA_NONSTANDARD_OR_PROTECTED": [
++          "Field/castle/do01.tga",
++          "Field/castle/do02.tga",
++          "Field/castle/eye_door01.tga"
++        ],
++        "SMD_MODEL_062_RIGID_PHYSIQUE": [
++          "Field/Iron/i1-ani01_Bip.smd",
++          "Field/Iron/i1-ani02_Bip.smd",
++          "Field/Iron/i1-ani03_Bip.smd"
++        ],
++        "BMP_PROTECTED_PREFIX14_VARIANT": [
++          "Field/Ricarten/12-7.bmp",
++          "Field/Ricarten/12-8.bmp",
++          "Field/Ricarten/arch_bg hw.BMP"
++        ],
++        "BMP_PROTECTED_PREFIX14_EXACT": [
++          "Field/Ricarten/riy-f027.bmp",
++          "Field/Ricarten/riy-f030.bmp",
++          "Field/Ricarten/riy-w013.bmp"
++        ],
++        "BMP_OTHER": [
++          "game/maps/chrselect/ship_bottom.bmp",
++          "game/maps/chrselect/ship_crest.bmp",
++          "game/maps/chrselect/ship_door.bmp"
++        ]
++      }
++    }
++  },
++  "matrix": {
++    "PLAYER": {
++      "MODEL062_RIGID": {
++        "asset_count": 1393,
++        "state": "AUTOMATION_WIRED_EXECUTION_PENDING",
++        "next_gate": "run representative real-Blender automatic rigid gate",
++        "evidence": {
++          "rigging_ready": 7,
++          "standalone_sibling_smb_hypotheses": 3,
++          "physical_corpus_parse_pass": true
++        }
++      },
++      "MODEL062_STATIC": {
++        "asset_count": 1,
++        "state": "PHYSICAL_CORPUS_PARSE_PENDING_OR_FAILED",
++        "next_gate": "corpus-wide physical Model0.62 static parser/layout gate",
++        "evidence": {
++          "representative_pass": false,
++          "corpus_parse_pass": false,
++          "static_specific_parse_pass": false,
++          "model062_physical_parse_pass": false
++        }
++      },
++      "MODEL062_MIXED": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "INX_MODERN_LEGACY_OUTLIERS": {
++        "asset_count": 1504,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic INX no-op/edit/semantic corpus gate"
++      },
++      "SMB_EXISTING": {
++        "asset_count": 78,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic SMB no-op/edit corpus gate"
++      },
++      "LOD": {
++        "asset_count": 1350,
++        "state": "STRUCTURAL_CONTEXT_PRESENT_CORPUS_AUDIT_PENDING",
++        "next_gate": "corpus-wide LOD model-key coverage classification",
++        "evidence": {
++          "diagnosed_non_authorable_configs_fail_closed": 0,
++          "assets_with_diagnosed_fail_closed_config_outliers": 0,
++          "assets_without_authorable_lod_config": 0,
++          "single_tier_full_container_configs": 0,
++          "fixed16_model_key_configs": 0
++        }
++      },
++      "RIGGING": {
++        "asset_count": 7,
++        "state": "BINDING_MAPPED",
++        "next_gate": "corpus-wide physical skeleton context census + runtime pose acceptance",
++        "evidence": {
++          "registry_binding_ready_assets": 7,
++          "physical_context_census_total": 0,
++          "physical_context_census_unresolved": 0
++        }
++      },
++      "EXISTING_ANIMATION": {
++        "asset_count": 7,
++        "state": "SOURCE_PIPELINE_PRESENT",
++        "next_gate": "automatic bound/standalone SMB pose-space + representative runtime gate",
++        "evidence": {
++          "physical_animated_smb_files": 0,
++          "model_assets_with_animation_binding": 7,
++          "presence_basis": "REGISTRY_BINDING_FALLBACK"
++        }
++      },
++      "MATERIALS": {
++        "asset_count": 1395,
++        "state": "MATERIAL_CANDIDATE_PIPELINE_PRESENT_EXECUTION_PENDING",
++        "next_gate": "automatic material edit gate for present families: MODEL062",
++        "evidence": {
++          "model062_material_assets": 1395,
++          "stage072_assets": 0,
++          "model062_material_gate_pass": false,
++          "stage072_material_gate_pass": true
++        }
++      },
++      "TEXTURES": {
++        "asset_count": 2257,
++        "state": "TEXTURE_PIPELINE_PRESENT_AUTOMATION_INCOMPLETE",
++        "next_gate": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC",
++        "evidence": {
++          "texture_reference_assets": 1395,
++          "model062_texture_reference_assets": 1395,
++          "proprietary_texture_assets": 862,
++          "model062_reference_presence_gate_pass": false,
++          "stage072_reference_presence_gate_pass": true,
++          "proprietary_codec_gate_pass": false
++        }
++      },
++      "BMP_TGA_PROPRIETARY": {
++        "asset_count": 862,
++        "state": "DOMAIN_CODEC_AUTOMATION_PENDING",
++        "next_gate": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++      },
++      "OBJECT_LOCAL_ANIMATION": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_REGISTRY_STRUCTURAL_CENSUS",
++        "evidence": {
++          "registry_structural_candidates": 0,
++          "physical_census_available": false
++        }
++      },
++      "MULTILAYER_TEXLINK": {
++        "asset_count": 2,
++        "state": "PARSER_ROUNDTRIP_PIPELINE_PRESENT",
++        "next_gate": "representative writer/reimport gate",
++        "evidence": {
++          "registry_structural_candidates": 2,
++          "physical_census_available": false
++        }
++      },
++      "STAGE072": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      }
++    },
++    "NPC": {
++      "MODEL062_RIGID": {
++        "asset_count": 102,
++        "state": "AUTOMATION_WIRED_EXECUTION_PENDING",
++        "next_gate": "run representative real-Blender automatic rigid gate",
++        "evidence": {
++          "rigging_ready": 95,
++          "standalone_sibling_smb_hypotheses": 7,
++          "physical_corpus_parse_pass": true
++        }
++      },
++      "MODEL062_STATIC": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "MODEL062_MIXED": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "INX_MODERN_LEGACY_OUTLIERS": {
++        "asset_count": 143,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic INX no-op/edit/semantic corpus gate"
++      },
++      "SMB_EXISTING": {
++        "asset_count": 164,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic SMB no-op/edit corpus gate"
++      },
++      "LOD": {
++        "asset_count": 82,
++        "state": "STRUCTURAL_CONTEXT_PRESENT_CORPUS_AUDIT_PENDING",
++        "next_gate": "corpus-wide LOD model-key coverage classification",
++        "evidence": {
++          "diagnosed_non_authorable_configs_fail_closed": 0,
++          "assets_with_diagnosed_fail_closed_config_outliers": 0,
++          "assets_without_authorable_lod_config": 0,
++          "single_tier_full_container_configs": 0,
++          "fixed16_model_key_configs": 0
++        }
++      },
++      "RIGGING": {
++        "asset_count": 95,
++        "state": "BINDING_MAPPED",
++        "next_gate": "corpus-wide physical skeleton context census + runtime pose acceptance",
++        "evidence": {
++          "registry_binding_ready_assets": 95,
++          "physical_context_census_total": 0,
++          "physical_context_census_unresolved": 0
++        }
++      },
++      "EXISTING_ANIMATION": {
++        "asset_count": 95,
++        "state": "SOURCE_PIPELINE_PRESENT",
++        "next_gate": "automatic bound/standalone SMB pose-space + representative runtime gate",
++        "evidence": {
++          "physical_animated_smb_files": 0,
++          "model_assets_with_animation_binding": 95,
++          "presence_basis": "REGISTRY_BINDING_FALLBACK"
++        }
++      },
++      "MATERIALS": {
++        "asset_count": 102,
++        "state": "MATERIAL_CANDIDATE_PIPELINE_PRESENT_EXECUTION_PENDING",
++        "next_gate": "automatic material edit gate for present families: MODEL062",
++        "evidence": {
++          "model062_material_assets": 102,
++          "stage072_assets": 0,
++          "model062_material_gate_pass": false,
++          "stage072_material_gate_pass": true
++        }
++      },
++      "TEXTURES": {
++        "asset_count": 412,
++        "state": "TEXTURE_PIPELINE_PRESENT_AUTOMATION_INCOMPLETE",
++        "next_gate": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC",
++        "evidence": {
++          "texture_reference_assets": 102,
++          "model062_texture_reference_assets": 102,
++          "proprietary_texture_assets": 310,
++          "model062_reference_presence_gate_pass": false,
++          "stage072_reference_presence_gate_pass": true,
++          "proprietary_codec_gate_pass": false
++        }
++      },
++      "BMP_TGA_PROPRIETARY": {
++        "asset_count": 310,
++        "state": "DOMAIN_CODEC_AUTOMATION_PENDING",
++        "next_gate": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++      },
++      "OBJECT_LOCAL_ANIMATION": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_REGISTRY_STRUCTURAL_CENSUS",
++        "evidence": {
++          "registry_structural_candidates": 0,
++          "physical_census_available": false
++        }
++      },
++      "MULTILAYER_TEXLINK": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS",
++        "evidence": {
++          "registry_structural_candidates": 0,
++          "physical_census_available": false
++        }
++      },
++      "STAGE072": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      }
++    },
++    "MONSTER": {
++      "MODEL062_RIGID": {
++        "asset_count": 393,
++        "state": "AUTOMATION_WIRED_EXECUTION_PENDING",
++        "next_gate": "run representative real-Blender automatic rigid gate",
++        "evidence": {
++          "rigging_ready": 392,
++          "standalone_sibling_smb_hypotheses": 1,
++          "physical_corpus_parse_pass": true
++        }
++      },
++      "MODEL062_STATIC": {
++        "asset_count": 10,
++        "state": "PHYSICAL_CORPUS_PARSE_PENDING_OR_FAILED",
++        "next_gate": "corpus-wide physical Model0.62 static parser/layout gate",
++        "evidence": {
++          "representative_pass": false,
++          "corpus_parse_pass": false,
++          "static_specific_parse_pass": false,
++          "model062_physical_parse_pass": false
++        }
++      },
++      "MODEL062_MIXED": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "INX_MODERN_LEGACY_OUTLIERS": {
++        "asset_count": 399,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic INX no-op/edit/semantic corpus gate"
++      },
++      "SMB_EXISTING": {
++        "asset_count": 656,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic SMB no-op/edit corpus gate"
++      },
++      "LOD": {
++        "asset_count": 356,
++        "state": "STRUCTURAL_CONTEXT_PRESENT_CORPUS_AUDIT_PENDING",
++        "next_gate": "corpus-wide LOD model-key coverage classification",
++        "evidence": {
++          "diagnosed_non_authorable_configs_fail_closed": 0,
++          "assets_with_diagnosed_fail_closed_config_outliers": 0,
++          "assets_without_authorable_lod_config": 0,
++          "single_tier_full_container_configs": 0,
++          "fixed16_model_key_configs": 0
++        }
++      },
++      "RIGGING": {
++        "asset_count": 392,
++        "state": "BINDING_MAPPED",
++        "next_gate": "corpus-wide physical skeleton context census + runtime pose acceptance",
++        "evidence": {
++          "registry_binding_ready_assets": 392,
++          "physical_context_census_total": 0,
++          "physical_context_census_unresolved": 0
++        }
++      },
++      "EXISTING_ANIMATION": {
++        "asset_count": 392,
++        "state": "SOURCE_PIPELINE_PRESENT",
++        "next_gate": "automatic bound/standalone SMB pose-space + representative runtime gate",
++        "evidence": {
++          "physical_animated_smb_files": 0,
++          "model_assets_with_animation_binding": 392,
++          "presence_basis": "REGISTRY_BINDING_FALLBACK"
++        }
++      },
++      "MATERIALS": {
++        "asset_count": 403,
++        "state": "MATERIAL_CANDIDATE_PIPELINE_PRESENT_EXECUTION_PENDING",
++        "next_gate": "automatic material edit gate for present families: MODEL062",
++        "evidence": {
++          "model062_material_assets": 403,
++          "stage072_assets": 0,
++          "model062_material_gate_pass": false,
++          "stage072_material_gate_pass": true
++        }
++      },
++      "TEXTURES": {
++        "asset_count": 1235,
++        "state": "TEXTURE_PIPELINE_PRESENT_AUTOMATION_INCOMPLETE",
++        "next_gate": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC",
++        "evidence": {
++          "texture_reference_assets": 402,
++          "model062_texture_reference_assets": 402,
++          "proprietary_texture_assets": 833,
++          "model062_reference_presence_gate_pass": false,
++          "stage072_reference_presence_gate_pass": true,
++          "proprietary_codec_gate_pass": false
++        }
++      },
++      "BMP_TGA_PROPRIETARY": {
++        "asset_count": 833,
++        "state": "DOMAIN_CODEC_AUTOMATION_PENDING",
++        "next_gate": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++      },
++      "OBJECT_LOCAL_ANIMATION": {
++        "asset_count": 10,
++        "state": "STRUCTURAL_CANDIDATE_PRESENT_PHYSICAL_SUBTYPE_GATE_PENDING",
++        "next_gate": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness",
++        "evidence": {
++          "registry_structural_candidates": 10,
++          "physical_census_available": false
++        }
++      },
++      "MULTILAYER_TEXLINK": {
++        "asset_count": 30,
++        "state": "PARSER_ROUNDTRIP_PIPELINE_PRESENT",
++        "next_gate": "representative writer/reimport gate",
++        "evidence": {
++          "registry_structural_candidates": 30,
++          "physical_census_available": false
++        }
++      },
++      "STAGE072": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      }
++    },
++    "WEAPON_ITEM": {
++      "MODEL062_RIGID": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "MODEL062_STATIC": {
++        "asset_count": 604,
++        "state": "PHYSICAL_CORPUS_PARSE_PENDING_OR_FAILED",
++        "next_gate": "corpus-wide physical Model0.62 static parser/layout gate",
++        "evidence": {
++          "representative_pass": false,
++          "corpus_parse_pass": false,
++          "static_specific_parse_pass": false,
++          "model062_physical_parse_pass": false
++        }
++      },
++      "MODEL062_MIXED": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "INX_MODERN_LEGACY_OUTLIERS": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "SMB_EXISTING": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "LOD": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      },
++      "RIGGING": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT",
++        "evidence": {
++          "registry_binding_ready_assets": 0
++        }
++      },
++      "EXISTING_ANIMATION": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT",
++        "evidence": {
++          "physical_animated_smb_files": 0,
++          "model_assets_with_animation_binding": 0
++        }
++      },
++      "MATERIALS": {
++        "asset_count": 604,
++        "state": "MATERIAL_CANDIDATE_PIPELINE_PRESENT_EXECUTION_PENDING",
++        "next_gate": "automatic material edit gate for present families: MODEL062",
++        "evidence": {
++          "model062_material_assets": 604,
++          "stage072_assets": 0,
++          "model062_material_gate_pass": false,
++          "stage072_material_gate_pass": true
++        }
++      },
++      "TEXTURES": {
++        "asset_count": 2215,
++        "state": "TEXTURE_PIPELINE_PRESENT_AUTOMATION_INCOMPLETE",
++        "next_gate": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC",
++        "evidence": {
++          "texture_reference_assets": 603,
++          "model062_texture_reference_assets": 603,
++          "proprietary_texture_assets": 1612,
++          "model062_reference_presence_gate_pass": false,
++          "stage072_reference_presence_gate_pass": true,
++          "proprietary_codec_gate_pass": false
++        }
++      },
++      "BMP_TGA_PROPRIETARY": {
++        "asset_count": 1612,
++        "state": "DOMAIN_CODEC_AUTOMATION_PENDING",
++        "next_gate": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++      },
++      "OBJECT_LOCAL_ANIMATION": {
++        "asset_count": 5,
++        "state": "STRUCTURAL_CANDIDATE_PRESENT_PHYSICAL_SUBTYPE_GATE_PENDING",
++        "next_gate": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness",
++        "evidence": {
++          "registry_structural_candidates": 5,
++          "physical_census_available": false
++        }
++      },
++      "MULTILAYER_TEXLINK": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS",
++        "evidence": {
++          "registry_structural_candidates": 0,
++          "physical_census_available": false
++        }
++      },
++      "STAGE072": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      }
++    },
++    "EFFECT": {
++      "MODEL062_RIGID": {
++        "asset_count": 27,
++        "state": "STANDALONE_STRUCTURAL_AUTOMATION_WIRED_EXECUTION_PENDING",
++        "next_gate": "run sibling-SMB structural/build/reimport automatic gate",
++        "evidence": {
++          "rigging_ready": 0,
++          "standalone_sibling_smb_hypotheses": 27,
++          "physical_corpus_parse_pass": true
++        }
++      },
++      "MODEL062_STATIC": {
++        "asset_count": 223,
++        "state": "PHYSICAL_CORPUS_PARSE_PENDING_OR_FAILED",
++        "next_gate": "corpus-wide physical Model0.62 static parser/layout gate",
++        "evidence": {
++          "representative_pass": false,
++          "corpus_parse_pass": false,
++          "static_specific_parse_pass": false,
++          "model062_physical_parse_pass": false
++        }
++      },
++      "MODEL062_MIXED": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "INX_MODERN_LEGACY_OUTLIERS": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "SMB_EXISTING": {
++        "asset_count": 23,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic SMB no-op/edit corpus gate"
++      },
++      "LOD": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      },
++      "RIGGING": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT",
++        "evidence": {
++          "registry_binding_ready_assets": 0
++        }
++      },
++      "EXISTING_ANIMATION": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT",
++        "evidence": {
++          "physical_animated_smb_files": 0,
++          "model_assets_with_animation_binding": 0
++        }
++      },
++      "MATERIALS": {
++        "asset_count": 250,
++        "state": "MATERIAL_CANDIDATE_PIPELINE_PRESENT_EXECUTION_PENDING",
++        "next_gate": "automatic material edit gate for present families: MODEL062",
++        "evidence": {
++          "model062_material_assets": 250,
++          "stage072_assets": 0,
++          "model062_material_gate_pass": false,
++          "stage072_material_gate_pass": true
++        }
++      },
++      "TEXTURES": {
++        "asset_count": 535,
++        "state": "TEXTURE_PIPELINE_PRESENT_AUTOMATION_INCOMPLETE",
++        "next_gate": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC",
++        "evidence": {
++          "texture_reference_assets": 250,
++          "model062_texture_reference_assets": 250,
++          "proprietary_texture_assets": 285,
++          "model062_reference_presence_gate_pass": false,
++          "stage072_reference_presence_gate_pass": true,
++          "proprietary_codec_gate_pass": false
++        }
++      },
++      "BMP_TGA_PROPRIETARY": {
++        "asset_count": 285,
++        "state": "DOMAIN_CODEC_AUTOMATION_PENDING",
++        "next_gate": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++      },
++      "OBJECT_LOCAL_ANIMATION": {
++        "asset_count": 63,
++        "state": "STRUCTURAL_CANDIDATE_PRESENT_PHYSICAL_SUBTYPE_GATE_PENDING",
++        "next_gate": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness",
++        "evidence": {
++          "registry_structural_candidates": 63,
++          "physical_census_available": false
++        }
++      },
++      "MULTILAYER_TEXLINK": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS",
++        "evidence": {
++          "registry_structural_candidates": 0,
++          "physical_census_available": false
++        }
++      },
++      "STAGE072": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      }
++    },
++    "MAP": {
++      "MODEL062_RIGID": {
++        "asset_count": 36,
++        "state": "STANDALONE_STRUCTURAL_AUTOMATION_WIRED_EXECUTION_PENDING",
++        "next_gate": "run sibling-SMB structural/build/reimport automatic gate",
++        "evidence": {
++          "rigging_ready": 0,
++          "standalone_sibling_smb_hypotheses": 36,
++          "physical_corpus_parse_pass": true
++        }
++      },
++      "MODEL062_STATIC": {
++        "asset_count": 355,
++        "state": "PHYSICAL_CORPUS_PARSE_PENDING_OR_FAILED",
++        "next_gate": "corpus-wide physical Model0.62 static parser/layout gate",
++        "evidence": {
++          "representative_pass": false,
++          "corpus_parse_pass": false,
++          "static_specific_parse_pass": false,
++          "model062_physical_parse_pass": false
++        }
++      },
++      "MODEL062_MIXED": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "INX_MODERN_LEGACY_OUTLIERS": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT_IN_CANONICAL_CORPUS"
++      },
++      "SMB_EXISTING": {
++        "asset_count": 36,
++        "state": "CANDIDATE_PARSER_WRITER_PRESENT",
++        "next_gate": "automatic SMB no-op/edit corpus gate"
++      },
++      "LOD": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT"
++      },
++      "RIGGING": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT",
++        "evidence": {
++          "registry_binding_ready_assets": 0
++        }
++      },
++      "EXISTING_ANIMATION": {
++        "asset_count": 0,
++        "state": "NOT_PRESENT",
++        "evidence": {
++          "physical_animated_smb_files": 0,
++          "model_assets_with_animation_binding": 0
++        }
++      },
++      "MATERIALS": {
++        "asset_count": 391,
++        "state": "MATERIAL_CANDIDATE_PIPELINE_PRESENT_EXECUTION_PENDING",
++        "next_gate": "automatic material edit gate for present families: MODEL062,STAGE072",
++        "evidence": {
++          "model062_material_assets": 391,
++          "stage072_assets": 63,
++          "model062_material_gate_pass": false,
++          "stage072_material_gate_pass": false
++        }
++      },
++      "TEXTURES": {
++        "asset_count": 1967,
++        "state": "TEXTURE_PIPELINE_PRESENT_AUTOMATION_INCOMPLETE",
++        "next_gate": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,STAGE072_REFERENCE_PRESENCE,PROPRIETARY_CODEC",
++        "evidence": {
++          "texture_reference_assets": 391,
++          "model062_texture_reference_assets": 391,
++          "proprietary_texture_assets": 1576,
++          "model062_reference_presence_gate_pass": false,
++          "stage072_reference_presence_gate_pass": false,
++          "proprietary_codec_gate_pass": false
++        }
++      },
++      "BMP_TGA_PROPRIETARY": {
++        "asset_count": 1576,
++        "state": "DOMAIN_CODEC_AUTOMATION_PENDING",
++        "next_gate": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++      },
++      "OBJECT_LOCAL_ANIMATION": {
++        "asset_count": 353,
++        "state": "STRUCTURAL_CANDIDATE_PRESENT_PHYSICAL_SUBTYPE_GATE_PENDING",
++        "next_gate": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness",
++        "evidence": {
++          "registry_structural_candidates": 353,
++          "physical_census_available": false
++        }
++      },
++      "MULTILAYER_TEXLINK": {
++        "asset_count": 87,
++        "state": "PARSER_ROUNDTRIP_PIPELINE_PRESENT",
++        "next_gate": "representative writer/reimport gate",
++        "evidence": {
++          "registry_structural_candidates": 87,
++          "physical_census_available": false
++        }
++      },
++      "STAGE072": {
++        "asset_count": 63,
++        "state": "CANDIDATE_STRICT_EDIT_SET",
++        "next_gate": "automated edited-map corpus + runtime acceptance"
++      }
++    }
++  },
++  "global_gates": [
++    {
++      "capability": "MODEL062_MIXED",
++      "state": "PIPELINE_IMPLEMENTED_SYNTHETIC_AWAITING_REAL_REPRESENTATIVE",
++      "count": 0,
++      "next_gate": "obtain authoritative Mixed-Physique fixture/sample and execute physical gate"
++    },
++    {
++      "capability": "RUNTIME_GAME_ACCEPTANCE",
++      "state": "EXTERNAL_INTEGRATED_RUNTIME_GATE_PENDING",
++      "next_gate": "run representative integrated visual/runtime acceptance in the game after all automatic gates are green"
++    },
++    {
++      "capability": "PUBLISH_RESTORE",
++      "state": "POLICY_BLOCKED_UNTIL_WRITER_PROMOTION",
++      "next_gate": "enable only after per-family automatic/runtime gates and explicit writer promotion"
++    }
++  ],
++  "blocking_gate_count": 53,
++  "blocking_gates": [
++    {
++      "domain": "PLAYER",
++      "capability": "MODEL062_RIGID",
++      "blocker": "run representative real-Blender automatic rigid gate"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "MODEL062_STATIC",
++      "blocker": "corpus-wide physical Model0.62 static parser/layout gate"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "INX_MODERN_LEGACY_OUTLIERS",
++      "blocker": "automatic INX no-op/edit/semantic corpus gate"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "SMB_EXISTING",
++      "blocker": "automatic SMB no-op/edit corpus gate"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "LOD",
++      "blocker": "corpus-wide LOD model-key coverage classification"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "EXISTING_ANIMATION",
++      "blocker": "automatic bound/standalone SMB pose-space + representative runtime gate"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "MATERIALS",
++      "blocker": "automatic material edit gate for present families: MODEL062"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "TEXTURES",
++      "blocker": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "BMP_TGA_PROPRIETARY",
++      "blocker": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++    },
++    {
++      "domain": "PLAYER",
++      "capability": "MULTILAYER_TEXLINK",
++      "blocker": "representative writer/reimport gate"
++    },
++    {
++      "domain": "NPC",
++      "capability": "MODEL062_RIGID",
++      "blocker": "run representative real-Blender automatic rigid gate"
++    },
++    {
++      "domain": "NPC",
++      "capability": "INX_MODERN_LEGACY_OUTLIERS",
++      "blocker": "automatic INX no-op/edit/semantic corpus gate"
++    },
++    {
++      "domain": "NPC",
++      "capability": "SMB_EXISTING",
++      "blocker": "automatic SMB no-op/edit corpus gate"
++    },
++    {
++      "domain": "NPC",
++      "capability": "LOD",
++      "blocker": "corpus-wide LOD model-key coverage classification"
++    },
++    {
++      "domain": "NPC",
++      "capability": "EXISTING_ANIMATION",
++      "blocker": "automatic bound/standalone SMB pose-space + representative runtime gate"
++    },
++    {
++      "domain": "NPC",
++      "capability": "MATERIALS",
++      "blocker": "automatic material edit gate for present families: MODEL062"
++    },
++    {
++      "domain": "NPC",
++      "capability": "TEXTURES",
++      "blocker": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC"
++    },
++    {
++      "domain": "NPC",
++      "capability": "BMP_TGA_PROPRIETARY",
++      "blocker": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "MODEL062_RIGID",
++      "blocker": "run representative real-Blender automatic rigid gate"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "MODEL062_STATIC",
++      "blocker": "corpus-wide physical Model0.62 static parser/layout gate"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "INX_MODERN_LEGACY_OUTLIERS",
++      "blocker": "automatic INX no-op/edit/semantic corpus gate"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "SMB_EXISTING",
++      "blocker": "automatic SMB no-op/edit corpus gate"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "LOD",
++      "blocker": "corpus-wide LOD model-key coverage classification"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "EXISTING_ANIMATION",
++      "blocker": "automatic bound/standalone SMB pose-space + representative runtime gate"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "MATERIALS",
++      "blocker": "automatic material edit gate for present families: MODEL062"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "TEXTURES",
++      "blocker": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "BMP_TGA_PROPRIETARY",
++      "blocker": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "OBJECT_LOCAL_ANIMATION",
++      "blocker": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness"
++    },
++    {
++      "domain": "MONSTER",
++      "capability": "MULTILAYER_TEXLINK",
++      "blocker": "representative writer/reimport gate"
++    },
++    {
++      "domain": "WEAPON_ITEM",
++      "capability": "MODEL062_STATIC",
++      "blocker": "corpus-wide physical Model0.62 static parser/layout gate"
++    },
++    {
++      "domain": "WEAPON_ITEM",
++      "capability": "MATERIALS",
++      "blocker": "automatic material edit gate for present families: MODEL062"
++    },
++    {
++      "domain": "WEAPON_ITEM",
++      "capability": "TEXTURES",
++      "blocker": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC"
++    },
++    {
++      "domain": "WEAPON_ITEM",
++      "capability": "BMP_TGA_PROPRIETARY",
++      "blocker": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++    },
++    {
++      "domain": "WEAPON_ITEM",
++      "capability": "OBJECT_LOCAL_ANIMATION",
++      "blocker": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness"
++    },
++    {
++      "domain": "EFFECT",
++      "capability": "MODEL062_RIGID",
++      "blocker": "run sibling-SMB structural/build/reimport automatic gate"
++    },
++    {
++      "domain": "EFFECT",
++      "capability": "MODEL062_STATIC",
++      "blocker": "corpus-wide physical Model0.62 static parser/layout gate"
++    },
++    {
++      "domain": "EFFECT",
++      "capability": "SMB_EXISTING",
++      "blocker": "automatic SMB no-op/edit corpus gate"
++    },
++    {
++      "domain": "EFFECT",
++      "capability": "MATERIALS",
++      "blocker": "automatic material edit gate for present families: MODEL062"
++    },
++    {
++      "domain": "EFFECT",
++      "capability": "TEXTURES",
++      "blocker": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,PROPRIETARY_CODEC"
++    },
++    {
++      "domain": "EFFECT",
++      "capability": "BMP_TGA_PROPRIETARY",
++      "blocker": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++    },
++    {
++      "domain": "EFFECT",
++      "capability": "OBJECT_LOCAL_ANIMATION",
++      "blocker": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness"
++    },
++    {
++      "domain": "MAP",
++      "capability": "MODEL062_RIGID",
++      "blocker": "run sibling-SMB structural/build/reimport automatic gate"
++    },
++    {
++      "domain": "MAP",
++      "capability": "MODEL062_STATIC",
++      "blocker": "corpus-wide physical Model0.62 static parser/layout gate"
++    },
++    {
++      "domain": "MAP",
++      "capability": "SMB_EXISTING",
++      "blocker": "automatic SMB no-op/edit corpus gate"
++    },
++    {
++      "domain": "MAP",
++      "capability": "MATERIALS",
++      "blocker": "automatic material edit gate for present families: MODEL062,STAGE072"
++    },
++    {
++      "domain": "MAP",
++      "capability": "TEXTURES",
++      "blocker": "complete automatic texture gates: MODEL062_REFERENCE_PRESENCE,STAGE072_REFERENCE_PRESENCE,PROPRIETARY_CODEC"
++    },
++    {
++      "domain": "MAP",
++      "capability": "BMP_TGA_PROPRIETARY",
++      "blocker": "automatic BMP/TGA representative decode/edit/rebuild by physical family"
++    },
++    {
++      "domain": "MAP",
++      "capability": "OBJECT_LOCAL_ANIMATION",
++      "blocker": "physical ROT/POS/SCALE/TmFrame corpus audit + automated Blender witness"
++    },
++    {
++      "domain": "MAP",
++      "capability": "MULTILAYER_TEXLINK",
++      "blocker": "representative writer/reimport gate"
++    },
++    {
++      "domain": "MAP",
++      "capability": "STAGE072",
++      "blocker": "automated edited-map corpus + runtime acceptance"
++    },
++    {
++      "domain": "GLOBAL",
++      "capability": "MODEL062_MIXED",
++      "blocker": "obtain authoritative Mixed-Physique fixture/sample and execute physical gate"
++    },
++    {
++      "domain": "GLOBAL",
++      "capability": "RUNTIME_GAME_ACCEPTANCE",
++      "blocker": "run representative integrated visual/runtime acceptance in the game after all automatic gates are green"
++    },
++    {
++      "domain": "GLOBAL",
++      "capability": "PUBLISH_RESTORE",
++      "blocker": "enable only after per-family automatic/runtime gates and explicit writer promotion"
++    }
++  ],
++  "policy": {
++    "format_only_readiness_is_insufficient": true,
++    "content_domain_and_capability_must_both_be_covered": true,
++    "automatic_tests_preferred": true,
++    "manual_review_reserved_for_visual_runtime_gates": true,
++    "production_authorized": false,
++    "client_write_authorized": false
++  },
++  "client_modified": false
++}
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MANUAL_DESENVOLVEDOR.md /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MANUAL_DESENVOLVEDOR.md
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MANUAL_DESENVOLVEDOR.md	2026-09-03 06:16:44.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MANUAL_DESENVOLVEDOR.md	2026-09-03 10:44:36.357962402 +0000
+@@ -1197,3 +1197,8 @@
+ ### Mixed-Physique
+ 
+ O corpus canónico continua com zero representantes Mixed-Physique. O pipeline, porém, já está implementado sinteticamente: análise por objeto, dispatch para o adapter rigid ou static, preservação do modo Physique e verificação combinada de non-target blocks. Para a definição da Release 1.0, o que permanece é um **blocker externo de certificação física**, não um blocker de arquitetura. É necessária uma amostra autêntica para executar import/build/reimport real antes de qualquer claim de suporte Mixed.
++
++
++## Release 1.0 — gate físico Mixed e estado final automático
++
++O `validate release-1-auto` não considera a simples presença de um arquivo Mixed-Physique como certificação. Todo `SMD_MODEL_062_MIXED_PHYSIQUE` físico presente no corpus deve passar `mixed_real_devtest.py`: contexto de skeleton/model-info determinístico, structural gate, edição automática de targets rigid e static, build combinado pelos adapters existentes, verificação byte/Physique e reimport. Sem amostra real, o único blocker de formato Mixed é externo. Mesmo quando todos os gates automáticos passam, o runner reporta `BLOCKED_EXTERNAL` enquanto permanecem o gate integrado runtime/game e a promoção controlada dos writers/publish-restore; ele nunca autoriza escrita no client.
+diff -ruN '--exclude=__pycache__' '--exclude=.pytest_cache' /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MAPA_MODULOS_SCRIPTS.md /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MAPA_MODULOS_SCRIPTS.md
+--- /mnt/data/pt_asset_r14_baseline/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MAPA_MODULOS_SCRIPTS.md	2026-09-03 09:12:09.000000000 +0000
++++ /mnt/data/pt_asset_r14_continue/PT_Asset_Tool_R14_WORKING_HANDOFF_2026-09-03/docs/MAPA_MODULOS_SCRIPTS.md	2026-09-03 10:44:36.357439775 +0000
+@@ -92,6 +92,7 @@
+ | `rigid_authoring_candidate.py` | plano/comando/verificação do saved-Blender rigid candidate com skeleton/bone closure e output pt_build-only |
+ | `mixed_authoring_candidate.py` | análise/plano/verificação do Model0.62 Mixed-Physique; dispatch por objeto para adapters rigid/static, preservação de modo Physique e non-target blocks; pipeline sintético aguardando amostra física real |
+ - `mixed_synthetic_devtest.py`: gate sintético do container Mixed-Physique, exercitando edição combinada rigid/static sem promover evidência física real.
++- `mixed_real_devtest.py`: gate físico automático fail-closed para todo Mixed-Physique real presente; resolve contexto de skeleton/model-info de forma determinística, exige structural PASS, edita objetos rigid+static no Blender, reconstrói pelos dois adapters, verifica preservação e reimporta o candidate sem escrever no client.
+ | `rigid_authoring_evidence.py` | revalida candidate rigid + `*.build.json`, prepara reimport do próprio artefacto para review Blender, cria chave estável profile/LOD/object e separa controlled-edit automático de review humano; nunca promove runtime/produção |
+ | `rigid_authoring_stress.py` | stress candidate rigid por profile canónico: usa numa única sessão Blender todos os meshes HIGH/DEFAULT/LOW, encadeia o writer por todos os alvos, exige edição observada em cada alvo, preserva non-targets e continua pt_build-only |
+ | `rigid_profile_devtest.py` | orchestrador de devtest rigid totalmente automático: workspace isolada em `pt_build/devtest`, deformação determinística de todos os meshes HIGH/DEFAULT/LOW, candidate combinado e reimport headless dos três LODs; nunca promove runtime/produção |
+@@ -354,7 +355,7 @@
+ | Módulo | Responsabilidade |
+ |---|---|
+ | `release_1_coverage.py` | matriz executável conteúdo × capacidade da Release 1.0; inventário e seleção determinística de representantes rigid/static/Stage/animation |
+-| `release_1_auto.py` | runner agregado read-only/`pt_build` para os gates automáticos da 1.0; falha se uma família presente ficar sem representante e mantém Mixed-Physique como gate externo |
++| `release_1_auto.py` | runner agregado read-only/`pt_build` para os gates automáticos da 1.0; falha se uma família presente ficar sem prova física/semântica suficiente; Mixed real exige gate físico e um automatic PASS termina em `BLOCKED_EXTERNAL` até runtime/game + promoção/publish/restore |
+ | `rigid_semantic_devtest.py` | import/edit/build/reimport headless para Model0.62 rigid com INX+skeleton resolvidos, incluindo NPC/monster e variantes multi-INX |
+ | `standalone_rigid_devtest.py` | probe structural-gate-first e candidate automático para rigid Effect/Map/NPC/Monster sem INX mas com hipótese SMB irmã; adjacência nunca é tratada como binding sem gate físico PASS |
+ | `rigid_context_census.py` | censo físico corpus-wide de todos os Model0.62 rigid da 1.0 em MODEL_INFO_LOD / RESOLVED_SKELETON / STANDALONE_STRUCTURAL / UNRESOLVED; qualquer resto bloqueia o gate |
+@@ -366,6 +367,7 @@
+ | `texlink_devtest.py` | seleção representativa e roundtrip Blender automático de multilayer TexLink |
+ | `texture_codec_devtest.py` | roundtrip automático dos codecs BMP/TGA proprietários, incluindo a família ship/chrselect |
+ | `apply_static_semantic_devtest.py` | helper Blender que aplica alterações determinísticas static, incluindo uma alteração de topologia controlada |
++| `apply_mixed_semantic_devtest.py` | helper Blender que aplica deformações determinísticas a targets rigid e static do mesmo container Mixed para o gate físico automático |
+ | `check_static_semantic_devtest.py` | checker Blender do SMD static candidate reimportado |
+ | `apply_stage072_semantic_devtest.py` | helper Blender que cria edição Stage0.72 multi-vértice/XYZ representável |
+ | `check_baked_animation_pose.py` | checker Blender de matrizes pose-space contra o contrato esperado de animação |

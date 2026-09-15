@@ -1,0 +1,6252 @@
+{
+  "format": "PT_RIGID_MODEL_INFO_CONTEXT_AUDIT_V1",
+  "status": "PASS",
+  "rigid_asset_count": 1952,
+  "single_config_assets": 1762,
+  "multi_config_assets": 106,
+  "equivalent_multi_config_assets": 51,
+  "ambiguous_multi_config_assets": 55,
+  "no_usable_model_info_assets": 84,
+  "rows_total": 106,
+  "rows": [
+    {
+      "asset_id": "AST-C1B077C09B8C",
+      "asset": "char/monster/Monimp/imp.smd",
+      "category": "MOB_MONSTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/monster/Monimp/Monimp-a.inx",
+          "motion_smb": "char/monster/monimp/mimp.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Monimp_h-a"
+            ],
+            "default": [
+              "Monimp_l-a"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/monster/Monimp/Monimp-b.inx",
+          "motion_smb": "char/monster/monimp/mimp.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Monimp_h-b"
+            ],
+            "default": [
+              "Monimp_l-b"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/monster/Monimp/Monimp-c.inx",
+          "motion_smb": "char/monster/monimp/mimp.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Monimp_h-c"
+            ],
+            "default": [
+              "Monimp_l-c"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-CDB3574F6FB8",
+      "asset": "char/monster/MonWolverin/wolverin.smd",
+      "category": "MOB_MONSTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/monster/MonWolverin/MonWolverin-01.inx",
+          "motion_smb": "char/monster/monwolverin/wolverin.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "w01-h"
+            ],
+            "default": [
+              "w01-h"
+            ],
+            "low": [
+              "w01-h"
+            ]
+          }
+        },
+        {
+          "inx": "char/monster/MonWolverin/MonWolverin-02.inx",
+          "motion_smb": "char/monster/monwolverin/wolverin.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "w02-h"
+            ],
+            "default": [
+              "w02-h"
+            ],
+            "low": [
+              "w02-h"
+            ]
+          }
+        },
+        {
+          "inx": "char/monster/MonWolverin/MonWolverin-03.inx",
+          "motion_smb": "char/monster/monwolverin/wolverin.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "w03-h"
+            ],
+            "default": [
+              "w03-h"
+            ],
+            "low": [
+              "w03-h"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-F0E1984F1B13",
+      "asset": "char/npc/Bcn02/Bcn02.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/npc/Bcn02/Bcn02.inx",
+          "motion_smb": "char/npc/bcn02/bcn02.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H"
+            ],
+            "default": [
+              "T-npc-12-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn02/Bcn02f.inx",
+          "motion_smb": "char/npc/bcn02/bcn02.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H",
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "T-npc-12-L",
+              "hart"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7DBC46FE6F36",
+      "asset": "char/tmABCD/MfbB03.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mB002.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB03",
+              "MBHB01",
+              "MLHB03"
+            ],
+            "default": [
+              "MAMB03",
+              "MBMB01",
+              "MLMB03"
+            ],
+            "low": [
+              "MALB03",
+              "MBLB01",
+              "MLLB03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB003.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB03",
+              "MBHB03",
+              "MLHB03"
+            ],
+            "default": [
+              "MAMB03",
+              "MBMB03",
+              "MLMB03"
+            ],
+            "low": [
+              "MALB03",
+              "MBLB03",
+              "MLLB03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB004.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB06",
+              "MBHB03",
+              "MLHB03",
+              "MSHB06"
+            ],
+            "default": [
+              "MAMB06",
+              "MBMB03",
+              "MLMB03",
+              "MSMB06"
+            ],
+            "low": [
+              "MALB06",
+              "MBLB03",
+              "MLLB03",
+              "MSLB06"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-87C77BD74679",
+      "asset": "char/tmABCD/MfbB05.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mB005.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB06",
+              "MBHB03",
+              "MLHB06",
+              "MSHB06"
+            ],
+            "default": [
+              "MAMB06",
+              "MBMB03",
+              "MLMB06",
+              "MSMB06"
+            ],
+            "low": [
+              "MALB06",
+              "MBLB03",
+              "MLLB06",
+              "MSLB06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB006.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB06",
+              "MBHB06",
+              "MLHB06",
+              "MSHB06"
+            ],
+            "default": [
+              "MAMB06",
+              "MBMB06",
+              "MLMB06",
+              "MSMB06"
+            ],
+            "low": [
+              "MALB06",
+              "MBLB06",
+              "MLLB06",
+              "MSLB06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB007.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB09",
+              "MBHB06",
+              "MLHB06",
+              "MSHB09"
+            ],
+            "default": [
+              "MAMB09",
+              "MBMB06",
+              "MLMB06",
+              "MSMB09"
+            ],
+            "low": [
+              "MALB09",
+              "MBLB06",
+              "MLLB06",
+              "MSLB09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-C9027FF075F0",
+      "asset": "char/tmABCD/MfbB09.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mB008.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB09",
+              "MBHB06",
+              "MLHB09",
+              "MSHB09"
+            ],
+            "default": [
+              "MAMB09",
+              "MBMB06",
+              "MLMB09",
+              "MSMB09"
+            ],
+            "low": [
+              "MALB09",
+              "MBLB06",
+              "MLLB09",
+              "MSLB09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB009.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB09",
+              "MBHB09",
+              "MLHB09",
+              "MSHB09"
+            ],
+            "default": [
+              "MAMB09",
+              "MBMB09",
+              "MLMB09",
+              "MSMB09"
+            ],
+            "low": [
+              "MALB09",
+              "MBLB09",
+              "MLLB09",
+              "MSLB09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB010.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB12",
+              "MBHB09",
+              "MLHB09",
+              "MSHB12"
+            ],
+            "default": [
+              "MAMB12",
+              "MBMB09",
+              "MLMB09",
+              "MSMB12"
+            ],
+            "low": [
+              "MALB12",
+              "MBLB09",
+              "MLLB09",
+              "MSLB12"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-5172892681E8",
+      "asset": "char/tmABCD/MfbB11.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mB011.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB12",
+              "MBHB09",
+              "MLHB12",
+              "MSHB12"
+            ],
+            "default": [
+              "MAMB12",
+              "MBMB09",
+              "MLMB12",
+              "MSMB12"
+            ],
+            "low": [
+              "MALB12",
+              "MBLB09",
+              "MLLB12",
+              "MSLB12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB012.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB12",
+              "MBHB12",
+              "MLHB12",
+              "MSHB12"
+            ],
+            "default": [
+              "MAMB12",
+              "MBMB12",
+              "MLMB12",
+              "MSMB12"
+            ],
+            "low": [
+              "MALB12",
+              "MBLB12",
+              "MLLB12",
+              "MSLB12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB013.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB15",
+              "MBHB12",
+              "MLHB12",
+              "MSHB15"
+            ],
+            "default": [
+              "MAMB15",
+              "MBMB12",
+              "MLMB12",
+              "MSMB15"
+            ],
+            "low": [
+              "MALB15",
+              "MBLB12",
+              "MLLB12",
+              "MSLB15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-6A8E55BC5097",
+      "asset": "char/tmABCD/MfbB15.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mB014.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB15",
+              "MBHB12",
+              "MLHB15",
+              "MSHB15"
+            ],
+            "default": [
+              "MAMB15",
+              "MBMB12",
+              "MLMB15",
+              "MSMB15"
+            ],
+            "low": [
+              "MALB15",
+              "MBLB12",
+              "MLLB15",
+              "MSLB15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB015.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB15",
+              "MBHB15",
+              "MLHB15",
+              "MSHB15"
+            ],
+            "default": [
+              "MAMB15",
+              "MBMB15",
+              "MLMB15",
+              "MSMB15"
+            ],
+            "low": [
+              "MALB15",
+              "MBLB15",
+              "MLLB15",
+              "MSLB15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB016.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB18",
+              "MBHB15",
+              "MLHB15",
+              "MSHB18"
+            ],
+            "default": [
+              "MAMB18",
+              "MBMB15",
+              "MLMB15",
+              "MSMB18"
+            ],
+            "low": [
+              "MALB18",
+              "MBLB15",
+              "MLLB15",
+              "MSLB18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-DD716037343F",
+      "asset": "char/tmABCD/MfbB17.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mB017.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB18",
+              "MBHB15",
+              "MLHB18",
+              "MSHB18"
+            ],
+            "default": [
+              "MAMB18",
+              "MBMB15",
+              "MLMB18",
+              "MSMB18"
+            ],
+            "low": [
+              "MALB18",
+              "MBLB15",
+              "MLLB18",
+              "MSLB18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB018.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB18",
+              "MBHB18",
+              "MLHB18",
+              "MSHB18"
+            ],
+            "default": [
+              "MAMB18",
+              "MBMB18",
+              "MLMB18",
+              "MSMB18"
+            ],
+            "low": [
+              "MALB18",
+              "MBLB18",
+              "MLLB18",
+              "MSLB18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ABC4BB865E2F",
+      "asset": "char/tmABCD/MfbB18.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mB019.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB18",
+              "MBHB19",
+              "MLHB18",
+              "MSHB18"
+            ],
+            "default": [
+              "MAHB18",
+              "MBHB19",
+              "MLHB18",
+              "MSHB18"
+            ],
+            "low": [
+              "MAHB18",
+              "MBHB19",
+              "MLHB18",
+              "MSHB18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mB020.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MAHB19",
+              "MBHB19",
+              "MLHB18",
+              "MSHB18"
+            ],
+            "default": [
+              "MAHB19",
+              "MBHB19",
+              "MLHB18",
+              "MSHB18"
+            ],
+            "low": [
+              "MAHB19",
+              "MBHB19",
+              "MLHB18",
+              "MSHB18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-2A08BB997B69",
+      "asset": "char/tmABCD/MfbC03.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mC003.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC03",
+              "MahC03",
+              "MshC03",
+              "MlhC03"
+            ],
+            "default": [
+              "MbmC03",
+              "MamC03",
+              "MsmC03",
+              "MlmC03"
+            ],
+            "low": [
+              "MblC03",
+              "MalC03",
+              "MslC03",
+              "MllC03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC004.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC03",
+              "MahC03",
+              "MshC03",
+              "MlhC06"
+            ],
+            "default": [
+              "MbmC03",
+              "MamC03",
+              "MsmC03",
+              "MlmC06"
+            ],
+            "low": [
+              "MblC03",
+              "MalC03",
+              "MslC03",
+              "MllC06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC005.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC03",
+              "MahC03",
+              "MshC06",
+              "MlhC06"
+            ],
+            "default": [
+              "MbmC03",
+              "MamC03",
+              "MsmC06",
+              "MlmC06"
+            ],
+            "low": [
+              "MblC03",
+              "MalC03",
+              "MslC06",
+              "MllC06"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-5A7C6FA3C0C0",
+      "asset": "char/tmABCD/MfbC05.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mC006.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC06",
+              "MahC06",
+              "MshC06",
+              "MlhC06"
+            ],
+            "default": [
+              "MbmC06",
+              "MamC06",
+              "MsmC06",
+              "MlmC06"
+            ],
+            "low": [
+              "MblC06",
+              "MalC06",
+              "MslC06",
+              "MllC06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC007.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC06",
+              "MahC06",
+              "MshC06",
+              "MlhC09"
+            ],
+            "default": [
+              "MbmC06",
+              "MamC06",
+              "MsmC06",
+              "MlmC09"
+            ],
+            "low": [
+              "MblC06",
+              "MalC06",
+              "MslC06",
+              "MllC09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC008.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC06",
+              "MahC06",
+              "MshC09",
+              "MlhC09"
+            ],
+            "default": [
+              "MbmC06",
+              "MamC06",
+              "MsmC09",
+              "MlmC09"
+            ],
+            "low": [
+              "MblC06",
+              "MalC06",
+              "MslC09",
+              "MllC09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7C16E9EBCFD6",
+      "asset": "char/tmABCD/MfbC07.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mC009.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC09",
+              "MahC09",
+              "MshC09",
+              "MlhC09"
+            ],
+            "default": [
+              "MbmC09",
+              "MamC09",
+              "MsmC09",
+              "MlmC09"
+            ],
+            "low": [
+              "MblC09",
+              "MalC09",
+              "MslC09",
+              "MllC09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC010.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC09",
+              "MahC09",
+              "MshC09",
+              "MlhC12"
+            ],
+            "default": [
+              "MbmC09",
+              "MamC09",
+              "MsmC09",
+              "MlmC12"
+            ],
+            "low": [
+              "MblC09",
+              "MalC09",
+              "MslC09",
+              "MllC12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC011.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC09",
+              "MahC09",
+              "MshC12",
+              "MlhC12"
+            ],
+            "default": [
+              "MbmC09",
+              "MamC09",
+              "MsmC12",
+              "MlmC12"
+            ],
+            "low": [
+              "MblC09",
+              "MalC09",
+              "MslC12",
+              "MllC12"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-4E76D10220F3",
+      "asset": "char/tmABCD/MfbC08.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mC012.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC12",
+              "MahC12",
+              "MshC12",
+              "MlhC12"
+            ],
+            "default": [
+              "MbmC12",
+              "MamC12",
+              "MsmC12",
+              "MlmC12"
+            ],
+            "low": [
+              "MblC12",
+              "MalC12",
+              "MslC12",
+              "MllC12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC013.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC12",
+              "MahC12",
+              "MshC12",
+              "MlhC15"
+            ],
+            "default": [
+              "MbmC12",
+              "MamC12",
+              "MsmC12",
+              "MlmC15"
+            ],
+            "low": [
+              "MblC12",
+              "MalC12",
+              "MslC12",
+              "MllC15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC014.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC12",
+              "MahC12",
+              "MshC15",
+              "MlhC15"
+            ],
+            "default": [
+              "MbmC12",
+              "MamC12",
+              "MsmC15",
+              "MlmC15"
+            ],
+            "low": [
+              "MblC12",
+              "MalC12",
+              "MslC15",
+              "MllC15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-67D3B3D7926B",
+      "asset": "char/tmABCD/MfbC09.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mC015.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC15",
+              "MahC15",
+              "MshC15",
+              "MlhC15"
+            ],
+            "default": [
+              "MbmC15",
+              "MamC15",
+              "MsmC15",
+              "MlmC15"
+            ],
+            "low": [
+              "MblC15",
+              "MalC15",
+              "MslC15",
+              "MllC15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC016.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC15",
+              "MahC15",
+              "MshC15",
+              "MlhC18"
+            ],
+            "default": [
+              "MbmC15",
+              "MamC15",
+              "MsmC15",
+              "MlmC18"
+            ],
+            "low": [
+              "MblC15",
+              "MalC15",
+              "MslC15",
+              "MllC18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC017.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC15",
+              "MahC15",
+              "MshC18",
+              "MlhC18"
+            ],
+            "default": [
+              "MbmC15",
+              "MamC15",
+              "MsmC18",
+              "MlmC18"
+            ],
+            "low": [
+              "MblC15",
+              "MalC15",
+              "MslC18",
+              "MllC18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-C9C6E36CBACA",
+      "asset": "char/tmABCD/MfbC11.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mC019.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC19",
+              "MahC18",
+              "MshC18",
+              "MlhC18"
+            ],
+            "default": [
+              "MbhC19",
+              "MahC18",
+              "MshC18",
+              "MlhC18"
+            ],
+            "low": [
+              "MbhC19",
+              "MahC18",
+              "MshC18",
+              "MlhC18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mC020.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhC19",
+              "MahC18",
+              "MshC18",
+              "MlhC19"
+            ],
+            "default": [
+              "MbhC19",
+              "MahC18",
+              "MshC18",
+              "MlhC19"
+            ],
+            "low": [
+              "MbhC19",
+              "MahC18",
+              "MshC18",
+              "MlhC19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-D1BB6D9C721D",
+      "asset": "char/tmABCD/MmbA04.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mA003.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA03",
+              "MahA03",
+              "MlhA03"
+            ],
+            "default": [
+              "MbmA03",
+              "MamA03",
+              "MlmA03"
+            ],
+            "low": [
+              "MblA03",
+              "MalA03",
+              "MllA03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA004.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA03",
+              "MlhA03",
+              "MahA06",
+              "MshA06"
+            ],
+            "default": [
+              "MbmA03",
+              "MlmA03",
+              "MamA06",
+              "MsmA06"
+            ],
+            "low": [
+              "MblA03",
+              "MllA03",
+              "MalA06",
+              "MslA06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA005.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA03",
+              "MlhA06",
+              "MahA06",
+              "MshA06"
+            ],
+            "default": [
+              "MbmA03",
+              "MlmA06",
+              "MamA06",
+              "MsmA06"
+            ],
+            "low": [
+              "MblA03",
+              "MllA06",
+              "MalA06",
+              "MslA06"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-F0E9AD6B4F31",
+      "asset": "char/tmABCD/MmbA06.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mA006.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA06",
+              "MlhA06",
+              "MahA06",
+              "MshA06"
+            ],
+            "default": [
+              "MbmA06",
+              "MlmA06",
+              "MamA06",
+              "MsmA06"
+            ],
+            "low": [
+              "MblA06",
+              "MllA06",
+              "MalA06",
+              "MslA06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA007.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA06",
+              "MlhA06",
+              "MahA09",
+              "MshA06"
+            ],
+            "default": [
+              "MbmA06",
+              "MlmA06",
+              "MamA09",
+              "MsmA06"
+            ],
+            "low": [
+              "MblA06",
+              "MllA06",
+              "MalA09",
+              "MslA06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA008.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA06",
+              "MlhA09",
+              "MahA09",
+              "MshA09"
+            ],
+            "default": [
+              "MbmA06",
+              "MlmA09",
+              "MamA09",
+              "MsmA09"
+            ],
+            "low": [
+              "MblA06",
+              "MllA09",
+              "MalA09",
+              "MslA09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-B1165D5E7BCC",
+      "asset": "char/tmABCD/MmbA07.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mA009.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA09",
+              "MlhA09",
+              "MahA09",
+              "MshA09"
+            ],
+            "default": [
+              "MbmA09",
+              "MlmA09",
+              "MamA09",
+              "MsmA09"
+            ],
+            "low": [
+              "MblA09",
+              "MllA09",
+              "MalA09",
+              "MslA09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA010.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA09",
+              "MlhA09",
+              "MahA12",
+              "MshA09"
+            ],
+            "default": [
+              "MbmA09",
+              "MlmA09",
+              "MamA12",
+              "MsmA09"
+            ],
+            "low": [
+              "MblA09",
+              "MllA09",
+              "MalA12",
+              "MslA09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA011.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA09",
+              "MlhA12",
+              "MahA12",
+              "MshA12"
+            ],
+            "default": [
+              "MbmA09",
+              "MlmA12",
+              "MamA12",
+              "MsmA12"
+            ],
+            "low": [
+              "MblA09",
+              "MllA12",
+              "MalA12",
+              "MslA12"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-0B67816FE6FB",
+      "asset": "char/tmABCD/MmbA11.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mA012.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA12",
+              "MlhA12",
+              "MahA12",
+              "MshA12"
+            ],
+            "default": [
+              "MbmA12",
+              "MlmA12",
+              "MamA12",
+              "MsmA12"
+            ],
+            "low": [
+              "MblA12",
+              "MllA12",
+              "MalA12",
+              "MslA12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA013.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA12",
+              "MlhA12",
+              "MahA15",
+              "MshA12"
+            ],
+            "default": [
+              "MbmA12",
+              "MlmA12",
+              "MamA15",
+              "MsmA12"
+            ],
+            "low": [
+              "MblA12",
+              "MllA12",
+              "MalA15",
+              "MslA12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA014.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA12",
+              "MlhA15",
+              "MahA15",
+              "MshA15"
+            ],
+            "default": [
+              "MbmA12",
+              "MlmA15",
+              "MamA15",
+              "MsmA15"
+            ],
+            "low": [
+              "MblA12",
+              "MllA15",
+              "MalA15",
+              "MslA15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-50845AE89A71",
+      "asset": "char/tmABCD/MmbA15.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mA015.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA15",
+              "MlhA15",
+              "MahA15",
+              "MshA15"
+            ],
+            "default": [
+              "MbmA15",
+              "MlmA15",
+              "MamA15",
+              "MsmA15"
+            ],
+            "low": [
+              "MblA15",
+              "MllA15",
+              "MalA15",
+              "MslA15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA016.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA15",
+              "MlhA15",
+              "MahA18",
+              "MshA15"
+            ],
+            "default": [
+              "MbmA15",
+              "MlmA15",
+              "MamA18",
+              "MsmA15"
+            ],
+            "low": [
+              "MblA15",
+              "MllA15",
+              "MalA18",
+              "MslA15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA017.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA15",
+              "MlhA18",
+              "MahA18",
+              "MshA18"
+            ],
+            "default": [
+              "MbmA15",
+              "MlmA18",
+              "MamA18",
+              "MsmA18"
+            ],
+            "low": [
+              "MblA15",
+              "MllA18",
+              "MalA18",
+              "MslA18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-C379622D8BD5",
+      "asset": "char/tmABCD/MmbA18.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mA019.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA19",
+              "MshA18",
+              "MahA18",
+              "MlhA18"
+            ],
+            "default": [
+              "MbhA19",
+              "MshA18",
+              "MahA18",
+              "MlhA18"
+            ],
+            "low": [
+              "MbhA19",
+              "MshA18",
+              "MahA18",
+              "MlhA18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mA020.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhA19",
+              "MshA18",
+              "MahA19",
+              "MlhA19"
+            ],
+            "default": [
+              "MbhA19",
+              "MshA18",
+              "MahA19",
+              "MlhA19"
+            ],
+            "low": [
+              "MbhA19",
+              "MshA18",
+              "MahA19",
+              "MlhA19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-F0C42AD76EA4",
+      "asset": "char/tmABCD/MmbD03.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mD003.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD03",
+              "MlhD03",
+              "MahD03"
+            ],
+            "default": [
+              "MbmD03",
+              "MlmD03",
+              "MamD03"
+            ],
+            "low": [
+              "MblD03",
+              "MllD03",
+              "MalD03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD004.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD03",
+              "MlhD03",
+              "MahD06"
+            ],
+            "default": [
+              "MbmD03",
+              "MlmD03",
+              "MamD06"
+            ],
+            "low": [
+              "MblD03",
+              "MllD03",
+              "MalD06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD005.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD06",
+              "MlhD03",
+              "MahD06"
+            ],
+            "default": [
+              "MbmD06",
+              "MlmD03",
+              "MamD06"
+            ],
+            "low": [
+              "MblD06",
+              "MllD03",
+              "MalD06"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-FFD07D217B2C",
+      "asset": "char/tmABCD/MmbD05.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mD006.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD06",
+              "MlhD06",
+              "MahD06"
+            ],
+            "default": [
+              "MbmD06",
+              "MlmD06",
+              "MamD06"
+            ],
+            "low": [
+              "MblD06",
+              "MllD06",
+              "MalD06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD007.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD06",
+              "MlhD06",
+              "MahD09"
+            ],
+            "default": [
+              "MbmD06",
+              "MlmD06",
+              "MamD09"
+            ],
+            "low": [
+              "MblD06",
+              "MllD06",
+              "MalD09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD008.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD09",
+              "MlhD06",
+              "MahD09"
+            ],
+            "default": [
+              "MbmD09",
+              "MlmD06",
+              "MamD09"
+            ],
+            "low": [
+              "MblD09",
+              "MllD06",
+              "MalD09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-371C8233FA53",
+      "asset": "char/tmABCD/MmbD07.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mD009.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD09",
+              "MlhD09",
+              "MahD09"
+            ],
+            "default": [
+              "MbmD09",
+              "MlmD09",
+              "MamD09"
+            ],
+            "low": [
+              "MblD09",
+              "MllD09",
+              "MalD09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD010.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD09",
+              "MlhD09",
+              "MahD12"
+            ],
+            "default": [
+              "MbmD09",
+              "MlmD09",
+              "MamD12"
+            ],
+            "low": [
+              "MblD09",
+              "MllD09",
+              "MalD12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD011.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD12",
+              "MlhD09",
+              "MahD12"
+            ],
+            "default": [
+              "MbmD12",
+              "MlmD09",
+              "MamD12"
+            ],
+            "low": [
+              "MblD12",
+              "MllD09",
+              "MalD12"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-02F3537F4DB5",
+      "asset": "char/tmABCD/MmbD08.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mD012.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD12",
+              "MlhD12",
+              "MahD12"
+            ],
+            "default": [
+              "MbmD12",
+              "MlmD12",
+              "MamD12"
+            ],
+            "low": [
+              "MblD12",
+              "MllD12",
+              "MalD12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD013.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD12",
+              "MlhD12",
+              "MahD15"
+            ],
+            "default": [
+              "MbmD12",
+              "MlmD12",
+              "MamD15"
+            ],
+            "low": [
+              "MblD12",
+              "MllD12",
+              "MalD15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD014.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD15",
+              "MlhD12",
+              "MahD15"
+            ],
+            "default": [
+              "MbmD15",
+              "MlmD12",
+              "MamD15"
+            ],
+            "low": [
+              "MblD15",
+              "MllD12",
+              "MalD15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-1C40DF7FD46C",
+      "asset": "char/tmABCD/MmbD09.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mD015.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD15",
+              "MlhD15",
+              "MahD15"
+            ],
+            "default": [
+              "MbmD15",
+              "MlmD15",
+              "MamD15"
+            ],
+            "low": [
+              "MblD15",
+              "MllD15",
+              "MalD15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD016.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD15",
+              "MlhD15",
+              "MahD18"
+            ],
+            "default": [
+              "MbmD15",
+              "MlmD15",
+              "MamD18"
+            ],
+            "low": [
+              "MblD15",
+              "MllD15",
+              "MalD18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD017.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD18",
+              "MlhD15",
+              "MahD18"
+            ],
+            "default": [
+              "MbmD18",
+              "MlmD15",
+              "MamD18"
+            ],
+            "low": [
+              "MblD18",
+              "MllD15",
+              "MalD18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7BA0E7597412",
+      "asset": "char/tmABCD/MmbD11.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/mD019.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD19",
+              "MlhD18",
+              "MahD18"
+            ],
+            "default": [
+              "MbhD19",
+              "MlhD18",
+              "MahD18"
+            ],
+            "low": [
+              "MbhD19",
+              "MlhD18",
+              "MahD18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/mD020.inx",
+          "motion_smb": "char/tmabcd/m3.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MbhD19",
+              "MlhD19",
+              "MahD18"
+            ],
+            "default": [
+              "MbhD19",
+              "MlhD19",
+              "MahD18"
+            ],
+            "low": [
+              "MbhD19",
+              "MlhD19",
+              "MahD18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-022AB776AB96",
+      "asset": "char/tmABCD/tfbD03.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/D002.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD01",
+              "TBHD03",
+              "TLHD01"
+            ],
+            "default": [
+              "TAMD01",
+              "TBMD03",
+              "TLMD01"
+            ],
+            "low": [
+              "TALD01",
+              "TBLD03",
+              "TLLD01"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D003.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD03",
+              "TBHD03",
+              "TLHD03"
+            ],
+            "default": [
+              "TAMD03",
+              "TBMD03",
+              "TLMD03"
+            ],
+            "low": [
+              "TALD03",
+              "TBLD03",
+              "TLLD03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D004.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD06",
+              "TBHD03",
+              "TLHD03"
+            ],
+            "default": [
+              "TAMD06",
+              "TBMD03",
+              "TLMD03"
+            ],
+            "low": [
+              "TALD06",
+              "TBLD03",
+              "TLLD03"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-11914179B717",
+      "asset": "char/tmABCD/tfbD06.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/D005.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD06",
+              "TBHD03",
+              "TLHD06"
+            ],
+            "default": [
+              "TAMD06",
+              "TBMD03",
+              "TLMD06"
+            ],
+            "low": [
+              "TALD06",
+              "TBLD03",
+              "TLLD06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D006.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD06",
+              "TBHD06",
+              "TLHD06"
+            ],
+            "default": [
+              "TAMD06",
+              "TBMD06",
+              "TLMD06"
+            ],
+            "low": [
+              "TALD06",
+              "TBLD06",
+              "TLLD06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D007.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD09",
+              "TBHD06",
+              "TLHD06"
+            ],
+            "default": [
+              "TAMD09",
+              "TBMD06",
+              "TLMD06"
+            ],
+            "low": [
+              "TALD09",
+              "TBLD06",
+              "TLLD06"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-B64FC7701840",
+      "asset": "char/tmABCD/tfbD08.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/D008.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD09",
+              "TBHD06",
+              "TLHD09"
+            ],
+            "default": [
+              "TAMD09",
+              "TBMD06",
+              "TLMD09"
+            ],
+            "low": [
+              "TALD09",
+              "TBLD06",
+              "TLLD09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D009.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD09",
+              "TBHD09",
+              "TLHD09"
+            ],
+            "default": [
+              "TAMD09",
+              "TBMD09",
+              "TLMD09"
+            ],
+            "low": [
+              "TALD09",
+              "TBLD09",
+              "TLLD09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D010.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD12",
+              "TBHD09",
+              "TLHD09"
+            ],
+            "default": [
+              "TAMD12",
+              "TBMD09",
+              "TLMD09"
+            ],
+            "low": [
+              "TALD12",
+              "TBLD09",
+              "TLLD09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-55B704E4B82F",
+      "asset": "char/tmABCD/tfbD10.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/D011.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD12",
+              "TBHD09",
+              "TLHD12"
+            ],
+            "default": [
+              "TAMD12",
+              "TBMD09",
+              "TLMD12"
+            ],
+            "low": [
+              "TALD12",
+              "TBLD09",
+              "TLLD12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D012.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD12",
+              "TBHD12",
+              "TLHD12"
+            ],
+            "default": [
+              "TAMD12",
+              "TBMD12",
+              "TLMD12"
+            ],
+            "low": [
+              "TALD12",
+              "TBLD12",
+              "TLLD12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D013.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD15",
+              "TBHD12",
+              "TLHD12"
+            ],
+            "default": [
+              "TAMD15",
+              "TBMD12",
+              "TLMD12"
+            ],
+            "low": [
+              "TALD15",
+              "TBLD12",
+              "TLLD12"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-B85C9FC4D5D9",
+      "asset": "char/tmABCD/tfbD12.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/D014.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD15",
+              "TBHD12",
+              "TLHD15"
+            ],
+            "default": [
+              "TAMD15",
+              "TBMD12",
+              "TLMD15"
+            ],
+            "low": [
+              "TALD15",
+              "TBLD12",
+              "TLLD15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D015.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD15",
+              "TBHD15",
+              "TLHD15"
+            ],
+            "default": [
+              "TAMD15",
+              "TBMD15",
+              "TLMD15"
+            ],
+            "low": [
+              "TALD15",
+              "TBLD15",
+              "TLLD15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D016.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD18",
+              "TBHD15",
+              "TLHD15"
+            ],
+            "default": [
+              "TAMD18",
+              "TBMD15",
+              "TLMD15"
+            ],
+            "low": [
+              "TALD18",
+              "TBLD15",
+              "TLLD15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-FA0D263A8B3E",
+      "asset": "char/tmABCD/tfbD13.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/D017.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD18",
+              "TBHD15",
+              "TLHD18"
+            ],
+            "default": [
+              "TAMD18",
+              "TBMD15",
+              "TLMD18"
+            ],
+            "low": [
+              "TALD18",
+              "TBLD15",
+              "TLLD18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D018.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD18",
+              "TBHD18",
+              "TLHD18"
+            ],
+            "default": [
+              "TAMD18",
+              "TBMD18",
+              "TLMD18"
+            ],
+            "low": [
+              "TALD18",
+              "TBLD18",
+              "TLLD18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-27746C726ADB",
+      "asset": "char/tmABCD/tfbD14.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/D019.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD18",
+              "TBHD19",
+              "TLHD18"
+            ],
+            "default": [
+              "TAHD18",
+              "TBHD19",
+              "TLHD18"
+            ],
+            "low": [
+              "TAHD18",
+              "TBHD19",
+              "TLHD18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/D020.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHD18",
+              "TBHD19",
+              "TLHD19"
+            ],
+            "default": [
+              "TAHD18",
+              "TBHD19",
+              "TLHD19"
+            ],
+            "low": [
+              "TAHD18",
+              "TBHD19",
+              "TLHD19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-949F8D8977B4",
+      "asset": "char/tmABCD/tmbA04.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/A002.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA03",
+              "TBHA01",
+              "TLHA03"
+            ],
+            "default": [
+              "TAMA03",
+              "TBMA01",
+              "TLMA03"
+            ],
+            "low": [
+              "TALA03",
+              "TBLA01",
+              "TLLA03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A003.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA03",
+              "TBHA03",
+              "TLHA03"
+            ],
+            "default": [
+              "TAMA03",
+              "TBMA03",
+              "TLMA03"
+            ],
+            "low": [
+              "TALA03",
+              "TBLA03",
+              "TLLA03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A004.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA06",
+              "TBHA03",
+              "TLHA03"
+            ],
+            "default": [
+              "TAMA06",
+              "TBMA03",
+              "TLMA03"
+            ],
+            "low": [
+              "TALA06",
+              "TBLA03",
+              "TLLA03"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-BD5F01887C59",
+      "asset": "char/tmABCD/tmbA05.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/A005.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA06",
+              "TBHA03",
+              "TLHA06",
+              "TSHA06"
+            ],
+            "default": [
+              "TAMA06",
+              "TBMA03",
+              "TLMA06",
+              "TSMA06"
+            ],
+            "low": [
+              "TALA06",
+              "TBLA03",
+              "TLLA06",
+              "TSLA06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A006.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA06",
+              "TBHA06",
+              "TLHA06",
+              "TSHA06"
+            ],
+            "default": [
+              "TAMA06",
+              "TBMA06",
+              "TLMA06",
+              "TSMA06"
+            ],
+            "low": [
+              "TALA06",
+              "TBLA06",
+              "TLLA06",
+              "TSLA06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A007.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA09",
+              "TBHA06",
+              "TLHA06",
+              "TSHA06"
+            ],
+            "default": [
+              "TAMA09",
+              "TBMA06",
+              "TLMA06",
+              "TSMA06"
+            ],
+            "low": [
+              "TALA09",
+              "TBLA06",
+              "TLLA06",
+              "TSLA06"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7A3DD8C48898",
+      "asset": "char/tmABCD/tmbA08.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/A008.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA09",
+              "TBHA06",
+              "TLHA09",
+              "TSHA09"
+            ],
+            "default": [
+              "TAMA09",
+              "TBMA06",
+              "TLMA09",
+              "TSMA09"
+            ],
+            "low": [
+              "TALA09",
+              "TBLA06",
+              "TLLA09",
+              "TSLA09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A009.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA09",
+              "TBHA09",
+              "TLHA09",
+              "TSHA09"
+            ],
+            "default": [
+              "TAMA09",
+              "TBMA09",
+              "TLMA09",
+              "TSMA09"
+            ],
+            "low": [
+              "TALA09",
+              "TBLA09",
+              "TLLA09",
+              "TSLA09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A010.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA12",
+              "TBHA09",
+              "TLHA09"
+            ],
+            "default": [
+              "TAMA12",
+              "TBMA09",
+              "TLMA09"
+            ],
+            "low": [
+              "TALA12",
+              "TBLA09",
+              "TLLA09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-9E28246DE588",
+      "asset": "char/tmABCD/tmbA10.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/A011.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA12",
+              "TBHA09",
+              "TLHA12",
+              "TSHA12"
+            ],
+            "default": [
+              "TAMA12",
+              "TBMA09",
+              "TLMA12",
+              "TSMA12"
+            ],
+            "low": [
+              "TALA12",
+              "TBLA09",
+              "TLLA12",
+              "TSLA12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A012.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA12",
+              "TBHA12",
+              "TLHA12",
+              "TSHA12"
+            ],
+            "default": [
+              "TAMA12",
+              "TBMA12",
+              "TLMA12",
+              "TSMA12"
+            ],
+            "low": [
+              "TALA12",
+              "TBLA12",
+              "TLLA12",
+              "TSLA12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A013.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA15",
+              "TBHA12",
+              "TLHA12",
+              "TSHA15"
+            ],
+            "default": [
+              "TAMA15",
+              "TBMA12",
+              "TLMA12",
+              "TSMA15"
+            ],
+            "low": [
+              "TALA15",
+              "TBLA12",
+              "TLLA12",
+              "TSLA15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-3A7C97D1F848",
+      "asset": "char/tmABCD/tmbA11.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/A014.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA15",
+              "TBHA12",
+              "TLHA15",
+              "TSHA15"
+            ],
+            "default": [
+              "TAMA15",
+              "TBMA12",
+              "TLMA15",
+              "TSMA15"
+            ],
+            "low": [
+              "TALA15",
+              "TBLA12",
+              "TLLA15",
+              "TSLA15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A015.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA15",
+              "TBHA15",
+              "TLHA15",
+              "TSHA15"
+            ],
+            "default": [
+              "TAMA15",
+              "TBMA15",
+              "TLMA15",
+              "TSMA15"
+            ],
+            "low": [
+              "TALA15",
+              "TBLA15",
+              "TLLA15",
+              "TSLA15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A016.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA18",
+              "TBHA15",
+              "TLHA15",
+              "TSHA15"
+            ],
+            "default": [
+              "TAMA18",
+              "TBMA15",
+              "TLMA15",
+              "TSMA15"
+            ],
+            "low": [
+              "TALA18",
+              "TBLA15",
+              "TLLA15",
+              "TSLA15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-27249DC39488",
+      "asset": "char/tmABCD/tmbA13.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/A017.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA18",
+              "TBHA15",
+              "TLHA18",
+              "TSHA18"
+            ],
+            "default": [
+              "TAMA18",
+              "TBMA15",
+              "TLMA18",
+              "TSMA18"
+            ],
+            "low": [
+              "TALA18",
+              "TBLA15",
+              "TLLA18",
+              "TSLA18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A018.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA18",
+              "TBHA18",
+              "TLHA18",
+              "TSHA18"
+            ],
+            "default": [
+              "TAMA18",
+              "TBMA18",
+              "TLMA18",
+              "TSMA18"
+            ],
+            "low": [
+              "TALA18",
+              "TBLA18",
+              "TLLA18",
+              "TSLA18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-F9931184F42D",
+      "asset": "char/tmABCD/tmbA14.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/A019.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA18",
+              "TBHA19",
+              "TLHA18",
+              "TSHA19"
+            ],
+            "default": [
+              "TAHA18",
+              "TBHA19",
+              "TLHA18",
+              "TSHA19"
+            ],
+            "low": [
+              "TAHA18",
+              "TBHA19",
+              "TLHA18",
+              "TSHA19"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/A020.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHA18",
+              "TBHA19",
+              "TLHA19",
+              "TSHA19"
+            ],
+            "default": [
+              "TAHA18",
+              "TBHA19",
+              "TLHA19",
+              "TSHA19"
+            ],
+            "low": [
+              "TAHA18",
+              "TBHA19",
+              "TLHA19",
+              "TSHA19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-82116C9419CF",
+      "asset": "char/tmABCD/tmbB03.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/B002.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB03",
+              "TBHB01",
+              "TLHB03"
+            ],
+            "default": [
+              "TAMB03",
+              "TBMB01",
+              "TLMB03"
+            ],
+            "low": [
+              "TALB03",
+              "TBLB01",
+              "TLLB03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B003.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB03",
+              "TBHB03",
+              "TLHB03"
+            ],
+            "default": [
+              "TAMB03",
+              "TBMB03",
+              "TLMB03"
+            ],
+            "low": [
+              "TALB03",
+              "TBLB03",
+              "TLLB03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B004.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB06",
+              "TBHB03",
+              "TLHB03"
+            ],
+            "default": [
+              "TAMB06",
+              "TBMB03",
+              "TLMB03"
+            ],
+            "low": [
+              "TALB06",
+              "TBLB03",
+              "TLLB03"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-023088E405AD",
+      "asset": "char/tmABCD/tmbB06.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/B005.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB06",
+              "TBHB03",
+              "TLHB06",
+              "TSHB06"
+            ],
+            "default": [
+              "TAMB06",
+              "TBMB03",
+              "TLMB06",
+              "TSMB06"
+            ],
+            "low": [
+              "TALB06",
+              "TBLB03",
+              "TLLB06",
+              "TSLB06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B006.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB06",
+              "TBHB06",
+              "TLHB06",
+              "TSHB06"
+            ],
+            "default": [
+              "TAMB06",
+              "TBMB06",
+              "TLMB06",
+              "TSMB06"
+            ],
+            "low": [
+              "TALB06",
+              "TBLB06",
+              "TLLB06",
+              "TSLB06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B007.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB09",
+              "TBHB06",
+              "TLHB06",
+              "TSHB09"
+            ],
+            "default": [
+              "TAMB09",
+              "TBMB06",
+              "TLMB06",
+              "TSHB09"
+            ],
+            "low": [
+              "TALB09",
+              "TBLB06",
+              "TLLB06",
+              "TSHB09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-43895F0481AB",
+      "asset": "char/tmABCD/tmbB08.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/B008.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB09",
+              "TBHB06",
+              "TLHB09",
+              "TSHB09"
+            ],
+            "default": [
+              "TAMB09",
+              "TBMB06",
+              "TLMB09",
+              "TSMB09"
+            ],
+            "low": [
+              "TALB09",
+              "TBLB06",
+              "TLLB09",
+              "TSLB09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B009.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB09",
+              "TBHB09",
+              "TLHB09",
+              "TSHB09"
+            ],
+            "default": [
+              "TAMB09",
+              "TBMB09",
+              "TLMB09",
+              "TSMB09"
+            ],
+            "low": [
+              "TALB09",
+              "TBLB09",
+              "TLLB09",
+              "TSLB09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B010.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB12",
+              "TBHB09",
+              "TLHB09",
+              "TSHB09"
+            ],
+            "default": [
+              "TAMB12",
+              "TBMB09",
+              "TLMB09",
+              "TSMB09"
+            ],
+            "low": [
+              "TALB12",
+              "TBLB09",
+              "TLLB09",
+              "TSLB09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-C352B8862921",
+      "asset": "char/tmABCD/tmbB10.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/B011.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB12",
+              "TBHB09",
+              "TLHB12",
+              "TSHB12"
+            ],
+            "default": [
+              "TAMB12",
+              "TBMB09",
+              "TLMB12",
+              "TSMB12"
+            ],
+            "low": [
+              "TALB12",
+              "TBLB09",
+              "TLLB12",
+              "TSLB12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B012.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB12",
+              "TBHB12",
+              "TLHB12",
+              "TSHB12"
+            ],
+            "default": [
+              "TAMB12",
+              "TBMB12",
+              "TLMB12",
+              "TSMB12"
+            ],
+            "low": [
+              "TALB12",
+              "TBLB12",
+              "TLLB12",
+              "TSLB12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B013.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB15",
+              "TBHB12",
+              "TLHB12",
+              "TSHB12"
+            ],
+            "default": [
+              "TAMB15",
+              "TBMB12",
+              "TLMB12",
+              "TSMB12"
+            ],
+            "low": [
+              "TALB15",
+              "TBLB12",
+              "TLLB12",
+              "TSLB12"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-D8B7A49D7746",
+      "asset": "char/tmABCD/tmbB11.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/B014.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB15",
+              "TBHB12",
+              "TLHB15",
+              "TSHB15"
+            ],
+            "default": [
+              "TAMB15",
+              "TBMB12",
+              "TLMB15",
+              "TSMB15"
+            ],
+            "low": [
+              "TALB15",
+              "TBLB12",
+              "TLLB15",
+              "TSLB15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B015.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB15",
+              "TBHB15",
+              "TLHB15",
+              "TSHB15"
+            ],
+            "default": [
+              "TAMB15",
+              "TBMB15",
+              "TLMB15",
+              "TSMB15"
+            ],
+            "low": [
+              "TALB15",
+              "TBLB15",
+              "TLLB15",
+              "TSLB15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B016.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB18",
+              "TBHB15",
+              "TLHB15",
+              "TSHB15"
+            ],
+            "default": [
+              "TAMB18",
+              "TBMB15",
+              "TLMB15",
+              "TSMB15"
+            ],
+            "low": [
+              "TALB18",
+              "TBLB15",
+              "TLLB15",
+              "TSLB15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-FA343BD11A6A",
+      "asset": "char/tmABCD/tmbB13.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/B017.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB18",
+              "TBHB15",
+              "TLHB18",
+              "TSHB18"
+            ],
+            "default": [
+              "TAMB18",
+              "TBMB15",
+              "TLMB18",
+              "TSMB18"
+            ],
+            "low": [
+              "TALB18",
+              "TBLB15",
+              "TLLB18",
+              "TSLB18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B018.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB18",
+              "TBHB18",
+              "TLHB18",
+              "TSHB18"
+            ],
+            "default": [
+              "TAMB18",
+              "TBMB18",
+              "TLMB18",
+              "TSMB18"
+            ],
+            "low": [
+              "TALB18",
+              "TBLB18",
+              "TLLB18",
+              "TSLB18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-526DDB658A9D",
+      "asset": "char/tmABCD/tmbB14.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/B019.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB18",
+              "TBHB19",
+              "TLHB19",
+              "TSHB18"
+            ],
+            "default": [
+              "TAHB18",
+              "TBHB19",
+              "TLHB19",
+              "TSHB18"
+            ],
+            "low": [
+              "TAHB18",
+              "TBHB19",
+              "TLHB19",
+              "TSHB18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B020.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB19",
+              "TBHB19",
+              "TLHB19",
+              "TSHB18"
+            ],
+            "default": [
+              "TAHB19",
+              "TBHB19",
+              "TLHB19",
+              "TSHB18"
+            ],
+            "low": [
+              "TAHB19",
+              "TBHB19",
+              "TLHB19",
+              "TSHB18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/B021.inx",
+          "motion_smb": "char/tmabcd/m1.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TAHB19",
+              "TBHB19",
+              "TLHB19",
+              "TSHB19"
+            ],
+            "default": [
+              "TAHB19",
+              "TBHB19",
+              "TLHB19",
+              "TSHB19"
+            ],
+            "low": [
+              "TAHB19",
+              "TBHB19",
+              "TLHB19",
+              "TSHB19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-4409F9E34928",
+      "asset": "char/tmABCD/tmbC03.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/C003.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC03",
+              "TahC03",
+              "TlhC03"
+            ],
+            "default": [
+              "TbmC03",
+              "TamC03",
+              "TlmC03"
+            ],
+            "low": [
+              "TblC03",
+              "TalC03",
+              "TllC03"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C004.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC03",
+              "TahC06",
+              "TshC03",
+              "TlhC06"
+            ],
+            "default": [
+              "TbmC03",
+              "TamC06",
+              "TsmC03",
+              "TlmC06"
+            ],
+            "low": [
+              "TblC03",
+              "TalC06",
+              "TslC03",
+              "TllC06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C005.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC03",
+              "TahC06",
+              "TshC06",
+              "TlhC06"
+            ],
+            "default": [
+              "TbmC03",
+              "TamC06",
+              "TsmC06",
+              "TlmC06"
+            ],
+            "low": [
+              "TblC03",
+              "TalC06",
+              "TslC06",
+              "TllC06"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7291730CEA22",
+      "asset": "char/tmABCD/tmbC06.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/C006.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC06",
+              "TahC06",
+              "TshC06",
+              "TlhC06"
+            ],
+            "default": [
+              "TbmC06",
+              "TamC06",
+              "TsmC06",
+              "TlmC06"
+            ],
+            "low": [
+              "TblC06",
+              "TalC06",
+              "TslC06",
+              "TllC06"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C007.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC06",
+              "TahC09",
+              "TshC06",
+              "TlhC09"
+            ],
+            "default": [
+              "TbmC06",
+              "TamC09",
+              "TsmC06",
+              "TlmC09"
+            ],
+            "low": [
+              "TblC06",
+              "TalC09",
+              "TslC06",
+              "TllC09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C008.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC06",
+              "TahC09",
+              "TshC09",
+              "TlhC09"
+            ],
+            "default": [
+              "TbmC06",
+              "TamC09",
+              "TsmC09",
+              "TlmC09"
+            ],
+            "low": [
+              "TblC06",
+              "TalC09",
+              "TslC09",
+              "TllC09"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-6112D3864EA3",
+      "asset": "char/tmABCD/tmbC08.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/C009.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC09",
+              "TahC09",
+              "TshC09",
+              "TlhC09"
+            ],
+            "default": [
+              "TbmC09",
+              "TamC09",
+              "TsmC09",
+              "TlmC09"
+            ],
+            "low": [
+              "TblC09",
+              "TalC09",
+              "TslC09",
+              "TllC09"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C010.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC09",
+              "TahC12",
+              "TshC09",
+              "TlhC12"
+            ],
+            "default": [
+              "TbmC09",
+              "TamC12",
+              "TsmC09",
+              "TlmC12"
+            ],
+            "low": [
+              "TblC09",
+              "TalC12",
+              "TslC09",
+              "TllC12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C011.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC09",
+              "TahC12",
+              "TshC12",
+              "TlhC12"
+            ],
+            "default": [
+              "TbmC09",
+              "TamC12",
+              "TsmC12",
+              "TlmC12"
+            ],
+            "low": [
+              "TblC09",
+              "TalC12",
+              "TslC12",
+              "TllC12"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-0185E0F3F016",
+      "asset": "char/tmABCD/tmbC10.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/C012.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC12",
+              "TahC12",
+              "TshC12",
+              "TlhC12"
+            ],
+            "default": [
+              "TbmC12",
+              "TamC12",
+              "TsmC12",
+              "TlmC12"
+            ],
+            "low": [
+              "TblC12",
+              "TalC12",
+              "TslC12",
+              "TllC12"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C013.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC12",
+              "TahC15",
+              "TshC12",
+              "TlhC15"
+            ],
+            "default": [
+              "TbmC12",
+              "TamC15",
+              "TsmC12",
+              "TlmC15"
+            ],
+            "low": [
+              "TblC12",
+              "TalC15",
+              "TslC12",
+              "TllC15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C014.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC12",
+              "TahC15",
+              "TshC15",
+              "TlhC15"
+            ],
+            "default": [
+              "TbmC12",
+              "TamC15",
+              "TsmC15",
+              "TlmC15"
+            ],
+            "low": [
+              "TblC12",
+              "TalC15",
+              "TslC15",
+              "TllC15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-DCB394C610D3",
+      "asset": "char/tmABCD/tmbC11.smd",
+      "category": "CHARACTER",
+      "config_count": 3,
+      "semantic_signature_count": 3,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/C015.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC15",
+              "TahC15",
+              "TshC15",
+              "TlhC15"
+            ],
+            "default": [
+              "TbmC15",
+              "TamC15",
+              "TsmC15",
+              "TlmC15"
+            ],
+            "low": [
+              "TblC15",
+              "TalC15",
+              "TslC15",
+              "TllC15"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C016.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC15",
+              "TahC18",
+              "TshC15",
+              "TlhC18"
+            ],
+            "default": [
+              "TbmC15",
+              "TamC18",
+              "TsmC15",
+              "TlmC18"
+            ],
+            "low": [
+              "TblC15",
+              "TalC18",
+              "TslC15",
+              "TllC18"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C017.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC15",
+              "TahC18",
+              "TshC18",
+              "TlhC18"
+            ],
+            "default": [
+              "TbmC15",
+              "TamC18",
+              "TsmC18",
+              "TlmC18"
+            ],
+            "low": [
+              "TblC15",
+              "TalC18",
+              "TslC18",
+              "TllC18"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-B072D5FD3C76",
+      "asset": "char/tmABCD/TmbC14.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 2,
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "requires_explicit_model_info": true,
+      "choices": [
+        {
+          "inx": "char/tmABCD/C019.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC19",
+              "TahC18",
+              "TshC18",
+              "TlhC19"
+            ],
+            "default": [
+              "TbhC19",
+              "TahC18",
+              "TshC18",
+              "TlhC19"
+            ],
+            "low": [
+              "TbhC19",
+              "TahC18",
+              "TshC18",
+              "TlhC19"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/C020.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TbhC19",
+              "TahC19",
+              "TshC18",
+              "TlhC19"
+            ],
+            "default": [
+              "TbhC19",
+              "TahC19",
+              "TshC18",
+              "TlhC19"
+            ],
+            "low": [
+              "TbhC19",
+              "TahC19",
+              "TshC18",
+              "TlhC19"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-38C9F42D1C36",
+      "asset": "char/monster/death_knight/death_knight.smd",
+      "category": "MOB_MONSTER",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/monster/death_knight/death_knight.inx",
+          "motion_smb": "char/monster/death_knight/death_knight.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "death knight"
+            ],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/monster/death_night/death_knight.inx",
+          "motion_smb": "char/monster/death_knight/death_knight.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "death knight"
+            ],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7DD5865AC41E",
+      "asset": "char/monster/Nihil/Nihil.smd",
+      "category": "MOB_MONSTER",
+      "config_count": 3,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/monster/Nihil/Nihil.inx",
+          "motion_smb": "char/monster/nihil/nihil.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "Nihil"
+            ],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/monster/Nihil/Nihil1.inx",
+          "motion_smb": "char/monster/nihil/nihil.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "Nihil"
+            ],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/monster/Nihil/Nihil_1.inx",
+          "motion_smb": "char/monster/nihil/nihil.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "Nihil"
+            ],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-99CAC5204F4A",
+      "asset": "char/npc/Ahin/Ahin.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Ahin/Ahin.inx",
+          "motion_smb": "char/npc/ahin/ahin.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Ahin_h"
+            ],
+            "default": [
+              "Ahin_m"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Ahin/Ahinf.inx",
+          "motion_smb": "char/npc/ahin/ahin.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Ahin_h"
+            ],
+            "default": [
+              "Ahin_m"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-E7CDF5B20495",
+      "asset": "char/npc/Ascam/Ascam.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Ascam/Ascam.inx",
+          "motion_smb": "char/npc/ascam/ascam.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Ascam/Ascamf.inx",
+          "motion_smb": "char/npc/ascam/ascam.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-41D8CB9DE3B7",
+      "asset": "char/npc/Barba/TN-011.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Barba/barba.inx",
+          "motion_smb": "char/npc/barba/tn-011.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN011Body-H",
+              "TN011Face-H"
+            ],
+            "default": [
+              "TN011Body-L",
+              "TN011Face-H"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Barba/TN-011f.inx",
+          "motion_smb": "char/npc/barba/tn-011.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN011Body-H",
+              "TN011Face-H"
+            ],
+            "default": [
+              "TN011Body-L",
+              "TN011Face-H"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-C6024EA444B8",
+      "asset": "char/npc/Bcn01/Bcn01.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Bcn01/Bcn01.inx",
+          "motion_smb": "char/npc/bcn01/bcn01.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Bcn01_h"
+            ],
+            "default": [
+              "Bcn01_m"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn01/Bcn01f.inx",
+          "motion_smb": "char/npc/bcn01/bcn01.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Bcn01_h"
+            ],
+            "default": [
+              "Bcn01_m"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7D61604A7632",
+      "asset": "char/npc/Bcn03/Bcn03.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Bcn03/Bcn03.inx",
+          "motion_smb": "char/npc/bcn03/bcn03.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H",
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "T-npc-12-L",
+              "hart"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn03/Bcn03f.inx",
+          "motion_smb": "char/npc/bcn03/bcn03.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H",
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "T-npc-12-L",
+              "hart"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-DADFCC5DE391",
+      "asset": "char/npc/Bcn04/Bcn04.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Bcn04/Bcn04.inx",
+          "motion_smb": "char/npc/bcn04/bcn04.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H",
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "T-npc-12-L",
+              "hart"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn04/Bcn04f.inx",
+          "motion_smb": "char/npc/bcn04/bcn04.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H",
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "T-npc-12-L",
+              "hart"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-8AA2AC3F5DDB",
+      "asset": "char/npc/Bcn05/Bcn05.smd",
+      "category": "NPC",
+      "config_count": 4,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Bcn05/Bcn05.inx",
+          "motion_smb": "char/npc/bcn05/bcn05.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn05/Bcn05f.inx",
+          "motion_smb": "char/npc/bcn05/bcn05.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn05_/Bcn05.inx",
+          "motion_smb": "char/npc/bcn05/bcn05.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn05_/Bcn05f.inx",
+          "motion_smb": "char/npc/bcn05/bcn05.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-CC7186BA32C0",
+      "asset": "char/npc/Bcn06/Bcn06.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Bcn06/Bcn06.inx",
+          "motion_smb": "char/npc/bcn06/bcn06.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN010Body-H",
+              "TN010Face-H"
+            ],
+            "default": [
+              "TN010Body-L",
+              "TN010Face-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Bcn06/Bcn06f.inx",
+          "motion_smb": "char/npc/bcn06/bcn06.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN010Body-H",
+              "TN010Face-H"
+            ],
+            "default": [
+              "TN010Body-L",
+              "TN010Face-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-912E1F9DE9AF",
+      "asset": "char/npc/Derik/Derik.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/Derik/derik.inx",
+          "motion_smb": "char/npc/derik/derik.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Derik_h",
+              "Derik_face_H",
+              "TGuard_Sword"
+            ],
+            "default": [
+              "Derik_L",
+              "Derik_face_L",
+              "TGuard_Sword"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/Derik/Derikf.inx",
+          "motion_smb": "char/npc/derik/derik.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Derik_h",
+              "Derik_face_H",
+              "TGuard_Sword"
+            ],
+            "default": [
+              "Derik_L",
+              "Derik_face_L",
+              "TGuard_Sword"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-732D96899A70",
+      "asset": "char/npc/IceN-01/IceN-01.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/IceN-01/IceN-01.inx",
+          "motion_smb": "char/npc/icen-01/icen-01.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "IceN-01-H"
+            ],
+            "default": [
+              "IceN-01-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/IceN-01/IceN-01f.inx",
+          "motion_smb": "char/npc/icen-01/icen-01.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "IceN-01-H"
+            ],
+            "default": [
+              "IceN-01-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-E50C89D5AEB5",
+      "asset": "char/npc/IceN-02/IceN-02.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/IceN-02/IceN-02.inx",
+          "motion_smb": "char/npc/icen-02/icen-02.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "IceN-02-H"
+            ],
+            "default": [
+              "IceN-02-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/IceN-02/IceN-02f.inx",
+          "motion_smb": "char/npc/icen-02/icen-02.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "IceN-02-H"
+            ],
+            "default": [
+              "IceN-02-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-29B1ED86718F",
+      "asset": "char/npc/IceN-03/IceN-03.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/IceN-03/IceN-03.inx",
+          "motion_smb": "char/npc/icen-03/icen-03.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "IceN-03-H"
+            ],
+            "default": [
+              "IceN-03-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/IceN-03/IceN-03f.inx",
+          "motion_smb": "char/npc/icen-03/icen-03.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "IceN-03-H"
+            ],
+            "default": [
+              "IceN-03-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-0198FD8D18C0",
+      "asset": "char/npc/milter/milter.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/milter/milter.inx",
+          "motion_smb": "char/npc/milter/milter.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "milter"
+            ],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/milter/milterf.inx",
+          "motion_smb": "char/npc/milter/milter.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "milter"
+            ],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-2B3C03521C90",
+      "asset": "char/npc/MN-001/GM-001.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-001/GM-001.inx",
+          "motion_smb": "char/npc/mn-001/gm-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "GM-001-H"
+            ],
+            "default": [
+              "GM-001-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-001/GM-001f.inx",
+          "motion_smb": "char/npc/mn-001/gm-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "GM-001-H"
+            ],
+            "default": [
+              "GM-001-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-C1331BA2A744",
+      "asset": "char/npc/MN-001/MN-001.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-001/MN-001.inx",
+          "motion_smb": "char/npc/mn-001/mn-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-001-H"
+            ],
+            "default": [
+              "MN-001-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-001/MN-001f.inx",
+          "motion_smb": "char/npc/mn-001/mn-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-001-H"
+            ],
+            "default": [
+              "MN-001-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-E0514CE0C039",
+      "asset": "char/npc/MN-002/MN-002.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-002/MN-002.inx",
+          "motion_smb": "char/npc/mn-002/mn-002.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-002-H"
+            ],
+            "default": [
+              "MN-002-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-002/MN-002f.inx",
+          "motion_smb": "char/npc/mn-002/mn-002.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-002-H"
+            ],
+            "default": [
+              "MN-002-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-0B288F9EF78A",
+      "asset": "char/npc/MN-003/MN-003.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-003/MN-003.inx",
+          "motion_smb": "char/npc/mn-003/mn-003.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-003-H"
+            ],
+            "default": [
+              "MN-003-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-003/MN-003f.inx",
+          "motion_smb": "char/npc/mn-003/mn-003.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-003-H"
+            ],
+            "default": [
+              "MN-003-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-4DC0B083773D",
+      "asset": "char/npc/MN-004/MN-004.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-004/MN-004.inx",
+          "motion_smb": "char/npc/mn-004/mn-004.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-004-H"
+            ],
+            "default": [
+              "MN-004-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-004/MN-004f.inx",
+          "motion_smb": "char/npc/mn-004/mn-004.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-004-H"
+            ],
+            "default": [
+              "MN-004-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-CC64646D59C9",
+      "asset": "char/npc/MN-005/MN-005.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-005/MN-005.inx",
+          "motion_smb": "char/npc/mn-005/mn-005.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-005-H"
+            ],
+            "default": [
+              "MN-005-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-005/MN-005F.inx",
+          "motion_smb": "char/npc/mn-005/mn-005.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-005-H"
+            ],
+            "default": [
+              "MN-005-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-0AAEC0D41CCD",
+      "asset": "char/npc/MN-007/MN-007.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-007/MN-007.inx",
+          "motion_smb": "char/npc/mn-007/mn-007.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-007-H"
+            ],
+            "default": [
+              "MN-007-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-007/MN-007f.inx",
+          "motion_smb": "char/npc/mn-007/mn-007.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-007-H"
+            ],
+            "default": [
+              "MN-007-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-AC2417AE839C",
+      "asset": "char/npc/MN-008/MN-008.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-008/MN-008.inx",
+          "motion_smb": "char/npc/mn-008/mn-008.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-008-H"
+            ],
+            "default": [
+              "MN-008-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-008/MN-008f.inx",
+          "motion_smb": "char/npc/mn-008/mn-008.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-008-H"
+            ],
+            "default": [
+              "MN-008-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-3DAD57C286CA",
+      "asset": "char/npc/MN-009/MN-009.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-009/MN-009.inx",
+          "motion_smb": "char/npc/mn-009/mn-009.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-009-H"
+            ],
+            "default": [
+              "MN-009-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-009/MN-009f.inx",
+          "motion_smb": "char/npc/mn-009/mn-009.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-009-H"
+            ],
+            "default": [
+              "MN-009-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-F86F8924023E",
+      "asset": "char/npc/MN-010/MN-010.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-010/MN-010.inx",
+          "motion_smb": "char/npc/mn-010/mn-010.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-010-H"
+            ],
+            "default": [
+              "MN-010-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-010/MN-010F.inx",
+          "motion_smb": "char/npc/mn-010/mn-010.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-010-H"
+            ],
+            "default": [
+              "MN-010-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-EDABA39476B1",
+      "asset": "char/npc/MN-011/MN-011.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/MN-011/MN-011.inx",
+          "motion_smb": "char/npc/mn-011/mn-011.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-011-B",
+              "MN-011-H"
+            ],
+            "default": [
+              "MN-011-B",
+              "MN-011-H"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/MN-011/MN011f.inx",
+          "motion_smb": "char/npc/mn-011/mn-011.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "MN-011-B",
+              "MN-011-H"
+            ],
+            "default": [
+              "MN-011-B",
+              "MN-011-H"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-DA8422FE8AF0",
+      "asset": "char/npc/NineFox/npc_ninefox.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/NineFox/npc_ninefox.inx",
+          "motion_smb": "char/npc/ninefox/npc_ninefox.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "npc_ninefox_h"
+            ],
+            "default": [
+              "npc_ninefox_m"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/NineFox/npc_ninefoxf.inx",
+          "motion_smb": "char/npc/ninefox/npc_ninefox.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "npc_ninefox_h"
+            ],
+            "default": [
+              "npc_ninefox_m"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-D49425E05B09",
+      "asset": "char/npc/SN-001/SN-001.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/SN-001/sn-001.inx",
+          "motion_smb": "char/npc/sn-001/sn-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-001_H"
+            ],
+            "default": [
+              "SN-001_L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/SN-001/SN-001f.inx",
+          "motion_smb": "char/npc/sn-001/sn-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-001_H"
+            ],
+            "default": [
+              "SN-001_L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-642965CF2EF3",
+      "asset": "char/npc/SN-002/SN-002.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/SN-002/sn-002.inx",
+          "motion_smb": "char/npc/sn-002/sn-002.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-002-H"
+            ],
+            "default": [
+              "SN-002-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/SN-002/SN-002f.inx",
+          "motion_smb": "char/npc/sn-002/sn-002.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-002-H"
+            ],
+            "default": [
+              "SN-002-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-079673A1E234",
+      "asset": "char/npc/SN-003/SN-003.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/SN-003/sn-003.inx",
+          "motion_smb": "char/npc/sn-003/sn-003.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-003-H"
+            ],
+            "default": [
+              "SN-003-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/SN-003/SN-003f.inx",
+          "motion_smb": "char/npc/sn-003/sn-003.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-003-H"
+            ],
+            "default": [
+              "SN-003-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-58756E40FEC0",
+      "asset": "char/npc/SN-004/SN-004.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/SN-004/sn-004.inx",
+          "motion_smb": "char/npc/sn-004/sn-004.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/SN-004/SN-004f.inx",
+          "motion_smb": "char/npc/sn-004/sn-004.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-9AC5DAAA1F1F",
+      "asset": "char/npc/SN-005/SN-005.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/SN-005/sn-005.inx",
+          "motion_smb": "char/npc/sn-005/sn-005.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-005-H"
+            ],
+            "default": [
+              "SN-005-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/SN-005/SN-005f.inx",
+          "motion_smb": "char/npc/sn-005/sn-005.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "SN-005-H"
+            ],
+            "default": [
+              "SN-005-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-E3D4BC4A92FA",
+      "asset": "char/npc/TN-001/TN-001.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-001/TN-001.inx",
+          "motion_smb": "char/npc/tn-001/tn-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Oldhead_h",
+              "OldGuard_h",
+              "OgW"
+            ],
+            "default": [
+              "Oldhead_h",
+              "OldGuard_h",
+              "OgW"
+            ],
+            "low": [
+              "Oldhead_L",
+              "OldGuard_L",
+              "OgW"
+            ]
+          }
+        },
+        {
+          "inx": "char/npc/TN-001/TN-001f.inx",
+          "motion_smb": "char/npc/tn-001/tn-001.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "Oldhead_h",
+              "OldGuard_h",
+              "OgW"
+            ],
+            "default": [
+              "Oldhead_h",
+              "OldGuard_h",
+              "OgW"
+            ],
+            "low": [
+              "Oldhead_L",
+              "OldGuard_L",
+              "OgW"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-59F3B1ACDE98",
+      "asset": "char/npc/TN-002/TN-002.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-002/TN-002.inx",
+          "motion_smb": "char/npc/tn-002/tn-002.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "002Body-H",
+              "002Face_H",
+              "TguardWeapon"
+            ],
+            "default": [
+              "002Body-H",
+              "002Face_L",
+              "TguardWeapon"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-002/TN-002f.inx",
+          "motion_smb": "char/npc/tn-002/tn-002.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "002Body-H",
+              "002Face_H",
+              "TguardWeapon"
+            ],
+            "default": [
+              "002Body-H",
+              "002Face_L",
+              "TguardWeapon"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-EA2E7DEC1C7C",
+      "asset": "char/npc/TN-002/TN-013.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-002/TN-013.inx",
+          "motion_smb": "char/npc/tn-002/tn-013.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "013Body-H",
+              "013Face_H",
+              "TGuard_Sword"
+            ],
+            "default": [
+              "013Body-L",
+              "013Face_L",
+              "TGuard_Sword"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-002/TN-013f.inx",
+          "motion_smb": "char/npc/tn-002/tn-013.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "013Body-H",
+              "013Face_H",
+              "TGuard_Sword"
+            ],
+            "default": [
+              "013Body-L",
+              "013Face_L",
+              "TGuard_Sword"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-A59B0D98AF55",
+      "asset": "char/npc/TN-003/TN-003.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-003/TN-003.inx",
+          "motion_smb": "char/npc/tn-003/tn-003.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN-003H"
+            ],
+            "default": [
+              "TN-003L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-003/TN-003f.inx",
+          "motion_smb": "char/npc/tn-003/tn-003.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN-003H"
+            ],
+            "default": [
+              "TN-003L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-8C98564F6991",
+      "asset": "char/npc/TN-004/TN-004.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-004/TN-004.inx",
+          "motion_smb": "char/npc/tn-004/tn-004.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN-003H"
+            ],
+            "default": [
+              "TN-003L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-004/TN-004f.inx",
+          "motion_smb": "char/npc/tn-004/tn-004.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN-003H"
+            ],
+            "default": [
+              "TN-003L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-E441E6E447CE",
+      "asset": "char/npc/TN-005/TN-005.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-005/TN-005.inx",
+          "motion_smb": "char/npc/tn-005/tn-005.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H",
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "T-npc-12-L",
+              "hart"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-005/TN-005f.inx",
+          "motion_smb": "char/npc/tn-005/tn-005.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "T-npc-12-H",
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "T-npc-12-L",
+              "hart"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-60FFD9D50A2E",
+      "asset": "char/npc/TN-006/TN-006.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-006/TN-006.inx",
+          "motion_smb": "char/npc/tn-006/tn-006.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "long-h",
+              "long-l01",
+              "Cylinder01"
+            ],
+            "default": [
+              "long-l",
+              "Cylinder01"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-006/TN-006F.inx",
+          "motion_smb": "char/npc/tn-006/tn-006.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "long-h",
+              "long-l01",
+              "Cylinder01"
+            ],
+            "default": [
+              "long-l",
+              "Cylinder01"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-43F10B9D0FDA",
+      "asset": "char/npc/TN-007/tn-007.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-007/TN-007.inx",
+          "motion_smb": "char/npc/tn-007/tn-007.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN-007-H"
+            ],
+            "default": [
+              "TN-007-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-007/TN-007F.inx",
+          "motion_smb": "char/npc/tn-007/tn-007.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN-007-H"
+            ],
+            "default": [
+              "TN-007-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-579FA52085F6",
+      "asset": "char/npc/TN-008/TN-008.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-008/TN-008.inx",
+          "motion_smb": "char/npc/tn-008/tn-008.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-008/TN-008f.inx",
+          "motion_smb": "char/npc/tn-008/tn-008.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-1FC670D05E61",
+      "asset": "char/npc/TN-010/TN-010.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-010/TN-010.inx",
+          "motion_smb": "char/npc/tn-010/tn-010.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN010Body-H",
+              "TN010Face-H"
+            ],
+            "default": [
+              "TN010Body-L",
+              "TN010Face-L"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-010/TN-010f.inx",
+          "motion_smb": "char/npc/tn-010/tn-010.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN010Body-H",
+              "TN010Face-H"
+            ],
+            "default": [
+              "TN010Body-L",
+              "TN010Face-L"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-23843FA27BA0",
+      "asset": "char/npc/TN-011/TN-011.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-011/TN-011.inx",
+          "motion_smb": "char/npc/tn-011/tn-011.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN011Body-H",
+              "TN011Face-H"
+            ],
+            "default": [
+              "TN011Body-L",
+              "TN011Face-H"
+            ],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-011/TN-011f.inx",
+          "motion_smb": "char/npc/tn-011/tn-011.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TN011Body-H",
+              "TN011Face-H"
+            ],
+            "default": [
+              "TN011Body-L",
+              "TN011Face-H"
+            ],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-7C2D86C72768",
+      "asset": "char/npc/TN-012/TN-012.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-012/TN-012.inx",
+          "motion_smb": "char/npc/tn-012/tn-012.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "npc_mxh",
+              "obj"
+            ],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-012/TN-012F.inx",
+          "motion_smb": "char/npc/tn-012/tn-012.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "npc_mxh",
+              "obj"
+            ],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-4822F298AB30",
+      "asset": "char/npc/TN-014/TN-014.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-014/TN-014.inx",
+          "motion_smb": "char/npc/tn-014/tn-014.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-014/TN-014f.inx",
+          "motion_smb": "char/npc/tn-014/tn-014.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-13BEB69AFAF5",
+      "asset": "char/npc/TN-015/TN-015.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-015/TN-015.inx",
+          "motion_smb": "char/npc/tn-015/tn-015.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-015/TN-015f.inx",
+          "motion_smb": "char/npc/tn-015/tn-015.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-0760298E830D",
+      "asset": "char/npc/TN-017/TN-017.smd",
+      "category": "NPC",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/npc/TN-017/TN-017.inx",
+          "motion_smb": "char/npc/tn-017/tn-017.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/npc/TN-017/TN-017f.inx",
+          "motion_smb": "char/npc/tn-017/tn-017.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-6866DB664C38",
+      "asset": "char/tmABCD/ar0nASH.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/tmABCD/ar0nas.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/tmABCD/ar0nATA.inx",
+          "motion_smb": "char/tmabcd/m2.smb",
+          "auto_lod": null,
+          "lod_groups": {
+            "high": [],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-274794E2E29C",
+      "asset": "char/tmABCD/MfhC13c.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/tmABCD/Mfh-C13c.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "MfhC13c"
+            ],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/tmABCD/MfhC-13c.inx",
+          "motion_smb": "char/tmabcd/m5.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "MfhC13c"
+            ],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-987D27328FB5",
+      "asset": "char/tmABCD/TmhC01c.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/tmABCD/Tmh-C01c.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TmhC01c-H"
+            ],
+            "default": [
+              "TmhC01c-M"
+            ],
+            "low": [
+              "TmhC01c-L"
+            ]
+          }
+        },
+        {
+          "inx": "char/tmABCD/tmhC-01c.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "default",
+          "lod_groups": {
+            "high": [
+              "TmhC01c-H"
+            ],
+            "default": [
+              "TmhC01c-M"
+            ],
+            "low": [
+              "TmhC01c-L"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-EFDA4F6E0FB5",
+      "asset": "char/tmABCD/TmhC06c.smd",
+      "category": "CHARACTER",
+      "config_count": 2,
+      "semantic_signature_count": 1,
+      "state": "SEMANTICALLY_EQUIVALENT",
+      "requires_explicit_model_info": false,
+      "choices": [
+        {
+          "inx": "char/tmABCD/tmh-C06c.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "TmhC06c"
+            ],
+            "default": [],
+            "low": []
+          }
+        },
+        {
+          "inx": "char/tmABCD/tmhC-06c.inx",
+          "motion_smb": "char/tmabcd/m4.smb",
+          "auto_lod": "high",
+          "lod_groups": {
+            "high": [
+              "TmhC06c"
+            ],
+            "default": [],
+            "low": []
+          }
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "ambiguous_requires_explicit_model_info": true,
+    "equivalence_compares_full_lod_groups_and_skeleton": true,
+    "client_write_authorized": false
+  },
+  "client_modified": false
+}

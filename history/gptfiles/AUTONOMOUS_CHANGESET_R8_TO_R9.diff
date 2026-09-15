@@ -1,0 +1,1126 @@
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/dev_tests/test_generic_import.py /mnt/data/pt_asset_r9_work/app/dev_tests/test_generic_import.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/dev_tests/test_generic_import.py	2026-09-02 15:03:46.619992455 +0000
++++ /mnt/data/pt_asset_r9_work/app/dev_tests/test_generic_import.py	2026-09-02 15:30:16.285904796 +0000
+@@ -175,3 +175,65 @@
+     manifest=json.loads(Path(result["authoring_manifest"]).read_text())
+     assert manifest["selected_context"] == ctx
+     assert result["workspace_provenance"]["status"] == "PASS"
++
++
++def test_existing_rigid_workspace_reuse_rejects_requested_context_mismatch(tmp_path):
++    import pytest
++    from pt_asset_tool.authoring import build_selected_authoring_context, write_workspace_manifest
++
++    source = tmp_path / "client" / "body.smd"; source.parent.mkdir(); source.write_bytes(b"smd")
++    inx = tmp_path / "client" / "body-a.inx"; inx.write_bytes(b"inx")
++    smb = tmp_path / "client" / "body.smb"; smb.write_bytes(b"smb")
++    a=_rigid_with_configs([{
++        "inx":"char/test/body-a.inx", "motion_smb":"char/test/body.smb",
++        "lod_groups":{"high":["BodyHi"], "default":["Body"]},
++    }])
++    workspace=blender_edit_root(tmp_path,'generic_import',a.primary_path)
++    workspace.mkdir(parents=True)
++    (workspace/'imported.blend').write_bytes(b'artist-edit')
++    context=build_selected_authoring_context(
++        model_info_logical="char/test/body-a.inx", model_info_path=inx,
++        skeleton_logical="char/test/body.smb", skeleton_path=smb,
++        lod="default", lod_groups=a.configs[0]["lod_groups"],
++    )
++    write_workspace_manifest(workspace, a, source, {"generic_build_authorized":False}, [inx,smb], selected_context=context)
++    settings=SimpleNamespace(project_root=tmp_path)
++    runner=ValidationRunner(ValidationContext(settings=settings,resolver=SimpleNamespace(),certifications=SimpleNamespace()))
++
++    ok=runner.blender_import_workspace(a, model_info="char/test/body-a.inx")
++    assert ok["reused_existing"] is True
++    with pytest.raises(RuntimeError, match="EXISTING_RIGID_WORKSPACE_CONTEXT_MISMATCH"):
++        runner.blender_import_workspace(a, model_info="char/test/body-b.inx")
++    with pytest.raises(RuntimeError, match="EXISTING_RIGID_WORKSPACE_CONTEXT_MISMATCH"):
++        runner.blender_import_workspace(a, lod="high", model_info="char/test/body-a.inx")
++
++
++def test_rigid_selected_context_persists_profile_selection_basis(monkeypatch, tmp_path):
++    import pt_asset_tool.validation as validation_mod
++    source = tmp_path / "client" / "body.smd"; source.parent.mkdir(); source.write_bytes(b"smd")
++    inx = tmp_path / "client" / "body-a.inx"; inx.write_bytes(b"inx")
++    smb = tmp_path / "client" / "body.smb"; smb.write_bytes(b"smb")
++    a=_rigid_with_configs([{
++        "inx":"char/test/body-a.inx", "motion_smb":"char/test/body.smb",
++        "lod_groups":{"default":["Body"]},
++    }])
++    class Resolver:
++        def resolve(self, logical, required=True):
++            return {
++                "char/test/body.smd":source,
++                "char/test/body-a.inx":inx,
++                "char/test/body.smb":smb,
++            }[str(logical).replace("\\", "/")]
++    runner=ValidationRunner(ValidationContext(settings=SimpleNamespace(project_root=tmp_path),resolver=Resolver(),certifications=SimpleNamespace()))
++    monkeypatch.setattr(runner, "structural", lambda asset: {"status":"PASS"})
++    overlay=tmp_path / "overlay"; overlay.mkdir()
++    monkeypatch.setattr(runner, "_texture_overlay", lambda asset, work: (overlay, {"ready":True}))
++    def fake_prepare(asset, lod, work, client_root, **kwargs):
++        prepared=work / "pristine_import.blend"; prepared.write_bytes(b"blend")
++        return source, prepared, "default", a.configs[0]
++    monkeypatch.setattr(runner, "_prepare_rigid_blend", fake_prepare)
++    monkeypatch.setattr(validation_mod, "authoring_plan", lambda asset, source_path: {"generic_build_authorized":False})
++    basis={"kind":"CANONICAL_PROFILE","profile_id":"hero","profile_version":1,"roundtrip_target":"char/test/body.smd"}
++    result=runner.blender_import_workspace(a, model_info="char/test/body-a.inx", selection_basis=basis)
++    assert result["selected_context"]["selection_basis"] == basis
++    assert result["workspace_provenance"]["status"] == "PASS"
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/dev_tests/test_profile_authoring.py /mnt/data/pt_asset_r9_work/app/dev_tests/test_profile_authoring.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/dev_tests/test_profile_authoring.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/app/dev_tests/test_profile_authoring.py	2026-09-02 15:36:14.010130340 +0000
+@@ -0,0 +1,111 @@
++from types import SimpleNamespace
++
++from pt_asset_tool.profile_authoring import plan_profile_authoring_context
++
++
++def _profile():
++    return SimpleNamespace(
++        profile_id="hero_c01_m1",
++        profile_version=2,
++        roundtrip_target="char/test/body.smd",
++        lod_groups={"high":["BodyHi"], "default":["Body"], "low":["BodyLo"]},
++        geometry_status={"all_lods_runtime_proven": False},
++    )
++
++
++def _verification(model_info="char/test/body.inx", skeleton="char/test/body.smb"):
++    return {
++        "status":"PASS",
++        "components":[
++            {"role":"model_info", "status":"PASS", "logical_path":model_info},
++            {"role":"skeleton", "status":"PASS", "logical_path":skeleton},
++        ],
++    }
++
++
++class Profiles:
++    def __init__(self, verification=None):
++        self.profile = _profile()
++        self.verification = verification or _verification()
++    def get(self, profile_id):
++        assert profile_id == self.profile.profile_id
++        return self.profile
++    def verify(self, profile_id, resolver, asset_registry=None):
++        return self.verification
++
++
++class Assets:
++    def __init__(self):
++        self.asset = SimpleNamespace(
++            asset_id="AST-HERO", primary_path="char/test/body.smd",
++            family="SMD_MODEL_062_RIGID_PHYSIQUE",
++            configs=[{
++                "inx":"char/test/body.inx", "motion_smb":"char/test/body.smb",
++                "lod_groups":{"high":["BodyHi"], "default":["Body"], "low":["BodyLo"]},
++            }],
++        )
++    def resolve(self, target):
++        assert str(target).casefold() == self.asset.primary_path.casefold()
++        return self.asset
++
++
++def test_profile_authoring_plan_requires_exact_registry_context_and_selects_lod():
++    result = plan_profile_authoring_context(Profiles(), "hero_c01_m1", SimpleNamespace(), Assets(), lod="high")
++    assert result["status"] == "READY"
++    assert result["model_info_inx"] == "char/test/body.inx"
++    assert result["skeleton_smb"] == "char/test/body.smb"
++    assert result["lod"] == "high"
++    assert result["selected_lod_nodes"] == ["BodyHi"]
++    assert result["selection_basis"]["profile_id"] == "hero_c01_m1"
++    assert result["import_context_authorized"] is True
++    assert result["writer_authorized"] is False
++    assert result["production_authorized"] is False
++
++
++def test_profile_authoring_plan_does_not_accept_basename_only_semantic_match():
++    profiles = Profiles(_verification(model_info="other/path/body.inx"))
++    result = plan_profile_authoring_context(profiles, "hero_c01_m1", SimpleNamespace(), Assets(), lod="auto")
++    assert result["status"] == "BLOCKED"
++    assert "PROFILE_EXACT_REGISTRY_CONTEXT_NOT_UNIQUE" in result["errors"]
++    assert result["writer_authorized"] is False
++
++
++def test_profile_registry_semantic_check_requires_unique_associated_inx_basename(tmp_path):
++    import json
++    from pt_asset_tool.profile_registry import CharacterProfileRegistry
++
++    profiles_dir=tmp_path / "profiles"; profiles_dir.mkdir()
++    (profiles_dir / "hero.json").write_text(json.dumps({
++        "profile_id":"hero", "profile_version":1, "model_smd":"body.smd",
++        "skeleton_smb":"body.smb", "model_info_inx":"body.inx",
++        "roundtrip_target":"char/test/body.smd",
++        "lod_groups":{"high":["Hi"],"default":["Body"],"low":["Lo"]},
++        "known_mesh_objects":["Hi","Body","Lo"], "components":[],
++    }))
++    target=tmp_path / "client" / "char" / "test" / "body.smd"
++    target.parent.mkdir(parents=True); target.write_bytes(b"smd")
++    class Resolver:
++        client_root=tmp_path / "client"
++        index={}
++        def resolve(self, logical, required=False):
++            if str(logical).replace("\\", "/").casefold()=="char/test/body.smd": return target
++            return None
++    asset=SimpleNamespace(
++        asset_id="AST", primary_path="char/test/body.smd", family="SMD_MODEL_062_RIGID_PHYSIQUE",
++        configs=[
++            {"inx":"char/a/body.inx","motion_smb":"char/test/body.smb","lod_groups":{"high":["Hi"],"default":["Body"],"low":["Lo"]}},
++            {"inx":"char/b/body.inx","motion_smb":"char/test/body.smb","lod_groups":{"high":["Hi"],"default":["Body"],"low":["Lo"]}},
++        ],
++    )
++    class Assets:
++        def resolve(self, target): return asset
++    reg=CharacterProfileRegistry(profiles_dir)
++    ambiguous=reg.verify("hero", Resolver(), asset_registry=Assets())
++    assert ambiguous["status"] == "FAIL"
++    assert ambiguous["semantic_evidence"]["model_info_inx_match"] is False
++    assert ambiguous["semantic_evidence"]["model_info_match_evidence"] == "UNIQUE_ASSOCIATED_INX_BASENAME"
++
++    asset.configs=asset.configs[:1]
++    exact=reg.verify("hero", Resolver(), asset_registry=Assets())
++    assert exact["status"] == "PASS"
++    assert exact["semantic_evidence"]["model_info_inx_match"] is True
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/dev_tests/test_profile_candidates.py /mnt/data/pt_asset_r9_work/app/dev_tests/test_profile_candidates.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/dev_tests/test_profile_candidates.py	2026-09-02 12:02:36.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/app/dev_tests/test_profile_candidates.py	2026-09-02 15:30:16.285904796 +0000
+@@ -43,3 +43,23 @@
+     assert report["category_filter"] == "NPC"
+     assert all(row["semantic_group"] == "NPC" for row in report["candidates"])
+     assert report["shown_count"] <= 20
++
++
++def test_profile_discovery_marks_ambiguous_multi_inx_contexts_without_promoting_authoring():
++    from types import SimpleNamespace
++    ambiguous = SimpleNamespace(
++        family="SMD_MODEL_062_RIGID_PHYSIQUE", primary_path="char/test/body.smd", category="CHARACTER",
++        asset_id="AST-AMB", configs=[
++            {"inx":"char/test/a.inx","motion_smb":"char/test/body.smb","lod_groups":{"high":["HiA"],"default":["Body"],"low":["Lo"]}},
++            {"inx":"char/test/b.inx","motion_smb":"char/test/body.smb","lod_groups":{"high":["HiB"],"default":["Body"],"low":["Lo"]}},
++        ],
++        source_record={"object_names":["HiA","HiB","Body","Lo"]},
++        rigid_binding_ready=True, binding_skeleton_smb="char/test/body.smb",
++        binding_mode="ROOT_SKELETON_BOUND", binding_source="TEST",
++    )
++    report=discover_profile_candidates(SimpleNamespace(assets=[ambiguous]), limit=0)
++    assert report["model_info_context_state_counts"]["AMBIGUOUS_MODEL_INFO_CONFIG"] == 1
++    assert len(report["candidates"]) == 2
++    assert all(row["requires_explicit_model_info"] is True for row in report["candidates"])
++    assert len({row["semantic_context_id"] for row in report["candidates"]}) == 2
++    assert all(row["authoring_authorized"] is False for row in report["candidates"])
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/authoring.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/authoring.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/authoring.py	2026-09-02 14:56:06.434249163 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/authoring.py	2026-09-02 15:28:27.382294133 +0000
+@@ -46,6 +46,7 @@
+     skeleton_path: pathlib.Path,
+     lod: str,
+     lod_groups: dict[str, Any] | None,
++    selection_basis: dict[str, Any] | None = None,
+ ) -> dict[str, Any]:
+     model_info_path = pathlib.Path(model_info_path).resolve()
+     skeleton_path = pathlib.Path(skeleton_path).resolve()
+@@ -75,6 +76,7 @@
+         "lod_groups": normalized_groups,
+         "lod_groups_signature": lod_groups_signature(normalized_groups),
+         "selected_lod_nodes": list(normalized_groups[lod]),
++        "selection_basis": dict(selection_basis) if selection_basis is not None else None,
+     }
+ 
+ 
+@@ -94,6 +96,15 @@
+         errors.append("LOD_GROUPS_SIGNATURE_DRIFT")
+     if list(context.get("selected_lod_nodes") or []) != list(groups.get(lod) or []):
+         errors.append("SELECTED_LOD_NODES_DRIFT")
++    selection_basis = context.get("selection_basis")
++    if selection_basis is not None:
++        basis = dict(selection_basis or {})
++        if basis.get("kind") != "CANONICAL_PROFILE":
++            errors.append("SELECTION_BASIS_KIND_INVALID")
++        if not str(basis.get("profile_id") or ""):
++            errors.append("SELECTION_BASIS_PROFILE_ID_MISSING")
++        if not _norm_logical(str(basis.get("roundtrip_target") or "")):
++            errors.append("SELECTION_BASIS_TARGET_MISSING")
+ 
+     identity_results: dict[str, dict[str, Any]] = {}
+     for field, label in (("model_info_inx", "MODEL_INFO"), ("skeleton_smb", "SKELETON")):
+@@ -138,6 +149,12 @@
+     model_logical = _norm_logical(str(model_row.get("logical") or ""))
+     skeleton_logical = _norm_logical(str(skeleton_row.get("logical") or ""))
+     lod = str(context.get("lod") or "")
++    selection_basis = context.get("selection_basis")
++    if selection_basis is not None:
++        target = _norm_logical(str((selection_basis or {}).get("roundtrip_target") or ""))
++        asset_path = _norm_logical(str(getattr(asset, "primary_path", "") or ""))
++        if target.casefold() != asset_path.casefold():
++            errors.append("SELECTION_BASIS_TARGET_MISMATCH")
+     configs = [cfg for cfg in getattr(asset, "configs", []) if cfg.get("inx") and cfg.get("motion_smb")]
+     hits = [cfg for cfg in configs if _norm_logical(str(cfg.get("inx") or "")).casefold() == model_logical.casefold()]
+     if not hits:
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/cli.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/cli.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/cli.py	2026-09-02 15:00:02.374196893 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/cli.py	2026-09-02 15:29:14.087275944 +0000
+@@ -38,6 +38,7 @@
+ from .smb_writer import validate_track_roundtrip, patch_key
+ from .profile_registry import CharacterProfileRegistry
+ from .profile_candidates import discover_profile_candidates
++from .profile_authoring import plan_profile_authoring_context
+ from .binding_coverage import audit_binding_coverage
+ from .writer_corpus_audit import (
+     audit_inx_writer_corpus, audit_smb_writer_corpus,
+@@ -765,6 +766,15 @@
+     return 0
+ 
+ 
++
++def cmd_profiles_authoring_plan(a):
++    s, reg, cert, resolver = make_context(a)
++    result = plan_profile_authoring_context(
++        _profile_registry(s), a.profile_id, resolver, reg, lod=a.lod
++    )
++    print(json.dumps(result, ensure_ascii=False, indent=2))
++    return 0 if result.get("status") == "READY" else 3
++
+ def cmd_profiles_verify(a):
+     s, reg, cert, resolver = make_context(a)
+     registry = _profile_registry(s)
+@@ -2773,8 +2783,28 @@
+     """
+     s, reg, cert, resolver = make_context(a)
+     asset = reg.resolve(a.target)
++    profile_plan = None
++    model_info = getattr(a, "model_info", None)
++    selection_basis = None
++    profile_id = getattr(a, "profile", None)
++    if profile_id:
++        if model_info:
++            raise RuntimeError("--profile and --model-info are mutually exclusive")
++        profile_plan = plan_profile_authoring_context(
++            _profile_registry(s), profile_id, resolver, reg, lod=a.lod
++        )
++        if profile_plan.get("status") != "READY":
++            raise RuntimeError(f"profile authoring context is blocked: {profile_plan.get('errors')}")
++        if str(profile_plan.get("asset") or "").replace("\\", "/").casefold() != asset.primary_path.replace("\\", "/").casefold():
++            raise RuntimeError("profile roundtrip target does not match requested import asset")
++        model_info = profile_plan["model_info_inx"]
++        selection_basis = profile_plan["selection_basis"]
+     runner = ValidationRunner(ValidationContext(s, resolver, cert))
+-    result = runner.blender_import_workspace(asset, lod=a.lod, reset=bool(a.reset), model_info=getattr(a, "model_info", None))
++    result = runner.blender_import_workspace(
++        asset, lod=a.lod, reset=bool(a.reset), model_info=model_info, selection_basis=selection_basis
++    )
++    if profile_plan is not None:
++        result["profile_authoring_plan"] = profile_plan
+     print(json.dumps(result, ensure_ascii=False, indent=2))
+     print(
+         "asset_import=READY"
+@@ -2960,6 +2990,7 @@
+     x = prp.add_parser("inspect"); x.add_argument("profile_id"); x.set_defaults(func=cmd_profiles_inspect)
+     x = prp.add_parser("lod"); x.add_argument("profile_id"); x.add_argument("--lod", required=True, choices=("high","default","low","all")); x.set_defaults(func=cmd_profiles_lod)
+     x = prp.add_parser("discover", help="discover rigid Model0.62 profile/LOD candidates from registry-proven INX data without creating/authorizing profiles"); x.add_argument("--category"); x.add_argument("--limit", type=int, default=50, help="rows printed in JSON; zero means all"); x.add_argument("--output", help="optional full/limited JSON report under pt_build"); x.set_defaults(func=cmd_profiles_discover)
++    x = prp.add_parser("authoring-plan", help="resolve one canonical profile to an exact registry-proven rigid import context; read-only and not writer authorization"); x.add_argument("profile_id"); x.add_argument("--lod", choices=("auto","high","default","low"), default="auto"); x.set_defaults(func=cmd_profiles_authoring_plan)
+     x = prp.add_parser("verify", help="verify profile components against the configured client without authorizing writes"); g=x.add_mutually_exclusive_group(required=True); g.add_argument("profile_id", nargs="?"); g.add_argument("--all", action="store_true"); x.add_argument("--output", help="optional JSON report under pt_build"); x.set_defaults(func=cmd_profiles_verify)
+     audit = sp.add_parser("audit"); audp = audit.add_subparsers(dest="audit_cmd", required=True)
+     x = audp.add_parser("physique", help="audit canonical Model0.62 files for mixed Physique/static object modes"); x.add_argument("--output", help="optional JSON report path"); x.set_defaults(func=cmd_audit_physique)
+@@ -3015,6 +3046,7 @@
+     x.add_argument("target", help="supported asset id/path")
+     x.add_argument("--lod", choices=("auto","high","default","low"), default="auto", help="rigid Model0.62 LOD selection")
+     x.add_argument("--model-info", help="exact associated INX path when a rigid asset has multiple non-equivalent model-info configurations")
++    x.add_argument("--profile", help="canonical character profile id; resolves to an exact INX+skeleton+LOD context and is mutually exclusive with --model-info")
+     x.add_argument("--reset", action="store_true", help="discard the existing import workspace before rebuilding")
+     x.add_argument("--no-open", action="store_true", help="prepare the Blender workspace without opening Blender interactively")
+     x.set_defaults(func=cmd_import_asset)
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/development_readiness.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/development_readiness.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/development_readiness.py	2026-09-02 15:06:50.591255197 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/development_readiness.py	2026-09-02 15:35:36.515340023 +0000
+@@ -8,6 +8,7 @@
+ from .binding_coverage import audit_binding_coverage
+ from .physique_audit import audit_physique_modes
+ from .profile_candidates import discover_profile_candidates
++from .rigid_model_info import audit_rigid_model_info_contexts
+ from .workflow_dispatch import build_plan
+ from .writer_corpus_audit import (
+     audit_inx_writer_corpus, audit_smb_writer_corpus,
+@@ -77,6 +78,7 @@
+     profile_discovery = discover_profile_candidates(
+         registry, limit=0, profile_registry=profile_registry
+     )
++    rigid_model_info = audit_rigid_model_info_contexts(registry, sample_limit=0)
+ 
+     plans = [build_plan(asset) for asset in assets]
+     authorized_builds = [p for p in plans if p.get("authorized")]
+@@ -123,6 +125,12 @@
+                 "saved_blender_candidate_wired": True,
+                 "selected_context_manifest_wired": True,
+                 "multi_inx_context_audit_wired": True,
++                "single_config_assets": rigid_model_info.get("single_config_assets", 0),
++                "multi_config_assets": rigid_model_info.get("multi_config_assets", 0),
++                "equivalent_multi_config_assets": rigid_model_info.get("equivalent_multi_config_assets", 0),
++                "ambiguous_multi_config_assets": rigid_model_info.get("ambiguous_multi_config_assets", 0),
++                "no_usable_model_info_assets": rigid_model_info.get("no_usable_model_info_assets", 0),
++                "ambiguity_dimension_counts": rigid_model_info.get("ambiguity_dimension_counts", {}),
+             },
+             blockers=["real Blender corpus execution of rigid candidate writer", "Blender/runtime certification beyond currently promoted rare scopes", "production promotion policy"],
+             production_authorized=False,
+@@ -164,14 +172,17 @@
+         ),
+         "profiles_lod": _stage(
+             "PARTIAL",
+-            "Canonical character profiles and exact LOD evidence are verified, but profile identity does not yet authorize generic authoring.",
++            "Canonical profiles can now resolve an exact registry-proven INX+skeleton+LOD Blender import context; profile-driven generic build/promotion remains unauthorized.",
+             evidence={
+                 "profile_count": len(profiles),
+                 "all_lods_runtime_proven_profiles": runtime_proven_profiles,
+                 "discovered_profile_candidates": profile_discovery.get("candidate_count", 0),
+                 "candidate_state_counts": profile_discovery.get("state_counts", {}),
++                "model_info_context_state_counts": profile_discovery.get("model_info_context_state_counts", {}),
++                "profile_driven_import_context_wired": True,
++                "profile_selection_persisted_in_selected_context": True,
+             },
+-            blockers=["generic profile-driven authoring/build path", "runtime gates for profiles still marked unproven"],
++            blockers=["profile-driven generic candidate build/promotion beyond import", "runtime gates for profiles still marked unproven"],
+             production_authorized=False,
+         ),
+         "mixed_physique": _stage(
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/profile_authoring.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/profile_authoring.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/profile_authoring.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/profile_authoring.py	2026-09-02 15:28:26.034691284 +0000
+@@ -0,0 +1,122 @@
++from __future__ import annotations
++
++from typing import Any
++
++from .rigid_model_info import normalize_lod_groups
++
++FORMAT = "PT_CHARACTER_PROFILE_AUTHORING_PLAN_V1"
++
++
++def _norm(path: str | None) -> str:
++    return str(path or "").replace("\\", "/").strip("/")
++
++
++def _component_path(verification: dict[str, Any], role: str) -> tuple[str | None, list[str]]:
++    rows = [
++        row for row in (verification.get("components") or [])
++        if str(row.get("role") or "").casefold() == role.casefold() and row.get("status") == "PASS"
++    ]
++    if len(rows) != 1:
++        return None, [f"PROFILE_{role.upper()}_COMPONENT_NOT_EXACTLY_ONE_PASS"]
++    logical = _norm(rows[0].get("logical_path"))
++    if not logical:
++        return None, [f"PROFILE_{role.upper()}_LOGICAL_PATH_MISSING"]
++    return logical, []
++
++
++def plan_profile_authoring_context(
++    profile_registry,
++    profile_id: str,
++    resolver,
++    asset_registry,
++    *,
++    lod: str = "auto",
++) -> dict[str, Any]:
++    """Resolve one canonical profile into an exact rigid import context.
++
++    This authorizes only a Blender import selection. It does not authorize a
++    generic writer, production build, or client write. Exact resolved component
++    paths are cross-checked against one registry INX configuration; basename
++    similarity alone is never sufficient here.
++    """
++    profile = profile_registry.get(profile_id)
++    verification = profile_registry.verify(profile_id, resolver, asset_registry=asset_registry)
++    errors: list[str] = []
++    if verification.get("status") != "PASS":
++        errors.append("PROFILE_VERIFY_FAILED")
++
++    try:
++        asset = asset_registry.resolve(profile.roundtrip_target)
++    except Exception:
++        asset = None
++        errors.append("PROFILE_TARGET_NOT_IN_REGISTRY")
++
++    if asset is not None:
++        if _norm(asset.primary_path).casefold() != _norm(profile.roundtrip_target).casefold():
++            errors.append("PROFILE_TARGET_REGISTRY_PATH_MISMATCH")
++        if getattr(asset, "family", None) != "SMD_MODEL_062_RIGID_PHYSIQUE":
++            errors.append("PROFILE_TARGET_NOT_RIGID_MODEL062")
++
++    model_info_logical, model_errors = _component_path(verification, "model_info")
++    skeleton_logical, skeleton_errors = _component_path(verification, "skeleton")
++    errors.extend(model_errors)
++    errors.extend(skeleton_errors)
++
++    selected_cfg = None
++    profile_groups = normalize_lod_groups(profile.lod_groups)
++    matching_cfgs: list[dict[str, Any]] = []
++    if asset is not None and model_info_logical and skeleton_logical:
++        for cfg in (getattr(asset, "configs", []) or []):
++            if _norm(cfg.get("inx")).casefold() != model_info_logical.casefold():
++                continue
++            if _norm(cfg.get("motion_smb")).casefold() != skeleton_logical.casefold():
++                continue
++            if normalize_lod_groups(cfg.get("lod_groups") or {}) != profile_groups:
++                continue
++            matching_cfgs.append(cfg)
++        if len(matching_cfgs) != 1:
++            errors.append("PROFILE_EXACT_REGISTRY_CONTEXT_NOT_UNIQUE")
++        else:
++            selected_cfg = matching_cfgs[0]
++
++    requested = str(lod or "auto").strip().lower()
++    if requested not in {"auto", "high", "default", "low"}:
++        errors.append("LOD_INVALID")
++        actual_lod = None
++    elif requested == "auto":
++        actual_lod = next((tier for tier in ("default", "high", "low") if profile_groups.get(tier)), None)
++    else:
++        actual_lod = requested if profile_groups.get(requested) else None
++    if actual_lod is None:
++        errors.append("PROFILE_REQUESTED_LOD_EMPTY")
++
++    ready = not errors and selected_cfg is not None and actual_lod is not None
++    return {
++        "format": FORMAT,
++        "status": "READY" if ready else "BLOCKED",
++        "profile_id": profile.profile_id,
++        "profile_version": profile.profile_version,
++        "roundtrip_target": profile.roundtrip_target,
++        "asset_id": getattr(asset, "asset_id", None) if asset is not None else None,
++        "asset": getattr(asset, "primary_path", None) if asset is not None else None,
++        "model_info_inx": model_info_logical,
++        "skeleton_smb": skeleton_logical,
++        "lod": actual_lod,
++        "lod_groups": profile_groups,
++        "selected_lod_nodes": list(profile_groups.get(actual_lod, [])) if actual_lod else [],
++        "profile_runtime_proven": bool((profile.geometry_status or {}).get("all_lods_runtime_proven")),
++        "profile_verification_status": verification.get("status"),
++        "exact_registry_context_match": len(matching_cfgs) == 1,
++        "errors": sorted(set(errors)),
++        "selection_basis": {
++            "kind": "CANONICAL_PROFILE",
++            "profile_id": profile.profile_id,
++            "profile_version": profile.profile_version,
++            "roundtrip_target": _norm(profile.roundtrip_target),
++        },
++        "import_context_authorized": ready,
++        "writer_authorized": False,
++        "production_authorized": False,
++        "client_write_authorized": False,
++        "client_modified": False,
++    }
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/profile_candidates.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/profile_candidates.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/profile_candidates.py	2026-09-02 12:02:02.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/profile_candidates.py	2026-09-02 15:32:04.957570658 +0000
+@@ -5,6 +5,9 @@
+ from typing import Any
+ 
+ from .semantic_path import semantic_group_for_path
++from .rigid_model_info import (
++    classify_asset_model_info_context, config_semantic_id, equivalent_model_info_paths,
++)
+ 
+ FORMAT = "PT_CHARACTER_PROFILE_CANDIDATE_DISCOVERY_V1"
+ 
+@@ -37,6 +40,7 @@
+     binding_modes: Counter[str] = Counter()
+     readiness: Counter[str] = Counter()
+     semantic_groups: Counter[str] = Counter()
++    context_states: Counter[str] = Counter()
+ 
+     for asset in registry.assets:
+         if asset.family != "SMD_MODEL_062_RIGID_PHYSIQUE":
+@@ -46,6 +50,8 @@
+             continue
+         object_names = list(asset.source_record.get("object_names") or [])
+         object_set = set(object_names)
++        model_info_context = classify_asset_model_info_context(asset)
++        context_states[model_info_context["state"]] += 1
+         for cfg in asset.configs:
+             groups = _norm_groups(cfg)
+             if not any(groups.values()):
+@@ -70,11 +76,21 @@
+                         profile = profile_registry.get(hit["profile_id"])
+                     except Exception:
+                         continue
+-                    if str(profile.model_info_inx).casefold() == inx.split("/")[-1].casefold() or str(profile.model_info_inx).replace("\\", "/").casefold() == inx.casefold():
++                    profile_inx = str(profile.model_info_inx or "").replace("\\", "/").strip("/")
++                    associated = [str(c.get("inx") or "").replace("\\", "/").strip("/") for c in asset.configs if c.get("inx")]
++                    if "/" in profile_inx:
++                        matches = [path for path in associated if path.casefold() == profile_inx.casefold()]
++                        evidence = "EXACT_ASSOCIATED_INX_PATH"
++                    else:
++                        matches = [path for path in associated if path.split("/")[-1].casefold() == profile_inx.casefold()]
++                        evidence = "UNIQUE_ASSOCIATED_INX_BASENAME"
++                    if len(matches) == 1 and matches[0].casefold() == inx.casefold():
+                         canonical_profiles.append({
+                             "profile_id": profile.profile_id,
+                             "geometry_status": dict(profile.geometry_status or {}),
+                             "exact_asset_match": True,
++                            "model_info_match_evidence": evidence,
++                            "resolved_model_info_inx": matches[0],
+                         })
+ 
+             runtime_proven = any(bool((p.get("geometry_status") or {}).get("all_lods_runtime_proven")) for p in canonical_profiles)
+@@ -93,6 +109,11 @@
+                 "semantic_group": semantic_group,
+                 "inx": inx,
+                 "skeleton_smb": skeleton or None,
++                "semantic_context_id": config_semantic_id(cfg),
++                "model_info_context_state": model_info_context["state"],
++                "model_info_ambiguity_dimensions": list(model_info_context.get("ambiguity_dimensions") or []),
++                "requires_explicit_model_info": bool(model_info_context["requires_explicit_model_info"]),
++                "equivalent_model_info_inx": equivalent_model_info_paths(asset, cfg),
+                 "binding_mode": asset.binding_mode,
+                 "binding_source": asset.binding_source,
+                 "binding_ready": binding_ready,
+@@ -123,11 +144,15 @@
+         "state_counts": dict(sorted(readiness.items())),
+         "binding_mode_counts": dict(sorted(binding_modes.items())),
+         "semantic_group_counts": dict(sorted(semantic_groups.items())),
++        "model_info_context_state_counts": dict(sorted(context_states.items())),
+         "candidates": shown,
+         "policy": {
+             "folder_or_basename_guessing": False,
+             "lod_nodes_must_exist_in_smd": True,
+             "binding_must_be_registry_proven": True,
++            "ambiguous_multi_inx_requires_explicit_model_info": True,
++            "semantic_context_id_uses_skeleton_and_full_lod_groups": True,
++            "canonical_profile_basename_match_requires_unique_associated_inx": True,
+             "discovery_authorizes_writer": False,
+         },
+         "client_modified": False,
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/profile_registry.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/profile_registry.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/profile_registry.py	2026-09-02 10:33:08.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/profile_registry.py	2026-09-02 15:31:28.199929521 +0000
+@@ -276,36 +276,48 @@
+                         for tier in ("high", "default", "low")
+                     } == profile_lods
+                 ]
++                profile_inx = str(profile.model_info_inx or "").replace("\\", "/").strip("/")
++                if "/" in profile_inx:
++                    inx_cfgs = [
++                        c for c in cfgs
++                        if str(c.get("inx") or "").replace("\\", "/").strip("/").casefold() == profile_inx.casefold()
++                    ]
++                    inx_match_evidence = "EXACT_ASSOCIATED_INX_PATH"
++                else:
++                    inx_cfgs = [
++                        c for c in cfgs
++                        if pathlib.PurePosixPath(str(c.get("inx") or "").replace("\\", "/")).name.casefold() == profile_inx.casefold()
++                    ]
++                    inx_match_evidence = "UNIQUE_ASSOCIATED_INX_BASENAME"
++                inx_match = len(inx_cfgs) == 1
++                exact_context_cfgs = [c for c in matching_cfgs if c in inx_cfgs]
++                lod_match = len(exact_context_cfgs) == 1
+                 skeleton_name = pathlib.PurePosixPath(str(profile.skeleton_smb).replace("\\", "/")).name.casefold()
+-                asset_skeleton_name = pathlib.PurePosixPath(str(getattr(asset, "binding_skeleton_smb", "") or "").replace("\\", "/")).name.casefold()
+-                inx_name = pathlib.PurePosixPath(str(profile.model_info_inx).replace("\\", "/")).name.casefold()
+-                cfg_names = {
+-                    pathlib.PurePosixPath(str(c.get("inx") or "").replace("\\", "/")).name.casefold()
+-                    for c in cfgs if c.get("inx")
+-                }
+-                skeleton_match = bool(skeleton_name and asset_skeleton_name and skeleton_name == asset_skeleton_name)
+-                inx_match = bool(inx_name and inx_name in cfg_names)
+-                lod_match = bool(matching_cfgs)
++                selected_skeleton_name = ""
++                if len(exact_context_cfgs) == 1:
++                    selected_skeleton_name = pathlib.PurePosixPath(str(exact_context_cfgs[0].get("motion_smb") or "").replace("\\", "/")).name.casefold()
++                skeleton_match = bool(skeleton_name and selected_skeleton_name and skeleton_name == selected_skeleton_name)
+                 semantic_failures = []
+-                if not skeleton_match:
+-                    semantic_failures.append("SKELETON_MISMATCH")
+                 if not inx_match:
+                     semantic_failures.append("MODEL_INFO_INX_MISMATCH")
+                 if not lod_match:
+-                    semantic_failures.append("LOD_GROUPS_NOT_CONFIRMED_BY_INX")
++                    semantic_failures.append("LOD_GROUPS_NOT_CONFIRMED_BY_SELECTED_INX")
++                if not skeleton_match:
++                    semantic_failures.append("SKELETON_MISMATCH")
+                 semantic_evidence = {
+                     "status": "PASS" if not semantic_failures else "FAIL",
+-                    "reason": "REGISTRY_AND_INX_MATCH" if not semantic_failures else ",".join(semantic_failures),
++                    "reason": "EXACT_ASSET_UNIQUE_INX_LOD_SKELETON_MATCH" if not semantic_failures else ",".join(semantic_failures),
+                     "target_registry_asset": getattr(asset, "asset_id", None),
+                     "family": getattr(asset, "family", None),
+                     "binding_skeleton_match": skeleton_match,
+                     "profile_skeleton_smb": profile.skeleton_smb,
+-                    "registry_skeleton_smb": getattr(asset, "binding_skeleton_smb", None),
++                    "registry_skeleton_smb": exact_context_cfgs[0].get("motion_smb") if len(exact_context_cfgs) == 1 else None,
+                     "model_info_inx_match": inx_match,
++                    "model_info_match_evidence": inx_match_evidence,
+                     "profile_model_info_inx": profile.model_info_inx,
+                     "registry_config_inx": sorted(str(c.get("inx")) for c in cfgs if c.get("inx")),
+                     "lod_groups_match": lod_match,
+-                    "matching_inx": sorted(str(c.get("inx")) for c in matching_cfgs if c.get("inx")),
++                    "matching_inx": sorted(str(c.get("inx")) for c in exact_context_cfgs if c.get("inx")),
+                 }
+                 for reason in semantic_failures:
+                     failures.append({
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/rigid_model_info.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/rigid_model_info.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/rigid_model_info.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/rigid_model_info.py	2026-09-02 15:32:03.458192133 +0000
+@@ -0,0 +1,171 @@
++from __future__ import annotations
++
++import hashlib
++import json
++from typing import Any
++
++FORMAT = "PT_RIGID_MODEL_INFO_CONTEXT_AUDIT_V1"
++
++
++def normalize_lod_groups(groups: dict[str, Any] | None) -> dict[str, list[str]]:
++    groups = groups or {}
++    return {tier: [str(x) for x in (groups.get(tier) or [])] for tier in ("high", "default", "low")}
++
++
++def config_semantic_payload(cfg: dict[str, Any]) -> dict[str, Any]:
++    return {
++        "motion_smb": str(cfg.get("motion_smb") or "").replace("\\", "/"),
++        "lod_groups": normalize_lod_groups(cfg.get("lod_groups") or {}),
++    }
++
++
++def config_semantic_signature(cfg: dict[str, Any]) -> tuple:
++    payload = config_semantic_payload(cfg)
++    return (
++        payload["motion_smb"].casefold(),
++        tuple(
++            (tier, tuple(str(x).casefold() for x in payload["lod_groups"][tier]))
++            for tier in ("high", "default", "low")
++        ),
++    )
++
++
++def config_semantic_id(cfg: dict[str, Any]) -> str:
++    payload = config_semantic_payload(cfg)
++    raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).casefold().encode("utf-8")
++    return "RIC-" + hashlib.sha256(raw).hexdigest()[:16].upper()
++
++
++def usable_model_info_configs(asset) -> list[dict[str, Any]]:
++    return [cfg for cfg in (getattr(asset, "configs", []) or []) if cfg.get("inx") and cfg.get("motion_smb")]
++
++
++def classify_asset_model_info_context(asset) -> dict[str, Any]:
++    configs = usable_model_info_configs(asset)
++    if not configs:
++        return {
++            "state": "NO_USABLE_MODEL_INFO",
++            "config_count": 0,
++            "semantic_signature_count": 0,
++            "skeleton_signature_count": 0,
++            "lod_signature_count": 0,
++            "ambiguity_dimensions": [],
++            "requires_explicit_model_info": False,
++            "auto_selection_safe": False,
++        }
++    if len(configs) == 1:
++        return {
++            "state": "SINGLE_CONFIG",
++            "config_count": 1,
++            "semantic_signature_count": 1,
++            "skeleton_signature_count": 1,
++            "lod_signature_count": 1,
++            "ambiguity_dimensions": [],
++            "requires_explicit_model_info": False,
++            "auto_selection_safe": True,
++        }
++    signatures = {config_semantic_signature(cfg) for cfg in configs}
++    skeleton_signatures = {str(cfg.get("motion_smb") or "").replace("\\", "/").casefold() for cfg in configs}
++    lod_signatures = {
++        tuple((tier, tuple(x.casefold() for x in normalize_lod_groups(cfg.get("lod_groups") or {})[tier])) for tier in ("high", "default", "low"))
++        for cfg in configs
++    }
++    equivalent = len(signatures) == 1
++    dimensions = []
++    if len(skeleton_signatures) > 1:
++        dimensions.append("SKELETON")
++    if len(lod_signatures) > 1:
++        dimensions.append("LOD_GROUPS")
++    return {
++        "state": "SEMANTICALLY_EQUIVALENT" if equivalent else "AMBIGUOUS_MODEL_INFO_CONFIG",
++        "config_count": len(configs),
++        "semantic_signature_count": len(signatures),
++        "skeleton_signature_count": len(skeleton_signatures),
++        "lod_signature_count": len(lod_signatures),
++        "ambiguity_dimensions": dimensions,
++        "requires_explicit_model_info": not equivalent,
++        "auto_selection_safe": equivalent,
++    }
++
++
++def equivalent_model_info_paths(asset, cfg: dict[str, Any]) -> list[str]:
++    sig = config_semantic_signature(cfg)
++    return sorted(
++        [
++            str(other.get("inx") or "").replace("\\", "/")
++            for other in usable_model_info_configs(asset)
++            if config_semantic_signature(other) == sig
++        ],
++        key=str.casefold,
++    )
++
++
++def audit_rigid_model_info_contexts(registry, *, category: str | None = None, sample_limit: int = 50) -> dict[str, Any]:
++    assets = registry.list_assets(category=category, family="SMD_MODEL_062_RIGID_PHYSIQUE")
++    rows: list[dict[str, Any]] = []
++    counts = {
++        "single_config_assets": 0,
++        "equivalent_multi_config_assets": 0,
++        "ambiguous_multi_config_assets": 0,
++        "no_usable_model_info_assets": 0,
++    }
++    ambiguity_dimension_counts = {"SKELETON": 0, "LOD_GROUPS": 0}
++    for asset in assets:
++        cls = classify_asset_model_info_context(asset)
++        state = cls["state"]
++        if state == "NO_USABLE_MODEL_INFO":
++            counts["no_usable_model_info_assets"] += 1
++            continue
++        if state == "SINGLE_CONFIG":
++            counts["single_config_assets"] += 1
++            continue
++        if state == "SEMANTICALLY_EQUIVALENT":
++            counts["equivalent_multi_config_assets"] += 1
++        else:
++            counts["ambiguous_multi_config_assets"] += 1
++            for dimension in cls.get("ambiguity_dimensions") or []:
++                ambiguity_dimension_counts[dimension] = ambiguity_dimension_counts.get(dimension, 0) + 1
++        configs = usable_model_info_configs(asset)
++        choices = []
++        for cfg in sorted(configs, key=lambda x: str(x.get("inx") or "").casefold()):
++            groups = normalize_lod_groups(cfg.get("lod_groups") or {})
++            actual = next((lod for lod in ("default", "high", "low") if groups.get(lod)), None)
++            choices.append({
++                "inx": str(cfg.get("inx") or "").replace("\\", "/"),
++                "motion_smb": str(cfg.get("motion_smb") or "").replace("\\", "/"),
++                "auto_lod": actual,
++                "lod_groups": groups,
++                "semantic_context_id": config_semantic_id(cfg),
++            })
++        rows.append({
++            "asset_id": asset.asset_id,
++            "asset": asset.primary_path,
++            "category": asset.category,
++            "config_count": cls["config_count"],
++            "semantic_signature_count": cls["semantic_signature_count"],
++            "skeleton_signature_count": cls["skeleton_signature_count"],
++            "lod_signature_count": cls["lod_signature_count"],
++            "ambiguity_dimensions": list(cls.get("ambiguity_dimensions") or []),
++            "state": state,
++            "requires_explicit_model_info": cls["requires_explicit_model_info"],
++            "choices": choices,
++        })
++    rows.sort(key=lambda x: (x["state"] != "AMBIGUOUS_MODEL_INFO_CONFIG", x["asset"].casefold()))
++    limited = rows if int(sample_limit) <= 0 else rows[: int(sample_limit)]
++    return {
++        "format": FORMAT,
++        "status": "PASS",
++        "rigid_asset_count": len(assets),
++        **counts,
++        "multi_config_assets": counts["equivalent_multi_config_assets"] + counts["ambiguous_multi_config_assets"],
++        "rows_total": len(rows),
++        "ambiguity_dimension_counts": ambiguity_dimension_counts,
++        "rows": limited,
++        "policy": {
++            "ambiguous_requires_explicit_model_info": True,
++            "equivalence_compares_full_lod_groups_and_skeleton": True,
++            "semantic_context_id_ignores_inx_filename": True,
++            "client_write_authorized": False,
++        },
++        "client_modified": False,
++    }
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/validation.py /mnt/data/pt_asset_r9_work/app/pt_asset_tool/validation.py
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/app/pt_asset_tool/validation.py	2026-09-02 14:59:46.838570101 +0000
++++ /mnt/data/pt_asset_r9_work/app/pt_asset_tool/validation.py	2026-09-02 15:28:52.458842560 +0000
+@@ -28,6 +28,7 @@
+ from .authoring import (
+     authoring_plan, build_selected_authoring_context, write_workspace_manifest, verify_workspace_manifest,
+ )
++from .rigid_model_info import config_semantic_signature, audit_rigid_model_info_contexts
+ 
+ 
+ @dataclass
+@@ -62,80 +63,12 @@
+ 
+ 
+ def _config_semantic_signature(cfg: dict) -> tuple:
+-    groups = cfg.get("lod_groups") or {}
+-    return (
+-        str(cfg.get("motion_smb") or "").replace("\\", "/").casefold(),
+-        tuple(
+-            (tier, tuple(str(x).casefold() for x in (groups.get(tier) or [])))
+-            for tier in ("high", "default", "low")
+-        ),
+-    )
++    # Backward-compatible local alias for focused tests/internal callers.
++    return config_semantic_signature(cfg)
+ 
+ 
+ def _config_import_signature(cfg: dict, lod: str) -> tuple:
+-    return (str(lod), _config_semantic_signature(cfg))
+-
+-
+-def audit_rigid_model_info_contexts(registry, *, category: str | None = None, sample_limit: int = 50) -> dict:
+-    assets = registry.list_assets(category=category, family="SMD_MODEL_062_RIGID_PHYSIQUE")
+-    rows = []
+-    single = equivalent = ambiguous = no_usable = 0
+-    for asset in assets:
+-        configs = [cfg for cfg in asset.configs if cfg.get("inx") and cfg.get("motion_smb")]
+-        if not configs:
+-            no_usable += 1
+-            continue
+-        if len(configs) == 1:
+-            single += 1
+-            continue
+-        sig_groups: dict[tuple, list[dict]] = {}
+-        for cfg in configs:
+-            sig_groups.setdefault(_config_semantic_signature(cfg), []).append(cfg)
+-        state = "SEMANTICALLY_EQUIVALENT" if len(sig_groups) == 1 else "AMBIGUOUS_MODEL_INFO_CONFIG"
+-        if state == "SEMANTICALLY_EQUIVALENT":
+-            equivalent += 1
+-        else:
+-            ambiguous += 1
+-        choices = []
+-        for cfg in sorted(configs, key=lambda x: str(x.get("inx") or "").casefold()):
+-            groups = cfg.get("lod_groups") or {}
+-            actual = next((lod for lod in ("default", "high", "low") if groups.get(lod)), None)
+-            choices.append({
+-                "inx": str(cfg.get("inx") or "").replace("\\", "/"),
+-                "motion_smb": str(cfg.get("motion_smb") or "").replace("\\", "/"),
+-                "auto_lod": actual,
+-                "lod_groups": {tier:list(groups.get(tier) or []) for tier in ("high","default","low")},
+-            })
+-        rows.append({
+-            "asset_id": asset.asset_id,
+-            "asset": asset.primary_path,
+-            "category": asset.category,
+-            "config_count": len(configs),
+-            "semantic_signature_count": len(sig_groups),
+-            "state": state,
+-            "requires_explicit_model_info": state == "AMBIGUOUS_MODEL_INFO_CONFIG",
+-            "choices": choices,
+-        })
+-    rows.sort(key=lambda x: (x["state"] != "AMBIGUOUS_MODEL_INFO_CONFIG", x["asset"].casefold()))
+-    limited = rows if int(sample_limit) <= 0 else rows[:int(sample_limit)]
+-    return {
+-        "format": "PT_RIGID_MODEL_INFO_CONTEXT_AUDIT_V1",
+-        "status": "PASS",
+-        "rigid_asset_count": len(assets),
+-        "single_config_assets": single,
+-        "multi_config_assets": equivalent + ambiguous,
+-        "equivalent_multi_config_assets": equivalent,
+-        "ambiguous_multi_config_assets": ambiguous,
+-        "no_usable_model_info_assets": no_usable,
+-        "rows_total": len(rows),
+-        "rows": limited,
+-        "policy": {
+-            "ambiguous_requires_explicit_model_info": True,
+-            "equivalence_compares_full_lod_groups_and_skeleton": True,
+-            "client_write_authorized": False,
+-        },
+-        "client_modified": False,
+-    }
++    return (str(lod), config_semantic_signature(cfg))
+ 
+ 
+ class ValidationRunner:
+@@ -286,7 +219,10 @@
+         run_logged(cmd, work / "01_import.log")
+         return src, pristine, "default"
+ 
+-    def blender_import_workspace(self, asset: Asset, lod: str = "auto", reset: bool = False, model_info: str | None = None) -> dict:
++    def blender_import_workspace(
++        self, asset: Asset, lod: str = "auto", reset: bool = False, model_info: str | None = None,
++        selection_basis: dict | None = None,
++    ) -> dict:
+         """Prepare a reusable Blender workspace for a supported asset.
+ 
+         This is an import/edit workspace only.  It never writes the source client
+@@ -317,6 +253,30 @@
+                 "client_write_authorized": False,
+                 "client_modified": False,
+             }
++            if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE":
++                if provenance.get("status") != "PASS":
++                    raise RuntimeError(
++                        "EXISTING_RIGID_WORKSPACE_CONTEXT_UNVERIFIED: reimport with --reset before reuse"
++                    )
++                existing_context = dict(provenance.get("selected_context") or {})
++                existing_model_info = str((existing_context.get("model_info_inx") or {}).get("logical") or "").replace("\\", "/").strip("/")
++                existing_lod = str(existing_context.get("lod") or "")
++                if model_info:
++                    requested_model_info = str(model_info).replace("\\", "/").strip("/")
++                    if requested_model_info.casefold() != existing_model_info.casefold():
++                        raise RuntimeError(
++                            "EXISTING_RIGID_WORKSPACE_CONTEXT_MISMATCH: requested --model-info differs from the saved workspace; reimport with --reset"
++                        )
++                if lod != "auto" and str(lod) != existing_lod:
++                    raise RuntimeError(
++                        "EXISTING_RIGID_WORKSPACE_CONTEXT_MISMATCH: requested --lod differs from the saved workspace; reimport with --reset"
++                    )
++                if selection_basis is not None:
++                    existing_basis = existing_context.get("selection_basis")
++                    if dict(existing_basis or {}) != dict(selection_basis):
++                        raise RuntimeError(
++                            "EXISTING_RIGID_WORKSPACE_CONTEXT_MISMATCH: requested profile/selection basis differs from the saved workspace; reimport with --reset"
++                        )
+             result = {
+                 "format": "PT_GENERIC_BLENDER_IMPORT_V1", "status": "READY",
+                 "asset": asset.primary_path, "family": asset.family, "kind": asset.kind,
+@@ -371,6 +331,7 @@
+                     model_info_logical=model_info_logical, model_info_path=model_info_path,
+                     skeleton_logical=skeleton_logical, skeleton_path=skeleton_path,
+                     lod=actual_lod, lod_groups=selected_cfg.get("lod_groups") or {},
++                    selection_basis=selection_basis,
+                 )
+                 import_meta["model_info_inx"] = model_info_logical
+                 import_meta["skeleton_smb"] = skeleton_logical
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/docs/MANUAL_DESENVOLVEDOR.md /mnt/data/pt_asset_r9_work/docs/MANUAL_DESENVOLVEDOR.md
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/docs/MANUAL_DESENVOLVEDOR.md	2026-09-02 14:25:54.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/docs/MANUAL_DESENVOLVEDOR.md	2026-09-02 15:35:00.707150978 +0000
+@@ -718,7 +718,20 @@
+ LOD groups High/Default/Low
+ ```
+ 
+-Uma associação só por basename é proibida, pois é fácil colidir nomes em subárvores diferentes.
++Uma associação global só por basename é proibida, pois é fácil colidir nomes em subárvores diferentes. Quando um profile histórico traz apenas o basename do INX, a camada atual só o aceita como evidência se o asset já tiver sido identificado por path exato e esse basename resolver para **um único INX associado àquele asset**.
++
++O fluxo profile-driven de import é agora explícito e read-only:
++
++```bash
++python3 pt_asset.py profiles authoring-plan priestess_c01_m5 --lod default
++python3 pt_asset.py import char/tmABCD/MfbC01.smd --profile priestess_c01_m5 --lod default --no-open
++```
++
++`profiles authoring-plan` exige, no mesmo contexto, target SMD exato, componente INX resolvido, skeleton, `lod_groups` e uma única configuração registry compatível. `import --profile` apenas transforma essa prova numa seleção exata de import Blender; o `selected_context` persiste o `profile_id/profile_version` como `selection_basis`, mas isso **não autoriza writer, produção nem client write**.
++
++Workspaces rigid reutilizados também são context-bound: se uma nova chamada pedir outro `--model-info`, outro LOD explícito ou outro profile, a reutilização é recusada e exige `--reset`. Isso evita abrir silenciosamente um `.blend` criado sob outro contexto.
++
++O audit `rigid-model-info-contexts` e o discovery de profiles usam assinatura semântica composta por skeleton + todos os grupos `high/default/low`. Configs multi-INX realmente diferentes continuam exigindo `--model-info` explícito.
+ 
+ ---
+ 
+@@ -1035,7 +1048,7 @@
+ | Protected TGA | transporte forte nos dois modes conhecidos; outliers separados |
+ | Stage0.72 | parser/corpus/UV/geometry/paint avançados; generic saved-edit build ainda não certificado |
+ | Monster/NPC | entidade/censo/binding evidence; generic writers não autorizados |
+-| Profiles/LOD | registry + cross-check; não autoriza geometry writer |
++| Profiles/LOD | registry + cross-check + profile-driven exact import context; não autoriza geometry writer/build de produção |
+ | rare at_dragon | writers certificados em escopos estreitos |
+ | generic build | dispatcher fail-closed; não inventa adapter |
+ | publish/restore | infraestrutura histórica hardened; generic publish não habilitado |
+@@ -1048,7 +1061,7 @@
+ 
+ 1. terminar certificação visual da ponte de animação em Blender real;
+ 2. usar os audits de binding para fechar casos config-only somente com evidência física;
+-3. ampliar profiles/LOD a partir de path/hash/INX reais;
++3. ampliar profiles/LOD a partir de path/hash/INX reais e levar o profile-driven import já exato até candidate build apenas após novos runtime gates;
+ 4. continuar proving INX/SMB candidate writers antes de qualquer promoção;
+ 5. transformar Stage0.72 corpus em gates de writer mais amplos somente onde byte-preservation permitir;
+ 6. manter Mixed-Physique congelado até aparecer representante;
+diff -ruN /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/docs/MAPA_MODULOS_SCRIPTS.md /mnt/data/pt_asset_r9_work/docs/MAPA_MODULOS_SCRIPTS.md
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/docs/MAPA_MODULOS_SCRIPTS.md	2026-09-02 14:21:18.000000000 +0000
++++ /mnt/data/pt_asset_r9_work/docs/MAPA_MODULOS_SCRIPTS.md	2026-09-02 15:33:01.039634508 +0000
+@@ -28,7 +28,8 @@
+ | `resolver.py` | resolução segura/case-aware de logical client paths |
+ | `registry.py` | `Asset`, `AssetRegistry`, families, binding e dependências |
+ | `certification.py` | registry append-only de certificações |
+-| `validation.py` | runner/context dos gates visual/structural |
++| `validation.py` | runner/context dos gates visual/structural e import workspace fail-closed |
++| `rigid_model_info.py` | identidade/classificação semântica multi-INX rigid (skeleton + LOD groups), audit e IDs de contexto |
+ | `workflow_dispatch.py` | plano fail-closed para generic build |
+ | `authoring.py` | preflight por canal de authoring Model0.62/Stage0.72, manifest de proveniência e audit de candidates |
+ | `deployment.py` | `deploy plan/prepare/verify`: provenance read-only, snapshot de drift, backup verificado e staged artifact em `pt_build`; continua sem apply/client write |
+@@ -47,7 +48,8 @@
+ | `entity_catalog.py` | entidades físicas NPC/Monster, preview/evidências/registry enrichment |
+ | `monster_npc_census.py` | censo agregado e relatórios Monster/NPC |
+ | `profile_registry.py` | profiles character/LOD canónicos e verificação |
+-| `profile_candidates.py` | discovery de candidates LOD/profile a partir de evidência registry+INX+SMD |
++| `profile_candidates.py` | discovery de candidates LOD/profile a partir de evidência registry+INX+SMD, com estado multi-INX e semantic context ID |
++| `profile_authoring.py` | resolve profile canónico a contexto exato asset+INX+skeleton+LOD para import Blender; nunca autoriza writer/produção |
+ | `tree_compare.py` | comparação read-only de árvores, filtros e outputs |
+ | `binding_coverage.py` | cobertura de binding, incluindo unresolved/config-only |
+ 
+--- /mnt/data/pt_asset_autonomous_stage/PT_Asset_Tool_dev_snapshot_2026-09-02_r8_autonomous/CURRENT_READINESS.json	2026-09-02 15:06:51.230646935 +0000
++++ /mnt/data/pt_asset_r9_work/CURRENT_READINESS.json	2026-09-02 15:35:28.670652587 +0000
+@@ -78,7 +78,17 @@
+         "generic_build_authorized_assets": 1,
+         "saved_blender_candidate_wired": true,
+         "selected_context_manifest_wired": true,
+-        "multi_inx_context_audit_wired": true
++        "multi_inx_context_audit_wired": true,
++        "single_config_assets": 1762,
++        "multi_config_assets": 106,
++        "equivalent_multi_config_assets": 51,
++        "ambiguous_multi_config_assets": 55,
++        "no_usable_model_info_assets": 84,
++        "real_client_multi_inx_audit_status": "PASS",
++        "real_client_multi_inx_audit_sha256": "598769d132e0f46f69166f55c3da16b3b27c236a4de7bad21a79eb0dde41c6a9",
++        "ambiguity_dimension_counts": {
++          "LOD_GROUPS": 55
++        }
+       },
+       "blockers": [
+         "real Blender corpus execution of rigid candidate writer",
+@@ -147,7 +157,7 @@
+     },
+     "profiles_lod": {
+       "maturity": "PARTIAL",
+-      "summary": "Canonical character profiles and exact LOD evidence are verified, but profile identity does not yet authorize generic authoring.",
++      "summary": "Canonical profiles can now resolve an exact registry-proven INX+skeleton+LOD Blender import context; profile-driven generic build/promotion remains unauthorized.",
+       "evidence": {
+         "profile_count": 2,
+         "all_lods_runtime_proven_profiles": [
+@@ -158,10 +168,15 @@
+           "CANDIDATE_INCOMPLETE": 1884,
+           "CANDIDATE_READY": 55,
+           "CANONICAL_RUNTIME_PROVEN": 1
+-        }
++        },
++        "profile_driven_import_context_wired": true,
++        "profile_selection_persisted_in_selected_context": true,
++        "real_client_multi_inx_audit_status": "PASS",
++        "ambiguous_multi_config_assets": 55,
++        "equivalent_multi_config_assets": 51
+       },
+       "blockers": [
+-        "generic profile-driven authoring/build path",
++        "profile-driven generic candidate build/promotion beyond import",
+         "runtime gates for profiles still marked unproven"
+       ],
+       "production_authorized": false
+@@ -226,7 +241,7 @@
+     {
+       "priority": "P1",
+       "area": "profiles_lod",
+-      "goal": "turn exact profile/LOD evidence into a generic authoring workflow without basename guessing"
++      "goal": "extend exact profile-driven import into guarded candidate build only after profile/runtime gates; keep basename guessing forbidden"
+     },
+     {
+       "priority": "P1",
+@@ -323,7 +338,7 @@
+     },
+     {
+       "area": "profiles_lod",
+-      "blocker": "generic profile-driven authoring/build path"
++      "blocker": "profile-driven generic candidate build/promotion beyond import"
+     },
+     {
+       "area": "profiles_lod",
+@@ -352,5 +367,13 @@
+     "candidate_writer_roundtrip_is_production_authorization": false,
+     "mixed_physique_without_representative_is_supported": false
+   },
+-  "client_modified": false
++  "client_modified": false,
++  "evidence_inputs": {
++    "rigid_model_info_real_audit": {
++      "path": "evidence/rigid_model_info_contexts_real_2026-09-02.json",
++      "summary_path": "evidence/rigid_model_info_contexts_real_2026-09-02.summary.json",
++      "sha256": "598769d132e0f46f69166f55c3da16b3b27c236a4de7bad21a79eb0dde41c6a9",
++      "status": "PASS"
++    }
++  }
+ }

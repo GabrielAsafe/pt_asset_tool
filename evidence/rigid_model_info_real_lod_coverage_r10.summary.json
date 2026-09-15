@@ -1,0 +1,58 @@
+{
+  "source_audit_summary": {
+    "rigid_asset_count": 1952,
+    "single_config_assets": 1762,
+    "multi_config_assets": 106,
+    "equivalent_multi_config_assets": 51,
+    "ambiguous_multi_config_assets": 55,
+    "no_usable_model_info_assets": 84,
+    "rows_total": 106
+  },
+  "coverage": {
+    "rows_checked": 106,
+    "choices_checked": 258,
+    "assets_with_missing_lod_nodes": 2,
+    "choices_with_missing_lod_nodes": 2,
+    "missing_asset_records": 0
+  },
+  "affected_assets": [
+    {
+      "asset": "char/npc/Bcn02/Bcn02.smd",
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "choices": [
+        {
+          "inx": "char/npc/Bcn02/Bcn02f.inx",
+          "failures": {
+            "high": [
+              "hart",
+              "T-npc-12-H02"
+            ],
+            "default": [
+              "hart"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset": "char/tmABCD/tmbC03.smd",
+      "state": "AMBIGUOUS_MODEL_INFO_CONFIG",
+      "choices": [
+        {
+          "inx": "char/tmABCD/C004.inx",
+          "failures": {
+            "high": [
+              "TshC03"
+            ],
+            "default": [
+              "TsmC03"
+            ],
+            "low": [
+              "TslC03"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

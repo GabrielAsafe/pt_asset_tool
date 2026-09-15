@@ -1,0 +1,969 @@
+{
+  "format": "PT_ASSET_RELEASE_1_AUTOMATED_GATE_V1",
+  "status": "BLOCKED_EXTERNAL",
+  "automatic_gate_status": "PASS",
+  "environment": {
+    "status": "PASS",
+    "environment_ready": true,
+    "required_failure_count": 0,
+    "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/environment_auto/result.json",
+    "blender_version": "5.2.0 LTS",
+    "client_modified": false
+  },
+  "server_design": {
+    "status": "PASS",
+    "server_design_catalog_ready": true,
+    "bundle_closure_complete": false,
+    "unresolved_or_review_count": 303,
+    "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/server_design_auto/result.json",
+    "server_write_authorized": false
+  },
+  "release_target": "1.0",
+  "summary": {
+    "model062_physical_corpus": {
+      "status": "PASS",
+      "asset_count": 3144,
+      "failure_count": 0,
+      "physical_mixed_count": 0,
+      "pass_domains_by_family": {
+        "SMD_MODEL_062_RIGID_PHYSIQUE": [
+          "EFFECT",
+          "MAP",
+          "MONSTER",
+          "NPC",
+          "PLAYER"
+        ],
+        "SMD_MODEL_062_STATIC": [
+          "EFFECT",
+          "MAP",
+          "MONSTER",
+          "PLAYER",
+          "WEAPON_ITEM"
+        ],
+        "SMD_MODEL_062_MIXED_PHYSIQUE": []
+      }
+    },
+    "rigid_context_census": {
+      "status": "PASS",
+      "rigid_asset_count": 1951,
+      "unresolved_count": 0,
+      "by_domain": {
+        "PLAYER": {
+          "INX_LINK_MULTI_CONTEXT": 1,
+          "MODEL_INFO_LOD": 1349,
+          "RESOLVED_SKELETON": 32,
+          "STANDALONE_STRUCTURAL_PASS": 11,
+          "TOTAL": 1393
+        },
+        "NPC": {
+          "MODEL_INFO_LOD": 82,
+          "RESOLVED_SKELETON": 13,
+          "STANDALONE_STRUCTURAL_PASS": 7,
+          "TOTAL": 102
+        },
+        "MONSTER": {
+          "MODEL_INFO_LOD": 356,
+          "RESOLVED_SKELETON": 36,
+          "STANDALONE_STRUCTURAL_PASS": 1,
+          "TOTAL": 393
+        },
+        "WEAPON_ITEM": {},
+        "EFFECT": {
+          "STANDALONE_STRUCTURAL_PASS": 27,
+          "TOTAL": 27
+        },
+        "MAP": {
+          "STANDALONE_STRUCTURAL_PASS": 36,
+          "TOTAL": 36
+        }
+      }
+    },
+    "rigid_lod_context_corpus": {
+      "status": "PASS",
+      "config_count": 2036,
+      "importable_config_count": 1938,
+      "content_inconsistent_config_count": 2,
+      "single_tier_full_container_config_count": 10,
+      "assets_without_authorable_lod_config_count": 0,
+      "assets_with_diagnosed_fail_closed_config_outliers_count": 2,
+      "lod_tier_count": 3028,
+      "lod_tier_missing_node_count": 5,
+      "content_inconsistent_by_domain": {
+        "PLAYER": 1,
+        "NPC": 1,
+        "MONSTER": 0,
+        "WEAPON_ITEM": 0,
+        "EFFECT": 0,
+        "MAP": 0
+      },
+      "single_tier_full_container_by_domain": {
+        "PLAYER": 3,
+        "NPC": 0,
+        "MONSTER": 7,
+        "WEAPON_ITEM": 0,
+        "EFFECT": 0,
+        "MAP": 0
+      },
+      "assets_without_authorable_config_by_domain": {
+        "PLAYER": 0,
+        "NPC": 0,
+        "MONSTER": 0,
+        "WEAPON_ITEM": 0,
+        "EFFECT": 0,
+        "MAP": 0
+      },
+      "assets_with_diagnosed_fail_closed_outliers_by_domain": {
+        "PLAYER": 1,
+        "NPC": 1,
+        "MONSTER": 0,
+        "WEAPON_ITEM": 0,
+        "EFFECT": 0,
+        "MAP": 0
+      }
+    },
+    "rigid": {
+      "status": "PASS",
+      "requested": 9,
+      "passed_assets": [
+        "char/monster/MonWolverin/wolverin.smd",
+        "char/monster/death_knight/death_knight.smd",
+        "char/monster/Beetle/beetle.smd",
+        "char/npc/Bcn02/Bcn02.smd",
+        "char/npc/TN-001/TN-001.smd",
+        "char/npc/MN-012/MN-012.smd",
+        "char/tmABCD/MfbB03.smd",
+        "char/tmABCD/MfbC01.smd",
+        "char/tmABCD/TmhC01c.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/rigid_semantic_auto/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "rigid_standalone": {
+      "status": "PASS",
+      "requested": 15,
+      "passed_assets": [
+        "Effect/AssaEffect/Spider/b_m_spider.smd",
+        "Effect/AssaEffect/Muspell/b_muspel.smd",
+        "Effect/AssaEffect/Ramiel/b_Ramiel.smd",
+        "Field/Iron/i1-ani02_Bip.smd",
+        "Field/Iron/i1-ani04_Bip.smd",
+        "Field/Iron/i1-ani06_Bip.smd",
+        "char/monster/m_lord/m_load_die.smd",
+        "char/monster/deadzone/deadzoneD.smd",
+        "char/monster/Monbagon/Monbagon-die-A.smd",
+        "char/npc/TN-017/TN-017.smd",
+        "char/npc/Ascam/Ascam.smd",
+        "char/npc/Bcn05/Bcn05-c.smd",
+        "char/tmABCD/fi_dragon.smd",
+        "char/tmABCD/ar0nUgly02.smd",
+        "char/tmABCD/ar0nDress.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/standalone_rigid_auto/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "static": {
+      "status": "PASS",
+      "requested": 13,
+      "passed_assets": [
+        "Effect/ObjAnimationData/ArrowRage/Arrow.smd",
+        "Effect/sky/sky02/day/02daysun.smd",
+        "Effect/sky/losttemple3/day/skyhill.smd",
+        "Field/Iron/iron2-ani04.smd",
+        "Field/Iron/iron2-ani06.smd",
+        "Field/Iron/iron2-ani05.smd",
+        "Effect/AssaEffect/MonsterFury/m_fury-jin_b.smd",
+        "Effect/AssaEffect/MonsterFury/m_fury-jin_g.smd",
+        "Effect/AssaEffect/MonsterFury/m_fury-jin.smd",
+        "char/Flag/wow.smd",
+        "image/Sinimage/Items/DropItem/itdg101.smd",
+        "weapons/crownasafut.smd",
+        "image/Sinimage/Items/DropItem/itPR103.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/static_semantic_auto/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "static_corpus": {
+      "status": "PASS",
+      "asset_count": 1193,
+      "failure_count": 0,
+      "pass_domains": [
+        "EFFECT",
+        "MAP",
+        "MONSTER",
+        "PLAYER",
+        "WEAPON_ITEM"
+      ]
+    },
+    "stage072_corpus": {
+      "physical": "PASS",
+      "full_parse_pass_files": 63,
+      "stagearea": "PASS",
+      "normals": "PASS",
+      "textures": "PASS"
+    },
+    "stage072": {
+      "status": "PASS",
+      "requested": 3,
+      "passed_assets": [
+        "Field/Room/office.smd",
+        "Field/Ruin/ruin-4.smd",
+        "Field/AncientW/ancientW.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/stage072_auto/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "stage072_materials": {
+      "status": "PASS",
+      "requested": 3,
+      "passed_assets": [
+        "Field/Room/office.smd",
+        "Field/Ruin/ruin-4.smd",
+        "Field/AncientW/ancientW.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/release_1_auto/stage072_materials/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "animation_pose_space": {
+      "status": "PASS",
+      "requested": 6,
+      "passed_assets": [
+        "char/monster/Monimp/imp.smd",
+        "char/monster/death_knight/death_knight.smd",
+        "char/npc/Bcn02/Bcn02.smd",
+        "char/npc/TN-001/TN-001.smd",
+        "char/tmABCD/MfbB03.smd",
+        "char/tmABCD/MfbB05.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/animation_pose_auto/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "smb_animation_corpus": {
+      "status": "PASS",
+      "smb_file_count": 957,
+      "animated_smb_file_count": 484,
+      "by_domain": {
+        "PLAYER": {
+          "smb_file_count": 78,
+          "parse_pass_count": 78,
+          "structural_support_pass_count": 0,
+          "external_parent_support_count": 0,
+          "duplicate_name_support_count": 0,
+          "animated_smb_file_count": 7,
+          "active_container_count": 62,
+          "rot_key_count": 1348940,
+          "pos_key_count": 605176,
+          "scale_key_count": 447569
+        },
+        "NPC": {
+          "smb_file_count": 164,
+          "parse_pass_count": 164,
+          "structural_support_pass_count": 44,
+          "external_parent_support_count": 44,
+          "duplicate_name_support_count": 0,
+          "animated_smb_file_count": 99,
+          "active_container_count": 109,
+          "rot_key_count": 823580,
+          "pos_key_count": 362456,
+          "scale_key_count": 254694
+        },
+        "MONSTER": {
+          "smb_file_count": 656,
+          "parse_pass_count": 656,
+          "structural_support_pass_count": 2,
+          "external_parent_support_count": 1,
+          "duplicate_name_support_count": 1,
+          "animated_smb_file_count": 378,
+          "active_container_count": 601,
+          "rot_key_count": 5275377,
+          "pos_key_count": 2261333,
+          "scale_key_count": 1520326
+        },
+        "WEAPON_ITEM": {
+          "smb_file_count": 0,
+          "parse_pass_count": 0,
+          "structural_support_pass_count": 0,
+          "external_parent_support_count": 0,
+          "duplicate_name_support_count": 0,
+          "animated_smb_file_count": 0,
+          "active_container_count": 0,
+          "rot_key_count": 0,
+          "pos_key_count": 0,
+          "scale_key_count": 0
+        },
+        "EFFECT": {
+          "smb_file_count": 23,
+          "parse_pass_count": 23,
+          "structural_support_pass_count": 0,
+          "external_parent_support_count": 0,
+          "duplicate_name_support_count": 0,
+          "animated_smb_file_count": 0,
+          "active_container_count": 0,
+          "rot_key_count": 0,
+          "pos_key_count": 0,
+          "scale_key_count": 0
+        },
+        "MAP": {
+          "smb_file_count": 36,
+          "parse_pass_count": 36,
+          "structural_support_pass_count": 0,
+          "external_parent_support_count": 0,
+          "duplicate_name_support_count": 0,
+          "animated_smb_file_count": 0,
+          "active_container_count": 0,
+          "rot_key_count": 0,
+          "pos_key_count": 0,
+          "scale_key_count": 0
+        }
+      }
+    },
+    "standalone_animation_pose_space": {
+      "status": "PASS",
+      "requested": 6,
+      "passed_assets": [
+        "char/monster/BS_Midranda/BS_Midranda.smd",
+        "char/monster/Midranda/Midranda.smd",
+        "char/npc/Teacher/Teacher01.smd",
+        "char/npc/Teacher/Teacher02.smd",
+        "char/tmABCD/ar0nUgly02.smd",
+        "char/tmABCD/CmmbA01.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/standalone_animation_pose/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "player_scale_witness": {
+      "status": "PASS",
+      "asset": "char/tmABCD/CmmbD01.smd",
+      "skeleton_smb": "char/tmabcd/m3.smb",
+      "candidate_basis": "SERIES_SIBLING_CONSENSUS",
+      "selected_container": {
+        "slot": 6,
+        "start": 418240,
+        "end": 466240,
+        "logical_start": 2614,
+        "logical_end": 2914,
+        "sample_count": 120,
+        "failure_count": 0,
+        "failure_sample": [],
+        "active_scale_samples": 120,
+        "active_scale_total": 240,
+        "eligible_scale_container": true
+      },
+      "scale_active_sample_count": 120,
+      "track_key_counts": {
+        "rot": 137546,
+        "pos": 29173,
+        "scale": 4
+      },
+      "witness_track_counts": {
+        "rot": 0,
+        "pos": 0,
+        "scale": 4
+      },
+      "max_abs_matrix_error": 3.719329833984375e-05,
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/player_scale_witness/result.json"
+    },
+    "model062_materials": {
+      "status": "PASS",
+      "requested": 12,
+      "passed_assets": [
+        "Effect/ObjAnimationData/GoldenFalcon/g-falcon01.smd",
+        "Effect/sky/skysod/flyhigh/highsky.smd",
+        "Field/Sod/s-ani10_Bip.smd",
+        "Field/dungeon/dun-4-ani-33.smd",
+        "char/monster/hobogolem/hobogolem-D.smd",
+        "Effect/AssaEffect/MonsterFury/m_fury-jin_b.smd",
+        "char/npc/TN-017/TN-017.smd",
+        "char/npc/stella/stella_ghost.smd",
+        "char/tmABCD/tfh_D02b.smd",
+        "char/Flag/wow.smd",
+        "image/Sinimage/Items/DropItem/itds111.smd",
+        "image/Sinimage/Items/DropItem/itdg101.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/release_1_auto/materials/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "model062_material_corpus": {
+      "status": "PASS",
+      "asset_count": 3144,
+      "failure_count": 0,
+      "pass_domains": [
+        "EFFECT",
+        "MAP",
+        "MONSTER",
+        "NPC",
+        "PLAYER",
+        "WEAPON_ITEM"
+      ],
+      "writer_pass_domains": [
+        "EFFECT",
+        "MAP",
+        "MONSTER",
+        "NPC",
+        "PLAYER",
+        "WEAPON_ITEM"
+      ],
+      "family_coverage": {
+        "PLAYER": {
+          "required": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "witnessed": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "missing": [],
+          "corpus_rows_missing_family": 0
+        },
+        "NPC": {
+          "required": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE"
+          ],
+          "witnessed": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE"
+          ],
+          "missing": [],
+          "corpus_rows_missing_family": 0
+        },
+        "MONSTER": {
+          "required": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "witnessed": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "missing": [],
+          "corpus_rows_missing_family": 0
+        },
+        "WEAPON_ITEM": {
+          "required": [
+            "SMD_MODEL_062_STATIC"
+          ],
+          "witnessed": [
+            "SMD_MODEL_062_STATIC"
+          ],
+          "missing": [],
+          "corpus_rows_missing_family": 0
+        },
+        "EFFECT": {
+          "required": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "witnessed": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "missing": [],
+          "corpus_rows_missing_family": 0
+        },
+        "MAP": {
+          "required": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "witnessed": [
+            "SMD_MODEL_062_RIGID_PHYSIQUE",
+            "SMD_MODEL_062_STATIC"
+          ],
+          "missing": [],
+          "corpus_rows_missing_family": 0
+        }
+      }
+    },
+    "model062_texture_presence": {
+      "status": "FAIL",
+      "model062_asset_count": 3145,
+      "required_texture_reference_count": 7343,
+      "failure_count": 19,
+      "pass_domains": [],
+      "audit_status": "PASS",
+      "audit_complete_domains": [
+        "EFFECT",
+        "MAP",
+        "MONSTER",
+        "NPC",
+        "PLAYER",
+        "WEAPON_ITEM"
+      ],
+      "target_content_status": "FAIL"
+    },
+    "object_local": {
+      "status": "PASS",
+      "requested": 17,
+      "passed_assets": [
+        "Effect/AssaEffect/Skill3Mesh/mg3_danceSd40_110_125.smd",
+        "Effect/NewEffect/Res/Object/Skill5_HyperSonic.smd",
+        "Effect/AssaEffect/EvilMaple/m_evilmaple.smd",
+        "Effect/AssaEffect/EvilMaple/m_evilplant.smd",
+        "Field/Fall_Game/chandelier-ani08.smd",
+        "Field/forever-fall/piani-03.smd",
+        "Field/AncientW/RotObj10.smd",
+        "Field/SeaA/sea_ani09.smd",
+        "Field/Fall_Game/chandelier-ani04.smd",
+        "Effect/AssaEffect/Skill3Mesh/Monster_Diastrophism.smd",
+        "Effect/ObjAnimationData/MonsterWeb/Web.smd",
+        "Effect/ObjAnimationData/MonsterHeadCutter/HeadCutter2.smd",
+        "Effect/AssaEffect/MonsterFury/m_furyhead.smd",
+        "Effect/AssaEffect/Skill3Mesh/dancesword.smd",
+        "Effect/AssaEffect/Skill3Mesh/pk5_FinalSpear.smd",
+        "Effect/AssaEffect/EnchantWeapon/Ase/Enchant.smd",
+        "Effect/AssaEffect/EnchantWeapon/Ase/EW-ice.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/object_local_auto/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "object_local_physical_corpus": {
+      "status": "PASS",
+      "complete_candidate": true,
+      "segmented_tmframe_files": 0
+    },
+    "multilayer_texlink": {
+      "status": "PASS",
+      "requested": 10,
+      "passed_assets": [
+        "Field/Fall_Game/chandelier-ani19.smd",
+        "Field/dungeon/dun-4-ani-33.smd",
+        "Field/Iron/i2-bip12_ani.smd",
+        "Field/Fall_Game/chandelier-ani01.smd",
+        "char/monster/Bguardian/Bguardian.smd",
+        "char/monster/Morgon/Morgonia.smd",
+        "char/monster/Monfury/MonFury.smd",
+        "char/monster/Morgon/Morgon.smd",
+        "char/tmABCD/CtmbC010.smd",
+        "char/tmABCD/CtmbC008.smd"
+      ],
+      "failed_assets": [],
+      "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/texlink_auto/batch_result.json",
+      "resumed_from_existing_pt_build": true
+    },
+    "texture_codecs": {
+      "status": "PASS",
+      "pass_count": 59,
+      "failure_count": 0,
+      "pass_domains": [
+        "EFFECT",
+        "MAP",
+        "MONSTER",
+        "NPC",
+        "PLAYER",
+        "WEAPON_ITEM"
+      ],
+      "domain_summary": {
+        "PLAYER": {
+          "present_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "family_asset_counts": {
+            "BMP_PROTECTED_PREFIX14_EXACT": 110,
+            "BMP_PROTECTED_PREFIX14_VARIANT": 142,
+            "TGA_NONSTANDARD_OR_PROTECTED": 610
+          },
+          "passed_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "failed_families": [],
+          "missing_family_witnesses": [],
+          "status": "PASS"
+        },
+        "NPC": {
+          "present_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "family_asset_counts": {
+            "BMP_PROTECTED_PREFIX14_EXACT": 66,
+            "BMP_PROTECTED_PREFIX14_VARIANT": 154,
+            "TGA_NONSTANDARD_OR_PROTECTED": 90
+          },
+          "passed_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "failed_families": [],
+          "missing_family_witnesses": [],
+          "status": "PASS"
+        },
+        "MONSTER": {
+          "present_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "family_asset_counts": {
+            "BMP_PROTECTED_PREFIX14_EXACT": 181,
+            "BMP_PROTECTED_PREFIX14_VARIANT": 240,
+            "TGA_NONSTANDARD_OR_PROTECTED": 412
+          },
+          "passed_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "failed_families": [],
+          "missing_family_witnesses": [],
+          "status": "PASS"
+        },
+        "WEAPON_ITEM": {
+          "present_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "family_asset_counts": {
+            "BMP_PROTECTED_PREFIX14_EXACT": 1,
+            "BMP_PROTECTED_PREFIX14_VARIANT": 1196,
+            "TGA_NONSTANDARD_OR_PROTECTED": 415
+          },
+          "passed_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "failed_families": [],
+          "missing_family_witnesses": [],
+          "status": "PASS"
+        },
+        "EFFECT": {
+          "present_families": [
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "family_asset_counts": {
+            "BMP_PROTECTED_PREFIX14_VARIANT": 117,
+            "TGA_NONSTANDARD_OR_PROTECTED": 168
+          },
+          "passed_families": [
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "failed_families": [],
+          "missing_family_witnesses": [],
+          "status": "PASS"
+        },
+        "MAP": {
+          "present_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "family_asset_counts": {
+            "BMP_PROTECTED_PREFIX14_EXACT": 32,
+            "BMP_PROTECTED_PREFIX14_VARIANT": 1043,
+            "TGA_NONSTANDARD_OR_PROTECTED": 501
+          },
+          "passed_families": [
+            "BMP_PROTECTED_PREFIX14_EXACT",
+            "BMP_PROTECTED_PREFIX14_VARIANT",
+            "TGA_NONSTANDARD_OR_PROTECTED"
+          ],
+          "failed_families": [],
+          "missing_family_witnesses": [],
+          "status": "PASS"
+        }
+      },
+      "corpus_capability_status": "PASS",
+      "corpus_target_content_status": "FAIL",
+      "corpus_codec_failure_count": 0,
+      "corpus_target_content_invalid_count": 2
+    },
+    "inx_semantic": {
+      "status": "PASS",
+      "audited_contexts": 494
+    },
+    "mixed_physique_count": 0,
+    "mixed_synthetic": {
+      "status": "PASS",
+      "real_corpus_certified": false
+    },
+    "mixed_physical": {
+      "status": "OUT_OF_SCOPE_NOT_CERTIFIED",
+      "requested": 0,
+      "passed": 0,
+      "physical_mixed_certified": false,
+      "failed": []
+    },
+    "object_local_physical_by_domain": {
+      "PLAYER": 0,
+      "NPC": 0,
+      "MONSTER": 10,
+      "WEAPON_ITEM": 5,
+      "EFFECT": 63,
+      "MAP": 353
+    },
+    "object_local_selected_by_domain": {
+      "PLAYER": 0,
+      "NPC": 0,
+      "MONSTER": 4,
+      "WEAPON_ITEM": 4,
+      "EFFECT": 4,
+      "MAP": 5
+    },
+    "object_local_feature_coverage": {
+      "PLAYER": {
+        "required": [],
+        "witnessed": [],
+        "missing": []
+      },
+      "NPC": {
+        "required": [],
+        "witnessed": [],
+        "missing": []
+      },
+      "MONSTER": {
+        "required": [
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE"
+        ],
+        "witnessed": [
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE"
+        ],
+        "missing": []
+      },
+      "WEAPON_ITEM": {
+        "required": [
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE"
+        ],
+        "witnessed": [
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE"
+        ],
+        "missing": []
+      },
+      "EFFECT": {
+        "required": [
+          "HIERARCHICAL",
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE",
+          "ZERO_SCALE_SPAWN"
+        ],
+        "witnessed": [
+          "HIERARCHICAL",
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE",
+          "ZERO_SCALE_SPAWN"
+        ],
+        "missing": []
+      },
+      "MAP": {
+        "required": [
+          "ANIMATED_CHILD",
+          "HIERARCHICAL",
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE",
+          "UNRESOLVED_PARENT"
+        ],
+        "witnessed": [
+          "ANIMATED_CHILD",
+          "HIERARCHICAL",
+          "LEGACY_AFFINE",
+          "POS",
+          "ROT",
+          "SCALE",
+          "UNRESOLVED_PARENT"
+        ],
+        "missing": []
+      }
+    },
+    "multilayer_physical_by_domain": {
+      "PLAYER": 2,
+      "NPC": 0,
+      "MONSTER": 30,
+      "WEAPON_ITEM": 0,
+      "EFFECT": 0,
+      "MAP": 87
+    },
+    "multilayer_selected_by_domain": {
+      "PLAYER": 2,
+      "NPC": 0,
+      "MONSTER": 4,
+      "WEAPON_ITEM": 0,
+      "EFFECT": 0,
+      "MAP": 4
+    },
+    "multilayer_profile_coverage": {
+      "PLAYER": {
+        "required": [
+          "FAMILY_RIGID",
+          "FULL_FACE_MULTILAYER"
+        ],
+        "witnessed": [
+          "FAMILY_RIGID",
+          "FULL_FACE_MULTILAYER"
+        ],
+        "missing": []
+      },
+      "NPC": {
+        "required": [],
+        "witnessed": [],
+        "missing": []
+      },
+      "MONSTER": {
+        "required": [
+          "FAMILY_RIGID",
+          "FULL_FACE_MULTILAYER",
+          "PARTIAL_FACE_MULTILAYER"
+        ],
+        "witnessed": [
+          "FAMILY_RIGID",
+          "FULL_FACE_MULTILAYER",
+          "PARTIAL_FACE_MULTILAYER"
+        ],
+        "missing": []
+      },
+      "WEAPON_ITEM": {
+        "required": [],
+        "witnessed": [],
+        "missing": []
+      },
+      "EFFECT": {
+        "required": [],
+        "witnessed": [],
+        "missing": []
+      },
+      "MAP": {
+        "required": [
+          "DISTINCT_UV_STAGE",
+          "FAMILY_RIGID",
+          "FAMILY_STATIC",
+          "FULL_FACE_MULTILAYER",
+          "PARTIAL_FACE_MULTILAYER"
+        ],
+        "witnessed": [
+          "DISTINCT_UV_STAGE",
+          "FAMILY_RIGID",
+          "FAMILY_STATIC",
+          "FULL_FACE_MULTILAYER",
+          "PARTIAL_FACE_MULTILAYER"
+        ],
+        "missing": []
+      }
+    },
+    "animated_smb_physical_by_domain": {
+      "PLAYER": 7,
+      "NPC": 99,
+      "MONSTER": 378,
+      "WEAPON_ITEM": 0,
+      "EFFECT": 0,
+      "MAP": 0
+    },
+    "standalone_animation_selected_by_domain": {
+      "PLAYER": 2,
+      "NPC": 2,
+      "MONSTER": 2,
+      "WEAPON_ITEM": 0,
+      "EFFECT": 0,
+      "MAP": 0
+    },
+    "animation_track_required_by_domain": {
+      "PLAYER": {
+        "rot": 1348940,
+        "pos": 605176,
+        "scale": 447569
+      },
+      "NPC": {
+        "rot": 823580,
+        "pos": 362456,
+        "scale": 254694
+      },
+      "MONSTER": {
+        "rot": 5275377,
+        "pos": 2261333,
+        "scale": 1520326
+      },
+      "WEAPON_ITEM": {
+        "rot": 0,
+        "pos": 0,
+        "scale": 0
+      },
+      "EFFECT": {
+        "rot": 0,
+        "pos": 0,
+        "scale": 0
+      },
+      "MAP": {
+        "rot": 0,
+        "pos": 0,
+        "scale": 0
+      }
+    },
+    "animation_track_witness_by_domain": {
+      "PLAYER": {
+        "rot": 924472,
+        "pos": 173934,
+        "scale": 4
+      },
+      "NPC": {
+        "rot": 53146,
+        "pos": 45352,
+        "scale": 43610
+      },
+      "MONSTER": {
+        "rot": 110857,
+        "pos": 94970,
+        "scale": 90806
+      },
+      "WEAPON_ITEM": {
+        "rot": 0,
+        "pos": 0,
+        "scale": 0
+      },
+      "EFFECT": {
+        "rot": 0,
+        "pos": 0,
+        "scale": 0
+      },
+      "MAP": {
+        "rot": 0,
+        "pos": 0,
+        "scale": 0
+      }
+    }
+  },
+  "blockers": [],
+  "manual_review_required_now": true,
+  "external_input_required": false,
+  "external_input_request": null,
+  "external_gates_pending": [
+    "WRITER_PROMOTION_AND_PUBLISH_RESTORE"
+  ],
+  "runtime_game_acceptance_pending": false,
+  "production_authorized": false,
+  "client_write_authorized": false,
+  "server_write_authorized": false,
+  "client_modified": false,
+  "report": "/home/gabriel/Transferências/PT_Asset_Tool_R14_0.13.0_T5_AUDIO_EFFECT_DIAGNOSTICS_FIX11_2026-09-13/current/app/pt_build/devtest/release_1_auto/result.json"
+}
