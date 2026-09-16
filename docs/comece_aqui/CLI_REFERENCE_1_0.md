@@ -1313,7 +1313,7 @@ fully automated Blender/dev writer stress for canonical rigid profiles: determin
 
 ### `pt_asset.py validate environment-auto`
 
-fast automatic environment preflight: client/inventory consistency, pt_build isolation, certified hashes and real headless Blender filesystem bridge; never writes client
+fast automatic environment preflight: client/inventory consistency, pt_build isolation and certified hashes; Blender bridge is reported as an optional capability; never writes client
 
 **Opções**
 

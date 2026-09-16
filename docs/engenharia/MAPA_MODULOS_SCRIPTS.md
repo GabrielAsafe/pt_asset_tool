@@ -13,6 +13,7 @@ Este documento responde “qual família de `*.py` faz o quê?” e deve permane
 | `pt_asset.py` | aplicação consolidada; intercepta comandos novos e delega core histórico |
 | `pt_asset_core_v0_8_9.py` | wrapper do CLI core em `pt_asset_tool.cli` |
 | `pt_asset_gui.py` | entrypoint do servidor UI local |
+| `update_snapshot_manifest.py` | regenera de forma determinística `SNAPSHOT_SHA256SUMS.txt` após mudanças autorizadas de estrutura/código/docs |
 | `pt-asset-gui` | launcher shell |
 
 ---
@@ -31,7 +32,7 @@ Este documento responde “qual família de `*.py` faz o quê?” e deve permane
 | `registry.py` | `Asset`, `AssetRegistry`, families, binding e dependências |
 | `certification.py` | registry append-only de certificações |
 | `validation.py` | runner/context dos gates visual/structural e import workspace fail-closed |
-| `environment_validation.py` | preflight automático rápido do ambiente: client/inventário físico, isolamento e escrita apenas em `pt_build`, hashes certificados e bridge Blender headless/Flatpak com paths reais; nunca escreve no client |
+| `environment_validation.py` | preflight automático rápido do ambiente: client/inventário físico, isolamento e escrita apenas em `pt_build`, hashes certificados; bridge Blender headless/Flatpak é capability opcional e gates Blender continuam bloqueados sem ela; nunca escreve no client |
 | `physical_regression_auto.py` | gate físico focado pós-preflight: reexecuta os regressions reais descobertos no primeiro client run (Model0.62 materiais/rigid/static, pose-space, TexLink rigid e SMB/codec) mais representatives atuais; gera `pt_build/devtest/physical_regression_auto/result.json` e nunca escreve no client |
 | `rigid_model_info.py` | identidade/classificação semântica multi-INX rigid (skeleton + LOD groups), audit e IDs de contexto |
 | `workflow_dispatch.py` | plano fail-closed para generic build |

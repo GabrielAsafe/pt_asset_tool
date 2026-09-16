@@ -26,7 +26,7 @@ Não confunda artefactos de `pt_build` com assets publicados no target.
 - `blender_edits/` — workspaces/edit evidence;
 - deployment manifests — plan/prepare/verify/simulate/state/restore.
 
-O pacote limpo não inclui `pt_build`. A evidência final de certificação exportada junto da documentação fica em `docs/evidence/`.
+O pacote limpo não inclui `pt_build`. O resultado final de Release 1 exportado fica em `docs/release/RELEASE_1_AUTO_FINAL_RESULT.json`; evidência textual adicional pode permanecer em `docs/evidence/`.
 
 ## Journal de certificação
 

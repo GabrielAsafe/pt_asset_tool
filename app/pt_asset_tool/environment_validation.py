@@ -207,6 +207,7 @@ def run_environment_validation(settings, registry, resolver=None, *, blender_tim
     add("physical_inventory_samples", physical_ok, samples)
 
     blender_result: dict[str, Any] = {"status": "SKIP", "reason": "NO_PROBE_FILE_OR_CLIENT_SAMPLE"}
+    blender_ready = False
     client_sample_path = None
     for sample in samples:
         if sample.get("exists") and sample.get("label") in {"MODEL062", "STAGE072"}:
@@ -215,7 +216,7 @@ def run_environment_validation(settings, registry, resolver=None, *, blender_tim
     if work_write_ok and client_sample_path is not None:
         blender_result = _blender_probe(settings, write_probe, client_sample_path, timeout_seconds=blender_timeout_seconds)
         payload = blender_result.get("payload") if isinstance(blender_result, dict) else None
-        blender_ok = (
+        blender_ready = (
             blender_result.get("status") == "PASS"
             and isinstance(payload, dict)
             and payload.get("probe_exists") is True
@@ -223,9 +224,25 @@ def run_environment_validation(settings, registry, resolver=None, *, blender_tim
             and payload.get("probe_sha256") == hashlib.sha256(probe_bytes).hexdigest()
             and payload.get("client_sha256") == sample_hashes_before.get(str(client_sample_path))
         )
-        add("blender_headless_filesystem_bridge", blender_ok, blender_result)
+        if blender_ready:
+            add("blender_headless_filesystem_bridge", True, blender_result, required=False)
+        else:
+            stderr = str(blender_result.get("stderr_tail") or "").casefold()
+            launch_error = str(blender_result.get("error") or "").casefold()
+            unavailable = (
+                "not installed" in stderr
+                or "not found" in stderr
+                or "blender_launch:" in launch_error
+            )
+            add(
+                "blender_headless_filesystem_bridge",
+                False,
+                blender_result,
+                required=False,
+                status="SKIP" if unavailable else "WARN",
+            )
     else:
-        add("blender_headless_filesystem_bridge", False, blender_result)
+        add("blender_headless_filesystem_bridge", False, blender_result, required=False, status="SKIP")
 
     client_unchanged = True
     changed = []
@@ -259,6 +276,7 @@ def run_environment_validation(settings, registry, resolver=None, *, blender_tim
         "required_failure_count": len(required_failures),
         "required_failures": [c["name"] for c in required_failures],
         "blender": blender_result,
+        "blender_ready": blender_ready,
         "physical_samples": samples,
         "production_authorized": False,
         "client_write_authorized": False,
@@ -266,7 +284,8 @@ def run_environment_validation(settings, registry, resolver=None, *, blender_tim
         "policy": {
             "client_source_write_attempted": False,
             "temporary_writes_only_under_pt_build": True,
-            "release_1_auto_may_run": status == "PASS",
+            "blender_required_for_blender_workflows": True,
+            "release_1_auto_may_run": status == "PASS" and blender_ready,
         },
         "report": str(report_path),
     }

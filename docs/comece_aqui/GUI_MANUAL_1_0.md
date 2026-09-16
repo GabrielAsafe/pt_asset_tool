@@ -86,7 +86,7 @@ Ações BUILD comuns:
 - Editar rare model;
 - Gerar SMD/writer em `pt_build`.
 
-## 24 ações expostas pela UI
+## 24 ações expostas pela UI - (RO deve ser readObject)
 
 | Ação | Grupo | Natureza |
 |---|---|---|

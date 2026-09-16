@@ -35,7 +35,11 @@ def test_unresolved_rigid_does_not_expose_generic_import():
 
 def test_ui_command_routes_to_generic_import(tmp_path):
     (tmp_path/'pt_asset.py').write_text('# x')
-    assert build_command(tmp_path,'import_blender','char/test/body.smd',{})[-2:] == ['import','char/test/body.smd']
+    cmd = build_command(tmp_path,'import_blender','char/test/body.smd',{})
+    assert cmd[2:4] == ['import','char/test/body.smd']
+    assert '--load-actions' in cmd
+    assert '--motion' in cmd
+    assert '--open-mode' in cmd
     assert build_command(tmp_path,'import_blender','char/test/body.smd',{'reset':True})[-1] == '--reset'
 
 
@@ -94,7 +98,10 @@ def test_ui_import_command_accepts_explicit_lod_and_model_info(tmp_path):
     cmd=build_command(tmp_path,'import_blender','char/test/body.smd',{
         'lod':'high','model_info':'char/test/body-a.inx'
     })
-    assert cmd[-4:]==['--lod','high','--model-info','char/test/body-a.inx']
+    lod_i = cmd.index('--lod')
+    model_info_i = cmd.index('--model-info')
+    assert cmd[lod_i:lod_i+2] == ['--lod','high']
+    assert cmd[model_info_i:model_info_i+2] == ['--model-info','char/test/body-a.inx']
 
 
 def test_rigid_import_auto_rejects_configs_that_only_match_current_default_but_differ_elsewhere(tmp_path):

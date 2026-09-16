@@ -84,7 +84,7 @@
       "FIX24",
       "FIX25"
     ],
-    "bundled_release_report": "docs/evidence/RELEASE_1_AUTO_FINAL_RESULT.json",
+    "bundled_release_report": "docs/release/RELEASE_1_AUTO_FINAL_RESULT.json",
     "original_runtime_report": "app/pt_build/devtest/release_1_auto/result.json (working-tree evidence; pt_build excluded from clean distribution)"
   },
   "documentation_complete": true,

@@ -13,7 +13,7 @@ Esta é a distribuição 1.0.0 com documentação consolidada e completa.
 
 ## Primeiro passo
 
-Leia `START_HERE.md`, depois `docs/INSTALLATION_QUICKSTART_1_0.md`.
+Leia `docs/README.md`, depois `docs/comece_aqui/INSTALLATION_QUICKSTART_1_0.md`.
 
 ## Verificação
 

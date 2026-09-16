@@ -3300,11 +3300,16 @@ def cmd_validate_release_1_auto(a):
         s, reg, resolver,
         blender_timeout_seconds=float(getattr(a, "environment_blender_timeout", 60.0)),
     )
-    if environment.get("status") != "PASS":
+    release_1_auto_may_run = bool((environment.get("policy") or {}).get("release_1_auto_may_run"))
+    if environment.get("status") != "PASS" or not release_1_auto_may_run:
         shown = {
             "format": "PT_ASSET_RELEASE_1_ENVIRONMENT_BLOCK_V1",
             "status": "FAIL",
-            "automatic_gate_status": "NOT_RUN_ENVIRONMENT_FAIL",
+            "automatic_gate_status": (
+                "NOT_RUN_ENVIRONMENT_FAIL"
+                if environment.get("status") != "PASS"
+                else "NOT_RUN_BLENDER_UNAVAILABLE"
+            ),
             "environment": environment,
             "production_authorized": False,
             "client_write_authorized": False,
@@ -4286,7 +4291,7 @@ def build_parser():
     g = x.add_mutually_exclusive_group(required=True); g.add_argument("--profile"); g.add_argument("--all", action="store_true")
     x.add_argument("--amplitude", type=float, default=0.12, help="deterministic mesh deformation amplitude in Blender units (default 0.12)")
     x.set_defaults(func=cmd_validate_rigid_profile_auto)
-    x = vp.add_parser("environment-auto", help="fast automatic environment preflight: client/inventory consistency, pt_build isolation, certified hashes and real headless Blender filesystem bridge; never writes client")
+    x = vp.add_parser("environment-auto", help="fast automatic environment preflight: client/inventory consistency, pt_build isolation and certified hashes; Blender bridge is reported as an optional capability; never writes client")
     x.add_argument("--blender-timeout", type=float, default=60.0, help="headless Blender environment probe timeout in seconds (default 60)")
     x.set_defaults(func=cmd_validate_environment_auto)
     x = vp.add_parser("server-environment-auto", help="fast read-only server-root preflight: lifecycle separation, static/shared-3D samples, client/server shared-path evidence, and no server writes")

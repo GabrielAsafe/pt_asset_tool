@@ -1,3 +1,5 @@
 {
-  "format": "PT_ASSET_APP_CONFIG_V1"
+  "format": "PT_ASSET_APP_CONFIG_V1",
+  "client_root": "/home/gabriel/Desktop/Priston/cliente",
+  "server_root": "/home/gabriel/Desktop/Priston/Servidor"
 }

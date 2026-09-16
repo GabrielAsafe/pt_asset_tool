@@ -6,8 +6,8 @@ Depois de extrair:
 
 ```text
 PT_Asset_Tool_R14_1.0.0_COMPLETE_2026-09-14/
-├── START_HERE.md
 ├── README.md
+├── docs/README.md
 ├── CURRENT_READINESS.json
 ├── VERIFY_PACKAGE.sh
 ├── SNAPSHOT_SHA256SUMS.txt
@@ -57,9 +57,9 @@ Esperado: `1.0.0`.
 - browser moderno para GUI;
 - leitura ao client/server que será analisado;
 - escrita na pasta da ferramenta para `pt_build`;
-- Blender para workflows Blender. O ambiente certificado usa Blender 5.2 LTS; outros builds devem passar `validate environment-auto` antes de confiar nos resultados.
+- Blender é opcional para catálogo, inspeção, UI e validações que não dependem dele. Workflows Blender e `release-1-auto` exigem Blender disponível; `validate environment-auto` reporta essa capability separadamente.
 
-O bridge também aceita `PT_BLENDER_COMMAND` quando Blender não usa o comando padrão da workstation.
+O bridge aceita `PT_BLENDER_COMMAND` quando Blender não usa o comando padrão da workstation. Se Blender não estiver instalado, o preflight geral pode passar com a capability Blender em `SKIP`, mas gates que dependem dela continuam bloqueados.
 
 ## 4. Configurar roots
 

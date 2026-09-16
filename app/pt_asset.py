@@ -1272,7 +1272,10 @@ def _command_app_smoke() -> int:
         checks["generic_blender_import_contract"] = (
             "import_blender" in ACTION_SPECS
             and hasattr(ValidationRunner, "blender_import_workspace")
-            and import_cmd[-2:] == ["import", "char/test/body.smd"]
+            and import_cmd[2:4] == ["import", "char/test/body.smd"]
+            and "--load-actions" in import_cmd
+            and "--motion" in import_cmd
+            and "--open-mode" in import_cmd
         )
         details["generic_blender_import_command"] = import_cmd
     except Exception as exc:

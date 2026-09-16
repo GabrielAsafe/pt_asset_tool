@@ -69,6 +69,9 @@ def test_environment_auto_validates_real_blender_filesystem_bridge_without_clien
     assert Path(result["report"]).is_file()
     by_name = {x["name"]: x for x in result["checks"]}
     assert by_name["blender_headless_filesystem_bridge"]["status"] == "PASS"
+    assert by_name["blender_headless_filesystem_bridge"]["required"] is False
+    assert result["blender_ready"] is True
+    assert result["policy"]["release_1_auto_may_run"] is True
     assert by_name["client_samples_unchanged"]["status"] == "PASS"
 
 
@@ -103,7 +106,7 @@ def test_release_1_cli_does_not_start_heavy_gate_when_environment_fails(monkeypa
     assert called["heavy"] is False
 
 
-def test_environment_auto_reports_blender_launch_failure_instead_of_crashing(tmp_path, monkeypatch):
+def test_environment_auto_reports_missing_blender_as_optional_capability(tmp_path, monkeypatch):
     settings = _settings(tmp_path)
     registry = _fake_registry(settings.client_root)
     monkeypatch.setattr("pt_asset_tool.environment_validation.CERTIFIED_WRITERS", {})
@@ -111,7 +114,59 @@ def test_environment_auto_reports_blender_launch_failure_instead_of_crashing(tmp
         raise FileNotFoundError('blender missing')
     monkeypatch.setattr("pt_asset_tool.environment_validation.subprocess.run", boom)
     result = run_environment_validation(settings, registry, blender_timeout_seconds=1)
-    assert result['status'] == 'FAIL'
-    assert 'blender_headless_filesystem_bridge' in result['required_failures']
+    assert result['status'] == 'PASS'
+    assert result['environment_ready'] is True
+    assert result['blender_ready'] is False
+    assert 'blender_headless_filesystem_bridge' not in result['required_failures']
+    by_name = {x['name']: x for x in result['checks']}
+    assert by_name['blender_headless_filesystem_bridge']['status'] == 'SKIP'
+    assert by_name['blender_headless_filesystem_bridge']['required'] is False
+    assert result['policy']['release_1_auto_may_run'] is False
     assert result['blender']['error'].startswith('BLENDER_LAUNCH:FileNotFoundError')
     assert result['client_modified'] is False
+
+
+def test_release_1_cli_does_not_start_heavy_gate_when_blender_is_unavailable(monkeypatch, tmp_path):
+    from pt_asset_tool import cli
+    args = SimpleNamespace(
+        root=None, client_root=None, server_root=None, environment_blender_timeout=3.0,
+        rigid_per_domain=3, static_per_domain=3, object_local_limit=4, texlink_limit=4,
+        fps=30, motion_pair_limit=0, resume=True, motion_semantic_timeout=120.0,
+    )
+    settings = SimpleNamespace(project_root=tmp_path, client_root=tmp_path / "client", server_root=None)
+    monkeypatch.setattr(cli, "make_context", lambda a: (settings, object(), object(), object()))
+    monkeypatch.setattr(cli, "run_environment_validation", lambda *a, **k: {
+        "status": "PASS",
+        "environment_ready": True,
+        "blender_ready": False,
+        "policy": {"release_1_auto_may_run": False},
+        "client_modified": False,
+        "report": "env.json",
+    })
+    called = {"heavy": False}
+    monkeypatch.setattr(cli, "run_release_1_automated_gate", lambda *a, **k: called.__setitem__("heavy", True) or {})
+    assert cli.cmd_validate_release_1_auto(args) == 3
+    assert called["heavy"] is False
+
+
+def test_environment_auto_treats_flatpak_blender_not_installed_as_skip(tmp_path, monkeypatch):
+    settings = _settings(tmp_path)
+    settings.blender_command = lambda: ["flatpak", "run", "--filesystem=home", "org.blender.Blender"]
+    registry = _fake_registry(settings.client_root)
+    monkeypatch.setattr("pt_asset_tool.environment_validation.CERTIFIED_WRITERS", {})
+
+    def fake_run(command, capture_output, text, timeout, check):
+        return SimpleNamespace(
+            returncode=1,
+            stdout="",
+            stderr="error: app/org.blender.Blender/x86_64/master not installed\n",
+        )
+
+    monkeypatch.setattr("pt_asset_tool.environment_validation.subprocess.run", fake_run)
+    result = run_environment_validation(settings, registry, blender_timeout_seconds=1)
+    by_name = {x["name"]: x for x in result["checks"]}
+    assert result["status"] == "PASS"
+    assert result["blender_ready"] is False
+    assert by_name["blender_headless_filesystem_bridge"]["status"] == "SKIP"
+    assert by_name["blender_headless_filesystem_bridge"]["required"] is False
+    assert result["policy"]["release_1_auto_may_run"] is False

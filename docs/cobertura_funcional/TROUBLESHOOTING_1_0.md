@@ -19,7 +19,7 @@ Configure com `config set-server-root` ou `--server-root`. Use `validate server-
 
 ## Blender não abre / Flatpak
 
-Verifique o comando disponível e `PT_BLENDER_COMMAND`. Rode `validate environment-auto`, que testa a bridge filesystem/headless real.
+Verifique o comando disponível e `PT_BLENDER_COMMAND`. `validate environment-auto` testa a bridge filesystem/headless quando Blender existe. Se Blender não estiver instalado, a capability fica `SKIP` e o ambiente geral pode continuar `PASS`; operações Blender e `release-1-auto` permanecem bloqueadas.
 
 ## `PENDING`, `REVIEW`, `CONFIG_ONLY`
 

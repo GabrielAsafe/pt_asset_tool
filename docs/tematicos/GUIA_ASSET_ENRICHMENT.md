@@ -4,7 +4,7 @@
 
 O **Summit Asset Enrichment** entende o conteúdo do servidor como bundles funcionais e liga esses bundles aos assets do client. Ele não é um simples comparador de pastas e não deve ser usado como “copiar tudo que está faltando”.
 
-A versão ativa neste snapshot é **v9 Fix136**, em `vendor/summit_asset_enrichment_v9/`. A árvore `vendor/summit_asset_enrichment_v6/` continua preservada apenas como referência histórica.
+A versão ativa e única suportada neste snapshot é **v9 Fix136**, em `vendor/summit_asset_enrichment_v9/`. O vendor v6 não faz parte da distribuição ativa; referências a ele existem apenas em material histórico.
 
 O Design Tool integra descoberta/validação, migration plan, dependency graph e o editor staging de Field metadata SPM/SPP/SPC. Os comandos de `apply`/`install-apply` do vendor continuam separados e não são disparados automaticamente pela UI.
 

@@ -12,7 +12,7 @@
 ## Asset Enrichment
 
 O vendor ativo é `vendor/summit_asset_enrichment_v9/`, manifesto `v9-fix136`.
-A cópia `vendor/summit_asset_enrichment_v6/` continua preservada como referência histórica e compatibilidade, mas deixou de ser a versão preferida pelo adapter/UI.
+O vendor legado v6 foi removido da distribuição ativa; o adapter/UI aceitam apenas `vendor/summit_asset_enrichment_v9/`. Evidência histórica sobre v6 permanece somente nos diretórios de histórico/documentação histórica.
 
 A aba **Servidor / Asset Enrichment** continua a expor análise, migration plan e dependency graph sem executar `apply`/`install-apply` do vendor.
 

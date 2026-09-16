@@ -2,9 +2,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT.parent / "docs"
-MAP = DOCS / "MAPA_MODULOS_SCRIPTS.md"
-MANUAL = DOCS / "MANUAL_DESENVOLVEDOR.md"
-FORMATS = DOCS / "REVERSE_ENGINEERING_FORMATOS.md"
+MAP = DOCS / "engenharia" / "MAPA_MODULOS_SCRIPTS.md"
+MANUAL = DOCS / "engenharia" / "MANUAL_DESENVOLVEDOR.md"
+FORMATS = DOCS / "engenharia" / "REVERSE_ENGINEERING_FORMATOS.md"
 
 
 def _text(path: Path) -> str:

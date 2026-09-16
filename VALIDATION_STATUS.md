@@ -16,4 +16,4 @@ The final physical `release-1-auto --resume` evidence has `automatic_gate_status
 
 ## Target-content diagnostics
 
-Missing/invalid target textures remain documented in `docs/KNOWN_LIMITATIONS_1_0.md`. They are not hidden and do not widen recovery authority.
+Missing/invalid target textures remain documented in `docs/release/KNOWN_LIMITATIONS_1_0.md`. They are not hidden and do not widen recovery authority.

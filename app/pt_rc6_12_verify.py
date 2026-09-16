@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse, hashlib, json
 from pathlib import Path
 
-EXPECTED = {'VERIFY_PACKAGE.sh': '6d889d5b9268917f3a20c1b1348463b4f42a0237a0eab8b9a85f91816a62dfed',
+EXPECTED = {'VERIFY_PACKAGE.sh': 'f3638a389668247c041e9bc16efb8bb5cf78c10ba8891e11c0a69edc89e09b32',
  'app/RUN_RC6_12_LOCAL_FOCUSED.sh': '470d968bc3d44ec2dd89610e365b94cc47b00e4841498ff097c6fcbd0e187f83',
  'app/dev_tests/test_client_manifest_evidence.py': 'd77ea87d9e40b199fb5a68400b10b03f33a0cad2ea50d822901fc562b5ebc39a',
  'app/dev_tests/test_general_asset_census.py': '36c89a882784f4a6520279a2fd4771ad59604e8d32767aeb7686d3f3c66e2d98',
@@ -33,7 +33,7 @@ EXPECTED = {'VERIFY_PACKAGE.sh': '6d889d5b9268917f3a20c1b1348463b4f42a0237a0eab8
  'app/pt_asset_tool/blender/check_rigid_profile_devtest.py': 'fc3fb8a3d45ff0a076436bb49de18898880cf4883523d1d867c203aee4f659cd',
  'app/pt_asset_tool/class_ui_alias_audit.py': 'e36e949104a62a37f693981987931955bef974b46b8e23bc7ffbe730c288386d',
  'app/pt_asset_tool/class_ui_alias_canonicalize.py': '99cd6282bf22e4436ac8af4cfdbbad8b449e44acd509abb9076882edf963c73f',
- 'app/pt_asset_tool/cli.py': '2dad64ed1d6b367fc31a0ce2d1a2bf482226fbb4e84a1d6f0ab85b4a2ce213b8',
+ 'app/pt_asset_tool/cli.py': 'c251c737cbadd690731abd46254ced9dc6b1d10a0525b236294b34907916a64f',
  'app/pt_asset_tool/client_manifest_evidence.py': 'b2a95a1a77e65540623a7b19c0de1627683dbf795f64d55af5a059382a38edfc',
  'app/pt_asset_tool/contract_graph.py': 'c6804c1c6d272b6740563383dd6d085c6af956290100ee4ae9f8a711d2312fba',
  'app/pt_asset_tool/general_asset_census.py': '3d7a5eb3950e03701ec85b1fc3b05c82fdd0be5f4faec627b204240b9ff63c96',
@@ -66,7 +66,7 @@ EXPECTED = {'VERIFY_PACKAGE.sh': '6d889d5b9268917f3a20c1b1348463b4f42a0237a0eab8
  'app/pt_asset_tool/ui_catalog.py': 'ebff218f17e74a4e0a25f6b68972e6d224903958b7f29df6874bb5586ee473a4',
  'app/pt_asset_tool/ui_static/app.css': 'a8c9f58eeea0bb6058b85d7fbd675ed46e7f9a71c63bde0dd696c495c4b12efb',
  'app/pt_asset_tool/ui_static/app.js': '3dd439bf64b21fc92cb461b58a4011d7c4e3b587f55cf670c2ba317bb624136d',
- 'app/pt_asset_tool/ui_static/index.html': 'a4283e4469f5811dec8cd1547b319bd0ac33c5e47d91abfb8dd5eb8b8a5976ac',
+ 'app/pt_asset_tool/ui_static/index.html': 'a2caf2bf150e805106532390a9447075bc42ad4071ee4dfa4c7986c14d071bb6',
  'app/pt_asset_tool/validation.py': '5c002cd9471e06de5cdc52a972af75cacf3d00a809a5d40d4cbbd4a982901a57',
  'app/pt_asset_tool/writer_corpus_audit.py': '8cd917878bbc8ac85b57386617c3d13397770ed46d0c7947f345459db064f2a5',
  'app/pt_blender_to_smd_free_mesh_v3.py': '2a9b876c376449aa1fe6702824ab4eb76d5a52be32cba6b4731b4ea2ba5cf426',
@@ -78,11 +78,9 @@ EXPECTED = {'VERIFY_PACKAGE.sh': '6d889d5b9268917f3a20c1b1348463b4f42a0237a0eab8
  'app/tests/test_class_ui_alias_canonicalize.py': 'a903b21ccc8568aee3a3e14f828bba43e815270ffffaf06397f7b4a8e4e45e6b',
  'app/tests/test_source_contracts.py': '3c059dcb10e1cf1f12b42268a25c36204a3b9539c824c0db35284b0a25d62ff5',
  'app/tests/test_superset_aggregation.py': '9c4aa3a56c1d6df3e5691d002ee93d8e9ef037f67eb31c9a1610e716ee9fff8d',
- 'docs/ASSET_CONTRACTS_RC6_15_INTEGRATION.md': '1b09d359056e291fcb48fe98f4d89b40b203c64dd5aabdd081acb7a32270197a',
- 'docs/SNAPSHOT_MANIFEST_POLICY.md': 'd09b8a21a3157a4ad57fc1b06e61328821904e29b8f5b3c97213fcd1da2e3544',
- 'docs/UPDATE_INSTALLATION_METHOD.md': 'edbee2cda161862c3cdecc4b982d721953c5519a2c75f7324f6aaeb5b097f58f',
- 'vendor/summit_asset_enrichment_v6/asset_common.py': 'f824d96f544af230557c687ab60b598fe620df347d63fd514f256b3b2552fb8e',
- 'vendor/summit_asset_enrichment_v6/build_dependency_graph.py': 'f25e053bd55f379914b94cb21990798de9815c708ad73eb8b48a8fe26f918a2b',
+ 'docs/togpt_dont_bother_reading/ASSET_CONTRACTS_RC6_15_INTEGRATION.md': '1b09d359056e291fcb48fe98f4d89b40b203c64dd5aabdd081acb7a32270197a',
+ 'docs/engenharia/SNAPSHOT_MANIFEST_POLICY.md': '58549872b653d4a991835c511d0f6ea6df1278cb93ff7a2c343a87ed707da966',
+ 'docs/togpt_dont_bother_reading/UPDATE_INSTALLATION_METHOD.md': 'edbee2cda161862c3cdecc4b982d721953c5519a2c75f7324f6aaeb5b097f58f',
  'vendor/summit_asset_enrichment_v9/asset_common.py': 'dd85ef7e5042cbbf06e9deb564f743e2fe33f6c73e29bfd6f6ddeeb8bdb7670e',
  'vendor/summit_asset_enrichment_v9/build_dependency_graph.py': 'f25e053bd55f379914b94cb21990798de9815c708ad73eb8b48a8fe26f918a2b'}
 HISTORY = {'app/history/rc_tools/RUN_RC6_10_RIGID_CONTEXT_DELTA.sh': '754fd30bb7522a67074d6d5741d27dd3f6c4c7dfc862fa80f92a9d521907a77f', 'app/history/rc_tools/RUN_RC6_5_5_STATIC_FOCUSED.sh': 'a9dc0aceec89e4f1f34e0bee665c1d610b198ff7e6ee58c37425e5f51d1da31c', 'app/history/rc_tools/RUN_RC6_6_STATIC_FOCUSED.sh': '5dcd486dadaa3f2a8042c02277a5c5c298cc66edc25f3c364a95e66242d25b6b', 'app/history/rc_tools/RUN_RC6_7_MODEL062_FOCUSED.sh': '5c50a2a3a2494453a4f181c8505b067ce932b944880600719b58d21014ad960e', 'app/history/rc_tools/RUN_RC6_8_MODEL062_FOCUSED.sh': '3edd761fb6ef16a1c1217389204b9b5de3ea5e38f6fd50f29dfbf5672da566c4', 'app/history/rc_tools/RUN_RC6_9_MODEL062_DELTA.sh': '7695d9f028139491e0581d27cfc3548f59371654c511fa6e43cb98d242fb1210', 'app/history/rc_tools/pt_model062_delta_rc6_9.py': '09f3d8679512f6c5c5696bcaa48a4d939b9e68a6ab26a43a566d9236e81faba7', 'app/history/rc_tools/pt_model062_focused_rc6_7.py': '2da809f51da1e28d669eb7cbf1e486a7c72ec602c50ab4e4e1ead5c808c4ba88', 'app/history/rc_tools/pt_model062_focused_rc6_8.py': '5678f0d3407370f5b8b1f99c7f266eeda0b249041f2ebdc567439402e609e623', 'app/history/rc_tools/pt_model062_inventory_refresh_rc6_8.py': '8143eb79248d05d368e1e3a2c9add99f2152f35ab297f07e4771d9760d845262', 'app/history/rc_tools/pt_model062_inventory_refresh_rc6_9.py': '81c39ce6c91cf7da9a78321b53809aac8ad3f1e3f528c6745a4cadf931c0aef2', 'app/history/rc_tools/pt_rc6_10_verify.py': '1e6c50974e54033aee0bf2eb4b2df6c08afbf0930dc9ef2c420eacf02429b131', 'app/history/rc_tools/pt_rc6_5_5_recover.py': '6eafc6c64f53feb3e5b447149f3c393840d886b2aaef84678c4ae9b44d216594', 'app/history/rc_tools/pt_rc6_5_5_verify.py': '4c15da6684aed755fe169ebe3f19269dc330bf87d1d37a6ede422bab05334ced', 'app/history/rc_tools/pt_rc6_6_verify.py': 'ba7984edf88cbf088db5c30e2d25c04673894a30bf67fdaaae69dd4a9764e5fb', 'app/history/rc_tools/pt_rc6_7_verify.py': 'e03cfc6a0be7373778cd3e486cf525dfb9537c108cebccac89cf1dce11284a66', 'app/history/rc_tools/pt_rc6_8_verify.py': '65f54a3dbda371064a14abe6e2d7bb582f00512793ca625a8092f889327df0db', 'app/history/rc_tools/pt_rc6_9_verify.py': 'b65ad828ce1c9f145e3cba36e5565a6e43fd04d1b2ad33dc95f54c2caa027be8', 'app/history/rc_tools/pt_rigid_context_delta_rc6_10.py': '46237bce77b7671049c01c6eff0b27d2f55236a73dce9a3fb6fd2a06855e0f24', 'app/history/rc_tools/pt_snapshot_manifest_rc6_10.py': '409eff392b8da98be367515bef8963956b82bf4693faedb555a47e1273a4da4c', 'app/history/rc_tools/pt_snapshot_manifest_rc6_9.py': '47e1e144d9ae9ce603415be5cef74abf3e5cc6b976e521cdb8b0c0356353732e', 'app/history/rc_tools/pt_snapshot_manifest_reconcile_rc6_8.py': '06f40daf222c150a98469cf529ed5122b2358d21b12a69f455a8ed600ca05c7a', 'app/history/rc_tools/pt_static_focused_rc6_5_5.py': '486f8bf17360a8f85283088b98d2125d625fea95063a3353af0be719f13226c9', 'app/history/rc_tools/pt_static_focused_rc6_6.py': 'afd6a150b6310167e6a09ad5e45d5d03ed42919b65ef5b4474d74da9a96e7186'}

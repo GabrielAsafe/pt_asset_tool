@@ -12,11 +12,10 @@ FORMAT_GRAPH = "PT_ASSET_ENRICHMENT_VENDOR_GRAPH_V1"
 
 def _vendor_root(project_root: pathlib.Path) -> pathlib.Path:
     vendor_base = pathlib.Path(project_root).resolve().parent / "vendor"
-    for name in ("summit_asset_enrichment_v9", "summit_asset_enrichment_v6"):
-        root = vendor_base / name
-        if (root / "PACKAGE_MANIFEST.json").is_file():
-            return root
-    raise FileNotFoundError(f"Summit Asset Enrichment vendor not found under: {vendor_base}")
+    root = vendor_base / "summit_asset_enrichment_v9"
+    if (root / "PACKAGE_MANIFEST.json").is_file():
+        return root
+    raise FileNotFoundError(f"Active Summit Asset Enrichment v9 vendor not found: {root}")
 
 
 def _current_config(

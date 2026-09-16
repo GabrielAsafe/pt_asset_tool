@@ -245,7 +245,7 @@ def build_server_ui_summary(project_root: pathlib.Path, server_root: pathlib.Pat
     server = pathlib.Path(server_root).resolve() if server_root is not None else None
     client = pathlib.Path(client_root).resolve()
     vendor_base = project_root.parent / "vendor"
-    vendor_manifest = next((vendor_base / name / "PACKAGE_MANIFEST.json" for name in ("summit_asset_enrichment_v9", "summit_asset_enrichment_v6") if (vendor_base / name / "PACKAGE_MANIFEST.json").is_file()), vendor_base / "summit_asset_enrichment_v9" / "PACKAGE_MANIFEST.json")
+    vendor_manifest = vendor_base / "summit_asset_enrichment_v9" / "PACKAGE_MANIFEST.json"
     vendor_info: dict[str, Any] = {"present": False, "version": None, "path": None, "file_count": 0}
     if vendor_manifest.is_file():
         try:
