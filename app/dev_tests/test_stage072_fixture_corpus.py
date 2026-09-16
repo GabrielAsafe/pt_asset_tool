@@ -10,6 +10,8 @@ from pt_asset_tool.stage072_corpus import parse_stage072
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
 
+pytestmark = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
+
 
 def _stage_files():
     out = []

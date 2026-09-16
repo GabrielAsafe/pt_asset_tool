@@ -124,11 +124,16 @@ class AssetRegistry:
         self.by_primary = {low_path(a.primary_path): a for a in self.assets}
 
     def _canonical_root_saved(self) -> str:
-        roots = [norm_path(x).rstrip("/") for x in self.inventory.get("roots", [])]
+        explicit = norm_path(self.inventory.get("canonical_client_root") or "").rstrip("/")
+        if explicit:
+            return explicit
+        roots = [norm_path(x).rstrip("/") for x in self.inventory.get("roots", []) if norm_path(x)]
+        if len(roots) == 1:
+            return roots[0]
         for r in roots:
             if r.lower().endswith("/cliente"):
                 return r
-        raise RuntimeError("inventory does not identify a canonical client root ending in /cliente")
+        raise RuntimeError("inventory does not identify a canonical client root")
 
     def _canonical_records(self) -> list[dict]:
         prefix = self.canonical_root_saved.rstrip("/") + "/"

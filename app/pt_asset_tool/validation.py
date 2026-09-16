@@ -306,7 +306,7 @@ class ValidationRunner:
         source = pathlib.Path(preflight["source"]).resolve()
         skeleton = pathlib.Path(preflight["skeleton"]).resolve()
         pristine = work / "pristine_import.blend"
-        importer = self.root / "history_py" / "pt_smd_blender_import_v3_static_armature.py"
+        importer = self.root / "pt_asset_tool" / "legacy_runtime" / "pt_smd_blender_import_v3_static_armature.py"
         run_logged(self.ctx.settings.blender_command() + [
             "--background", "--python-exit-code", "1", "--python", str(importer), "--",
             "--smd", str(source), "--skeleton", str(skeleton),
@@ -319,7 +319,7 @@ class ValidationRunner:
     ) -> tuple[pathlib.Path, pathlib.Path]:
         source = pathlib.Path(preflight["source"]).resolve()
         pristine = work / "pristine_import.blend"
-        importer = self.root / "history_py" / "pt_smd_blender_import_v3_static_armature.py"
+        importer = self.root / "pt_asset_tool" / "legacy_runtime" / "pt_smd_blender_import_v3_static_armature.py"
         cmd = self.ctx.settings.blender_command() + [
             "--background", "--python-exit-code", "1", "--python", str(importer), "--",
             "--smd", str(source), "--skeleton", str(preflight["skeleton"]),
@@ -366,7 +366,7 @@ class ValidationRunner:
         pristine = work / "pristine_import.blend"
         cmd = self.ctx.settings.blender_command() + [
             "--background", "--python-exit-code", "1",
-            "--python", str(self.root / "history_py/pt_smd_blender_import_v3_static_armature.py"), "--",
+            "--python", str(self.root / "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py"), "--",
             "--smd", str(src), "--skeleton", str(smb), "--model-info", str(inx),
             "--lod", actual_lod, "--client-root", str(client_root),
             "--out", str(pristine), "--no-pack",
@@ -1785,7 +1785,7 @@ class ValidationRunner:
             smb = self.ctx.resolver.resolve(asset.binding_skeleton_smb)
             run_logged(self.ctx.settings.blender_command() + [
                 "--background", "--python-exit-code", "1",
-                "--python", str(self.root / "history_py/pt_smd_blender_import_v3_static_armature.py"), "--",
+                "--python", str(self.root / "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py"), "--",
                 "--smd", str(rebuilt), "--skeleton", str(smb), "--model-info", str(inx),
                 "--lod", actual_lod, "--client-root", str(overlay_root),
                 "--out", str(rebuilt_import), "--no-pack",
@@ -1795,7 +1795,7 @@ class ValidationRunner:
                 raise RuntimeError("standalone TexLink reimport lost structural skeleton context")
             run_logged(self.ctx.settings.blender_command() + [
                 "--background", "--python-exit-code", "1",
-                "--python", str(self.root / "history_py/pt_smd_blender_import_v3_static_armature.py"), "--",
+                "--python", str(self.root / "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py"), "--",
                 "--smd", str(rebuilt), "--skeleton", str(standalone_preflight["skeleton"]),
                 "--client-root", str(overlay_root), "--out", str(rebuilt_import), "--no-pack",
             ], work / "05_rebuilt_import.log")

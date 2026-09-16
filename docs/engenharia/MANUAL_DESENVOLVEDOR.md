@@ -20,7 +20,7 @@ Leia primeiro:
 
 ### Artefactos mutáveis
 
-Todo desenvolvimento operacional deve gravar em `app/pt_build`; o pacote limpo exclui esse diretório. `app/certifications/assets.jsonl` é mutável e explicitamente listado em `SNAPSHOT_MUTABLE_PATHS.txt`.
+Todo estado operacional mutável grava em `app/pt_build`; o pacote limpo exclui esse diretório. Isso inclui configuração local, registry gerado, certifications, caches, evidence e reports. Uma instalação fresh não transporta estado da máquina usada para construir o pacote.
 
 ### Regra de mudança
 
@@ -38,8 +38,8 @@ Todo desenvolvimento operacional deve gravar em `app/pt_build`; o pacote limpo e
 ```bash
 ./VERIFY_PACKAGE.sh
 cd app
-python3 pt_rc6_12_verify.py --current-root ..
-python3 -m pytest -q dev_tests/test_general_asset_census.py dev_tests/test_release_1_auto.py
+python3 -m pytest -q dev_tests/test_registry_bootstrap_fresh.py dev_tests/test_general_asset_census.py dev_tests/test_release_1_auto.py
+./RUN_REGRESSION_FOCUSED.sh
 ```
 
 Gates que precisam de client/server/Blender real devem ser executados somente onde essas roots existirem; nunca substitua ausência de ambiente por mock que transforme um gate físico em PASS.
@@ -849,7 +849,7 @@ Os quatro módulos abaixo são tratados como evidência congelada:
 
 ```text
 pt_asset_tool/rare_rigid_edit.py
-229a8e216cff16c68b61ad04d312e4ef6163ac955147f823ea7ed1164f524c42
+3ff2769bbc9762c04fb992fbad52ba7d60ae6a53f19c22d4f1d68e274697eec3
 
 pt_asset_tool/rare_rigid_multivertex.py
 0b43a3ced314c719bd1c6165a6715f37230b4d3d2d21586d6158a844d8f91991
@@ -858,7 +858,7 @@ pt_asset_tool/rare_rigid_multibone_bridge.py
 010c77d73e7579cbdda622548f07df95ca68471fd4eacba058b3c83e79e853b0
 
 pt_asset_tool/rare_rigid_normal_bridge.py
-67e529d3d04012ea7c3ac1b6a5576525a77870b4e452c4336955100b5bb8ff96
+2c0f75931e54a72cd87be2bc6694370f849c24c3f2b4b44afbdbc288dcaf622c
 ```
 
 Não fazer “cleanup”, formatter ou refactor nesses arquivos sem iniciar nova certificação.
@@ -955,19 +955,19 @@ Eles existem fora do package porque vários são executados diretamente pelo Ble
 Os mais importantes:
 
 - `pt_smd_blender_import_v4_generic.py`: dispatcher importer Model0.62 STATIC/RIGID; mixed rejeitado;
-- `history_py/pt_smd_blender_import_v3_static_armature.py`: importer rigid comprovado e parser central ainda vivo;
+- `pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py`: importer rigid comprovado e parser central ainda vivo;
 - `pt_blender_to_smd_free_mesh_v3.py`: writer artist-oriented de mesh rígida em escopo próprio;
 - `pt_blender_to_smd_static_v1.py`: wrapper writer static estrito;
 - `pt_character_structural_gate_v2.py`: gate físico Model0.62/skeleton;
 - `pt_inx_motion_core_v2.py`: parser/decoder INX moderno/legacy e relação com SMB;
-- `history_py/pt_smb_motion_evaluator_v1.py`: evaluator source-equivalent de motion/skeleton;
+- `pt_asset_tool/legacy_runtime/pt_smb_motion_evaluator_v1.py`: evaluator source-equivalent de motion/skeleton;
 - `pt_protected_tga_v1.py`: protected TGA transport;
 - `pt_character_texture_v1_4.py`: protected BMP workflow;
 - `pt_blender_bind_editable_texture_v2.py`: troca de textura em cópia do `.blend`;
 - `summit_workspace_asset_bridge_v1_2.py`: bridge de build aprovado para workspace registry;
 - `summit_roundtrip_restore_v4.py`: restore transacional hardened.
 
-`history_py` contém dependências vivas apesar do nome. Não remover por parecer histórico sem busca de chamadas dinâmicas.
+`pt_asset_tool/legacy_runtime/` contém duas dependências legadas ainda vivas, migradas do antigo `history_py`. Elas continuam código ativo até serem substituídas por implementações modernas equivalentes.
 
 ---
 
@@ -1120,7 +1120,7 @@ Sem inventar formato:
 5. transformar Stage0.72 corpus em gates de writer mais amplos somente onde byte-preservation permitir;
 6. manter Mixed-Physique congelado até aparecer representante;
 7. aproximar `import/build/publish/restore` de dispatchers genéricos, mas cada family deve continuar fail-closed;
-8. mover dependências vivas para fora de `history_py` gradualmente, sem alterar bytes de writers certificados.
+8. reduzir `pt_asset_tool/legacy_runtime` gradualmente, somente quando houver substitutos testados e sem alterar bytes de writers certificados.
 
 ---
 
@@ -1259,11 +1259,11 @@ O `validate release-1-auto` não considera a simples presença de um arquivo Mix
 
 ## Integração Summit Server / Asset Enrichment 1.0
 
-A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Field/Item e os gates read-only estão documentados em `docs/SUMMIT_GAME_ASSET_ENRICHMENT.md`. A especificação original recebida é preservada em `docs/reference/Summit_Server_Arquivos_e_Funcionamento_2026-09-04.docx`.
+A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Field/Item e os gates read-only estão documentados em `docs/engenharia/SUMMIT_GAME_ASSET_ENRICHMENT.md`. A especificação original recebida é preservada em `docs/reference/Summit_Server_Arquivos_e_Funcionamento_2026-09-04.docx`.
 
 ### Contrato UI server-aware
 
-`UIContext` mantém `client_root` e `server_root` separadamente. A UI lê resumos pelo módulo `server_ui.py` e dispara gates através de processos CLI allowlisted; ela não implementa parsers/writers próprios. `server_root` pode ser persistido em `pt_asset_app_config.json`, mas qualquer alteração de source server continua desabilitada.
+`UIContext` mantém `client_root` e `server_root` separadamente. A UI lê resumos pelo módulo `server_ui.py` e dispara gates através de processos CLI allowlisted; ela não implementa parsers/writers próprios. `server_root` pode ser persistido em `pt_build/state/pt_asset_app_config.json`, mas qualquer alteração de source server continua desabilitada.
 
 O endpoint local `/api/server/analyze` aceita somente modos fixos (`environment`, `design`, `inventory`, `entities`, `fields`, `items`). Não há interpolação de shell nem endpoint de deploy server.
 

@@ -19,7 +19,7 @@ def test_persistent_client_root_overrides_layout(tmp_path: pathlib.Path):
     project.mkdir()
     client.mkdir()
     path = save_client_root(project, client)
-    assert path.name == "pt_asset_app_config.json"
+    assert path == project.resolve() / "pt_build" / "state" / "pt_asset_app_config.json"
     assert load_config(project)["client_root"] == str(client.resolve())
     assert discover_client_root(project) == client.resolve()
 

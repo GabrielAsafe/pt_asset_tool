@@ -9,6 +9,8 @@ from pt_asset_tool.animation_source_regression import audit_animation_source_reg
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
 
+pytestmark = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
+
 CASES = [
     (CLIENT / "char/npc/Ahin/Ahin.inx", CLIENT / "char/npc/Ahin/Ahin.smb"),
     (CLIENT / "char/monster/Monbagon/Monbagon-A.inx", CLIENT / "char/monster/Monbagon/mbagon.smb"),

@@ -10,6 +10,8 @@ from pt_asset_tool.inx_writer import encode_end, encode_start, patch_motion, val
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 FIXTURE_CLIENT = ROOT.parent / "fixture_client"
+
+requires_fixture = pytest.mark.skipif(not FIXTURE_CLIENT.is_dir(), reason="external fixture_client is not packaged")
 ENTITY_INX_ROOT = ROOT.parent / "fixtures/entity_inx/pt_entity_catalog/files"
 NONCANONICAL_FIXTURE = ENTITY_INX_ROOT / "char/monster/AncientGolem/AncientGolem.inx"
 
@@ -22,6 +24,7 @@ FIXTURES = [
 
 
 @pytest.mark.parametrize("path", FIXTURES)
+@requires_fixture
 def test_inx_noop_roundtrip_is_byte_identical(path):
     result = validate_noop_roundtrip(path)
     assert result["status"] == "PASS"
@@ -30,6 +33,7 @@ def test_inx_noop_roundtrip_is_byte_identical(path):
 
 
 @pytest.mark.parametrize("path", FIXTURES)
+@requires_fixture
 def test_keyword_encoder_is_exact_inverse_of_fixture_records(path):
     data = path.read_bytes()
     parsed = core.parse_inx(path)
@@ -52,6 +56,7 @@ def test_keyword_encoder_is_exact_inverse_of_fixture_records(path):
     (FIXTURE_CLIENT / "char/monster/Monbagon/Monbagon-C.inx", "DAMAGE"),
     (FIXTURE_CLIENT / "char/monster/Acero/Acero.inx", "SKILL"),
 ])
+@requires_fixture
 def test_inx_candidate_edit_reparses_and_touches_only_allowlisted_bytes(path, state):
     parsed = core.parse_inx(path)
     motion = next(m for m in parsed["motions"] if m["state_name"] == state)
@@ -76,6 +81,7 @@ def test_inx_candidate_edit_reparses_and_touches_only_allowlisted_bytes(path, st
         assert path.read_bytes() != out.read_bytes()
 
 
+@requires_fixture
 def test_inx_writer_rejects_noop_and_bad_ranges():
     path = FIXTURE_CLIENT / "char/npc/Ahin/Ahin.inx"
     with tempfile.TemporaryDirectory() as td:

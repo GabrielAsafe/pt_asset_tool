@@ -1,3 +1,0 @@
-file_count=368
-handoff_state=R14_WORKING_NOT_RELEASED
-created_utc=2026-09-03T10:15:14Z

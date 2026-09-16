@@ -185,7 +185,7 @@ def prepare_rigid_candidate_review_workspace(settings, resolver, asset, artifact
     log = work / "01_candidate_reimport.log"
     cmd = settings.blender_command() + [
         "--background", "--python-exit-code", "1",
-        "--python", str(pathlib.Path(settings.project_root).resolve() / "history_py/pt_smd_blender_import_v3_static_armature.py"), "--",
+        "--python", str(pathlib.Path(settings.project_root).resolve() / "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py"), "--",
         "--smd", str(pathlib.Path(verified["artifact"]).resolve()),
         "--skeleton", str(smb), "--model-info", str(inx),
         "--lod", str(context.get("lod") or "default"),

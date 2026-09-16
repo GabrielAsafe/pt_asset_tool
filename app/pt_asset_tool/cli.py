@@ -138,7 +138,7 @@ def cmd_doctor(a):
         "pt_character_texture_v1_4.py", "pt_blender_bind_editable_texture_v2.py",
         "pt_protected_tga_v1.py", "pt_asset_tool/blender_workspace.py",
         "pt_smd_static_capability_probe_v1.py", "pt_smd_blender_import_v4_generic.py",
-        "history_py/pt_smd_blender_import_v3_static_armature.py",
+        "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py",
         "pt_asset_tool/blender/witness_geometry.py",
         "pt_asset_tool/blender/bake_actions.py", "pt_asset_tool/motion_core.py",
         "summit_workspace_asset_bridge_v1_2.py", "summit_roundtrip_restore_v4.py",
@@ -777,7 +777,7 @@ def cmd_assets_list(a):
 
 
 def _profile_registry(s):
-    return CharacterProfileRegistry(s.project_root / "data" / "character_profiles")
+    return CharacterProfileRegistry(s.project_root / "pt_build" / "state" / "character_profiles")
 
 
 def cmd_profiles_list(a):
@@ -1173,12 +1173,14 @@ def cmd_asset_inspect(a):
     return 0
 
 
-def choose_next(reg, cert, category=None):
+def choose_next(reg, cert, resolver, category=None):
     priority = {"MOB_MONSTER": 0, "NPC": 1, "CHARACTER": 2, "WEAPON_ITEM": 3, "EFFECT": 4, "MAP_STAGE": 5, "UNKNOWN": 9}
     candidates = reg.list_assets(category=category, visual_only=True)
     candidates.sort(key=lambda x: (priority.get(x.category, 8), x.family, x.primary_path.lower()))
     for asset in candidates:
-        if cert.latest_result(asset.asset_id, "VISUAL_ASSET", "HUMAN_VISUAL") != "PASS":
+        physical = resolver.resolve(asset.primary_path, required=False)
+        current_sha = sha256_file(physical) if physical is not None else None
+        if cert.latest_result(asset.asset_id, "VISUAL_ASSET", "HUMAN_VISUAL", source_sha256=current_sha) != "PASS":
             return asset
     raise RuntimeError("no pending visual-compatible assets match the selection")
 
@@ -1344,7 +1346,7 @@ def cmd_validate_structural(a):
 
 def cmd_validate_visual(a):
     s, reg, cert, resolver = make_context(a)
-    asset = choose_next(reg, cert, a.category) if a.target.lower() == "next" else reg.resolve(a.target)
+    asset = choose_next(reg, cert, resolver, a.category) if a.target.lower() == "next" else reg.resolve(a.target)
     print(f"ASSET={asset.asset_id} {asset.primary_path}")
     print(f"FAMILY={asset.family} CATEGORY={asset.category} MODE={asset.visual_mode}")
     runner = ValidationRunner(ValidationContext(s, resolver, cert))
@@ -1629,7 +1631,7 @@ def cmd_write_object_local_key_candidate(a):
 
 def cmd_validate_animation(a):
     s, reg, cert, resolver = make_context(a)
-    asset = choose_next_animation(reg, cert, a.category) if a.target.lower() == "next" else reg.resolve(a.target)
+    asset = choose_next_animation(reg, cert, resolver, a.category) if a.target.lower() == "next" else reg.resolve(a.target)
     head, head_variant = _resolve_head_option(reg, asset, a.head, getattr(a, "head_tier", "auto"))
     print(f"ASSET={asset.asset_id} {asset.primary_path}")
     print(f"FAMILY={asset.family} CATEGORY={asset.category} MODE={asset.visual_mode}")
@@ -1648,11 +1650,13 @@ def cmd_validate_animation(a):
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result["visual_animation_asset"] != "FAIL" else 3
 
-def choose_next_animation(reg, cert, category=None):
+def choose_next_animation(reg, cert, resolver, category=None):
     candidates=[x for x in reg.list_assets(category=category, visual_only=True) if x.visual_mode=="RIGID" and x.animation_binding_ready]
     candidates.sort(key=lambda x:(x.category,x.primary_path.lower()))
     for asset in candidates:
-        if cert.latest_result(asset.asset_id,"VISUAL_ANIMATION_ASSET","HUMAN_VISUAL") != "PASS":
+        physical = resolver.resolve(asset.primary_path, required=False)
+        current_sha = sha256_file(physical) if physical is not None else None
+        if cert.latest_result(asset.asset_id,"VISUAL_ANIMATION_ASSET","HUMAN_VISUAL", source_sha256=current_sha) != "PASS":
             return asset
     raise RuntimeError("no pending animation-compatible assets match the selection")
 
@@ -1728,103 +1732,17 @@ def _load_root_binding_cache(path: pathlib.Path) -> dict:
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
             if isinstance(data, dict):
-                data.setdefault("format", "PT_ROOT_SKELETON_BINDINGS_V6")
+                data.setdefault("format", "PT_ROOT_SKELETON_BINDINGS_V7")
                 data.setdefault("entries", {})
                 return data
         except Exception:
             pass
-    return {"format": "PT_ROOT_SKELETON_BINDINGS_V6", "entries": {}}
+    return {"format": "PT_ROOT_SKELETON_BINDINGS_V7", "entries": {}}
 
 
 def _atomic_json(path: pathlib.Path, data: dict):
     from .utils import atomic_write_json
     atomic_write_json(path, data)
-
-
-def _load_smb_signature_index(path: pathlib.Path) -> dict:
-    if path.is_file():
-        try:
-            data=json.loads(path.read_text(encoding="utf-8"))
-            if isinstance(data, dict):
-                data.setdefault("format", "PT_SMB_SKELETON_SIGNATURE_INDEX_V1")
-                data.setdefault("entries", {})
-                return data
-        except Exception:
-            pass
-    return {"format":"PT_SMB_SKELETON_SIGNATURE_INDEX_V1","entries":{}}
-
-
-def _build_smb_skeleton_groups(s, reg, resolver, *, candidate_limit=0):
-    """Group physical SMB files by embedded bone hierarchy + bind pose.
-
-    This is deliberately independent of SMB file SHA: multiple animation SMBs
-    may carry the same skeleton with different clip payloads.
-    """
-    from .utils import low_path, norm_path, utc_now
-    from .motion_core import load_smb_evaluator, smb_skeleton_signature
-
-    candidates=[]; seen=set()
-    for r in reg.records:
-        if str(r.get("extension") or "").lower() != ".smb":
-            continue
-        rel=norm_path(r.get("relative_path")); k=low_path(rel)
-        if rel and k not in seen:
-            seen.add(k); candidates.append(rel)
-    candidates.sort(key=str.lower)
-
-    index_path = reg.pairing_path.parent / "smb_skeleton_signatures_v1.json"
-    index = _load_smb_signature_index(index_path)
-    entries=index.setdefault("entries", {})
-    evaluator=None
-    cache_hits=0; parsed=0; parse_failures=0
-    groups={}
-
-    for pos, rel in enumerate(candidates, 1):
-        physical=resolver.resolve(rel, required=False)
-        if physical is None:
-            continue
-        st=physical.stat(); key=low_path(rel)
-        row=entries.get(key) if isinstance(entries.get(key), dict) else None
-        valid=bool(row and row.get("size") == st.st_size and row.get("mtime_ns") == st.st_mtime_ns and row.get("skeleton_signature"))
-        if valid:
-            info={k:row.get(k) for k in ("skeleton_signature","topology_signature","bone_count","root_bones")}
-            cache_hits += 1
-        else:
-            if evaluator is None:
-                evaluator=load_smb_evaluator(s.project_root)
-            try:
-                smb=evaluator.parse_smb(physical)
-                info=smb_skeleton_signature(smb)
-                entries[key]={"path":rel,"size":st.st_size,"mtime_ns":st.st_mtime_ns,**info}
-                parsed += 1
-            except Exception as exc:
-                entries[key]={"path":rel,"size":st.st_size,"mtime_ns":st.st_mtime_ns,"error":f"{type(exc).__name__}: {exc}"}
-                parse_failures += 1
-                continue
-        sig=info.get("skeleton_signature")
-        if not sig:
-            continue
-        g=groups.setdefault(sig,{"skeleton_signature":sig,
-                                "topology_signature":info.get("topology_signature"),
-                                "bone_count":int(info.get("bone_count") or 0),
-                                "root_bones":info.get("root_bones") or [],
-                                "paths":[]})
-        g["paths"].append(rel)
-
-    index["updated_at"]=utc_now(); _atomic_json(index_path,index)
-    ordered=[]
-    for g in groups.values():
-        g["paths"]=sorted(set(g["paths"]), key=str.lower)
-        g["representative"]=g["paths"][0]
-        ordered.append(g)
-    ordered.sort(key=lambda g:g["representative"].lower())
-    if candidate_limit and candidate_limit > 0:
-        ordered=ordered[:candidate_limit]
-    return {
-        "smb_files":len(candidates), "skeleton_groups":ordered,
-        "signature_index":str(index_path), "signature_cache_hits":cache_hits,
-        "signature_parsed":parsed, "signature_parse_failures":parse_failures,
-    }
 
 
 def _signature_for_passing_smb(s, smb_path: pathlib.Path) -> dict:
@@ -1892,7 +1810,7 @@ def _physique_subset_resolution(a, s, reg, resolver, asset, src, tested, work):
     import_log=probe/'01_import.log'
     cmd=s.blender_command()+[
         '--background','--python-exit-code','1',
-        '--python',str(s.project_root/'history_py/pt_smd_blender_import_v3_static_armature.py'),'--',
+        '--python',str(s.project_root/'pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py'),'--',
         '--smd',str(src),'--skeleton',str(rep_smb_path),'--model-info',str(inx),
         '--lod',lod,'--client-root',str(overlay),'--out',str(blend),'--no-pack',
     ]
@@ -4035,7 +3953,7 @@ def build_parser():
     x = audp.add_parser("player-class-contracts", help="source-backed 10-class contract coverage graph: UI assets, class audio family, handler sound/particle/animation evidence, runtime migration and transitive .part dependencies; read-only, no hashes/copies")
     x.add_argument("--source-root", required=False, help="current Summit C/C++ source root; fallback PT_SOURCE_ROOT or project config")
     x.add_argument("--reference-source-root", required=False, help="EU reference C/C++ source root; fallback PT_REFERENCE_SOURCE_ROOT or project config")
-    x.add_argument("--donor-client", action="append", default=[], metavar="LABEL=PATH", help="optional read-only donor client root; repeatable (e.g. OFFICIAL=/home/.../old/velho)")
+    x.add_argument("--donor-client", action="append", default=[], metavar="LABEL=PATH", help="optional read-only donor client root; repeatable (e.g. OFFICIAL=/path/to/donor/client)")
     x.add_argument("--class", dest="class_name", action="append", choices=TARGET_CLASSES, help="audit one class; repeatable; default all 10")
     x.set_defaults(func=cmd_audit_player_class_contracts)
     x = audp.add_parser("enrichment-plan", help="run Summit Asset Enrichment v9 PLAN mode using current client/server roots and only donor roots that exist; writes manifest only under pt_build"); x.add_argument("--timeout", type=float, default=180.0); x.set_defaults(func=cmd_audit_enrichment_plan)

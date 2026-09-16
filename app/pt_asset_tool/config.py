@@ -34,9 +34,9 @@ class Settings:
                     from .app_config import discover_client_root
                     client = discover_client_root(root)
                 except Exception:
-                    # Retain the historical fallback so diagnostic commands still report
-                    # the expected legacy location instead of crashing during Settings creation.
-                    client = pathlib.Path.home() / "Área de Trabalho/summit/Summit Tale Client Full/cliente"
+                    # No machine-specific historical path is baked into a fresh install.
+                    # Commands that require a client will report this missing location.
+                    client = root / "__client_not_configured__"
         else:
             client = pathlib.Path(client_root).expanduser().resolve()
 
@@ -53,24 +53,23 @@ class Settings:
         else:
             server = pathlib.Path(server_root).expanduser().resolve()
 
-        data_registry = root / "data" / "asset_registry"
-        legacy_inventory = root / "logs/asset_similarity_v1_1/asset_inventory.json"
-        legacy_pairing = root / "logs/asset_family_refine_v2/inx_physical_pairing.csv"
-        inventory = data_registry / "asset_inventory.json"
-        pairing = data_registry / "inx_physical_pairing.csv"
-        # New standalone releases keep operational indices under data/. Older
-        # design_work installs remain readable without migration.
-        if not inventory.is_file() and legacy_inventory.is_file():
-            inventory = legacy_inventory
-        if not pairing.is_file() and legacy_pairing.is_file():
-            pairing = legacy_pairing
+        runtime_state = root / "pt_build" / "state"
+        registry_state = runtime_state / "asset_registry"
+        inventory = registry_state / "asset_inventory.json"
+        pairing = registry_state / "inx_physical_pairing.csv"
+
+        # A fresh installation carries no client-derived inventory. Build it on
+        # first use from the configured client and keep it outside the package.
+        if client.is_dir():
+            from .registry_bootstrap import ensure_runtime_registry
+            ensure_runtime_registry(client, inventory, pairing)
 
         return cls(
             project_root=root,
             client_root=client,
             inventory=inventory,
             pairing=pairing,
-            certifications_dir=root / "certifications",
+            certifications_dir=runtime_state / "certifications",
             work_dir=root / "pt_build/pt_asset_tool",
             server_root=server,
         )

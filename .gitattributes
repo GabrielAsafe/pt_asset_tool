@@ -1,0 +1,12 @@
+# Large generated/historical state is not useful as line-oriented diff content.
+# Keeping it binary for Git diffs makes cleanup patches compact while preserving
+# exact blob identity checks during git apply.
+app/data/asset_registry/*.json -diff
+app/data/asset_registry/*.csv -diff
+app/certifications/*.jsonl -diff
+app/history/** -diff
+history/** -diff
+evidence/** -diff
+docs/togpt_dont_bother_reading/** -diff
+docs/validation/VALIDATION_STATUS* -diff
+vendor/summit_asset_enrichment_v9/reports/** -diff

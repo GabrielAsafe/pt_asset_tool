@@ -1,6 +1,6 @@
 # Summit Superset Aggregator — 0.17.0
 
-> Handoff corrente: veja `HANDOFF_TECNICO_CONSOLIDADO_2026-09-06.md`, `INTEGRATION_HANDOFF_0.17.1.md` e `BUGS_ASSASSIN_SHAMAN_2026-09-06.md`.
+> Estado corrente: veja `../CURRENT_STATUS_2026-09-14.md` e `../release/RELEASE_1_READINESS.md`.
 
 ## Objetivo
 
@@ -35,19 +35,19 @@ A aplicação aceita roots configurados ou explicitamente passados no CLI. Na wo
 ### Cliente
 
 - Target Summit: `Summit Tale Client Full/cliente`
-- `OFFICIAL`: `/home/gabriel/old/velho`
-- `PT_EU`: `/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Game`
+- `OFFICIAL`: `/path/to/donor/client`
+- `PT_EU`: `/path/to/reference/client`
 
 ### Servidor
 
 - Target Summit: `Servidor`
-- `PT_EU_SERVER`: `/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Server`
-- `EXMACHINA_SERVER`: `/home/gabriel/armazem/priston/ExMachina/server`
+- `PT_EU_SERVER`: `/path/to/reference/server`
+- `EXMACHINA_SERVER`: `/path/to/alternate/server`
 
 ### Source
 
-- Summit current source: `/home/gabriel/Área de Trabalho/summit/SourceCode`
-- EU reference source: `/home/gabriel/armazem/priston/PristonTale-EU-main-master`
+- Summit current source: `/path/to/current/source`
+- EU reference source: `/path/to/reference/source`
 
 A ordem dos donors é a ordem de preferência quando o target está ausente e existem variantes divergentes. O conteúdo Summit existente sempre vence no superset genérico.
 

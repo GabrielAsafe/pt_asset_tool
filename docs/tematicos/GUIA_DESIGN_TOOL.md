@@ -52,7 +52,7 @@ PACKAGE_VERIFY=PASS
 ```bash
 cd app
 python3 pt_asset.py config set-client-root \
-  "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente"
+  "/path/to/cliente"
 ```
 
 Ou informe o path diretamente em cada comando com `--client-root`.

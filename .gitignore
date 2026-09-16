@@ -1,0 +1,12 @@
+# Machine-local/generated PT Asset Tool state
+app/pt_build/
+
+# Python/test caches
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+**/.pytest_cache/
+
+# Local editor/OS noise
+.DS_Store
+*~

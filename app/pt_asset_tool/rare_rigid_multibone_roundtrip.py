@@ -277,7 +277,7 @@ def _run_rep(
     importer_script = project_root / "pt_asset_tool/blender/import_rare_rigid_context.py"
     common = [
         "--importer",
-        str(project_root / "history_py/pt_smd_blender_import_v3_static_armature.py"),
+        str(project_root / "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py"),
         "--rare-smd",
         str(prepared_output),
         "--root-smd",
@@ -325,7 +325,7 @@ def _run_rep(
             str(checker),
             "--",
             "--importer",
-            str(project_root / "history_py/pt_smd_blender_import_v3_static_armature.py"),
+            str(project_root / "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py"),
             "--rare-smd",
             str(prepared_output),
             "--root-smd",

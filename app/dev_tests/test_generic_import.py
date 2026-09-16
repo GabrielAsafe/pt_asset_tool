@@ -305,13 +305,9 @@ def test_single_tier_legacy_labels_preflight_as_full_container_without_alias(tmp
 
 
 def test_canonical_bcn02f_context_is_preflight_blocked_before_blender():
-    from pt_asset_tool.registry import AssetRegistry
+    from dev_tests._runtime_context import runtime_registry
     from pt_asset_tool.rigid_model_info import lod_node_coverage
-    root = Path(__file__).resolve().parents[1]
-    reg = AssetRegistry(
-        root / "data/asset_registry/asset_inventory.json",
-        root / "data/asset_registry/inx_physical_pairing.csv",
-    )
+    reg = runtime_registry()
     a = reg.resolve("char/npc/Bcn02/Bcn02.smd")
     cfg = next(c for c in a.configs if str(c.get("inx") or "").casefold().endswith("bcn02f.inx"))
     default = lod_node_coverage(a, cfg, "default")

@@ -368,4 +368,4 @@ UNUSED / SAFE TO ZERO
 
 ## Integração Summit Server / Asset Enrichment 1.0
 
-A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Field/Item e os gates read-only estão documentados em `docs/SUMMIT_GAME_ASSET_ENRICHMENT.md`. A especificação original recebida é preservada em `docs/reference/Summit_Server_Arquivos_e_Funcionamento_2026-09-04.docx`.
+A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Field/Item e os gates read-only estão documentados em `docs/engenharia/SUMMIT_GAME_ASSET_ENRICHMENT.md`. A especificação original recebida é preservada em `docs/reference/Summit_Server_Arquivos_e_Funcionamento_2026-09-04.docx`.

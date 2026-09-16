@@ -1,6 +1,6 @@
 # Asset Contract Graph — source-backed completeness
 
-> Handoff corrente e próximos passos: `HANDOFF_TECNICO_CONSOLIDADO_2026-09-06.md` e `ROADMAP_POS_0.17.1.md`.
+> Estado corrente: `../CURRENT_STATUS_2026-09-14.md` e `../release/RELEASE_1_READINESS.md`.
 
 ## Objetivo
 
@@ -33,7 +33,7 @@ Os donor clients podem ser configurados pela GUI em **Servidor / Asset Enrichmen
 
 ```bash
 python3 pt_asset.py audit player-class-contracts \
-  --donor-client OFFICIAL=/home/gabriel/old/velho \
+  --donor-client OFFICIAL=/path/to/donor/client \
   --donor-client PT_EU=/path/to/reference/client
 ```
 

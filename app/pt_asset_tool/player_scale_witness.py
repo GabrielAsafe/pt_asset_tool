@@ -326,7 +326,7 @@ def _run_player_scale_witness_impl(
     runner = ValidationRunner(ValidationContext(settings, resolver, certifications))
     overlay, texture_report = runner._texture_overlay(asset, import_work)
     pristine = import_work / "pristine_import.blend"
-    importer = root / "history_py" / "pt_smd_blender_import_v3_static_armature.py"
+    importer = root / "pt_asset_tool" / "legacy_runtime" / "pt_smd_blender_import_v3_static_armature.py"
     run_logged(settings.blender_command() + [
         "--background", "--python-exit-code", "1", "--python", str(importer), "--",
         "--smd", str(source), "--skeleton", str(skeleton), "--client-root", str(overlay),

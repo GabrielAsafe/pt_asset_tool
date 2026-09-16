@@ -26,11 +26,11 @@ Não confunda artefactos de `pt_build` com assets publicados no target.
 - `blender_edits/` — workspaces/edit evidence;
 - deployment manifests — plan/prepare/verify/simulate/state/restore.
 
-O pacote limpo não inclui `pt_build`. O resultado final de Release 1 exportado fica em `docs/release/RELEASE_1_AUTO_FINAL_RESULT.json`; evidência textual adicional pode permanecer em `docs/evidence/`.
+O pacote limpo não inclui `pt_build`. O resultado final de Release 1 exportado fica em `docs/release/RELEASE_1_AUTO_FINAL_RESULT.json`; evidência textual de certificação da release pode permanecer em `docs/evidence/` ou `docs/release/`; ela é documentação estática, não estado operacional consumido pelo runtime.
 
-## Journal de certificação
+## Estado local de certificação
 
-`app/certifications/assets.jsonl` é append-only/mutável e por isso consta em `SNAPSHOT_MUTABLE_PATHS.txt`. Cada linha é JSON object.
+O journal é gerado por instalação em `app/pt_build/state/certifications/assets.jsonl`. Ele não faz parte do pacote estático nem do snapshot SHA. Cada linha é um JSON object. Certificações associadas a um asset são revalidadas contra o SHA do source para evitar reutilizar approval de bytes antigos.
 
 ## Snapshot do pacote
 

@@ -15,7 +15,6 @@ from typing import Any, Iterable
 
 VERSION = "1.0.0"
 FORMAT = "PT_ASSET_MONSTER_NPC_CENSUS_V1"
-DEFAULT_CLIENT = pathlib.Path.home() / "Área de Trabalho/summit/Summit Tale Client Full/cliente"
 DEFAULT_CENSUS_REL = pathlib.Path("pt_build/semantic_asset_census_current.json")
 DEPS_EXT = {".smd", ".smb", ".inx", ".inf", ".bmp", ".tga", ".png", ".jpg", ".wav", ".ase"}
 PRIMARY_EXT = {".smd", ".smb", ".inx", ".inf"}
@@ -539,7 +538,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Integrated read-only Monster/NPC catalog census")
     ap.add_argument("--version", action="store_true")
     ap.add_argument("--project", default=str(pathlib.Path.cwd()))
-    ap.add_argument("--client-root", default=str(DEFAULT_CLIENT))
+    ap.add_argument("--client-root", default=None)
     ap.add_argument("--census", default=None)
     ap.add_argument("--output", default="pt_build/monster_npc_census_v0120.json")
     ap.add_argument("--refresh-census", action="store_true")
@@ -548,7 +547,11 @@ def main(argv: list[str] | None = None) -> int:
     if a.version:
         print(VERSION); return 0
     project = pathlib.Path(a.project).expanduser().resolve()
-    client = pathlib.Path(a.client_root).expanduser().resolve()
+    if a.client_root:
+        client = pathlib.Path(a.client_root).expanduser().resolve()
+    else:
+        from .app_config import discover_client_root
+        client = discover_client_root(project)
     census = pathlib.Path(a.census).expanduser() if a.census else (project / DEFAULT_CENSUS_REL)
     if not census.is_absolute(): census = (project / census).resolve()
     out = pathlib.Path(a.output).expanduser()

@@ -86,26 +86,6 @@ def configured_source_roots(
         or (cfg.get('reference_source_root') if isinstance(cfg.get('reference_source_root'), str) else None)
     )
 
-    # Portable full releases should not force the user to re-enter the same
-    # source roots after every extraction.  These are bounded, known workspace
-    # candidates only; there is no broad disk scan.
-    if current is None:
-        for candidate in (
-            pathlib.Path.home() / 'Área de Trabalho' / 'summit' / 'SourceCode',
-            pathlib.Path.home() / 'Desktop' / 'summit' / 'SourceCode',
-        ):
-            if candidate.is_dir():
-                current = _safe_resolve(candidate)
-                break
-    if reference is None:
-        for candidate in (
-            pathlib.Path.home() / 'armazem' / 'priston' / 'PristonTale-EU-main-master',
-            pathlib.Path.home() / 'armazem' / 'priston' / 'PristonTale-EU-main',
-        ):
-            if candidate.is_dir():
-                reference = _safe_resolve(candidate)
-                break
-
     out: list[SourceTree] = []
     if current is not None:
         out.append(SourceTree('CURRENT_SOURCE', 'TARGET_RUNTIME_SOURCE', current))
@@ -134,13 +114,13 @@ def require_source_trees(
     if require_current and (current is None or not current.root.is_dir()):
         raise FileNotFoundError(
             'CURRENT_SOURCE_ROOT_NOT_FOUND; pass --source-root, set PT_SOURCE_ROOT, '
-            'or configure source_root in pt_asset_app_config.json'
+            'or configure source_root in pt_build/state/pt_asset_app_config.json'
         )
     if require_reference and (reference is None or not reference.root.is_dir()):
         raise FileNotFoundError(
             'REFERENCE_SOURCE_ROOT_NOT_FOUND; pass --reference-source-root, '
             'set PT_REFERENCE_SOURCE_ROOT, or configure reference_source_root '
-            'in pt_asset_app_config.json'
+            'in pt_build/state/pt_asset_app_config.json'
         )
     return current, reference
 

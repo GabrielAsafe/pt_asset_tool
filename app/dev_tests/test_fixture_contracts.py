@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from pt_asset_tool.config import Settings
 from pt_asset_tool.registry import AssetRegistry
 from pt_asset_tool.resolver import ClientResolver
@@ -8,6 +10,8 @@ from pt_asset_tool.ui_actions import build_command
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_CLIENT = ROOT.parent / "fixture_client"
 
+requires_fixture = pytest.mark.skipif(not FIXTURE_CLIENT.is_dir(), reason="external fixture_client is not packaged")
+
 
 def _registry():
     settings = Settings.discover(ROOT, FIXTURE_CLIENT)
@@ -15,6 +19,7 @@ def _registry():
     return AssetRegistry(settings.inventory, settings.pairing, resolver=resolver)
 
 
+@requires_fixture
 def test_real_fixture_rigid_bindings_and_motion_contexts():
     reg = _registry()
     expected = {
@@ -38,6 +43,5 @@ def test_stage072_gui_allows_backend_supported_stages():
 
 
 def test_stage072_gui_rejects_out_of_range_stage():
-    import pytest
     with pytest.raises(ValueError, match="INVALID_STAGE"):
         build_command(ROOT, "paint_stage072", "Field/Iron/iron-1.smd", {"stage": 8})

@@ -15,7 +15,7 @@ import argparse, importlib.util, pathlib, struct, sys
 def load_v3():
     here = pathlib.Path(__file__).resolve()
     candidates = [
-        here.parent / "history_py/pt_smd_blender_import_v3_static_armature.py",
+        here.parent / "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py",
         here.with_name("pt_smd_blender_import_v3_static_armature.py"),
     ]
     p = next((x for x in candidates if x.is_file()), None)

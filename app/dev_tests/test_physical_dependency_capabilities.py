@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import pytest
 from pt_asset_tool.config import Settings
 from pt_asset_tool.registry import AssetRegistry
 from pt_asset_tool.resolver import ClientResolver
@@ -7,6 +8,8 @@ from pt_asset_tool.ui_app import UIContext
 
 ROOT = Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
+
+pytestmark = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
 
 
 def test_physical_dependency_status_is_explicit_for_fixture_assets():

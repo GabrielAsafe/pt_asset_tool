@@ -4,6 +4,7 @@ import pathlib
 import struct
 from types import SimpleNamespace
 
+import pytest
 from pt_asset_tool.authoring import (
     authoring_plan,
     audit_model062_authoring,
@@ -16,6 +17,8 @@ from pt_asset_tool.resolver import ClientResolver
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
+
+requires_fixture = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
 
 
 def _static_smd(path: pathlib.Path, *, local_keys=False, multilayer=False):
@@ -107,6 +110,7 @@ def test_authoring_workspace_manifest_detects_source_and_dependency_drift(tmp_pa
     assert broken["client_write_authorized"] is False
 
 
+@requires_fixture
 def test_fixture_rigid_authoring_reports_explicit_candidate_contract():
     settings = Settings.discover(ROOT, CLIENT)
     resolver = ClientResolver(CLIENT)
@@ -121,6 +125,7 @@ def test_fixture_rigid_authoring_reports_explicit_candidate_contract():
     assert plan["client_write_authorized"] is False
 
 
+@requires_fixture
 def test_model062_authoring_audit_is_read_only_on_fixture_client():
     settings = Settings.discover(ROOT, CLIENT)
     resolver = ClientResolver(CLIENT)
@@ -196,6 +201,7 @@ def test_static_candidate_blender_command_is_background_and_hash_pinned(tmp_path
     assert cmd[cmd.index("--expected-source-sha256")+1] == "abc123"
 
 
+@requires_fixture
 def test_rigid_candidate_plan_and_noop_verifier_on_acero(tmp_path):
     from pt_asset_tool.rigid_authoring_candidate import (
         plan_rigid_saved_blender_candidate,

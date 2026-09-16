@@ -1,55 +1,5 @@
 {
-  "target_client": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente",
-  "target_server": "/home/gabriel/Área de Trabalho/summit/Servidor",
-  "donors": [
-    {
-      "label": "previous_client",
-      "side": "client",
-      "root": "/home/gabriel/old/velho",
-      "priority": 10
-    },
-    {
-      "label": "exmachina",
-      "side": "client",
-      "root": "/home/gabriel/armazem/priston/ExMachina/client",
-      "priority": 40
-    },
-    {
-      "label": "priston",
-      "side": "client",
-      "root": "/home/gabriel/armazem/priston/pristontale-1-master/bin/Client",
-      "priority": 50
-    },
-    {
-      "label": "exmachina",
-      "side": "server",
-      "root": "/home/gabriel/armazem/priston/ExMachina/server",
-      "priority": 40
-    },
-    {
-      "label": "priston",
-      "side": "server",
-      "root": "/home/gabriel/armazem/priston/pristontale-1-master/bin/Server",
-      "priority": 50
-    },
-
-
-    {
-      "label": "pt-eu",
-      "side": "client",
-      "root": "/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Game",
-      "priority": 10
-    },
-
-    {
-      "label": "pt-eu",
-      "side": "server",
-      "root": "/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Server",
-      "priority": 10
-    }
-
-
-
-
-  ]
+  "target_client": "__configure_target_client__",
+  "target_server": "__configure_target_server__",
+  "donors": []
 }

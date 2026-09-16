@@ -1,7 +1,7 @@
 from pathlib import Path
+from dev_tests._runtime_context import runtime_registry
 
 from pt_asset_tool.config import Settings
-from pt_asset_tool.registry import AssetRegistry
 from pt_asset_tool.release_1_coverage import content_domain
 from pt_asset_tool.standalone_rigid_devtest import (
     choose_standalone_rigid_representatives,
@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _registry():
-    return AssetRegistry(ROOT / "data/asset_registry/asset_inventory.json", ROOT / "data/asset_registry/inx_physical_pairing.csv")
+    return runtime_registry()
 
 
 def test_unbound_effect_and_map_rigid_assets_have_deterministic_sibling_hypotheses():

@@ -23,8 +23,8 @@ Release 1.0 is shipped **safety-locked**. `production_authorized`, `client_write
 
 1. physical `release-1-auto --resume`: automatic PASS / zero automatic blockers;
 2. `VERIFY_PACKAGE.sh`: PASS after version bump;
-3. `pt_rc6_12_verify.py`: PASS;
-4. clean archive excludes `app/pt_build`, caches and local patch backups;
+3. fresh-install/registry bootstrap regression: PASS;
+4. clean archive excludes `app/pt_build`, generated registry/certifications, caches, historical backups and machine-local configuration;
 5. extracted clean archive passes `VERIFY_PACKAGE.sh`;
 6. SHA-256 release checksum emitted beside the archive.
 

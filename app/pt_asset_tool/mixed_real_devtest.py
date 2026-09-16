@@ -294,7 +294,7 @@ def run_mixed_physique_physical_automated_devtest(
     expected_path = reimport_work / "expected.json"
     expected_path.write_text(json.dumps(expected, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     reimport_blend = reimport_work / "candidate_reimport.blend"
-    importer = project_root / "history_py" / "pt_smd_blender_import_v3_static_armature.py"
+    importer = project_root / "pt_asset_tool" / "legacy_runtime" / "pt_smd_blender_import_v3_static_armature.py"
     reimport_cmd = settings.blender_command() + [
         "--background", "--python-exit-code", "1", "--python", str(importer), "--",
         "--smd", str(output), "--skeleton", str(skeleton),

@@ -1,6 +1,8 @@
 from pathlib import Path
 from types import SimpleNamespace
 
+from dev_tests._runtime_context import runtime_registry
+
 from pt_asset_tool.animation_pose_devtest import choose_animation_pose_representatives
 from pt_asset_tool.config import Settings
 from pt_asset_tool.registry import AssetRegistry
@@ -10,8 +12,7 @@ import pt_asset_tool.physical_regression_auto as physical_mod
 
 
 def test_animation_selector_uses_motion_owning_inx_for_mfbc01():
-    settings=Settings.discover(None,None)
-    registry=AssetRegistry(settings.inventory,settings.pairing)
+    registry=runtime_registry()
     rows=choose_animation_pose_representatives(registry,"PLAYER",limit=100)
     hit=next(r for r in rows if r["asset"].casefold()=="char/tmabcd/mfbc01.smd".casefold())
     assert hit["model_info_inx"].casefold()=="char/tmabcd/m5bip.inx".casefold()

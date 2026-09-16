@@ -1,11 +1,11 @@
 from pathlib import Path
-from pt_asset_tool.registry import AssetRegistry
+from dev_tests._runtime_context import runtime_registry
 from pt_asset_tool.rigid_model_info import audit_rigid_lod_context_corpus
 
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_rigid_lod_corpus_audits_single_and_multi_configs_and_classifies_known_outliers():
-    reg=AssetRegistry(ROOT/'data/asset_registry/asset_inventory.json',ROOT/'data/asset_registry/inx_physical_pairing.csv')
+    reg=runtime_registry()
     report=audit_rigid_lod_context_corpus(reg,sample_limit=20)
     assert report['status']=='PASS'
     assert report['config_count'] > 2000

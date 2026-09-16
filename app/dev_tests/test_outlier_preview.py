@@ -9,6 +9,8 @@ from pt_asset_tool.ui_image import PreviewDecodeError, preview_image_bytes
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
 
+pytestmark = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
+
 
 def test_archivotmp_uses_existing_preview_only_recovery():
     data, mime = preview_image_bytes(CLIENT / "Effect/Particle/ArchivoTmp.tga", ROOT)

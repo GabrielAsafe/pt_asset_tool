@@ -1,21 +1,19 @@
 from pathlib import Path
-
-from pt_asset_tool.config import Settings
-from pt_asset_tool.development_readiness import audit_development_readiness
-from pt_asset_tool.profile_registry import CharacterProfileRegistry
-from pt_asset_tool.registry import AssetRegistry
+from dev_tests._runtime_context import runtime_settings, runtime_registry
 from pt_asset_tool.resolver import ClientResolver
 
+from pt_asset_tool.development_readiness import audit_development_readiness
+from pt_asset_tool.profile_registry import CharacterProfileRegistry
+
 ROOT = Path(__file__).resolve().parents[1]
-CLIENT = ROOT.parent / "fixture_client"
 
 
 def test_readiness_is_machine_readable_and_never_promotes_candidates():
-    settings = Settings.discover(ROOT, CLIENT)
-    resolver = ClientResolver(CLIENT)
-    registry = AssetRegistry(settings.inventory, settings.pairing, resolver=resolver)
-    profiles = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
-    report = audit_development_readiness(ROOT, CLIENT, registry, resolver, profiles, deep=False)
+    settings = runtime_settings()
+    resolver = ClientResolver(settings.client_root)
+    registry = runtime_registry()
+    profiles = CharacterProfileRegistry(ROOT / "dev_tests" / "fixtures" / "character_profiles")
+    report = audit_development_readiness(ROOT, settings.client_root, registry, resolver, profiles, deep=False)
     assert report["status"] == "PASS"
     assert report["development_state"] == "IN_PROGRESS"
     assert report["client_modified"] is False
@@ -28,11 +26,11 @@ def test_readiness_is_machine_readable_and_never_promotes_candidates():
 
 
 def test_mixed_physique_is_deferred_when_no_canonical_representative_exists():
-    settings = Settings.discover(ROOT, CLIENT)
-    resolver = ClientResolver(CLIENT)
-    registry = AssetRegistry(settings.inventory, settings.pairing, resolver=resolver)
-    profiles = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
-    report = audit_development_readiness(ROOT, CLIENT, registry, resolver, profiles, deep=False)
+    settings = runtime_settings()
+    resolver = ClientResolver(settings.client_root)
+    registry = runtime_registry()
+    profiles = CharacterProfileRegistry(ROOT / "dev_tests" / "fixtures" / "character_profiles")
+    report = audit_development_readiness(ROOT, settings.client_root, registry, resolver, profiles, deep=False)
     mixed = report["stages"]["mixed_physique"]
     assert mixed["evidence"]["mixed_count"] == 0
     assert mixed["maturity"] == "DEFERRED_NO_REPRESENTATIVE"
@@ -40,10 +38,10 @@ def test_mixed_physique_is_deferred_when_no_canonical_representative_exists():
 
 
 def test_deep_readiness_promotes_candidate_evidence_only_to_source_semantic_level():
-    settings = Settings.discover(ROOT, CLIENT)
-    resolver = ClientResolver(CLIENT)
-    registry = AssetRegistry(settings.inventory, settings.pairing, resolver=resolver)
-    profiles = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
+    settings = runtime_settings()
+    resolver = ClientResolver(settings.client_root)
+    registry = runtime_registry()
+    profiles = CharacterProfileRegistry(ROOT / "dev_tests" / "fixtures" / "character_profiles")
     report = audit_development_readiness(
         ROOT, CLIENT, registry, resolver, profiles,
         deep=True, animation_pair_limit=1, sample_limit=3,

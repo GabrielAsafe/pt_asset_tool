@@ -99,13 +99,13 @@ No pacote integrado:
 ```bash
 cd app
 python3 pt_asset.py config set-server-root \
-  "/home/gabriel/Área de Trabalho/summit/Servidor"
+  "/path/to/Servidor"
 ```
 
 Ou use:
 
 ```bash
---server-root "/home/gabriel/Área de Trabalho/summit/Servidor"
+--server-root "/path/to/Servidor"
 ```
 
 ## 5. Gates read-only integrados
@@ -195,12 +195,12 @@ Mais de um OpenItem usa o mesmo code. É uma colisão semântica que precisa de 
 
 A identidade do OpenItem não foi extraída com segurança.
 
-## 8. Plano e grafo v6 dentro do Design Tool
+## 8. Plano e grafo v9 dentro do Design Tool
 
 A integração preserva a ferramenta original, mas oferece duas operações **read-only** diretamente na aba `Servidor / Enrichment`:
 
 - **Gerar plano v9** — executa o planner do Asset Enrichment em modo `plan`, usando os roots configurados no Design Tool. O resultado vai para `pt_build/enrichment_vendor`; nenhuma linha é aplicada automaticamente.
-- **Grafo de dependências v6** — executa o gerador de grafo e grava os artefatos em `pt_build/enrichment_vendor`. Ele serve para visualizar referências e gaps, não para corrigir conteúdo sozinho.
+- **Grafo de dependências v9** — executa o gerador de grafo e grava os artefatos em `pt_build/enrichment_vendor`. Ele serve para visualizar referências e gaps, não para corrigir conteúdo sozinho.
 
 Os equivalentes de CLI são:
 
@@ -211,7 +211,7 @@ python3 pt_asset.py --client-root "/caminho/cliente" --server-root "/caminho/Ser
 
 O Design Tool **não expõe `apply` pela UI**. Isso é intencional: planejar e explicar dependências é seguro durante desenvolvimento; publicar conteúdo pertence ao fluxo de release/rollback.
 
-## 9. A versão standalone v6
+## 9. A versão standalone v9
 
 A ferramenta original possui scripts adicionais de planejamento, reverse engineering e criação de conteúdo.
 

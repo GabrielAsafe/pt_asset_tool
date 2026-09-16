@@ -3,14 +3,14 @@ from __future__ import annotations
 from pathlib import Path
 from types import SimpleNamespace
 
-from pt_asset_tool.registry import AssetRegistry
 from pt_asset_tool.release_1_auto import run_release_1_automated_gate
+from dev_tests._runtime_context import runtime_registry
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
 def _registry():
-    return AssetRegistry(ROOT/'data/asset_registry/asset_inventory.json',ROOT/'data/asset_registry/inx_physical_pairing.csv')
+    return runtime_registry()
 
 
 def _settings(tmp_path):

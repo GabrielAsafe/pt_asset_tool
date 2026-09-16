@@ -1,1 +1,3 @@
-app/certifications/assets.jsonl
+# Runtime mutable state is never part of the static package snapshot.
+# It is generated per installation under app/pt_build/ and excluded by
+# app/update_snapshot_manifest.py.

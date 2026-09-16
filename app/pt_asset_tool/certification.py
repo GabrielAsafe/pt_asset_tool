@@ -55,6 +55,10 @@ class CertificationRegistry:
             latest[key] = r
         return latest
 
-    def latest_result(self, asset_id: str, test: str, layer: str) -> str | None:
+    def latest_result(self, asset_id: str, test: str, layer: str, *, source_sha256: str | None = None) -> str | None:
         row = self.latest(asset_id).get((asset_id, test, layer))
-        return row.get("result") if row else None
+        if not row:
+            return None
+        if source_sha256 is not None and str(row.get("source_sha256") or "").casefold() != str(source_sha256).casefold():
+            return None
+        return row.get("result")

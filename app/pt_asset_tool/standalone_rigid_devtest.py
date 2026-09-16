@@ -587,7 +587,7 @@ def run_standalone_rigid_automated_devtest(
     runner = ValidationRunner(ValidationContext(settings, resolver, certifications))
     overlay, texture_report = runner._texture_overlay(asset, import_work)
     pristine = import_work / "pristine_import.blend"
-    importer = root / "history_py" / "pt_smd_blender_import_v3_static_armature.py"
+    importer = root / "pt_asset_tool" / "legacy_runtime" / "pt_smd_blender_import_v3_static_armature.py"
     lod_config = choose_authorable_lod_config_for_explicit_skeleton(asset)
     import_cmd = settings.blender_command() + [
         "--background", "--python-exit-code", "1", "--python", str(importer), "--",

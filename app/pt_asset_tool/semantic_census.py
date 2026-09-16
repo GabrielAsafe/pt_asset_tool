@@ -20,12 +20,7 @@ from .utils import norm_path, sha256_file
 FORMAT = "PT_FULL_ASSET_SEMANTIC_CENSUS_V1"
 UI_FORMAT = "PT_UI_ASSET_CATALOG_V1"
 RELEASE = "0.9.0"
-CERTIFIED_WRITERS = {
-    "pt_asset_tool/rare_rigid_edit.py": "229a8e216cff16c68b61ad04d312e4ef6163ac955147f823ea7ed1164f524c42",
-    "pt_asset_tool/rare_rigid_multivertex.py": "0b43a3ced314c719bd1c6165a6715f37230b4d3d2d21586d6158a844d8f91991",
-    "pt_asset_tool/rare_rigid_multibone_bridge.py": "010c77d73e7579cbdda622548f07df95ca68471fd4eacba058b3c83e79e853b0",
-    "pt_asset_tool/rare_rigid_normal_bridge.py": "67e529d3d04012ea7c3ac1b6a5576525a77870b4e452c4336955100b5bb8ff96",
-}
+from .certified_writers import CERTIFIED_WRITERS
 POLICY_FILES = [
     "pt_build/rare_rigid_large_production_policy_v0821.json",
     "pt_build/rare_rigid_cross_object_production_policy_v0830.json",

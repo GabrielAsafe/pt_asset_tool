@@ -121,7 +121,7 @@ def _load_evaluator_without_cli(path: pathlib.Path):
 def load_smb_evaluator(root: pathlib.Path):
     """Load only the legacy SMB evaluator/parser without importing its CLI."""
     root = pathlib.Path(root)
-    evaluator = _load_evaluator_without_cli(root / "history_py/pt_smb_motion_evaluator_v1.py")
+    evaluator = _load_evaluator_without_cli(root / "pt_asset_tool/legacy_runtime/pt_smb_motion_evaluator_v1.py")
     _legacy_slerp = evaluator.quaternion_slerp_source
 
     def _slerp_null_is_identity(ax, ay, az, aw, bx, by, bz, bw, alpha):

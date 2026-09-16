@@ -92,7 +92,7 @@
         <section class="panel server-root-panel">
           <div class="panel-title"><strong>Raiz do servidor</strong><span id="serverRootStatus">Carregando…</span></div>
           <div class="server-root-form">
-            <input id="serverRootInput" type="text" placeholder="/home/gabriel/Área de Trabalho/summit/Servidor" />
+            <input id="serverRootInput" type="text" placeholder="/path/to/Summit/Servidor" />
             <button id="saveServerRootBtn" class="btn">Salvar raiz</button>
             <button id="serverEnvBtn" class="btn">Validar ambiente</button>
             <button id="serverDesignBtn" class="btn primary">Analisar Asset Enrichment</button>
@@ -108,8 +108,8 @@
           <div class="contract-root-form">
             <label>Source Summit<input id="sourceRootInput" type="text" placeholder="/caminho/para/src_atual" /></label>
             <label>Source EU de referência<input id="referenceSourceRootInput" type="text" placeholder="/caminho/para/PristonTale-EU" /></label>
-            <label class="contract-donors">Donor clients read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractDonorsInput" placeholder="OFFICIAL=/home/gabriel/old/velho&#10;PT_EU=/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Game"></textarea></label>
-            <label class="contract-donors">Donor servers read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractServerDonorsInput" placeholder="PT_EU_SERVER=/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Server&#10;EXMACHINA_SERVER=/home/gabriel/armazem/priston/ExMachina/server"></textarea></label>
+            <label class="contract-donors">Donor clients read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractDonorsInput" placeholder="OFFICIAL=/path/to/donor/client&#10;PT_EU=/path/to/another/client"></textarea></label>
+            <label class="contract-donors">Donor servers read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractServerDonorsInput" placeholder="PT_EU_SERVER=/path/to/donor/server&#10;REFERENCE_SERVER=/path/to/another/server"></textarea></label>
             <div class="contract-actions">
               <button id="saveContractRootsBtn" class="btn">Salvar fontes</button>
               <button id="sourceContractsBtn" class="btn">Ler contratos do source</button>

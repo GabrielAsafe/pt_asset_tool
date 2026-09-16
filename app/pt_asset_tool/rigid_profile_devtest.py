@@ -201,7 +201,7 @@ def run_rigid_profile_automated_devtest(
     parsed_candidate = parse_model062_bytes(output.read_bytes())
     reimport_results: dict[str, Any] = {}
     check_script = project_root / "pt_asset_tool" / "blender" / "check_rigid_profile_devtest.py"
-    import_script = project_root / "history_py" / "pt_smd_blender_import_v3_static_armature.py"
+    import_script = project_root / "pt_asset_tool" / "legacy_runtime" / "pt_smd_blender_import_v3_static_armature.py"
     for lod in ("high", "default", "low"):
         expected_names = list((profile_plan.get("lod_groups") or {}).get(lod) or [])
         expected_contract = {"format": "PT_RIGID_PROFILE_AUTOMATED_REIMPORT_EXPECTED_V1", "lod": lod, "objects": {}}

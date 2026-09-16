@@ -18,8 +18,8 @@ def test_entity_endpoint_groups_live_client(tmp_path: pathlib.Path):
     project = tmp_path / 'project'
     client = tmp_path / 'client'
     (project / 'pt_asset_tool').mkdir(parents=True)
-    (project / 'data/entity_catalog').mkdir(parents=True)
-    (project / 'data/entity_catalog/monster_npc_entities_v1.json').write_text(json.dumps({
+    (project / 'data/reference/entity_catalog').mkdir(parents=True)
+    (project / 'data/reference/entity_catalog/monster_npc_entities_v1.json').write_text(json.dumps({
         'format':'PT_ENTITY_CATALOG_SEED_V1','status':'PASS','entity_count':1,'monster_count':0,'npc_count':1,
         'entities':[{'entity_key':'NPC|char/npc/ahin','display_name':'Ahin','file_count':4}],
     }))

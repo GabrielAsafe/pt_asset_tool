@@ -70,6 +70,8 @@ def test_object_local_writer_corpus_is_explicit_when_fixture_has_no_editable_sam
     from pt_asset_tool.object_local_writer import audit_object_local_writer_corpus
     root=Path(__file__).resolve().parents[1]
     client=root.parent/'fixture_client'
+    if not client.is_dir():
+        pytest.skip("external fixture_client is not packaged")
     settings=Settings.discover(root,client)
     resolver=ClientResolver(client)
     registry=AssetRegistry(settings.inventory,settings.pairing,resolver=resolver)

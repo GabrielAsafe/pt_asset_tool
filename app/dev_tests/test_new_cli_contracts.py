@@ -6,8 +6,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
+
+requires_fixture = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
 CORE = ROOT / "pt_asset_core_v0_8_9.py"
 APP = ROOT / "pt_asset.py"
 
@@ -21,6 +25,7 @@ def _run(*args):
     )
 
 
+@requires_fixture
 def test_binding_coverage_cli_contract():
     r = _run("audit", "binding-coverage", "--category", "MONSTER", "--sample-limit", "1")
     assert r.returncode == 0, r.stdout
@@ -29,6 +34,7 @@ def test_binding_coverage_cli_contract():
     assert d["policy"]["folder_identity_is_binding_evidence"] is False
 
 
+@requires_fixture
 def test_profile_verify_cli_fails_closed_on_partial_fixture():
     r = _run("profiles", "verify", "pikeman_c01_m4")
     assert r.returncode == 3, r.stdout
@@ -38,6 +44,7 @@ def test_profile_verify_cli_fails_closed_on_partial_fixture():
     assert d["results"][0]["authoring_authorized"] is False
 
 
+@requires_fixture
 def test_entities_cli_exposes_registry_evidence_without_runtime_promotion():
     r = _run("entities", "inspect", "NPC", "Ahin")
     assert r.returncode == 0, r.stdout
@@ -64,6 +71,7 @@ def test_consolidated_help_surfaces_new_normal_commands():
     assert "import ASSET" in r.stdout and "build ASSET --plan" in r.stdout
 
 
+@requires_fixture
 def test_candidate_writer_corpus_audit_cli_contracts():
     for audit_name in ("inx-writer-corpus", "smb-writer-corpus"):
         proc = subprocess.run(
@@ -86,6 +94,7 @@ def _run_app(*args):
     )
 
 
+@requires_fixture
 def test_assets_list_default_is_catalog_focused_and_gates_are_opt_in():
     plain = _run_app("assets", "list", "--limit", "1")
     assert plain.returncode == 0, plain.stdout

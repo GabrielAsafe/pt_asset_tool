@@ -25,6 +25,7 @@
 - `engenharia/MAPA_MODULOS_SCRIPTS.md` — mapa conceitual histórico/detalhado;
 - `engenharia/REVERSE_ENGINEERING_FORMATOS.md` — formatos e descobertas históricas;
 - `engenharia/SNAPSHOT_MANIFEST_POLICY.md` — integridade do pacote.
+- `engenharia/SUMMIT_GAME_ASSET_ENRICHMENT.md` — arquitetura server-aware e bundles client/server.
 
 ## Release 1.0
 
@@ -45,6 +46,8 @@
 - `tematicos/SUPERSET_AGGREGATOR.md`;
 - `tematicos/ASSET_CONTRACT_GRAPH.md`.
 
-## Histórico
+## Evidência e histórico
 
-`validation/`, documentos datados anteriores e `togpt_dont_bother_reading/` são mantidos como evidência/histórico. Quando houver conflito com o estado atual, os documentos `*_1_0.md`, `CURRENT_READINESS.json`, `VALIDATION_STATUS.md` e `release/RELEASE_1_CERTIFICATION.md` têm precedência.
+O pacote distribui apenas documentação atual, os patch notes de validação desta revisão e a evidência final necessária da Release 1. Backups, handoffs intermediários e relatórios RC substituídos ficam no histórico Git, não na instalação operacional.
+
+Os documentos `*_1_0.md`, `CURRENT_READINESS.json`, `VALIDATION_STATUS.md` e `release/RELEASE_1_CERTIFICATION.md` são as referências autoritativas do estado atual.

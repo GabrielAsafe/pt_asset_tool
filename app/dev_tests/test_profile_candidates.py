@@ -1,20 +1,15 @@
 from pathlib import Path
+from dev_tests._runtime_context import runtime_registry
 
-from pt_asset_tool.config import Settings
 from pt_asset_tool.profile_candidates import discover_profile_candidates
 from pt_asset_tool.profile_registry import CharacterProfileRegistry
-from pt_asset_tool.registry import AssetRegistry
-from pt_asset_tool.resolver import ClientResolver
 
 ROOT = Path(__file__).resolve().parents[1]
-CLIENT = ROOT.parent / "fixture_client"
 
 
 def _context():
-    settings = Settings.discover(ROOT, CLIENT)
-    resolver = ClientResolver(CLIENT)
-    registry = AssetRegistry(settings.inventory, settings.pairing, resolver=resolver)
-    profiles = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
+    registry = runtime_registry()
+    profiles = CharacterProfileRegistry(ROOT / "dev_tests" / "fixtures" / "character_profiles")
     return registry, profiles
 
 

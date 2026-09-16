@@ -294,11 +294,7 @@ O rollback remove somente arquivos cujo SHA ainda é o instalado pela transaçã
 
 A v7 adiciona uma auditoria dedicada ao Fix 136 sem alterar o fluxo conservador do migrador principal.
 
-Fontes configuradas em `fix136_paths.json`:
-
-- `/home/gabriel/old/velho` — root histórico/base; varrido recursivamente;
-- `/home/gabriel/armazem/priston/ExMachina` — root ExMachina completo; varrido recursivamente;
-- `/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files` — base PT/EU; varrida recursivamente e com maior prioridade de seleção.
+Fontes são configuradas localmente em `fix136_paths.json`. O ficheiro distribuído é neutro (`sources: []`) e não contém caminhos da máquina de desenvolvimento. Adicione explicitamente as roots que pretende auditar; a ordem/prioridade é definida pela configuração local.
 
 A pesquisa **não pára no primeiro hit**. Para cada asset, o relatório preserva os candidatos de todas as fontes, o tipo de match (`EXACT`, `SUFFIX`, `BASENAME`), tamanho e SHA-256. Isso permite separar “encontrado” de “encontrado mas divergente”.
 
@@ -358,7 +354,7 @@ python3 audit_fix136_skill_assets.py \
   --stage-dir generated/fix136_patch_v9
 ```
 
-No relatório enviado da v7 existiam 54 candidatos recuperáveis bloqueados: 32 buttons Mechanician, 4 scripts `.part`, 17 dependências transitivas e `As2_VENOM.tga`. A v9 contém regras específicas e auditáveis para resolver estes quatro grupos. Consulte `reports/FIX136_V7_RUN_DIAGNOSIS_2026-09-05.md` e `reports/fix136_v7_resolution_plan.csv`.
+A execução que originou a v9 identificou 54 candidatos recuperáveis bloqueados: 32 buttons Mechanician, 4 scripts `.part`, 17 dependências transitivas e `As2_VENOM.tga`. A v9 incorpora diretamente regras específicas e auditáveis para esses quatro grupos; os relatórios intermediários anteriores permanecem recuperáveis pelo histórico Git e não fazem parte da instalação fresh.
 
 
 ## V9 Fix 136 additions

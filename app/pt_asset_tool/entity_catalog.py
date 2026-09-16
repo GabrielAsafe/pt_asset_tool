@@ -5,7 +5,7 @@ import pathlib
 from collections import Counter
 from typing import Any, Iterable
 
-SEED_REL = pathlib.Path('data/entity_catalog/monster_npc_entities_v1.json')
+SEED_REL = pathlib.Path('data/reference/entity_catalog/monster_npc_entities_v1.json')
 ENTITY_CATEGORIES = {'MONSTER', 'NPC'}
 
 

@@ -204,7 +204,11 @@ def _resolve_exact(logical: str, target, donors: list) -> dict[str, Any]:
 
 
 def _load_pairing(project_root: pathlib.Path) -> dict[str, dict[str, str]]:
-    p = pathlib.Path(project_root) / 'data' / 'asset_registry' / 'inx_physical_pairing.csv'
+    try:
+        from .config import Settings
+        p = Settings.discover(pathlib.Path(project_root)).pairing
+    except Exception:
+        return {}
     if not p.is_file():
         return {}
     out: dict[str, dict[str, str]] = {}

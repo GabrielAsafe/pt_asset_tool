@@ -6,6 +6,8 @@ import subprocess
 import sys
 from typing import Any, Callable
 
+from .app_config import configured_contract_donor_clients, configured_contract_donor_servers
+
 FORMAT_PLAN = "PT_ASSET_ENRICHMENT_VENDOR_PLAN_V1"
 FORMAT_GRAPH = "PT_ASSET_ENRICHMENT_VENDOR_GRAPH_V1"
 
@@ -26,15 +28,23 @@ def _current_config(
     project = pathlib.Path(project_root).resolve()
     client = pathlib.Path(client_root).resolve()
     server = pathlib.Path(server_root).resolve()
-    vendor = _vendor_root(project)
-    raw = json.loads((vendor / "summit_paths.json").read_text(encoding="utf-8"))
+    _vendor_root(project)  # fail early if the certified vendor is absent
     available: list[dict[str, Any]] = []
     missing: list[dict[str, Any]] = []
-    for donor in raw.get("donors") or []:
-        if not isinstance(donor, dict):
-            continue
-        row = dict(donor)
-        donor_path = pathlib.Path(str(row.get("root") or "")).expanduser()
+
+    # Donors are machine-local external evidence.  Never inherit the paths that
+    # happened to be used while the embedded vendor package was developed.
+    # Fresh installations start with no donors and use only roots explicitly
+    # persisted in the application's runtime configuration.
+    configured = [
+        ("client", raw) for raw in configured_contract_donor_clients(project)
+    ] + [
+        ("server", raw) for raw in configured_contract_donor_servers(project)
+    ]
+    for priority, (side, raw) in enumerate(configured, start=10):
+        label, path_text = raw.split("=", 1)
+        donor_path = pathlib.Path(path_text).expanduser()
+        row = {"label": label, "side": side, "root": str(donor_path), "priority": priority}
         if donor_path.is_dir():
             row["root"] = str(donor_path.resolve())
             available.append(row)

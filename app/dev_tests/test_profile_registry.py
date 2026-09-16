@@ -8,7 +8,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 
 def test_canonical_profile_registry_has_corrected_identity_and_lods():
-    reg = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
+    reg = CharacterProfileRegistry(ROOT / "dev_tests" / "fixtures" / "character_profiles")
     ids = {p.profile_id for p in reg.list()}
     assert ids == {"pikeman_c01_m4", "priestess_c01_m5"}
     priestess = reg.get("priestess_c01_m5")
@@ -21,18 +21,19 @@ def test_canonical_profile_registry_has_corrected_identity_and_lods():
 
 
 def test_lod_all_is_stable_unique_order():
-    reg = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
+    reg = CharacterProfileRegistry(ROOT / "dev_tests" / "fixtures" / "character_profiles")
     p = reg.get("priestess_c01_m5")
     all_objects = p.lod("all")
     assert all_objects[:3] == p.lod("high")
     assert len(all_objects) == len(set(all_objects))
 
 
-def test_profile_verify_detects_required_components_on_fixture_client():
+def test_profile_verify_detects_required_components_on_empty_client(tmp_path):
     from pt_asset_tool.resolver import ClientResolver
     root = ROOT
-    client = root.parent / "fixture_client"
-    reg = CharacterProfileRegistry(root / "data" / "character_profiles")
+    client = tmp_path / "client"
+    client.mkdir()
+    reg = CharacterProfileRegistry(root / "dev_tests" / "fixtures" / "character_profiles")
     # The partial fixture client is not expected to contain the canonical player
     # profiles; verification must fail cleanly rather than authorize anything.
     result = reg.verify("pikeman_c01_m4", ClientResolver(client))
@@ -45,7 +46,7 @@ def test_profile_verify_detects_required_components_on_fixture_client():
 
 
 def test_profile_match_asset_uses_exact_path_evidence_only():
-    reg = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
+    reg = CharacterProfileRegistry(ROOT / "dev_tests" / "fixtures" / "character_profiles")
     hits = reg.match_asset("char/tmABCD/TmbC01.smd")
     assert len(hits) == 1
     assert hits[0]["profile_id"] == "pikeman_c01_m4"

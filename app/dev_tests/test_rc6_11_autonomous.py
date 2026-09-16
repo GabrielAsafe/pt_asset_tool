@@ -115,7 +115,7 @@ def test_static_corpus_uses_physical_object_list(monkeypatch, tmp_path):
 
 
 def test_blender_importer_preserves_external_parent_metadata_source_contract():
-    text=pathlib.Path('history_py/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
+    text=pathlib.Path('pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
     assert 'parent and parent in edit_bones' in text
     assert 'pt_external_parent_count' in text
     assert 'pt_animation_pose_certified' in text
@@ -150,7 +150,7 @@ def test_material_declared_strings_allow_only_nul_padding(tmp_path):
 
 
 def test_conflicting_duplicate_skeleton_support_remains_rigid_only_contract():
-    importer=pathlib.Path('history_py/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
+    importer=pathlib.Path('pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
     writer=pathlib.Path('pt_blender_to_smd_free_mesh_v3.py').read_text(encoding='utf-8')
     assert 'duplicate_conflict_direct_physique_refs' in importer
     assert 'pt_duplicate_skeleton_conflict_count' in importer
@@ -478,7 +478,8 @@ def test_npc_object_token_texture_alias_requires_matching_object_token():
 
 def test_current_inventory_texture_alias_surface_is_exactly_nine():
     from pt_asset_tool.registry import AssetRegistry, low_path
-    data=json.loads(pathlib.Path('data/asset_registry/asset_inventory.json').read_text(encoding='utf-8'))
+    from dev_tests._runtime_context import runtime_registry
+    data={'records': runtime_registry().records}
     reg=object.__new__(AssetRegistry)
     reg.records=data['records']
     reg.by_rel={low_path(r.get('relative_path')):r for r in reg.records}

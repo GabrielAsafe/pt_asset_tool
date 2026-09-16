@@ -6,10 +6,17 @@ import pathlib
 from typing import Any
 
 CONFIG_FILENAME = "pt_asset_app_config.json"
+STATE_RELATIVE_DIR = pathlib.Path("pt_build") / "state"
 
 
 def config_path(project_root: pathlib.Path) -> pathlib.Path:
-    return project_root.resolve() / CONFIG_FILENAME
+    """Return the machine-local configuration path.
+
+    Configuration is runtime state and must never be shipped as part of a
+    release snapshot.  Keeping it under ``pt_build/state`` also makes a fresh
+    checkout deterministic: no developer-specific absolute paths are loaded.
+    """
+    return project_root.resolve() / STATE_RELATIVE_DIR / CONFIG_FILENAME
 
 
 def load_config(project_root: pathlib.Path) -> dict[str, Any]:
@@ -75,11 +82,9 @@ def candidate_client_roots_with_source(project_root: pathlib.Path) -> list[tuple
         (project_root / "Summit Tale Client Full" / "cliente", "PROJECT_LAYOUT"),
         (project_root / "client", "PROJECT_CLIENT_DIR"),
         (project_root / "cliente", "PROJECT_CLIENTE_DIR"),
+        (parent.parent / "client", "WORKSPACE_CLIENT_DIR"),
+        (parent.parent / "cliente", "WORKSPACE_CLIENTE_DIR"),
         (parent / "summit" / "Summit Tale Client Full" / "cliente", "SIBLING_SUMMIT_LAYOUT"),
-        # Keep app-level status/smoke discovery consistent with Settings.discover(),
-        # which historically supported this Summit workspace location.
-        (pathlib.Path.home() / "Área de Trabalho" / "summit" / "Summit Tale Client Full" / "cliente", "LEGACY_HOME_DESKTOP_LAYOUT"),
-        (pathlib.Path.home() / "Desktop" / "summit" / "Summit Tale Client Full" / "cliente", "HOME_DESKTOP_LAYOUT"),
     ])
 
     # Shallow sibling discovery keeps the tool relocatable without scanning the disk.
@@ -163,9 +168,8 @@ def candidate_server_roots_with_source(project_root: pathlib.Path) -> list[tuple
     candidates.extend([
         (project_root / "Servidor", "PROJECT_SERVIDOR_DIR"),
         (parent / "Servidor", "PARENT_SERVIDOR_DIR"),
+        (parent.parent / "Servidor", "WORKSPACE_SERVIDOR_DIR"),
         (parent / "summit" / "Servidor", "SIBLING_SUMMIT_LAYOUT"),
-        (pathlib.Path.home() / "Área de Trabalho" / "summit" / "Servidor", "LEGACY_HOME_DESKTOP_LAYOUT"),
-        (pathlib.Path.home() / "Desktop" / "summit" / "Servidor", "HOME_DESKTOP_LAYOUT"),
     ])
 
     try:
@@ -246,10 +250,10 @@ def clear_reference_source_root(project_root: pathlib.Path) -> pathlib.Path:
 
 
 def configured_contract_donor_clients(project_root: pathlib.Path) -> list[str]:
-    """Return persisted read-only donor roots as LABEL=PATH strings.
+    """Return explicitly persisted read-only donor roots as LABEL=PATH strings.
 
-    When a freshly extracted FULL release has no local config yet, use only the
-    two bounded Summit workspace donor locations if they physically exist.
+    Fresh installations intentionally have no implicit donor roots.  A donor is
+    external evidence and must be selected by the user or supplied on the CLI.
     """
     cfg = load_config(project_root)
     raw = cfg.get("contract_donor_clients")
@@ -262,14 +266,7 @@ def configured_contract_donor_clients(project_root: pathlib.Path) -> list[str]:
             path = str(row.get("path") or "").strip()
             if label and path:
                 out.append(f"{label}={path}")
-    if out:
-        return out
-    candidates = [
-        ('OFFICIAL', pathlib.Path.home() / 'old' / 'velho'),
-        ('PT_EU', pathlib.Path.home() / 'armazem' / 'priston' / 'servidor_cliente_PT_EU' / 'Files' / 'Game'),
-    ]
-    return [f"{label}={path.resolve()}" for label, path in candidates if path.is_dir()]
-
+    return out
 
 def save_contract_donor_clients(project_root: pathlib.Path, donors: list[str]) -> pathlib.Path:
     """Persist validated read-only donor roots. Input is a list of LABEL=PATH strings."""
@@ -301,10 +298,9 @@ def save_contract_donor_clients(project_root: pathlib.Path, donors: list[str]) -
 
 
 def configured_contract_donor_servers(project_root: pathlib.Path) -> list[str]:
-    """Return persisted read-only donor server roots as LABEL=PATH strings.
+    """Return explicitly persisted read-only donor server roots.
 
-    Fresh FULL releases use the two bounded Summit workspace reference servers
-    when they physically exist.
+    No developer-specific server paths are guessed on a fresh installation.
     """
     cfg = load_config(project_root)
     raw = cfg.get("contract_donor_servers")
@@ -317,14 +313,7 @@ def configured_contract_donor_servers(project_root: pathlib.Path) -> list[str]:
             path = str(row.get("path") or "").strip()
             if label and path:
                 out.append(f"{label}={path}")
-    if out:
-        return out
-    candidates = [
-        ('PT_EU_SERVER', pathlib.Path.home() / 'armazem' / 'priston' / 'servidor_cliente_PT_EU' / 'Files' / 'Server'),
-        ('EXMACHINA_SERVER', pathlib.Path.home() / 'armazem' / 'priston' / 'ExMachina' / 'server'),
-    ]
-    return [f"{label}={path.resolve()}" for label, path in candidates if path.is_dir()]
-
+    return out
 
 def save_contract_donor_servers(project_root: pathlib.Path, donors: list[str]) -> pathlib.Path:
     """Persist validated read-only donor server roots. Input is LABEL=PATH."""

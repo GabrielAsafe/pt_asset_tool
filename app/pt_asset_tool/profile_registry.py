@@ -89,9 +89,9 @@ def _load_one(path: pathlib.Path) -> CharacterProfile:
 class CharacterProfileRegistry:
     def __init__(self, directory: pathlib.Path):
         self.directory = pathlib.Path(directory).resolve()
-        if not self.directory.is_dir():
-            raise FileNotFoundError(self.directory)
-        profiles = [_load_one(path) for path in sorted(self.directory.glob("*.json"), key=lambda p: p.name.lower())]
+        profiles = [] if not self.directory.is_dir() else [
+            _load_one(path) for path in sorted(self.directory.glob("*.json"), key=lambda p: p.name.lower())
+        ]
         by_id: dict[str, CharacterProfile] = {}
         for profile in profiles:
             key = profile.profile_id.casefold()

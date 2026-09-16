@@ -10,6 +10,8 @@ from pt_asset_tool.smb_writer import patch_key, validate_track_roundtrip
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
+
+requires_fixture = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
 AHIN_FULL = ROOT.parent / "fixtures/Ahin/Ahin/Ahinf.smb"
 SMBS = [
     CLIENT / "char/npc/Ahin/Ahin.smb",
@@ -19,6 +21,7 @@ SMBS = [
 
 
 @pytest.mark.parametrize("path", SMBS)
+@requires_fixture
 def test_smb_track_roundtrip_is_byte_identical(path):
     r = validate_track_roundtrip(ROOT, path)
     assert r["status"] == "PASS"
@@ -26,6 +29,7 @@ def test_smb_track_roundtrip_is_byte_identical(path):
     assert r["changed_byte_count"] == 0
 
 
+@requires_fixture
 def test_smb_candidate_position_key_edit_reparses_and_preserves_source():
     source = CLIENT / "char/monster/Acero/Acero.smb"
     evaluator = load_smb_evaluator(ROOT)
@@ -46,6 +50,7 @@ def test_smb_candidate_position_key_edit_reparses_and_preserves_source():
         assert got[1] != old[1]
 
 
+@requires_fixture
 def test_smb_writer_rejects_key_insertion_and_noop_shape_by_api():
     source = CLIENT / "char/npc/Ahin/Ahin.smb"
     evaluator = load_smb_evaluator(ROOT)

@@ -562,7 +562,7 @@ def _source_closure() -> list[Path]:
     required = [
         ROOT / "pt_asset.py",
         ROOT / "pt_asset_core_v0_8_9.py",
-        ROOT / "history_py" / "pt_smd_blender_import_v3_static_armature.py",
+        ROOT / "pt_asset_tool" / "legacy_runtime" / "pt_smd_blender_import_v3_static_armature.py",
     ]
     missing = [str(p) for p in required if not p.is_file()]
     tool_root = ROOT / "pt_asset_tool"
@@ -638,7 +638,7 @@ mkdir -p "$TARGET/pt_build"
 TS="$(date +%Y%m%d_%H%M%S)"
 BACKUP="$TARGET/pt_build/v0813_consolidated_install_backup_$TS"
 mkdir -p "$BACKUP"
-for item in pt_asset.py pt_asset_core_v0_8_9.py pt_asset_tool history_py/pt_smd_blender_import_v3_static_armature.py; do
+for item in pt_asset.py pt_asset_core_v0_8_9.py pt_asset_tool pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py; do
   if [[ -e "$TARGET/$item" ]]; then
     mkdir -p "$BACKUP/$(dirname "$item")"
     cp -a "$TARGET/$item" "$BACKUP/$item"
@@ -659,12 +659,12 @@ for rec in manifest['payload_files']:
     if sha(p)!=rec['sha256']: raise SystemExit('install_error=payload_hash_mismatch:'+rec['path'])
 print('payload_hash_check=PASS files='+str(len(manifest['payload_files'])))
 PY_VERIFY
-mkdir -p "$TARGET/history_py"
+mkdir -p "$TARGET/pt_asset_tool/legacy_runtime"
 cp -a "$PAYLOAD/pt_asset.py" "$TARGET/pt_asset.py"
 cp -a "$PAYLOAD/pt_asset_core_v0_8_9.py" "$TARGET/pt_asset_core_v0_8_9.py"
 rm -rf "$TARGET/pt_asset_tool"
 cp -a "$PAYLOAD/pt_asset_tool" "$TARGET/pt_asset_tool"
-cp -a "$PAYLOAD/history_py/pt_smd_blender_import_v3_static_armature.py" "$TARGET/history_py/pt_smd_blender_import_v3_static_armature.py"
+cp -a "$PAYLOAD/pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py" "$TARGET/pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py"
 chmod +x "$TARGET/pt_asset.py"
 python3 - "$TARGET" "$PKG_DIR/RELEASE_MANIFEST.json" <<'PY_VERIFY_DST'
 from pathlib import Path
@@ -855,12 +855,8 @@ def _command_release_export_audit(args: list[str]) -> int:
 
 
 def _build_app_status_report() -> dict[str, Any]:
-    certified = {
-        "pt_asset_tool/rare_rigid_edit.py": "229a8e216cff16c68b61ad04d312e4ef6163ac955147f823ea7ed1164f524c42",
-        "pt_asset_tool/rare_rigid_multivertex.py": "0b43a3ced314c719bd1c6165a6715f37230b4d3d2d21586d6158a844d8f91991",
-        "pt_asset_tool/rare_rigid_multibone_bridge.py": "010c77d73e7579cbdda622548f07df95ca68471fd4eacba058b3c83e79e853b0",
-        "pt_asset_tool/rare_rigid_normal_bridge.py": "67e529d3d04012ea7c3ac1b6a5576525a77870b4e452c4336955100b5bb8ff96",
-    }
+    from pt_asset_tool.certified_writers import CERTIFIED_WRITERS
+    certified = CERTIFIED_WRITERS
     writer_checks = {}
     for rel, expected in certified.items():
         path = ROOT / rel
@@ -872,10 +868,6 @@ def _build_app_status_report() -> dict[str, Any]:
         ROOT / "pt_asset_tool/ui_static/index.html", ROOT / "pt_asset_tool/ui_static/app.js",
     ]
     runtime_required = [
-        "data/asset_registry/asset_inventory.json",
-        "data/asset_registry/inx_physical_pairing.csv",
-        "data/asset_registry/root_skeleton_bindings_v7.json",
-        "data/asset_registry/smb_skeleton_signatures_v1.json",
         "pt_character_structural_gate_v2.py",
         "pt_character_texture_v1_4.py",
         "pt_blender_bind_editable_texture_v2.py",
@@ -888,8 +880,8 @@ def _build_app_status_report() -> dict[str, Any]:
         "pt_blender_to_smd_free_mesh_v3.py",
         "summit_workspace_asset_bridge_v1_2.py",
         "summit_roundtrip_restore_v4.py",
-        "history_py/pt_smd_blender_import_v3_static_armature.py",
-        "history_py/pt_smb_motion_evaluator_v1.py",
+        "pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py",
+        "pt_asset_tool/legacy_runtime/pt_smb_motion_evaluator_v1.py",
         "pt_asset_tool/blender_workspace.py",
         "pt_asset_tool/inx_writer.py",
         "pt_asset_tool/smb_writer.py",
@@ -897,6 +889,7 @@ def _build_app_status_report() -> dict[str, Any]:
         "pt_asset_tool/animation_source_regression.py",
         "pt_asset_tool/animation_certification.py",
         "pt_asset_tool/workflow_dispatch.py",
+        "pt_asset_tool/registry_bootstrap.py",
         "pt_asset_tool/profile_registry.py",
         "pt_asset_tool/profile_candidates.py",
         "pt_asset_tool/binding_coverage.py",
@@ -932,8 +925,6 @@ def _build_app_status_report() -> dict[str, Any]:
         "pt_asset_tool/blender/check_baked_animation_pose.py",
         "pt_asset_tool/stage072_authoring_candidate.py",
         "pt_asset_tool/blender/extract_stage072_saved_edit.py",
-        "data/character_profiles/pikeman_c01_m4.json",
-        "data/character_profiles/priestess_c01_m5.json",
     ]
     runtime_checks = {rel: (ROOT / rel).is_file() for rel in runtime_required}
     try:
@@ -1352,7 +1343,7 @@ def _command_app_smoke() -> int:
 
     try:
         from pt_asset_tool.profile_registry import CharacterProfileRegistry
-        profiles = CharacterProfileRegistry(ROOT / "data" / "character_profiles")
+        profiles = CharacterProfileRegistry(ROOT / "pt_build" / "state" / "character_profiles")
         profile_rows = profiles.list()
         profile_semantic_ok = True
         profile_semantic_rows = []
@@ -1368,8 +1359,7 @@ def _command_app_smoke() -> int:
                 if semantic.get("status") != "PASS":
                     profile_semantic_ok = False
         checks["character_profile_registry_contract"] = (
-            len(profile_rows) >= 1
-            and all(p.roundtrip_target.lower().endswith(".smd") for p in profile_rows)
+            all(p.roundtrip_target.lower().endswith(".smd") for p in profile_rows)
             and all(len(p.lod("all")) == len(set(p.lod("all"))) for p in profile_rows)
             and profile_semantic_ok
         )
@@ -1602,6 +1592,48 @@ def _command_app_config(args: list[str]) -> int:
     return 2
 
 
+
+def _command_registry(args: list[str]) -> int:
+    """Inspect or rebuild the client-derived runtime registry.
+
+    Registry files are generated machine-local state under ``pt_build/state``;
+    they are never release payload data and the client is only read.
+    """
+    from pt_asset_tool.app_config import resolve_client_root
+    from pt_asset_tool.registry_bootstrap import ensure_runtime_registry
+
+    command = args[0] if args else "status"
+    if command not in {"status", "rebuild"}:
+        print("usage: pt_asset.py registry status | registry rebuild [--client-root PATH]", file=sys.stderr)
+        return 2
+    client_arg = None
+    if "--client-root" in args:
+        i = args.index("--client-root")
+        if i + 1 >= len(args):
+            print("registry: --client-root requires PATH", file=sys.stderr); return 2
+        client_arg = Path(args[i + 1]).expanduser().resolve()
+    if client_arg is None:
+        client, source = resolve_client_root(ROOT)
+    else:
+        client, source = client_arg, "CLI"
+    if not client.is_dir():
+        print(json.dumps({"format":"PT_ASSET_REGISTRY_STATUS_V1","status":"FAIL","error":f"CLIENT_ROOT_NOT_FOUND:{client}"}, indent=2))
+        return 2
+    state = ROOT / "pt_build" / "state" / "asset_registry"
+    inventory = state / "asset_inventory.json"
+    pairing = state / "inx_physical_pairing.csv"
+    result = ensure_runtime_registry(client, inventory, pairing, force=(command == "rebuild"))
+    result = dict(result)
+    result.update({
+        "format": "PT_ASSET_REGISTRY_STATUS_V1",
+        "client_root_source": source,
+        "runtime_state": True,
+        "package_payload": False,
+        "client_modified": False,
+    })
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
 def _command_explain(args: list[str]) -> int:
     topics = {
         "statuses": (
@@ -1733,6 +1765,8 @@ def main() -> int:
         print("  config clear-client-root       clear persistent client root and return to discovery")
         print("  config set-server-root PATH    persist server root for Asset Enrichment/GUI use")
         print("  config clear-server-root       clear persistent server root and return to discovery")
+        print("  registry status                generate/read machine-local asset registry state")
+        print("  registry rebuild [--client-root PATH]  force a read-only registry rebuild from the current client")
         return cp.returncode
     if args in (["status"], ["app-status"]):
         return _command_app_status()
@@ -1742,6 +1776,8 @@ def main() -> int:
         return _command_explain(args[1:])
     if args and args[0] == "config":
         return _command_app_config(args[1:])
+    if args and args[0] == "registry":
+        return _command_registry(args[1:])
     if args and args[0] in {"ui", "gui"}:
         from pt_asset_gui import main as _ui_main
         return _ui_main(args[1:])
@@ -1801,11 +1837,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_payload_provenance_extraction_v01010.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         for sr in search_roots: av += ["--search-root", sr]
@@ -1828,11 +1859,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_payload_source_locator_v01000.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         for sr in search_roots: av += ["--search-root", sr]
@@ -1852,11 +1878,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_update_manifest_pack_correlation_v0990.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         return _manifest_pack_main(av)
@@ -1875,11 +1896,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_container_record_index_v0970.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         return _record_index_main(av)
@@ -1898,11 +1914,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_container_entry_recovery_v0960.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         return _entry_recovery_main(av)
@@ -1921,11 +1932,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_container_character_atlas_v0940.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         return _container_atlas_main(av)
@@ -1944,11 +1950,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_character_physical_compatibility_v0930.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         return _physical_main(av)
@@ -1967,11 +1968,6 @@ def main() -> int:
             i += 1
         if output is None:
             output = str(ROOT / "pt_build" / "official_character_donor_census_v0910.json")
-        if not donors:
-            donors = [
-                "ptbr-antigo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-antigo"),
-                "ptbr-novo=" + str(Path.home() / "Área de Trabalho/priston-official/ptbr-novo"),
-            ]
         av=["--root",str(ROOT),"--output",output]
         for d in donors: av += ["--donor", d]
         return _donor_main(av)

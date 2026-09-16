@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+import pytest
 from pt_asset_tool.authoring import authoring_plan, write_workspace_manifest
 from pt_asset_tool.blender_workspace import blender_edit_root
 from pt_asset_tool.config import Settings
@@ -19,6 +20,8 @@ from pt_asset_tool.stage072_corpus import parse_stage072
 
 ROOT = Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
+
+pytestmark = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
 TARGET = "Field/AncientW/ancientW.smd"
 
 

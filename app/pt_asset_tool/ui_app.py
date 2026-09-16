@@ -149,7 +149,7 @@ class UIContext:
             },
         )
         try:
-            self.profile_registry = CharacterProfileRegistry(self.project_root / "data" / "character_profiles")
+            self.profile_registry = CharacterProfileRegistry(self.project_root / "pt_build" / "state" / "character_profiles")
         except Exception:
             self.profile_registry = None
         self.write_armed_until = 0.0

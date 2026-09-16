@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def _module():
-    p=ROOT/'history_py/pt_smd_blender_import_v3_static_armature.py'
+    p=ROOT/'pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py'
     spec=importlib.util.spec_from_file_location('pt_import_legacy_compat',p)
     mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     return mod

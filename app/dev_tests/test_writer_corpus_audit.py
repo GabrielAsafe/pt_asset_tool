@@ -14,7 +14,10 @@ from pt_asset_tool.writer_corpus_audit import (
 ROOT = Path(__file__).resolve().parents[1]
 CLIENT = ROOT.parent / "fixture_client"
 
+requires_fixture = pytest.mark.skipif(not CLIENT.is_dir(), reason="external fixture_client is not packaged")
 
+
+@requires_fixture
 def test_inx_writer_corpus_audit_is_read_only_and_passes_fixture_client():
     report = audit_inx_writer_corpus(CLIENT, sample_limit=10)
     assert report["status"] == "PASS"
@@ -25,6 +28,7 @@ def test_inx_writer_corpus_audit_is_read_only_and_passes_fixture_client():
     assert report["production_authorized"] is False
 
 
+@requires_fixture
 def test_smb_writer_corpus_audit_separates_external_parent_from_layout_failure():
     report = audit_smb_writer_corpus(ROOT, CLIENT, sample_limit=10)
     assert report["status"] == "PASS"
@@ -40,6 +44,7 @@ def test_writer_corpus_prefix_cannot_escape_client_root():
         audit_inx_writer_corpus(CLIENT, prefixes=["../outside"])
 
 
+@requires_fixture
 def test_inx_writer_edit_corpus_probe_uses_temp_outputs_only():
     report = audit_inx_writer_edit_corpus(CLIENT, sample_limit=10)
     assert report["status"] == "PASS"
@@ -50,6 +55,7 @@ def test_inx_writer_edit_corpus_probe_uses_temp_outputs_only():
     assert report["production_authorized"] is False
 
 
+@requires_fixture
 def test_smb_writer_edit_corpus_probe_separates_noneditable_files():
     report = audit_smb_writer_edit_corpus(ROOT, CLIENT, sample_limit=10)
     assert report["status"] == "PASS"
@@ -60,6 +66,7 @@ def test_smb_writer_edit_corpus_probe_separates_noneditable_files():
     assert report["production_authorized"] is False
 
 
+@requires_fixture
 def test_motion_writer_semantic_edit_corpus_proves_temp_edits_remain_source_evaluable():
     settings = Settings.discover(ROOT, CLIENT)
     resolver = ClientResolver(CLIENT)

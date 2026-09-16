@@ -1,23 +1,4 @@
 {
-  "target_client": "/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente",
-  "sources": [
-    {
-      "label": "pt_eu_files",
-      "root": "/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files",
-      "priority": 10,
-      "runtime_strip_prefixes": ["Game"]
-    },
-    {
-      "label": "previous_client_base",
-      "root": "/home/gabriel/old/velho",
-      "priority": 20,
-      "runtime_strip_prefixes": []
-    },
-    {
-      "label": "exmachina_base",
-      "root": "/home/gabriel/armazem/priston/ExMachina",
-      "priority": 30,
-      "runtime_strip_prefixes": ["client"]
-    }
-  ]
+  "target_client": "__configure_target_client__",
+  "sources": []
 }

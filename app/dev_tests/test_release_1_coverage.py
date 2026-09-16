@@ -1,6 +1,6 @@
 from pathlib import Path
+from dev_tests._runtime_context import runtime_registry
 
-from pt_asset_tool.registry import AssetRegistry
 from pt_asset_tool.release_1_coverage import (
     CAPABILITIES,
     CONTENT_DOMAINS,
@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _registry():
-    return AssetRegistry(ROOT/'data/asset_registry/asset_inventory.json', ROOT/'data/asset_registry/inx_physical_pairing.csv')
+    return runtime_registry()
 
 
 def test_release_1_coverage_crosses_content_domains_and_capabilities():

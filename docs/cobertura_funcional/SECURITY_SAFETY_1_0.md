@@ -61,5 +61,6 @@ Antes de distribuir uma árvore modificada:
 ```bash
 ./VERIFY_PACKAGE.sh
 cd app
-python3 pt_rc6_12_verify.py --current-root ..
+python3 -m pytest -q dev_tests/test_registry_bootstrap_fresh.py
+./RUN_REGRESSION_FOCUSED.sh
 ```

@@ -92,7 +92,7 @@ def audit_development_readiness(
         standalone_candidate_by_domain[domain] = sum(1 for a in rows if sibling_smb_candidates(registry, a).get("candidate_available"))
 
     external_rigid_witnesses = []
-    witness_path = pathlib.Path(project_root).resolve() / "data" / "development_evidence" / "rigid_saved_blender_external_witnesses_v1.json"
+    witness_path = pathlib.Path(project_root).resolve() / "pt_build" / "state" / "development_evidence" / "rigid_saved_blender_external_witnesses_v1.json"
     if witness_path.is_file():
         try:
             external_rigid_witnesses = list((json.loads(witness_path.read_text(encoding="utf-8")) or {}).get("witnesses") or [])

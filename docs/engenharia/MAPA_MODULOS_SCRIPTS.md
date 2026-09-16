@@ -30,7 +30,9 @@ Este documento responde “qual família de `*.py` faz o quê?” e deve permane
 | `cli.py` | parser/dispatch do core histórico e ligação dos audits/validators |
 | `resolver.py` | resolução segura/case-aware de logical client paths |
 | `registry.py` | `Asset`, `AssetRegistry`, families, binding e dependências |
+| `registry_bootstrap.py` | gera automaticamente o registry machine-local a partir do client atual em `pt_build/state/asset_registry` |
 | `certification.py` | registry append-only de certificações |
+| `certified_writers.py` | fonte única dos SHA-256 dos writers certificados da revisão atual |
 | `validation.py` | runner/context dos gates visual/structural e import workspace fail-closed |
 | `environment_validation.py` | preflight automático rápido do ambiente: client/inventário físico, isolamento e escrita apenas em `pt_build`, hashes certificados; bridge Blender headless/Flatpak é capability opcional e gates Blender continuam bloqueados sem ela; nunca escreve no client |
 | `physical_regression_auto.py` | gate físico focado pós-preflight: reexecuta os regressions reais descobertos no primeiro client run (Model0.62 materiais/rigid/static, pose-space, TexLink rigid e SMB/codec) mais representatives atuais; gera `pt_build/devtest/physical_regression_auto/result.json` e nunca escreve no client |
@@ -77,7 +79,7 @@ Scripts relacionados fora do package:
 | Arquivo | Papel |
 |---|---|
 | `pt_inx_motion_core_v2.py` | parser de referência INX modern/legacy + SMB segment validation |
-| `history_py/pt_smb_motion_evaluator_v1.py` | evaluator source-equivalent de skeleton/motion |
+| `pt_asset_tool/legacy_runtime/pt_smb_motion_evaluator_v1.py` | evaluator source-equivalent de skeleton/motion |
 
 ---
 
@@ -121,7 +123,7 @@ Scripts externos relacionados:
 |---|---|
 | `physique_audit.py` | classifica RIGID/STATIC/MIXED e inconsistências |
 | `pt_smd_blender_import_v4_generic.py` | dispatcher STATIC/RIGID; MIXED fail-closed |
-| `history_py/pt_smd_blender_import_v3_static_armature.py` | parser/importer rigid comprovado, materials, Physique e armature |
+| `pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py` | parser/importer rigid comprovado, materials, Physique e armature |
 | `pt_character_structural_gate_v2.py` | structural gate SMD + skeleton closure |
 
 ---
@@ -321,16 +323,11 @@ A UI não é autoridade de autorização. `/api/action` revalida capability no b
 
 ---
 
-# 17. `history/legacy_reference/`
+# 17. Código histórico e legado
 
-Esses arquivos foram preservados em `history/legacy_reference/` como referência de evolução, não devem ser reintroduzidos automaticamente no runtime:
+Backups de source, RC runners antigos e versões substituídas não são distribuídos dentro da árvore operacional. O Git é a fonte de histórico desses ficheiros. Código antigo que ainda é necessário em runtime fica explicitamente em `pt_asset_tool/legacy_runtime/` e continua coberto por testes até ser substituído.
 
-- `pt_auto_profile_production_v2.py`;
-- `pt_character_artist_pipeline_v2_1.py`;
-- `pt_character_asset_v1_5.py`;
-- `pt_character_multi_object_lod_pipeline_v2.py`.
-
-Use-os para entender decisões antigas de profile/LOD/workspace, mas migre somente a lógica que puder ser provada no architecture atual.
+Não reintroduza `history/`, `app/history/` ou `history_py/` como dependências do pacote.
 
 ---
 
@@ -408,7 +405,7 @@ O server é uma raiz física independente do client. `GameServer/monster`, `Game
 
 ## Integração Summit Server / Asset Enrichment 1.0
 
-A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Field/Item e os gates read-only estão documentados em `docs/SUMMIT_GAME_ASSET_ENRICHMENT.md`. A especificação original recebida é preservada em `docs/reference/Summit_Server_Arquivos_e_Funcionamento_2026-09-04.docx`.
+A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Field/Item e os gates read-only estão documentados em `docs/engenharia/SUMMIT_GAME_ASSET_ENRICHMENT.md`. A especificação original recebida é preservada em `docs/reference/Summit_Server_Arquivos_e_Funcionamento_2026-09-04.docx`.
 
 ### Camada Server / Asset Enrichment 1.0
 
@@ -479,6 +476,7 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `blender_workspace.py`
 - `build_provenance.py`
 - `certification.py`
+- `certified_writers.py`
 - `class_ui_alias_audit.py`
 - `class_ui_alias_canonicalize.py`
 - `cli.py`
@@ -556,6 +554,7 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `rare_rigid_roundtrip.py`
 - `rare_support.py`
 - `registry.py`
+- `registry_bootstrap.py`
 - `release_1_auto.py`
 - `release_1_coverage.py`
 - `release_scope.py`
@@ -701,7 +700,8 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `pt_part_ui.py`
 - `pt_pikeman_smd_material_audit_v1.py`
 - `pt_protected_tga_v1.py`
-- `pt_rc6_12_verify.py`
+- `../VERIFY_PACKAGE.sh` — verifier estático/fresh-install do pacote
+- `RUN_REGRESSION_FOCUSED.sh` — regressões focadas preservadas
 - `pt_release_live_progress.py`
 - `pt_release_postrun.py`
 - `pt_release_triage_v3.py`

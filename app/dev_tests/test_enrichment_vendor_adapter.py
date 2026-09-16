@@ -24,6 +24,13 @@ def _fixture(tmp_path):
     }), encoding="utf-8")
     (vendor / "migrate_assets.py").write_text("# fixture\n", encoding="utf-8")
     (vendor / "build_dependency_graph.py").write_text("# fixture\n", encoding="utf-8")
+    state = project / "pt_build" / "state"
+    state.mkdir(parents=True)
+    (state / "pt_asset_app_config.json").write_text(json.dumps({
+        "format": "PT_ASSET_APP_CONFIG_V1",
+        "contract_donor_clients": [{"label": "LIVE", "path": str(donor)}],
+        "contract_donor_servers": [{"label": "MISSING", "path": str(tmp_path / "missing")}],
+    }), encoding="utf-8")
     return project, client, server, donor
 
 

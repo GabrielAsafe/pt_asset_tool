@@ -205,7 +205,7 @@ A ferramenta preserva uma linha de workflows de rare rigid com seleção, edit, 
 - `certification record` registra review;
 - `certification rigid-candidate-review` valida candidate + provenance + review humano.
 
-Journal: `app/certifications/assets.jsonl`.
+Journal local: `app/pt_build/state/certifications/assets.jsonl`. Ele nasce vazio numa instalação fresh e não é distribuído no pacote.
 
 ## 21. Gates automáticos
 

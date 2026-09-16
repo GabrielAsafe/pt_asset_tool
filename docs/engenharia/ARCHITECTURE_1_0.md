@@ -29,16 +29,17 @@ Target client/server -> read-only por padrão
 - `app/pt_asset_core_v0_8_9.py`: core wrapper;
 - `app/pt_asset_gui.py`: UI local;
 - `app/pt-asset-gui`: launcher shell;
-- `app/pt_rc6_12_verify.py`: certificação estrutural do pacote;
-- `VERIFY_PACKAGE.sh`: verifier de distribuição.
+- `VERIFY_PACKAGE.sh`: verifier estrutural da distribuição estática e da política fresh-install;
+- `app/RUN_REGRESSION_FOCUSED.sh`: regressões focadas preservadas da linha RC;
 
 ## Núcleo
 
-- `config.py`, `app_config.py`: discovery/persistência de roots;
+- `config.py`, `app_config.py`: discovery de roots e configuração machine-local em `pt_build/state`;
+- `registry_bootstrap.py`: discovery físico e geração do registry da instalação atual;
 - `resolver.py`: resolução case-aware;
-- `registry.py`: assets/families/dependencies;
+- `registry.py`: assets/families/dependencies consumindo o registry gerado;
 - `semantic_path.py`: classificação de navegação (não autoridade de writer);
-- `certification.py`: journal;
+- `certification.py`: journal machine-local em `pt_build/state/certifications`;
 - `validation.py`: execução de gates;
 - `workflow_dispatch.py`: build routing fail-closed;
 - `build_provenance.py`: source/artifact hashes e sidecars;
@@ -65,7 +66,7 @@ Target client/server -> read-only por padrão
 
 ## Vendor
 
-`summit_asset_enrichment_v9` é o vendor ativo (`v9-fix136`). v6 é referência histórica.
+`summit_asset_enrichment_v9` é o único vendor ativo (`v9-fix136`). O pacote não transporta cópias de vendors obsoletos.
 
 ## UI
 
@@ -75,5 +76,5 @@ Target client/server -> read-only por padrão
 
 - `app/dev_tests/`: contracts/corpus/regression tests;
 - `app/tests/`: integration/source/UI tests adicionais;
-- `RUN_RC6_12_LOCAL_FOCUSED.sh`, `RUN_RELEASE_FAST.sh`: runners operacionais;
+- `RUN_REGRESSION_FOCUSED.sh`, `RUN_RELEASE_FAST.sh`: runners operacionais;
 - gates reais podem exigir client/server/Blender externos.

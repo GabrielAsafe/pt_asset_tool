@@ -41,7 +41,7 @@ def test_config_routes(tmp_path: Path):
     d=json.loads(r.stdout); assert d['resolved_client_root']==str(client.resolve()) and d['resolved_client_root_source']=='PERSISTENT_CONFIG'
     r=run('config','clear-client-root'); assert r.returncode==0,r.stdout
     # Cleanup test-local config created beside the payload wrapper.
-    cfg=ROOT/'payload/pt_asset_app_config.json'
+    cfg=ROOT/'payload/pt_build/state/pt_asset_app_config.json'
     if cfg.exists(): cfg.unlink()
 
 
@@ -57,5 +57,5 @@ def test_smoke_route_with_persisted_client(tmp_path: Path):
         assert d['client_modified'] is False
     finally:
         run('config','clear-client-root')
-        cfg=ROOT/'payload/pt_asset_app_config.json'
+        cfg=ROOT/'payload/pt_build/state/pt_asset_app_config.json'
         if cfg.exists(): cfg.unlink()

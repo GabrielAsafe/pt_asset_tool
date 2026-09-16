@@ -213,9 +213,10 @@ def _extract_ascii_candidates(p: pathlib.Path) -> dict[str, Any]:
 
 
 def _default_search_roots() -> list[pathlib.Path]:
-    h = pathlib.Path.home() / "Área de Trabalho"
-    # The Summit client root is appended from Settings inside run().
-    return [h / "priston-official", h / "summit" / "design_work"]
+    # The configured current client is appended inside run().  Additional
+    # search roots are explicit external evidence and are never guessed from a
+    # developer home directory.
+    return []
 
 
 def _dedupe_roots(roots: list[pathlib.Path]) -> list[pathlib.Path]:
