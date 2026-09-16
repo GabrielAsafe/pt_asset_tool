@@ -70,9 +70,9 @@ Use `explain statuses`, `explain bindings`, `explain structural`, `explain visua
 
 ```bash
 python3 pt_asset.py config show
-python3 pt_asset.py config set-client-root PATH
+python3 pt_asset.py config set-client-root "PATH"
 python3 pt_asset.py config clear-client-root
-python3 pt_asset.py config set-server-root PATH
+python3 pt_asset.py config set-server-root "PATH"
 python3 pt_asset.py config clear-server-root
 ```
 
