@@ -61,6 +61,15 @@ Esperado: `1.0.0`.
 
 O bridge aceita `PT_BLENDER_COMMAND` quando Blender não usa o comando padrão da workstation. Se Blender não estiver instalado, o preflight geral pode passar com a capability Blender em `SKIP`, mas gates que dependem dela continuam bloqueados.
 
+### Dependências opcionais de Texture Upscale
+
+O resto da aplicação não depende destas ferramentas. Para **Upscale textura**:
+
+- instale `Pillow` no ambiente Python para habilitar Lanczos;
+- opcionalmente instale `realesrgan-ncnn-vulkan` para o backend AI/Vulkan.
+
+`python3 pt_asset.py status` mostra `optional_capabilities.texture_upscale` sem transformar a ausência dessas dependências num failure do ambiente geral.
+
 ## 4. Configurar roots
 
 ```bash

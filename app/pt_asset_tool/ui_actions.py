@@ -39,6 +39,7 @@ ACTION_SPECS: dict[str, ActionSpec] = {
     "view_rare": ActionSpec("view_rare", "Abrir no Blender", "Abrir", "Abre preview rare Model0.62 no Blender.", long_running=True),
     "view_stage072": ActionSpec("view_stage072", "Abrir Stage0.72", "Abrir", "Abre preview Stage0.72 no Blender.", long_running=True),
     "paint_stage072": ActionSpec("paint_stage072", "Texture Paint", "Editar", "Abre workspace de texture paint Stage0.72.", mutates_build=True, long_running=True),
+    "upscale_texture": ActionSpec("upscale_texture", "Upscale textura", "Editar", "Gera uma cópia 2x/3x/4x em pt_build; preserva headers protegidos TGA/BMP e nunca escreve no client.", mutates_build=True, long_running=True),
     "edit_rare": ActionSpec("edit_rare", "Editar no Blender", "Editar", "Cria/abre workspace guardado de rare-model.", mutates_build=True, long_running=True),
     "write_rare": ActionSpec("write_rare", "Gerar SMD", "Build", "Executa o writer guardado; output permanece em pt_build.", mutates_build=True, long_running=True),
     "doctor": ActionSpec("doctor", "Doctor", "Sistema", "Executa pt_asset doctor."),
@@ -162,6 +163,17 @@ def build_command(project_root: pathlib.Path, action: str, rel: str | None, opti
         return base + ["view", "rare-model", rel]
     if action == "view_stage072":
         return base + ["view", "stage072", rel]
+    if action == "upscale_texture":
+        scale = str(options.get("scale") or "4").strip()
+        if scale not in {"2", "3", "4"}:
+            raise ValueError("INVALID_TEXTURE_UPSCALE_SCALE")
+        backend = str(options.get("backend") or "lanczos").strip().lower()
+        if backend not in {"lanczos", "realesrgan"}:
+            raise ValueError("INVALID_TEXTURE_UPSCALE_BACKEND")
+        cmd = base + ["texture-upscale", "run", "--include-exact", rel, "--scale", scale, "--backend", backend]
+        if bool(options.get("include_ui")):
+            cmd.append("--include-ui")
+        return cmd
     if action == "paint_stage072":
         stage = str(options.get("stage") if options.get("stage") is not None else "0")
         if stage not in {str(i) for i in range(8)}:

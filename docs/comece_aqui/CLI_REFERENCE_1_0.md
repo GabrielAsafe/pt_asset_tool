@@ -1471,6 +1471,8 @@ Estes comandos são interceptados por `app/pt_asset.py` antes da delegação ao 
 | `status / app-status` | Mostra readiness da aplicação, roots resolvidos, presença de runtime e hashes dos writers certificados. | read-only |
 | `smoke / self-test` | Smoke real do pacote: catálogo, registry, GUI contracts, Blender/import bridge, writers e pt_build. Só cria e remove probe em pt_build. | read-only + pt_build probe |
 | `ui / gui` | Inicia a aplicação gráfica local. | UI local |
+| `texture-upscale scan` | Classifica texturas suportadas e riscos sem escrever no client. | pt_build/report |
+| `texture-upscale run` | Upscale 2x/3x/4x por Lanczos ou Real-ESRGAN para overlay separado; output/manifest dentro do client são rejeitados. | pt_build/output externo, nunca client |
 | `compare trees` | Compara duas árvores com filtros de extensão/categoria/path e hash opcional. | read-only |
 | `explain TOPIC` | Explica statuses, bindings, structural, visual e roundtrip. | read-only |
 | `config show | set-client-root | clear-client-root | set-server-root | clear-server-root` | Configuração persistente de roots usada pela GUI/CLI. | config local |

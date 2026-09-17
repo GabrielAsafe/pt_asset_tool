@@ -14,7 +14,7 @@ Legenda de segurança: **RO** = read-only no target; **BUILD** = escreve somente
 | Stage0.72 | corpus, StageArea, normals, textures, UV/material/geometry roundtrip, preview/paint | Certificado no escopo documentado | RO/BUILD/EXT |
 | Motion | INX modern/legacy, SMB tracks, action/motion resolution, semantic corpus | Certificado | RO/BUILD |
 | Animação Blender | pose/action preview, diagnostics, selected/core/all actions | Certificado como ferramenta de validação | EXT; sem client write |
-| Texturas legacy | BMP protegido, TGA não-standard/protegido, codec corpus, overlay | Capability PASS | RO/BUILD |
+| Texturas legacy | BMP protegido, TGA não-standard/protegido, codec corpus, preview e upscale 2x/3x/4x em overlay | Capability PASS; upscale depende opcionalmente de Pillow/Real-ESRGAN | RO/BUILD |
 | `.part` | parse semântico, draft, diff/verify, corpus mutation, UI, Blender preview aproximado | Desenvolvimento suportado | BUILD/EXT |
 | UI de classes | audit de aliases; Mechanician canonical | Certificado | RO; canonicalize explícito e guardado |
 | T5 | census assets/effects/audio, source evidence, PRELOAD vs ACTIVATION, reference parity | Diagnóstico/capability certificado | RO |

@@ -1,5 +1,7 @@
 # PT Asset Tool R14 1.0.0 — Manual da GUI
 
+> **Guia rápido.** Para tutoriais completos de todas as funcionalidades alcançáveis pela GUI principal e pelo Particle Editor `.part`, incluindo edição de modelos, textura/Stage0.72, animação, Server/Enrichment e Field SPM/SPP/SPC, use `MANUAL_UTILIZADOR.md`. Este ficheiro fica como mapa resumido das abas e ações.
+
 ## Iniciar
 
 A partir de `app/`:
@@ -83,10 +85,11 @@ Ações BUILD comuns:
 
 - Importar para Blender;
 - Texture Paint Stage0.72;
+- Upscale textura para BMP/TGA/PNG/JPG/JPEG em cópia sob `pt_build`;
 - Editar rare model;
 - Gerar SMD/writer em `pt_build`.
 
-## 24 ações expostas pela UI - (RO deve ser readObject)
+## 25 ações expostas pela UI - (RO deve ser readObject)
 
 | Ação | Grupo | Natureza |
 |---|---|---|
@@ -111,6 +114,7 @@ Ações BUILD comuns:
 | Abrir no Blender | Abrir | preview |
 | Abrir Stage0.72 | Abrir | preview |
 | Texture Paint | Editar | BUILD workspace |
+| Upscale textura | Editar | BUILD overlay em `pt_build`; client read-only |
 | Editar no Blender | Editar | BUILD workspace |
 | Gerar SMD | Build | BUILD writer |
 | Doctor | Sistema | RO |

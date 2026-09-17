@@ -7,6 +7,7 @@ from .multilayer_texlink import parse_multilayer_semantics
 from .object_local import parse_object_local_smd
 from .rare_rigid_context import RARE_SMD_FILES
 from .utils import low_path
+from .texture_upscale import PILLOW_AVAILABLE, SUPPORTED_SUFFIXES
 
 # Interactive validators are now supported by the UI job console via a
 # constrained stdin bridge (y/n/s only). Applicability remains family-specific.
@@ -52,6 +53,8 @@ def capabilities_for_asset(asset: Any, physical_path: pathlib.Path | None = None
     kind = str(getattr(asset, "kind", "") or "")
     logical = str(getattr(asset, "primary_path", "") or "")
     key = low_path(logical)
+    if PILLOW_AVAILABLE and pathlib.PurePosixPath(logical.replace("\\", "/")).suffix.lower() in SUPPORTED_SUFFIXES:
+        caps.add("upscale_texture")
 
     if kind == "SMD_STAGE_072":
         caps.add("authoring_plan")

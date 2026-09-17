@@ -37,6 +37,7 @@ from .validation import rigid_model_info_options
 from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_spp_records, stage_spc_clone
 from .general_asset_census import query_general_asset_census
 from .source_catalog import configured_source_roots
+from .texture_upscale import capability_status as texture_upscale_capability_status
 
 LOOPBACKS = {"127.0.0.1", "localhost", "::1"}
 ARM_PHRASE = "ARM BUILD WRITES"
@@ -350,6 +351,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 "write_armed": self.ctx.write_armed,
                 "write_armed_until": self.ctx.write_armed_until,
                 "actions": public_action_specs(),
+                "optional_capabilities": {"texture_upscale": texture_upscale_capability_status()},
                 "safety": {
                     "client_source_write": False,
                     "build_write_requires_arm": True,
@@ -826,6 +828,13 @@ class UIHandler(BaseHTTPRequestHandler):
             spec = ACTION_SPECS.get(action)
             if not spec:
                 return self._error(400, "ACTION_NOT_ALLOWED")
+            if action == "upscale_texture":
+                tcaps = texture_upscale_capability_status()
+                if not bool(tcaps.get("lanczos_ready")):
+                    return self._error(409, "TEXTURE_UPSCALE_PILLOW_UNAVAILABLE", "Instale Pillow para habilitar upscale de texturas.")
+                backend = str(options.get("backend") or "lanczos").strip().lower()
+                if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
+                    return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "realesrgan-ncnn-vulkan não foi encontrado; use Lanczos ou instale/configure o executável.")
             detail = None
             if rel:
                 detail = self.ctx.asset_detail(rel)

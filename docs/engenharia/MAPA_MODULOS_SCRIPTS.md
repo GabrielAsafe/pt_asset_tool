@@ -457,6 +457,7 @@ O gate `validate integration-regression-auto` é deliberadamente menor que `rele
 | `pt_release_triage_v3.py` | triage compacto de blockers de release, versão corrente |
 | `pt_rigid_context_triage.py` | analisa unresolved do rigid context census e padrões de famílias |
 | `pt_static_focused_rc6_5_5.py` | harness físico focused da investigação static corrente; histórico de desenvolvimento, não gate de produção |
+| `pt_texture_upscale.py` | entry point CLI do pipeline de upscale seguro; outputs/manifests fora do client |
 ## Apêndice 1.0 — inventário completo de arquivos runtime
 
 Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/script runtime distribuído seja localizável na documentação. Para responsabilidade detalhada, veja `MODULE_REFERENCE_1_0.md` e `ARCHITECTURE_1_0.md`.
@@ -602,6 +603,7 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `texlink_devtest.py`
 - `texlink_roundtrip.py`
 - `texture_codec_devtest.py`
+- `texture_upscale.py`
 - `texture_overlay.py`
 - `tree_compare.py`
 - `ui_actions.py`
@@ -707,6 +709,7 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `pt_release_triage_v3.py`
 - `pt_rigid_context_triage.py`
 - `pt_smd_blender_import_v4_generic.py`
+- `pt_texture_upscale.py`
 - `pt_smd_static_capability_probe_v1.py`
 - `summit_roundtrip_restore_v4.py`
 - `summit_workspace_asset_bridge_v1_2.py`

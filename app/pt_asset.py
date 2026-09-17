@@ -147,6 +147,51 @@ def _blender_command() -> list[str]:
     return cmd
 
 
+def _blender_launcher_status(cmd: list[str] | None = None) -> tuple[bool, str]:
+    """Return whether the configured Blender application is actually available.
+
+    For a Flatpak command, merely finding the ``flatpak`` executable is not enough:
+    the configured Blender app must also be installed.  Direct/native launchers are
+    considered available when their executable resolves on PATH.
+    """
+    cmd = list(cmd or _blender_command())
+    if not cmd:
+        return False, "EMPTY_BLENDER_COMMAND"
+    executable = shutil.which(cmd[0])
+    if not executable:
+        return False, f"EXECUTABLE_NOT_FOUND:{cmd[0]}"
+
+    if Path(cmd[0]).name == "flatpak":
+        app_id = next((arg for arg in cmd if arg == "org.blender.Blender"), None)
+        if app_id is None:
+            # Generic Flatpak Blender configuration: use the first app-like token
+            # after `run`, ignoring options.
+            try:
+                run_i = cmd.index("run")
+            except ValueError:
+                run_i = -1
+            if run_i >= 0:
+                app_id = next((arg for arg in cmd[run_i + 1:] if not arg.startswith("-")), None)
+        if not app_id:
+            return False, "FLATPAK_APP_ID_NOT_FOUND"
+        try:
+            proc = subprocess.run(
+                [executable, "info", app_id],
+                text=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.PIPE,
+                timeout=5,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return False, f"FLATPAK_INFO_FAILED:{type(exc).__name__}:{exc}"
+        if proc.returncode != 0:
+            detail = (proc.stderr or "").strip().replace("\n", " ")
+            return False, f"FLATPAK_APP_UNAVAILABLE:{app_id}:{detail}"
+        return True, f"FLATPAK_APP_INSTALLED:{app_id}"
+
+    return True, f"EXECUTABLE_FOUND:{executable}"
+
+
 def _run_core(args: list[str], capture: bool = False) -> subprocess.CompletedProcess[str]:
     if not CORE.is_file():
         raise RuntimeError(f"CORE_MISSING:{CORE}")
@@ -915,6 +960,8 @@ def _build_app_status_report() -> dict[str, Any]:
         "pt_asset_tool/texture_codec_devtest.py",
         "pt_asset_tool/object_local_devtest.py",
         "pt_asset_tool/texlink_devtest.py",
+        "pt_asset_tool/texture_upscale.py",
+        "pt_texture_upscale.py",
         "pt_asset_tool/release_1_coverage.py",
         "pt_asset_tool/release_1_auto.py",
         "pt_asset_tool/blender/apply_rigid_profile_devtest.py",
@@ -975,7 +1022,18 @@ def _build_app_status_report() -> dict[str, Any]:
         "multilayer_texlink_semantic_devtest": (ROOT / "pt_asset_tool/texlink_devtest.py").is_file(),
         "stage072_saved_blender_candidate": (ROOT / "pt_asset_tool/stage072_authoring_candidate.py").is_file(),
         "stage072_material_candidate": (ROOT / "pt_asset_tool/stage072_material_writer.py").is_file(),
+        "texture_upscale": all((ROOT / rel).is_file() for rel in ["pt_asset_tool/texture_upscale.py", "pt_texture_upscale.py"]),
     }
+    try:
+        from pt_asset_tool.texture_upscale import capability_status as _texture_upscale_capability_status
+        texture_upscale_optional = _texture_upscale_capability_status()
+    except Exception as exc:
+        texture_upscale_optional = {
+            "pillow_ready": False,
+            "lanczos_ready": False,
+            "realesrgan_ready": False,
+            "error": f"{type(exc).__name__}:{exc}",
+        }
     return {
         "format": "PT_ASSET_APP_STATUS_V2",
         "status": "PASS" if resolved_client_root and all(writer_checks.values()) and all(features.values()) else "WARN",
@@ -988,6 +1046,7 @@ def _build_app_status_report() -> dict[str, Any]:
         "certified_writer_hashes_valid": all(writer_checks.values()),
         "writer_checks": writer_checks,
         "runtime_dependency_checks": runtime_checks,
+        "optional_capabilities": {"texture_upscale": texture_upscale_optional},
         "client_source_write_default": False,
         "research_branches_required_for_normal_use": False,
     }
@@ -1018,6 +1077,7 @@ def _command_app_smoke() -> int:
         "support_file_inspection_contract": False,
         "blender_edit_workspace_contract": False,
         "generic_blender_import_contract": False,
+        "texture_upscale_contract": False,
         "generic_build_dispatch_contract": False,
         "inx_motion_writer_contract": False,
         "smb_key_writer_contract": False,
@@ -1273,6 +1333,24 @@ def _command_app_smoke() -> int:
         details["generic_blender_import_error"] = f"{type(exc).__name__}:{exc}"
 
     try:
+        from pt_asset_tool.texture_upscale import SUPPORTED_SUFFIXES, capability_status as _texture_caps
+        from pt_asset_tool.ui_actions import ACTION_SPECS, build_command
+        texture_cmd = build_command(ROOT, "upscale_texture", "Image/Character/test.tga", {"scale": 2, "backend": "lanczos"})
+        texture_caps = _texture_caps()
+        checks["texture_upscale_contract"] = (
+            "upscale_texture" in ACTION_SPECS
+            and ACTION_SPECS["upscale_texture"].mutates_build
+            and {".tga", ".bmp", ".png", ".jpg", ".jpeg"}.issubset(SUPPORTED_SUFFIXES)
+            and texture_cmd[2:4] == ["texture-upscale", "run"]
+            and "lanczos_ready" in texture_caps
+            and "realesrgan_ready" in texture_caps
+        )
+        details["texture_upscale_command"] = texture_cmd
+        details["texture_upscale_capabilities"] = texture_caps
+    except Exception as exc:
+        details["texture_upscale_error"] = f"{type(exc).__name__}:{exc}"
+
+    try:
         from pt_asset_tool.workflow_dispatch import build_plan
         if reg is not None:
             rare = next((a for a in reg.assets if a.primary_path.lower() == "char/tmabcd/at_dragon.smd"), None)
@@ -1476,7 +1554,9 @@ def _command_app_smoke() -> int:
     try:
         blender_cmd = _blender_command()
         details["blender_command"] = blender_cmd
-        checks["blender_launcher_available"] = bool(blender_cmd and shutil.which(blender_cmd[0]))
+        blender_available, blender_reason = _blender_launcher_status(blender_cmd)
+        checks["blender_launcher_available"] = blender_available
+        details["blender_launcher_status"] = blender_reason
     except Exception as exc:
         details["blender_error"] = f"{type(exc).__name__}:{exc}"
 
@@ -1485,7 +1565,7 @@ def _command_app_smoke() -> int:
         "client_root_resolved", "pt_build_writable", "catalog_bootstrap",
         "asset_registry_bootstrap", "ui_capability_contract", "ui_taxonomy_contract", "entity_catalog_contract", "ui_preview_pipeline",
         "ui_javascript_contract", "ui_interactive_review_contract", "support_file_inspection_contract",
-        "blender_edit_workspace_contract", "generic_blender_import_contract", "generic_build_dispatch_contract",
+        "blender_edit_workspace_contract", "generic_blender_import_contract", "texture_upscale_contract", "generic_build_dispatch_contract",
         "inx_motion_writer_contract", "smb_key_writer_contract", "object_local_key_writer_contract", "character_profile_registry_contract",
         "profile_candidate_discovery_contract", "animation_certification_plan_contract",
         "development_readiness_contract", "deployment_plan_contract", "deployment_simulation_contract", "deployment_restore_contract",
@@ -1767,6 +1847,7 @@ def main() -> int:
         print("  config clear-server-root       clear persistent server root and return to discovery")
         print("  registry status                generate/read machine-local asset registry state")
         print("  registry rebuild [--client-root PATH]  force a read-only registry rebuild from the current client")
+        print("  texture-upscale scan|run ...   scan/upscale BMP/TGA/PNG/JPG to a separate pt_build/output tree")
         return cp.returncode
     if args in (["status"], ["app-status"]):
         return _command_app_status()
@@ -1778,6 +1859,13 @@ def main() -> int:
         return _command_app_config(args[1:])
     if args and args[0] == "registry":
         return _command_registry(args[1:])
+    if args and args[0] == "texture-upscale":
+        from pt_asset_tool.texture_upscale import main as _texture_upscale_main
+        try:
+            return _texture_upscale_main(args[1:])
+        except Exception as exc:
+            print(f"texture_upscale_error={type(exc).__name__}:{exc}", file=sys.stderr)
+            return 2
     if args and args[0] in {"ui", "gui"}:
         from pt_asset_gui import main as _ui_main
         return _ui_main(args[1:])

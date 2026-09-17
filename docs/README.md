@@ -44,7 +44,8 @@
 - `tematicos/FIELD_METADATA_EDITOR.md`;
 - `tematicos/EFFECTS_PARTICLES.md`;
 - `tematicos/SUPERSET_AGGREGATOR.md`;
-- `tematicos/ASSET_CONTRACT_GRAPH.md`.
+- `tematicos/ASSET_CONTRACT_GRAPH.md`;
+- `tematicos/TEXTURE_UPSCALE_PIPELINE.md` — upscale seguro BMP/TGA/PNG/JPG com staging em `pt_build`.
 
 ## Evidência e histórico
 

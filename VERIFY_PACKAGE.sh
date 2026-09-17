@@ -26,6 +26,7 @@ required=(
   "docs/release/RELEASE_NOTES_1_0.md"
   "docs/tematicos/FIELD_METADATA_EDITOR.md"
   "docs/tematicos/EFFECTS_PARTICLES.md"
+  "docs/tematicos/TEXTURE_UPSCALE_PIPELINE.md"
   "docs/tematicos/GUIA_DESIGN_TOOL.md"
   "docs/tematicos/GUIA_ASSET_ENRICHMENT.md"
   "docs/tematicos/GUIA_WORKFLOW_CLIENT_SERVER.md"
@@ -60,6 +61,8 @@ required=(
   "app/pt_asset_tool/superset_aggregation.py"
   "app/pt_asset_tool/source_evidence.py"
   "app/pt_asset_tool/texture_overlay.py"
+  "app/pt_asset_tool/texture_upscale.py"
+  "app/pt_texture_upscale.py"
   "app/pt_asset_tool/ui_catalog.py"
   "app/pt_asset_tool/ui_static/index.html"
   "app/pt_asset_tool/ui_static/app.js"
@@ -69,6 +72,8 @@ required=(
   "app/pt_part_editor.py"
   "app/pt_part_ui.py"
   "app/dev_tests/test_registry_bootstrap_fresh.py"
+  "app/dev_tests/test_texture_upscale.py"
+  "app/dev_tests/test_texture_upscale_integration.py"
   "app/tests/conftest.py"
   "app/dev_tests/test_rc6_11_autonomous.py"
   "app/dev_tests/test_rc6_12_motion_batch.py"
@@ -194,11 +199,15 @@ grep -q 'BLOCKED_UNKNOWN_SMCHAR_INFO_FIELDS' pt_asset_tool/server_field_editor.p
 grep -q 'BLENDER_PREVIEW_APPROXIMATE' pt_effect_preview.py
 grep -q 'registry_bootstrap' pt_asset.py
 grep -q 'legacy_runtime' pt_asset.py
+grep -q 'texture-upscale' pt_asset.py
+grep -q 'upscale_texture' pt_asset_tool/ui_actions.py
+grep -q "action==='upscale_texture'" pt_asset_tool/ui_static/app.js
+grep -q 'TEXTURE_UPSCALE_PILLOW_UNAVAILABLE' pt_asset_tool/ui_app.py
 
 VERIFY_TMP="$(mktemp -d)"
 trap 'rm -rf "$VERIFY_TMP"' EXIT
 PYTHONPYCACHEPREFIX="$VERIFY_TMP/pycache" python3 -m compileall -q \
-  pt_asset.py pt_asset_tool pt_effect_preview.py pt_effect_blender_preview.py \
+  pt_asset.py pt_texture_upscale.py pt_asset_tool pt_effect_preview.py pt_effect_blender_preview.py \
   pt_effect_preview_verify.py pt_part_editor.py pt_part_ui.py
 if command -v node >/dev/null 2>&1; then
   node --check pt_asset_tool/ui_static/app.js >/dev/null
@@ -227,7 +236,7 @@ for raw in p.read_text(encoding='utf-8').splitlines():
         bad.append(rel)
 if bad: raise SystemExit('PACKAGE_VERIFY=FAIL snapshot_manifest_ephemeral_paths '+','.join(bad[:8]))
 PY
-  (cd "$ROOT" && sha256sum -c SNAPSHOT_SHA256SUMS.txt >/dev/null) || {
+  python3 "$ROOT/app/update_snapshot_manifest.py" --current-root "$ROOT" --check || {
     echo "PACKAGE_VERIFY=FAIL snapshot_manifest" >&2
     exit 7
   }
