@@ -25,7 +25,7 @@ def _sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def _representatives(registry, family: str, limit: int = 3, *, domain: str | None = None) -> list[Any]:
+def _representative_pool(registry, family: str, *, domain: str | None = None) -> list[Any]:
     rows = [
         asset for asset in registry.assets
         if asset.family == family and (domain is None or content_domain(asset) == domain)
@@ -33,6 +33,11 @@ def _representatives(registry, family: str, limit: int = 3, *, domain: str | Non
     rows.sort(key=lambda asset: (int(asset.size or 0), asset.primary_path.casefold()))
     if not rows:
         return []
+
+    # Preserve the historical small/middle/large anchors first, then expose the
+    # remaining deterministic pool.  Codec gates can therefore retry past a
+    # structurally proven non-image target without silently changing which
+    # representative sizes are preferred.
     idxs = [0, len(rows) // 2, len(rows) - 1]
     out: list[Any] = []
     seen: set[str] = set()
@@ -41,9 +46,15 @@ def _representatives(registry, family: str, limit: int = 3, *, domain: str | Non
         if asset.asset_id not in seen:
             out.append(asset)
             seen.add(asset.asset_id)
-        if len(out) >= int(limit):
-            break
+    for asset in rows:
+        if asset.asset_id not in seen:
+            out.append(asset)
+            seen.add(asset.asset_id)
     return out
+
+
+def _representatives(registry, family: str, limit: int = 3, *, domain: str | None = None) -> list[Any]:
+    return _representative_pool(registry, family, domain=domain)[:max(0, int(limit))]
 
 
 def _family_domain_inventory(registry, families: tuple[str, ...]) -> dict[str, dict[str, int]]:
@@ -64,6 +75,7 @@ def audit_proprietary_texture_codecs(project_root, registry, resolver, *, per_fa
     rows: list[dict[str, Any]] = []
     failures: list[dict[str, Any]] = []
     skipped: list[dict[str, Any]] = []
+    content_invalid: list[dict[str, Any]] = []
 
     families = (
         "BMP_PROTECTED_PREFIX14_EXACT",
@@ -150,11 +162,25 @@ def audit_proprietary_texture_codecs(project_root, registry, resolver, *, per_fa
             })
 
     for domain in CONTENT_DOMAINS:
-        for asset in _representatives(registry, "TGA_NONSTANDARD_OR_PROTECTED", per_family, domain=domain):
+        passed_for_domain = 0
+        for asset in _representative_pool(registry, "TGA_NONSTANDARD_OR_PROTECTED", domain=domain):
+            if passed_for_domain >= max(0, int(per_family)):
+                break
             try:
                 path = pathlib.Path(resolver.resolve(asset.primary_path, required=True)).resolve()
                 raw = path.read_bytes()
                 before = _sha(raw)
+                invalid_reason = _classify_non_image_target_payload(raw, tga)
+                if invalid_reason:
+                    content_invalid.append({
+                        "logical": asset.primary_path,
+                        "family": asset.family,
+                        "domain": domain,
+                        "status": "TARGET_CONTENT_INVALID",
+                        "classification": invalid_reason,
+                        "size": len(raw),
+                    })
+                    continue
                 info = tga.inspect_bytes(raw)
                 if not info.get("protected"):
                     skipped.append({
@@ -191,11 +217,12 @@ def audit_proprietary_texture_codecs(project_root, registry, resolver, *, per_fa
                     "family": asset.family,
                     "domain": domain,
                     "status": "PASS",
-                    "mode": info.get("mode"),
+                    "mode": info.get("mode") or info.get("protection_mode"),
                     "width": info["fields"].get("width"),
                     "height": info["fields"].get("height"),
                     "candidate_body_edit_observed": True,
                 })
+                passed_for_domain += 1
             except Exception as exc:
                 failures.append({
                     "logical": asset.primary_path,
@@ -237,9 +264,11 @@ def audit_proprietary_texture_codecs(project_root, registry, resolver, *, per_fa
         "pass_count": len(rows),
         "failure_count": len(failures),
         "skip_count": len(skipped),
+        "target_content_invalid_count": len(content_invalid),
         "rows": rows,
         "failures": failures,
         "skipped": skipped,
+        "target_content_invalid": content_invalid,
         "domain_summary": domain_summary,
         "pass_domains": pass_domains,
         "scope": "REPRESENTATIVE_PROPRIETARY_DECODE_EDIT_REBUILD_NO_CLIENT_WRITE",
@@ -247,6 +276,11 @@ def audit_proprietary_texture_codecs(project_root, registry, resolver, *, per_fa
         "production_authorized": False,
         "client_write_authorized": False,
         "client_modified": False,
+        "policy": {
+            "representative_gate_tests_codec_capability_not_target_content_validity": True,
+            "non_image_target_payloads_are_reported_and_retried": True,
+            "physical_corpus_remains_authoritative_for_target_content_invalidity": True,
+        },
     }
     out = root / "pt_build" / "devtest" / "texture_codec_auto" / "result.json"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -333,16 +367,31 @@ def audit_proprietary_texture_exact_regressions(project_root, registry, resolver
 # FIX24_RELEASE_CAPABILITY_TARGET_SEPARATION: these are target-content
 # invalidity signatures, not proprietary image codec families.  Classification
 # is structural/content based; no path exception is used.
-def _classify_non_image_target_payload(raw: bytes) -> str | None:
+def _classify_non_image_target_payload(raw: bytes, tga_core=None) -> str | None:
     if not raw:
         return "EMPTY_FILE"
     if not any(raw):
         return "ZERO_FILLED_FILE"
-    probe=bytes(raw[:4096]).lower()
+    probe = bytes(raw[:4096]).lower()
     if b"<html" in probe and (
         b"404" in probe or b"page cannot be found" in probe or b"internet information services" in probe
     ):
         return "HTML_ERROR_DOCUMENT"
+
+    # A real shipped MAP outlier has the normal Priston 18-byte additive
+    # transform applied to the beginning of an HTML document.  Deprotecting the
+    # prefix yields ``\x00\x00DOCTYPE HTML PUB...`` rather than a TGA header.
+    # Treat that as target-content invalidity, not as evidence for a new codec
+    # variant.  No path exception is used: classification depends only on bytes.
+    if tga_core is not None and len(raw) >= 18:
+        for mode in ("FULL18", "KEEP_00_16"):
+            try:
+                decoded = tga_core.decode_candidate(raw[:18], mode) + raw[18:4096]
+            except Exception:
+                continue
+            text_probe = decoded.lower().lstrip(b"\x00\t\r\n ")
+            if text_probe.startswith((b"doctype html", b"<!doctype html")) or b"<html" in text_probe[:512]:
+                return "HTML_DOCUMENT_WITH_PROTECTED_PREFIX18"
     return None
 
 CORPUS_FORMAT = "PT_PROPRIETARY_TEXTURE_PHYSICAL_CORPUS_AUDIT_V1"
@@ -377,7 +426,7 @@ def audit_proprietary_texture_physical_corpus(project_root, registry, resolver, 
         try:
             path=pathlib.Path(resolver.resolve(asset.primary_path,required=True)).resolve()
             raw=path.read_bytes()
-            invalid_reason=_classify_non_image_target_payload(raw) if family == "TGA_NONSTANDARD_OR_PROTECTED" else None
+            invalid_reason=_classify_non_image_target_payload(raw, tga) if family == "TGA_NONSTANDARD_OR_PROTECTED" else None
             if invalid_reason:
                 summary["fail_count"] += 1
                 summary["content_invalid_count"] += 1
