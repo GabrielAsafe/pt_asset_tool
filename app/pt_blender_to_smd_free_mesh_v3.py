@@ -9,7 +9,7 @@ Input requirements:
   - 3..30000 vertices
   - 1..30000 faces
   - exactly one active UV layer
-  - exactly one rigid bone group at weight 1.0 per vertex
+  - rigid Physique is serialized as one bone at weight 1.0 per vertex
   - bone names must exist in the supplied SMB skeleton
   - face material IDs must already exist in the selected source object
 
@@ -17,7 +17,7 @@ Crucially, this writer has NO old_to_new mapping and NO append-only rule.
 Every smVERTEX record is rebuilt from Blender.
 Every smFACE is rebuilt from Blender.
 Every smTEXLINK is rebuilt from Blender.
-Every Physique assignment is rebuilt from Blender vertex groups.
+Physique assignment policy is explicit: auto-repair (default), strict, or source-preserve.
 Existing object-local ROT/POS/SCALE/TmPrevRot arrays are preserved byte-identical.
 
 The pristine SMD is used only as a container/template for:
@@ -749,7 +749,7 @@ def equal_normals(mesh, export_triangles, *, src_obj=None, skeleton=None, bones=
     }
 
 
-def rigid_bone(obj, vi):
+def rigid_bone_rows(obj, vi):
     rows = []
     for e in obj.data.vertices[vi].groups:
         if e.weight <= 1e-8:
@@ -757,12 +757,62 @@ def rigid_bone(obj, vi):
         if not (0 <= e.group < len(obj.vertex_groups)):
             raise ValueError(f"vertex {vi}: invalid vertex group index")
         rows.append((obj.vertex_groups[e.group].name, float(e.weight)))
+    return rows
 
+
+def rigid_bone(obj, vi):
+    rows = rigid_bone_rows(obj, vi)
     if len(rows) != 1 or abs(rows[0][1] - 1.0) > 1e-5:
         raise ValueError(
             f"vertex {vi}: expected exactly one rigid group at weight 1.0; got {rows}"
         )
     return rows[0][0]
+
+
+def auto_rigid_bone(obj, vi, *, seed_material, skeleton, conflict_keys, source_bone=None):
+    """Choose one serializable rigid bone and report any automatic repair.
+
+    Model0.62 can serialize only one Physique bone per vertex.  Blender may
+    contain multiple non-zero groups or a single group whose weight is not 1.0.
+    The default authoring policy intentionally bypasses that mismatch by choosing
+    one valid group with a stable pseudo-random selector and serializing it as
+    weight 1.0.  Stable selection gives the user the historical "pick one"
+    behavior without making repeated builds nondeterministic.
+    """
+    rows = rigid_bone_rows(obj, vi)
+    strict = len(rows) == 1 and abs(rows[0][1] - 1.0) <= 1e-5
+    if strict:
+        return rows[0][0], None
+
+    candidates = [
+        (name, weight) for name, weight in rows
+        if name in skeleton and name.casefold() not in conflict_keys
+    ]
+    strategy = "stable_pseudorandom_group"
+    if candidates:
+        canonical = sorted(candidates, key=lambda row: (row[0].casefold(), row[0], row[1]))
+        payload = (
+            str(seed_material) + "|" + str(vi) + "|"
+            + "|".join(f"{name}:{weight:.17g}" for name, weight in canonical)
+        ).encode("utf-8", "surrogatepass")
+        digest = hashlib.sha256(payload).digest()
+        selected = canonical[int.from_bytes(digest[:8], "big") % len(canonical)][0]
+    elif source_bone and source_bone in skeleton and source_bone.casefold() not in conflict_keys:
+        selected = str(source_bone)
+        strategy = "source_fallback_no_valid_blender_group"
+    else:
+        raise ValueError(
+            f"vertex {vi}: automatic rigid-weight repair found no valid bone; got {rows}"
+        )
+
+    repair = {
+        "vertex": int(vi),
+        "original_weights": [[name, weight] for name, weight in rows],
+        "selected_bone": selected,
+        "serialized_weight": 1.0,
+        "strategy": strategy,
+    }
+    return selected, repair
 
 
 def bone_slot(name):
@@ -936,6 +986,14 @@ def parse_args(argv):
     p.add_argument("--report")
     p.add_argument("--max-fit-error", type=float, default=0.02)
     p.add_argument("--expected-source-sha256")
+    p.add_argument(
+        "--physique-policy", choices=("auto", "strict", "source"), default="auto",
+        help=(
+            "auto (default) chooses one valid Blender bone deterministically and serializes it at weight 1.0, "
+            "emitting repair warnings; strict refuses non-rigid weights; source preserves the serialized "
+            "source-SMD Physique assignment by vertex index"
+        ),
+    )
     return p.parse_args(argv)
 
 
@@ -1049,9 +1107,44 @@ def main(argv):
                 f"allowed={sorted(allowed_materials)}"
             )
 
+    if a.physique_policy == "source" and nv != int(so["nv"]):
+        raise ValueError(
+            "--physique-policy source requires source-compatible vertex indexing: "
+            f"source_vertices={so['nv']} blender_vertices={nv}"
+        )
+
     bones = []
+    physique_workspace_mismatches = []
+    physique_auto_repairs = []
+    source_bones = list(so.get("bones") or [])
+    repair_seed = f"{source_sha256}|{target}|{target_index}"
     for vi in range(nv):
-        bone = rigid_bone(obj, vi)
+        rows = rigid_bone_rows(obj, vi)
+        if a.physique_policy == "source":
+            if vi >= len(source_bones) or not source_bones[vi]:
+                raise ValueError(f"vertex {vi}: source Physique assignment missing")
+            bone = str(source_bones[vi])
+            strict_match = (
+                len(rows) == 1
+                and rows[0][0] == bone
+                and abs(rows[0][1] - 1.0) <= 1e-5
+            )
+            if not strict_match:
+                physique_workspace_mismatches.append({
+                    "vertex": vi,
+                    "source_bone": bone,
+                    "blender_weights": [[name, weight] for name, weight in rows],
+                })
+        elif a.physique_policy == "auto":
+            source_bone = str(source_bones[vi]) if vi < len(source_bones) and source_bones[vi] else None
+            bone, repair = auto_rigid_bone(
+                obj, vi, seed_material=repair_seed, skeleton=skeleton,
+                conflict_keys=conflict_keys, source_bone=source_bone,
+            )
+            if repair is not None:
+                physique_auto_repairs.append(repair)
+        else:
+            bone = rigid_bone(obj, vi)
         if bone.casefold() in conflict_keys:
             raise ValueError(
                 f"vertex {vi}: bone {bone!r} references a conflicting duplicate skeleton node; "
@@ -1269,6 +1362,16 @@ def main(argv):
         all_texlinks_rebuilt=True,
         legacy_degenerate_topology=normal_topology,
         all_physique_rebuilt=True,
+        physique_policy=a.physique_policy,
+        source_physique_preserved=(a.physique_policy == "source"),
+        blender_weight_edits_authorized=(a.physique_policy == "auto"),
+        auto_rigid_weight_repair_enabled=(a.physique_policy == "auto"),
+        blender_weight_mismatch_count=len(physique_workspace_mismatches),
+        blender_weight_mismatches=physique_workspace_mismatches[:64],
+        blender_weight_mismatches_truncated=max(0, len(physique_workspace_mismatches) - 64),
+        blender_weight_repair_count=len(physique_auto_repairs),
+        blender_weight_repairs=physique_auto_repairs[:64],
+        blender_weight_repairs_truncated=max(0, len(physique_auto_repairs) - 64),
         object_local_animation_counts={"rot": so["nr"], "pos": so["np"], "scale": so["ns"]},
         object_local_animation_payload_bytes=len(motion_payload),
         object_local_animation_preserved_byte_identical=(output_motion_payload == motion_payload),
@@ -1328,6 +1431,18 @@ def main(argv):
     print("all_faces_rebuilt=True")
     print("all_texlinks_rebuilt=True")
     print("all_physique_rebuilt=True")
+    print(f"physique_policy={a.physique_policy}")
+    print(f"blender_weight_mismatch_count={len(physique_workspace_mismatches)}")
+    print(f"blender_weight_repair_count={len(physique_auto_repairs)}")
+    for repair in physique_auto_repairs[:16]:
+        print(
+            "WARNING AUTO_RIGID_WEIGHT_REPAIR "
+            f"vertex={repair['vertex']} selected={repair['selected_bone']!r} "
+            f"original={repair['original_weights']!r} serialized_weight=1.0 "
+            f"strategy={repair['strategy']}"
+        )
+    if len(physique_auto_repairs) > 16:
+        print(f"WARNING AUTO_RIGID_WEIGHT_REPAIR additional={len(physique_auto_repairs)-16}")
     print(f"rigid_bone_count={len(set(bones))}")
     print(f"unique_rigid_bones={sorted(set(bones))}")
     print(f"allowed_materials={sorted(allowed_materials)}")

@@ -981,6 +981,26 @@ plan fail-closed restoration from verified backup; apply remains disabled
 |---|---|---|
 | `manifest` | obrigatório | pt_build deployment transaction.json |
 
+### `pt_asset.py deploy workspace-prepare`
+
+Constrói, sem escrever o client, um bundle de publicação a partir do workspace `generic_import`: detecta modelo/texturas alterados, snapshot de modelo/INX/SMB/texturas e staged runtime bytes. `--textures-only` pula o writer do modelo.
+
+### `pt_asset.py deploy workspace-publish`
+
+Prepara e publica atomicamente o bundle. Exige `--confirm "APPLY CLIENT BUNDLE"`. Aplica apenas entradas `MODIFIED`; qualquer drift/backup/staged mismatch bloqueia antes da primeira escrita e falha pós-write executa rollback.
+
+### `pt_asset.py deploy workspace-apply` / `workspace-verify` / `workspace-state`
+
+Opera um `transaction.json` previamente preparado: apply explícito, revalidação de hashes/drift e classificação `ORIGINAL`/`DEPLOYED`/`DRIFT`.
+
+### `pt_asset.py deploy workspace-history`
+
+Lista as transações retidas em `pt_build/deploy_bundles` para o asset.
+
+### `pt_asset.py deploy workspace-restore` / `workspace-restore-latest`
+
+Restaura bytes de backup apenas de transação `APPLIED_VERIFIED`, recusando estado desconhecido. Exige `--confirm "RESTORE CLIENT BUNDLE"`.
+
 ### `pt_asset.py view stage072`
 
 generate/verify a Stage0.72 preview and open a disposable floating-origin Blender view

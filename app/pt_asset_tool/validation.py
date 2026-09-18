@@ -762,7 +762,11 @@ class ValidationRunner:
                 source, prepared, actual_lod = self._prepare_static_blend(asset, workspace, overlay_root)
                 mode = "STATIC"
             if pathlib.Path(prepared).resolve() != blend.resolve():
-                shutil.move(str(prepared), str(blend))
+                # Keep the immutable pristine import as the semantic baseline for
+                # later workspace deploy checks.  Older releases moved this file
+                # into imported.blend, which made it impossible to distinguish
+                # import normalization from an artist edit without rebuilding.
+                shutil.copy2(str(prepared), str(blend))
             import_meta = {
                 "texture_overlay": str(overlay_root),
                 "texture_ready": bool(texture_report.get("ready", True)),

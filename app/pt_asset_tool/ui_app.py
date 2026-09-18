@@ -38,9 +38,12 @@ from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_s
 from .general_asset_census import query_general_asset_census
 from .source_catalog import configured_source_roots
 from .texture_upscale import capability_status as texture_upscale_capability_status
+from .blender_workspace import blender_edit_root
+from .workspace_bundle_deploy import latest_applied_bundle_manifest
 
 LOOPBACKS = {"127.0.0.1", "localhost", "::1"}
 ARM_PHRASE = "ARM BUILD WRITES"
+DEPLOY_ARM_PHRASE = "ARM CLIENT DEPLOY"
 
 
 def _discover_client_root(project_root: pathlib.Path) -> pathlib.Path:
@@ -154,6 +157,7 @@ class UIContext:
         except Exception:
             self.profile_registry = None
         self.write_armed_until = 0.0
+        self.deploy_armed_until = 0.0
         self.server: ThreadingHTTPServer | None = None
 
     def set_server_root(self, value: pathlib.Path | None) -> None:
@@ -265,6 +269,18 @@ class UIContext:
                         notes["diagnose_animation"] = "MISSING_PHYSICAL_ANIMATION_DEPENDENCY"
                 if head_candidates:
                     caps = sorted(set(caps) | {"heads"})
+                if asset.family in {"SMD_MODEL_062_STATIC", "SMD_MODEL_062_RIGID_PHYSIQUE"}:
+                    workspace = blender_edit_root(self.project_root, "generic_import", asset.primary_path)
+                    if (workspace / "imported.blend").is_file() and (workspace / "authoring_manifest.json").is_file():
+                        caps = sorted(set(caps) | {"publish_bundle"})
+                        row["publish_workspace"] = str(workspace)
+                    try:
+                        latest = latest_applied_bundle_manifest(self.project_root, asset.primary_path)
+                    except Exception:
+                        latest = None
+                    if latest is not None:
+                        caps = sorted(set(caps) | {"check_bundle", "restore_bundle"})
+                        row["latest_deploy_manifest"] = str(latest)
                 row["capabilities"] = caps
                 row["capability_notes"] = notes
             else:
@@ -285,6 +301,16 @@ class UIContext:
 
     def disarm(self) -> None:
         self.write_armed_until = 0.0
+
+    @property
+    def deploy_armed(self) -> bool:
+        return time.time() < self.deploy_armed_until
+
+    def arm_deploy(self, seconds: int = 300) -> None:
+        self.deploy_armed_until = time.time() + max(60, min(900, seconds))
+
+    def disarm_deploy(self) -> None:
+        self.deploy_armed_until = 0.0
 
 
 class UIHandler(BaseHTTPRequestHandler):
@@ -350,15 +376,19 @@ class UIHandler(BaseHTTPRequestHandler):
                 "catalog": {"file_count": s.file_count, "total_bytes": s.total_bytes, "indexed_at": s.indexed_at},
                 "write_armed": self.ctx.write_armed,
                 "write_armed_until": self.ctx.write_armed_until,
+                "deploy_armed": self.ctx.deploy_armed,
+                "deploy_armed_until": self.ctx.deploy_armed_until,
                 "actions": public_action_specs(),
                 "optional_capabilities": {"texture_upscale": texture_upscale_capability_status()},
                 "safety": {
-                    "client_source_write": False,
+                    "client_source_write": "EXPLICIT_VERIFIED_BUNDLE_ONLY",
                     "build_write_requires_arm": True,
                     "arm_phrase": ARM_PHRASE,
+                    "client_deploy_requires_separate_arm": True,
+                    "deploy_arm_phrase": DEPLOY_ARM_PHRASE,
                     "server_source_write": False,
                     "persistence_write": False,
-                    "note": "The UI never deploys into the client or server roots. Backend writers remain authoritative and fail-closed.",
+                    "note": "Client writes are limited to verified workspace bundle deploy/restore transactions with backup, drift gate, atomic replace and rollback. Server remains separately guarded.",
                 },
             })
         if path == "/api/catalog":
@@ -605,6 +635,14 @@ class UIHandler(BaseHTTPRequestHandler):
         if u.path == "/api/safety/disarm":
             self.ctx.disarm()
             return self._json(200, {"ok": True, "write_armed": False})
+        if u.path == "/api/safety/deploy-arm":
+            if str(body.get("confirm") or "") != DEPLOY_ARM_PHRASE:
+                return self._error(400, "DEPLOY_ARM_CONFIRMATION_REQUIRED", DEPLOY_ARM_PHRASE)
+            self.ctx.arm_deploy(int(body.get("seconds") or 300))
+            return self._json(200, {"ok": True, "deploy_armed": True, "deploy_armed_until": self.ctx.deploy_armed_until})
+        if u.path == "/api/safety/deploy-disarm":
+            self.ctx.disarm_deploy()
+            return self._json(200, {"ok": True, "deploy_armed": False})
         if u.path == "/api/contracts/config":
             source_raw = str(body.get("source_root") or "").strip()
             reference_raw = str(body.get("reference_source_root") or "").strip()
@@ -845,7 +883,11 @@ class UIHandler(BaseHTTPRequestHandler):
                     return self._error(409, "ACTION_NOT_SUPPORTED_FOR_ASSET", f"action={action} family={family}")
             elif action != "doctor":
                 return self._error(400, "ASSET_PATH_REQUIRED")
-            if spec.mutates_build and not self.ctx.write_armed:
+            if spec.mutates_client and not self.ctx.deploy_armed:
+                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Arme explicitamente o deploy do client antes de publicar/restaurar um bundle.")
+            # A client-deploy arm is stronger and one-shot; it also authorizes the
+            # pt_build transaction preparation required by publish/restore.
+            if spec.mutates_build and not spec.mutates_client and not self.ctx.write_armed:
                 return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme temporariamente as ações de workspace/build no painel de Segurança.")
             if spec.mutates_build and self.ctx.jobs.has_active(rel):
                 return self._error(409, "ASSET_EDIT_ALREADY_RUNNING", "Já existe uma tarefa ativa para este asset; aguarde ou cancele-a antes de iniciar outra edição/build.")
@@ -854,7 +896,9 @@ class UIHandler(BaseHTTPRequestHandler):
             except Exception as exc:
                 return self._error(400, "ACTION_BUILD_FAILED", str(exc))
             job = self.ctx.jobs.submit(action, rel, cmd, interactive=spec.interactive)
-            return self._json(202, {"ok": True, "job": job.public(), "write_armed": self.ctx.write_armed})
+            if spec.mutates_client:
+                self.ctx.disarm_deploy()
+            return self._json(202, {"ok": True, "job": job.public(), "write_armed": self.ctx.write_armed, "deploy_armed": self.ctx.deploy_armed})
         if u.path == "/api/job/input":
             ok = self.ctx.jobs.send_input(str(body.get("id") or ""), str(body.get("value") or ""))
             return self._json(200, {"ok": True}) if ok else self._error(409, "JOB_INPUT_NOT_ACCEPTED", "A tarefa não está aguardando uma resposta interativa válida.")

@@ -1,6 +1,6 @@
 # PT Asset Tool R14 1.0.0 — Matriz de Funcionalidades
 
-Legenda de segurança: **RO** = read-only no target; **BUILD** = escreve somente em `pt_build`; **EXT** = depende de ferramenta externa como Blender; **LOCKED** = promoção/publish externo não habilitado pela distribuição.
+Legenda de segurança: **RO** = read-only no target; **BUILD** = escreve somente em `pt_build`; **EXT** = depende de ferramenta externa como Blender; **DEPLOY** = client write estreito/transacional com arm explícito; **LOCKED** = promoção genérica não habilitada.
 
 | Área | Funcionalidades 1.0 | Estado | Segurança |
 |---|---|---|---|
@@ -27,7 +27,7 @@ Legenda de segurança: **RO** = read-only no target; **BUILD** = escreve somente
 | Donor forensics | official payload/container/update.tmp workflows | Avançado | RO/BUILD; sem target write |
 | Tree compare | filtros, hash, differences-only, JSON output | Certificado | RO |
 | Build dispatcher | production route somente quando writer certificado; `--candidate` para research writers | Fail-closed | BUILD only nesta distribuição |
-| Deploy | plan, prepare, verify, simulate, state, restore-plan | Certificado como planejamento/transação simulada | BUILD; apply no client não exposto |
+| Deploy | legacy plan/prepare/verify/simulate/state/restore-plan + workspace prepare/publish/verify/state/history/restore | Workspace bundle client deploy promovido para Model0.62 static/rigid verificável e texturas associadas | BUILD/DEPLOY; backup + drift + atomic + rollback; server write não exposto |
 | Rare rigid | preview/edit, multivertex, cross-object, multibone extent, policies e reviews | Escopos específicos certificados/promovidos | BUILD; publish separado |
 | Certificação | journal JSONL, human reviews, rigid candidate review | Certificado | BUILD metadata |
 | Gates | environment, server environment/design, physical/integration regression, release-1-auto | Certificado | RO/BUILD reports |
@@ -35,8 +35,8 @@ Legenda de segurança: **RO** = read-only no target; **BUILD** = escreve somente
 
 ## Limites deliberados
 
-- `production_authorized=false`, `client_write_authorized=false`, `server_write_authorized=false` no pacote 1.0.
-- `WRITER_PROMOTION_AND_PUBLISH_RESTORE` é operação externa/manual e não é habilitada por instalação.
+- Defaults globais continuam fail-closed e `server_write_authorized=false`. Client write só é autorizado dentro de transação `workspace_bundle_deploy` explicitamente armada e verificada.
+- Não existe publish genérico para qualquer writer/formato: a promoção é por capability de workspace/ficheiro.
 - Falhas de conteúdo do target (texturas ausentes/corruptas) são mantidas como diagnóstico separado da capability do tool.
 - Gameplay/runtime Tier 1–4 não é gate da release do PT Asset Tool 1.0.
 - Mixed Physique físico permanece fora do escopo certificado de produção.

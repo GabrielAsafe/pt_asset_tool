@@ -70,7 +70,7 @@ Mostra roots resolvidos e glossário. A configuração persistente usa o mesmo m
 
 ## Safety arm
 
-A GUI distingue ações read-only de ações que criam artefactos. Ações mutáveis exigem arm temporário da sessão; esse arm autoriza **workspace/build**, não autoriza modificar client/server.
+A GUI distingue ações read-only, BUILD e deploy. `ARM BUILD WRITES` autoriza somente workspace/build. **Publicar no jogo** e **Restaurar último deploy** usam um segundo arm one-shot: digite exatamente `ARM CLIENT DEPLOY`. Esse arm autoriza apenas a transação de bundle verificado; server write continua desabilitado.
 
 Ações read-only comuns:
 
@@ -89,7 +89,7 @@ Ações BUILD comuns:
 - Editar rare model;
 - Gerar SMD/writer em `pt_build`.
 
-## 25 ações expostas pela UI - (RO deve ser readObject)
+## 27 ações expostas pela UI - (RO deve ser readObject)
 
 | Ação | Grupo | Natureza |
 |---|---|---|
@@ -117,6 +117,8 @@ Ações BUILD comuns:
 | Upscale textura | Editar | BUILD overlay em `pt_build`; client read-only |
 | Editar no Blender | Editar | BUILD workspace |
 | Gerar SMD | Build | BUILD writer |
+| Publicar no jogo | Publicar | DEPLOY: modelo/texturas modificados; backup, drift gate, atomic write, post-validate e rollback |
+| Restaurar último deploy | Publicar | DEPLOY: restore do último APPLIED_VERIFIED; recusa drift desconhecido |
 | Doctor | Sistema | RO |
 
 ## API local interna

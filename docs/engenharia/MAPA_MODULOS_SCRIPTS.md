@@ -39,7 +39,8 @@ Este documento responde “qual família de `*.py` faz o quê?” e deve permane
 | `rigid_model_info.py` | identidade/classificação semântica multi-INX rigid (skeleton + LOD groups), audit e IDs de contexto |
 | `workflow_dispatch.py` | plano fail-closed para generic build |
 | `authoring.py` | preflight por canal de authoring Model0.62/Stage0.72, manifest de proveniência e audit de candidates |
-| `deployment.py` | `deploy plan/prepare/verify`: provenance read-only, snapshot de drift, backup verificado e staged artifact em `pt_build`; continua sem apply/client write |
+| `deployment.py` | contrato legacy single-file de deploy plan/prepare/verify/simulate; continua read-only no client |
+| `workspace_bundle_deploy.py` | deploy/restauro transacional de workspaces Model0.62: diff de modelo/texturas, backup completo de contexto, rebuild de codecs legacy, drift gate, replace atómico, post-write verification, rollback e histórico |
 | `build_provenance.py` | sidecar `*.build.json` que fixa asset/source/artifact SHA-256, adapter, modo candidate/production e separa autorização do writer de autorização de publish |
 | `development_readiness.py` | matriz machine-readable de maturidade e blockers do projeto |
 | `semantic_path.py` | classificação conservadora por árvore física; navegação somente, nunca binding/writer evidence |

@@ -15,6 +15,7 @@ class ActionSpec:
     mutates_build: bool = False
     long_running: bool = False
     interactive: bool = False
+    mutates_client: bool = False
 
 
 ACTION_SPECS: dict[str, ActionSpec] = {
@@ -42,6 +43,9 @@ ACTION_SPECS: dict[str, ActionSpec] = {
     "upscale_texture": ActionSpec("upscale_texture", "Upscale textura", "Editar", "Gera uma cópia 2x/3x/4x em pt_build; preserva headers protegidos TGA/BMP e nunca escreve no client.", mutates_build=True, long_running=True),
     "edit_rare": ActionSpec("edit_rare", "Editar no Blender", "Editar", "Cria/abre workspace guardado de rare-model.", mutates_build=True, long_running=True),
     "write_rare": ActionSpec("write_rare", "Gerar SMD", "Build", "Executa o writer guardado; output permanece em pt_build.", mutates_build=True, long_running=True),
+    "publish_bundle": ActionSpec("publish_bundle", "Publicar no jogo", "Publicar", "Reconstrói semanticamente todos os LODs editados do workspace, cria backup completo, publica atomicamente no client e bloqueia cobertura parcial de LOD por defeito.", mutates_build=True, long_running=True, mutates_client=True),
+    "check_bundle": ActionSpec("check_bundle", "Verificar último deploy", "Validar", "Valida somente o último bundle deste asset (hashes, drift e modelo pós-write); não varre o corpus inteiro.", long_running=True),
+    "restore_bundle": ActionSpec("restore_bundle", "Restaurar último deploy", "Publicar", "Restaura o último bundle APPLIED_VERIFIED a partir do backup verificado; recusa qualquer drift desconhecido.", long_running=True, mutates_client=True),
     "doctor": ActionSpec("doctor", "Doctor", "Sistema", "Executa pt_asset doctor."),
 }
 
@@ -58,6 +62,7 @@ def public_action_specs() -> list[dict[str, Any]]:
             "mutates_build": s.mutates_build,
             "long_running": s.long_running,
             "interactive": s.interactive,
+            "mutates_client": s.mutates_client,
         }
         for s in ACTION_SPECS.values()
     ]
@@ -186,4 +191,15 @@ def build_command(project_root: pathlib.Path, action: str, rel: str | None, opti
         return cmd
     if action == "write_rare":
         return base + ["write", "rare-model", rel]
+    if action == "publish_bundle":
+        cmd = base + ["deploy", "workspace-publish", rel, "--confirm", "APPLY CLIENT BUNDLE"]
+        if bool(options.get("textures_only")):
+            cmd.append("--textures-only")
+        if bool(options.get("no_auto_rigid_weight_repair")):
+            cmd.append("--no-auto-rigid-weight-repair")
+        return cmd
+    if action == "check_bundle":
+        return base + ["deploy", "workspace-check", rel]
+    if action == "restore_bundle":
+        return base + ["deploy", "workspace-restore-latest", rel, "--confirm", "RESTORE CLIENT BUNDLE"]
     raise AssertionError(action)

@@ -62,7 +62,7 @@ A ferramenta não trata “asset funciona” como uma única resposta. Ela separ
 | **Visual** | “O transporte para Blender preserva visualmente geometria/textura?” | Não |
 | **Roundtrip** | “Conseguimos reconstruir/modificar uma cópia sem alterar bytes não autorizados?” | Não; output em `pt_build` |
 | **Writer certificado** | “Existe um writer autorizado para este workflow específico?” | Output em `pt_build` |
-| **Publish/deploy** | “Podemos substituir algo no client?” | Não faz parte do caminho normal atual |
+| **Publish/deploy** | “Podemos substituir o bundle editado no client com rollback?” | Sim, apenas pelo workspace bundle verificado e com arm explícito |
 
 Por isso uma linha com muitos `PENDING` não significa que o arquivo esteja danificado. Significa apenas que aquelas certificações ainda não foram executadas/registradas para aquele asset.
 
@@ -89,14 +89,15 @@ python3 pt_asset.py explain roundtrip
 
 ### Regra de segurança central
 
-O **client original é tratado como fonte read-only por padrão**.
+O **client original é tratado como fonte read-only por padrão**. Edição/build continua isolada em `pt_build`. A única exceção operacional é o deploy/restauro explícito de um **workspace bundle verificado**.
 
-As ações de edição/build:
-
-- não fazem deploy automático no client;
-- gravam outputs em `pt_build`;
-- na GUI exigem um arm temporário;
-- continuam submetidas às validações fail-closed do backend.
+- `ARM BUILD WRITES` permite editar/buildar em `pt_build`;
+- `ARM CLIENT DEPLOY` é uma autorização separada, one-shot, para **Publicar no jogo** ou **Restaurar último deploy**;
+- antes da escrita, a app revalida provenance e drift de modelo, texturas e contexto INX/SMB;
+- cria backup SHA-256 de todo o bundle;
+- só escreve ficheiros realmente modificados, com replace atómico e verificação pós-write;
+- qualquer falha aciona rollback dos ficheiros já escritos;
+- server write continua fora deste fluxo.
 
 ---
 
@@ -1300,9 +1301,9 @@ Editar no Blender
 Gerar SMD
 ```
 
-Ele **não** autoriza deploy no client.
+Ele **não** autoriza deploy no client. Para publicar/restaurar, a própria ação solicitará separadamente `ARM CLIENT DEPLOY`; essa autorização é consumida por uma única transação.
 
-Você pode desarmar antes do prazo clicando novamente no botão.
+Você pode desarmar o arm de build antes do prazo clicando novamente no botão.
 
 ---
 
@@ -1939,19 +1940,34 @@ Também é possível interromper o terminal com `Ctrl+C`.
 
 ---
 
-# 41. Política de backups
+# 41. Publicar um asset editado no jogo, backup e restore
 
-A aplicação não deve ser considerada um sistema de deploy para o client.
+Para Model0.62 static/rigid importado por **Importar para Blender**, a GUI pode fechar o roundtrip com **Publicar no jogo**. O workspace continua sendo a fonte da edição; o client só é tocado na transação final.
 
-Para mudanças externas ou manuais no client, mantenha um backup independente.
+1. edite e salve o `.blend`/texturas do workspace;
+2. clique **Publicar no jogo**;
+3. digite exatamente `ARM CLIENT DEPLOY`;
+4. escolha `full` para modelo + texturas alteradas ou `textures` para somente texturas;
+5. acompanhe o job até `APPLIED_VERIFIED`.
 
-Os workspaces e outputs da aplicação ficam em `pt_build` justamente para separar:
+A preparação detecta o bundle pelo `authoring_manifest.json` e `texture_overlay_report.json`: SMD, texturas realmente associadas e dependências INX/SMB. INX/SMB são **preserve-only**: entram no backup e drift gate, mas não são reescritos.
 
-```text
-fonte original
-trabalho editável
-output gerado
+BMP/TGA protegido é reconstruído no container runtime original e validado por roundtrip. O modelo só entra como `MODIFIED` quando o writer saved-Blender static/rigid constrói um candidate cujo verificador dá PASS e observa edição real. Se o writer não suportar o asset, `full` bloqueia; `textures` permanece disponível para edição exclusivamente de textura.
+
+Cada transação fica em `pt_build/deploy_bundles/<asset>/<transaction-id>/` com `transaction.json`, `backup/`, `staged/` e `evidence/`. Antes do primeiro write a app revalida todos os hashes; depois faz replace atómico e valida o SHA de cada destino. Falha de escrita/hash/validação pós-write dispara rollback automático.
+
+Após `APPLIED_VERIFIED`, a GUI oferece **Restaurar último deploy**. O restore também exige `ARM CLIENT DEPLOY` e recusa drift desconhecido.
+
+CLI equivalente:
+
+```bash
+python3 pt_asset.py deploy workspace-prepare char/npc/TN-003/TN-003.smd
+python3 pt_asset.py deploy workspace-publish char/npc/TN-003/TN-003.smd --confirm "APPLY CLIENT BUNDLE"
+python3 pt_asset.py deploy workspace-history char/npc/TN-003/TN-003.smd
+python3 pt_asset.py deploy workspace-restore-latest char/npc/TN-003/TN-003.smd --confirm "RESTORE CLIENT BUNDLE"
 ```
+
+Mantenha também backups externos para operações manuais fora da aplicação; o histórico interno cobre apenas transações gerenciadas pela própria app.
 
 ---
 
@@ -1977,6 +1993,8 @@ output gerado
 | Texture Paint | workspace privado Stage0.72 |
 | Texture Upscale | cópia 2x/3x/4x em overlay `pt_build`, com manifest e source read-only |
 | Write | output guardado em `pt_build` |
+| Deploy bundle | publica modelo/texturas alterados com backup, drift gate, write atómico, validação e rollback |
+| Restore bundle | restaura o último deploy conhecido se não houver drift |
 | Jobs | execução, logs e cancelamento |
 | Reports | consulta recursiva de JSONs |
 | Certification | registro de PASS/FAIL/SKIP |

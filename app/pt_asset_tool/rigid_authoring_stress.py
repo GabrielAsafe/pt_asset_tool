@@ -7,7 +7,7 @@ from typing import Any
 
 from .authoring import authoring_plan, verify_selected_context_for_asset, verify_workspace_manifest
 from .blender_workspace import asset_workspace_name, blender_edit_root
-from .rigid_authoring_candidate import _eligible_objects, _physique_names
+from .rigid_authoring_candidate import _eligible_objects, _physique_names, _rigid_semantic_payload
 from .smb_writer import _layout_for_bones
 from .static_roundtrip import _parse as parse_model062_bytes
 
@@ -172,11 +172,17 @@ def _validate_target(project_root: pathlib.Path, s_obj: dict[str, Any], o_obj: d
             errors.append("OUTPUT_PHYSIQUE_BONE_NOT_IN_SKELETON")
     except Exception as exc:
         errors.append(f"SKELETON_PARSE:{type(exc).__name__}")
+    source_semantic = _rigid_semantic_payload(s_obj)
+    output_semantic = _rigid_semantic_payload(o_obj)
     target = {
         "source_counts": [s_obj["nv"], s_obj["nf"], s_obj["nt"]],
         "output_counts": [o_obj["nv"], o_obj["nf"], o_obj["nt"]],
         "topology_changed": [s_obj["nv"], s_obj["nf"]] != [o_obj["nv"], o_obj["nf"]],
         "target_block_byte_identical": s_obj["block"] == o_obj["block"],
+        "semantic_edit_observed": source_semantic != output_semantic,
+        "vertex_payload_changed": source_semantic["vertices"] != output_semantic["vertices"],
+        "face_uv_material_changed": source_semantic["faces"] != output_semantic["faces"],
+        "physique_assignment_changed": source_semantic["physique_bones"] != output_semantic["physique_bones"],
         "texlink_layer_depths": sorted(set(layer_depths)),
         "unique_physique_bones": sorted(set(bones), key=str.casefold),
     }
@@ -260,7 +266,7 @@ def validate_rigid_profile_stress_output(project_root: pathlib.Path, source: pat
         target["object_index"] = idx
         target["node_name"] = str(sx["name"])
         targets[key] = target
-        edit_observed_by_object[key] = not bool(target.get("target_block_byte_identical", True))
+        edit_observed_by_object[key] = bool(target.get("semantic_edit_observed"))
         unknown_by_object[key] = unknown
         if terr:
             target_errors[key] = terr

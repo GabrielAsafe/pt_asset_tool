@@ -291,6 +291,31 @@ def audit_development_readiness(
             ],
             production_authorized=False,
         ),
+        "workspace_bundle_publish_restore": _stage(
+            "SCOPED_EXPLICIT_CLIENT_DEPLOY",
+            "Verified generic-import Model0.62 workspaces have an explicit bundle publish/restore path with full backup, all-file drift gate, codec-aware texture rebuild, atomic replacement, post-write verification, rollback and retained history.",
+            evidence={
+                "workspace_bundle_prepare_available": True,
+                "workspace_bundle_apply_available": True,
+                "workspace_bundle_restore_available": True,
+                "static_rigid_model_candidate_gate": True,
+                "texture_codec_rebuild": True,
+                "full_bundle_backup": True,
+                "preserve_only_inx_smb_context": True,
+                "explicit_confirmation_phrase": True,
+                "ui_one_shot_client_deploy_arm": True,
+                "atomic_replace_real_client": True,
+                "postwrite_sha256_verification": True,
+                "rollback_all_written_files": True,
+                "unknown_client_drift_fail_closed": True,
+            },
+            blockers=[
+                "publish remains capability-scoped; unsupported model families stay fail-closed",
+                "INX/SMB mutation is preserve-only in this workflow",
+                "server write remains disabled",
+            ],
+            production_authorized=True,
+        ),
     }
 
     deep_results: dict[str, Any] = {}

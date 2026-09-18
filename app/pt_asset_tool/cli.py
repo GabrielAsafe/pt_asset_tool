@@ -48,6 +48,15 @@ from .writer_corpus_audit import (
 )
 from .development_readiness import audit_development_readiness
 from .deployment import plan_deployment, prepare_deployment_transaction, verify_deployment_transaction, simulate_deployment_transaction, classify_client_transaction_state, plan_restore_transaction
+from .workspace_bundle_deploy import (
+    APPLY_CONFIRMATION as WORKSPACE_BUNDLE_APPLY_CONFIRMATION,
+    RESTORE_CONFIRMATION as WORKSPACE_BUNDLE_RESTORE_CONFIRMATION,
+    prepare_workspace_bundle, apply_workspace_bundle_transaction,
+    verify_workspace_bundle_transaction, workspace_bundle_status,
+    restore_workspace_bundle_transaction, bundle_history,
+    publish_workspace_bundle, restore_latest_workspace_bundle,
+    check_latest_workspace_bundle,
+)
 from .authoring import authoring_plan, audit_model062_authoring, verify_workspace_manifest
 from .static_authoring_candidate import plan_static_saved_blender_candidate, validate_static_candidate_output, build_static_candidate_blender_command
 from .rigid_authoring_candidate import plan_rigid_saved_blender_candidate, validate_rigid_candidate_output, build_rigid_candidate_blender_command, inspect_rigid_candidate_scope
@@ -1072,6 +1081,76 @@ def cmd_deploy_restore_plan(a):
     result = plan_restore_transaction(a.manifest)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") in {"RESTORE_CANDIDATE_BLOCKED", "BLOCKED"} else 3
+
+
+def cmd_deploy_workspace_prepare(a):
+    s, reg, cert, resolver = make_context(a)
+    result = prepare_workspace_bundle(
+        s, resolver, reg, a.target, include_model=not bool(a.textures_only),
+        auto_rigid_weight_repair=not bool(getattr(a, "no_auto_rigid_weight_repair", False)),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") in {"READY", "NO_CHANGES"} else 3
+
+
+def cmd_deploy_workspace_apply(a):
+    result = apply_workspace_bundle_transaction(a.manifest, confirm=a.confirm)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_deploy_workspace_verify(a):
+    result = verify_workspace_bundle_transaction(a.manifest, allow_managed=bool(a.allow_managed))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_deploy_workspace_state(a):
+    result = workspace_bundle_status(a.manifest)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_deploy_workspace_restore(a):
+    result = restore_workspace_bundle_transaction(a.manifest, confirm=a.confirm)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_deploy_workspace_history(a):
+    s, reg, cert, resolver = make_context(a)
+    # Resolve first so aliases/ids are normalized to the canonical primary path.
+    asset = reg.resolve(a.target)
+    result = bundle_history(s.project_root, asset.primary_path)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_deploy_workspace_publish(a):
+    s, reg, cert, resolver = make_context(a)
+    result = publish_workspace_bundle(
+        s, resolver, reg, a.target, confirm=a.confirm, include_model=not bool(a.textures_only),
+        allow_partial_lod=bool(getattr(a, "allow_partial_lod", False)),
+        auto_rigid_weight_repair=not bool(getattr(a, "no_auto_rigid_weight_repair", False)),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_deploy_workspace_check(a):
+    s, reg, cert, resolver = make_context(a)
+    asset = reg.resolve(a.target)
+    result = check_latest_workspace_bundle(s.project_root, asset.primary_path)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_deploy_workspace_restore_latest(a):
+    s, reg, cert, resolver = make_context(a)
+    asset = reg.resolve(a.target)
+    result = restore_latest_workspace_bundle(s.project_root, asset.primary_path, confirm=a.confirm)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
 
 
 
@@ -4125,6 +4204,44 @@ def build_parser():
     x = dpp.add_parser("restore-plan", help="plan fail-closed restoration from verified backup; apply remains disabled")
     x.add_argument("manifest", help="pt_build deployment transaction.json")
     x.set_defaults(func=cmd_deploy_restore_plan)
+
+    x = dpp.add_parser("workspace-prepare", help="build a complete model/texture/context deployment bundle from a verified generic Blender workspace; client remains unchanged")
+    x.add_argument("target", help="imported Model0.62 asset id/path")
+    x.add_argument("--textures-only", action="store_true", help="skip model candidate build and prepare only changed workspace textures/context")
+    x.add_argument("--no-auto-rigid-weight-repair", action="store_true", help="strict mode: refuse rigid vertices that do not have exactly one bone group at weight 1.0 instead of automatically selecting one bone and serializing it at 1.0")
+    x.set_defaults(func=cmd_deploy_workspace_prepare)
+    x = dpp.add_parser("workspace-publish", help="prepare and atomically publish a verified workspace bundle with backup and automatic rollback")
+    x.add_argument("target", help="imported Model0.62 asset id/path")
+    x.add_argument("--textures-only", action="store_true", help="publish only changed workspace textures; model remains preserve-only")
+    x.add_argument("--allow-partial-lod", action="store_true", help="explicitly allow publish when one or more runtime LODs cannot be safely serialized; uncovered LODs remain unchanged")
+    x.add_argument("--no-auto-rigid-weight-repair", action="store_true", help="strict mode: refuse rigid vertices that do not have exactly one bone group at weight 1.0 instead of automatically selecting one bone and serializing it at 1.0")
+    x.add_argument("--confirm", required=True, help=f"exact safety phrase: {WORKSPACE_BUNDLE_APPLY_CONFIRMATION}")
+    x.set_defaults(func=cmd_deploy_workspace_publish)
+    x = dpp.add_parser("workspace-check", help="re-check only the latest deployed bundle for one asset; no corpus-wide physical regression")
+    x.add_argument("target", help="deployed Model0.62 asset id/path")
+    x.set_defaults(func=cmd_deploy_workspace_check)
+    x = dpp.add_parser("workspace-apply", help="apply a prepared workspace bundle transaction to the configured client")
+    x.add_argument("manifest", help="pt_build workspace bundle transaction.json")
+    x.add_argument("--confirm", required=True, help=f"exact safety phrase: {WORKSPACE_BUNDLE_APPLY_CONFIRMATION}")
+    x.set_defaults(func=cmd_deploy_workspace_apply)
+    x = dpp.add_parser("workspace-verify", help="verify bundle backups, staged artifacts and client drift")
+    x.add_argument("manifest", help="pt_build workspace bundle transaction.json")
+    x.add_argument("--allow-managed", action="store_true", help="accept already deployed managed artifact identities")
+    x.set_defaults(func=cmd_deploy_workspace_verify)
+    x = dpp.add_parser("workspace-state", help="classify tracked files as ORIGINAL, DEPLOYED or DRIFT")
+    x.add_argument("manifest", help="pt_build workspace bundle transaction.json")
+    x.set_defaults(func=cmd_deploy_workspace_state)
+    x = dpp.add_parser("workspace-restore", help="restore an APPLIED_VERIFIED workspace bundle from its verified backup")
+    x.add_argument("manifest", help="pt_build workspace bundle transaction.json")
+    x.add_argument("--confirm", required=True, help=f"exact safety phrase: {WORKSPACE_BUNDLE_RESTORE_CONFIRMATION}")
+    x.set_defaults(func=cmd_deploy_workspace_restore)
+    x = dpp.add_parser("workspace-history", help="list retained workspace deployment transactions for an asset")
+    x.add_argument("target", help="asset id/path")
+    x.set_defaults(func=cmd_deploy_workspace_history)
+    x = dpp.add_parser("workspace-restore-latest", help="restore the newest APPLIED_VERIFIED bundle for an asset")
+    x.add_argument("target", help="asset id/path")
+    x.add_argument("--confirm", required=True, help=f"exact safety phrase: {WORKSPACE_BUNDLE_RESTORE_CONFIRMATION}")
+    x.set_defaults(func=cmd_deploy_workspace_restore_latest)
 
     view = sp.add_parser("view", help="open certified asset previews with viewer-specific navigation helpers")
     vwp = view.add_subparsers(dest="view_cmd", required=True)

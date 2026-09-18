@@ -44,7 +44,7 @@ A versão 1.0 inclui a primeira para escopos certificados e mantém a segunda bl
 
 ## Deploy
 
-`deploy plan/prepare/verify/simulate/state/restore-plan` trabalha com provenance, backup/staged transaction e simulação sob `pt_build`. Não existe apply geral do client exposto pelo caminho certificado da distribuição 1.0.
+`deploy plan/prepare/verify/simulate/state/restore-plan` continua como contrato legacy read-only no client. Escrita real só existe no fluxo estreito `deploy workspace-*`, originado de workspace `generic_import` verificado, com confirmação literal, backup SHA-256 do bundle completo, drift gate, staged artifacts sob `pt_build`, replace atómico, post-write verification e rollback integral em falha.
 
 ## Server
 
@@ -52,7 +52,7 @@ O server é read-only. Field Metadata Editor gera drafts em `pt_build`, nunca ed
 
 ## UI safety arm
 
-Armar a GUI habilita ações de workspace/build, não client/server writes. O backend continua aplicando todos os guards.
+`ARM BUILD WRITES` habilita somente workspace/build. Client write requer separadamente `ARM CLIENT DEPLOY`, consumido após uma única tarefa de publicar/restaurar bundle. O server continua sem write. O backend aplica os guards mesmo quando a UI está armada.
 
 ## Auditoria
 

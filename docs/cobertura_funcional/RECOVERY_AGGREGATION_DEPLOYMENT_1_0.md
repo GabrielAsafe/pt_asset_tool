@@ -27,32 +27,24 @@ Recovery/canonicalização específica da política de UI de classe, com Mechani
 
 O sidecar de provenance liga source SHA, artefact SHA, adapter e modo candidate/production.
 
-## `deploy`
+## `deploy` legacy single-file
 
-### plan
+`plan/prepare/verify/simulate/state/restore-plan` continua sendo o contrato conservador antigo. Ele prepara provenance, backup e simulação em `pt_build`, mas não possui apply real.
 
-Planeja origem/artefact/provenance e verifica se há base para transação. Não escreve client.
+## Workspace bundle publish/restore real
 
-### prepare
+A escrita real no client é deliberadamente mais estreita e nasce de um **workspace Blender `generic_import` verificado**:
 
-Cria backup verificado e staged transaction sob `pt_build`. Não substitui target.
+- `deploy workspace-prepare ASSET` detecta modelo/texturas alterados, inclui INX/SMB como contexto preserve-only e cria backup verificado do bundle inteiro;
+- `deploy workspace-publish ASSET --confirm "APPLY CLIENT BUNDLE"` prepara e publica somente entradas `MODIFIED`;
+- `--textures-only` pula o writer do modelo e publica apenas texturas realmente alteradas;
+- BMP/TGA protegidos são reconstruídos no container runtime original antes do deploy;
+- apply exige ausência de drift em todos os ficheiros rastreados;
+- cada substituição é atómica e validada por SHA-256;
+- falha de escrita ou de validação pós-write restaura automaticamente tudo que já foi escrito;
+- `deploy workspace-history ASSET` lista manifests retidos;
+- `deploy workspace-restore-latest ASSET --confirm "RESTORE CLIENT BUNDLE"` restaura o último deploy conhecido, recusando drift desconhecido.
 
-### verify
+A publicação do modelo só entra no bundle quando o writer saved-Blender static/rigid consegue construir um candidate e o verificador existente dá PASS com edição observada. INX/SMB participam do backup e do drift gate, mas são **preserve-only** neste workflow. Outros formatos/famílias continuam fail-closed.
 
-Revalida drift do client e hashes do backup/staged artefact.
-
-### simulate
-
-Executa replace/postwrite/rollback **dentro de pt_build**. `--inject-failure postwrite` testa rollback.
-
-### state
-
-Classifica bytes atuais como original, managed artifact conhecido ou unknown drift.
-
-### restore-plan
-
-Só planeja restore quando o estado é conhecido/gerenciado. Apply permanece bloqueado.
-
-## Publish/restore real
-
-A release 1.0 termina antes deste ponto. `WRITER_PROMOTION_AND_PUBLISH_RESTORE` é um gate operacional externo e deve exigir autorização explícita/revisão humana fora do pacote padrão.
+Na GUI, **Publicar no jogo** e **Restaurar último deploy** exigem a autorização one-shot separada `ARM CLIENT DEPLOY`. `ARM BUILD WRITES` por si só não permite client write. O server continua read-only.

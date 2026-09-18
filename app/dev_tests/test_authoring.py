@@ -622,3 +622,30 @@ def test_explicit_skeleton_lod_context_rejects_structural_basis_without_pass(tmp
     result=verify_selected_authoring_context(context)
     assert result['status']=='FAIL'
     assert 'STRUCTURAL_GATE_NOT_PROVEN' in result['errors']
+
+
+def test_rigid_semantic_edit_witness_ignores_opaque_block_byte_drift():
+    from pt_asset_tool.rigid_authoring_candidate import _rigid_semantic_payload
+    base = {
+        "vertices": [(1,2,3,4,5,6)],
+        "faces": [{"verts": (0,0,0), "material": 1, "uv_layers": [((0.0,0.0),(1.0,0.0),(0.0,1.0))]}],
+        "phys": False,
+        "block": b"opaque-A",
+    }
+    drift = dict(base)
+    drift["block"] = b"opaque-B"
+    assert base["block"] != drift["block"]
+    assert _rigid_semantic_payload(base) == _rigid_semantic_payload(drift)
+
+
+def test_rigid_semantic_edit_witness_detects_real_vertex_change():
+    from pt_asset_tool.rigid_authoring_candidate import _rigid_semantic_payload
+    base = {
+        "vertices": [(1,2,3,4,5,6)],
+        "faces": [{"verts": (0,0,0), "material": 1, "uv_layers": [((0.0,0.0),(1.0,0.0),(0.0,1.0))]}],
+        "phys": False,
+        "block": b"same",
+    }
+    edited = dict(base)
+    edited["vertices"] = [(2,2,3,4,5,6)]
+    assert _rigid_semantic_payload(base) != _rigid_semantic_payload(edited)
