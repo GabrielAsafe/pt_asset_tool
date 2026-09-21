@@ -54,7 +54,7 @@ from .workspace_bundle_deploy import (
     prepare_workspace_bundle, apply_workspace_bundle_transaction,
     verify_workspace_bundle_transaction, workspace_bundle_status,
     restore_workspace_bundle_transaction, bundle_history,
-    publish_workspace_bundle, restore_latest_workspace_bundle,
+    publish_workspace_bundle, restore_latest_workspace_bundle, restore_latest_workspace_model,
     check_latest_workspace_bundle,
 )
 from .authoring import authoring_plan, audit_model062_authoring, verify_workspace_manifest
@@ -98,6 +98,18 @@ from .rigid_authoring_evidence import (
     verify_rigid_candidate_artifact, verify_rigid_candidate_review_workspace,
 )
 from .entity_catalog import entity_detail, load_entity_seed, query_entities
+from .client_enrichment import audit_client_enrichment
+from .asset_contract_registry import registry_summary, get_contract, schema_for_contract
+from .legacy_management_contracts import classify_item_code, legacy_management_summary, verify_management_root
+from .item_runtime_catalog import lookup_item_runtime
+from .legacy_management_audit import audit_legacy_management
+from .legacy_authoring import authoring_capabilities, inspect_authoring, stage_authoring, publish_authoring, restore_authoring
+from .asset_compiler import compiler_capabilities, plan_compiler_input, compile_compiler_input
+from .asset_bundle_deploy import (
+    APPLY_CONFIRM as ASSET_BUNDLE_APPLY_CONFIRM,
+    RESTORE_CONFIRM as ASSET_BUNDLE_RESTORE_CONFIRM,
+    latest_bundle_manifest, publish_asset_bundle, restore_asset_bundle, asset_bundle_deploy_status,
+)
 from .ui_catalog import CatalogIndex, UIStateStore
 from .utils import norm_path, run_logged
 
@@ -1149,6 +1161,14 @@ def cmd_deploy_workspace_restore_latest(a):
     s, reg, cert, resolver = make_context(a)
     asset = reg.resolve(a.target)
     result = restore_latest_workspace_bundle(s.project_root, asset.primary_path, confirm=a.confirm)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_deploy_workspace_restore_model_latest(a):
+    s, reg, cert, resolver = make_context(a)
+    asset = reg.resolve(a.target)
+    result = restore_latest_workspace_model(s.project_root, asset.primary_path, confirm=a.confirm)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") == "PASS" else 3
 
@@ -2999,6 +3019,185 @@ def cmd_audit_server_items(a):
 
 
 
+
+def cmd_legacy_management_summary(a):
+    print(json.dumps(legacy_management_summary(), ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_legacy_management_verify(a):
+    result = verify_management_root(pathlib.Path(a.management_root))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("mismatch_count", 0) == 0 else 3
+
+
+def cmd_legacy_management_item_code(a):
+    classification = classify_item_code(str(a.code))
+    runtime = lookup_item_runtime(str(a.code))
+    result = {"format": "PT_LEGACY_MANAGEMENT_ITEM_CODE_V2", **classification, "runtime_item_contract": runtime}
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if classification.get("status") != "UNCLASSIFIED" or runtime.get("status") == "SOURCE_VERIFIED" else 3
+
+
+def cmd_audit_legacy_management(a):
+    s = Settings.discover(getattr(a, "root", None), getattr(a, "client_root", None), getattr(a, "server_root", None))
+    def progress(msg):
+        print(f"[legacy-management] {msg}", flush=True)
+    result = audit_legacy_management(
+        s.project_root,
+        server_root=s.server_root,
+        client_root=s.client_root,
+        management_root=pathlib.Path(a.management_root).expanduser() if getattr(a, "management_root", None) else None,
+        tutorial_root=pathlib.Path(a.tutorial_root).expanduser() if getattr(a, "tutorial_root", None) else None,
+        sample_limit=int(getattr(a, "sample_limit", 80)),
+        progress=progress,
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_legacy_authoring_capabilities(a):
+    print(json.dumps(authoring_capabilities(), ensure_ascii=False, indent=2))
+    return 0
+
+
+def _legacy_authoring_context(a):
+    s = Settings.discover(getattr(a, "root", None), getattr(a, "client_root", None), getattr(a, "server_root", None))
+    if s.server_root is None or not pathlib.Path(s.server_root).is_dir():
+        raise ValueError("SERVER_ROOT_REQUIRED")
+    return s
+
+
+def cmd_legacy_authoring_inspect(a):
+    s = _legacy_authoring_context(a)
+    result = inspect_authoring(s.project_root, s.server_root, s.client_root, str(a.kind), str(a.path))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_legacy_authoring_stage(a):
+    s = _legacy_authoring_context(a)
+    spec = json.loads(pathlib.Path(a.spec).expanduser().read_text(encoding="utf-8"))
+    if not isinstance(spec, dict):
+        raise ValueError("LEGACY_AUTHORING_SPEC_MUST_BE_OBJECT")
+    result = stage_authoring(s.project_root, s.server_root, s.client_root, spec)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_legacy_authoring_publish(a):
+    s = _legacy_authoring_context(a)
+    manifest = pathlib.Path(a.manifest).expanduser().resolve() if a.manifest else latest_bundle_manifest(s.project_root)
+    if manifest is None:
+        raise FileNotFoundError("ASSET_BUNDLE_MANIFEST_NOT_FOUND")
+    result = publish_authoring(s.project_root, s.client_root, s.server_root, manifest, confirm=str(a.confirm))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_legacy_authoring_restore(a):
+    s = _legacy_authoring_context(a)
+    manifest = pathlib.Path(a.manifest).expanduser().resolve() if a.manifest else latest_bundle_manifest(s.project_root)
+    if manifest is None:
+        raise FileNotFoundError("ASSET_BUNDLE_MANIFEST_NOT_FOUND")
+    result = restore_authoring(s.project_root, s.client_root, s.server_root, manifest, confirm=str(a.confirm))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+def cmd_contracts_registry_list(a):
+    result = registry_summary(
+        query=str(getattr(a, "query", "") or ""),
+        capability=str(getattr(a, "capability", "") or ""),
+        implementation=str(getattr(a, "implementation", "") or ""),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_contracts_registry_show(a):
+    contract = get_contract(str(a.contract_id)).public()
+    result = {
+        "format": "PT_ASSET_CONTRACT_DETAIL_V1",
+        "status": "PASS",
+        "contract": contract,
+        "schema": schema_for_contract(str(a.contract_id)),
+    }
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_asset_compiler_capabilities(a):
+    print(json.dumps(compiler_capabilities(), ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_asset_compiler_plan(a):
+    s, reg, cert, resolver = make_context(a)
+    result = plan_compiler_input(pathlib.Path(a.recipe), client_root=s.client_root, server_root=s.server_root)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "READY" else 3
+
+
+def cmd_asset_compiler_build(a):
+    s, reg, cert, resolver = make_context(a)
+    result = compile_compiler_input(
+        s.project_root, pathlib.Path(a.recipe), client_root=s.client_root, server_root=s.server_root
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _asset_bundle_manifest_arg(s, value):
+    if value:
+        return pathlib.Path(value).expanduser().resolve()
+    manifest = latest_bundle_manifest(s.project_root)
+    if manifest is None:
+        raise FileNotFoundError("ASSET_BUNDLE_MANIFEST_NOT_FOUND")
+    return manifest
+
+
+def cmd_asset_compiler_status(a):
+    s, reg, cert, resolver = make_context(a)
+    result = asset_bundle_deploy_status(s.project_root)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_asset_compiler_publish(a):
+    s, reg, cert, resolver = make_context(a)
+    manifest = _asset_bundle_manifest_arg(s, getattr(a, "manifest", None))
+    result = publish_asset_bundle(
+        s.project_root, s.client_root, s.server_root, manifest, confirm=str(a.confirm)
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_asset_compiler_restore(a):
+    s, reg, cert, resolver = make_context(a)
+    manifest = _asset_bundle_manifest_arg(s, getattr(a, "manifest", None))
+    result = restore_asset_bundle(
+        s.project_root, s.client_root, s.server_root, manifest, confirm=str(a.confirm)
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_audit_client_enrichment(a):
+    s, reg, cert, resolver = make_context(a)
+    catalog, seed = _entity_catalog_context(s, reg)
+    result = audit_client_enrichment(
+        s.project_root,
+        s.client_root,
+        catalog,
+        seed,
+        registry=reg,
+        settings=s,
+        progress=lambda msg: print(f"[client-enrichment] {msg}", flush=True),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
 def cmd_audit_source_contracts(a):
     s, reg, cert, resolver = make_context(a)
     result = audit_source_contracts(
@@ -4019,12 +4218,58 @@ def build_parser():
     x = prp.add_parser("discover", help="discover rigid Model0.62 profile/LOD candidates from registry-proven INX data without creating/authorizing profiles"); x.add_argument("--category"); x.add_argument("--limit", type=int, default=50, help="rows printed in JSON; zero means all"); x.add_argument("--output", help="optional full/limited JSON report under pt_build"); x.set_defaults(func=cmd_profiles_discover)
     x = prp.add_parser("authoring-plan", help="resolve one canonical profile to an exact registry-proven rigid import context; read-only and not writer authorization"); x.add_argument("profile_id"); x.add_argument("--lod", choices=("auto","high","default","low"), default="auto"); x.set_defaults(func=cmd_profiles_authoring_plan)
     x = prp.add_parser("verify", help="verify profile components against the configured client without authorizing writes"); g=x.add_mutually_exclusive_group(required=True); g.add_argument("profile_id", nargs="?"); g.add_argument("--all", action="store_true"); x.add_argument("--output", help="optional JSON report under pt_build"); x.set_defaults(func=cmd_profiles_verify)
+    contracts = sp.add_parser("contracts", help="source-derived asset contract registry and schemas")
+    ctp = contracts.add_subparsers(dest="contracts_cmd", required=True)
+    x = ctp.add_parser("list", help="list source-derived game asset contracts and current tool implementation state")
+    x.add_argument("--query", default=""); x.add_argument("--capability", default=""); x.add_argument("--implementation", default="")
+    x.set_defaults(func=cmd_contracts_registry_list)
+    x = ctp.add_parser("show", help="show one contract and its exact source-derived schema when available")
+    x.add_argument("contract_id"); x.set_defaults(func=cmd_contracts_registry_show)
+
+    compiler = sp.add_parser("asset-compiler", help="compile typed asset recipes or multi-asset bundles into pt_build overlays; never writes live client/server")
+    acp = compiler.add_subparsers(dest="asset_compiler_cmd", required=True)
+    x = acp.add_parser("capabilities", help="show contracts with direct recipe compilers")
+    x.set_defaults(func=cmd_asset_compiler_capabilities)
+    x = acp.add_parser("plan", help="validate and compile a recipe in memory without writing output")
+    x.add_argument("recipe"); x.set_defaults(func=cmd_asset_compiler_plan)
+    x = acp.add_parser("build", help="compile a validated recipe into pt_build/asset_compiler only")
+    x.add_argument("recipe"); x.set_defaults(func=cmd_asset_compiler_build)
+    x = acp.add_parser("status", help="show latest compiled bundle and deploy/rollback state")
+    x.set_defaults(func=cmd_asset_compiler_status)
+    x = acp.add_parser("publish", help=f"publish a compiled bundle transactionally; requires --confirm '{ASSET_BUNDLE_APPLY_CONFIRM}'")
+    x.add_argument("--manifest", help="bundle manifest; defaults to latest compiled bundle")
+    x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_asset_compiler_publish)
+    x = acp.add_parser("restore", help=f"restore latest transaction for a compiled bundle; requires --confirm '{ASSET_BUNDLE_RESTORE_CONFIRM}'")
+    x.add_argument("--manifest", help="bundle manifest; defaults to latest compiled bundle")
+    x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_asset_compiler_restore)
+
+    lm = sp.add_parser("legacy-management", help="static integration of historical Management tooling evidence; never executes legacy EXEs")
+    lmp = lm.add_subparsers(dest="legacy_management_cmd", required=True)
+    x = lmp.add_parser("summary", help="show versioned PriTaTor/NPCManager/ItemDistributor contracts and item taxonomy"); x.set_defaults(func=cmd_legacy_management_summary)
+    x = lmp.add_parser("verify", help="verify an extracted Management directory against known original hashes without executing binaries"); x.add_argument("--management-root", required=True); x.set_defaults(func=cmd_legacy_management_verify)
+    x = lmp.add_parser("item-code", help="classify an item code using the historical PriTaTor selector taxonomy"); x.add_argument("code"); x.set_defaults(func=cmd_legacy_management_item_code)
+
+    la = sp.add_parser("legacy-authoring", help="Python-native replacement pipeline for legacy Item/Monster/NPC/Field tooling; no legacy EXE execution")
+    lap = la.add_subparsers(dest="legacy_authoring_cmd", required=True)
+    x = lap.add_parser("capabilities", help="show create/edit/publish capabilities and remaining code boundaries"); x.set_defaults(func=cmd_legacy_authoring_capabilities)
+    x = lap.add_parser("inspect", help="inspect an Item/Monster/NPC/SPM/SPP/SPC source as an editable Python authoring document"); x.add_argument("--kind", required=True, choices=["ITEM","MONSTER","NPC","SPM","SPP","SPC"]); x.add_argument("--path", required=True); x.set_defaults(func=cmd_legacy_authoring_inspect)
+    x = lap.add_parser("stage", help="stage a JSON authoring spec under pt_build without writing client/server"); x.add_argument("--spec", required=True); x.set_defaults(func=cmd_legacy_authoring_stage)
+    x = lap.add_parser("publish", help=f"publish latest/specified staged authoring bundle; requires --confirm '{ASSET_BUNDLE_APPLY_CONFIRM}'"); x.add_argument("--manifest"); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_legacy_authoring_publish)
+    x = lap.add_parser("restore", help=f"restore latest/specified authoring bundle; requires --confirm '{ASSET_BUNDLE_RESTORE_CONFIRM}'"); x.add_argument("--manifest"); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_legacy_authoring_restore)
+
     audit = sp.add_parser("audit"); audp = audit.add_subparsers(dest="audit_cmd", required=True)
     x = audp.add_parser("physique", help="audit canonical Model0.62 files for mixed Physique/static object modes"); x.add_argument("--output", help="optional JSON report path"); x.set_defaults(func=cmd_audit_physique)
+    x = audp.add_parser("client-enrichment", help="read-only client enrichment: entity closure, registry relations, validation coverage and actionable gaps; writes only pt_build/client_enrichment")
+    x.set_defaults(func=cmd_audit_client_enrichment)
     x = audp.add_parser("server-inventory", help="read-only full server tree census classified by path/lifecycle; persistence, logs and security state are excluded from assets"); x.add_argument("--progress-every", type=int, default=10000); x.add_argument("--sample-limit", type=int, default=12); x.set_defaults(func=cmd_audit_server_inventory)
     x = audp.add_parser("server-bundles", help="read-only Monster/NPC bundle census: literal model/name refs, logical INI->INX resolution across server/client; no authoring certification"); x.add_argument("--progress-every", type=int, default=250); x.add_argument("--sample-limit", type=int, default=40); x.set_defaults(func=cmd_audit_server_bundles)
     x = audp.add_parser("server-fields", help="read-only field bundle census: SPM/SPP/SPC companions, canonical Summit sizes and basename stage candidates; ambiguous/mismatched layouts stay REVIEW"); x.add_argument("--sample-limit", type=int, default=50); x.set_defaults(func=cmd_audit_server_fields)
     x = audp.add_parser("server-items", help="read-only OpenItem census: CODE identity, ZHOON presence and duplicate-code conflicts; client catalog/DorpItem closure remains explicitly out of scope"); x.add_argument("--progress-every", type=int, default=250); x.add_argument("--sample-limit", type=int, default=50); x.set_defaults(func=cmd_audit_server_items)
+    x = audp.add_parser("legacy-management", help="cross-check historical PriTaTor/NPCManager workflows against current server OpenItem/Monster/NPC/SPM evidence; read-only")
+    x.add_argument("--management-root", help="optional extracted original Management directory for SHA-256 verification")
+    x.add_argument("--tutorial-root", help="optional extracted @Tutoriais directory for item-code evidence")
+    x.add_argument("--sample-limit", type=int, default=80)
+    x.set_defaults(func=cmd_audit_legacy_management)
     x = audp.add_parser("source-contracts", help="read-only C/C++ source evidence census: sound maps, player-class job gates and source-proven item/field format relations; no hashes/copies")
     x.add_argument("--source-root", required=False, help="current Summit C/C++ source root; fallback PT_SOURCE_ROOT or project config")
     x.add_argument("--reference-source-root", required=False, help="EU reference C/C++ source root; fallback PT_REFERENCE_SOURCE_ROOT or project config")
@@ -4238,10 +4483,14 @@ def build_parser():
     x = dpp.add_parser("workspace-history", help="list retained workspace deployment transactions for an asset")
     x.add_argument("target", help="asset id/path")
     x.set_defaults(func=cmd_deploy_workspace_history)
-    x = dpp.add_parser("workspace-restore-latest", help="restore the newest APPLIED_VERIFIED bundle for an asset")
+    x = dpp.add_parser("workspace-restore-latest", help="restore all still-deployed files from the newest active verified bundle for an asset")
     x.add_argument("target", help="asset id/path")
     x.add_argument("--confirm", required=True, help=f"exact safety phrase: {WORKSPACE_BUNDLE_RESTORE_CONFIRMATION}")
     x.set_defaults(func=cmd_deploy_workspace_restore_latest)
+    x = dpp.add_parser("workspace-restore-model-latest", help="manually remove only the deployed model from the newest active verified bundle; deployed textures remain untouched")
+    x.add_argument("target", help="asset id/path")
+    x.add_argument("--confirm", required=True, help=f"exact safety phrase: {WORKSPACE_BUNDLE_RESTORE_CONFIRMATION}")
+    x.set_defaults(func=cmd_deploy_workspace_restore_model_latest)
 
     view = sp.add_parser("view", help="open certified asset previews with viewer-specific navigation helpers")
     vwp = view.add_subparsers(dest="view_cmd", required=True)

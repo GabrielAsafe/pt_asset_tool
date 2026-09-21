@@ -1,0 +1,243 @@
+{
+  "target_abi": "Win32 i686 little-endian; 4-byte pointers; 4-byte aggregate alignment",
+  "source_archive_sha256": "3555ec2a864f12ba8df792224a43371945dd21c7d642cf4a4a635716e56925b8",
+  "source_root_hint": "srcAtual(7)",
+  "format": "Embedded legacy material group (Win32 disk ABI)",
+  "group_header": {
+    "size": 88,
+    "fields": [
+      [
+        "Head",
+        "uint32",
+        0,
+        4
+      ],
+      [
+        "smMaterial",
+        "ptr32",
+        4,
+        4
+      ],
+      [
+        "MaterialCount",
+        "uint32",
+        8,
+        4
+      ],
+      [
+        "ReformTexture",
+        "int32",
+        12,
+        4
+      ],
+      [
+        "MaxMaterial",
+        "int32",
+        16,
+        4
+      ],
+      [
+        "LastSearchMaterial",
+        "int32",
+        20,
+        4
+      ],
+      [
+        "szLastSearchName",
+        "char[64]",
+        24,
+        64
+      ]
+    ],
+    "authoring_policy": {
+      "Head": "0",
+      "smMaterial": "0 or deterministic presence sentinel; loader does not use stored pointer as authority",
+      "MaterialCount": "0..5000",
+      "MaxMaterial": ">=MaterialCount and <=5000"
+    }
+  },
+  "material_record": {
+    "size": 320,
+    "fields": [
+      [
+        "InUse",
+        "uint32",
+        0,
+        4
+      ],
+      [
+        "TextureCounter",
+        "uint32",
+        4,
+        4
+      ],
+      [
+        "smTexture",
+        "ptr32[8]",
+        8,
+        32
+      ],
+      [
+        "TextureStageState",
+        "uint32[8]",
+        40,
+        32
+      ],
+      [
+        "TextureFormState",
+        "uint32[8]",
+        72,
+        32
+      ],
+      [
+        "ReformTexture",
+        "int32",
+        104,
+        4
+      ],
+      [
+        "MapOpacity",
+        "int32",
+        108,
+        4
+      ],
+      [
+        "TextureType",
+        "uint32",
+        112,
+        4
+      ],
+      [
+        "BlendType",
+        "uint32",
+        116,
+        4
+      ],
+      [
+        "Shade",
+        "uint32",
+        120,
+        4
+      ],
+      [
+        "TwoSide",
+        "uint32",
+        124,
+        4
+      ],
+      [
+        "SerialNum",
+        "uint32",
+        128,
+        4
+      ],
+      [
+        "Diffuse",
+        "float[3]",
+        132,
+        12
+      ],
+      [
+        "Transparency",
+        "float",
+        144,
+        4
+      ],
+      [
+        "SelfIllum",
+        "float",
+        148,
+        4
+      ],
+      [
+        "TextureSwap",
+        "int32",
+        152,
+        4
+      ],
+      [
+        "MatFrame",
+        "int32",
+        156,
+        4
+      ],
+      [
+        "TextureClip",
+        "int32",
+        160,
+        4
+      ],
+      [
+        "UseState",
+        "int32",
+        164,
+        4
+      ],
+      [
+        "MeshState",
+        "int32",
+        168,
+        4
+      ],
+      [
+        "WindMeshBottom",
+        "int32",
+        172,
+        4
+      ],
+      [
+        "smAnimTexture",
+        "ptr32[32]",
+        176,
+        128
+      ],
+      [
+        "AnimTexCounter",
+        "uint32",
+        304,
+        4
+      ],
+      [
+        "FrameMask",
+        "uint32",
+        308,
+        4
+      ],
+      [
+        "Shift_FrameSpeed",
+        "uint32",
+        312,
+        4
+      ],
+      [
+        "AnimationFrame",
+        "uint32",
+        316,
+        4
+      ]
+    ],
+    "caps": {
+      "TextureCounter": 8,
+      "AnimTexCounter": 32
+    },
+    "pointer_policy": "smTexture/smAnimTexture disk pointer bytes are not authoritative after LoadFile; deterministic writer should zero them and encode actual texture identity in appended names."
+  },
+  "per_material_payload": {
+    "when": "InUse != 0",
+    "layout": [
+      "int32 serializedNameBytes",
+      "for each regular texture: Name NUL + NameA NUL",
+      "for each animated texture: Name NUL + NameA NUL"
+    ],
+    "name_capacity_each": 64,
+    "max_serialized_name_bytes": 5120
+  },
+  "size_formula": "88 + sum(320 + (InUse ? 4 + nameBytes : 0)) for MaterialCount records",
+  "important_note": "Current helper LegacyMaterialSerialization still takes native sizeof(smMATERIAL)/group header. PT Asset Tool must implement the frozen Win32 representation above rather than serialize host-native C++ objects.",
+  "source_anchors": [
+    "SrcGame/src/systems/rendering/legacy_3d/smTexture.h:102-143",
+    "SrcGame/src/systems/rendering/legacy_3d/smType.h:567-575,669+",
+    "Shared/rendering/legacy_3d/material/LegacyMaterialSerialization.h",
+    "Shared/rendering/legacy_3d/material/smTexture_legacy_client.inl:570-680"
+  ]
+}

@@ -118,6 +118,14 @@ audit canonical Model0.62 files for mixed Physique/static object modes
 |---|---|---|
 | `--output` | — | optional JSON report path |
 
+### `pt_asset.py audit client-enrichment`
+
+read-only client enrichment: fecha relações físicas por entidade/modelo, resume bindings rígidos/animação, cobertura de certificações e gera gaps acionáveis; escreve somente em `pt_build/client_enrichment/result.json`
+
+**Opções**
+
+Sem opções específicas além dos roots/configuração globais. O client é tratado como fonte read-only.
+
 ### `pt_asset.py audit server-inventory`
 
 read-only full server tree census classified by path/lifecycle; persistence, logs and security state are excluded from assets
@@ -1492,10 +1500,15 @@ Estes comandos são interceptados por `app/pt_asset.py` antes da delegação ao 
 | `smoke / self-test` | Smoke real do pacote: catálogo, registry, GUI contracts, Blender/import bridge, writers e pt_build. Só cria e remove probe em pt_build. | read-only + pt_build probe |
 | `ui / gui` | Inicia a aplicação gráfica local. | UI local |
 | `texture-upscale scan` | Classifica texturas suportadas e riscos sem escrever no client. | pt_build/report |
-| `texture-upscale run` | Upscale 2x/3x/4x por Lanczos ou Real-ESRGAN para overlay separado; output/manifest dentro do client são rejeitados. | pt_build/output externo, nunca client |
+| `texture-upscale run` | Enhance/upscale 2x/3x/4x com perfis `faithful`, `balanced`, `detail` ou `pixel-art` e backend `auto`, Lanczos ou Real-ESRGAN; `--all --include-ui` é o modo global explícito. O manifest é checkpointado durante runs longos. | `enhancement/runs`, nunca client |
+| `texture-upscale resume` | Retoma o último run checkpointado e reutiliza candidates cujo source/output SHA-256 ainda confere. | `enhancement/runs`, nunca client |
+| `texture-upscale publish-batch` | Pré-valida todos os hashes do último run e publica o lote com backup/transação por asset; falha no meio tenta rollback automático. | client, confirmação explícita |
+| `texture-upscale restore-batch` | Pré-valida drift/backups e desfaz o último lote `APPLIED_VERIFIED`. | client, confirmação explícita |
+| `texture-upscale batch-status` | Resume último run/lote e disponibilidade de rollback global. | read-only |
 | `compare trees` | Compara duas árvores com filtros de extensão/categoria/path e hash opcional. | read-only |
 | `explain TOPIC` | Explica statuses, bindings, structural, visual e roundtrip. | read-only |
 | `config show | set-client-root | clear-client-root | set-server-root | clear-server-root` | Configuração persistente de roots usada pela GUI/CLI. | config local |
+| `audit client-enrichment` | Enrichment client-side de entidades, relações físicas, bindings e cobertura de evidência; produz gaps acionáveis. | read-only + pt_build/report |
 | `audit monster-npc-census` | Censo físico/semântico Monster/NPC. | read-only/report |
 | `audit semantic-asset-census` | Censo semântico adicional preservado da linha consolidada. | read-only/report |
 | `audit official-character-donor-census` | Inventário forense de donor oficial para personagens. | read-only/report |
@@ -1528,3 +1541,95 @@ Estes comandos são interceptados por `app/pt_asset.py` antes da delegação ao 
 | `audit release-consolidation-workflow` | Audita/exporta consolidação histórica da aplicação. | pt_build/report |
 
 > Observação: `write rare-model` também possui dispatch consolidado para as políticas rare-rigid promovidas. Mesmo quando o writer informa `production_authorized=true` para o **formato/escopo do artefacto**, o próprio comando não autoriza publish no cliente; `client_modified=false` continua sendo a fronteira desta distribuição.
+
+### Verificação do backend de enhancement
+
+```bash
+python3 pt_asset.py texture-upscale capabilities
+```
+
+Mostra readiness do Pillow/Lanczos, disponibilidade opcional do Real-ESRGAN, executável/erro descoberto e a política do perfil `auto`. `balanced + auto` usa Lanczos conservador de propósito; `detail + auto` tenta Real-ESRGAN e regista o motivo de fallback quando o backend AI não está disponível.
+
+Os candidates ficam em `enhancement/runs/`. Para publicar ou desfazer uma textura individual com backup/hash verificados:
+
+```bash
+python3 pt_asset.py texture-upscale publish --include-exact PATH --confirm 'APPLY CLIENT ENHANCEMENT'
+python3 pt_asset.py texture-upscale restore --include-exact PATH --confirm 'RESTORE CLIENT ENHANCEMENT'
+```
+
+A UI expõe as mesmas operações como **Enviar enhancement ao cliente** e **Desfazer enhancement** depois que o candidate/transação existe. Para o client inteiro:
+
+```bash
+python3 pt_asset.py texture-upscale run --all --include-ui --scale 4 --backend realesrgan --profile detail --gpu 0 --model realesrgan-x4plus
+python3 pt_asset.py texture-upscale resume
+python3 pt_asset.py texture-upscale publish-batch --confirm 'APPLY CLIENT ENHANCEMENT BATCH'
+python3 pt_asset.py texture-upscale restore-batch --confirm 'RESTORE CLIENT ENHANCEMENT BATCH'
+```
+
+A UI oferece **Enhance todas as texturas (AI)**, **Retomar último run**, **Publicar lote no cliente** e **Desfazer lote publicado**.
+
+---
+
+# Atualização 2026-09-21 — Management Legacy / Legacy Authoring
+
+<!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->
+
+## `legacy-management`
+
+```bash
+python3 pt_asset.py legacy-management summary
+python3 pt_asset.py legacy-management verify --management-root /path/Management
+python3 pt_asset.py legacy-management item-code WA121
+```
+
+## `audit legacy-management`
+
+```bash
+python3 pt_asset.py audit legacy-management \
+  --management-root /path/Management \
+  --tutorial-root /path/@Tutoriais
+```
+
+Com `server_root`/`client_root`, cruza o ambiente atual. Nenhum EXE histórico é executado.
+
+## `legacy-authoring capabilities`
+
+```bash
+python3 pt_asset.py legacy-authoring capabilities
+```
+
+Expõe os kinds `ITEM|MONSTER|NPC|SPM|SPP|SPC`, CREATE/EDIT, confirmações e boundaries bloqueadas.
+
+## `legacy-authoring inspect`
+
+```bash
+python3 pt_asset.py legacy-authoring inspect \
+  --kind ITEM \
+  --path GameServer/OpenItem/WA121.txt
+```
+
+## `legacy-authoring stage`
+
+```bash
+python3 pt_asset.py legacy-authoring stage --spec spec.json
+```
+
+Escreve somente staging/manifest em `pt_build`.
+
+## `legacy-authoring publish`
+
+```bash
+python3 pt_asset.py legacy-authoring publish \
+  --confirm 'APPLY ASSET BUNDLE'
+```
+
+Use `--manifest MANIFEST` para selecionar explicitamente um bundle; sem ele, a pipeline usa o latest manifest resolvido.
+
+## `legacy-authoring restore`
+
+```bash
+python3 pt_asset.py legacy-authoring restore \
+  --confirm 'RESTORE ASSET BUNDLE'
+```
+
+Restore usa o backup da transação e bloqueia drift externo desconhecido.

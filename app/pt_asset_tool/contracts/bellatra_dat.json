@@ -1,0 +1,156 @@
+{
+  "format": "PT_SOURCE_ABI_SCHEMA_V1",
+  "source_sha256": "3555ec2a864f12ba8df792224a43371945dd21c7d642cf4a4a635716e56925b8",
+  "target_abi": "Win32 i686 / 32-bit, 4-byte pointer, little-endian, pack/alignment <=4",
+  "contract_id": "event.bellatra.dat",
+  "file_size": 93920,
+  "layout": [
+    {
+      "struct": "SBL_MinFontEffectInfo",
+      "count": 50,
+      "record_size": 1488,
+      "bytes": 74400
+    },
+    {
+      "struct": "SBL_FontEffectInfo",
+      "count": 40,
+      "record_size": 488,
+      "bytes": 19520
+    }
+  ],
+  "structs": {
+    "SBL_MinFontEffectInfo": {
+      "name": "SBL_MinFontEffectInfo",
+      "size": 1488,
+      "alignment": 4,
+      "pack": 4,
+      "endianness": "little",
+      "fields": [
+        {
+          "name": "eBL_ImageType",
+          "offset": 0,
+          "size": 4,
+          "type": "c_int"
+        },
+        {
+          "name": "MaxFrameNum",
+          "offset": 4,
+          "size": 4,
+          "type": "c_int"
+        },
+        {
+          "name": "FrameMatBuff",
+          "offset": 8,
+          "size": 160,
+          "type": "c_int_Array_40"
+        },
+        {
+          "name": "DelayTime",
+          "offset": 168,
+          "size": 160,
+          "type": "c_int_Array_40"
+        },
+        {
+          "name": "PosMove",
+          "offset": 328,
+          "size": 320,
+          "type": "POINT_Array_40"
+        },
+        {
+          "name": "ScaleNum",
+          "offset": 648,
+          "size": 320,
+          "type": "SIZE_Array_40"
+        },
+        {
+          "name": "Rot3d",
+          "offset": 968,
+          "size": 480,
+          "type": "POINT3D_Array_40"
+        },
+        {
+          "name": "BlendNum",
+          "offset": 1448,
+          "size": 40,
+          "type": "c_ubyte_Array_40"
+        }
+      ]
+    },
+    "SBL_FontEffectInfo": {
+      "name": "SBL_FontEffectInfo",
+      "size": 488,
+      "alignment": 4,
+      "pack": 4,
+      "endianness": "little",
+      "fields": [
+        {
+          "name": "eBL_Type",
+          "offset": 0,
+          "size": 4,
+          "type": "c_int"
+        },
+        {
+          "name": "Max_MinEffect_Info",
+          "offset": 4,
+          "size": 4,
+          "type": "c_int"
+        },
+        {
+          "name": "MinEffect_InfoBuff",
+          "offset": 8,
+          "size": 80,
+          "type": "c_int_Array_20"
+        },
+        {
+          "name": "eMinEffect_PriorityBuff",
+          "offset": 88,
+          "size": 80,
+          "type": "c_int_Array_20"
+        },
+        {
+          "name": "Pos",
+          "offset": 168,
+          "size": 160,
+          "type": "POINT_Array_20"
+        },
+        {
+          "name": "Size",
+          "offset": 328,
+          "size": 160,
+          "type": "SIZE_Array_20"
+        }
+      ]
+    }
+  },
+  "enums": {
+    "EBL_IMAGE_TYPE": {
+      "E_BL_SURFACE": 0,
+      "E_BL_MAT_GROUP": 1,
+      "E_BL_FONT_MAT_GROUP": 2
+    },
+    "EBL_FontEffectPriority": {
+      "E_BL_PRIORITY_1": 0,
+      "E_BL_PRIORITY_2": 1,
+      "E_BL_PRIORITY_3": 2
+    },
+    "EBL_FontEffectType": {
+      "min": 0,
+      "max": 31
+    }
+  },
+  "sentinels": {
+    "DELAY_LOOP": -1,
+    "DELAY_STOP": -2
+  },
+  "validation": [
+    "exact file size 93920",
+    "MaxFrameNum 0..40",
+    "Max_MinEffect_Info 0..20",
+    "buffer indices must be in resource table bounds",
+    "BlendNum byte 0..255"
+  ],
+  "source_anchors": [
+    "Shared/gameplay/events/BellatraFontEffectLegacyShared.h:13-22,25-76,100-160",
+    "SrcGame/src/systems/gameplay/events/bellatra/ui/BellatraFontEffect.cpp:213-218"
+  ]
+}

@@ -8,6 +8,8 @@ import re
 from typing import Any, Callable
 
 from .server_bundle_census import _ci_resolve, _resolve_server_reference
+from .legacy_management_contracts import classify_item_code
+from .item_runtime_catalog import lookup_item_runtime
 
 FORMAT = "PT_ASSET_SERVER_ITEM_BUNDLE_CENSUS_V2"
 _CODE_PATTERNS = [
@@ -90,6 +92,7 @@ def audit_server_item_bundles(
     enc_counts: collections.Counter[str] = collections.Counter()
     reason_counts: collections.Counter[str] = collections.Counter()
     identity_basis_counts: collections.Counter[str] = collections.Counter()
+    legacy_category_counts: collections.Counter[str] = collections.Counter()
 
     for idx, p in enumerate(files, start=1):
         rel = p.relative_to(server_root).as_posix()
@@ -123,11 +126,17 @@ def audit_server_item_bundles(
             reasons.append("CODE_NOT_PARSED")
         if zrows and not all(z["exists_server"] for z in zrows):
             reasons.append("ZHOON_REFERENCE_MISSING")
+        legacy = classify_item_code(code) if code else None
+        runtime_item = lookup_item_runtime(code) if code else None
+        if legacy and legacy.get("status") == "LEGACY_PREFIX_CLASSIFIED":
+            legacy_category_counts[f"{legacy.get('group')}::{legacy.get('category')}"] += 1
         row = {
             "definition": rel,
             "encoding": enc,
             "code": code,
             "identity_basis": identity_basis,
+            "legacy_management_category": legacy,
+            "runtime_item_contract": runtime_item,
             "zhoon": zrows,
             "reasons": reasons,
             "error": error,
@@ -167,6 +176,7 @@ def audit_server_item_bundles(
         "duplicate_codes": dict(list(sorted(duplicate_codes.items()))[:sample_limit]),
         "encoding_counts": dict(sorted(enc_counts.items())),
         "identity_basis_counts": dict(sorted(identity_basis_counts.items())),
+        "legacy_management_category_counts": dict(sorted(legacy_category_counts.items())),
         "reason_counts": dict(sorted(reason_counts.items())),
         "review_sample": review[:sample_limit],
         "rows": rows,
@@ -177,9 +187,11 @@ def audit_server_item_bundles(
                 "OpenItem filename-code identity fallback from final enrichment corpus",
                 "literal ZHOON presence relative to definition directory",
                 "duplicate CODE detection",
+                "historical PriTaTor item-prefix classification",
+                "source-exact sITEM runtime visual identity adapter (DorpItem/path/class/model/sound)",
             ],
             "filename_code_is_not_visual_mapping": True,
-            "not_yet_claimed": ["server item-code map semantic resolution", "client item catalog resolution", "DorpItem/model/icon closure", "drop/shop reverse references"],
+            "not_yet_claimed": ["automatic client catalog mutation", "physical DorpItem/model/icon presence without a client-root audit", "drop/shop reverse-reference grammar"],
             "authoring_certification": False,
         },
         "server_write_authorized": False,

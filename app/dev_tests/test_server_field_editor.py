@@ -6,6 +6,7 @@ from pt_asset_tool.server_field_editor import (
     SPC_ADD_NPC_CODE,
     inspect_field_metadata,
     stage_spc_clone,
+    stage_spc_native,
     stage_spm_text,
     stage_spp_records,
 )
@@ -80,4 +81,24 @@ def test_spc_clone_patch_uses_known_add_npc_and_blank_slot_only(tmp_path):
     assert size == 504 and code == SPC_ADD_NPC_CODE
     tail = struct.unpack_from("<8i", out, 504 + 472)
     assert tail == (0, 100, 0, 200, 0, 90, 0, 0)
-    assert draft["detail"]["synthetic_from_zero_authoring"].startswith("BLOCKED")
+    assert draft["detail"]["synthetic_from_zero_authoring"] == "SOURCE_PROVEN_WIN32_ABI_AVAILABLE"
+
+
+def test_spc_native_insert_does_not_require_donor_record_and_changes_one_slot(tmp_path):
+    project = tmp_path / "app"; project.mkdir()
+    server = tmp_path / "server"; server.mkdir()
+    source = _write(server, "GameServer/Field/native.spc", bytes(50400))
+    before = source.read_bytes()
+    draft = stage_spc_native(
+        project, server, "GameServer/Field/native.spc", slot_index=7,
+        record_name="NativeNPC", model_ini="char/npc/native.ini", server_npc="GameServer/NPC/native.npc",
+        x=111, y=2, z=333, ay=90,
+    )
+    assert source.read_bytes() == before
+    out = Path(draft["draft"]).read_bytes()
+    assert out[:7*504] == before[:7*504]
+    assert out[8*504:] == before[8*504:]
+    base = 7*504
+    assert struct.unpack_from("<iI", out, base) == (504, SPC_ADD_NPC_CODE)
+    assert draft["detail"]["donor_record_required"] is False
+    assert draft["operation"] == "SPC_NATIVE_ABI_INSERT"

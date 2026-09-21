@@ -55,3 +55,34 @@ def test_nonexistent_annotation_is_not_persisted(tmp_path: Path):
     idx=CatalogIndex(client,UIStateStore(state_path)); idx.rebuild()
     assert idx.apply_state_update('../ghost.smd', {'favorite':True}) is None
     assert not state_path.exists()
+
+
+def test_ui_button_family_never_becomes_character():
+    assert infer_semantics('image/Sinimage/Inter/MessageBox/HaBox/ha01.bmp', '.bmp') == ('UI', 'MESSAGE_BOX')
+
+
+def test_system_operational_noise_hidden_by_default_but_recoverable(tmp_path: Path):
+    client = tmp_path/'client'; client.mkdir()
+    files = [
+        'image/interface/a.png',
+        'logs/debug.log',
+        'bin/game.dll',
+        'redist/directx/x64.cab',
+        'cache/Thumbs.db',
+        'savedata/profile.dat',
+    ]
+    for rel in files:
+        p = client/rel; p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(b'x')
+    idx = CatalogIndex(client, UIStateStore(tmp_path/'state.json')); idx.rebuild()
+    visible = {x['path'] for x in idx.query()['items']}
+    assert visible == {'image/interface/a.png'}
+    all_paths = {x['path'] for x in idx.query(show_system=True)['items']}
+    assert all_paths == set(files)
+    assert idx.get_asset('redist/directx/x64.cab')['role'] == 'SYSTEM_PACKAGE'
+
+
+def test_game_package_and_sin_semantics_are_distinct():
+    assert infer_semantics('effect/AssaEffect/core.pkg', '.pkg') == ('EFFECT', 'GAME_PACKAGE')
+    assert infer_semantics('redist/directx/core.cab', '.cab') == ('SYSTEM', 'SYSTEM_PACKAGE')
+    assert infer_semantics('field/WarpGate/warp.sin', '.sin') == ('MAP', 'RUNTIME_DATA')
+    assert infer_semantics('data/event/siege.sin', '.sin') == ('MAP', 'EVENT_DATA')

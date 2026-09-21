@@ -1,8 +1,12 @@
 # PT Asset Tool R14 1.0.0 — Manual Server / Asset Enrichment
 
+<!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->
+
+**Atualização:** 2026-09-21 — Management Legacy + World Closure + Legacy Authoring.
+
 ## Princípio
 
-O PT Asset Tool usa o server para descobrir bundles e relações; não transforma a raiz do server em workspace gravável.
+O server continua read-only por padrão. A descoberta/census não escreve nada. Escrita só existe dentro de pipelines de authoring tipadas, armadas e transacionais.
 
 ## Gates
 
@@ -11,38 +15,83 @@ python3 pt_asset.py --client-root CLIENT --server-root SERVER validate server-en
 python3 pt_asset.py --client-root CLIENT --server-root SERVER validate server-design-auto
 ```
 
-O segundo consolida environment + Monster/NPC + Field + OpenItem censuses.
-
 ## Censos
 
 - `audit server-inventory`: árvore e lifecycle;
-- `audit server-bundles`: Monster/NPC definitions e logical model/INX resolution;
-- `audit server-fields`: SPM/SPP/SPC companions e stage basename candidates;
-- `audit server-items`: OpenItem, CODE identity, ZHOON e duplicate-code conflicts.
+- `audit server-bundles`: Monster/NPC definitions e model/INX resolution;
+- `audit server-fields`: SPM/SPP/SPC companions;
+- `audit server-items`: OpenItem/code identity, agora enriquecido com contratos runtime/legacy quando disponíveis.
 
-## Asset Enrichment v9 Fix136
+## Management Legacy
 
-- `audit enrichment-plan`: plan via vendor, manifest em pt_build;
-- `audit enrichment-graph`: dependency graph client/server;
-- GUI: aba Servidor/Enrichment, explorador de bundles e summaries.
+Com Management integration instalada:
 
-## Source contracts
+```bash
+python3 pt_asset.py legacy-management summary
+python3 pt_asset.py legacy-management item-code WA121
+python3 pt_asset.py audit legacy-management
+```
 
-- `audit source-contracts`: evidência C/C++ para sound maps, class gates e relações de formato;
-- `audit player-class-contracts`: grafo de cobertura das classes, UI/audio/effect/animation/runtime migration e dependências `.part`.
+A auditoria correlaciona census/server com runtime/client sem executar EXEs.
 
-## General Asset Census / T5
+## World Closure
 
-- `audit general-asset-census`: reachability client/server, donor gaps separados de runtime need;
-- `audit t5-assets`: readiness T5 com current asset calls e CLOSED same-lineage bundles;
-- `audit t5-effects`: alias de compatibilidade do audit T5.
+A GUI apresenta:
 
-PRELOAD de partícula não é ACTIVATION. O relatório T5 canónico é `t5_asset_readiness.json`; o filename histórico de effect é apenas compatibilidade.
+```text
+SPM → Monster/NPC → item/OpenItem → sITEM → DorpItem → icon/ASE
+```
 
-## Field Metadata Editor
+O objetivo é descobrir dependências e targets de authoring, não classificar toda ausência como bug.
 
-A GUI cria drafts SPM/SPP/SPC sob `pt_build`; veja `FIELD_METADATA_EDITOR.md` e `FORMATS_WRITERS_1_0.md`.
+## Legacy Authoring
 
-## Lifecycle excluído de autoria
+Kinds:
 
-Persistência, logs, anti-cheat/segurança e estado runtime não são assets por terem extensões ou strings parecidas. A classificação de lifecycle tem precedência sobre heurísticas de nome/extensão.
+```text
+ITEM MONSTER NPC SPM SPP SPC
+```
+
+Fluxo:
+
+```text
+Inspect → Edit/Create → Stage → Publish → Verify → Restore
+```
+
+`Stage` escreve somente `pt_build`. `Publish` usa Asset Bundle transaction com backup/hash/drift/atomic/post-verify.
+
+### ITEM
+
+OpenItem create/edit para codes runtime já conhecidos. Novo code `sITEM` continua bloqueado.
+
+### MONSTER
+
+Stats/EXP/drops/money/extra drops/dialogs/linked file.
+
+### NPC
+
+Fields/dialogs/shops/linked file.
+
+### SPM
+
+Actors, bosses, hours, MAX_ACTOR_POS/MAX_ACTOR/DELAY.
+
+### SPP
+
+200×12 record editing.
+
+### SPC
+
+100×504 ADD/REPLACE/REMOVE fixed NPC records.
+
+## Asset Enrichment
+
+`audit enrichment-plan` e `audit enrichment-graph` continuam sendo análise de dependência. Legacy Authoring usa a mesma infraestrutura de compiler/deploy quando a edição é autorizada.
+
+## Source contracts / T5
+
+Permanecem read-only evidence gates. PRELOAD não é ACTIVATION e reference-only não é recovery authority.
+
+## Lifecycle excluído
+
+Persistência, logs, anti-cheat/segurança e estado runtime continuam fora do authoring de assets.

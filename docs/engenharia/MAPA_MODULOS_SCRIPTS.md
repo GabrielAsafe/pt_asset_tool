@@ -238,6 +238,7 @@ Eles não devem virar dependência do catálogo/runtime normal sem uma decisão 
 | Módulo | Responsabilidade |
 |---|---|
 | `ui_app.py` | HTTP loopback server, APIs, safety arm, reports, actions |
+| `client_enrichment.py` | agrega evidência client-side já produzida em `pt_build` (registry, certificações, censo/contratos/dependency graph) e expõe relatórios por asset sem escrever no client |
 | `ui_catalog.py` | scan físico, taxonomia, folder/role/extension facets, metadata |
 | `ui_capabilities.py` | decide quais ações a GUI pode oferecer por asset/evidência |
 | `ui_actions.py` | catálogo de actions e tradução action → CLI command |
@@ -403,6 +404,15 @@ O server é uma raiz física independente do client. `GameServer/monster`, `Game
 - `server_field_census.py` — `CORPUS_AUDIT`: agrupa `GameServer/Field/*.spm/*.spp/*.spc` por basename, classifica SPP 2400 B/600 B e SPC 50400 B, procura stage SMD/ASE por basename e mantém colisões/layouts divergentes em REVIEW.
 - `server_item_census.py` — `CORPUS_AUDIT`: lê `GameServer/OpenItem/*.txt` de forma read-only, extrai identidade `CODE`, referências literais ZHOON e conflitos de código; não afirma ainda fechamento de code-map/client catalog/DorpItem.
 - `server_design_auto.py` — `READ_ONLY_AUDIT`: gate agregado do catálogo server-aware: preflight do server + bundles Monster/NPC + Field + OpenItem. PASS significa que o catálogo foi construído com política segura; `bundle_closure_complete` é separado e pode permanecer falso sem autorizar escrita.
+- `server_spawn_audit.py` — `READ_ONLY_AUDIT`: cruza SPM/SPP/SPC com definições Monster/NPC e referências de modelo para localizar spawnpoints/placements não resolvidos, layouts não canónicos e coordenadas duplicadas; não altera server/client.
+- `asset_contract_registry.py` — `SOURCE_DERIVED_REGISTRY`: registry machine-readable dos contratos de asset extraídos da source, schemas, convenções de path e estado de implementação; routing não equivale a binding.
+- `asset_compiler.py` — `TYPED_AUTHORING`: compilers source-strict e bundles Monster/NPC/Item/Field para overlays em `pt_build`, incluindo ABI SPP/SPC, SPM, configs de modelo, skills, items e DATs conhecidos.
+- `model_cache_compiler.py` — `SOURCE_NATIVE_DERIVED_CACHE`: compiler determinístico de `.inx`/`smMODELINFO` a partir do model-config CP949, incluindo ABI Win32, keywords `GetSpeedSum`, motions e rate tables; nunca é fonte autoritativa, é cache derivado validável.
+- `model062_static_compiler.py` — `SOURCE_NATIVE_AUTHORING`: compiler nativo determinístico de `SMD Model data Ver 0.62` para mesh estático, materiais, UV/TexLink e normals/bounds source-compatible; sem donor, animação ou Physique nesta versão.
+- `model062_skeleton_compiler.py` — `SOURCE_NATIVE_AUTHORING`: compiler nativo de pattern/SMB 0.62 com hierarquia de bones e tracks de rotação/posição/escala compatíveis com o importador ASE; material count zero e fallback para import verificado.
+- `material_group_compiler.py` — `SOURCE_NATIVE_AUTHORING`: compiler/inspector reutilizável do grupo `smMATERIAL_GROUP` Win32 embutido; records 320 bytes, strings CP949 NUL, ponteiros transitórios zerados, estados de texture stage/form e gate conservador de 4096 bytes imposto pelos loaders ativos.
+- `stage072_compiler.py` — `SOURCE_NATIVE_AUTHORING`: compiler nativo determinístico `SMD Stage data Ver 0.72` from-zero com material group, vertex/face/TexLink/light, normals source-compatible e reconstrução automática `StageArea` em DWORD via a regra de `StageAreaBuilder`.
+- `asset_bundle_deploy.py` — `GUARDED_TRANSACTION`: publicação/restauro genérico de bundles tipados com path source-exact, preflight global, backup, SHA-256, atomic replace, drift gate e bloqueio de estado/persistência/config operacional.
 
 ## Integração Summit Server / Asset Enrichment 1.0
 
@@ -420,7 +430,7 @@ A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Fie
 - `pt_asset_tool/server_ui.py` — resumo seguro para a aba `Servidor / Enrichment` da UI; lê somente relatórios em `pt_build`.
 - `pt_asset_tool/ui_app.py` + `ui_static/*` — configuração persistente de `server_root`, dashboard, execução assíncrona dos gates server read-only.
 - `server_ui.py` — resumo seguro da camada Server / Asset Enrichment para a UI.
-- `server_field_editor.py` — parser + writer staging de Field metadata: SPM texto preservando encoding/newlines, SPP 200×12 structured record edits e SPC clone-patch ADD_NPC fail-closed; outputs só em `pt_build/server_field_editor`.
+- `server_field_editor.py` — parser + writer staging de Field metadata: SPM texto preservando encoding/newlines, SPP 200×12 structured record edits e SPC writer Win32 `smTRNAS_PLAYERINFO` 504-byte source-derived (e patch controlado quando aplicável); outputs só em `pt_build/server_field_editor`.
 
 
 ## Integração regression gate + animação affine (R14.1)
@@ -570,6 +580,7 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `rigid_semantic_devtest.py`
 - `semantic_census.py`
 - `semantic_path.py`
+- `client_enrichment.py`
 - `server_bundle_census.py`
 - `server_design_auto.py`
 - `server_environment_validation.py`
@@ -714,3 +725,23 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `pt_smd_static_capability_probe_v1.py`
 - `summit_roundtrip_restore_v4.py`
 - `summit_workspace_asset_bridge_v1_2.py`
+
+## Integração Management legacy (2026-09-20)
+
+- `pt_asset_tool/legacy_management_contracts.py` — contratos estáticos/hashes, parser do `PriTaTor.Config.txt`, classificação histórica de item por longest-prefix e verificação fail-closed do diretório Management; nunca executa EXEs.
+- `pt_asset_tool/legacy_management_audit.py` — auditoria read-only `SPM -> Monster -> item code -> OpenItem`, candidatos de shop NPC, correlação opcional de tutoriais e proveniência Management.
+- `pt_asset_tool/contracts/legacy_management_tools.json` — evidência versionada das ferramentas PriTaTor/NPCManager/ItemDistributor e taxonomia de item.
+- CLI: `legacy-management summary|verify|item-code` e `audit legacy-management`.
+
+Entradas de inventário de módulos runtime:
+- `legacy_management_contracts.py` — contratos/hashes/taxonomia e verificação estática das ferramentas Management.
+- `item_runtime_catalog.py` — adaptador semântico source-exact do `sITEM`: expõe `DorpItem`, `Class`, `SetModelPosi`, `SoundIndex`, `WeaponClass` e paths esperados sem quebrar aliases V1.
+- `legacy_management_audit.py` — auditoria de correlação legacy Management contra o servidor atual.
+- `legacy_management_web.py` — adaptador web read-only para dashboard Management, lookup `sITEM`/DorpItem, verificação estática e consulta paginada da world closure; não promove writers.
+
+## Legacy Authoring Python (2026-09-20)
+
+- `pt_asset_tool/legacy_authoring.py` — pipeline Python nativa de criação/edição para OpenItem, Monster, NPC, SPM, SPP e SPC. Edição preserva diretivas desconhecidas, staging fica em `pt_build`, publish usa backup/hash/replace atômico e restore transacional; nenhum executável Management é necessário.
+- CLI: `legacy-authoring capabilities|inspect|stage|publish|restore`.
+- Web: seção **Legacy Authoring / Reescrita Python** na aba Management Legacy, com inspect/template/stage/publish/restore/status.
+- `legacy_authoring.py` — runtime module do authoring Python legado (Item/Monster/NPC/SPM/SPP/SPC), listado pelo basename para a gate de inventário.

@@ -1,0 +1,196 @@
+{
+  "target_abi": "Win32 i686 little-endian; 4-byte pointers; 4-byte aggregate alignment",
+  "source_archive_sha256": "3555ec2a864f12ba8df792224a43371945dd21c7d642cf4a4a635716e56925b8",
+  "source_root_hint": "srcAtual(7)",
+  "format": "Summit Tale SMD Model 0.62 / SMB bone pattern",
+  "magic": "SMD Model data Ver 0.62",
+  "extensions": [
+    ".smd",
+    ".smb"
+  ],
+  "container": {
+    "smDFILE_HEADER": {
+      "size": 556,
+      "fields": [
+        [
+          "szHeader",
+          "char[24]",
+          0,
+          24
+        ],
+        [
+          "ObjCounter",
+          "int32",
+          24,
+          4
+        ],
+        [
+          "MatCounter",
+          "int32",
+          28,
+          4
+        ],
+        [
+          "MatFilePoint",
+          "int32",
+          32,
+          4
+        ],
+        [
+          "First_ObjInfoPoint",
+          "int32",
+          36,
+          4
+        ],
+        [
+          "TmFrameCounter",
+          "int32",
+          40,
+          4
+        ],
+        [
+          "TmFrame",
+          "smFRAME_POS[32]",
+          44,
+          512
+        ]
+      ],
+      "constraints": [
+        "ObjCounter 0..128",
+        "MatCounter 0..5000",
+        "TmFrameCounter 0..32",
+        "szHeader NUL-terminated within 24 bytes"
+      ]
+    },
+    "smFRAME_POS": {
+      "size": 16,
+      "fields": [
+        [
+          "StartFrame",
+          "int32",
+          0,
+          4
+        ],
+        [
+          "EndFrame",
+          "int32",
+          4,
+          4
+        ],
+        [
+          "PosNum",
+          "int32",
+          8,
+          4
+        ],
+        [
+          "PosCnt",
+          "int32",
+          12,
+          4
+        ]
+      ]
+    },
+    "smDFILE_OBJINFO": {
+      "size": 40,
+      "fields": [
+        [
+          "szNodeName",
+          "char[32]",
+          0,
+          32
+        ],
+        [
+          "Length",
+          "int32",
+          32,
+          4
+        ],
+        [
+          "ObjFilePoint",
+          "int32",
+          36,
+          4
+        ]
+      ]
+    },
+    "layout": [
+      "smDFILE_HEADER (556)",
+      "smDFILE_OBJINFO[ObjCounter] (40 each)",
+      "embedded material group when MatCounter>0",
+      "serialized object blobs in object-info order"
+    ],
+    "offset_rules": {
+      "MatFilePoint": "556 + 40*ObjCounter",
+      "First_ObjInfoPoint": "MatFilePoint + material_group_bytes",
+      "object.ObjFilePoint": "First_ObjInfoPoint + sum(previous object lengths)"
+    }
+  },
+  "object": {
+    "header_size": 2236,
+    "head_value": "0x41424344 | OBJ_HEAD_TYPE_NEW_NORMAL(0x80000000)",
+    "caps": {
+      "MaxVertex": "<=30000",
+      "MaxFace": "<=30000",
+      "TmFrameCnt": "<=32",
+      "texture_links_per_face": "<=9"
+    },
+    "element_sizes": {
+      "smVERTEX": 24,
+      "LegacyFaceDisk32": 36,
+      "LegacyTextureLinkDisk32": 32,
+      "smTM_ROT": 20,
+      "smTM_POS": 16,
+      "smTM_SCALE": 16,
+      "smFMATRIX": 64,
+      "physique_name": 32
+    },
+    "selected_offsets": {
+      "TexLink": 12,
+      "Physique": 16,
+      "NodeName": 172,
+      "pParent": 236,
+      "Tm": 240,
+      "TmRot": 668,
+      "TmRotFrame": 696,
+      "TmFrameCnt": 2232
+    },
+    "serialization_order": [
+      "LegacyObjectDiskLayout[2236]",
+      "smVERTEX[nVertex]",
+      "LegacyFaceDisk32[nFace]",
+      "LegacyTextureLinkDisk32[nTexLink]",
+      "smTM_ROT[TmRotCnt]",
+      "smTM_POS[TmPosCnt]",
+      "smTM_SCALE[TmScaleCnt]",
+      "smFMATRIX[TmRotCnt] (TmPrevRot)",
+      "char[32][nVertex] iff Physique present"
+    ],
+    "size_formula": "2236 + 24*nVertex + 36*nFace + 32*nTexLink + 20*TmRotCnt + 16*TmPosCnt + 16*TmScaleCnt + 64*TmRotCnt + (Physique?32*nVertex:0)",
+    "pointer_policy": {
+      "Vertex/Face": "presence sentinel only",
+      "TexLink": "base token 0x10000000 if nTexLink>0",
+      "Physique": "presence sentinel",
+      "pParent": "write 0; rebuilt after load",
+      "Trig[8]": "write zeros",
+      "face.textureLink": "0 or base+32*linkIndex",
+      "texlink.nextTexture": "0 or base+32*linkIndex",
+      "texlink.hTexture": "legacy 32-bit token; authoring tool should normalize from material slot relation rather than host address"
+    },
+    "validation": [
+      "face first 3 vertex indices < nVertex",
+      "texture chain owned and <=9 links",
+      "frame ranges fit associated animation tracks",
+      "NodeName and NodeParent terminate within 32 bytes"
+    ]
+  },
+  "material_group_ref": "LEGACY_MATERIAL_GROUP_WIN32_SCHEMA_2026-09-19.json",
+  "source_anchors": [
+    "Shared/rendering/legacy_3d/object/PatternRender.inl:72",
+    "Shared/rendering/legacy_3d/object/smObj3d_shared.h:17-43",
+    "Shared/rendering/legacy_3d/object/LegacyPatternSerialization.h",
+    "Shared/rendering/legacy_3d/object/LegacyObjectDiskLayout.h",
+    "Shared/rendering/legacy_3d/object/LegacyObjectSerialization.h",
+    "SrcGame/src/systems/rendering/legacy_3d/smType.h:83-235"
+  ]
+}

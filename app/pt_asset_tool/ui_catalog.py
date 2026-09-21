@@ -9,7 +9,7 @@ import time
 from dataclasses import dataclass
 from typing import Any
 
-UI_VERSION = "1.0.0"
+UI_VERSION = "1.0.2"
 BROWSER_IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".webp", ".ico"}
 CONVERTIBLE_IMAGE_EXTS = {".tga"}
 IMAGE_EXTS = BROWSER_IMAGE_EXTS | CONVERTIBLE_IMAGE_EXTS
@@ -19,6 +19,10 @@ CONFIG_EXTS = {".inx", ".inf", ".ini", ".txt", ".lst"}
 MOTION_EXTS = {".smb"}
 AUDIO_EXTS = {".wav", ".ogg", ".mp3", ".mid", ".bgm"}
 PACKAGE_EXTS = {".pkg", ".gpk", ".cab"}
+SYSTEM_BINARY_EXTS = {".exe", ".dll", ".ocx", ".sys"}
+OPERATIONAL_EXTS = {".log", ".rep", ".cl", ".dmp", ".tmp"}
+NOISE_EXTS = {".bak", ".old", ".orig"}
+HIDDEN_VISIBILITY_TIERS = {"OPERATIONAL", "USER_DATA", "INSTALLER_SYSTEM", "NOISE"}
 EFFECT_SCRIPT_EXTS = {".part", ".lua"}
 
 EXTENSION_DESCRIPTIONS = {
@@ -39,7 +43,13 @@ EXTENSION_DESCRIPTIONS = {
     ".ase": "Modelo/cena ASCII 3D (ASE)",
     ".pkg": "Pacote de effect/assets",
     ".gpk": "Pacote de assets",
-    ".cab": "Container/pacote",
+    ".cab": "Pacote de sistema/instalador (normalmente DirectX/runtime)",
+    ".exe": "Executável/runtime do cliente",
+    ".dll": "Biblioteca runtime do cliente",
+    ".log": "Log operacional",
+    ".bak": "Backup/artefato auxiliar",
+    ".db": "Base/cache auxiliar",
+    ".sin": "Dados runtime do jogo",
     ".part": "Fragmento/parte de pacote",
     ".ini": "Configuração INI",
     ".txt": "Texto/configuração",
@@ -149,8 +159,12 @@ def infer_physical_family(rel: str, ext: str) -> str:
         return "COMPRESSED_ITEM_DATA"
     if ext == ".sct":
         return "FIELD_DATA"
-    if ext in PACKAGE_EXTS:
-        return "PACKAGE"
+    if ext == ".cab":
+        return "SYSTEM_PACKAGE"
+    if ext in {".pkg", ".gpk"}:
+        return "GAME_PACKAGE"
+    if ext in SYSTEM_BINARY_EXTS:
+        return "RUNTIME_BINARY"
     if ext in {".msg", ".sin", ".ini", ".inf", ".txt", ".lst", ".dat", ".json", ".xml"}:
         return "DATA"
     return "OTHER"
@@ -201,7 +215,7 @@ def infer_folder_bucket(rel: str, category: str) -> tuple[str, str]:
         candidates = [("image", "sinimage", "items"), ("items",)]
     elif cat == "UI":
         candidates = [("image", "sinimage"), ("startimage",)]
-    elif cat == "MAP":
+    elif cat in {"MAP", "MAP_FIELD"}:
         candidates = [("field",), ("game", "maps"), ("map",), ("stage",)]
     elif cat == "EFFECT":
         candidates = [("effect", "assaeffect"), ("effect",)]
@@ -215,12 +229,50 @@ def infer_folder_bucket(rel: str, category: str) -> tuple[str, str]:
     return "(raiz)", ""
 
 
+def infer_visibility_tier(rel: str, ext: str, category: str = "", role: str = "") -> str:
+    """Classify catalog visibility without deleting or mutating client files.
+
+    The default UI hides only operational/system/user noise. Content/reference
+    assets remain visible even when their extension is uncommon.
+    """
+    path = _norm(rel)
+    low = path.casefold()
+    name = pathlib.PurePosixPath(path).name.casefold()
+    ext = (ext or "").casefold()
+    parts = set(pathlib.PurePosixPath(low).parts)
+
+    if name == "thumbs.db" or ext in NOISE_EXTS or name.endswith(".bak"):
+        return "NOISE"
+    if ext in OPERATIONAL_EXTS or any(x in low for x in ("/logs/", "/log/", "debugtrace", "debug_trace", "trace.log")):
+        return "OPERATIONAL"
+    if ext == ".cab" or "directx" in parts or "redist" in parts or "installer" in parts:
+        return "INSTALLER_SYSTEM"
+    if ext in SYSTEM_BINARY_EXTS:
+        return "INSTALLER_SYSTEM"
+    if any(x in low for x in ("savedata", "clandata", "userdata", "user_data", "screenshots/")):
+        return "USER_DATA"
+    if str(role).upper() in {"SYSTEM_PACKAGE"}:
+        return "INSTALLER_SYSTEM"
+    if str(category).upper() in {"UI", "CHARACTER", "MONSTER", "NPC", "ITEM", "MAP", "EFFECT", "MODEL", "TEXTURE", "MOTION"}:
+        return "AUTHORABLE"
+    if ext in {".ase", ".inx", ".inf", ".ini", ".txt", ".lst", ".sin", ".msg", ".sct", ".pkg", ".gpk"}:
+        return "REFERENCE"
+    return "RUNTIME_SUPPORT"
+
+
 def infer_semantics(rel: str, ext: str) -> tuple[str, str]:
     """Return broad category + role. These are UI hints, never format authority."""
     path = _norm(rel)
     low = "/" + path.lower() + "/"
     stem = pathlib.PurePosixPath(path).stem
     parts = set(path.lower().split("/"))
+
+    # Strong UI/function evidence wins over filename tokens such as ha01.
+    # This prevents message-box/button families (including historical habox)
+    # from ever being promoted to CHARACTER by broad name heuristics.
+    if any(token in parts for token in {"messagebox", "button", "buttons", "habox", "chipbutton"}):
+        if ext in TEXTURE_EXTS or ext in MODEL_EXTS:
+            return "UI", "MESSAGE_BOX" if ("messagebox" in parts or "habox" in parts) else "UI_COMPONENT"
 
     # Image/Sinimage/Items mixes inventory UI art with world drop assets.
     # Keep the two concepts separate: icons are UI, DropItem is a world/item
@@ -277,8 +329,14 @@ def infer_semantics(rel: str, ext: str) -> tuple[str, str]:
             return "UI", "ITEM_ICON"
         return "ITEM", _role_for_entity_file(ext)
     if "/assaeffect/" in low or "/effect/" in low:
-        return "EFFECT", "EFFECT_SCRIPT" if ext in EFFECT_SCRIPT_EXTS else "EFFECT"
+        if ext in EFFECT_SCRIPT_EXTS:
+            return "EFFECT", "EFFECT_SCRIPT"
+        if ext in {".pkg", ".gpk"}:
+            return "EFFECT", "GAME_PACKAGE"
+        return "EFFECT", "EFFECT"
     if "/field/" in low or "/map/" in low or "/stage/" in low:
+        if ext == ".sin":
+            return "MAP", "RUNTIME_DATA"
         return "MAP", "WORLD"
     if "/char/" in low or "/character/" in low or "/player/" in low:
         if ext == ".smb":
@@ -296,7 +354,13 @@ def infer_semantics(rel: str, ext: str) -> tuple[str, str]:
         return "AUDIO", "AUDIO"
     if ext in EFFECT_SCRIPT_EXTS:
         return "EFFECT", "EFFECT_SCRIPT"
-    if ext in {".msg", ".sin"}:
+    if ext == ".sin":
+        if "warp" in parts or "warpgate" in parts:
+            return "MAP", "WARP_DATA"
+        if "event" in parts or "events" in parts:
+            return "MAP", "EVENT_DATA"
+        return "DATA", "RUNTIME_DATA"
+    if ext == ".msg":
         return "DATA", "RUNTIME_DATA"
     if ext == ".fnt":
         return "UI", "FONT"
@@ -314,8 +378,16 @@ def infer_semantics(rel: str, ext: str) -> tuple[str, str]:
         return "TEXTURE", "TEXTURE"
     if ext in CONFIG_EXTS:
         return "CONFIG", "CONFIG"
-    if ext in PACKAGE_EXTS:
-        return "PACKAGE", "PACKAGE"
+    if ext == ".cab":
+        return "SYSTEM", "SYSTEM_PACKAGE"
+    if ext in {".pkg", ".gpk"}:
+        return "PACKAGE", "GAME_PACKAGE"
+    if ext in SYSTEM_BINARY_EXTS:
+        return "SYSTEM", "RUNTIME_BINARY"
+    if ext in OPERATIONAL_EXTS:
+        return "SYSTEM", "OPERATIONAL_LOG"
+    if ext in NOISE_EXTS or pathlib.PurePosixPath(path).name.casefold() == "thumbs.db":
+        return "SYSTEM", "NOISE"
     return "OTHER", "UNKNOWN"
 
 
@@ -463,6 +535,8 @@ class CatalogIndex:
                 "capabilities": infer_capabilities(rel, ext, category, role, physical_hint),
                 "previewable": ext in IMAGE_EXTS,
             }
+            row["visibility_tier"] = infer_visibility_tier(rel, ext, category_effective, role_effective)
+            row["system_operational"] = row["visibility_tier"] in HIDDEN_VISIBILITY_TIERS
             rows.append(row)
             total += int(st.st_size)
         with self._lock:
@@ -501,6 +575,8 @@ class CatalogIndex:
         role: str = "",
         ext: str = "",
         favorites: bool = False,
+        show_system: bool = False,
+        allowed_paths: set[str] | None = None,
         page: int = 1,
         page_size: int = 100,
     ) -> dict[str, Any]:
@@ -516,6 +592,11 @@ class CatalogIndex:
         page_size = min(500, max(10, int(page_size)))
         with self._lock:
             src = list(self.assets)
+        if allowed_paths is not None:
+            wanted = {_norm(x).casefold() for x in allowed_paths}
+            src = [r for r in src if str(r.get("path") or "").casefold() in wanted]
+        if not show_system:
+            src = [r for r in src if str(r.get("visibility_tier") or "") not in HIDDEN_VISIBILITY_TIERS]
         out = []
         for r in src:
             if category and r["category"].upper() != category:
@@ -533,7 +614,7 @@ class CatalogIndex:
             if q_tokens:
                 hay = " ".join([
                     r["path"], r["category"], r["role"], r.get("folder", ""),
-                    r.get("extension_description", ""), " ".join(r["tags"]), r["notes"]
+                    r.get("extension_description", ""), r.get("visibility_tier", ""), " ".join(r["tags"]), r["notes"]
                 ]).lower()
                 if not all(t in hay for t in q_tokens):
                     continue

@@ -1,0 +1,94 @@
+{
+  "format": "PT_SOURCE_CODE_BOUNDARIES_V1",
+  "source_sha256": "3555ec2a864f12ba8df792224a43371945dd21c7d642cf4a4a635716e56925b8",
+  "boundaries": [
+    {
+      "id": "field.new_field_code",
+      "domain": "FIELD",
+      "boundary": "New FieldCode / global world topology",
+      "asset_side": "Create/replace stage SMD + SPM/SPP/SPC for an already registered FieldCode.",
+      "code_side": "sField[FIELD_MAX] population, SetName/state/music/servercode, centers, warps/gates/topology.",
+      "evidence": "SrcGame/src/systems/world/field/field.h:3 FIELD_MAX=256 | Shared/world/field/field_legacy_client.inl:423+ sField table"
+    },
+    {
+      "id": "item.new_identity",
+      "domain": "ITEM",
+      "boundary": "New item CODE/LastCategory identity",
+      "asset_side": "OpenItem stats/config and visuals for a LastCategory already registered.",
+      "code_side": "sItem identity map / item_code_map_mingw_legacy_server.inc; new CODE/category requires registry change/rebuild.",
+      "evidence": "Shared/inventory/legacy/sinItem_legacy_server.inl:58-114 | Shared/inventory/item_code_map_mingw_legacy_server.inc (1726 entries)"
+    },
+    {
+      "id": "skill.new_identity_behavior",
+      "domain": "SKILL",
+      "boundary": "New skill ID/behavior",
+      "asset_side": "Tune arrays/parameters in Configs/Skill/*.ini for existing skill.",
+      "code_side": "SkillNum/FuncPointer, SKILL_PLAY_* handling, damage switches, authority, UI/effects.",
+      "evidence": "SrcServer/src/systems/combat/skills/legacy/sinSkill.h:359,364 | Shared/gameplay/combat/LegacyDamagePolicy.inl:1178+ switches"
+    },
+    {
+      "id": "player.new_job",
+      "domain": "PLAYER_CLASS",
+      "boundary": "New playable job/class",
+      "asset_side": "Visual package, model config, model/bone/textures/motions/effects/audio.",
+      "code_side": "MAX_JOBNUM=8 active, selection/creation faces/jobs, stats/skills/protocol/persistence. Assassin/Shaman constants exist but are not proof of complete integration.",
+      "evidence": "Shared/smPacket.h:2874-2887 MAX_JOBNUM/JOBCODE_* | character selection source"
+    },
+    {
+      "id": "quest.new_identity_logic",
+      "domain": "QUEST",
+      "boundary": "New quest identity/state machine",
+      "asset_side": "Texts/images/help docs for compiled quest flows.",
+      "code_side": "quest IDs, state transitions, kill triggers, rewards and client/server handlers.",
+      "evidence": "SrcGame/src/systems/gameplay/quests/legacy/HaQuest.h:1-9,27-36 | HaQuest.cpp state switches"
+    },
+    {
+      "id": "effect.new_trigger_registration",
+      "domain": "EFFECT",
+      "boundary": "New effect trigger/registration",
+      "asset_side": "Create valid Effect Animation INI, NewEffect Lua DSL and .part scripts.",
+      "code_side": "many particle/effect scripts are loaded or dispatched by hardcoded paths/IDs; novel trigger requires registration.",
+      "evidence": "HoEffect.cpp LoadScript call sites | HoNewEffectFunction.cpp Lua paths"
+    },
+    {
+      "id": "audio.new_character_sound_identity",
+      "domain": "AUDIO_CHARACTER",
+      "boundary": "New monster/NPC sound identity",
+      "asset_side": "WAV files under an already mapped snFindEffects prefix/code.",
+      "code_side": "new snCHAR_SOUND_* code and snFindEffects prefix mapping; special gameplay comparisons may also be needed.",
+      "evidence": "SrcGame/src/systems/audio/effects/legacy/effectsnd.cpp:36-44 snFIND_EFFECT_MAX/table | Shared/audio/effects/EffectSoundLegacyCatalog.h snCHAR_SOUND_*"
+    },
+    {
+      "id": "audio.new_bgm_slot",
+      "domain": "AUDIO_BGM",
+      "boundary": "New global BGM slot",
+      "asset_side": "Replace/create PCM .bgm at path of an existing slot.",
+      "code_side": "new BGM_CODE_* and szMusicFile[] entry / field mapping.",
+      "evidence": "Shared/audio/effects/EffectSoundLegacyCatalog.h:265-277 | SrcGame/src/systems/audio/effects/legacy/effectsnd.cpp:1592-1609"
+    },
+    {
+      "id": "npc.service_behavior",
+      "domain": "NPC",
+      "boundary": "Novel NPC service/behavior not represented by parser flags",
+      "asset_side": "Create NPC config using existing service tokens and fixed placement SPC.",
+      "code_side": "A brand-new service token/behavior requires parser/runtime implementation.",
+      "evidence": "Shared/formats/character_config/CharacterNpcReader.h service tokens"
+    },
+    {
+      "id": "monster.special_behavior",
+      "domain": "MONSTER",
+      "boundary": "Novel hardcoded boss/monster behavior keyed by sound/code/class",
+      "asset_side": "Generic monster stats/model/motion/spawn are authorable.",
+      "code_side": "special-case gameplay switches compare dwCharSoundCode/wPlayClass and require code for truly new semantics.",
+      "evidence": "SrcServer/src/systems/gameplay/character/core/character.cpp multiple dwCharSoundCode branches | server combat code"
+    },
+    {
+      "id": "particle.luac.compiler",
+      "domain": "EFFECT_LUAC",
+      "boundary": "Generate ParticleFactory .luac bytecode",
+      "asset_side": "Existing .luac can be preserved/referenced.",
+      "code_side": "compiler/loader implementation is absent from this source snapshot; format version cannot be safely invented.",
+      "evidence": "SrcGame/src/systems/social/chat/legacy_ui/CChatBox.cpp:929-935 consumer only"
+    }
+  ]
+}

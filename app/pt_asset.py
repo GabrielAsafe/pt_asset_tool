@@ -1851,7 +1851,7 @@ def main() -> int:
         print("  config clear-server-root       clear persistent server root and return to discovery")
         print("  registry status                generate/read machine-local asset registry state")
         print("  registry rebuild [--client-root PATH]  force a read-only registry rebuild from the current client")
-        print("  texture-upscale scan|run ...   scan/upscale BMP/TGA/PNG/JPG to a separate pt_build/output tree")
+        print("  texture-upscale scan|run|resume|publish|restore|publish-batch|restore-batch ...   stage enhanced textures under <project>/enhancement and publish/undo verified single or batch changes")
         return cp.returncode
     if args in (["status"], ["app-status"]):
         return _command_app_status()

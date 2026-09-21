@@ -1,6 +1,6 @@
-# Texture Upscale — pipeline seguro
+# Texture Enhance / Upscale — pipeline seguro
 
-O PT Asset Tool possui um pipeline de upscale para texturas físicas do client. Ele cria **cópias** em `pt_build` (ou noutra árvore explicitamente indicada) e nunca publica diretamente no client.
+O PT Asset Tool possui um pipeline de **enhance + upscale** para texturas físicas do client. Ele cria **cópias** na workspace dedicada `enhancement/` (ou noutra árvore explicitamente indicada). O estágio `run` nunca escreve no client; publicação individual ou em lote só acontece por comandos separados com confirmação explícita, backup e verificação de hash. O original continua sendo a referência e o manifest regista backend, perfil de qualidade, hashes e métricas antes/depois.
 
 Formatos suportados:
 
@@ -37,12 +37,17 @@ O pipeline aplica estas regras:
 7. o SHA-256 da fonte é conferido novamente após a operação;
 8. `run` exige `--include`, `--include-exact` ou `--all`, evitando processar todo o client por acidente;
 9. paths típicos de UI/atlas/login/font/cursor são bloqueados por padrão devido ao risco de consumidores com recortes em pixels;
-10. `--include-ui` é uma autorização explícita para testar esses paths; continua sem autorizar deploy no client.
+10. `--include-ui` é uma autorização explícita para testar esses paths; continua sem autorizar deploy no client;
+11. runs longos gravam checkpoints atômicos no manifest; `texture-upscale resume` reutiliza candidates já verificados por SHA-256;
+12. `publish-batch` faz preflight de **todos** os source/candidate hashes antes da primeira escrita; falha durante o lote dispara rollback automático do que já foi aplicado;
+13. `restore-batch` também faz preflight completo de drift/backups antes da primeira restauração.
+
+O projeto contém uma pasta `enhancement/` dedicada a este workflow; `runs/` e `transactions/` são runtime e ficam ignorados pelo Git.
 
 Cada execução automática da UI é criada sob:
 
 ```text
-app/pt_build/texture_upscale/runs/<run-id>/
+enhancement/runs/<run-id>/
 ├── overlay/
 └── manifest.json
 ```
@@ -62,15 +67,75 @@ O manifest classifica cada entrada como:
 1. abra **Catálogo**;
 2. selecione BMP/TGA/PNG/JPG/JPEG;
 3. arme **workspace/build**;
-4. clique **Upscale textura**;
+4. clique **Enhance / Upscale textura**;
 5. escolha `2`, `3` ou `4`;
-6. escolha `lanczos` ou `realesrgan`;
-7. se o asset estiver num path UI/atlas, a GUI exige confirmação explícita;
-8. acompanhe a tarefa em **Tarefas & Console**;
-9. abra o manifest/output informado no console sob `pt_build/texture_upscale/runs/...`;
-10. valide o resultado antes de o promover manualmente para qualquer ambiente externo.
+6. escolha um perfil: `faithful`, `balanced`, `detail` ou `pixel-art`;
+7. escolha `auto`, `lanczos` ou `realesrgan`; `auto` é o padrão seguro e usa AI apenas quando o perfil/ambiente justificam, com fallback para Lanczos;
+8. se o asset estiver num path UI/atlas, a GUI exige confirmação explícita;
+9. acompanhe a tarefa em **Tarefas & Console**;
+10. abra o manifest/output informado no console sob `enhancement/runs/...`;
+11. compare visualmente o original e o output e valide in-game antes de qualquer promoção externa.
 
-A ação da GUI processa somente o asset selecionado.
+A ação da GUI processa somente o asset selecionado. Depois que o candidate termina, o detalhe do asset é atualizado e passa a expor **Enviar enhancement ao cliente**. A publicação exige o arm de client, valida que o ficheiro fonte não mudou desde a geração do candidate, cria backup verificado e só então faz a substituição atômica. Quando a publicação termina, aparece **Desfazer enhancement**; esse rollback só executa se o client ainda contiver exatamente o hash publicado.
+
+As transações ficam sob:
+
+```text
+enhancement/transactions/<asset-key>/<transaction-id>/
+├── backup/<client-relative-path>
+└── transaction.json
+```
+
+CLI equivalente:
+
+```bash
+python3 pt_asset.py texture-upscale publish \
+  --include-exact 'Image/Character/hero.tga' \
+  --confirm 'APPLY CLIENT ENHANCEMENT'
+
+python3 pt_asset.py texture-upscale restore \
+  --include-exact 'Image/Character/hero.tga' \
+  --confirm 'RESTORE CLIENT ENHANCEMENT'
+```
+
+
+## Enhancement global / lote completo
+
+A aba **Cliente / Asset Enrichment** possui quatro ações globais:
+
+- **Enhance todas as texturas (AI)** — executa Real-ESRGAN `detail` para BMP/TGA/PNG/JPG/JPEG e inclui deliberadamente UI/atlases para o teste global;
+- **Retomar último run** — lê o manifest checkpointado, reutiliza candidates cujo source/output SHA-256 ainda confere e reprocessa somente falhas/pendentes;
+- **Publicar lote no cliente** — valida todos os hashes antes da primeira escrita, cria backup/transação por asset e mantém um `enhancement/batches/<batch-id>/batch.json`;
+- **Desfazer lote publicado** — recusa o lote inteiro se qualquer ficheiro tiver drift ou backup inválido; quando começa, restaura as transações do lote de forma controlada.
+
+CLI equivalente:
+
+```bash
+python3 pt_asset.py texture-upscale run --all --include-ui \
+  --scale 4 --backend realesrgan --profile detail --gpu 0 --model realesrgan-x4plus
+
+# se o run for interrompido
+python3 pt_asset.py texture-upscale resume
+
+python3 pt_asset.py texture-upscale publish-batch \
+  --confirm 'APPLY CLIENT ENHANCEMENT BATCH'
+
+python3 pt_asset.py texture-upscale restore-batch \
+  --confirm 'RESTORE CLIENT ENHANCEMENT BATCH'
+```
+
+`batch-status` mostra o último run, o último lote e se existe rollback global disponível.
+
+> Nota operacional: upscale 4x aumenta a área da imagem em 16x. Em BMP/TGA sem compressão, o espaço de staging pode crescer aproximadamente nessa ordem; a publicação ainda adiciona backups do tamanho dos originais. Para o client completo, confirme espaço em disco antes de iniciar.
+
+## Perfis de qualidade
+
+- `faithful` — resize de alta qualidade sem sharpening adicional; indicado quando preservar a aparência é mais importante do que ganhar microcontraste.
+- `balanced` — sharpening leve após o resize; é o perfil recomendado como ponto de partida.
+- `detail` — sharpening mais forte e, com `--backend auto`, tenta Real-ESRGAN quando disponível antes de recorrer a Lanczos.
+- `pixel-art` — usa nearest-neighbour para preservar grelha/pixels; Real-ESRGAN é recusado neste perfil.
+
+O alpha é preservado. Para TGA/BMP protegidos, o writer mantém o modo de proteção compatível já suportado pelo pipeline. O manifest regista uma métrica de detalhe antes/depois (`detail_metric_before`, `detail_metric_after`, `detail_gain_ratio`) apenas como evidência comparativa — ela **não substitui validação visual**.
 
 ## Scan CLI
 
@@ -98,10 +163,23 @@ cd app
 python3 pt_asset.py texture-upscale run \
   --include 'Image/Character/hero.tga' \
   --scale 4 \
-  --backend lanczos
+  --backend lanczos \
+  --profile balanced
 ```
 
-Sem `--output-root`, a execução cria automaticamente uma árvore única em `pt_build/texture_upscale/runs/`. `run` nunca assume "todas as texturas": use `--all` somente quando essa intenção for explícita.
+Sem `--output-root`, a execução cria automaticamente uma árvore única em `enhancement/runs/`. `run` nunca assume "todas as texturas": use `--all` somente quando essa intenção for explícita.
+
+## Enhance CLI — backend automático
+
+```bash
+python3 pt_asset.py texture-upscale run \
+  --include 'Image/Character/hero.tga' \
+  --scale 4 \
+  --backend auto \
+  --profile balanced
+```
+
+`auto` evita exigir AI: no perfil `detail` tenta Real-ESRGAN quando disponível; nos restantes casos usa o backend determinístico apropriado.
 
 ## Upscale CLI — Real-ESRGAN
 
@@ -111,7 +189,8 @@ Com `realesrgan-ncnn-vulkan` disponível no `PATH`:
 python3 pt_asset.py texture-upscale run \
   --include 'Image/Character/hero.tga' \
   --scale 4 \
-  --backend realesrgan
+  --backend realesrgan \
+  --profile detail
 ```
 
 Também é possível informar explicitamente o executável:
@@ -169,11 +248,22 @@ O JSON inclui, por asset:
 - alpha;
 - SHA-256 da fonte;
 - classe de risco;
-- backend/escala;
+- backend efetivamente usado, escala e perfil de qualidade;
 - path e SHA-256 do output;
 - dimensões do output;
 - prova `source_unchanged`;
 - status/reason;
+- métrica comparativa de detalhe antes/depois;
 - tempo de execução.
 
 No nível do report há também `source_write_attempted=false` e `source_client_modified=false` quando a prova de imutabilidade passa.
+
+## Testemunho da decisão de backend
+
+`texture-upscale run` regista o backend efetivamente usado e o motivo da seleção. Em `--backend auto`:
+
+- `faithful` e `balanced` usam deliberadamente Lanczos determinístico (`AUTO_CONSERVATIVE_PROFILE_LANCZOS`);
+- `detail` usa `realesrgan-ncnn-vulkan` quando disponível e, caso contrário, regista `AUTO_DETAIL_REALESRGAN_UNAVAILABLE_FALLBACK_LANCZOS` com o erro de descoberta;
+- `pixel-art` usa nearest-neighbour.
+
+Use `python3 pt_asset.py texture-upscale capabilities` para verificar os backends antes de um lote. `PASS` significa que o output de staging foi criado e verificado; não implica que AI tenha sido usada. Confira `ai_enhancement_used`, `enhancement_class` e `backend_decision`.

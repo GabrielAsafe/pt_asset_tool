@@ -112,7 +112,9 @@ def test_release_1_auto_mixed_scope_still_requires_runtime_and_promotion(tmp_pat
     assert result['status']=='BLOCKED_EXTERNAL'
     assert result['external_input_required'] is False
     assert result['manual_review_required_now'] is True
-    assert result['external_gates_pending']==['INTEGRATED_RUNTIME_GAME_ACCEPTANCE','WRITER_PROMOTION_AND_PUBLISH_RESTORE']
+    assert result['external_gates_pending']==['WRITER_PROMOTION_AND_PUBLISH_RESTORE']
+    assert result['runtime_game_acceptance_pending'] is False
+    assert result['runtime_game_acceptance_scope']=='OUT_OF_SCOPE_PT_ASSET_TOOL_1_0'
     assert result['mixed_physique_release_scope']['post_1_0_backlog'] is True
     assert result['production_authorized'] is False
 

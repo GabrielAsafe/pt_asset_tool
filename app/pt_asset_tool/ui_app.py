@@ -17,15 +17,28 @@ from typing import Any
 from .ui_actions import ACTION_SPECS, build_command, public_action_specs
 from .app_config import discover_client_root, load_config
 from .ui_catalog import CatalogIndex, UIStateStore, UI_VERSION
-from .ui_capabilities import capabilities_for_asset
+from .ui_capabilities import capabilities_for_asset, ui_options_for_asset
 from .profile_registry import CharacterProfileRegistry
 from .ui_image import PreviewDecodeError, preview_image_bytes
 from .ui_jobs import JobManager
 from .config import Settings
 from .registry import AssetRegistry
 from .resolver import ClientResolver
+from .legacy_management_web import (
+    legacy_management_dashboard, legacy_management_item_detail,
+    query_legacy_management_report, verify_management_for_web,
+)
+from .legacy_authoring import authoring_capabilities, inspect_authoring, stage_authoring
 from .entity_catalog import entity_detail, load_entity_seed, query_entities
 from .server_ui import build_server_ui_summary, server_report_rows
+from .client_enrichment import asset_analysis_evidence, build_client_enrichment_summary, query_client_enrichment_report
+from .asset_contract_registry import registry_summary, get_contract, schema_for_contract, match_contracts_for_path
+from .asset_compiler import compiler_capabilities, plan_compiler_input, compile_compiler_input
+from .asset_bundle_deploy import (
+    APPLY_CONFIRM as ASSET_BUNDLE_APPLY_CONFIRM,
+    RESTORE_CONFIRM as ASSET_BUNDLE_RESTORE_CONFIRM,
+    latest_bundle_manifest, publish_asset_bundle, restore_asset_bundle, asset_bundle_deploy_status,
+)
 from .app_config import (
     save_server_root, clear_server_root,
     save_source_root, clear_source_root,
@@ -34,16 +47,17 @@ from .app_config import (
     save_contract_donor_servers, configured_contract_donor_servers,
 )
 from .validation import rigid_model_info_options
-from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_spp_records, stage_spc_clone
+from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_spp_records, stage_spc_native
 from .general_asset_census import query_general_asset_census
 from .source_catalog import configured_source_roots
-from .texture_upscale import capability_status as texture_upscale_capability_status
+from .texture_upscale import capability_status as texture_upscale_capability_status, enhancement_status, enhancement_root, enhancement_batch_status
 from .blender_workspace import blender_edit_root
-from .workspace_bundle_deploy import latest_applied_bundle_manifest
+from .workspace_bundle_deploy import latest_applied_bundle_manifest, workspace_bundle_restore_capabilities
 
 LOOPBACKS = {"127.0.0.1", "localhost", "::1"}
 ARM_PHRASE = "ARM BUILD WRITES"
 DEPLOY_ARM_PHRASE = "ARM CLIENT DEPLOY"
+SERVER_DEPLOY_ARM_PHRASE = "ARM ASSET DEPLOY"
 
 
 def _discover_client_root(project_root: pathlib.Path) -> pathlib.Path:
@@ -158,6 +172,7 @@ class UIContext:
             self.profile_registry = None
         self.write_armed_until = 0.0
         self.deploy_armed_until = 0.0
+        self.server_deploy_armed_until = 0.0
         self.server: ThreadingHTTPServer | None = None
 
     def set_server_root(self, value: pathlib.Path | None) -> None:
@@ -217,6 +232,7 @@ class UIContext:
         row["registry_asset"] = False
         row["inventory_record_present"] = False
         row["capability_notes"] = {}
+        row["asset_contract_candidates"] = match_contracts_for_path(rel)
         try:
             reg = self.registry()
             record = reg.record_for_path(rel)
@@ -234,6 +250,7 @@ class UIContext:
                 row["asset_id"] = asset.asset_id
                 row["family"] = asset.family
                 row["kind"] = asset.kind
+                row["analysis_evidence"] = asset_analysis_evidence(self.settings, asset.asset_id)
                 row["character_profiles"] = (
                     self.profile_registry.match_asset(asset.primary_path)
                     if self.profile_registry is not None else []
@@ -254,6 +271,47 @@ class UIContext:
                 row["physical_dependency_status"] = dependency_status
                 row["rigid_binding_ready_physical"] = bool(dependency_status.get("rigid_binding_ready_physical"))
                 row["animation_binding_ready_physical"] = bool(dependency_status.get("animation_binding_ready_physical"))
+                model_info_options = rigid_model_info_options(asset) if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE" else []
+                row["model_info_options"] = model_info_options
+                row["ui_options"] = ui_options_for_asset(
+                    asset,
+                    self.resolver,
+                    model_info_options=model_info_options,
+                    head_candidates=head_candidates,
+                    animation_binding_ready_physical=row["animation_binding_ready_physical"],
+                )
+                # Explicit related paths are relationship evidence, not filename guesses.
+                related=[]
+                seen_related=set()
+                def add_related(logical: str, relation: str, evidence: str) -> None:
+                    logical=str(logical or "").replace("\\", "/").strip("/")
+                    if not logical or logical.casefold() == str(asset.primary_path).casefold():
+                        return
+                    key=(logical.casefold(), relation)
+                    if key in seen_related:
+                        return
+                    seen_related.add(key)
+                    catalog_row=self.catalog.get_asset(logical)
+                    related.append({
+                        "path": logical,
+                        "relation": relation,
+                        "evidence": evidence,
+                        "present": bool(catalog_row),
+                        "previewable": bool((catalog_row or {}).get("previewable")),
+                        "category": (catalog_row or {}).get("category"),
+                        "role": (catalog_row or {}).get("role"),
+                        "ext": (catalog_row or {}).get("ext") or pathlib.PurePosixPath(logical).suffix.lower(),
+                    })
+                for texture in getattr(asset, "textures", []) or []:
+                    add_related(texture, "TEXTURE", "SMD_MATERIAL_TEXLINK")
+                for cfg in getattr(asset, "configs", []) or []:
+                    if isinstance(cfg, dict):
+                        add_related(cfg.get("inx"), "CONFIG", "REGISTRY_CONFIG")
+                        add_related(cfg.get("motion_inx"), "MOTION_CONFIG", "VERIFIED_BINDING_CONTEXT")
+                        add_related(cfg.get("motion_smb"), "SKELETON_MOTION", "VERIFIED_BINDING_CONTEXT")
+                for motion_path in getattr(asset, "motions", []) or []:
+                    add_related(motion_path, "SKELETON_MOTION", "VERIFIED_REGISTRY_BINDING")
+                row["related_assets"] = sorted(related, key=lambda x: (x["relation"], x["path"].casefold()))
                 physical = self.resolver.resolve(asset.primary_path, required=False)
                 caps, notes = capabilities_for_asset(asset, pathlib.Path(physical) if physical else None)
                 # Semantic registry readiness is not enough when this configured
@@ -267,29 +325,76 @@ class UIContext:
                         notes["motions"] = "MISSING_PHYSICAL_ANIMATION_DEPENDENCY"
                         notes["validate_animation"] = "MISSING_PHYSICAL_ANIMATION_DEPENDENCY"
                         notes["diagnose_animation"] = "MISSING_PHYSICAL_ANIMATION_DEPENDENCY"
+                if not row.get("ui_options", {}).get("supports_animation"):
+                    caps = [x for x in caps if x not in {"motions", "validate_animation", "diagnose_animation"}]
+                    if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE" and row["animation_binding_ready_physical"]:
+                        notes["motions"] = "NO_ACTIVE_PHYSICAL_MOTIONINFO"
                 if head_candidates:
                     caps = sorted(set(caps) | {"heads"})
                 if asset.family in {"SMD_MODEL_062_STATIC", "SMD_MODEL_062_RIGID_PHYSIQUE"}:
                     workspace = blender_edit_root(self.project_root, "generic_import", asset.primary_path)
                     if (workspace / "imported.blend").is_file() and (workspace / "authoring_manifest.json").is_file():
-                        caps = sorted(set(caps) | {"publish_bundle"})
+                        caps = sorted(set(caps) | {"prepare_bundle", "publish_bundle"})
                         row["publish_workspace"] = str(workspace)
+                        row["roundtrip_workspace_ready"] = True
                     try:
                         latest = latest_applied_bundle_manifest(self.project_root, asset.primary_path)
                     except Exception:
                         latest = None
                     if latest is not None:
-                        caps = sorted(set(caps) | {"check_bundle", "restore_bundle"})
+                        restore_caps = workspace_bundle_restore_capabilities(self.project_root, asset.primary_path)
+                        if restore_caps.get("can_restore_bundle"):
+                            caps = sorted(set(caps) | {"check_bundle", "restore_bundle"})
+                        if restore_caps.get("can_restore_model"):
+                            caps = sorted(set(caps) | {"restore_model_only"})
                         row["latest_deploy_manifest"] = str(latest)
+                        row["roundtrip_last_deploy_ready"] = bool(restore_caps.get("can_restore_bundle"))
+                        row["roundtrip_restore"] = restore_caps
+                try:
+                    enh = enhancement_status(self.project_root, self.client_root, asset.primary_path)
+                except Exception as exc:
+                    enh = {"workspace_root": str(enhancement_root(self.project_root)), "candidate_ready": False, "can_restore": False, "status_error": f"{type(exc).__name__}:{exc}"}
+                row["enhancement"] = enh
+                if "upscale_texture" in caps and enh.get("candidate_ready"):
+                    caps = sorted(set(caps) | {"publish_enhancement"})
+                if "upscale_texture" in caps and enh.get("can_restore"):
+                    caps = sorted(set(caps) | {"restore_enhancement"})
                 row["capabilities"] = caps
                 row["capability_notes"] = notes
             else:
                 # Files such as INX/SMB/WAV remain useful catalog/inspection
                 # entries but do not inherit model-only actions.
-                row["capabilities"] = ["inspect"]
+                fallback_caps = ["inspect"]
+                ext = pathlib.PurePosixPath(str(row.get("path") or "")).suffix.lower()
+                if ext in {".bmp", ".tga", ".png", ".jpg", ".jpeg"} and bool(texture_upscale_capability_status().get("lanczos_ready")):
+                    fallback_caps.append("upscale_texture")
+                    try:
+                        enh = enhancement_status(self.project_root, self.client_root, str(row.get("path") or ""))
+                    except Exception as exc:
+                        enh = {"workspace_root": str(enhancement_root(self.project_root)), "candidate_ready": False, "can_restore": False, "status_error": f"{type(exc).__name__}:{exc}"}
+                    row["enhancement"] = enh
+                    if enh.get("candidate_ready"):
+                        fallback_caps.append("publish_enhancement")
+                    if enh.get("can_restore"):
+                        fallback_caps.append("restore_enhancement")
+                row["capabilities"] = sorted(set(fallback_caps))
+                row["ui_options"] = {
+                    "supports_paint": False, "supports_animation": False, "available_motions": [],
+                    "motion_inventory": [], "default_motion": None, "supports_lod_selection": False,
+                    "available_lods": [], "requires_model_info": False, "model_info_options": [],
+                    "supports_head": False, "head_candidates": [], "supports_roundtrip": False,
+                }
+                row["related_assets"] = []
         except Exception as exc:
             row["registry_error"] = f"{type(exc).__name__}:{exc}"
             row["capabilities"] = ["inspect"]
+            row.setdefault("ui_options", {
+                "supports_paint": False, "supports_animation": False, "available_motions": [],
+                "motion_inventory": [], "default_motion": None, "supports_lod_selection": False,
+                "available_lods": [], "requires_model_info": False, "model_info_options": [],
+                "supports_head": False, "head_candidates": [], "supports_roundtrip": False,
+            })
+            row.setdefault("related_assets", [])
         return row
 
     @property
@@ -311,6 +416,16 @@ class UIContext:
 
     def disarm_deploy(self) -> None:
         self.deploy_armed_until = 0.0
+
+    @property
+    def server_deploy_armed(self) -> bool:
+        return time.time() < self.server_deploy_armed_until
+
+    def arm_server_deploy(self, seconds: int = 300) -> None:
+        self.server_deploy_armed_until = time.time() + max(60, min(900, seconds))
+
+    def disarm_server_deploy(self) -> None:
+        self.server_deploy_armed_until = 0.0
 
 
 class UIHandler(BaseHTTPRequestHandler):
@@ -378,6 +493,8 @@ class UIHandler(BaseHTTPRequestHandler):
                 "write_armed_until": self.ctx.write_armed_until,
                 "deploy_armed": self.ctx.deploy_armed,
                 "deploy_armed_until": self.ctx.deploy_armed_until,
+                "server_deploy_armed": self.ctx.server_deploy_armed,
+                "server_deploy_armed_until": self.ctx.server_deploy_armed_until,
                 "actions": public_action_specs(),
                 "optional_capabilities": {"texture_upscale": texture_upscale_capability_status()},
                 "safety": {
@@ -386,19 +503,66 @@ class UIHandler(BaseHTTPRequestHandler):
                     "arm_phrase": ARM_PHRASE,
                     "client_deploy_requires_separate_arm": True,
                     "deploy_arm_phrase": DEPLOY_ARM_PHRASE,
+                    "server_deploy_requires_separate_arm": True,
+                    "server_deploy_arm_phrase": "ARM CHARACTER DEPLOY",  # legacy bootstrap compatibility only
+                    "asset_bundle_deploy_arm_phrase": SERVER_DEPLOY_ARM_PHRASE,
+                    "new_character_server_write": "VERIFIED_BUNDLE_ONLY",
+                    "new_character_surface": "DISABLED_LEGACY_SURFACE",
                     "server_source_write": False,
                     "persistence_write": False,
-                    "note": "Client writes are limited to verified workspace bundle deploy/restore transactions with backup, drift gate, atomic replace and rollback. Server remains separately guarded.",
+                    "note": "Client/server Asset Bundle writes are limited to verified transactions with backup, drift gate, atomic replace and rollback. Persistence/security/log paths remain blocked.",
                 },
             })
+        if path == "/api/legacy-management":
+            try:
+                return self._json(200, {"ok": True, **legacy_management_dashboard(
+                    self.ctx.project_root, client_root=self.ctx.client_root, server_root=self.ctx.server_root
+                )})
+            except Exception as exc:
+                return self._error(400, "LEGACY_MANAGEMENT_SUMMARY_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-management/item":
+            code = _one(q, "code").strip()
+            if not code:
+                return self._error(400, "LEGACY_ITEM_CODE_REQUIRED")
+            try:
+                return self._json(200, {"ok": True, **legacy_management_item_detail(code, resolver=self.ctx.resolver)})
+            except Exception as exc:
+                return self._error(400, "LEGACY_ITEM_LOOKUP_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-management/report":
+            try:
+                result = query_legacy_management_report(
+                    self.ctx.project_root, section=_one(q, "section") or "items", query=_one(q, "q"),
+                    status=_one(q, "status"), offset=int(_one(q, "offset") or 0), limit=int(_one(q, "limit") or 100),
+                )
+                return self._json(200, {"ok": True, **result})
+            except ValueError as exc:
+                return self._error(400, "LEGACY_MANAGEMENT_REPORT_QUERY_INVALID", str(exc))
+            except Exception as exc:
+                return self._error(400, "LEGACY_MANAGEMENT_REPORT_QUERY_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/catalog":
             try:
-                return self._json(200, {"ok": True, **self.ctx.catalog.query(
-                    q=_one(q, "q"), category=_one(q, "category"), folder=_one(q, "folder"),
+                entity_key = _one(q, "entity")
+                allowed_paths = None
+                active_entity = None
+                if entity_key:
+                    try:
+                        registry = self.ctx.registry()
+                    except Exception:
+                        registry = None
+                    detail = entity_detail(self.ctx.catalog.assets, self.ctx.entity_seed, entity_key, registry=registry)
+                    if detail is None:
+                        return self._error(404, "ENTITY_NOT_FOUND")
+                    active_entity = detail.get("entity") or {}
+                    allowed_paths = set(active_entity.get("all_paths") or [])
+                report = self.ctx.catalog.query(
+                    q=_one(q, "q"), category="" if entity_key else _one(q, "category"), folder=_one(q, "folder"),
                     role=_one(q, "role"), ext=_one(q, "ext"),
                     favorites=_one(q, "favorites") in {"1", "true", "yes"},
+                    show_system=_one(q, "show_system") in {"1", "true", "yes"},
+                    allowed_paths=allowed_paths,
                     page=int(_one(q, "page") or 1), page_size=int(_one(q, "page_size") or 100),
-                )})
+                )
+                return self._json(200, {"ok": True, **report, "active_entity": active_entity})
             except Exception as exc:
                 return self._error(400, "CATALOG_QUERY_FAILED", str(exc))
         if path == "/api/asset":
@@ -423,6 +587,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 )
                 if registry_error:
                     report["registry_error"] = registry_error
+                report["enhancement_batch"] = enhancement_batch_status(self.ctx.project_root)
                 return self._json(200, {"ok": True, **report})
             except Exception as exc:
                 return self._error(400, "ENTITY_QUERY_FAILED", str(exc))
@@ -447,6 +612,24 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, **report})
             except Exception as exc:
                 return self._error(400, "ENTITY_DETAIL_FAILED", str(exc))
+        if path == "/api/asset-contracts":
+            try:
+                contract_id = _one(q, "id")
+                if contract_id:
+                    contract = get_contract(contract_id).public()
+                    return self._json(200, {
+                        "ok": True, "status": "PASS", "contract": contract,
+                        "schema": schema_for_contract(contract_id),
+                        "compiler": compiler_capabilities(),
+                    })
+                report = registry_summary(
+                    query=_one(q, "q"), capability=_one(q, "capability"), implementation=_one(q, "implementation")
+                )
+                return self._json(200, {"ok": True, **report})
+            except KeyError:
+                return self._error(404, "ASSET_CONTRACT_NOT_FOUND")
+            except Exception as exc:
+                return self._error(400, "ASSET_CONTRACT_REGISTRY_FAILED", str(exc))
         if path == "/api/contracts":
             try:
                 out_dir = self.ctx.project_root / "pt_build" / "asset_contracts"
@@ -496,9 +679,25 @@ class UIHandler(BaseHTTPRequestHandler):
                     "player_class_aggregate": player_aggregate,
                     "summit_superset": summit_superset,
                     "general_asset_census": load_json_path(self.ctx.project_root / "pt_build" / "general_asset_census" / "result.json"),
+                    "asset_contract_registry": registry_summary(),
+                    "asset_compiler": compiler_capabilities(),
                 })
             except Exception as exc:
                 return self._error(400, "CONTRACT_SUMMARY_FAILED", str(exc))
+        if path == "/api/legacy-authoring/capabilities":
+            return self._json(200, {"ok": True, "result": authoring_capabilities()})
+        if path == "/api/legacy-authoring/inspect":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+            kind = _one(q, "kind").strip().upper()
+            logical = _one(q, "path").strip()
+            if not kind or not logical:
+                return self._error(400, "LEGACY_AUTHORING_INSPECT_REQUEST_INVALID")
+            try:
+                result = inspect_authoring(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, kind, logical)
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "LEGACY_AUTHORING_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/general-census":
             try:
                 report = query_general_asset_census(
@@ -521,6 +720,37 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, **report})
             except Exception as exc:
                 return self._error(400, "GENERAL_CENSUS_QUERY_FAILED", str(exc))
+        if path == "/api/client/report":
+            try:
+                report = query_client_enrichment_report(
+                    self.ctx.project_root,
+                    query=_one(q, "q"),
+                    state=_one(q, "state"),
+                    group=_one(q, "group"),
+                    kind=_one(q, "kind"),
+                    offset=int(_one(q, "offset") or 0),
+                    limit=int(_one(q, "limit") or 250),
+                )
+                return self._json(200, {"ok": True, **report})
+            except Exception as exc:
+                return self._error(400, "CLIENT_ENRICHMENT_REPORT_QUERY_FAILED", str(exc))
+        if path == "/api/client":
+            try:
+                try:
+                    registry = self.ctx.registry()
+                    registry_error = None
+                except Exception as exc:
+                    registry = None
+                    registry_error = f"{type(exc).__name__}:{exc}"
+                report = build_client_enrichment_summary(
+                    self.ctx.project_root, self.ctx.client_root, self.ctx.catalog, self.ctx.entity_seed,
+                    registry=registry, settings=self.ctx.settings,
+                )
+                if registry_error:
+                    report["registry_error"] = registry_error
+                return self._json(200, {"ok": True, **report})
+            except Exception as exc:
+                return self._error(400, "CLIENT_ENRICHMENT_SUMMARY_FAILED", str(exc))
         if path == "/api/server":
             try:
                 return self._json(200, {"ok": True, **build_server_ui_summary(
@@ -559,6 +789,11 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "FIELD_METADATA_INVALID", str(exc))
             except Exception as exc:
                 return self._error(500, "FIELD_METADATA_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/asset-compiler/status":
+            try:
+                return self._json(200, {"ok": True, "result": asset_bundle_deploy_status(self.ctx.project_root)})
+            except Exception as exc:
+                return self._error(400, "ASSET_BUNDLE_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/jobs":
             return self._json(200, {"ok": True, "jobs": self.ctx.jobs.list(int(_one(q, "limit") or 50))})
         if path == "/api/job":
@@ -617,6 +852,37 @@ class UIHandler(BaseHTTPRequestHandler):
             return
         u = urllib.parse.urlparse(self.path)
         body = self._body_json()
+        if u.path == "/api/legacy-management/verify":
+            root = str(body.get("management_root") or "").strip()
+            if not root:
+                return self._error(400, "MANAGEMENT_ROOT_REQUIRED")
+            try:
+                result = verify_management_for_web(root)
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "LEGACY_MANAGEMENT_VERIFY_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-management/audit":
+            management_root = str(body.get("management_root") or "").strip()
+            tutorial_root = str(body.get("tutorial_root") or "").strip()
+            sample_limit = int(body.get("sample_limit") or 80)
+            if sample_limit < 1 or sample_limit > 500:
+                return self._error(400, "LEGACY_MANAGEMENT_SAMPLE_LIMIT_INVALID")
+            for label, raw in (("MANAGEMENT_ROOT", management_root), ("TUTORIAL_ROOT", tutorial_root)):
+                if raw and not pathlib.Path(raw).expanduser().is_dir():
+                    return self._error(400, f"{label}_NOT_DIRECTORY", raw)
+            cmd = [
+                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                "--client-root", str(self.ctx.client_root),
+            ]
+            if self.ctx.server_root is not None and self.ctx.server_root.is_dir():
+                cmd.extend(["--server-root", str(self.ctx.server_root)])
+            cmd.extend(["audit", "legacy-management", "--sample-limit", str(sample_limit)])
+            if management_root:
+                cmd.extend(["--management-root", management_root])
+            if tutorial_root:
+                cmd.extend(["--tutorial-root", tutorial_root])
+            job = self.ctx.jobs.submit("legacy_management_audit", None, cmd)
+            return self._json(202, {"ok": True, "job": job.public(), "mode": "legacy_management_audit"})
         if u.path == "/api/reindex":
             s = self.ctx.catalog.rebuild()
             self.ctx.invalidate_registry()
@@ -643,6 +909,49 @@ class UIHandler(BaseHTTPRequestHandler):
         if u.path == "/api/safety/deploy-disarm":
             self.ctx.disarm_deploy()
             return self._json(200, {"ok": True, "deploy_armed": False})
+        if u.path == "/api/safety/server-deploy-arm":
+            if str(body.get("confirm") or "") != SERVER_DEPLOY_ARM_PHRASE:
+                return self._error(400, "SERVER_DEPLOY_ARM_CONFIRMATION_REQUIRED", SERVER_DEPLOY_ARM_PHRASE)
+            self.ctx.arm_server_deploy(int(body.get("seconds") or 300))
+            return self._json(200, {"ok": True, "server_deploy_armed": True, "server_deploy_armed_until": self.ctx.server_deploy_armed_until})
+        if u.path == "/api/safety/server-deploy-disarm":
+            self.ctx.disarm_server_deploy()
+            return self._json(200, {"ok": True, "server_deploy_armed": False})
+        if u.path in {"/api/asset-compiler/plan", "/api/asset-compiler/build"}:
+            recipe = body.get("recipe") if isinstance(body.get("recipe"), dict) else body
+            try:
+                if u.path.endswith("/plan"):
+                    result = plan_compiler_input(recipe, client_root=self.ctx.client_root, server_root=self.ctx.server_root)
+                    return self._json(200, {"ok": True, "result": result})
+                if not self.ctx.write_armed:
+                    return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme workspace/build antes de compilar o asset para pt_build.")
+                result = compile_compiler_input(self.ctx.project_root, recipe, client_root=self.ctx.client_root, server_root=self.ctx.server_root)
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "ASSET_COMPILER_REJECTED", f"{type(exc).__name__}:{exc}")
+        if u.path in {"/api/asset-compiler/publish", "/api/asset-compiler/restore"}:
+            if not self.ctx.server_deploy_armed:
+                return self._error(409, "ASSET_DEPLOY_NOT_ARMED", "Arme temporariamente o deploy de Asset Bundle antes desta transação.")
+            try:
+                raw_manifest = str(body.get("manifest") or "").strip()
+                manifest = pathlib.Path(raw_manifest).expanduser().resolve() if raw_manifest else latest_bundle_manifest(self.ctx.project_root)
+                if manifest is None:
+                    return self._error(404, "ASSET_BUNDLE_MANIFEST_NOT_FOUND")
+                if u.path.endswith("/publish"):
+                    result = publish_asset_bundle(
+                        self.ctx.project_root, self.ctx.client_root, self.ctx.server_root, manifest,
+                        confirm=ASSET_BUNDLE_APPLY_CONFIRM,
+                    )
+                else:
+                    result = restore_asset_bundle(
+                        self.ctx.project_root, self.ctx.client_root, self.ctx.server_root, manifest,
+                        confirm=ASSET_BUNDLE_RESTORE_CONFIRM,
+                    )
+                self.ctx.disarm_server_deploy()
+                return self._json(200, {"ok": True, "result": result, "server_deploy_armed": False})
+            except Exception as exc:
+                self.ctx.disarm_server_deploy()
+                return self._error(400, "ASSET_BUNDLE_DEPLOY_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/contracts/config":
             source_raw = str(body.get("source_root") or "").strip()
             reference_raw = str(body.get("reference_source_root") or "").strip()
@@ -679,6 +988,81 @@ class UIHandler(BaseHTTPRequestHandler):
                 })
             except Exception as exc:
                 return self._error(400, "CONTRACT_SOURCE_CONFIG_FAILED", str(exc))
+        if u.path == "/api/client/analyze":
+            cmd = [
+                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                "--client-root", str(self.ctx.client_root),
+                "audit", "client-enrichment",
+            ]
+            job = self.ctx.jobs.submit("client_enrichment", None, cmd)
+            return self._json(202, {"ok": True, "job": job.public(), "mode": "client_enrichment"})
+        if u.path == "/api/enhancement/batch-run":
+            if not self.ctx.write_armed:
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme as ações de workspace/build antes de gerar o enhancement global.")
+            if self.ctx.jobs.has_active(None):
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de iniciar o enhancement global.")
+            tcaps = texture_upscale_capability_status()
+            backend = str(body.get("backend") or "realesrgan").strip().lower()
+            profile = str(body.get("profile") or "detail").strip().lower()
+            scale = str(body.get("scale") or "4").strip()
+            if scale not in {"2", "3", "4"}:
+                return self._error(400, "TEXTURE_UPSCALE_SCALE_INVALID")
+            if backend not in {"auto", "lanczos", "realesrgan"}:
+                return self._error(400, "TEXTURE_UPSCALE_BACKEND_INVALID")
+            if profile not in {"faithful", "balanced", "detail", "pixel-art"}:
+                return self._error(400, "TEXTURE_QUALITY_PROFILE_INVALID")
+            if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
+                return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "Real-ESRGAN não está disponível neste ambiente.")
+            cmd = [
+                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                "--client-root", str(self.ctx.client_root),
+                "texture-upscale", "run", "--all", "--include-ui",
+                "--scale", scale, "--backend", backend, "--profile", profile,
+                "--gpu", str(int(body.get("gpu") or 0)),
+                "--model", str(body.get("model") or "realesrgan-x4plus"),
+            ]
+            job = self.ctx.jobs.submit("enhancement_batch_run", None, cmd)
+            return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_run"})
+        if u.path == "/api/enhancement/batch-resume":
+            if not self.ctx.write_armed:
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme as ações de workspace/build antes de retomar o enhancement global.")
+            if self.ctx.jobs.has_active(None):
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de retomar o enhancement global.")
+            cmd = [
+                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                "--client-root", str(self.ctx.client_root),
+                "texture-upscale", "resume",
+            ]
+            job = self.ctx.jobs.submit("enhancement_batch_resume", None, cmd)
+            return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_resume"})
+        if u.path == "/api/enhancement/batch-publish":
+            if not self.ctx.deploy_armed:
+                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Arme explicitamente o deploy do client antes de publicar o lote de enhancement.")
+            if self.ctx.jobs.has_active(None):
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de publicar o lote.")
+            cmd = [
+                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                "--client-root", str(self.ctx.client_root),
+                "texture-upscale", "publish-batch",
+                "--confirm", "APPLY CLIENT ENHANCEMENT BATCH",
+            ]
+            job = self.ctx.jobs.submit("enhancement_batch_publish", None, cmd)
+            self.ctx.disarm_deploy()
+            return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_publish"})
+        if u.path == "/api/enhancement/batch-restore":
+            if not self.ctx.deploy_armed:
+                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Arme explicitamente o deploy do client antes de restaurar o lote de enhancement.")
+            if self.ctx.jobs.has_active(None):
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de restaurar o lote.")
+            cmd = [
+                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                "--client-root", str(self.ctx.client_root),
+                "texture-upscale", "restore-batch",
+                "--confirm", "RESTORE CLIENT ENHANCEMENT BATCH",
+            ]
+            job = self.ctx.jobs.submit("enhancement_batch_restore", None, cmd)
+            self.ctx.disarm_deploy()
+            return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_restore"})
         if u.path == "/api/contracts/analyze":
             if self.ctx.source_root is None or not self.ctx.source_root.is_dir():
                 return self._error(409, "SOURCE_ROOT_REQUIRED", "Configure o source Summit primeiro.")
@@ -733,6 +1117,17 @@ class UIHandler(BaseHTTPRequestHandler):
                     cmd.extend(["--donor-server", donor])
             job = self.ctx.jobs.submit(f"contracts_{mode}", None, cmd)
             return self._json(202, {"ok": True, "job": job.public(), "mode": mode})
+        if u.path == "/api/legacy-authoring/stage":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+            if not self.ctx.write_armed:
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme workspace/build antes de criar o draft de authoring.")
+            spec = body.get("spec") if isinstance(body.get("spec"), dict) else body
+            try:
+                result = stage_authoring(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, spec)
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "LEGACY_AUTHORING_STAGE_REJECTED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/server/config":
             raw = str(body.get("server_root") or "").strip()
             try:
@@ -795,9 +1190,8 @@ class UIHandler(BaseHTTPRequestHandler):
                         self.ctx.project_root, self.ctx.server_root, rel, edits, expected_sha256=expected,
                     )
                 else:
-                    result = stage_spc_clone(
+                    result = stage_spc_native(
                         self.ctx.project_root, self.ctx.server_root, rel,
-                        template_index=(None if body.get("template_index") in {None, ""} else int(body.get("template_index"))),
                         slot_index=(None if body.get("slot_index") in {None, ""} else int(body.get("slot_index"))),
                         record_name=str(body.get("record_name") or ""),
                         model_ini=str(body.get("model_ini") or ""),
@@ -870,9 +1264,16 @@ class UIHandler(BaseHTTPRequestHandler):
                 tcaps = texture_upscale_capability_status()
                 if not bool(tcaps.get("lanczos_ready")):
                     return self._error(409, "TEXTURE_UPSCALE_PILLOW_UNAVAILABLE", "Instale Pillow para habilitar upscale de texturas.")
-                backend = str(options.get("backend") or "lanczos").strip().lower()
+                backend = str(options.get("backend") or "auto").strip().lower()
+                profile = str(options.get("profile") or "balanced").strip().lower()
+                if backend not in {"auto", "lanczos", "realesrgan"}:
+                    return self._error(400, "TEXTURE_UPSCALE_BACKEND_INVALID")
+                if profile not in {"faithful", "balanced", "detail", "pixel-art"}:
+                    return self._error(400, "TEXTURE_QUALITY_PROFILE_INVALID")
+                if profile == "pixel-art" and backend == "realesrgan":
+                    return self._error(400, "TEXTURE_PIXEL_ART_AI_INVALID", "pixel-art deve usar auto ou Lanczos.")
                 if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
-                    return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "realesrgan-ncnn-vulkan não foi encontrado; use Lanczos ou instale/configure o executável.")
+                    return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "realesrgan-ncnn-vulkan não foi encontrado; use Auto/Lanczos ou instale/configure o executável.")
             detail = None
             if rel:
                 detail = self.ctx.asset_detail(rel)

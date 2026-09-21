@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PT Asset Tool</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">PT</div><div><strong>Asset Tool</strong><small id="versions">UI</small></div></div>
+      <nav>
+        <button class="nav active" data-tab="catalog">Catálogo</button>
+        <button class="nav" data-tab="entities">Entidades</button>
+        <button class="nav" data-tab="client">Cliente / Enrichment</button>
+        <button class="nav" data-tab="server">Servidor / Enrichment</button>
+        <button class="nav" data-tab="compare">Comparar</button>
+        <button class="nav" data-tab="jobs">Tarefas</button>
+        <button class="nav" data-tab="reports">Relatórios</button>
+        <button class="nav" data-tab="docs">Ajuda / Guias</button>
+        <button class="nav" data-tab="settings">Configurações</button>
+      </nav>
+      <div class="safety-card">
+        <span class="dot safe"></span><strong>Fonte somente leitura</strong>
+        <p>A GUI nunca instala arquivos no client nem no servidor. Persistência/logs/estado ficam fora do grafo de assets.</p>
+        <button id="armBtn" class="btn subtle">Armar workspace/build</button>
+        <div id="armState" class="micro">Ações de build bloqueadas</div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div><h1 id="pageTitle">Catálogo de Assets</h1><p id="subtitle">Navegue, classifique, valide e abra assets sem alterar o cliente fonte.</p></div>
+        <div class="header-actions"><button id="doctorBtn" class="btn">Executar Doctor</button><button id="reindexBtn" class="btn">Reindexar</button></div>
+      </header>
+
+      <section id="tab-catalog" class="tab active">
+        <div class="metrics" id="metrics"></div>
+        <div class="catalog-layout">
+          <section class="panel catalog-panel">
+            <div class="toolbar">
+              <input id="search" type="search" placeholder="Buscar path, role, tags, notas…" />
+              <select id="category"><option value="">Todas as categorias</option></select>
+              <select id="entityFilter" disabled><option value="">Entidade: escolha uma categoria</option></select>
+              <select id="folder"><option value="">Todas as pastas</option></select>
+              <select id="role"><option value="">Todos os roles</option></select>
+              <select id="ext"><option value="">Todas as extensões</option></select>
+              <label class="check"><input id="favorites" type="checkbox" /> Favoritos</label>
+              <label class="check"><input id="showSystem" type="checkbox" /> Mostrar sistema/operacional</label>
+              <div class="view-toggle"><button id="tableView" class="active">Tabela</button><button id="galleryView">Galeria</button></div>
+            </div>
+            <div class="quick-filters">
+              <button data-category="UI">UI</button><button data-category="CHARACTER">Personagens</button><button data-category="MONSTER">Monstros</button><button data-category="NPC">NPCs</button><button data-category="ITEM">Itens</button><button data-category="MAP">Mapas</button><button data-category="EFFECT">Efeitos</button>
+            </div>
+            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Asset</th><th>Categoria</th><th>Pasta</th><th>Role</th><th>Ext</th><th>Tamanho</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
+            <div class="pager"><button id="prevPage">Anterior</button><span id="pageInfo"></span><button id="nextPage">Próxima</button></div>
+          </section>
+
+          <aside class="panel detail-panel" id="detailPanel">
+            <div class="empty">Selecione um asset para ver detalhes e capacidades.</div>
+          </aside>
+        </div>
+        <section class="panel console-panel">
+          <div class="panel-title"><strong>Console ao vivo</strong><div class="console-head-actions"><span id="consoleStatus">Nenhuma tarefa selecionada</span><button id="cancelJobBtn" class="btn small danger-outline" style="display:none">Cancelar tarefa</button></div></div>
+          <pre id="console">Os comandos executados pela GUI aparecem aqui.</pre>
+          <div id="jobInput" class="job-input hidden"><span>O validator está aguardando sua avaliação:</span><div><button class="btn small" data-job-answer="y">PASS / Sim</button><button class="btn small danger-outline" data-job-answer="n">FAIL / Não</button><button class="btn small" data-job-answer="s">SKIP / Pular</button></div><small>Use estes botões somente quando o console mostrar <code>[y]es / [n]o / [s]kip</code>. A resposta é enviada ao mesmo processo CLI do validator.</small></div>
+        </section>
+      </section>
+
+      <section id="tab-entities" class="tab">
+        <section class="panel">
+          <div class="panel-title"><strong>Entidades do jogo</strong><span id="entitySummary">Relações físicas + registry</span></div>
+          <div class="toolbar entity-toolbar">
+            <input id="entitySearch" type="search" placeholder="Buscar entidade ou pasta…" />
+            <select id="entityGroup"><option value="">Todas as entidades</option><option value="CHARACTER">Personagens</option><option value="ITEM">Itens</option><option value="MONSTER">Monstros</option><option value="NPC">NPCs</option><option value="EFFECT">Efeitos</option><option value="MAP_FIELD">Mapas / Fields</option></select>
+            <button id="entityRefresh" class="btn">Atualizar</button>
+          </div>
+          <div id="entityGrid" class="gallery entity-gallery"><div class="empty">Carregando entidades…</div></div>
+        </section>
+        <section class="panel entity-detail-panel">
+          <div class="panel-title"><strong>Detalhe da entidade</strong><span>Evidência física + registry; não é autorização de writer/runtime.</span></div>
+          <div id="entityDetail" class="entity-detail"><div class="empty">Selecione uma entidade para ver modelos, texturas, configs, animações e relações verificadas.</div></div>
+        </section>
+      </section>
+
+
+      <section id="tab-client" class="tab">
+        <div class="server-hero panel">
+          <div>
+            <h2>Summit Client / Asset Enrichment</h2>
+            <p>Consolida inventário físico, registry, entidades, contratos, censo geral, dependency graph e evidência de validação produzida em <code>pt_build</code>. O enrichment não reinterpreta um PASS visual como autorização de writer/runtime.</p>
+          </div>
+          <span class="badge">CLIENT WRITE: VERIFIED TRANSACTIONS ONLY</span>
+        </div>
+        <section class="panel server-root-panel">
+          <div class="panel-title"><strong>Estado do cliente</strong><span id="clientEnrichmentState">Carregando…</span></div>
+          <div class="server-root-form">
+            <code id="clientEnrichmentRoot">—</code>
+            <button id="clientEnrichmentRefresh" class="btn">Atualizar visão</button>
+            <button id="clientEnrichmentReindex" class="btn">Reindexar client</button>
+            <button id="clientEnrichmentAnalyze" class="btn primary">Analisar enrichment client</button>
+            <button id="clientPlayerContractsBtn" class="btn">Auditar 10 classes</button>
+            <button id="clientGeneralCensusBtn" class="btn primary">Censo geral client</button>
+            <button id="clientVendorGraphBtn" class="btn">Grafo de dependências</button>
+          </div>
+          <p class="micro">Os botões de análise continuam read-only no client. Escritas no client só ocorrem por transações verificadas: Publish/Retirar/Restaurar de bundle de modelo e Publish/Desfazer de enhancement individual ou em lote, sempre com autorização separada, backup e hashes.</p>
+        </section>
+        <div id="clientEnrichmentMetrics" class="metrics server-metrics"></div>
+        <section class="panel server-root-panel">
+          <div class="panel-title"><strong>Enhancement global de texturas</strong><span id="clientEnhancementBatchState">Sem lote</span></div>
+          <div class="server-root-form">
+            <button id="clientEnhanceAllBtn" class="btn primary">Enhance todas as texturas (AI)</button>
+            <button id="clientResumeEnhancementBatchBtn" class="btn">Retomar último run</button>
+            <button id="clientPublishEnhancementBatchBtn" class="btn">Publicar lote no cliente</button>
+            <button id="clientRestoreEnhancementBatchBtn" class="btn">Desfazer lote publicado</button>
+            <button id="clientEnhancementBatchRefresh" class="btn">Atualizar lote</button>
+          </div>
+          <div id="clientEnhancementBatchSummary" class="server-summary"></div>
+          <p class="micro"><strong>Fluxo:</strong> gera candidatos para BMP/TGA/PNG/JPG/JPEG em <code>enhancement/runs</code>; a publicação faz pré-validação de todos os hashes antes da primeira escrita e cria backups/transações individuais. Se uma escrita falhar, o lote tenta rollback automático do que já foi aplicado. UI/atlas também entram quando você escolhe “todas”, por isso este modo é para teste global deliberado.</p>
+        </section>
+        <div class="server-grid server-grid-reports">
+          <section class="panel"><div class="panel-title"><strong>Client Enrichment</strong><span id="clientFullEnrichmentState">Sem relatório</span></div><div id="clientFullEnrichmentSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Registry físico</strong><span id="clientRegistryState">Sem dados</span></div><div id="clientRegistrySummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Entidades client-side</strong><span id="clientEntitiesState">Sem dados</span></div><div id="clientEntitiesSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Evidência / certificações</strong><span id="clientCertState">Sem dados</span></div><div id="clientCertSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Player classes</strong><span id="clientPlayerState">Sem relatório</span></div><div id="clientPlayerSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Censo geral · Client</strong><span id="clientCensusState">Sem relatório</span></div><div id="clientCensusSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Dependency graph</strong><span id="clientGraphState">Sem relatório</span></div><div id="clientGraphSummary" class="server-summary"></div></section>
+        </div>
+        <section class="panel server-explorer-panel">
+          <div class="panel-title"><strong>Gaps do Client Enrichment</strong><span id="clientEnrichmentCount">Execute “Analisar enrichment client” para fechar relações físicas e cobertura.</span></div>
+          <div class="server-explorer-toolbar">
+            <input id="clientEnrichmentSearch" type="search" placeholder="Buscar entidade, modelo, path, motivo ou evidência…" />
+            <select id="clientEnrichmentIssueState"><option value="">Todos os estados</option></select>
+            <select id="clientEnrichmentIssueGroup"><option value="">Todos os grupos</option></select>
+            <select id="clientEnrichmentIssueKind"><option value="">Todos os tipos</option></select>
+            <button id="clientEnrichmentIssueRefresh" class="btn">Atualizar gaps</button>
+          </div>
+          <div class="server-explorer-table"><table><thead><tr><th>Estado</th><th>Grupo</th><th>Tipo</th><th>Target / Path</th><th>Motivos / evidência</th></tr></thead><tbody id="clientEnrichmentRows"><tr><td colspan="5" class="empty">Sem relatório de enrichment client.</td></tr></tbody></table></div>
+          <p class="micro"><strong>Leitura:</strong> CLOSED/PARTIAL são estados de completude de evidência do catálogo; não são certificação de runtime nem autorização de writer.</p>
+        </section>
+        <section class="panel server-explorer-panel">
+          <div class="panel-title"><strong>Reachability · Censo geral client</strong><span id="clientCensusCount">Execute o Censo geral para classificar gaps client-side por reachability/evidência.</span></div>
+          <div class="server-explorer-toolbar">
+            <input id="clientCensusSearch" type="search" placeholder="Buscar path, evidência, donor ou motivo…" />
+            <select id="clientCensusDecision"><option value="">Todas as decisões</option></select>
+            <select id="clientCensusFamily"><option value="">Todas as famílias</option></select>
+            <button id="clientCensusRefresh" class="btn">Atualizar lista</button>
+          </div>
+          <div class="server-explorer-table"><table><thead><tr><th>Decisão</th><th>Família</th><th>Categoria</th><th>Path</th><th>Evidência / motivo</th></tr></thead><tbody id="clientCensusRows"><tr><td colspan="5" class="empty">Sem censo client carregado.</td></tr></tbody></table></div>
+          <p class="micro"><strong>Leitura:</strong> esta vista agrega apenas o lado CLIENT do censo. Donor/reference/source são evidência; não viram import automático nem autorização de escrita.</p>
+        </section>
+      </section>
+
+
+      <section id="tab-server" class="tab">
+        <div class="server-hero panel">
+          <div>
+            <h2>Summit Server / Asset Enrichment</h2>
+            <p>Visão read-only da cadeia server-side e dos bundles compartilhados com o client. A unidade de design é o bundle funcional, não a extensão isolada.</p>
+          </div>
+          <span class="badge">SERVER WRITE DISABLED</span>
+        </div>
+        <section class="panel server-root-panel">
+          <div class="panel-title"><strong>Raiz do servidor</strong><span id="serverRootStatus">Carregando…</span></div>
+          <div class="server-root-form">
+            <input id="serverRootInput" type="text" placeholder="/path/to/Summit/Servidor" />
+            <button id="saveServerRootBtn" class="btn">Salvar raiz</button>
+            <button id="serverEnvBtn" class="btn">Validar ambiente</button>
+            <button id="serverDesignBtn" class="btn primary">Analisar Asset Enrichment</button>
+            <button id="serverIntegrationBtn" class="btn primary">Validar Client + Server</button>
+            <button id="serverInventoryBtn" class="btn">Inventário físico server</button>
+            <button id="serverVendorPlanBtn" class="btn">Gerar plano v9</button>
+            <button id="serverVendorGraphBtn" class="btn">Grafo de dependências v9</button>
+          </div>
+          <p class="micro">Todos os comandos são read-only no server/client; relatórios e outputs ficam em <code>pt_build</code>. <code>LogItemData</code>, <code>DataServer</code>, <code>PostBox</code>, <code>WAR</code>, <code>cpItem.dat</code>, <code>BlessCastle.dat</code>, <code>BlackUser</code> e <code>FuncBox</code> nunca entram na superfície de autoria.</p>
+        </section>
+        <section class="panel contract-root-panel">
+          <div class="panel-title"><strong>Asset Contracts · Source Evidence</strong><span id="contractState">Sem relatório</span></div>
+          <div class="contract-root-form">
+            <label>Source Summit<input id="sourceRootInput" type="text" placeholder="/caminho/para/src_atual" /></label>
+            <label>Source EU de referência<input id="referenceSourceRootInput" type="text" placeholder="/caminho/para/PristonTale-EU" /></label>
+            <label class="contract-donors">Donor clients read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractDonorsInput" placeholder="OFFICIAL=/path/to/donor/client&#10;PT_EU=/path/to/another/client"></textarea></label>
+            <label class="contract-donors">Donor servers read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractServerDonorsInput" placeholder="PT_EU_SERVER=/path/to/donor/server&#10;REFERENCE_SERVER=/path/to/another/server"></textarea></label>
+            <div class="contract-actions">
+              <button id="saveContractRootsBtn" class="btn">Salvar fontes</button>
+              <button id="sourceContractsBtn" class="btn">Ler contratos do source</button>
+              <button id="playerContractsBtn" class="btn primary">Auditar 10 classes</button>
+              <button id="aggregatePlayerClassesBtn" class="btn">Agregar 10 classes (staging)</button>
+              <button id="generalCensusBtn" class="btn primary">Censo geral (plan-only)</button>
+              <button id="aggregateSummitBtn" class="btn">Agregar Summit completo (staging)</button>
+            </div>
+          </div>
+          <p class="micro">O <strong>Censo geral (plan-only)</strong> cruza roots funcionais, dependências runtime/model/particle/field, inventário físico, manifests, source e donors sem materializar assets. Donor gap não equivale a necessidade runtime. “Agregar Summit completo” continua sendo uma ação de staging separada em <code>pt_build</code>; client/server reais não são escritos.</p>
+          <div class="server-grid contract-report-grid">
+            <div><div class="panel-title"><strong>Source contracts</strong><span id="sourceContractsState">Sem relatório</span></div><div id="sourceContractsSummary" class="server-summary"></div></div>
+            <div><div class="panel-title"><strong>Player classes</strong><span id="playerContractsState">Sem relatório</span></div><div id="playerContractsSummary" class="server-summary"></div></div>
+            <div><div class="panel-title"><strong>Aggregate staging</strong><span id="playerAggregateState">Sem relatório</span></div><div id="playerAggregateSummary" class="server-summary"></div></div>
+            <div><div class="panel-title"><strong>Summit superset</strong><span id="summitAggregateState">Sem relatório</span></div><div id="summitAggregateSummary" class="server-summary"></div></div>
+            <div><div class="panel-title"><strong>General reachability census</strong><span id="generalCensusState">Sem relatório</span></div><div id="generalCensusSummary" class="server-summary"></div></div>
+          </div>
+          <div class="panel-title" style="margin-top:18px"><strong>Contract Registry · Asset Compiler</strong><span id="assetContractState">Carregando…</span></div>
+          <div class="server-summary" id="assetContractSummary"></div>
+          <div class="server-explorer-toolbar">
+            <input id="assetContractSearch" type="search" placeholder="Buscar contrato, formato, runtime, família…" />
+            <select id="assetContractImplementation"><option value="">Todas as implementações</option></select>
+            <button id="assetContractRefresh" class="btn">Atualizar contratos</button>
+          </div>
+          <div class="server-explorer-table"><table><thead><tr><th>Contrato</th><th>Família</th><th>Runtime</th><th>Source</th><th>Implementação</th></tr></thead><tbody id="assetContractRows"><tr><td colspan="5" class="empty">Carregando registry…</td></tr></tbody></table></div>
+          <details class="contract-compiler" style="margin-top:14px">
+            <summary><strong>Asset Compiler · receita tipada</strong></summary>
+            <p class="micro">Compila contratos individuais ou bundles <strong>Monster / NPC / Item / Field</strong> para <code>pt_build/asset_compiler</code>; nunca escreve diretamente no client/server. Bundles validam dependências client/server e podem preservar/patchar SPM/SPC existentes. “Build” exige workspace armado.</p>
+            <div class="contract-actions"><select id="assetBundleTemplate"><option value="">Receita vazia/manual</option><option value="MONSTER">Novo Monster</option><option value="NPC">Novo NPC</option><option value="ITEM">Novo Item</option><option value="FIELD">Novo Field (metadata)</option></select><button id="assetBundleTemplateBtn" class="btn">Carregar template</button></div>
+            <textarea id="assetRecipeInput" spellcheck="false" style="width:100%;min-height:300px;font-family:ui-monospace,monospace" placeholder='{"format":"PT_ASSET_RECIPE_V1","id":"novo_asset","contract_id":"field.startpoints.spp","target_side":"SERVER","output":"GameServer/Field/Novo.spp","payload":{"records":[]}}'></textarea>
+            <div class="contract-actions"><button id="assetRecipePlanBtn" class="btn">Validar receita / bundle</button><button id="assetRecipeBuildBtn" class="btn primary">Compilar overlay para pt_build</button><button id="assetBundleStatusBtn" class="btn">Estado do último bundle</button></div>
+            <div class="contract-actions"><button id="assetBundlePublishBtn" class="btn primary">Publicar bundle no jogo</button><button id="assetBundleRestoreBtn" class="btn danger-outline">Desfazer bundle publicado</button></div>
+            <p class="micro"><strong>Deploy:</strong> publicação/restauro usa <code>ARM ASSET DEPLOY</code>, faz preflight de todos os ficheiros antes da primeira escrita, backup, SHA-256, escrita atómica e bloqueio de drift. Configs operacionais, persistência, segurança e estado runtime não podem ser publicados por este fluxo.</p>
+            <pre id="assetRecipeResult" class="micro" style="white-space:pre-wrap;max-height:420px;overflow:auto">Nenhuma receita validada.</pre>
+          </details>
+        </section>
+
+        <section class="panel server-explorer-panel" id="generalCensusPanel">
+          <div class="panel-title"><strong>Explorador do censo geral</strong><span id="generalCensusCount">Execute “Censo geral (plan-only)” para classificar gaps por reachability.</span></div>
+          <div class="server-explorer-toolbar">
+            <select id="generalCensusSide"><option value="">Client + Server</option><option value="CLIENT">Client</option><option value="SERVER">Server</option></select>
+            <input id="generalCensusSearch" type="search" placeholder="Buscar path, evidência, donor ou motivo…" />
+            <select id="generalCensusDecision"><option value="">Todas as decisões</option></select>
+            <select id="generalCensusFamily"><option value="">Todas as famílias</option></select>
+            <button id="generalCensusRefresh" class="btn">Atualizar lista</button>
+          </div>
+          <div class="server-explorer-table"><table><thead><tr><th>Decisão</th><th>Lado</th><th>Família</th><th>Path</th><th>Evidência / motivo</th></tr></thead><tbody id="generalCensusRows"><tr><td colspan="5" class="empty">Sem censo geral carregado.</td></tr></tbody></table></div>
+          <p class="micro"><strong>Leitura:</strong> <code>RECOVERABLE_REACHABLE_CANDIDATE</code> significa que uma raiz funcional alcança o asset e há candidato donor; conflitos, manifesto-only e donor-only continuam em REVIEW. Esta tela é read-only/plan-only.</p>
+        </section>
+        <div id="serverMetrics" class="metrics server-metrics"></div>
+        <div class="server-grid">
+          <section class="panel">
+            <div class="panel-title"><strong>Bundles funcionais</strong><span>client ↔ server</span></div>
+            <div id="serverBundleModel" class="server-list"><div class="empty">Carregando…</div></div>
+          </section>
+          <section class="panel">
+            <div class="panel-title"><strong>Ciclo de vida / política</strong><span>path + parser, não só extensão</span></div>
+            <div id="serverLifecycle" class="server-list"><div class="empty">Carregando…</div></div>
+          </section>
+        </div>
+        <div class="server-grid server-grid-reports">
+          <section class="panel"><div class="panel-title"><strong>Validação Client + Server</strong><span id="serverIntegrationState">Sem relatório</span></div><div id="serverIntegrationSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Entidades Monster / NPC</strong><span id="serverEntitiesState">Sem relatório</span></div><div id="serverEntitiesSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Fields</strong><span id="serverFieldsState">Sem relatório</span></div><div id="serverFieldsSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>OpenItem</strong><span id="serverItemsState">Sem relatório</span></div><div id="serverItemsSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Inventário server-side</strong><span id="serverInventoryState">Sem relatório</span></div><div id="serverInventorySummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Readiness Release 1.0</strong><span id="release1State">Sem relatório completo</span></div><div id="release1Summary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Asset Enrichment v9 — plano</strong><span id="serverVendorPlanState">Sem relatório</span></div><div id="serverVendorPlanSummary" class="server-summary"></div></section>
+          <section class="panel"><div class="panel-title"><strong>Asset Enrichment v9 — grafo</strong><span id="serverVendorGraphState">Sem relatório</span></div><div id="serverVendorGraphSummary" class="server-summary"></div></section>
+        </div>
+
+        <section class="panel server-explorer-panel">
+          <div class="panel-title"><strong>Explorador de bundles</strong><span id="serverExplorerCount">Use os filtros para ver por que um bundle está PASS, REVIEW ou BLOCKED.</span></div>
+          <div class="server-explorer-toolbar">
+            <select id="serverExplorerKind"><option value="entities">Monster / NPC</option><option value="fields">Fields</option><option value="items">OpenItem</option></select>
+            <input id="serverExplorerSearch" type="search" placeholder="Buscar definição, código, stage, INX ou motivo…" />
+            <select id="serverExplorerStatus"><option value="">Todos os estados</option></select>
+            <select id="serverExplorerReason"><option value="">Todos os motivos</option></select>
+            <button id="serverExplorerRefresh" class="btn">Atualizar lista</button>
+          </div>
+          <div class="server-explorer-layout">
+            <div class="server-explorer-table"><table><thead><tr><th>Estado</th><th>Tipo</th><th>Definição / Bundle</th><th>Ligação principal</th><th>Motivo</th></tr></thead><tbody id="serverExplorerRows"><tr><td colspan="5" class="empty">Execute o Asset Enrichment ou carregue um relatório existente.</td></tr></tbody></table></div>
+            <aside id="serverExplorerDetail" class="server-explorer-detail"><div class="empty">Selecione uma linha para ver a cadeia de dependências e a explicação do estado.</div></aside>
+          </div>
+          <p class="micro server-explorer-note"><strong>Leitura:</strong> PASS/RESOLVED significa que a cadeia observada fecha para esse gate. REVIEW significa que há evidência útil, mas falta uma decisão/contrato. BLOCKED indica dependência obrigatória ausente ou ambígua. Nenhum destes estados autoriza escrita no servidor.</p>
+        </section>
+
+        <section class="panel field-editor-panel">
+          <div class="panel-title"><strong>Field metadata staging — SPM / SPP / SPC</strong><span id="fieldEditorState">Selecione um Field no explorador.</span></div>
+          <p class="micro field-editor-note">SPM = spawn/atores; SPP = 200 start points; SPC = NPCs fixos/merchants. DRAFTS são criados somente em <code>pt_build/server_field_editor</code>. Nenhum botão publica no servidor.</p>
+          <div class="field-editor-toolbar">
+            <button id="fieldOpenSpm" class="btn" disabled>Abrir SPM</button>
+            <button id="fieldOpenSpp" class="btn" disabled>Abrir SPP</button>
+            <button id="fieldOpenSpc" class="btn" disabled>Abrir SPC</button>
+            <code id="fieldEditorPath">—</code>
+          </div>
+          <div id="fieldEditorSummary" class="server-summary"><div class="empty">Escolha <strong>Fields</strong> no explorador e selecione um bundle.</div></div>
+          <div id="fieldEditorForm" class="field-editor-form hidden"></div>
+        </section>
+      </section>
+
+      <section id="tab-compare" class="tab">
+        <section class="panel compare-panel">
+          <div class="panel-title"><strong>Comparar árvores de assets</strong><span>Somente leitura</span></div>
+          <div class="compare-form">
+            <label>Árvore esquerda<input id="compareLeft" type="text" placeholder="/caminho/cliente-a" /></label>
+            <label>Árvore direita<input id="compareRight" type="text" placeholder="/caminho/cliente-b" /></label>
+            <label>Extensões<input id="compareExt" type="text" placeholder="smd, inx, smb, bmp" /></label>
+            <label>Categoria<select id="compareCategory"><option value="">Todas</option><option>CHARACTER</option><option>MONSTER</option><option>NPC</option><option>UI</option><option>ITEM</option><option>MAP</option><option>EFFECT</option><option>TEXTURE</option><option>MODEL</option><option>CONFIG</option></select></label>
+            <label>Path contém<input id="comparePath" type="text" placeholder="char/tmABCD" /></label>
+            <label class="check"><input id="compareDiffOnly" type="checkbox" checked /> Mostrar/exportar somente diferenças</label>
+            <label class="check"><input id="compareHash" type="checkbox" /> Comparar SHA-256 dos arquivos comuns</label>
+            <label class="check"><input id="compareCase" type="checkbox" /> Paths case-sensitive</label>
+            <div><button id="compareBtn" class="btn primary">Comparar árvores</button></div>
+            <p class="micro">Compara paths relativos e tamanhos; SHA-256 é opcional. Filtros são aplicados antes da comparação. JSON/CSV/Markdown ficam somente em <code>pt_build</code>.</p>
+          </div>
+        </section>
+        <section class="panel compare-result-panel">
+          <div class="panel-title"><strong>Resultado da comparação</strong><span id="compareStatus">Nenhuma comparação executada.</span></div>
+          <div id="compareResult" class="compare-result"><div class="empty">Execute uma comparação para ver o resumo e as diferenças aqui.</div></div>
+        </section>
+      </section>
+      <section id="tab-jobs" class="tab"><section class="panel"><div class="panel-title"><strong>Tarefas</strong><button id="refreshJobs" class="btn small">Atualizar</button></div><div id="jobsList"></div></section></section>
+      <section id="tab-reports" class="tab"><section class="panel"><div class="panel-title"><strong>Relatórios de pt_build</strong><div><button id="monsterNpcBtn" class="btn small">Censo Monster/NPC</button> <button id="refreshReports" class="btn small">Atualizar</button></div></div><div id="reportsList"></div></section></section>
+
+      <section id="tab-docs" class="tab">
+        <div class="guide-hero panel"><div><h2>Como usar as ferramentas</h2><p>O Design Tool cuida do inventário, inspeção, validação 3D e workflows certificados. O Asset Enrichment conecta o conteúdo do servidor ao client por bundles funcionais. Use os dois juntos; não tente resolver uma entidade apenas copiando ficheiros com a mesma extensão.</p></div><span class="badge">CLIENT + SERVER, READ-ONLY POR PADRÃO</span></div>
+        <div class="guide-grid">
+          <section class="panel guide-card"><h3>1. Design Tool / PT Asset Tool</h3><p><strong>Para quê:</strong> descobrir assets, entender bindings, validar SMD/SMB/INX/texturas, gerar candidates em <code>pt_build</code> e acompanhar gates.</p><ol><li>Configure o <code>client_root</code>.</li><li>Rode <strong>Doctor</strong> ou <code>validate environment-auto</code>.</li><li>Use Catálogo/Entidades para encontrar o asset.</li><li>Leia Structural, Binding, Visual e Roundtrip como níveis de evidência diferentes.</li><li>Antes de qualquer release, rode os gates automáticos indicados pela readiness.</li></ol><p class="micro">Manual completo: <code>docs/tematicos/GUIA_DESIGN_TOOL.md</code></p></section>
+          <section class="panel guide-card"><h3>2. Asset Enrichment</h3><p><strong>Para quê:</strong> enxergar o que um Monster, NPC, Field ou Item precisa no lado servidor e como isso se liga ao client.</p><ol><li>Configure o <code>server_root</code>.</li><li>Rode <strong>Analisar Asset Enrichment</strong>.</li><li>Use o Explorador de bundles para investigar REVIEW/BLOCKED.</li><li>Não trate <code>DataServer</code>, <code>LogItemData</code>, <code>PostBox</code>, WAR ou estados de segurança como assets.</li><li>Quando um bundle exigir SMD/SMB/INX, volte ao pipeline certificado do Design Tool.</li></ol><p class="micro">Manual completo: <code>docs/tematicos/GUIA_ASSET_ENRICHMENT.md</code></p></section>
+          <section class="panel guide-card"><h3>3. Fluxo combinado</h3><p><strong>Monster/NPC:</strong> definição server → ZHOON → INI/INX → SMD/SMB → texturas → spawn/placement.</p><p><strong>Field:</strong> stage → SPP/SPC/SPM → entidades referenciadas.</p><p><strong>Item:</strong> OpenItem → code map → catálogo client → modelo/icon → drops/shops.</p><p class="micro">Guia de ponta a ponta: <code>docs/tematicos/GUIA_WORKFLOW_CLIENT_SERVER.md</code></p></section>
+          <section class="panel guide-card"><h3>Estados sem mistério</h3><dl><dt>PASS</dt><dd>O gate executado passou.</dd><dt>REVIEW</dt><dd>Há dados suficientes para investigar, mas ainda falta decisão/prova para automatizar.</dd><dt>BLOCKED</dt><dd>Uma dependência ou contrato obrigatório não está provado.</dd><dt>PENDING</dt><dd>Aquele gate ainda não foi executado.</dd><dt>Runtime review</dt><dd>Os testes automáticos passaram, mas ainda falta observar o resultado dentro do jogo.</dd></dl></section>
+        </div>
+        <section class="panel guide-runbook"><div class="panel-title"><strong>Runbook recomendado</strong><span>Do ambiente limpo até a Release 1.0</span></div><div class="guide-steps"><div><b>01</b><span>VERIFY_PACKAGE</span><small>Confirma que a distribuição está completa.</small></div><div><b>02</b><span>Environment</span><small>Python, paths, Blender, hashes e isolamento.</small></div><div><b>03</b><span>Integration Regression</span><small>Client + server + outliers recentes.</small></div><div><b>04</b><span>Release 1 Auto</span><small>Matriz física completa; pode demorar.</small></div><div><b>05</b><span>Runtime/Game</span><small>Revisão integrada no jogo.</small></div><div><b>06</b><span>Publish/Restore</span><small>Promoção controlada e rollback antes da 1.0.</small></div></div></section>
+      </section>
+
+      <section id="tab-settings" class="tab"><section class="panel settings"><h2>Integração</h2><dl id="settingsInfo"></dl><p class="micro">As raízes podem ser persistidas com <code>config set-client-root CAMINHO</code> e <code>config set-server-root CAMINHO</code>. A GUI usa a mesma configuração; o server permanece read-only por padrão. O Asset Compiler publica apenas bundles tipados e verificados com <code>ARM ASSET DEPLOY</code>; persistência/segurança/logs continuam bloqueados. O client só pode ser alterado por deploy/restauro de bundle verificado, com autorização separada e transação com backup/rollback.</p><h3>Glossário rápido</h3><dl><dt>Binding</dt><dd>Relação comprovada entre modelo, configuração INX e skeleton/animação SMB. Não significa apenas “peça anexada”.</dd><dt>SELF_CONTAINED</dt><dd>O próprio modelo resolve diretamente seu contexto de animação.</dd><dt>ROOT_SKELETON_BOUND</dt><dd>O modelo reutiliza um root/skeleton verificado.</dd><dt>CONFIG_ONLY</dt><dd>Há configuração, mas ainda não há root de animação único suficientemente provado.</dd><dt>PENDING</dt><dd>Gate/certificação ainda não executado; não significa asset defeituoso.</dd><dt>N/A</dt><dd>O teste não se aplica ao tipo de asset.</dd><dt>Estrutural</dt><dd>Valida invariantes do formato antes de confiar em Blender/writer; não prova aparência visual.</dd><dt>Visual</dt><dd>Abre uma representação no Blender para revisão humana; não é prova de edição por si só.</dd><dt>Roundtrip</dt><dd>Reconstrói/modifica uma cópia em <code>pt_build</code> e prova que somente alterações autorizadas ocorreram.</dd></dl><p class="micro">Mais detalhes no terminal: <code>python3 pt_asset.py explain bindings</code>, <code>explain statuses</code>, <code>explain structural</code>, <code>explain visual</code> e <code>explain roundtrip</code>.</p><h3>Princípios de design</h3><ul><li>CLI backend is the only authority for parse/validate/write.</li><li>Client e Server são raízes independentes; bundles podem cruzar as duas, mas persistência/logs/estado nunca são assets.</li><li>UI annotations live under <code>pt_build/ui_state_v0100.json</code>.</li><li>No shell command interpolation: every action uses a fixed allowlist.</li><li>Build/edit actions require a session arm and still remain subject to backend fail-closed gates.</li><li>Client deploy/restore usa <code>ARM CLIENT DEPLOY</code>; publicação/rollback de Asset Bundle usa <code>ARM ASSET DEPLOY</code>. Ambas exigem transação verificada, backup e drift gate.</li></ul><button id="shutdownBtn" class="btn danger-outline">Parar servidor da UI</button></section></section>
+    </main>
+  </div>
+  <div id="toast"></div>
+  <div id="modal" class="modal hidden"><div class="modal-card"><h3>Armar ações de workspace/build</h3><p>Isso libera temporariamente ações que criam/editam arquivos em <code>pt_build</code>. Não autoriza deploy no cliente.</p><p>Type <code>ARM BUILD WRITES</code>:</p><input id="armConfirm" /><div class="modal-actions"><button id="armCancel" class="btn">Cancelar</button><button id="armConfirmBtn" class="btn primary">Armar por 15 min</button></div></div></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

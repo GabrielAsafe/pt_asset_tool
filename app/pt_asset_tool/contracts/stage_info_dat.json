@@ -1,0 +1,49 @@
+{
+  "format": "PT_SOURCE_ABI_SCHEMA_V1",
+  "source_sha256": "3555ec2a864f12ba8df792224a43371945dd21c7d642cf4a4a635716e56925b8",
+  "target_abi": "Win32 i686 / 32-bit, 4-byte pointer, little-endian, pack/alignment <=4",
+  "contract_id": "ui.map.stageinfo.dat",
+  "record_count": 256,
+  "record_size": 28,
+  "file_size": 7168,
+  "structs": {
+    "SMapStageInfo": {
+      "name": "SMapStageInfo",
+      "size": 28,
+      "alignment": 4,
+      "pack": 4,
+      "endianness": "little",
+      "fields": [
+        {
+          "name": "rcStageMapRect",
+          "offset": 0,
+          "size": 16,
+          "type": "RECT"
+        },
+        {
+          "name": "iStageWidth",
+          "offset": 16,
+          "size": 4,
+          "type": "c_int"
+        },
+        {
+          "name": "iStageHeight",
+          "offset": 20,
+          "size": 4,
+          "type": "c_int"
+        },
+        {
+          "name": "fRatio",
+          "offset": 24,
+          "size": 4,
+          "type": "c_float"
+        }
+      ]
+    }
+  },
+  "derivation": "For each registered FieldCode, load stage SMD bounds into RECT, width=right-left, height=bottom-top, ratio=max(width,height)/(zoom_ratio or 320.0) following _DEBUG generator.",
+  "source_anchors": [
+    "SrcGame/src/systems/ui/map/full_zoom/FullZoomMap.cpp:99-106",
+    "SrcGame/src/systems/ui/map/full_zoom/FullZoomMap.cpp:946-1004"
+  ]
+}
