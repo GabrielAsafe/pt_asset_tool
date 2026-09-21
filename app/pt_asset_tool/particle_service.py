@@ -8,6 +8,7 @@ import pt_effect_preview as effect_preview
 import pt_part_editor as editor
 
 from .config import Settings
+from .dependencies import dependency_message, resolve_blender_command
 
 FORMAT = "PT_PARTICLE_SERVICE_V1"
 
@@ -97,18 +98,31 @@ def verify_asset_draft(client_root: Path, build_root: Path, asset: str) -> dict[
     return editor.verify_draft(client_root, rel.as_posix(), build_root)
 
 
-def _blender_command(project_root: Path, client_root: Path) -> list[str]:
-    return Settings.discover(project_root, client_root).blender_command()
+def _blender_command(project_root: Path, client_root: Path) -> tuple[list[str], bool, str]:
+    # Settings and dependency diagnostics now share this resolver.  Keep the
+    # client_root argument in the service API because callers already provide
+    # it and Settings discovery may still need to initialize runtime state.
+    Settings.discover(project_root, client_root)
+    return resolve_blender_command(project_root)
 
 
 def build_effect_preview(client_root: Path, build_root: Path, project_root: Path, asset: str) -> dict[str, Any]:
     _, rel = safe_asset_path(client_root, asset)
     plan = effect_preview.build_preview_plan(client_root, build_root, rel.as_posix(), prefer_staged=True, write=True)
-    cmd = effect_preview.blender_command(
-        project_root,
-        Path(plan["plan_path"]),
-        blender=_blender_command(project_root, client_root),
-    )
+    blender_cmd, blender_ready, blender_detail = _blender_command(project_root, client_root)
+    # Building the semantic plan must not depend on Blender being installed.
+    # It is useful on its own for inspecting events/textures and previously
+    # failed when the launcher configuration was unavailable or malformed.
+    command_error = None
+    try:
+        cmd = effect_preview.blender_command(
+            project_root,
+            Path(plan["plan_path"]),
+            blender=blender_cmd,
+        )
+    except Exception as exc:
+        cmd = None
+        command_error = f"{type(exc).__name__}:{exc}"
     return {
         "status": "PASS",
         "asset": rel.as_posix(),
@@ -118,7 +132,12 @@ def build_effect_preview(client_root: Path, build_root: Path, project_root: Path
         "source_base_kind": plan["source"]["base_kind"],
         "preview_certification": plan["preview_certification"],
         "plan_path": plan["plan_path"],
+        "plan_parse_status": plan.get("parse_status"),
+        "semantic_warning_count": len(plan.get("semantic_warnings") or []),
+        "blender_ready": blender_ready,
+        "blender_detail": blender_detail,
         "blender_command": cmd,
+        "blender_command_error": command_error,
         "production_authorized": False,
         "client_write_authorized": False,
         "server_write_authorized": False,
@@ -137,11 +156,16 @@ def run_effect_preview(
         raise RuntimeError("another Blender particle preview is already running")
     try:
         plan = effect_preview.build_preview_plan(client_root, build_root, rel.as_posix(), prefer_staged=True, write=True)
+        blender_cmd, blender_ready, blender_detail = _blender_command(project_root, client_root)
+        if not blender_ready:
+            raise FileNotFoundError(
+                dependency_message(project_root, "blender") + f" Resolver detail: {blender_detail}"
+            )
         run = effect_preview.run_blender_preview(
             project_root,
             Path(plan["plan_path"]),
             timeout_seconds=120.0,
-            blender=_blender_command(project_root, client_root),
+            blender=blender_cmd,
         )
         run["asset"] = rel.as_posix()
         run["preview_certification"] = plan["preview_certification"]

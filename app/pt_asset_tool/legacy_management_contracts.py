@@ -5,6 +5,8 @@ import json
 import pathlib
 from typing import Any
 
+from .legacy_apps.reverse_manifest import reverse_status
+
 FORMAT = "PT_LEGACY_MANAGEMENT_CONTRACT_RUNTIME_V1"
 
 
@@ -154,4 +156,7 @@ def legacy_management_summary() -> dict[str, Any]:
         "item_taxonomy": data.get("item_taxonomy") or [],
         "workflows": data.get("workflows") or {},
         "safety": data.get("safety") or {},
+        "operational_replacements": reverse_status(),
+        "operational_status_source": "pt_asset_tool.legacy_apps.reverse_manifest",
+        "historical_contract_role": "PROVENANCE_AND_INTERNAL_TAXONOMY_ONLY",
     }

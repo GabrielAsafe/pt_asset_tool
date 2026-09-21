@@ -11,16 +11,24 @@ import sys
 ROOT = Path(__file__).resolve().parent
 APP = ROOT / "app"
 
-CLEAN_ROOTS = [
-    (
-        APP / "pt_build",
-        "runtime/build state: contains logs, reports, manifests, staging files, backups, hashes and machine/run-specific state; shipping it contaminates clean tests and can carry stale absolute paths or old transaction state",
-    ),
-    (
-        ROOT / "enhancement",
-        "legacy enhancement workspace: enhancement runtime state is now canonical under app/pt_build/texture_upscale; retaining the old root creates two competing sources of truth",
-    ),
-]
+# Runtime/user artifacts are intentionally *preserved*.  They are ignored by
+# Git and excluded from the static snapshot; deleting them is not required to
+# create a clean source commit.  In particular, texture enhancement runs may be
+# tens of gigabytes and are user data, not disposable cache.
+PRESERVED_RUNTIME_REASONS = {
+    "app/pt_build": "runtime/user workspace: may contain enhancement outputs, transaction backups, staging evidence and reports; it is excluded from Git/snapshots but must never be recursively deleted by release hygiene",
+    "enhancement": "legacy enhancement workspace: may contain irreplaceable user-generated upscales from older versions; preserve it and migrate explicitly instead of deleting it",
+}
+
+
+def preserved_runtime_roots() -> list[tuple[Path, str]]:
+    # Compute from the current ROOT/APP at call time so copied test trees and
+    # patch-validation roots inherit the same safety boundary.
+    return [
+        (APP / "pt_build", PRESERVED_RUNTIME_REASONS["app/pt_build"]),
+        (ROOT / "enhancement", PRESERVED_RUNTIME_REASONS["enhancement"]),
+    ]
+
 
 CACHE_DIR_NAMES = {"__pycache__", ".pytest_cache"}
 CACHE_SUFFIXES = {".pyc", ".pyo"}
@@ -37,11 +45,14 @@ def say(kind: str, path: Path, reason: str) -> None:
 
 def generated_paths() -> list[tuple[Path, str]]:
     found: dict[Path, str] = {}
-    for p, reason in CLEAN_ROOTS:
-        if p.exists():
-            found[p.resolve()] = reason
+    preserved_roots = [path.resolve() for path, _ in preserved_runtime_roots()]
     for p in ROOT.rglob("*"):
         if ".git" in p.parts:
+            continue
+        rp = p.resolve()
+        if any(rp == root or root in rp.parents for root in preserved_roots):
+            # Runtime/user trees are opaque to release hygiene. Even cache-like
+            # names inside them belong to the user's run state and are untouched.
             continue
         if p.is_dir() and p.name in CACHE_DIR_NAMES:
             found[p.resolve()] = (
@@ -60,10 +71,19 @@ def generated_paths() -> list[tuple[Path, str]]:
     return result
 
 
+def report_preserved_runtime() -> int:
+    count = 0
+    for path, reason in preserved_runtime_roots():
+        if path.exists():
+            say("PRESERVED", path, reason)
+            count += 1
+    return count
+
+
 def clean_generated(*, dry_run: bool = False) -> int:
     rows = generated_paths()
     if not rows:
-        print("CLEAN=PASS no generated/runtime artifacts found")
+        print("CLEAN=PASS no ephemeral cache artifacts found")
         return 0
     for path, reason in rows:
         say("WOULD_REMOVE" if dry_run else "REMOVED", path, reason)
@@ -86,7 +106,7 @@ def run(cmd: list[str], *, cwd: Path = ROOT, check: bool = True) -> subprocess.C
 def require_git_repo() -> None:
     cp = subprocess.run(["git", "rev-parse", "--show-toplevel"], cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     if cp.returncode != 0:
-        raise SystemExit("READY_TO_DEPLOY=FAIL reason=not_a_git_repository\nInstall Git if needed (`sudo apt install git`) and run this from the project repository.")
+        raise SystemExit("READY_TO_DEPLOY=FAIL reason=not_a_git_repository\nInstall Git if needed on Fedora (`sudo dnf install git`) and run this from the project repository.")
     top = Path(cp.stdout.strip()).resolve()
     if top != ROOT.resolve():
         raise SystemExit(f"READY_TO_DEPLOY=FAIL reason=repository_root_mismatch expected={ROOT} actual={top}")
@@ -106,7 +126,7 @@ def dependency_gate(*, need_pytest: bool) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
-        description="Run regression, remove run artifacts with explanations, regenerate the static snapshot, verify the package and commit the clean tree."
+        description="Run regression, remove only reproducible caches, preserve runtime/user artifacts, regenerate the static snapshot, verify source hygiene and commit the clean tree."
     )
     ap.add_argument("--check", action="store_true", help="read-only preflight: show what would be removed and dependency/Git status; do not test, clean, snapshot, stage or commit")
     ap.add_argument("--skip-tests", action="store_true", help="skip pytest only; useful after a just-completed full regression")
@@ -118,17 +138,21 @@ def main(argv: list[str] | None = None) -> int:
     require_git_repo()
 
     if ns.check:
+        report_preserved_runtime()
         clean_generated(dry_run=True)
-        print("READY_TO_DEPLOY_CHECK=PASS")
+        print("READY_TO_DEPLOY_CHECK=PASS runtime_user_data_preserved=true")
         return 0
 
     if not ns.skip_tests:
         # Run before cleanup so test-produced evidence cannot leak into the release.
         run([sys.executable, "-m", "pytest", "-q", "dev_tests", "tests"], cwd=APP)
 
+    report_preserved_runtime()
     clean_generated(dry_run=False)
 
-    # Snapshot only immutable package content after all runtime state is gone.
+    # Snapshot immutable package content. Runtime/user data may remain on disk:
+    # update_snapshot_manifest.py excludes pt_build, and Git ignore policy keeps
+    # those local artifacts out of commits without destroying them.
     run([sys.executable, "update_snapshot_manifest.py", "--current-root", str(ROOT)], cwd=APP)
     run(["bash", "VERIFY_PACKAGE.sh"], cwd=ROOT)
 

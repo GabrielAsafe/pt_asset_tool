@@ -13,7 +13,9 @@
       "name": "@Tutoriais.zip",
       "sha256": "90ce8941ffd85301a01767b37c390b77e0ea7806b336ad9d95388b28b5706858"
     },
-    "policy": "STATIC_EVIDENCE_ONLY_NEVER_EXECUTE_LEGACY_EXE"
+    "policy": "STATIC_EVIDENCE_ONLY_NEVER_EXECUTE_LEGACY_EXE",
+    "operational_status_source": "pt_asset_tool.legacy_apps.reverse_manifest",
+    "role": "HISTORICAL_PROVENANCE_AND_INTERNAL_TAXONOMY"
   },
   "tools": [
     {
@@ -476,7 +478,7 @@
   "safety": {
     "execute_legacy_executables": false,
     "production_writer_promotion": "REQUIRES_SOURCE_OR_CORPUS_ROUNDTRIP_EVIDENCE",
-    "binary_userdata_write": false,
-    "binary_warehouse_write": false
+    "binary_userdata_write": "PORTED_ONLY_THROUGH_PROVEN_TRANSACTIONAL_CAPABILITIES",
+    "binary_warehouse_write": "PORTED_ONLY_THROUGH_PROVEN_TRANSACTIONAL_CAPABILITIES"
   }
 }

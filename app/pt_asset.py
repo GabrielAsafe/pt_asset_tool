@@ -1058,6 +1058,33 @@ def _command_app_status() -> int:
     return 0 if report["status"] == "PASS" else 1
 
 
+def _human_size_bytes(value: int) -> str:
+    total = max(0, int(value or 0))
+    if total >= 1024 ** 3:
+        return f"{total / (1024 ** 3):.2f} GiB"
+    if total >= 1024 ** 2:
+        return f"{total / (1024 ** 2):.2f} MiB"
+    if total >= 1024:
+        return f"{total / 1024:.2f} KiB"
+    return f"{total} B"
+
+
+def _texture_capability_violation(asset: Any, caps: list[str]) -> dict[str, Any] | None:
+    extension = str(getattr(asset, "extension", "") or "").lower()
+    if extension not in {".bmp", ".tga", ".png", ".jpg", ".jpeg"}:
+        return None
+    allowed = {"inspect", "upscale_texture"}
+    unexpected = sorted(x for x in caps if x not in allowed)
+    if not unexpected:
+        return None
+    return {
+        "asset": getattr(asset, "primary_path", None),
+        "reason": "texture_non_texture_action",
+        "actions": list(caps),
+        "unexpected_actions": unexpected,
+    }
+
+
 def _command_app_smoke() -> int:
     status = _build_app_status_report()
     checks: dict[str, Any] = {
@@ -1121,6 +1148,9 @@ def _command_app_smoke() -> int:
             stats = catalog.rebuild()
             details["catalog_file_count"] = stats.file_count
             details["catalog_total_bytes"] = stats.total_bytes
+            # Preserve the exact byte count for machine consumers while also
+            # emitting a human-readable value for smoke reports read by people.
+            details["catalog_total_size"] = _human_size_bytes(stats.total_bytes)
             checks["catalog_bootstrap"] = stats.file_count > 0
         except Exception as exc:
             details["catalog_error"] = f"{type(exc).__name__}:{exc}"
@@ -1163,8 +1193,9 @@ def _command_app_smoke() -> int:
                         break
                 if invalid:
                     break
-                if asset.extension in {".bmp", ".tga"} and any(x != "inspect" for x in caps):
-                    invalid.append({"asset": asset.primary_path, "reason": "texture_model_action", "actions": caps})
+                texture_violation = _texture_capability_violation(asset, caps)
+                if texture_violation:
+                    invalid.append(texture_violation)
                     break
                 if asset.family == "SMD_MODEL_062_STATIC" and any(x in caps for x in {"bindings", "motions", "validate_animation", "diagnose_animation"}):
                     invalid.append({"asset": asset.primary_path, "reason": "static_rigid_action", "actions": caps})

@@ -750,4 +750,4 @@ Entradas de inventário de módulos runtime:
 
 - `dependencies.py` — inventário central de dependências Python/aplicações externas; informa estado, feature dependente, motivo técnico e instrução de instalação/configuração; compartilhado por CLI e GUI.
 - `particle_service.py` — serviço first-party de partículas `.part`, compartilhado pela aba **Partículas** da UI principal e pelo launcher standalone de compatibilidade; staging/preview ficam em `pt_build` e nunca escrevem o client fonte.
-- `READY_TO_DEPLOY.py` (raiz do repositório) — gate de preparação de commit: regressão, limpeza explicada de runtime/cache, regeneração do snapshot, `VERIFY_PACKAGE.sh`, stage e commit Git.
+- `READY_TO_DEPLOY.py` (raiz do repositório) — gate de preparação de commit: regressão, limpeza apenas de caches reproduzíveis, preservação explícita de runtime/user data (`pt_build`, enhancement), regeneração do snapshot, `VERIFY_PACKAGE.sh`, stage e commit Git.

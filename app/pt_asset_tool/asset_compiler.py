@@ -809,8 +809,8 @@ def _compile_character_definition(contract_id: str, payload: dict[str, Any]) -> 
         pct = int(drop.get("percentage", 0))
         if "money" in drop:
             pair = drop["money"]
-            if not isinstance(pair, (list, tuple)) or len(pair) != 2: raise ValueError(f"MONSTER_DROP_MONEY_PAIR_REQUIRED:{idx}")
-            vals = [pct, _source_token("character_tokens", "Money"), int(pair[0]), int(pair[1])]
+            if not isinstance(pair, (list, tuple)) or len(pair) not in {1, 2}: raise ValueError(f"MONSTER_DROP_MONEY_VALUES_REQUIRED:{idx}:1..2")
+            vals = [pct, _source_token("character_tokens", "Money"), *[int(x) for x in pair]]
         elif bool(drop.get("none")):
             vals = [pct, _source_token("character_tokens", "NoItem")]
         else:

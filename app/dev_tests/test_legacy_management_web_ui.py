@@ -73,7 +73,10 @@ def test_legacy_management_web_surface_is_wired_into_ui_sources():
     py = (root / "pt_asset_tool/ui_app.py").read_text(encoding="utf-8")
     assert 'data-tab="legacy"' in html
     assert 'id="tab-legacy"' in html
-    assert 'Item Runtime / OpenItem / DorpItem' in html
+    assert 'Item · criar/editar' in html
+    assert 'Monstro · criar/editar' in html
+    assert 'Mapa / Field' in html
+    assert 'Evidência técnica' not in html
     assert 'World Closure Explorer' in html
     assert '/api/legacy-management/item?' in js
     assert '/api/legacy-management/report?' in js
@@ -117,10 +120,11 @@ def test_legacy_authoring_web_surface_is_wired():
     html = (root / "pt_asset_tool/ui_static/index.html").read_text(encoding="utf-8")
     js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")
     py = (root / "pt_asset_tool/ui_app.py").read_text(encoding="utf-8")
-    assert "Legacy Authoring / Reescrita Python" in html
+    assert "Authoring Legacy — tarefas Python" in html
     assert 'id="legacyAuthoringStageBtn"' in html
     assert '/api/legacy-authoring/inspect?' in js
     assert '/api/legacy-authoring/stage' in js
+    assert 'path == "/api/legacy-authoring/guide"' in py
     assert 'path == "/api/legacy-authoring/inspect"' in py
     assert 'u.path == "/api/legacy-authoring/stage"' in py
 
@@ -158,3 +162,112 @@ def test_legacy_authoring_http_inspect_endpoint_is_live(tmp_path):
         assert data["result"]["detail"]["runtime_item_contract"]["status"] == "SOURCE_VERIFIED"
     finally:
         server.shutdown(); server.server_close(); thread.join(timeout=2)
+
+
+def test_definition_review_explains_reason_and_zero_is_not_claimed_as_no_drop(tmp_path):
+    project = tmp_path / "project"
+    out = project / "pt_build/devtest/legacy_management"
+    out.mkdir(parents=True)
+    (out / "result.json").write_text(json.dumps({
+        "status": "PASS",
+        "server_evidence": {
+            "maps": [],
+            "definitions": [
+                {
+                    "kind": "MONSTER",
+                    "definition": "GameServer/Monster/Zero.inf",
+                    "item_references": [],
+                    "item_reference_count": 0,
+                    "drop_directive_count": 0,
+                    "drop_item_reference_count": 0,
+                    "drop_non_item_directive_count": 0,
+                    "drop_item_references": [],
+                    "zhoon_references": ["Name/Name.zhoon"],
+                    "reasons": [],
+                    "error": None,
+                },
+                {
+                    "kind": "MONSTER",
+                    "definition": "GameServer/Monster/Review.inf",
+                    "item_references": [{"code": "WA999", "openitem_definition_present": False}],
+                    "item_reference_count": 1,
+                    "drop_directive_count": 1,
+                    "drop_item_reference_count": 1,
+                    "drop_item_references": [{"code": "WA999", "directive": "FallItem"}],
+                    "zhoon_references": [],
+                    "reasons": [],
+                    "error": None,
+                },
+            ],
+        },
+        "client_item_visual_evidence": {"rows": []},
+    }), encoding="utf-8")
+    rows = query_legacy_management_report(project, section="definitions")["rows"]
+    zero = rows[0]
+    assert zero["status"] == "PASS"
+    assert zero["drop_item_reference_count"] == 0
+    assert "não prova 'sem drop'" in zero["drop_note"]
+    assert "não é uma tabela de drop" in zero["zhoon_note"]
+    review = rows[1]
+    assert review["status"] == "REVIEW"
+    assert review["review_required"] is True
+    assert any(x["code"] == "ITEM_REFERENCE_WITHOUT_OPENITEM" for x in review["review_reasons"])
+    assert any(x["kind"] == "ITEM_LOOKUP" and x["code"] == "WA999" for x in review["review_actions"])
+
+
+def test_legacy_ui_hides_operator_taxonomy_and_requires_explicit_review_action():
+    root = Path(__file__).resolve().parents[1]
+    html = (root / "pt_asset_tool/ui_static/index.html").read_text(encoding="utf-8")
+    js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")
+    assert "Taxonomia histórica de itens" not in html
+    assert 'id="legacyTaxonomy"' not in html
+    assert "renderLegacyTaxonomy" not in js
+    assert "Por que está em REVIEW?" in js
+    assert "runLegacyReviewAction" in js
+    assert "await legacyAuthoringLoadExplorerSelection(section,row)" not in js
+
+
+def test_legacy_python_ports_ui_is_fully_wired_to_plan_review_apply_surface():
+    root = Path(__file__).resolve().parents[1]
+    html = (root / "pt_asset_tool/ui_static/index.html").read_text(encoding="utf-8")
+    js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")
+    py = (root / "pt_asset_tool/ui_app.py").read_text(encoding="utf-8")
+    for element_id in (
+        "legacyMonsterBulkPlanBtn", "legacyMonsterBulkStageBtn",
+        "legacyCharacterInspectBtn", "legacyCharacterLevelPlanBtn", "legacyCharacterFieldsPlanBtn",
+        "legacyCharacterExpertFieldsPlanBtn",
+        "legacyCharacterRenamePlanBtn", "legacyAccountInspectBtn", "legacyAccountRenamePlanBtn",
+        "legacyPostboxReadBtn", "legacyPostboxPlanBtn", "legacyItemScanBtn",
+        "legacySodPlanBtn", "legacyBPRankPlanBtn", "legacyBlockPlanBtn", "legacyHotukPlanBtn",
+        "legacyProtectorAnalyzeBtn", "legacyServerLaunchPlanBtn", "legacyOpsApplyBtn",
+    ):
+        assert f'id="{element_id}"' in html
+        assert f"$('#{element_id}')" in js
+    assert "CHARACTER_EXPERT_FIELDS" in js
+    assert "legacyCharacterExpertFields" in html
+    assert "/api/legacy-ops/monster-bulk-exp-plan" in js
+    assert "/api/legacy-ops/monster-bulk-exp-stage" in js
+    assert 'u.path == "/api/legacy-ops/monster-bulk-exp-plan"' in py
+    assert 'u.path == "/api/legacy-ops/monster-bulk-exp-stage"' in py
+    assert "/api/legacy-ops/status" in js
+    assert "/api/legacy-ops/plan" in js
+    assert "/api/legacy-ops/apply" in js
+    assert "/api/legacy-ops/item-scan" in js
+    assert "/api/legacy-ops/protector-analyze" in js
+    assert 'path == "/api/legacy-ops/status"' in py
+    assert 'u.path == "/api/legacy-ops/plan"' in py
+    assert 'u.path == "/api/legacy-ops/apply"' in py
+
+
+def test_saved_legacy_plan_reports_confirmation_and_plan_only_contract(tmp_path):
+    from pt_asset_tool.legacy_apps.plan_store import save_plan
+    project = tmp_path / "project"; project.mkdir()
+    ready = save_plan(project, "CHARACTER_FIELDS", {"status": "READY", "operation": "CHARACTER_FIELDS_UPDATE"})
+    assert ready["required_confirmation"] == "APPLY CHARACTER FIELDS"
+    assert ready["apply_supported"] is True
+    blocked = save_plan(project, "CHARACTER_FIELDS", {"status": "BLOCKED", "reason": "fixture"})
+    assert blocked["required_confirmation"] == "APPLY CHARACTER FIELDS"
+    assert blocked["apply_supported"] is False
+    launch = save_plan(project, "SERVER_LAUNCH", {"status": "READY", "operation": "SERVER_LAUNCH_PLAN"})
+    assert launch["required_confirmation"] == "START LOCAL SERVER"
+    assert launch["apply_supported"] is False

@@ -18,6 +18,33 @@ writer         → stage/transação verificada
 
 Nenhum executável histórico precisa ser iniciado.
 
+### Estado real do reverse / integração
+
+O pacote Management foi inventariado por **hash binário único**. O estado operacional não vem mais da tabela histórica `legacy_management_tools.json`: ela permanece apenas como provenance/taxonomia. A fonte de verdade atual é `pt_asset_tool.legacy_apps.reverse_manifest`, que exige uma decisão explícita para cada PE único do arquivo fornecido.
+
+A regra de produto é: **portar a capacidade útil, não clonar a interface Windows**. Quando o comportamento antigo é correto e o formato foi provado, o Python preserva a semântica com testes. Quando o legado é destrutivo, version-specific ou incompatível com o stack atual (localhost + SQLite + Fedora/Wine), o substituto corrige o desenho e registra a diferença.
+
+Estado operacional resumido:
+
+| Ferramenta histórica | Substituto Python atual |
+|---|---|
+| NPCManager | SPC canónico, layout 100 × 504 bytes |
+| PriTaTor | Item/Monster/NPC/Field authoring + Bulk EXP/Gold + World Closure |
+| Editor de Itens | OpenItem create/edit para runtime codes conhecidos |
+| Editor de Monstros | Monster INF create/edit estruturado |
+| ItemDistributor | Postbox plan/apply com append + backup |
+| Procura item pelo nome | scanner userdata/warehouse + duplicados |
+| ControllerUser / Editor de conta | inspeção, stats source-backed, rename, migração de conta, inventário, delete/batch/clear revisado |
+| MudarNome | rename transacional de personagem/conta, incluindo 6 slots de userinfo |
+| Level Editor | Level/XP com offsets provados e tabela XP auditada |
+| ClanSoDManager / SoD Atualiza | SQLite local |
+| Editor Japaokiko | Hotuk, SPC, BPRank SQLite, campos de personagem; rede Windows removida |
+| PTprotector | análise de regras/logs + bloqueio SQLite explícito |
+| Portas SQL | obsoleto no stack localhost + SQLite |
+| ConfigRestarter.ini | supervisor Linux/Wine baseado no contrato disponível |
+
+Limites deliberados não são apresentados como “apps faltando”. Por exemplo, o reverse do ControllerUser prova busca por `Code/Head/CheckSum` e delete persistente, mas não prova um writer arbitrário desses três identificadores; portanto a UI oferece busca/inspeção/delete, não um editor inventado. Registro de um novo código `sITEM` no runtime também continua separado de criar uma definição OpenItem para um código que o runtime já conhece.
+
 ## 2. O que veio do Management
 
 ### PriTaTor
@@ -39,7 +66,7 @@ Evidência para `Field/*.spc` e campos visíveis de NPC fixo. A autoria atual us
 
 ### ItemDistributor / scanners / admin tools
 
-Fornecem evidência de workflow, mas userdata/warehouse continuam fora do authoring de assets.
+As capacidades comprovadas foram portadas para `pt_asset_tool.legacy_apps`. Elas continuam fora do **asset authoring** porque operam persistência de conta/personagem, mas são funcionalidades Python operacionais da aplicação: Postbox, scanner/duplicados, rename, Level/XP, stats source-backed, migração de conta e administração de inventário comprovada pelo reverse.
 
 ### ItemEditor / Editor de Monstros
 
@@ -47,13 +74,7 @@ A existência do workflow é confirmada. Internals nativos não provados não s�
 
 ## 3. Taxonomia PriTaTor
 
-A classificação de code usa longest-prefix e preserva ambiguidades. Ela ajuda navegação/diagnóstico, mas não substitui a identidade runtime `sITEM`.
-
-Exemplo:
-
-```text
-WA121 → Weapons / Axe
-```
+A classificação histórica por prefixo continua disponível **internamente** como evidência auxiliar. O operador não precisa conhecer, escolher ou manter essa tabela na UI. Identidade runtime continua baseada no catálogo `sITEM` source-verificado.
 
 ## 4. Contrato runtime sITEM
 
@@ -104,16 +125,16 @@ Mostra definição e resolução correspondente.
 
 ## 7. Ponte para Authoring
 
-Ao selecionar uma linha:
+Selecionar uma linha **não muda de tab nem abre o editor automaticamente**. O detalhe explica a closure e, se houver um target authorable, mostra uma ação explícita como `Editar monstro`, `Editar NPC`, `Editar SPM` ou `Abrir definição do item`.
 
-```text
-ITEM row    → ITEM / EDIT
-SPM row     → SPM / EDIT
-MONSTER row → MONSTER / EDIT
-NPC row     → NPC / EDIT
-```
+Quando essa ação é acionada, o path exato é transportado para o editor. Em ITEM, a resolução vem do census de OpenItem; duplicidade fica bloqueada.
 
-O path exato é transportado para o editor. Em ITEM, a resolução vem do census de OpenItem; duplicidade fica bloqueada.
+
+### Como interpretar `REVIEW`
+
+`REVIEW` nunca deve aparecer sozinho. O Explorer expõe `review_reasons` e `review_actions`: motivo humano, detalhe técnico e a próxima ação possível. Exemplos: OpenItem ausente para um código referenciado, actor SPM sem Monster único, ícone/ASE esperado ausente ou erro de leitura/encoding.
+
+Em Monster/NPC, `item_reference_count` é uma varredura ampla e **0 não significa “sem drop”**. Para Monster, relatórios novos também expõem `drop_item_reference_count`, derivado especificamente das diretivas source-backed `FallItem`/`ExtraFallItem`. Mesmo `drop_item_reference_count = 0` não prova ausência total de recompensa: money drops ou mecanismos ainda fora do contrato podem existir. Referências `.zhoon` são companion/visual histórico, não tabela de drop.
 
 ## 8. Authoring pipeline
 
@@ -285,18 +306,29 @@ python3 pt_asset.py legacy-authoring restore --confirm 'RESTORE ASSET BUNDLE'
 
 ## 16. GUI
 
-Na aba Management Legacy:
+A aba foi reorganizada por **tarefas**, não por ferramentas históricas:
 
-1. escolha no World Closure ou informe kind/path;
-2. Inspect;
-3. ajuste template/spec;
-4. arme BUILD;
-5. Stage;
-6. revise manifest;
-7. arme ASSET DEPLOY;
-8. Publish;
-9. valide em runtime;
-10. Restore se necessário.
+- **Item · criar/editar** — mostra requisitos, lookup runtime e abre ITEM CREATE/EDIT;
+- **Monstro · criar/editar** — mostra campos mínimos, relação com ModelFile e placement SPM;
+- **NPC · criar/editar** — mostra definição NPC, shops/dialogs e placement SPC;
+- **Mapa / Field** — separa SPM (spawns), SPP (start points) e SPC (NPCs fixos) e deixa claro que a geometria Stage do client é outro pipeline;
+- **World Closure** — constrói/consulta as relações e transporta targets resolvidos para o editor;
+- **Evidência técnica** — hashes, ferramentas históricas e matriz de substituição Python. Não é requisito para authoring.
+
+Fluxo operacional:
+
+1. escolha a tarefa (Item/Monstro/NPC/Mapa);
+2. leia **O que você precisa**;
+3. use CREATE/EDIT ou encontre o target no World Closure;
+4. Inspect/Create;
+5. ajuste spec;
+6. arme BUILD;
+7. Stage;
+8. revise manifest;
+9. arme ASSET DEPLOY;
+10. Publish;
+11. valide em runtime;
+12. Restore se necessário.
 
 ## 17. Por que `REVIEW` e authoring podem coexistir?
 

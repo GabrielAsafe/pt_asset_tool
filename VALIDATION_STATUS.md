@@ -25,6 +25,6 @@ Post-certification package maintenance separates immutable source/reference data
 
 ## Consolidação técnica — 2026-09-21
 
-Esta manutenção consolida partículas na UI principal por `pt_asset_tool/particle_service.py`, centraliza diagnóstico de dependências, autodetecta o Real-ESRGAN bundled, move o estado de enhancement para `app/pt_build/texture_upscale/` e introduz `READY_TO_DEPLOY.py` para regressão + limpeza explicada + snapshot + package verifier + commit Git.
+Esta manutenção consolida partículas na UI principal por `pt_asset_tool/particle_service.py`, centraliza diagnóstico de dependências, autodetecta o Real-ESRGAN bundled, mantém enhancement em `app/pt_build/texture_upscale/` como runtime/user data ignorado pelo Git e introduz `READY_TO_DEPLOY.py` para regressão + limpeza segura de caches + snapshot + package verifier + commit Git. A revisão V3.2 corrige o erro de higiene anterior que podia remover `pt_build`/`enhancement`: essas árvores agora são sempre preservadas pelo finalizador.
 
 A certificação física histórica 1.0.0 continua sendo evidência do baseline original. Alterações desta manutenção devem ser avaliadas pela regressão atual e pelos gates físicos no ambiente client/server/Blender antes de qualquer promoção operacional; não se reutiliza evidência histórica como autorização automática para o código modificado.

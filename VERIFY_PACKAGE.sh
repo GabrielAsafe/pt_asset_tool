@@ -128,17 +128,29 @@ for rel in "${forbidden[@]}"; do
   fi
 done
 
-# Generated/runtime state is intentionally excluded from a deployable source tree.
-# Each failure explains the risk instead of treating cleanup as cosmetic.
+# Runtime/user state is allowed to exist on the developer's disk.  A clean
+# source/release contract means it is untracked and absent from the static
+# snapshot; it does NOT mean user data must be deleted before verification.
+# This distinction is essential for large enhancement outputs and transaction
+# backups.  When Git metadata is available, fail only if runtime data is tracked.
+if [[ -d "$ROOT/.git" ]]; then
+  tracked_runtime="$(git -C "$ROOT" ls-files -- 'app/pt_build/**' 'enhancement/**' | head -1)"
+  if [[ -n "$tracked_runtime" ]]; then
+    echo "PACKAGE_VERIFY=FAIL tracked_runtime_path=$tracked_runtime reason=runtime_or_user_artifacts_must_be_gitignored_not_deleted" >&2
+    exit 3
+  fi
+fi
 if [[ -e "$ROOT/app/pt_build" ]]; then
-  echo "PACKAGE_VERIFY=FAIL generated_path=app/pt_build reason=runtime_build_state_contains_logs_reports_staging_backups_hashes_and_machine_specific_state" >&2
-  exit 3
+  echo "PACKAGE_VERIFY=INFO preserved_runtime_path=app/pt_build reason=local_runtime_user_data_is_allowed_on_disk_but_excluded_from_git_and_snapshot"
 fi
 if [[ -e "$ROOT/enhancement" ]]; then
-  echo "PACKAGE_VERIFY=FAIL generated_path=enhancement reason=legacy_duplicate_enhancement_workspace_canonical_runtime_is_app_pt_build_texture_upscale" >&2
-  exit 3
+  echo "PACKAGE_VERIFY=INFO preserved_runtime_path=enhancement reason=legacy_user_enhancement_data_is_allowed_on_disk_but_excluded_from_git_and_snapshot"
 fi
-cache_path="$(find "$ROOT" -path "$ROOT/.git" -prune -o \( -type d \( -name '__pycache__' -o -name '.pytest_cache' \) -o -type f \( -name '*.pyc' -o -name '*.pyo' \) \) -print -quit)"
+cache_path="$(find "$ROOT" \
+  -path "$ROOT/.git" -prune -o \
+  -path "$ROOT/app/pt_build" -prune -o \
+  -path "$ROOT/enhancement" -prune -o \
+  \( -type d \( -name '__pycache__' -o -name '.pytest_cache' \) -o -type f \( -name '*.pyc' -o -name '*.pyo' \) \) -print -quit)"
 if [[ -n "$cache_path" ]]; then
   rel="${cache_path#"$ROOT/"}"
   echo "PACKAGE_VERIFY=FAIL generated_path=$rel reason=ephemeral_python_or_test_cache_is_recreated_locally_and_must_not_be_release_input" >&2
@@ -273,4 +285,4 @@ PY
   }
 fi
 
-printf 'PACKAGE_VERIFY=PASS version=1.0.0 vendor=v9-fix136 runtime_state=fresh files=%s\n' "$(find . -type f -not -path './pt_build/*' -not -path './.git/*' -not -path '*/__pycache__/*' -not -path '*/.pytest_cache/*' -not -name '*.pyc' -not -name '*.pyo' | wc -l)"
+printf 'PACKAGE_VERIFY=PASS version=1.0.0 vendor=v9-fix136 runtime_state=excluded_or_untracked files=%s\n' "$(find . -type f -not -path './pt_build/*' -not -path './app/pt_build/*' -not -path './enhancement/*' -not -path './.git/*' -not -path '*/__pycache__/*' -not -path '*/.pytest_cache/*' -not -name '*.pyc' -not -name '*.pyo' | wc -l)"
