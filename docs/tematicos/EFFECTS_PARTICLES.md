@@ -39,4 +39,4 @@ Publish/runtime certification continuam gates separados.
 
 O Particle Editor não é vendor nem uma aplicação externa. O domínio `.part` é first-party e a UI principal expõe: busca, inspect, edição em staging, verify de draft, geração de plano e preview Blender. O launcher histórico `pt_part_ui.py` permanece apenas como compatibilidade e reutiliza o mesmo `particle_service`, evitando duas implementações funcionais divergentes.
 
-O preview usa o mesmo `PT_BLENDER_COMMAND`/`Settings.blender_command()` do restante do PT Asset Tool. Assim, uma instalação Flatpak ou um Blender nativo configurado para a aplicação também vale para partículas.
+O preview usa o mesmo resolver central de Blender do diagnóstico `python3 pt_asset.py dependencies`: `PT_BLENDER_COMMAND` tem prioridade, depois Blender nativo e então Flatpak. Assim o diagnóstico e a execução não podem discordar sobre qual launcher usar. **Gerar plano** não exige Blender; só **Gerar preview Blender** exige o runtime externo. Fontes `.part` legadas com braces inconsistentes podem gerar preview aproximado com warning, mas continuam bloqueadas para authoring.

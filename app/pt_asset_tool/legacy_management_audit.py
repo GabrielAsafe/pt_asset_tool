@@ -8,6 +8,7 @@ import re
 from typing import Any, Callable
 
 from .asset_contract_registry import source_registry
+from .asset_compiler import _source_token
 from .general_asset_census import _server_definition_names, _spm_actor_names
 from .legacy_management_contracts import (
     classify_item_code,
@@ -56,6 +57,47 @@ def _item_tokens(text: str, known_catalog: set[str]) -> list[dict[str, Any]]:
             "evidence": "SOURCE_CATALOG" if source_known else "LEGACY_PREFIX_ONLY",
         })
     return rows
+
+
+def _monster_drop_tokens(text: str, known_catalog: set[str]) -> dict[str, Any]:
+    """Return item codes found specifically in Monster drop directives.
+
+    `_item_tokens()` intentionally scans the whole definition as broad closure
+    evidence.  That count must not be presented to the user as "drop count".
+    Here we narrow the scan to the source-backed FallItem/ExtraFallItem tokens
+    so the UI can explain drops without conflating unrelated item references.
+    """
+    fall_item = _source_token("character_tokens", "FallItem")
+    extra_fall_item = _source_token("character_tokens", "ExtraFallItem")
+    directive_names = {fall_item: "FallItem", extra_fall_item: "ExtraFallItem"}
+    rows: list[dict[str, Any]] = []
+    directive_count = 0
+    non_item_directive_count = 0
+    seen: set[tuple[str, str]] = set()
+    for original in text.splitlines():
+        line = original.strip()
+        if not line:
+            continue
+        head, _, tail = line.partition(" ")
+        directive = directive_names.get(head)
+        if directive is None:
+            continue
+        directive_count += 1
+        refs = _item_tokens(tail, known_catalog)
+        if not refs:
+            non_item_directive_count += 1
+        for ref in refs:
+            key = (directive, str(ref.get("code") or "").upper())
+            if key in seen:
+                continue
+            seen.add(key)
+            rows.append({"directive": directive, **ref})
+    return {
+        "directive_count": directive_count,
+        "item_reference_count": len(rows),
+        "non_item_directive_count": non_item_directive_count,
+        "item_references": rows,
+    }
 
 
 def _tutorial_scan(tutorial_root: pathlib.Path | None, known_catalog: set[str]) -> dict[str, Any] | None:
@@ -278,6 +320,9 @@ def audit_legacy_management(
                 error = f"{type(exc).__name__}:{exc}"
             refs = _item_tokens(text, known_catalog) if not error else []
             zrefs = _zhoon_refs(text) if not error else []
+            drop_info = _monster_drop_tokens(text, known_catalog) if kind == "MONSTER" and not error else {
+                "directive_count": 0, "item_reference_count": 0, "non_item_directive_count": 0, "item_references": []
+            }
             for ref in refs:
                 defs = openitem_by_code.get(str(ref["code"]).casefold(), [])
                 ref["openitem_definitions"] = defs
@@ -301,6 +346,10 @@ def audit_legacy_management(
                 "encoding": enc,
                 "item_references": refs,
                 "item_reference_count": len(refs),
+                "drop_directive_count": drop_info["directive_count"] if kind == "MONSTER" else None,
+                "drop_item_reference_count": drop_info["item_reference_count"] if kind == "MONSTER" else None,
+                "drop_non_item_directive_count": drop_info["non_item_directive_count"] if kind == "MONSTER" else None,
+                "drop_item_references": drop_info["item_references"] if kind == "MONSTER" else [],
                 "zhoon_references": zrefs,
                 "reasons": reasons,
                 "error": error,

@@ -329,8 +329,8 @@ def _patch_text(kind: str, raw: bytes, patch: dict[str, Any]) -> tuple[bytes, di
                 pct = int(drop.get("percentage", 0))
                 if "money" in drop:
                     pair = drop["money"]
-                    if not isinstance(pair, (list, tuple)) or len(pair) != 2: raise ValueError(f"MONSTER_DROP_MONEY_PAIR_REQUIRED:{idx}")
-                    vals = [pct, _source_token(registry, "Money"), int(pair[0]), int(pair[1])]
+                    if not isinstance(pair, (list, tuple)) or len(pair) not in {1, 2}: raise ValueError(f"MONSTER_DROP_MONEY_VALUES_REQUIRED:{idx}:1..2")
+                    vals = [pct, _source_token(registry, "Money"), *[int(x) for x in pair]]
                 elif bool(drop.get("none")):
                     vals = [pct, _source_token(registry, "NoItem")]
                 else:
@@ -535,6 +535,97 @@ def publish_authoring(project_root: pathlib.Path, client_root: pathlib.Path, ser
 def restore_authoring(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, manifest: str | pathlib.Path, *, confirm: str) -> dict[str, Any]:
     return restore_asset_bundle(project_root,client_root,server_root,manifest,confirm=confirm)
 
+
+
+def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client_root: pathlib.Path | None = None) -> dict[str, Any]:
+    """User-facing task guide for the Python-native legacy authoring surface.
+
+    This deliberately describes what the current Python writers actually need.
+    Historical executables are provenance only and never appear as prerequisites.
+    """
+    server_ready = bool(server_root is not None and pathlib.Path(server_root).is_dir())
+    client_ready = bool(client_root is not None and pathlib.Path(client_root).is_dir())
+
+    def req(key: str, label: str, detail: str, *, required: bool = True, status: str | None = None) -> dict[str, Any]:
+        row = {"key": key, "label": label, "detail": detail, "required": required}
+        if status is not None:
+            row["status"] = status
+        return row
+
+    common = [
+        req("server_root", "Servidor configurado", "A raiz do servidor precisa apontar para a árvore que contém GameServer/.", status="READY" if server_ready else "MISSING"),
+        req("stage_first", "Stage antes de publicar", "Toda alteração é gerada primeiro em pt_build; o target real não é escrito durante o stage."),
+        req("publish_gate", "Publicação armada", "Depois de revisar o manifest, a publicação exige ARM ASSET DEPLOY e cria backup/hash/transação."),
+        req("runtime_review", "Validação no jogo", "O writer prova formato e transação; comportamento de gameplay ainda precisa ser observado no runtime."),
+    ]
+    domains = {
+        "ITEM": {
+            "title": "Item — criar/editar",
+            "summary": "Cria ou edita GameServer/OpenItem/*.txt. Criar aqui significa uma nova definição OpenItem para um código runtime já conhecido.",
+            "create_scope": "OPENITEM_FOR_EXISTING_RUNTIME_CODE",
+            "hard_block": "Registrar um código sITEM totalmente novo ainda não está implementado/certificado.",
+            "path_example": "GameServer/OpenItem/WA121.txt",
+            "required_fields": ["name", "code"],
+            "requirements": common + [
+                req("runtime_code", "Código sITEM existente", "O campo code deve existir no catálogo runtime source-verificado; a UI pode pesquisar o código antes do stage."),
+                req("name", "Nome do item", "Campo Name da definição OpenItem."),
+                req("logical_path", "Path OpenItem", "Novo target sob GameServer/OpenItem/ com extensão .txt."),
+                req("client_visual", "Ícone / drop model", "Recomendado para closure visual: ItemFilePath/DorpItem devem resolver para os assets esperados no client.", required=False, status="READY" if client_ready else "CLIENT_NOT_CONFIGURED"),
+            ],
+            "optional": ["stats e requisitos", "jobs / random jobs", "unique color", "linked file"],
+        },
+        "MONSTER": {
+            "title": "Monstro — criar/editar",
+            "summary": "Cria ou edita GameServer/Monster/*.inf usando o schema Python source-backed.",
+            "path_example": "GameServer/Monster/NewMonster.inf",
+            "required_fields": ["name", "model_file"],
+            "requirements": common + [
+                req("name", "Nome do monstro", "Campo Name da definição Monster."),
+                req("model_file", "ModelFile", "Path/config de modelo consumido pelo runtime; precisa existir/ser validado no fluxo client para um monstro completo."),
+                req("logical_path", "Path Monster", "Novo target sob GameServer/Monster/ com extensão .inf."),
+                req("spawn", "Placement/spawn", "Criar a definição não coloca o monstro no mundo. Use o SPM do mapa para adicionar actor/boss.", required=False),
+            ],
+            "optional": ["level/life/stats", "experience", "drops e money drops", "extra drops", "dialogs", "linked file", "race/nature/skills"],
+        },
+        "NPC": {
+            "title": "NPC — criar/editar",
+            "summary": "Cria ou edita GameServer/NPC/*.npc. Placement fixo no mapa é uma etapa SPC separada.",
+            "path_example": "GameServer/NPC/NewNPC.npc",
+            "required_fields": ["name", "model_file"],
+            "requirements": common + [
+                req("name", "Nome do NPC", "Campo Name da definição NPC."),
+                req("model_file", "ModelFile", "Config/modelo usado pelo NPC no client/runtime."),
+                req("logical_path", "Path NPC", "Novo target sob GameServer/NPC/ com extensão .npc."),
+                req("placement", "Placement SPC", "Para aparecer fixo em um Field, adicione depois um record em GameServer/Field/*.spc.", required=False),
+            ],
+            "optional": ["dialogs", "shops weapon/defence/etc", "warehouse", "aging/mix/refining", "teleport/event flags"],
+        },
+        "MAP": {
+            "title": "Mapa / Field — criar/editar",
+            "summary": "O Legacy Authoring cobre os arquivos server-side do Field. A geometria Stage do client é outro pipeline.",
+            "hard_block": "Esta tela não cria a geometria/Stage visual do mapa; ela edita SPM/SPP/SPC do GameServer/Field.",
+            "requirements": common + [
+                req("spm", "SPM — spawns", "Actors, bosses, MAX_ACTOR, MAX_ACTOR_POS e DELAY. Um CREATE precisa de pelo menos uma diretiva."),
+                req("spp", "SPP — start points", "Arquivo binário canônico de 200 records x 12 bytes; cada record usa state, x e z."),
+                req("spc", "SPC — NPCs fixos", "Arquivo binário canônico de 100 records x 504 bytes; cada NPC precisa de name, model_ini, server_npc e coordenadas."),
+                req("client_stage", "Stage/client geometry", "Valide/crie a parte visual pelo pipeline Stage 0.72, fora do Legacy Authoring.", required=False, status="READY" if client_ready else "CLIENT_NOT_CONFIGURED"),
+            ],
+            "subtypes": {
+                "SPM": {"label": "SPM · Spawns", "path_example": "GameServer/Field/field.spm"},
+                "SPP": {"label": "SPP · Start points", "path_example": "GameServer/Field/field.spp"},
+                "SPC": {"label": "SPC · NPCs fixos", "path_example": "GameServer/Field/field.spc"},
+            },
+        },
+    }
+    return {
+        "format": "PT_LEGACY_AUTHORING_WORKSPACE_GUIDE_V1",
+        "status": "PASS",
+        "server_root_configured": server_ready,
+        "client_root_configured": client_ready,
+        "domains": domains,
+        "workflow": ["escolher tarefa", "ver requisitos", "inspect/create", "stage", "revisar manifest", "publish", "runtime review", "restore se necessário"],
+        "legacy_executable_required": False,
+    }
 
 def authoring_capabilities() -> dict[str, Any]:
     return {

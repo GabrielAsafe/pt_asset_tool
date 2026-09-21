@@ -231,6 +231,24 @@ plan-only general client/server reachability census; separates donor gaps from r
 | `--donor-client` | default=[] | read-only donor client root; repeatable; persisted donors used when omitted |
 | `--donor-server` | default=[] | read-only donor server root; repeatable; persisted donors used when omitted |
 
+**exemplo**
+`--
+python3 pt_asset.py \
+  --client-root '/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente' \
+  --server-root '/home/gabriel/Área de Trabalho/summit/Servidor' \
+  audit general-asset-census \
+  --source-root '/home/gabriel/Área de Trabalho/summit/SourceCode' \
+  --reference-source-root '/home/gabriel/armazem/priston/PristonTale-EU-main-master' \
+  --donor-client 'DONOR1=/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Game' \
+  --donor-server 'DONOR1=/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Server/game-server' \
+   --donor-client 'DONOR2=/home/gabriel/armazem/priston/ExMachina/client' \
+  --donor-server 'DONOR2=/home/gabriel/armazem/priston/ExMachina/server' \
+   --donor-client 'DONOR3=/home/gabriel/armazem/priston/pristontale-1-master/bin/Client' \
+  --donor-server 'DONOR3=/home/gabriel/armazem/priston/pristontale-1-master/bin/Server'
+
+`
+
+
 ### `pt_asset.py audit t5-assets`
 
 fresh plan-only Tier-5 effect+audio asset readiness; gameplay functionality is assumed externally, while current asset calls must resolve to target or CLOSED same-lineage bundles

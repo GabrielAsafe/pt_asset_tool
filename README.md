@@ -44,7 +44,7 @@ O diagnóstico informa o que falta, **por que** a dependência é necessária e 
 
 O editor de partículas `.part` é first-party e está integrado na aba **Partículas** da UI principal. O launcher `app/pt_part_ui.py` permanece apenas por compatibilidade e reutiliza o mesmo serviço do core.
 
-Texture enhancement usa como workspace canônico `app/pt_build/texture_upscale/`; o diretório raiz legado `enhancement/` não faz parte de uma release limpa.
+Texture enhancement usa como workspace canônico `app/pt_build/texture_upscale/`. Tanto essa árvore quanto um eventual diretório legado `enhancement/` são **dados locais do usuário/runtime**: ficam fora do Git/snapshot e nunca são apagados recursivamente por `READY_TO_DEPLOY`. Um archive de distribuição não deve embuti-los.
 
 ## Preparar commit limpo
 
@@ -55,4 +55,4 @@ python3 READY_TO_DEPLOY.py --check
 python3 READY_TO_DEPLOY.py --message "chore: ready to deploy"
 ```
 
-O fluxo roda a regressão, remove somente artefatos/runtime conhecidos explicando o motivo de cada limpeza, atualiza o snapshot, executa `VERIFY_PACKAGE.sh`, faz `git add -A`, `git diff --cached --check` e cria o commit.
+O fluxo roda a regressão, remove somente caches reproduzíveis (`__pycache__`, `.pytest_cache`, `.pyc/.pyo`), **preserva `app/pt_build` e `enhancement/`**, atualiza o snapshot (que já exclui runtime), executa `VERIFY_PACKAGE.sh`, faz `git add -A`, `git diff --cached --check` e cria o commit. A higiene de release verifica que runtime não está versionado; não exige apagar dados locais.

@@ -132,3 +132,25 @@ def test_runtime_item_catalog_preserves_dorpitem_case_when_it_differs_from_code(
     assert row["code"] == "OA101"
     assert row["dorp_item"] == "oa101"
     assert row["expected_client_paths"]["inventory_icon"].endswith("/itoa101.bmp")
+
+
+def test_monster_audit_separates_explicit_drop_directives_from_broad_item_references(tmp_path: Path):
+    from pt_asset_tool.asset_compiler import _legacy_line, _source_token
+
+    project = tmp_path / "project"
+    server = tmp_path / "server"
+    project.mkdir()
+    _write_text(server / "GameServer/OpenItem/WA121.txt", '*CODE "WA121"\r\n')
+    monster_text = (
+        _legacy_line(_source_token("character_tokens", "Name"), ["Dropper"]) + "\r\n" +
+        _legacy_line(_source_token("character_tokens", "FallItem"), [100, "WA121"]) + "\r\n"
+    )
+    target = server / "GameServer/Monster/Dropper.inf"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(monster_text.encode("cp949"))
+    out = audit_legacy_management(project, server_root=server, sample_limit=20)
+    row = out["server_evidence"]["definitions"][0]
+    assert row["kind"] == "MONSTER"
+    assert row["drop_directive_count"] == 1
+    assert row["drop_item_reference_count"] == 1
+    assert row["drop_item_references"][0]["code"] == "WA121"

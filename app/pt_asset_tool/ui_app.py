@@ -28,7 +28,7 @@ from .legacy_management_web import (
     legacy_management_dashboard, legacy_management_item_detail,
     query_legacy_management_report, verify_management_for_web,
 )
-from .legacy_authoring import authoring_capabilities, inspect_authoring, stage_authoring
+from .legacy_authoring import authoring_capabilities, authoring_workspace_guide, inspect_authoring, stage_authoring
 from .entity_catalog import entity_detail, load_entity_seed, query_entities
 from .server_ui import build_server_ui_summary, server_report_rows
 from .client_enrichment import asset_analysis_evidence, build_client_enrichment_summary, query_client_enrichment_report
@@ -54,6 +54,23 @@ from .texture_upscale import capability_status as texture_upscale_capability_sta
 from .blender_workspace import blender_edit_root
 from .dependencies import dependency_report
 from . import particle_service
+from .legacy_apps.workspace import (
+    workspace_status as legacy_apps_workspace_status,
+    inspect_character as legacy_apps_inspect_character,
+    inspect_account_task as legacy_apps_inspect_account,
+    queue_status as legacy_apps_queue_status,
+    item_scan as legacy_apps_item_scan,
+    inventory_status as legacy_apps_inventory_status,
+    admin_status as legacy_apps_admin_status,
+    plan_operation as legacy_apps_plan_operation,
+    analyze_protector_log as legacy_apps_analyze_protector_log,
+)
+from .legacy_apps.plan_store import save_plan as legacy_apps_save_plan, load_plan as legacy_apps_load_plan
+from .legacy_apps.pritator_bulk import (
+    plan_bulk_experience as legacy_plan_bulk_exp, stage_bulk_experience as legacy_stage_bulk_exp,
+    plan_bulk_gold as legacy_plan_bulk_gold, stage_bulk_gold as legacy_stage_bulk_gold,
+)
+from .legacy_apps.apply import apply_saved_plan as legacy_apps_apply_saved_plan
 from .workspace_bundle_deploy import latest_applied_bundle_manifest, workspace_bundle_restore_capabilities
 
 LOOPBACKS = {"127.0.0.1", "localhost", "::1"}
@@ -517,6 +534,61 @@ class UIHandler(BaseHTTPRequestHandler):
                     "note": "Client/server Asset Bundle writes are limited to verified transactions with backup, drift gate, atomic replace and rollback. Persistence/security/log paths remain blocked.",
                 },
             })
+        if path == "/api/legacy-ops/status":
+            try:
+                return self._json(200, {"ok": True, **legacy_apps_workspace_status(self.ctx.project_root, self.ctx.server_root)})
+            except Exception as exc:
+                return self._error(400, "LEGACY_OPS_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-ops/character":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            name = _one(q, "name").strip()
+            if not name:
+                return self._error(400, "CHARACTER_NAME_REQUIRED")
+            try:
+                return self._json(200, {"ok": True, "result": legacy_apps_inspect_character(self.ctx.server_root, name)})
+            except Exception as exc:
+                return self._error(400, "LEGACY_CHARACTER_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-ops/account":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            account = _one(q, "name").strip()
+            if not account:
+                return self._error(400, "ACCOUNT_NAME_REQUIRED")
+            try:
+                return self._json(200, {"ok": True, "result": legacy_apps_inspect_account(self.ctx.server_root, account)})
+            except Exception as exc:
+                return self._error(400, "LEGACY_ACCOUNT_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-ops/postbox":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            account = _one(q, "account").strip()
+            if not account:
+                return self._error(400, "ACCOUNT_NAME_REQUIRED")
+            try:
+                return self._json(200, {"ok": True, "result": legacy_apps_queue_status(self.ctx.server_root, account)})
+            except Exception as exc:
+                return self._error(400, "LEGACY_POSTBOX_READ_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-ops/inventory":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            store = _one(q, "store").strip().lower()
+            key = _one(q, "key").strip()
+            if store not in {"userdata", "warehouse"}:
+                return self._error(400, "INVENTORY_STORE_INVALID")
+            if not key:
+                return self._error(400, "INVENTORY_KEY_REQUIRED")
+            try:
+                return self._json(200, {"ok": True, "result": legacy_apps_inventory_status(self.ctx.server_root, store=store, key=key)})
+            except Exception as exc:
+                return self._error(400, "LEGACY_INVENTORY_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-ops/admin":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            try:
+                return self._json(200, {"ok": True, "result": legacy_apps_admin_status(self.ctx.server_root)})
+            except Exception as exc:
+                return self._error(400, "LEGACY_ADMIN_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-management":
             try:
                 return self._json(200, {"ok": True, **legacy_management_dashboard(
@@ -690,6 +762,8 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "CONTRACT_SUMMARY_FAILED", str(exc))
         if path == "/api/legacy-authoring/capabilities":
             return self._json(200, {"ok": True, "result": authoring_capabilities()})
+        if path == "/api/legacy-authoring/guide":
+            return self._json(200, {"ok": True, "result": authoring_workspace_guide(server_root=self.ctx.server_root, client_root=self.ctx.client_root)})
         if path == "/api/legacy-authoring/inspect":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
@@ -896,6 +970,113 @@ class UIHandler(BaseHTTPRequestHandler):
             return
         u = urllib.parse.urlparse(self.path)
         body = self._body_json()
+        if u.path == "/api/legacy-ops/plan":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            operation = str(body.get("operation") or "").strip().upper()
+            payload = body.get("payload") if isinstance(body.get("payload"), dict) else {}
+            if not operation:
+                return self._error(400, "LEGACY_OPERATION_REQUIRED")
+            try:
+                plan = legacy_apps_plan_operation(self.ctx.server_root, operation, payload)
+                saved = legacy_apps_save_plan(self.ctx.project_root, operation, plan)
+                return self._json(200, {"ok": True, "result": saved})
+            except Exception as exc:
+                return self._error(400, "LEGACY_OPERATION_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-ops/apply":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            if not self.ctx.write_armed:
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme workspace/build antes de aplicar uma operação de persistência Legacy Python.")
+            plan_id = str(body.get("plan_id") or "").strip()
+            confirmation = str(body.get("confirmation") or "")
+            if not plan_id:
+                return self._error(400, "LEGACY_PLAN_ID_REQUIRED")
+            try:
+                result = legacy_apps_apply_saved_plan(self.ctx.project_root, self.ctx.server_root, plan_id, confirmation)
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "LEGACY_OPERATION_APPLY_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-ops/monster-bulk-exp-plan":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            try:
+                paths = body.get("paths") or []
+                if isinstance(paths, str):
+                    paths = [x.strip() for x in paths.splitlines() if x.strip()]
+                if not isinstance(paths, list):
+                    return self._error(400, "MONSTER_PATHS_LIST_REQUIRED")
+                max_raw = body.get("max_exp")
+                max_exp = int(max_raw) if max_raw not in (None, "") else None
+                plan = legacy_plan_bulk_exp(self.ctx.server_root, paths, str(body.get("formula") or ""), max_exp=max_exp)
+                saved = legacy_apps_save_plan(self.ctx.project_root, "PRITATOR_BULK_EXP", plan)
+                return self._json(200, {"ok": True, "result": saved})
+            except Exception as exc:
+                return self._error(400, "MONSTER_BULK_EXP_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-ops/monster-bulk-exp-stage":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            plan_id = str(body.get("plan_id") or "").strip()
+            if not plan_id:
+                return self._error(400, "LEGACY_PLAN_ID_REQUIRED")
+            try:
+                loaded = legacy_apps_load_plan(self.ctx.project_root, plan_id)
+                if str(loaded.get("operation_request") or "").upper() != "PRITATOR_BULK_EXP":
+                    return self._error(400, "MONSTER_BULK_EXP_PLAN_KIND_INVALID")
+                result = legacy_stage_bulk_exp(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, loaded["plan"])
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "MONSTER_BULK_EXP_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-ops/monster-bulk-gold-plan":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            try:
+                paths = body.get("paths") or []
+                if isinstance(paths, str):
+                    paths = [x.strip() for x in paths.splitlines() if x.strip()]
+                if not isinstance(paths, list):
+                    return self._error(400, "MONSTER_PATHS_LIST_REQUIRED")
+                max_raw = body.get("max_gold")
+                max_gold = int(max_raw) if max_raw not in (None, "") else None
+                plan = legacy_plan_bulk_gold(self.ctx.server_root, paths, str(body.get("formula") or ""), max_gold=max_gold)
+                saved = legacy_apps_save_plan(self.ctx.project_root, "PRITATOR_BULK_GOLD", plan)
+                return self._json(200, {"ok": True, "result": saved})
+            except Exception as exc:
+                return self._error(400, "MONSTER_BULK_GOLD_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-ops/monster-bulk-gold-stage":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            plan_id = str(body.get("plan_id") or "").strip()
+            if not plan_id:
+                return self._error(400, "LEGACY_PLAN_ID_REQUIRED")
+            try:
+                loaded = legacy_apps_load_plan(self.ctx.project_root, plan_id)
+                if str(loaded.get("operation_request") or "").upper() != "PRITATOR_BULK_GOLD":
+                    return self._error(400, "MONSTER_BULK_GOLD_PLAN_KIND_INVALID")
+                result = legacy_stage_bulk_gold(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, loaded["plan"])
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "MONSTER_BULK_GOLD_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-ops/item-scan":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            try:
+                result = legacy_apps_item_scan(
+                    self.ctx.server_root,
+                    query=str(body.get("query") or ""),
+                    include_warehouse=bool(body.get("include_warehouse", True)),
+                )
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "LEGACY_ITEM_SCAN_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/legacy-ops/protector-analyze":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
+            try:
+                result = legacy_apps_analyze_protector_log(self.ctx.server_root, str(body.get("text") or ""))
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "LEGACY_PROTECTOR_ANALYZE_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-management/verify":
             root = str(body.get("management_root") or "").strip()
             if not root:

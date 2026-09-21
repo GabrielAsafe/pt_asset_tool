@@ -6,6 +6,7 @@ from typing import Any
 
 from .item_runtime_catalog import lookup_item_runtime
 from .legacy_management_contracts import classify_item_code, legacy_management_summary, verify_management_root
+from .legacy_apps.reverse_manifest import apps as reversed_management_apps
 
 FORMAT = "PT_LEGACY_MANAGEMENT_WEB_V1"
 _REPORT_REL = pathlib.Path("pt_build/devtest/legacy_management/result.json")
@@ -81,6 +82,35 @@ def _report_summary(report: dict[str, Any] | None) -> dict[str, Any] | None:
     }
 
 
+def _replacement_matrix(summary: dict[str, Any]) -> list[dict[str, Any]]:
+    """Engineering/audit view derived from the single reverse manifest.
+
+    The normal operator UI intentionally hides EXE names, but this endpoint is
+    useful for provenance.  Keeping it manifest-derived prevents the stale
+    status drift that previously labelled already-ported tools as evidence only.
+    """
+    tools = {str(x.get("name") or ""): x for x in summary.get("tools") or []}
+    out: list[dict[str, Any]] = []
+    for app in reversed_management_apps():
+        note_parts = list(app.corrections)
+        if app.remaining_gaps:
+            note_parts.append("Gaps: " + " ".join(app.remaining_gaps))
+        note = " ".join(note_parts) or "Python capability is tracked in the reverse manifest."
+        for name in app.aliases:
+            tool = tools.get(name, {})
+            out.append({
+                "tool": name,
+                "app_id": app.app_id,
+                "status": app.python_status,
+                "reverse_status": app.reverse_status,
+                "note": note,
+                "confidence": tool.get("confidence"),
+                "capabilities": list(app.capabilities),
+                "python_replacement": app.python_replacement,
+            })
+    return out
+
+
 def legacy_management_dashboard(project_root: pathlib.Path, *, client_root: pathlib.Path | None = None, server_root: pathlib.Path | None = None) -> dict[str, Any]:
     summary = legacy_management_summary()
     report = _load_report(project_root)
@@ -91,6 +121,7 @@ def legacy_management_dashboard(project_root: pathlib.Path, *, client_root: path
         "server_root": str(pathlib.Path(server_root).resolve()) if server_root is not None else None,
         "legacy_contract": summary,
         "latest_audit": _report_summary(report),
+        "replacement_matrix": _replacement_matrix(summary),
         "capabilities": {
             "summary": True,
             "verify_management": True,
@@ -160,6 +191,132 @@ def _text_contains(row: Any, query: str) -> bool:
     return query.casefold() in text
 
 
+
+def _review_reason(code: str, title: str, detail: str) -> dict[str, str]:
+    return {"code": code, "title": title, "detail": detail}
+
+
+def _review_action(kind: str, label: str, **payload: Any) -> dict[str, Any]:
+    return {"kind": kind, "label": label, **payload}
+
+
+def _decorate_item_review(row: dict[str, Any]) -> None:
+    reasons: list[dict[str, str]] = []
+    actions: list[dict[str, Any]] = []
+    for closure in row.get("closures") or []:
+        icon = (closure.get("inventory_icon") or {}).get("status")
+        drop = (closure.get("drop_model_ase") or {}).get("status")
+        if icon != "PRESENT":
+            reasons.append(_review_reason(
+                "INVENTORY_ICON_NOT_PRESENT",
+                "Ícone do inventário não foi fechado no client",
+                "O path calculado pelo contrato runtime não resolveu para um arquivo presente. Revise ItemFilePath/DorpItem e o asset físico do client.",
+            ))
+        if drop != "PRESENT":
+            reasons.append(_review_reason(
+                "DROP_MODEL_NOT_PRESENT",
+                "Modelo visual de drop não foi fechado no client",
+                "O ASE esperado em Items/DropItem não foi encontrado. Isso é closure visual; não significa que o item não possa existir no OpenItem.",
+            ))
+    if row.get("status") == "RUNTIME_CATALOG_MISSING":
+        reasons.append(_review_reason(
+            "RUNTIME_CATALOG_MISSING",
+            "Código não existe no catálogo runtime source-verificado",
+            "Não crie um OpenItem para este código até existir contrato sITEM comprovado. Registro de novo código runtime continua fora do writer promovido.",
+        ))
+    if row.get("authoring_ready"):
+        actions.append(_review_action("AUTHORING", "Abrir definição do item", authoring_kind="ITEM", path=row.get("authoring_path")))
+    actions.append(_review_action("ITEM_LOOKUP", "Inspecionar contrato runtime", code=row.get("code")))
+    row["review_required"] = row.get("status") != "CLOSED"
+    row["review_reasons"] = reasons
+    row["review_actions"] = actions
+    row["review_summary"] = (
+        "Closure visual completa." if not row["review_required"]
+        else "Revise as dependências visuais abaixo; o estado REVIEW não é, sozinho, prova de item inválido."
+    )
+
+
+def _decorate_map_review(row: dict[str, Any]) -> None:
+    actors = row.get("actors") or []
+    unresolved = [x for x in actors if str((x or {}).get("status")) == "UNRESOLVED"]
+    ambiguous = [x for x in actors if str((x or {}).get("status")) == "AMBIGUOUS"]
+    reasons: list[dict[str, str]] = []
+    if unresolved:
+        names = ", ".join(str(x.get("name") or "?") for x in unresolved[:8])
+        reasons.append(_review_reason(
+            "SPM_ACTOR_UNRESOLVED",
+            "Actor do SPM não encontrou definição Monster",
+            f"Sem definição única para: {names}. Corrija o nome no SPM ou crie/corrija a definição do monstro.",
+        ))
+    if ambiguous:
+        names = ", ".join(str(x.get("name") or "?") for x in ambiguous[:8])
+        reasons.append(_review_reason(
+            "SPM_ACTOR_AMBIGUOUS",
+            "Actor do SPM corresponde a mais de uma definição",
+            f"Correspondência ambígua para: {names}. Escolha/corrija a definição antes de confiar na closure de drops.",
+        ))
+    row["review_required"] = bool(reasons)
+    row["review_reasons"] = reasons
+    row["review_actions"] = [
+        _review_action("AUTHORING", "Editar SPM", authoring_kind="SPM", path=row.get("authoring_path"))
+    ] if row.get("authoring_ready") else []
+    row["review_summary"] = "Mapa resolvido." if not reasons else "A closure do mapa não está completa; siga as ações abaixo."
+
+
+def _decorate_definition_review(row: dict[str, Any]) -> None:
+    kind = str(row.get("kind") or "").upper()
+    reasons: list[dict[str, str]] = []
+    actions: list[dict[str, Any]] = []
+    if row.get("error"):
+        reasons.append(_review_reason(
+            "READ_OR_DECODE_ERROR",
+            "A definição não pôde ser lida corretamente",
+            str(row.get("error")),
+        ))
+    for code in row.get("reasons") or []:
+        if code == "READ_OR_DECODE_ERROR":
+            continue
+        reasons.append(_review_reason(str(code), "Auditoria marcou esta definição para revisão", str(code)))
+    missing_refs = [x for x in row.get("item_references") or [] if not bool((x or {}).get("openitem_definition_present"))]
+    if missing_refs:
+        codes = [str((x or {}).get("code") or "?") for x in missing_refs]
+        reasons.append(_review_reason(
+            "ITEM_REFERENCE_WITHOUT_OPENITEM",
+            "Há referências de item sem definição OpenItem encontrada",
+            "Códigos: " + ", ".join(codes[:20]) + (" …" if len(codes) > 20 else "") + ". Pesquise cada código e crie/corrija a definição somente se o código runtime for source-verificado.",
+        ))
+        for code in codes[:8]:
+            actions.append(_review_action("ITEM_LOOKUP", f"Revisar item {code}", code=code))
+    if row.get("authoring_ready"):
+        actions.insert(0, _review_action(
+            "AUTHORING",
+            "Editar monstro" if kind == "MONSTER" else "Editar NPC",
+            authoring_kind=kind,
+            path=row.get("authoring_path"),
+        ))
+    row["review_required"] = bool(reasons)
+    row["review_reasons"] = reasons
+    row["review_actions"] = actions
+    row["review_summary"] = "Definição sem bloqueios detectados pela closure." if not reasons else "REVIEW significa que existe uma pendência concreta; veja motivo e ação abaixo."
+    row["item_reference_note"] = (
+        "Esta contagem é uma varredura ampla de códigos de item no arquivo; 0 NÃO significa automaticamente 'sem drop'. "
+        "Para MONSTER, use 'Drops item' quando disponível, pois ele olha especificamente FallItem/ExtraFallItem."
+    )
+    if kind == "MONSTER":
+        if row.get("drop_item_reference_count") is None:
+            row["drop_note"] = "Relatório antigo: audite novamente para separar drops explícitos de outras referências de item."
+        elif int(row.get("drop_item_reference_count") or 0) == 0:
+            row["drop_note"] = (
+                "Nenhum código de item foi detectado nas diretivas FallItem/ExtraFallItem. Isso não prova 'sem drop': "
+                "podem existir diretivas de dinheiro ou mecanismos ainda fora deste contrato."
+            )
+        else:
+            row["drop_note"] = "Códigos detectados especificamente em FallItem/ExtraFallItem."
+    row["zhoon_note"] = (
+        ".zhoon é uma referência companion/visual histórica do monstro; não é uma tabela de drop e não deve ser interpretada como item."
+    )
+
+
 def query_legacy_management_report(
     project_root: pathlib.Path,
     *,
@@ -197,6 +354,7 @@ def query_legacy_management_report(
             row["authoring_path"] = paths[0] if len(paths) == 1 else None
             row["authoring_ready"] = len(paths) == 1
             row["authoring_reason"] = None if len(paths) == 1 else ("OPENITEM_DEFINITION_AMBIGUOUS" if len(paths) > 1 else "OPENITEM_DEFINITION_NOT_FOUND")
+            _decorate_item_review(row)
             rows.append(row)
     elif section == "maps":
         rows = []
@@ -209,6 +367,7 @@ def query_legacy_management_report(
             row["authoring_paths"] = [row["authoring_path"]] if row["authoring_path"] else []
             row["authoring_ready"] = bool(row["authoring_path"])
             row["authoring_reason"] = None if row["authoring_ready"] else "SPM_PATH_NOT_FOUND"
+            _decorate_map_review(row)
             rows.append(row)
     elif section == "definitions":
         rows = []
@@ -222,6 +381,7 @@ def query_legacy_management_report(
             row["authoring_paths"] = [row["authoring_path"]] if row["authoring_path"] else []
             row["authoring_ready"] = bool(row["authoring_kind"] and row["authoring_path"])
             row["authoring_reason"] = None if row["authoring_ready"] else "DEFINITION_NOT_AUTHORABLE"
+            _decorate_definition_review(row)
             rows.append(row)
     else:
         raise ValueError("LEGACY_REPORT_SECTION_INVALID")

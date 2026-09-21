@@ -142,50 +142,44 @@ Esta seção prevalece sobre descrições antigas da GUI que tratem server write
 
 ### Aba Management Legacy
 
-A aba tem duas áreas complementares:
+A aba agora é orientada a tarefas. As ferramentas históricas não aparecem mais como fluxo principal:
 
-1. **Legacy Authoring / Reescrita Python** — criação/edição real dos formatos promovidos;
-2. **World Closure / auditoria Management** — census, correlação e evidência para localizar dependências e targets.
+1. **Item · criar/editar**;
+2. **Monstro · criar/editar**;
+3. **NPC · criar/editar**;
+4. **Mapa / Field** (`SPM`, `SPP`, `SPC`);
+5. **World Closure**;
+6. **Evidência técnica**.
 
-### Legacy Authoring / Reescrita Python
+Cada tarefa mostra **O que você precisa** antes de abrir o editor: roots necessários, campos mínimos, dependências de placement/client e limites atuais.
 
-Kinds:
+#### Item
 
-```text
-ITEM MONSTER NPC SPM SPP SPC
-```
+`CREATE` cria uma definição `OpenItem` nova somente para um code já existente na tabela runtime `sITEM` source-verificada. **Registrar um novo code runtime ainda não está implementado.**
 
-Controles principais:
+Campos mínimos de CREATE: `name`, `code`, path `GameServer/OpenItem/*.txt`. Ícone/drop model são closure visual recomendada, não substituem a identidade runtime.
 
-- `Kind`;
-- `EDIT` / `CREATE`;
-- path lógico;
-- `Abrir / Inspecionar`;
-- `Carregar template`;
-- JSON spec;
-- `Stage em pt_build`;
-- `Publicar bundle`;
-- `Restaurar bundle`;
-- `Status transação`.
+#### Monstro
 
-Fluxo recomendado:
+Campos mínimos de CREATE: `name`, `model_file`, path `GameServer/Monster/*.inf`. Stats/EXP/drops/dialogs são suportados. Criar a definição não cria o spawn; use SPM para placement.
 
-```text
-World Closure/target
-→ Inspect
-→ Edit/Create
-→ ARM BUILD WRITES
-→ Stage
-→ revisar manifest
-→ ARM ASSET DEPLOY
-→ Publish
-→ validar no runtime
-→ Restore, se necessário
-```
+#### NPC
+
+Campos mínimos de CREATE: `name`, `model_file`, path `GameServer/NPC/*.npc`. Shops/dialogs/flags são suportados. Placement fixo no mapa é uma operação SPC separada.
+
+#### Mapa / Field
+
+A tela separa:
+
+- `SPM`: actors, bosses, limites e delay;
+- `SPP`: start points, 200 records × 12 bytes;
+- `SPC`: NPCs fixos, 100 records × 504 bytes.
+
+Isto cobre o lado **server Field**. Geometria/Stage visual do mapa no client continua no pipeline Stage 0.72.
 
 ### World Closure Explorer → Authoring
 
-Selecionar uma linha tenta preencher e inspecionar automaticamente o Authoring:
+**Construir / auditar World Closure** é o passo de descoberta. O botão executa a auditoria e, ao terminar, atualiza o Explorer. Selecionar uma linha mantém você no World Closure e mostra o motivo/ação. Só clicar no botão explícito de edição transporta o target resolvido para a tarefa correta:
 
 | Explorer | Authoring |
 |---|---|
@@ -194,15 +188,13 @@ Selecionar uma linha tenta preencher e inspecionar automaticamente o Authoring:
 | Monster definition | `MONSTER / EDIT` |
 | NPC definition | `NPC / EDIT` |
 
-ITEM usa o path real de OpenItem vindo do census. Targets ambíguos não são escolhidos automaticamente. O spec anterior é resetado antes de carregar outro asset.
+ITEM usa o path real de OpenItem vindo do census. Targets ambíguos não são escolhidos automaticamente.
 
-### Estados do World Closure
+### Apps históricas / reverse engineering
 
-- `CLOSED`: closure esperada encontrada;
-- `REVIEW`: revisão/dependência pendente, sem implicar automaticamente erro runtime;
-- `RUNTIME_CATALOG_MISSING`: code não encontrado na runtime table source-verificada;
-- `AMBIGUOUS`: múltiplos targets;
-- `UNRESOLVED`: target não provado.
+A árvore **não contém ports completos de todas as aplicações Management**. Há writers Python reimplementados para os formatos/workflows provados, substituições parciais e ferramentas apenas documentadas como evidência de engenharia. Esse inventário não aparece mais no workspace operacional; consulte `docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md` quando precisar de provenance.
+
+Nenhum PriTaTor/NPCManager/ItemEditor.exe é executado pela GUI.
 
 ### Safety arms
 

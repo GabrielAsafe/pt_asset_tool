@@ -1,5 +1,5 @@
 from __future__ import annotations
-import os, pathlib, shlex
+import os, pathlib
 from dataclasses import dataclass
 
 
@@ -75,7 +75,10 @@ class Settings:
         )
 
     def blender_command(self) -> list[str]:
-        raw = os.environ.get("PT_BLENDER_COMMAND")
-        if raw:
-            return shlex.split(raw)
-        return ["flatpak", "run", "--filesystem=home", "org.blender.Blender"]
+        # Keep every Blender-backed feature on the same launcher resolution
+        # path as the dependency diagnostic.  This avoids the previous split
+        # brain where `pt_asset.py dependencies` could report native Blender
+        # READY while particle preview still hard-coded the Flatpak launcher.
+        from .dependencies import resolve_blender_command
+        command, _ready, _detail = resolve_blender_command(self.project_root)
+        return command

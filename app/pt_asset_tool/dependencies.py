@@ -98,14 +98,14 @@ def resolve_realesrgan(project_root: Path | None = None, explicit: str | None = 
         if found:
             return found, "explicit executable resolved on PATH"
         return None, f"explicit Real-ESRGAN executable not found: {explicit}"
-    bundled = bundled_realesrgan(project_root)
-    if bundled:
-        return str(bundled), "bundled with PT Asset Tool"
     for name in ("realesrgan-ncnn-vulkan", "realesrgan-ncnn-vulkan.exe"):
         found = _which(name)
         if found:
             return found, "resolved on PATH"
-    return None, "no bundled executable was found and Real-ESRGAN was not found on PATH"
+    bundled = bundled_realesrgan(project_root)
+    if bundled:
+        return str(bundled), "bundled with PT Asset Tool"
+    return None, "not found on PATH and no bundled executable was found"
 
 
 def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
@@ -128,7 +128,7 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "required_for": ["CLI", "GUI", "parsers", "validators", "build/staging"],
             "reason": "The application and all first-party workflows run on Python; 3.11+ is the supported baseline.",
             "detail": sys.version.split()[0],
-            "install": "Ubuntu/Debian: sudo apt install python3 python3-venv python3-pip",
+            "install": "Fedora: sudo dnf install python3 python3-pip. Debian/Ubuntu: sudo apt install python3 python3-venv python3-pip",
         },
         {
             "id": "pillow",
@@ -158,7 +158,7 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "required_for": ["3D preview", "visual validation", "model import/edit", "animation checks", "particle preview"],
             "reason": "These workflows execute Blender-side scripts and therefore need the Blender runtime (bpy/bmesh/mathutils are provided by Blender itself).",
             "detail": f"{' '.join(blender_cmd)} · {blender_detail}",
-            "install": "Option A: sudo apt install blender. Option B: flatpak install flathub org.blender.Blender. To use another launcher: export PT_BLENDER_COMMAND='blender'",
+            "install": "Fedora: sudo dnf install blender. Or: flatpak install flathub org.blender.Blender. To use another launcher: export PT_BLENDER_COMMAND='blender'",
         },
         {
             "id": "realesrgan",
@@ -178,7 +178,17 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "required_for": ["Real-ESRGAN NCNN Vulkan GPU execution"],
             "reason": "The bundled Real-ESRGAN backend uses Vulkan. vulkaninfo is used only as a diagnostic proxy and is not a hard application gate.",
             "detail": vulkan_tool or "vulkaninfo not found",
-            "install": "Ubuntu/Debian diagnostic tools: sudo apt install vulkan-tools. Also install the Vulkan driver appropriate for your GPU.",
+            "install": "Fedora diagnostic tools: sudo dnf install vulkan-tools. Also install the Vulkan driver appropriate for your GPU.",
+        },
+        {
+            "id": "wine",
+            "name": "Wine",
+            "kind": "feature",
+            "status": "READY" if (_which("wine") or _which("wine64")) else "MISSING",
+            "required_for": ["local Server.exe launch/restart supervisor"],
+            "reason": "The accepted Summit server runtime is Linux + Wine; the Python restarter launches the local Windows Server.exe through Wine.",
+            "detail": _which("wine") or _which("wine64") or "wine executable not found",
+            "install": "Fedora: sudo dnf install wine. No SQL Server/ODBC/firewall package is required for the SQLite runtime.",
         },
         {
             "id": "git",
@@ -188,7 +198,7 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "required_for": ["READY_TO_DEPLOY commit workflow", "source control"],
             "reason": "The release finalizer stages and commits the clean, verified tree to Git.",
             "detail": _which("git") or "git executable not found",
-            "install": "Ubuntu/Debian: sudo apt install git",
+            "install": "Fedora: sudo dnf install git. Debian/Ubuntu: sudo apt install git",
         },
         {
             "id": "pytest",

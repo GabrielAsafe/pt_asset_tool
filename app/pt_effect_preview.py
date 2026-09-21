@@ -316,8 +316,17 @@ def _complexity(events: list[dict]) -> dict:
 def build_preview_plan(client_root: Path, build_root: Path, asset: str, *, prefer_staged=True, write=True):
     data,source_meta=load_source(client_root,build_root,asset,prefer_staged=prefer_staged)
     parsed=parse_effect_structure(data,client_root=client_root)
+    # Preview is explicitly approximate and read-only.  Unbalanced legacy
+    # braces should block authoring, but they should not prevent us from
+    # visualizing the portions that were parsed successfully.  Keep the
+    # condition visible as a warning instead of failing the whole preview.
+    preview_parse_warnings = []
     if parsed["parse_status"] != "PASS_LEXICAL":
-        raise ValueError(f"preview blocked: {parsed['parse_status']}")
+        preview_parse_warnings.append({
+            "code": "SOURCE_PARSE_REVIEW",
+            "parse_status": parsed["parse_status"],
+            "detail": "Preview generated from the lexically recoverable subset; authoring remains blocked until source structure is repaired.",
+        })
     sysfields={}
     for f in parsed["system"]["fields"]: sysfields.setdefault(f["canonical_key"],[]).append(f)
     position=None
@@ -336,7 +345,7 @@ def build_preview_plan(client_root: Path, build_root: Path, asset: str, *, prefe
         "eol":parsed["eol"],"system_header":parsed["system"]["header"],
         "position":position,"event_count":len(events),"events":events,
         "texture_references":refs,"missing_texture_reference_count":len(missing),
-        "missing_texture_references":missing,"semantic_warnings":parsed["warnings"],
+        "missing_texture_references":missing,"semantic_warnings":preview_parse_warnings + parsed["warnings"],
         "complexity":_complexity(events),
         "preview_certification":"BLENDER_PREVIEW_APPROXIMATE",
         "timing_model":"HEURISTIC_AT_DELAY_EMITRATE_PREVIEW_ONLY_NOT_ENGINE_CERTIFIED",

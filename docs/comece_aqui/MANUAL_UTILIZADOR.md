@@ -2602,6 +2602,8 @@ Esta seção é a referência operacional atual para as funcionalidades Manageme
 
 PriTaTor, NPCManager, ItemDistributor, ItemEditor/Editor de Itens, Editor de Monstros e tooling relacionado foram incorporados como **evidência estática e contratos recuperados**. Nenhum executável legacy é requerido para operar os workflows Python já promovidos, e a aplicação não inicia esses EXEs.
 
+Isso **não significa que todas essas aplicações tenham sido completamente descompiladas/portadas**. O estado atual é misto: NPCManager/SPC possui substituto Python operacional; PriTaTor/ItemEditor/MonsterEditor têm substituições parciais nos workflows já provados; ItemDistributor/userdata e várias ferramentas admin permanecem evidência ou fora do escopo. A matriz de substituição fica na documentação/API de engenharia e não ocupa mais o workspace operacional.
+
 A auditoria Management cruza, quando os roots estão configurados:
 
 ```text
@@ -2621,13 +2623,13 @@ O World Closure Explorer é uma camada de correlação e diagnóstico. Estados p
 - `AMBIGUOUS`: mais de um target plausível; a UI não escolhe silenciosamente;
 - `UNRESOLVED`: target ainda não provado.
 
-Selecionar uma linha transporta o contexto para **Legacy Authoring / Reescrita Python**:
+Selecionar uma linha mantém o contexto no **World Closure Explorer** e mostra o motivo do estado. Para abrir o editor, use a ação explícita oferecida no detalhe da linha:
 
 ```text
-ITEM row    → ITEM / EDIT
-SPM row     → SPM / EDIT
-MONSTER row → MONSTER / EDIT
-NPC row     → NPC / EDIT
+ITEM row    → Abrir definição do item
+SPM row     → Editar SPM
+MONSTER row → Editar monstro
+NPC row     → Editar NPC
 ```
 
 Para ITEM, o path vem do census real de OpenItem; a aplicação não assume `CODE.txt`.
