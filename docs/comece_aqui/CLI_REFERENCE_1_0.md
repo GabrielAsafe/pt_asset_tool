@@ -1550,7 +1550,7 @@ python3 pt_asset.py texture-upscale capabilities
 
 Mostra readiness do Pillow/Lanczos, disponibilidade opcional do Real-ESRGAN, executável/erro descoberto e a política do perfil `auto`. `balanced + auto` usa Lanczos conservador de propósito; `detail + auto` tenta Real-ESRGAN e regista o motivo de fallback quando o backend AI não está disponível.
 
-Os candidates ficam em `enhancement/runs/`. Para publicar ou desfazer uma textura individual com backup/hash verificados:
+Os candidates ficam em `pt_build/texture_upscale/runs/`. Para publicar ou desfazer uma textura individual com backup/hash verificados:
 
 ```bash
 python3 pt_asset.py texture-upscale publish --include-exact PATH --confirm 'APPLY CLIENT ENHANCEMENT'

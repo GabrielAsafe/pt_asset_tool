@@ -9,9 +9,11 @@ required=(
   "README.md"
   "CURRENT_READINESS.json"
   "VALIDATION_STATUS.md"
+  "READY_TO_DEPLOY.py"
   "docs/README.md"
   "docs/CURRENT_STATUS_2026-09-14.md"
   "docs/comece_aqui/INSTALLATION_QUICKSTART_1_0.md"
+  "docs/comece_aqui/DEPENDENCIES.md"
   "docs/comece_aqui/MANUAL_UTILIZADOR.md"
   "docs/comece_aqui/GUI_MANUAL_1_0.md"
   "docs/comece_aqui/CLI_REFERENCE_1_0.md"
@@ -20,6 +22,7 @@ required=(
   "docs/engenharia/MAPA_MODULOS_SCRIPTS.md"
   "docs/engenharia/SUMMIT_GAME_ASSET_ENRICHMENT.md"
   "docs/engenharia/SNAPSHOT_MANIFEST_POLICY.md"
+  "docs/engenharia/VENDOR_BOUNDARY.md"
   "docs/release/RELEASE_1_READINESS.md"
   "docs/release/RELEASE_1_CERTIFICATION.md"
   "docs/release/KNOWN_LIMITATIONS_1_0.md"
@@ -36,6 +39,8 @@ required=(
   "vendor/summit_asset_enrichment_v9/build_dependency_graph.py"
   "vendor/summit_asset_enrichment_v9/asset_common.py"
   "app/VERSION.txt"
+  "app/requirements.txt"
+  "app/requirements-dev.txt"
   "app/pt_asset.py"
   "app/update_snapshot_manifest.py"
   "app/RUN_RELEASE_FAST.sh"
@@ -43,6 +48,8 @@ required=(
   "app/pt_asset_tool/cli.py"
   "app/pt_asset_tool/app_config.py"
   "app/pt_asset_tool/config.py"
+  "app/pt_asset_tool/dependencies.py"
+  "app/pt_asset_tool/particle_service.py"
   "app/pt_asset_tool/registry.py"
   "app/pt_asset_tool/registry_bootstrap.py"
   "app/pt_asset_tool/certified_writers.py"
@@ -121,6 +128,23 @@ for rel in "${forbidden[@]}"; do
   fi
 done
 
+# Generated/runtime state is intentionally excluded from a deployable source tree.
+# Each failure explains the risk instead of treating cleanup as cosmetic.
+if [[ -e "$ROOT/app/pt_build" ]]; then
+  echo "PACKAGE_VERIFY=FAIL generated_path=app/pt_build reason=runtime_build_state_contains_logs_reports_staging_backups_hashes_and_machine_specific_state" >&2
+  exit 3
+fi
+if [[ -e "$ROOT/enhancement" ]]; then
+  echo "PACKAGE_VERIFY=FAIL generated_path=enhancement reason=legacy_duplicate_enhancement_workspace_canonical_runtime_is_app_pt_build_texture_upscale" >&2
+  exit 3
+fi
+cache_path="$(find "$ROOT" -path "$ROOT/.git" -prune -o \( -type d \( -name '__pycache__' -o -name '.pytest_cache' \) -o -type f \( -name '*.pyc' -o -name '*.pyo' \) \) -print -quit)"
+if [[ -n "$cache_path" ]]; then
+  rel="${cache_path#"$ROOT/"}"
+  echo "PACKAGE_VERIFY=FAIL generated_path=$rel reason=ephemeral_python_or_test_cache_is_recreated_locally_and_must_not_be_release_input" >&2
+  exit 3
+fi
+
 if find "$ROOT/docs/validation" -maxdepth 1 -type f -name 'VALIDATION_STATUS*' -print -quit | grep -q .; then
   echo "PACKAGE_VERIFY=FAIL archived_validation_status_reintroduced" >&2
   exit 3
@@ -194,8 +218,9 @@ grep -q 'class-ui-aliases' pt_asset_tool/cli.py
 grep -q 'donor_gap_is_not_runtime_need' pt_asset_tool/general_asset_census.py
 grep -q 'RECOVERY_APPLY_REQUIRES_EXPECTED_ROOTS' pt_asset_tool/general_asset_recovery.py
 grep -q 'general-closed-bundles' pt_asset_tool/cli.py
-grep -q 'STAGED_CLONE_PATCH_ONLY' pt_asset_tool/server_field_editor.py
-grep -q 'BLOCKED_UNKNOWN_SMCHAR_INFO_FIELDS' pt_asset_tool/server_field_editor.py
+grep -q 'SPC_NATIVE_ABI_INSERT' pt_asset_tool/server_field_editor.py
+grep -q 'source_abi.*smTRNAS_PLAYERINFO=504; smCHAR_INFO=464' pt_asset_tool/server_field_editor.py
+grep -q 'donor_record_required.*False' pt_asset_tool/server_field_editor.py
 grep -q 'BLENDER_PREVIEW_APPROXIMATE' pt_effect_preview.py
 grep -q 'registry_bootstrap' pt_asset.py
 grep -q 'legacy_runtime' pt_asset.py
@@ -203,12 +228,18 @@ grep -q 'texture-upscale' pt_asset.py
 grep -q 'upscale_texture' pt_asset_tool/ui_actions.py
 grep -q "action==='upscale_texture'" pt_asset_tool/ui_static/app.js
 grep -q 'TEXTURE_UPSCALE_PILLOW_UNAVAILABLE' pt_asset_tool/ui_app.py
+grep -q 'data-tab="particles"' pt_asset_tool/ui_static/index.html
+grep -q '/api/particles/inspect' pt_asset_tool/ui_app.py
+grep -q 'particle_service' pt_part_ui.py
+grep -q 'dependency_report' pt_asset_tool/ui_app.py
+grep -q 'dependencies' pt_asset.py
+grep -q 'pt_build.*texture_upscale' pt_asset_tool/texture_upscale.py
 
 VERIFY_TMP="$(mktemp -d)"
 trap 'rm -rf "$VERIFY_TMP"' EXIT
 PYTHONPYCACHEPREFIX="$VERIFY_TMP/pycache" python3 -m compileall -q \
   pt_asset.py pt_texture_upscale.py pt_asset_tool pt_effect_preview.py pt_effect_blender_preview.py \
-  pt_effect_preview_verify.py pt_part_editor.py pt_part_ui.py
+  pt_effect_preview_verify.py pt_part_editor.py pt_part_ui.py ../READY_TO_DEPLOY.py
 if command -v node >/dev/null 2>&1; then
   node --check pt_asset_tool/ui_static/app.js >/dev/null
 fi

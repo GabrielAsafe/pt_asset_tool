@@ -496,20 +496,17 @@ def upscale_lanczos(image, scale: int, *, profile: str = "balanced"):
 
 
 def _resolve_realesrgan(executable: str | None) -> str:
-    if executable:
-        p = Path(executable).expanduser()
-        if p.is_file():
-            return str(p.resolve())
-        found = shutil.which(executable)
-        if found:
-            return found
-        raise FileNotFoundError(f"Real-ESRGAN executable not found: {executable}")
-    for name in ("realesrgan-ncnn-vulkan", "realesrgan-ncnn-vulkan.exe"):
-        found = shutil.which(name)
-        if found:
-            return found
+    # Keep executable discovery aligned with the application-wide dependency
+    # diagnostics.  A release already bundles Real-ESRGAN under tools/, so the
+    # user should not have to edit PATH merely to use a shipped backend.
+    from .dependencies import resolve_realesrgan
+    path, detail = resolve_realesrgan(PROJECT_ROOT, executable)
+    if path:
+        return path
     raise FileNotFoundError(
-        "realesrgan-ncnn-vulkan was not found. Install it or pass --realesrgan /path/to/realesrgan-ncnn-vulkan"
+        "realesrgan-ncnn-vulkan is unavailable: " + detail +
+        ". The AI backend needs this executable plus a working Vulkan driver. "
+        "Install/configure it, or use --backend lanczos. Run `python3 pt_asset.py dependencies` for exact instructions."
     )
 
 
@@ -994,10 +991,11 @@ def enhancement_root(project_root: Path | None = None) -> Path:
     override = os.environ.get("PT_ENHANCEMENT_ROOT")
     if override:
         return Path(override).expanduser().resolve()
-    # Keep user-facing enhancement artifacts at the repository/workspace root,
-    # not buried inside app/pt_build. For the normal layout this is
-    # ~/Transferências/pt_asset_tool/enhancement.
-    return (project.parent / "enhancement").resolve()
+    # Enhancement runs, manifests, backups and batch transactions are runtime
+    # state.  Keep them under the same pt_build boundary as every other run so
+    # READY_TO_DEPLOY can remove one well-defined generated tree and a fresh
+    # clone never inherits workstation-specific enhancement state.
+    return (project / "pt_build" / "texture_upscale").resolve()
 
 
 def _normalized_rel(rel: str) -> str:
@@ -1640,7 +1638,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     u = sp.add_parser("run", help="upscale to a separate output tree; never writes the source/client")
     u.add_argument("--client-root", type=Path, help="defaults to the configured/discovered client root")
-    u.add_argument("--output-root", type=Path, help="defaults to a unique <project>/enhancement/runs/<id>/overlay tree")
+    u.add_argument("--output-root", type=Path, help="defaults to a unique <project>/pt_build/texture_upscale/runs/<id>/overlay tree")
     u.add_argument("--manifest", type=Path)
     u.add_argument("--include", action="append", default=[], help="glob against /relative/path; repeatable")
     u.add_argument("--include-exact", action="append", default=[], help="exact client-relative path; repeatable; intended for UI/single-asset runs")

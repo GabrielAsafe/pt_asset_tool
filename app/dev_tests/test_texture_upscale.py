@@ -364,10 +364,10 @@ def test_default_run_uses_enhancement_workspace(tmp_path: Path, monkeypatch):
     project = tmp_path / "app"; project.mkdir()
     monkeypatch.setattr(mod, "PROJECT_ROOT", project)
     assert mod.main(["run", "--client-root", str(root), "--include-exact", "Image/Character/hero.png", "--scale", "2", "--backend", "lanczos"]) == 0
-    manifests = list((project.parent / "enhancement" / "runs").glob("*/manifest.json"))
+    manifests = list((project / "pt_build" / "texture_upscale" / "runs").glob("*/manifest.json"))
     assert len(manifests) == 1
     report = __import__("json").loads(manifests[0].read_text(encoding="utf-8"))
-    assert "/enhancement/runs/" in report["output_root"].replace("\\", "/")
+    assert "/pt_build/texture_upscale/runs/" in report["output_root"].replace("\\", "/")
     assert (Path(report["output_root"]) / "Image" / "Character" / "hero.png").is_file()
 
 

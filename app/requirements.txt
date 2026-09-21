@@ -1,0 +1,4 @@
+# Runtime Python dependencies used by optional but first-party PT Asset Tool features.
+# Core parsing paths intentionally remain stdlib-heavy.
+Pillow>=10.0
+numpy>=1.26

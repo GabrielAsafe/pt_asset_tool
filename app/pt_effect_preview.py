@@ -12,7 +12,7 @@ import subprocess
 import signal
 import time
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import pt_part_editor as part
 
@@ -382,10 +382,20 @@ def _safe_under_pt_build(app_root: Path, p: Path) -> Path:
     return p
 
 
+def _blender_prefix(blender: str | Sequence[str]) -> list[str]:
+    if isinstance(blender, str):
+        prefix = shlex.split(blender) if any(c.isspace() for c in blender) else [blender]
+    else:
+        prefix = [str(x) for x in blender]
+    if not prefix:
+        raise ValueError("Blender command is empty")
+    return prefix
+
+
 def blender_command(
     app_root: Path, plan_path: Path, *, out_blend: Optional[Path]=None,
     report: Optional[Path]=None, render_dir: Optional[Path]=None,
-    blender: str="blender", max_events: int=64, max_particles_per_event: int=32,
+    blender: str | Sequence[str]="blender", max_events: int=64, max_particles_per_event: int=32,
     max_total_particles: int=256, frames: int=120,
     render_frames: Tuple[int,...]=(1, 30, 60, 90),
     render_size: int=512,
@@ -401,7 +411,7 @@ def blender_command(
     rf=tuple(sorted({max(1,min(int(frames),int(x))) for x in render_frames}))
     if not rf: rf=(max(1,min(int(frames),30)),)
     args=[
-        blender,"--background","--factory-startup","--python-exit-code","1",
+        *_blender_prefix(blender),"--background","--factory-startup","--python-exit-code","1",
         "--python",str(app_root/"pt_effect_blender_preview.py"),"--",
         "--plan",str(plan_path),"--out",str(out_blend),"--report",str(report),
         "--render-dir",str(render_dir),"--render-frames",",".join(str(x) for x in rf),
@@ -420,13 +430,17 @@ def blender_command(
 
 def run_blender_preview(
     app_root: Path, plan_path: Path, *, timeout_seconds: float=120.0,
-    blender: str="blender", render_frames: Tuple[int,...]=(1,30,60,90),
+    blender: str | Sequence[str]="blender", render_frames: Tuple[int,...]=(1,30,60,90),
     render_size: int=512,
 ) -> dict:
     if timeout_seconds <= 0 or timeout_seconds > 120:
         raise ValueError("timeout_seconds must be in (0, 120]")
-    if os.path.sep not in blender and shutil.which(blender) is None:
-        raise FileNotFoundError(f"Blender executable not found: {blender}")
+    prefix = _blender_prefix(blender)
+    first = Path(prefix[0]).expanduser()
+    if not first.is_file() and shutil.which(prefix[0]) is None:
+        raise FileNotFoundError(
+            f"Blender launcher not found: {prefix[0]}. Run `python3 pt_asset.py dependencies` for installation/configuration instructions."
+        )
     cmd=blender_command(app_root,plan_path,blender=blender,render_frames=render_frames,render_size=render_size)
     proc=subprocess.Popen(
         cmd["args"],cwd=str(Path(app_root).resolve()),text=True,

@@ -58,7 +58,7 @@ Target client/server -> read-only por padrão
 - motion: `motion_core.py`, `inx_writer.py`, `smb_writer.py`, animation modules;
 - texture: `texture_codec_devtest.py`, `texture_overlay.py`;
 - rare rigid: `rare_rigid_*`;
-- particles: top-level `pt_part_*`, `pt_effect_*`.
+- particles: first-party `pt_asset_tool/particle_service.py` + bridges top-level `pt_part_*`, `pt_effect_*`; a UI principal é a superfície canônica e o standalone é compatibilidade.
 
 ## Release gates
 
@@ -66,7 +66,7 @@ Target client/server -> read-only por padrão
 
 ## Vendor
 
-`summit_asset_enrichment_v9` é o único vendor ativo (`v9-fix136`). O pacote não transporta cópias de vendors obsoletos.
+`summit_asset_enrichment_v9` é o único vendor ativo (`v9-fix136`). `vendor/` é reservado a código/dados upstream ou componentes externos versionados separadamente; módulos first-party como partículas, enhancement e editores pertencem ao core, mesmo quando possuem launcher próprio. O pacote não transporta cópias de vendors obsoletos.
 
 ## UI
 

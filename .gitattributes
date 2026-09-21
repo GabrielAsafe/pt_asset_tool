@@ -10,3 +10,9 @@ evidence/** -diff
 docs/togpt_dont_bother_reading/** -diff
 docs/validation/VALIDATION_STATUS* -diff
 vendor/summit_asset_enrichment_v9/reports/** -diff
+
+# >>> PT Asset Tool V3.1 exact-byte snapshot policy >>>
+# Snapshot manifests certify exact distributed bytes. Disable implicit Git EOL
+# conversion globally so clone/checkout cannot silently rewrite legacy/vendor data.
+* -text
+# <<< PT Asset Tool V3.1 exact-byte snapshot policy <<<
