@@ -1,5 +1,10 @@
 # PT Asset Tool R14 1.0.0 — Manual da GUI
 
+<!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->
+
+**Atualização GUI:** 2026-09-21 — Management Legacy, World Closure → Authoring e publish/restore capability-scoped.  
+**Regra de precedência:** a seção “Atualização GUI 2026-09-21” no fim deste guia prevalece sobre descrições históricas incompatíveis.
+
 > **Guia rápido.** Para tutoriais completos de todas as funcionalidades alcançáveis pela GUI principal e pelo Particle Editor `.part`, incluindo edição de modelos, textura/Stage0.72, animação, Server/Enrichment e Field SPM/SPP/SPC, use `MANUAL_UTILIZADOR.md`. Este ficheiro fica como mapa resumido das abas e ações.
 
 ## Iniciar
@@ -128,3 +133,81 @@ A UI possui endpoints locais para bootstrap, catálogo, asset, entidades, contra
 ## Encerrar
 
 Use o botão **Parar servidor da UI** em Configurações ou encerre o processo que lançou `pt_asset_gui.py`.
+
+---
+
+## Atualização GUI 2026-09-21 — Management Legacy e Legacy Authoring
+
+Esta seção prevalece sobre descrições antigas da GUI que tratem server write como indisponível em todos os casos.
+
+### Aba Management Legacy
+
+A aba tem duas áreas complementares:
+
+1. **Legacy Authoring / Reescrita Python** — criação/edição real dos formatos promovidos;
+2. **World Closure / auditoria Management** — census, correlação e evidência para localizar dependências e targets.
+
+### Legacy Authoring / Reescrita Python
+
+Kinds:
+
+```text
+ITEM MONSTER NPC SPM SPP SPC
+```
+
+Controles principais:
+
+- `Kind`;
+- `EDIT` / `CREATE`;
+- path lógico;
+- `Abrir / Inspecionar`;
+- `Carregar template`;
+- JSON spec;
+- `Stage em pt_build`;
+- `Publicar bundle`;
+- `Restaurar bundle`;
+- `Status transação`.
+
+Fluxo recomendado:
+
+```text
+World Closure/target
+→ Inspect
+→ Edit/Create
+→ ARM BUILD WRITES
+→ Stage
+→ revisar manifest
+→ ARM ASSET DEPLOY
+→ Publish
+→ validar no runtime
+→ Restore, se necessário
+```
+
+### World Closure Explorer → Authoring
+
+Selecionar uma linha tenta preencher e inspecionar automaticamente o Authoring:
+
+| Explorer | Authoring |
+|---|---|
+| Itens / visual closure | `ITEM / EDIT` |
+| Maps / SPM | `SPM / EDIT` |
+| Monster definition | `MONSTER / EDIT` |
+| NPC definition | `NPC / EDIT` |
+
+ITEM usa o path real de OpenItem vindo do census. Targets ambíguos não são escolhidos automaticamente. O spec anterior é resetado antes de carregar outro asset.
+
+### Estados do World Closure
+
+- `CLOSED`: closure esperada encontrada;
+- `REVIEW`: revisão/dependência pendente, sem implicar automaticamente erro runtime;
+- `RUNTIME_CATALOG_MISSING`: code não encontrado na runtime table source-verificada;
+- `AMBIGUOUS`: múltiplos targets;
+- `UNRESOLVED`: target não provado.
+
+### Safety arms
+
+`ARM BUILD WRITES` autoriza somente escrita de staging/build em `pt_build`.
+
+`ARM ASSET DEPLOY` é uma autorização separada para publish/restore de bundles suportados; o backend ainda exige hashes, backup, drift gate e verificação pós-write.
+
+Nenhum PriTaTor/NPCManager/ItemEditor.exe é executado pela GUI.

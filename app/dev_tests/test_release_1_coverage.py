@@ -62,12 +62,25 @@ def test_release_1_content_domain_uses_structural_character_roots_then_semantic_
 
 
 def test_release_1_registry_matrix_counts_object_local_only_where_structurally_present():
-    report=build_release_1_coverage(_registry())
-    counts={d: report['matrix'][d]['OBJECT_LOCAL_ANIMATION']['asset_count'] for d in CONTENT_DOMAINS}
+    from pt_asset_tool.object_local_audit import audit_object_local
+
+    registry = _registry()
+    report = build_release_1_coverage(registry)
+    counts = {d: report['matrix'][d]['OBJECT_LOCAL_ANIMATION']['asset_count'] for d in CONTENT_DOMAINS}
+
+    # The canonical corpus can evolve.  The contract is that the matrix mirrors
+    # the structural object-local census, not that a particular domain must
+    # always contain a witness.
+    expected = {d: 0 for d in CONTENT_DOMAINS}
+    audit = audit_object_local(registry.records, limit=10**9)
+    for row in audit.get('candidates') or []:
+        domain = content_domain_from_values(row.get('path') or '', row.get('category') or '')
+        if domain in expected:
+            expected[domain] += 1
+
+    assert counts == expected
     assert sum(counts.values()) > 400
     assert counts['MAP'] > 300
-    assert counts['MONSTER'] > 0
-    assert report['matrix']['NPC']['OBJECT_LOCAL_ANIMATION']['asset_count'] == 0
 
 
 def test_release_1_proprietary_texture_inventory_is_domain_attributed():

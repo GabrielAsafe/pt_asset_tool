@@ -55,3 +55,13 @@ def test_texture_action_is_hidden_when_pillow_is_unavailable(monkeypatch):
     asset = SimpleNamespace(family="", kind="PNG_STANDARD", primary_path="Image/Character/hero.png")
     caps, _ = caps_mod.capabilities_for_asset(asset, None)
     assert "upscale_texture" not in caps
+
+
+def test_texture_ui_action_passes_explicit_quality_profile(tmp_path: Path):
+    (tmp_path / "pt_asset.py").write_text("# stub\n", encoding="utf-8")
+    cmd = build_command(tmp_path, "upscale_texture", "Image/Character/hero.tga", {
+        "scale": 4,
+        "backend": "auto",
+        "profile": "detail",
+    })
+    assert cmd[-4:] == ["--backend", "auto", "--profile", "detail"]

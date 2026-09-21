@@ -1,0 +1,307 @@
+{
+  "format": "PT_SOURCE_ITEM_DEFINITION_TOKENS_V1",
+  "source": "Shared/formats/item_config/ItemDefinitionReader.inl",
+  "encoding": "cp949",
+  "entries": {
+    "Name": {
+      "token": "*이름",
+      "hex": "2ac0ccb8a7"
+    },
+    "Code": {
+      "token": "*코드",
+      "hex": "2ac4dab5e5"
+    },
+    "Unique": {
+      "token": "*유니크",
+      "hex": "2ac0afb4cfc5a9"
+    },
+    "UniqueColor": {
+      "token": "*유니크색상",
+      "hex": "2ac0afb4cfc5a9bbf6bbf3"
+    },
+    "DisplayEffect": {
+      "token": "*이펙트설정",
+      "hex": "2ac0ccc6e5c6aebcb3c1a4"
+    },
+    "Durability": {
+      "token": "*내구력",
+      "hex": "2ab3bbb1b8b7c2"
+    },
+    "Weight": {
+      "token": "*무게",
+      "hex": "2ab9abb0d4"
+    },
+    "Price": {
+      "token": "*가격",
+      "hex": "2ab0a1b0dd"
+    },
+    "Bionic": {
+      "token": "*생체",
+      "hex": "2abbfdc3bc"
+    },
+    "Earth": {
+      "token": "*대자연",
+      "hex": "2ab4ebc0dabfac"
+    },
+    "Fire": {
+      "token": "*불",
+      "hex": "2abad2"
+    },
+    "Ice": {
+      "token": "*냉기",
+      "hex": "2ab3c3b1e2"
+    },
+    "Lightning": {
+      "token": "*번개",
+      "hex": "2ab9f8b0b3"
+    },
+    "Poison": {
+      "token": "*독",
+      "hex": "2ab5b6"
+    },
+    "Water": {
+      "token": "*물",
+      "hex": "2ab9b0"
+    },
+    "Wind": {
+      "token": "*바람",
+      "hex": "2ab9d9b6f7"
+    },
+    "AttackDamage": {
+      "token": "*공격력",
+      "hex": "2ab0f8b0ddb7c2"
+    },
+    "ShootingRange": {
+      "token": "*사정거리",
+      "hex": "2abbe7c1a4b0c5b8ae"
+    },
+    "AttackSpeed": {
+      "token": "*공격속도",
+      "hex": "2ab0f8b0ddbcd3b5b5"
+    },
+    "AttackRating": {
+      "token": "*명중력",
+      "hex": "2ab8edc1dfb7c2"
+    },
+    "Critical": {
+      "token": "*크리티컬",
+      "hex": "2ac5a9b8aec6bcc4c3"
+    },
+    "Absorb": {
+      "token": "*흡수력",
+      "hex": "2ac8edbcf6b7c2"
+    },
+    "Defence": {
+      "token": "*방어력",
+      "hex": "2ab9e6beeeb7c2"
+    },
+    "Block": {
+      "token": "*블럭율",
+      "hex": "2abaedb7b0c0b2"
+    },
+    "MoveSpeed": {
+      "token": "*이동속도",
+      "hex": "2ac0ccb5bfbcd3b5b5"
+    },
+    "PotionSpace": {
+      "token": "*보유공간",
+      "hex": "2abab8c0afb0f8b0a3"
+    },
+    "MagicMastery": {
+      "token": "*마법숙련도",
+      "hex": "2ab8b6b9fdbcf7b7c3b5b5"
+    },
+    "ManaRegen": {
+      "token": "*마나재생",
+      "hex": "2ab8b6b3aac0e7bbfd"
+    },
+    "ManaRegenAlt": {
+      "token": "*기력재생",
+      "hex": "2ab1e2b7c2c0e7bbfd"
+    },
+    "LifeRegen": {
+      "token": "*라이프재생",
+      "hex": "2ab6f3c0ccc7c1c0e7bbfd"
+    },
+    "LifeRegenAlt": {
+      "token": "*생명력재생",
+      "hex": "2abbfdb8edb7c2c0e7bbfd"
+    },
+    "StaminaRegen": {
+      "token": "*스테미나재생",
+      "hex": "2abdbac5d7b9ccb3aac0e7bbfd"
+    },
+    "StaminaRegenAlt": {
+      "token": "*근력재생",
+      "hex": "2ab1d9b7c2c0e7bbfd"
+    },
+    "ManaAdd": {
+      "token": "*마나추가",
+      "hex": "2ab8b6b3aac3dfb0a1"
+    },
+    "ManaAddAlt": {
+      "token": "*기력추가",
+      "hex": "2ab1e2b7c2c3dfb0a1"
+    },
+    "LifeAdd": {
+      "token": "*라이프추가",
+      "hex": "2ab6f3c0ccc7c1c3dfb0a1"
+    },
+    "LifeAddAlt": {
+      "token": "*생명력추가",
+      "hex": "2abbfdb8edb7c2c3dfb0a1"
+    },
+    "StaminaAdd": {
+      "token": "*스테미나추가",
+      "hex": "2abdbac5d7b9ccb3aac3dfb0a1"
+    },
+    "StaminaAddAlt": {
+      "token": "*근력추가",
+      "hex": "2ab1d9b7c2c3dfb0a1"
+    },
+    "Level": {
+      "token": "*레벨",
+      "hex": "2ab7b9baa7"
+    },
+    "Strength": {
+      "token": "*힘",
+      "hex": "2ac8fb"
+    },
+    "Spirit": {
+      "token": "*정신력",
+      "hex": "2ac1a4bdc5b7c2"
+    },
+    "Talent": {
+      "token": "*재능",
+      "hex": "2ac0e7b4c9"
+    },
+    "Dexterity": {
+      "token": "*민첩성",
+      "hex": "2ab9cec3b8bcba"
+    },
+    "Health": {
+      "token": "*건강",
+      "hex": "2ab0c7b0ad"
+    },
+    "Stamina": {
+      "token": "*스테미너상승",
+      "hex": "2abdbac5d7b9ccb3cabbf3bdc2"
+    },
+    "StaminaAlt": {
+      "token": "*근력상승",
+      "hex": "2ab1d9b7c2bbf3bdc2"
+    },
+    "Mana": {
+      "token": "*마나상승",
+      "hex": "2ab8b6b3aabbf3bdc2"
+    },
+    "ManaAlt": {
+      "token": "*기력상승",
+      "hex": "2ab1e2b7c2bbf3bdc2"
+    },
+    "Life": {
+      "token": "*라이프상승",
+      "hex": "2ab6f3c0ccc7c1bbf3bdc2"
+    },
+    "LifeAlt": {
+      "token": "*생명력상승",
+      "hex": "2abbfdb8edb7c2bbf3bdc2"
+    },
+    "Job": {
+      "token": "**특화",
+      "hex": "2a2ac6afc8ad"
+    },
+    "JobRandom": {
+      "token": "**특화랜덤",
+      "hex": "2a2ac6afc8adb7a3b4fd"
+    },
+    "SpecialAbsorb": {
+      "token": "**흡수력",
+      "hex": "2a2ac8edbcf6b7c2"
+    },
+    "SpecialDefence": {
+      "token": "**방어력",
+      "hex": "2a2ab9e6beeeb7c2"
+    },
+    "SpecialMoveSpeed": {
+      "token": "**이동속도",
+      "hex": "2a2ac0ccb5bfbcd3b5b5"
+    },
+    "SpecialBlock": {
+      "token": "**블럭율",
+      "hex": "2a2abaedb7b0c0b2"
+    },
+    "SpecialAttackSpeed": {
+      "token": "**공격속도",
+      "hex": "2a2ab0f8b0ddbcd3b5b5"
+    },
+    "SpecialCritical": {
+      "token": "**크리티컬",
+      "hex": "2a2ac5a9b8aec6bcc4c3"
+    },
+    "SpecialRange": {
+      "token": "**사정거리",
+      "hex": "2a2abbe7c1a4b0c5b8ae"
+    },
+    "SpecialMagic": {
+      "token": "**마법숙련도",
+      "hex": "2a2ab8b6b9fdbcf7b7c3b5b5"
+    },
+    "SpecialManaAdd": {
+      "token": "**마나추가",
+      "hex": "2a2ab8b6b3aac3dfb0a1"
+    },
+    "SpecialManaAddAlt": {
+      "token": "**기력추가",
+      "hex": "2a2ab1e2b7c2c3dfb0a1"
+    },
+    "SpecialLifeAdd": {
+      "token": "**라이프추가",
+      "hex": "2a2ab6f3c0ccc7c1c3dfb0a1"
+    },
+    "SpecialLifeAddAlt": {
+      "token": "**생명력추가",
+      "hex": "2a2abbfdb8edb7c2c3dfb0a1"
+    },
+    "SpecialAttackRating": {
+      "token": "**명중력",
+      "hex": "2a2ab8edc1dfb7c2"
+    },
+    "SpecialDamage": {
+      "token": "**공격력",
+      "hex": "2a2ab0f8b0ddb7c2"
+    },
+    "SpecialManaRegen": {
+      "token": "**마나재생",
+      "hex": "2a2ab8b6b3aac0e7bbfd"
+    },
+    "SpecialManaRegenAlt": {
+      "token": "**기력재생",
+      "hex": "2a2ab1e2b7c2c0e7bbfd"
+    },
+    "SpecialLifeRegen": {
+      "token": "**라이프재생",
+      "hex": "2a2ab6f3c0ccc7c1c0e7bbfd"
+    },
+    "SpecialLifeRegenAlt": {
+      "token": "**생명력재생",
+      "hex": "2a2abbfdb8edb7c2c0e7bbfd"
+    },
+    "SpecialStaminaRegen": {
+      "token": "**스테미나재생",
+      "hex": "2a2abdbac5d7b9ccb3aac0e7bbfd"
+    },
+    "SpecialStaminaRegenAlt": {
+      "token": "**근력재생",
+      "hex": "2a2ab1d9b7c2c0e7bbfd"
+    },
+    "GenerationLimit": {
+      "token": "*발생제한",
+      "hex": "2ab9dfbbfdc1a6c7d1"
+    },
+    "LinkedFile": {
+      "token": "*연결파일",
+      "hex": "2abfacb0e1c6c4c0cf"
+    }
+  }
+}

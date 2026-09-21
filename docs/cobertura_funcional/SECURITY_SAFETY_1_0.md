@@ -1,66 +1,115 @@
 # PT Asset Tool R14 1.0.0 — Modelo de Segurança e Autoridade
 
-## Estado da distribuição
+<!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->
 
-- automatic gate: `PASS`;
-- automatic blockers: `0`;
-- package: safety-locked;
-- `production_authorized=false`;
-- `client_write_authorized=false`;
-- `server_write_authorized=false`;
-- `WRITER_PROMOTION_AND_PUBLISH_RESTORE`: gate operacional externo.
+**Atualização:** 2026-09-21 — publish capability-scoped de Legacy Authoring/Asset Bundle.
+
+## Princípio
+
+O padrão continua **read-only**. Escrita no target não é um flag global; é uma autorização estreita por pipeline, formato e transação.
 
 ## Zonas de escrita
 
-### Permitida pela operação normal
+### RO
+
+- client/server census;
+- Management Legacy evidence;
+- World Closure;
+- inspect;
+- compare/audits.
+
+### BUILD
 
 - `app/pt_build/**`;
-- configuração local da ferramenta;
-- journal de certificação da própria ferramenta quando a ação explicitamente o requer.
+- overlays/manifests;
+- workspaces;
+- reports/evidence;
+- configuração/journal local.
 
-### Não permitida automaticamente
+Na GUI, BUILD requer `ARM BUILD WRITES` quando a ação cria artefactos.
 
-- client Summit;
-- server Summit;
-- source C/C++;
-- donor roots.
+### DEPLOY
+
+Só pipelines explicitamente promovidas podem substituir target bytes. Atualmente isso inclui os bundles/capabilities documentados, entre eles Legacy Authoring para ITEM/MONSTER/NPC/SPM/SPP/SPC no escopo provado.
 
 ## Fail-closed
 
-Quando a ferramenta não consegue provar identidade, layout, binding, lineage, hash, context ou writer applicability, deve emitir REVIEW/BLOCKED/UNRESOLVED e não escolher “a opção mais provável”.
+Sem identidade, layout, binding, lineage, target único, hash ou writer applicability, a ferramenta retorna REVIEW/BLOCKED/AMBIGUOUS/UNRESOLVED e não escolhe “o mais provável”.
 
-## Recovery
+## Writer vs publish
 
-Recovery geral exige CLOSED reachability bundle e expected roots. Um arquivo parecido, mesmo casefold-exact em donor, é evidência diagnóstica até satisfazer a política de recovery. Basename-only nunca é suficiente.
+São gates diferentes:
 
-## Writers
+1. writer pode gerar um artefacto válido em `pt_build`;
+2. publish pode aplicar aquele artefacto a um target específico.
 
-Um writer pode estar certificado para determinado formato/asset/canal sem que isso autorize publish. Há duas autorizações diferentes:
+A presença de writer não concede write genérico.
 
-1. **writer authorization** — o algoritmo pode produzir um artefacto no escopo provado;
-2. **publish authorization** — o artefacto pode substituir bytes no target.
+## Legacy Authoring
 
-A versão 1.0 inclui a primeira para escopos certificados e mantém a segunda bloqueada.
+### Stage
 
-## Deploy
+- exige `server_root`;
+- GUI exige `ARM BUILD WRITES`;
+- escreve apenas em `pt_build`;
+- EDIT pode usar `expected_sha256` para detectar drift desde Inspect.
 
-`deploy plan/prepare/verify/simulate/state/restore-plan` continua como contrato legacy read-only no client. Escrita real só existe no fluxo estreito `deploy workspace-*`, originado de workspace `generic_import` verificado, com confirmação literal, backup SHA-256 do bundle completo, drift gate, staged artifacts sob `pt_build`, replace atómico, post-write verification e rollback integral em falha.
+### Publish
 
-## Server
+CLI exige:
 
-O server é read-only. Field Metadata Editor gera drafts em `pt_build`, nunca edita SPM/SPP/SPC no server root.
-
-## UI safety arm
-
-`ARM BUILD WRITES` habilita somente workspace/build. Client write requer separadamente `ARM CLIENT DEPLOY`, consumido após uma única tarefa de publicar/restaurar bundle. O server continua sem write. O backend aplica os guards mesmo quando a UI está armada.
-
-## Auditoria
-
-Antes de distribuir uma árvore modificada:
-
-```bash
-./VERIFY_PACKAGE.sh
-cd app
-python3 -m pytest -q dev_tests/test_registry_bootstrap_fresh.py
-./RUN_REGRESSION_FOCUSED.sh
+```text
+APPLY ASSET BUNDLE
 ```
+
+GUI exige `ARM ASSET DEPLOY` e confirmação interativa.
+
+A transação executa:
+
+```text
+target evidence/hash
+→ drift gate
+→ backup
+→ atomic replace
+→ post-write verification
+→ APPLIED_VERIFIED
+```
+
+Falha de write/verify provoca rollback.
+
+### Restore
+
+CLI exige:
+
+```text
+RESTORE ASSET BUNDLE
+```
+
+Restore só usa o backup da transação e recusa drift externo desconhecido.
+
+## Boundaries de conteúdo
+
+Bloqueados:
+
+- novo runtime `sITEM` code;
+- userdata/warehouse binários;
+- internals não provados do ItemEditor;
+- SPP/SPC fora do layout canónico;
+- path/definition ambíguo;
+- write manual fora da transação como substituto do pipeline.
+
+## Executáveis legacy
+
+Nenhum EXE histórico é executado. Verificar Management significa hash/evidence, não launch.
+
+## Persistência/logs/segurança
+
+DataServer/userdata, warehouse, logs, anti-cheat e estado runtime não passam a ser assets só porque tooling histórico os acessava. Permanecem fora do authoring normal.
+
+## UI arms
+
+- `ARM BUILD WRITES`: pt_build/workspace/stage;
+- `ARM ASSET DEPLOY`: Asset Bundle/Legacy Authoring publish/restore;
+- `ARM CLIENT DEPLOY`: pipelines específicas de client workspace.
+
+Os arms não desabilitam guards backend.

@@ -51,6 +51,7 @@ except Exception:  # pragma: no cover - environment specific
 FORMAT = "PT_ASSET_WORKSPACE_BUNDLE_TRANSACTION_V1"
 APPLY_CONFIRMATION = "APPLY CLIENT BUNDLE"
 RESTORE_CONFIRMATION = "RESTORE CLIENT BUNDLE"
+ACTIVE_DEPLOY_STATES = {"APPLIED_VERIFIED", "PARTIALLY_RESTORED_VERIFIED"}
 
 
 def _sha256(path: pathlib.Path) -> str:
@@ -549,6 +550,10 @@ def _build_model_candidate(settings, resolver, asset, txroot: pathlib.Path, *, a
                 {"object": row["object"], "lod": row.get("lod"), **repair}
                 for row in probes for repair in (row.get("blender_weight_repairs") or [])
             ]
+            probe_weight_repair_strategy_counts: dict[str, int] = {}
+            for repair in probe_weight_repairs:
+                key = str(repair.get("strategy") or "UNKNOWN")
+                probe_weight_repair_strategy_counts[key] = probe_weight_repair_strategy_counts.get(key, 0) + 1
 
             if not changed_objects:
                 return {
@@ -580,6 +585,7 @@ def _build_model_candidate(settings, resolver, asset, txroot: pathlib.Path, *, a
                     "probe_weight_repair_count": probe_weight_repair_count,
                     "probe_weight_repairs": probe_weight_repairs[:64],
                     "probe_weight_repairs_truncated": max(0, len(probe_weight_repairs) - 64),
+                    "probe_weight_repair_strategy_counts": probe_weight_repair_strategy_counts,
                     "auto_rigid_weight_repair_enabled": bool(auto_rigid_weight_repair),
                     "blender_weight_edits_authorized": bool(auto_rigid_weight_repair),
                     "candidate_only": True,
@@ -619,6 +625,10 @@ def _build_model_candidate(settings, resolver, asset, txroot: pathlib.Path, *, a
                 for row in step_rows for repair in (row.get("blender_weight_repairs") or [])
             ]
             auto_weight_repair_count = sum(int(row.get("blender_weight_repair_count") or 0) for row in step_rows)
+            auto_weight_repair_strategy_counts: dict[str, int] = {}
+            for repair in auto_weight_repairs:
+                key = str(repair.get("strategy") or "UNKNOWN")
+                auto_weight_repair_strategy_counts[key] = auto_weight_repair_strategy_counts.get(key, 0) + 1
 
             if skeleton is None:
                 raise RuntimeError("rigid LOD build resolved no skeleton")
@@ -712,6 +722,7 @@ def _build_model_candidate(settings, resolver, asset, txroot: pathlib.Path, *, a
             "blender_weight_repair_count": auto_weight_repair_count,
             "blender_weight_repairs": auto_weight_repairs[:64],
             "blender_weight_repairs_truncated": max(0, len(auto_weight_repairs) - 64),
+            "blender_weight_repair_strategy_counts": auto_weight_repair_strategy_counts,
             "blender_weight_edits_authorized": bool(auto_rigid_weight_repair),
         })
     return result
@@ -865,8 +876,9 @@ def prepare_workspace_bundle(settings, resolver, registry, target: str, *, inclu
                 warnings.append(
                     "AUTO_RIGID_WEIGHT_REPAIR:"
                     f"count={int(model_build.get('blender_weight_repair_count') or 0)}:"
-                    "one valid bone was selected deterministically for each incompatible vertex and serialized at weight 1.0; "
-                    "use --no-auto-rigid-weight-repair to block instead"
+                    f"strategies={model_build.get('blender_weight_repair_strategy_counts') or {}}:"
+                    "source correspondence is preferred, then unique highest Blender weight, then deterministic tie-break; "
+                    "each repaired vertex is serialized at weight 1.0; use --no-auto-rigid-weight-repair to block instead"
                 )
             elif int(model_build.get("blender_weight_mismatch_count") or 0) > 0:
                 warnings.append(
@@ -927,6 +939,7 @@ def prepare_workspace_bundle(settings, resolver, registry, target: str, *, inclu
             "runtime_lod_coverage_complete": model_build.get("runtime_lod_coverage_complete"),
             "blender_weight_mismatch_count": int(model_build.get("blender_weight_mismatch_count") or 0),
             "blender_weight_repair_count": int(model_build.get("blender_weight_repair_count") or 0),
+            "blender_weight_repair_strategy_counts": dict(model_build.get("blender_weight_repair_strategy_counts") or {}),
             "auto_rigid_weight_repair_enabled": bool(model_build.get("auto_rigid_weight_repair_enabled", auto_rigid_weight_repair)),
             "physique_preserve_objects": list(model_build.get("physique_preserve_objects") or []),
         },
@@ -1184,77 +1197,166 @@ def workspace_bundle_status(manifest_path: str | pathlib.Path) -> dict[str, Any]
     }
 
 
-def restore_workspace_bundle_transaction(manifest_path: str | pathlib.Path, *, confirm: str) -> dict[str, Any]:
+def _restore_workspace_bundle_entries(
+    manifest_path: str | pathlib.Path,
+    *,
+    confirm: str,
+    roles: set[str] | None = None,
+    operation: str = "BUNDLE",
+) -> dict[str, Any]:
     if str(confirm) != RESTORE_CONFIRMATION:
         raise RuntimeError(f"client bundle restore requires exact confirmation: {RESTORE_CONFIRMATION}")
     p, data = _load_transaction(manifest_path)
-    if data.get("state") != "APPLIED_VERIFIED":
-        raise RuntimeError(f"restore requires APPLIED_VERIFIED transaction, got {data.get('state')}")
+    if data.get("state") not in ACTIVE_DEPLOY_STATES:
+        raise RuntimeError(
+            f"restore requires an active deployed transaction, got {data.get('state')}"
+        )
     status = workspace_bundle_status(p)
     if status.get("status") != "PASS" or status.get("drift_count"):
         raise RuntimeError("restore refuses unknown client drift")
+
+    current_state = {
+        str(row.get("logical_path") or "").casefold(): str(row.get("state") or "")
+        for row in (status.get("entries") or [])
+    }
     changed = [x for x in data.get("entries") or [] if x.get("state") == "MODIFIED"]
+    if roles is not None:
+        wanted = {str(x).upper() for x in roles}
+        changed = [x for x in changed if str(x.get("role") or "").upper() in wanted]
+    if not changed:
+        role_text = ",".join(sorted(roles or set())) or "ANY"
+        raise RuntimeError(f"no modified entries are available for restore role={role_text}")
+
+    deployed: list[dict[str, Any]] = []
+    already_original: list[str] = []
     for entry in changed:
         logical = str(entry.get("logical_path") or "")
+        state = current_state.get(logical.casefold(), "DRIFT")
+        if state == "ORIGINAL":
+            already_original.append(logical)
+            continue
+        if state != "DEPLOYED":
+            raise RuntimeError(f"restore refuses unknown client drift: {logical}:{state}")
         dest = pathlib.Path(str(entry.get("destination") or "")).resolve()
         staged = entry.get("staged") or {}
-        if not dest.is_file() or dest.stat().st_size != int(staged.get("size") or -1) or _sha256(dest) != str(staged.get("sha256") or ""):
+        if (
+            not dest.is_file()
+            or dest.stat().st_size != int(staged.get("size") or -1)
+            or _sha256(dest) != str(staged.get("sha256") or "")
+        ):
             raise RuntimeError(f"restore refuses destination not equal to managed artifact: {logical}")
+        deployed.append(entry)
 
     restored: list[str] = []
     errors: list[str] = []
     try:
-        for entry in changed:
+        for entry in deployed:
             backup = pathlib.Path(str((entry.get("backup") or {}).get("path") or "")).resolve()
             dest = pathlib.Path(str(entry.get("destination") or "")).resolve()
             _atomic_replace_from(backup, dest)
             original = entry.get("source") or {}
-            if dest.stat().st_size != int(original.get("size") or -1) or _sha256(dest) != str(original.get("sha256") or ""):
+            if (
+                dest.stat().st_size != int(original.get("size") or -1)
+                or _sha256(dest) != str(original.get("sha256") or "")
+            ):
                 raise RuntimeError(f"restore postwrite verification failed: {entry.get('logical_path')}")
             restored.append(str(entry.get("logical_path") or ""))
     except Exception as exc:
         errors.append(f"{type(exc).__name__}:{exc}")
-        # Restoration itself is intentionally fail-closed. If only a subset was
-        # restored, re-apply their verified managed artifacts to return the whole
-        # bundle to its known pre-restore state.
+        # Fail closed: return entries restored by this operation to the managed
+        # artifact identity that existed immediately before the manual restore.
         reapply_errors: list[str] = []
-        for entry in changed:
+        for entry in deployed:
             if str(entry.get("logical_path") or "") not in restored:
                 continue
             try:
                 staged = pathlib.Path(str((entry.get("staged") or {}).get("path") or "")).resolve()
                 dest = pathlib.Path(str(entry.get("destination") or "")).resolve()
                 _atomic_replace_from(staged, dest)
+                expected = entry.get("staged") or {}
+                if (
+                    dest.stat().st_size != int(expected.get("size") or -1)
+                    or _sha256(dest) != str(expected.get("sha256") or "")
+                ):
+                    raise RuntimeError("restore reapply postwrite identity mismatch")
             except Exception as rex:
-                reapply_errors.append(f"RESTORE_REAPPLY_FAILED:{entry.get('logical_path')}:{type(rex).__name__}:{rex}")
+                reapply_errors.append(
+                    f"RESTORE_REAPPLY_FAILED:{entry.get('logical_path')}:{type(rex).__name__}:{rex}"
+                )
         errors.extend(reapply_errors)
-        data.setdefault("events", []).append({"event": "RESTORE_FAILED", "at": time.time(), "errors": errors})
+        data.setdefault("events", []).append({
+            "event": f"{operation}_RESTORE_FAILED",
+            "at": time.time(),
+            "errors": errors,
+        })
         _atomic_json(p, data)
         return {
-            "format": "PT_ASSET_WORKSPACE_BUNDLE_RESTORE_V1",
+            "format": "PT_ASSET_WORKSPACE_BUNDLE_RESTORE_V2",
             "status": "FAIL",
             "state": "RESTORE_FAILED",
+            "operation": operation,
             "manifest": str(p),
             "errors": errors,
             "client_modified": True,
         }
 
-    data["status"] = "RESTORED_VERIFIED"
-    data["state"] = "RESTORED_VERIFIED"
-    data["client_modified"] = False
-    data["restored_at"] = time.time()
-    data.setdefault("events", []).append({"event": "RESTORED_VERIFIED", "at": time.time(), "restored_file_count": len(restored)})
+    final_status = workspace_bundle_status(p)
+    remaining_deployed = int(final_status.get("deployed_count") or 0)
+    if remaining_deployed:
+        new_state = "PARTIALLY_RESTORED_VERIFIED"
+        data["client_modified"] = True
+        data["partial_restore_at"] = time.time()
+    else:
+        new_state = "RESTORED_VERIFIED"
+        data["client_modified"] = False
+        data["restored_at"] = time.time()
+    data["status"] = new_state
+    data["state"] = new_state
+    data.setdefault("events", []).append({
+        "event": f"{operation}_RESTORED_VERIFIED",
+        "at": time.time(),
+        "restored_file_count": len(restored),
+        "already_original_count": len(already_original),
+        "remaining_deployed_count": remaining_deployed,
+    })
     _atomic_json(p, data)
     return {
-        "format": "PT_ASSET_WORKSPACE_BUNDLE_RESTORE_V1",
+        "format": "PT_ASSET_WORKSPACE_BUNDLE_RESTORE_V2",
         "status": "PASS",
-        "state": "RESTORED_VERIFIED",
+        "state": new_state,
+        "operation": operation,
         "manifest": str(p),
         "asset": data.get("asset"),
         "restored_file_count": len(restored),
         "restored_files": restored,
-        "client_modified": False,
+        "already_original_files": already_original,
+        "remaining_deployed_count": remaining_deployed,
+        "client_modified": bool(remaining_deployed),
     }
+
+
+def restore_workspace_bundle_transaction(manifest_path: str | pathlib.Path, *, confirm: str) -> dict[str, Any]:
+    """Restore all still-deployed entries from one verified workspace bundle.
+
+    A previous model-only restore is accepted: entries that are already back at
+    their original identity are skipped and the remaining managed entries are
+    restored atomically/fail-closed.
+    """
+    return _restore_workspace_bundle_entries(
+        manifest_path, confirm=confirm, roles=None, operation="BUNDLE"
+    )
+
+
+def restore_workspace_bundle_model_transaction(manifest_path: str | pathlib.Path, *, confirm: str) -> dict[str, Any]:
+    """Restore only MODEL entries from an active verified bundle.
+
+    This is the manual "retirar modelo" path used by the UI. Texture entries
+    remain deployed. Unknown drift is refused and a failed partial restore is
+    rolled back to the managed artifact bytes that existed before the request.
+    """
+    return _restore_workspace_bundle_entries(
+        manifest_path, confirm=confirm, roles={"MODEL"}, operation="MODEL_ONLY"
+    )
 
 
 def bundle_history(project_root: pathlib.Path, target: str) -> dict[str, Any]:
@@ -1291,11 +1393,53 @@ def bundle_history(project_root: pathlib.Path, target: str) -> dict[str, Any]:
 
 
 def latest_applied_bundle_manifest(project_root: pathlib.Path, target: str) -> pathlib.Path | None:
+    """Return the newest transaction that still has managed bytes in client.
+
+    PARTIALLY_RESTORED_VERIFIED remains active because a model-only rollback
+    may intentionally leave textures deployed.
+    """
     history = bundle_history(project_root, target)
     for row in history.get("transactions") or []:
-        if row.get("state") == "APPLIED_VERIFIED":
+        if row.get("state") in ACTIVE_DEPLOY_STATES:
             return pathlib.Path(str(row["manifest"])).resolve()
     return None
+
+
+def workspace_bundle_restore_capabilities(project_root: pathlib.Path, target: str) -> dict[str, Any]:
+    manifest = latest_applied_bundle_manifest(project_root, target)
+    if manifest is None:
+        return {
+            "status": "NO_ACTIVE_BUNDLE", "manifest": None,
+            "can_restore_bundle": False, "can_restore_model": False,
+            "deployed_count": 0, "deployed_model_count": 0,
+            "deployed_texture_count": 0, "drift_count": 0,
+        }
+    _p, data = _load_transaction(manifest)
+    state = workspace_bundle_status(manifest)
+    by_path = {
+        str(row.get("logical_path") or "").casefold(): str(row.get("state") or "")
+        for row in (state.get("entries") or [])
+    }
+    deployed_entries = [
+        entry for entry in (data.get("entries") or [])
+        if entry.get("state") == "MODIFIED"
+        and by_path.get(str(entry.get("logical_path") or "").casefold()) == "DEPLOYED"
+    ]
+    model = [x for x in deployed_entries if str(x.get("role") or "").upper() == "MODEL"]
+    textures = [x for x in deployed_entries if str(x.get("role") or "").upper() == "TEXTURE"]
+    clean = state.get("status") == "PASS" and not int(state.get("drift_count") or 0)
+    return {
+        "status": "PASS" if clean else "BLOCKED",
+        "manifest": str(manifest),
+        "transaction_state": data.get("state"),
+        "can_restore_bundle": bool(clean and deployed_entries),
+        "can_restore_model": bool(clean and model),
+        "deployed_count": len(deployed_entries),
+        "deployed_model_count": len(model),
+        "deployed_texture_count": len(textures),
+        "drift_count": int(state.get("drift_count") or 0),
+        "deployed_files": [str(x.get("logical_path") or "") for x in deployed_entries],
+    }
 
 
 def publish_workspace_bundle(
@@ -1407,5 +1551,12 @@ def check_latest_workspace_bundle(project_root: pathlib.Path, target: str) -> di
 def restore_latest_workspace_bundle(project_root: pathlib.Path, target: str, *, confirm: str) -> dict[str, Any]:
     manifest = latest_applied_bundle_manifest(project_root, target)
     if manifest is None:
-        raise RuntimeError(f"no APPLIED_VERIFIED bundle exists for {target}")
+        raise RuntimeError(f"no active verified bundle exists for {target}")
     return restore_workspace_bundle_transaction(manifest, confirm=confirm)
+
+
+def restore_latest_workspace_model(project_root: pathlib.Path, target: str, *, confirm: str) -> dict[str, Any]:
+    manifest = latest_applied_bundle_manifest(project_root, target)
+    if manifest is None:
+        raise RuntimeError(f"no active verified bundle exists for {target}")
+    return restore_workspace_bundle_model_transaction(manifest, confirm=confirm)

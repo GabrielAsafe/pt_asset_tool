@@ -1,0 +1,861 @@
+{
+  "format": "PT_SOURCE_OPERATIONAL_INI_KEY_REGISTRY_V1",
+  "entry_count": 95,
+  "entries": [
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Screen",
+      "key": "Windowed",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Screen",
+      "key": "Ratio",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Screen",
+      "key": "Resolution",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Screen",
+      "key": "AutoAdjust",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Screen",
+      "key": "StartMaximized",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Graphics",
+      "key": "TextureQuality",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Graphics",
+      "key": "BitDepth",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Camera",
+      "key": "Range",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Camera",
+      "key": "Inverted",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Audio",
+      "key": "Music",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Audio",
+      "key": "MusicVolume",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Audio",
+      "key": "Effects",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Audio",
+      "key": "EffectsVolume",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Game",
+      "key": "Weather",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Game",
+      "key": "RememberID",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Social",
+      "key": "PartyRequest",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Social",
+      "key": "TradeRequest",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Social",
+      "key": "Whisper",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Personalization",
+      "key": "DamageDebug",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Personalization",
+      "key": "HpBar",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Personalization",
+      "key": "FPS",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Enable",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "HpPot",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "MpPot",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "SpPot",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Gold",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Amulets",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Rings",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Sheltoms",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Force",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Premiums",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Crystals",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Defense",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Offense",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Everything",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "NS",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Fighter",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Mech",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Archer",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Pikeman",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Atalanta",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Knight",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Magician",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "LootFilter",
+      "key": "Priestess",
+      "type": "int/bool",
+      "mode": "read+write",
+      "source": "SrcGame/src/systems/configuration/client/Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Network",
+      "key": "Server",
+      "type": "string<=31",
+      "mode": "read",
+      "source": "Settings.cpp:97-130"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Network",
+      "key": "Server1",
+      "type": "string<=31",
+      "mode": "read",
+      "source": "Settings.cpp:97-130"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Network",
+      "key": "Server2",
+      "type": "string<=31",
+      "mode": "read",
+      "source": "Settings.cpp:97-130"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Network",
+      "key": "Server3",
+      "type": "string<=31",
+      "mode": "read",
+      "source": "Settings.cpp:97-130"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Network",
+      "key": "Port",
+      "type": "int 1..65535",
+      "mode": "read",
+      "source": "Settings.cpp:137"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro1",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro2",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro3",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro4",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro5",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro6",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro7",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro8",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro9",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "client.game_config",
+      "path": "game.ini",
+      "section": "Macro",
+      "key": "Macro10",
+      "type": "string",
+      "mode": "read+write",
+      "source": "Settings.cpp"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Database",
+      "key": "Driver",
+      "type": "string",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Database",
+      "key": "Host",
+      "type": "string",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Database",
+      "key": "User",
+      "type": "string",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Database",
+      "key": "Password",
+      "type": "secret-string",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Title",
+      "key": "message",
+      "type": "string",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Limits",
+      "key": "Absorption",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Limits",
+      "key": "Attack_Damage",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Limits",
+      "key": "Defence",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Server",
+      "key": "Manutencao",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Eventos",
+      "key": "AgingFree",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Eventos",
+      "key": "HellsGate",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Kill",
+      "key": "Delay",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "ChatGame",
+      "key": "Delay_Chat",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "ChatGame",
+      "key": "ChatGlobalON",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "ChatGame",
+      "key": "AlertaGm",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Rate",
+      "key": "Gold",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Rate",
+      "key": "Coin",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "BossTime",
+      "key": "TimeBoss",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Valor",
+      "key": "Pedra1",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Valor",
+      "key": "Pedra2",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Valor",
+      "key": "Pedra3",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Valor",
+      "key": "Pedra4",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Valor",
+      "key": "Pedra5",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "NewPlayer",
+      "key": "Level",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "NewPlayer",
+      "key": "ADD",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "NewPlayer",
+      "key": "Regen",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "NewPlayer",
+      "key": "AutoPromotion",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Buffs",
+      "key": "SetBoss1Bonus1",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Buffs",
+      "key": "SetBoss1Bonus2",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Buffs",
+      "key": "SetBoss2Bonus1",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Buffs",
+      "key": "SetBoss2Bonus2",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Logado",
+      "key": "Delay",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Logado_Coin",
+      "key": "Delay",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.systems_config",
+      "path": "Configs/Sistemas.ini",
+      "section": "Logado_Coin",
+      "key": "ValorMaximo",
+      "type": "int",
+      "mode": "read",
+      "source": "Database/News/OnSever sources"
+    },
+    {
+      "contract_id": "server.exp_manager_config",
+      "path": "Configs/ExpManager.ini",
+      "section": "LevelParty",
+      "key": "Diferenca",
+      "type": "int",
+      "mode": "read+write",
+      "source": "OnSever_legacy_server.inl"
+    },
+    {
+      "contract_id": "font.runtime_config",
+      "path": "game/font/Config.ini",
+      "section": "FontG",
+      "key": "Type",
+      "type": "string<=31",
+      "mode": "read",
+      "source": "Winmain.cpp and UI consumers"
+    }
+  ]
+}

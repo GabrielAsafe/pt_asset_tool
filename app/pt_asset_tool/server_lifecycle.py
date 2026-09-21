@@ -85,7 +85,7 @@ def classify_server_path(relative_path: str | pathlib.PurePath) -> ServerPathCla
     # Static gameplay roots are parser-driven and safe only as bundles.
     if low.startswith("gameserver/monster/") and ext == ".inf":
         return row(ASSET_STATIC, asset=True, visible=True, policy="STAGE_ONLY_BUNDLE_VALIDATION", reason="server monster definition")
-    if low.startswith("gameserver/npc/") and ext == ".npc":
+    if low.startswith("gameserver/npc/") and ext in {".npc", ".inf"}:
         return row(ASSET_STATIC, asset=True, visible=True, policy="STAGE_ONLY_BUNDLE_VALIDATION", reason="server NPC definition")
     if low.startswith("gameserver/openitem/") and ext == ".txt":
         return row(ASSET_STATIC, asset=True, visible=True, policy="STAGE_ONLY_BUNDLE_VALIDATION", reason="server OpenItem definition")
@@ -96,7 +96,7 @@ def classify_server_path(relative_path: str | pathlib.PurePath) -> ServerPathCla
     if low.startswith("gameserver/field/") and ext == ".spp":
         return row(ASSET_MAP_METADATA, asset=True, visible=True, policy="STAGE_ONLY_LAYOUT_VALIDATION", reason="field start-point metadata")
     if low.startswith("gameserver/field/") and ext == ".spc":
-        return row(ASSET_MAP_METADATA_REVIEW, asset=True, visible=True, policy="REVIEW_TYPED_CLONE_ONLY", reason="fixed NPC placement snapshot with embedded struct")
+        return row(ASSET_MAP_METADATA_REVIEW, asset=True, visible=True, policy="STAGE_ONLY_LAYOUT_VALIDATION", reason="fixed NPC placement table; Win32 smTRNAS_PLAYERINFO ABI is source-derived and authorable")
 
     # Same 3D family is physically present server-side; use the PT asset pipeline,
     # never infer safety from the extension alone.

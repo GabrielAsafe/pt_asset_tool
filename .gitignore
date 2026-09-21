@@ -7,6 +7,8 @@ app/pt_build/
 .pytest_cache/
 **/.pytest_cache/
 
+enhancement
+
 # Local editor/OS noise
 .DS_Store
 *~

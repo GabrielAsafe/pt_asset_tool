@@ -769,15 +769,70 @@ def rigid_bone(obj, vi):
     return rows[0][0]
 
 
-def auto_rigid_bone(obj, vi, *, seed_material, skeleton, conflict_keys, source_bone=None):
+def _source_physique_position_map(src_obj, skeleton):
+    """Map shipped bind-pose positions to their original Physique bones.
+
+    Blender can split one shipped vertex into several vertices while preserving
+    the exact bind-pose position (for example after artist topology/UV work).
+    Those expanded vertices no longer have a usable source index, but their
+    position still provides strong provenance for the original rigid bone.
+    """
+    out = defaultdict(list)
+    source_bones = list(src_obj.get("bones") or [])
+    for source_vi, sv in enumerate(src_obj.get("vertices") or []):
+        if source_vi >= len(source_bones):
+            continue
+        bone = str(source_bones[source_vi] or "")
+        if not bone or bone not in skeleton:
+            continue
+        fixed = world_fixed(sv[:3], skeleton[bone])
+        pos = tuple(float(x) / 256.0 for x in fixed)
+        key = tuple(round(x, 6) for x in pos)
+        out[key].append((bone, int(source_vi), pos))
+    return out
+
+
+def _source_bone_for_blender_vertex(obj, vi, *, src_obj, skeleton, position_map):
+    source_bones = list(src_obj.get("bones") or [])
+    source_nv = int(src_obj.get("nv") or len(src_obj.get("vertices") or []))
+    # When topology/indexing is unchanged, the physical index is the strongest
+    # correspondence available and remains valid even after moving the vertex.
+    if len(obj.data.vertices) == source_nv and vi < len(source_bones):
+        bone = str(source_bones[vi] or "")
+        if bone in skeleton:
+            return bone, "source_index_correspondence", int(vi)
+
+    world = tuple(float(x) for x in obj.data.vertices[vi].co)
+    key = tuple(round(x, 6) for x in world)
+    rows = list(position_map.get(key) or [])
+    if not rows:
+        return None, None, None
+
+    blender_groups = {name for name, weight in rigid_bone_rows(obj, vi) if weight > 1e-8}
+    matching = [row for row in rows if row[0] in blender_groups]
+    pool = matching or rows
+    unique_bones = sorted({row[0] for row in pool}, key=lambda x: (x.casefold(), x))
+    if len(unique_bones) != 1:
+        return None, None, None
+    bone = unique_bones[0]
+    source_vi = next(row[1] for row in pool if row[0] == bone)
+    return bone, "source_position_correspondence", int(source_vi)
+
+
+def auto_rigid_bone(
+    obj, vi, *, seed_material, skeleton, conflict_keys, source_bone=None,
+    source_strategy=None, source_vertex=None,
+):
     """Choose one serializable rigid bone and report any automatic repair.
 
-    Model0.62 can serialize only one Physique bone per vertex.  Blender may
-    contain multiple non-zero groups or a single group whose weight is not 1.0.
-    The default authoring policy intentionally bypasses that mismatch by choosing
-    one valid group with a stable pseudo-random selector and serializing it as
-    weight 1.0.  Stable selection gives the user the historical "pick one"
-    behavior without making repeated builds nondeterministic.
+    Repair priority is provenance first, artist intent second, deterministic
+    fallback last:
+      1. use a verified source/index or source/position correspondence when that
+         original bone is still one of the Blender vertex groups;
+      2. use a unique highest Blender weight;
+      3. stable pseudo-random choice only for a true tie/ambiguous remainder.
+
+    Model0.62 still serializes exactly one Physique bone at weight 1.0.
     """
     rows = rigid_bone_rows(obj, vi)
     strict = len(rows) == 1 and abs(rows[0][1] - 1.0) <= 1e-5
@@ -788,15 +843,31 @@ def auto_rigid_bone(obj, vi, *, seed_material, skeleton, conflict_keys, source_b
         (name, weight) for name, weight in rows
         if name in skeleton and name.casefold() not in conflict_keys
     ]
-    strategy = "stable_pseudorandom_group"
-    if candidates:
-        canonical = sorted(candidates, key=lambda row: (row[0].casefold(), row[0], row[1]))
-        payload = (
-            str(seed_material) + "|" + str(vi) + "|"
-            + "|".join(f"{name}:{weight:.17g}" for name, weight in canonical)
-        ).encode("utf-8", "surrogatepass")
-        digest = hashlib.sha256(payload).digest()
-        selected = canonical[int.from_bytes(digest[:8], "big") % len(canonical)][0]
+    candidate_names = {name for name, _ in candidates}
+    selected = None
+    strategy = None
+
+    if source_bone and source_bone in candidate_names:
+        selected = str(source_bone)
+        strategy = str(source_strategy or "source_correspondence")
+    elif candidates:
+        max_weight = max(weight for _, weight in candidates)
+        strongest = sorted(
+            [name for name, weight in candidates if abs(weight - max_weight) <= 1e-8],
+            key=lambda x: (x.casefold(), x),
+        )
+        if len(strongest) == 1:
+            selected = strongest[0]
+            strategy = "highest_blender_weight"
+        else:
+            canonical = sorted(candidates, key=lambda row: (row[0].casefold(), row[0], row[1]))
+            payload = (
+                str(seed_material) + "|" + str(vi) + "|"
+                + "|".join(f"{name}:{weight:.17g}" for name, weight in canonical)
+            ).encode("utf-8", "surrogatepass")
+            digest = hashlib.sha256(payload).digest()
+            selected = canonical[int.from_bytes(digest[:8], "big") % len(canonical)][0]
+            strategy = "stable_pseudorandom_tie_break"
     elif source_bone and source_bone in skeleton and source_bone.casefold() not in conflict_keys:
         selected = str(source_bone)
         strategy = "source_fallback_no_valid_blender_group"
@@ -812,6 +883,8 @@ def auto_rigid_bone(obj, vi, *, seed_material, skeleton, conflict_keys, source_b
         "serialized_weight": 1.0,
         "strategy": strategy,
     }
+    if source_vertex is not None:
+        repair["source_vertex"] = int(source_vertex)
     return selected, repair
 
 
@@ -1117,6 +1190,7 @@ def main(argv):
     physique_workspace_mismatches = []
     physique_auto_repairs = []
     source_bones = list(so.get("bones") or [])
+    source_position_map = _source_physique_position_map(so, skeleton)
     repair_seed = f"{source_sha256}|{target}|{target_index}"
     for vi in range(nv):
         rows = rigid_bone_rows(obj, vi)
@@ -1136,10 +1210,13 @@ def main(argv):
                     "blender_weights": [[name, weight] for name, weight in rows],
                 })
         elif a.physique_policy == "auto":
-            source_bone = str(source_bones[vi]) if vi < len(source_bones) and source_bones[vi] else None
+            source_bone, source_strategy, source_vertex = _source_bone_for_blender_vertex(
+                obj, vi, src_obj=so, skeleton=skeleton, position_map=source_position_map,
+            )
             bone, repair = auto_rigid_bone(
                 obj, vi, seed_material=repair_seed, skeleton=skeleton,
                 conflict_keys=conflict_keys, source_bone=source_bone,
+                source_strategy=source_strategy, source_vertex=source_vertex,
             )
             if repair is not None:
                 physique_auto_repairs.append(repair)

@@ -4,6 +4,7 @@ import json
 import pathlib
 import threading
 import urllib.error
+import urllib.parse
 import urllib.request
 from http.server import ThreadingHTTPServer
 
@@ -127,5 +128,40 @@ def test_contract_source_config_and_audit_endpoint(tmp_path: pathlib.Path):
         assert '--source-root' in cmd and str(source.resolve()) in cmd
         assert '--reference-source-root' in cmd and str(reference.resolve()) in cmd
         assert '--donor-client' in cmd and f'OFFICIAL={donor.resolve()}' in cmd
+    finally:
+        server.shutdown(); server.server_close(); thread.join(timeout=2)
+
+
+def test_catalog_entity_filter_and_system_visibility_toggle(tmp_path: pathlib.Path):
+    project,client,ctx,server,thread,url=make(tmp_path)
+    try:
+        npc=client/'char/npc/Ahin/Ahin.smd'; npc.parent.mkdir(parents=True,exist_ok=True); npc.write_bytes(b'SMD')
+        cfg=client/'char/npc/Ahin/Ahin.inx'; cfg.write_bytes(b'INX')
+        log=client/'logs/debug.log'; log.parent.mkdir(parents=True,exist_ok=True); log.write_bytes(b'LOG')
+        ctx.catalog.rebuild()
+        _,entities=request(url+'/api/entities?group=NPC')
+        ahin=next(x for x in entities['items'] if x['display_name']=='Ahin')
+        _,filtered=request(url+'/api/catalog?entity='+urllib.parse.quote(ahin['entity_key'],safe=''))
+        assert {x['path'] for x in filtered['items']} == {'char/npc/Ahin/Ahin.smd','char/npc/Ahin/Ahin.inx'}
+        _,normal=request(url+'/api/catalog?q=debug.log')
+        assert normal['total']==0
+        _,system=request(url+'/api/catalog?q=debug.log&show_system=1')
+        assert system['total']==1 and system['items'][0]['visibility_tier']=='OPERATIONAL'
+    finally:
+        server.shutdown(); server.server_close(); thread.join(timeout=2)
+
+
+def test_client_enrichment_analysis_endpoint_and_report_query(tmp_path: pathlib.Path):
+    project,client,ctx,server,thread,url=make(tmp_path)
+    try:
+        _,b=request(url+'/api/bootstrap'); token=b['token']
+        status,d=request(url+'/api/client/analyze',token,{})
+        assert status==202
+        cmd=d['job']['command']
+        assert cmd[-2:]==['audit','client-enrichment']
+        status,r=request(url+'/api/client/report')
+        assert status==200
+        assert r['status']=='NO_REPORT'
+        assert r['rows']==[]
     finally:
         server.shutdown(); server.server_close(); thread.join(timeout=2)

@@ -16,7 +16,10 @@ from pt_asset_tool.workspace_bundle_deploy import (
     apply_workspace_bundle_transaction,
     prepare_workspace_bundle,
     restore_workspace_bundle_transaction,
+    restore_workspace_bundle_model_transaction,
+    workspace_bundle_restore_capabilities,
     workspace_bundle_status,
+    latest_applied_bundle_manifest,
     publish_workspace_bundle,
 )
 from pt_protected_tga_v1 import decode_bytes as decode_tga_bytes, protect_header
@@ -206,6 +209,83 @@ def test_prepare_full_bundle_tracks_model_and_preserve_dependencies(tmp_path, mo
     assert by_role["SKELETON_OR_MOTION_SMB"]["state"] == "PRESERVE_ONLY"
 
 
+def test_manual_model_only_restore_preserves_texture_and_keeps_bundle_active(tmp_path, monkeypatch):
+    original = _bmp(seed=101); edited = bytearray(original); edited[-5] ^= 0x44
+    settings, resolver, registry, asset, model, inx, smb, work = _fixture(
+        tmp_path, texture_bytes=original, overlay_bytes=bytes(edited)
+    )
+    import pt_asset_tool.workspace_bundle_deploy as mod
+
+    def fake_build(settings, resolver, asset, txroot, **kwargs):
+        candidate = txroot / "evidence/model/Test.smd"
+        candidate.parent.mkdir(parents=True, exist_ok=True)
+        candidate.write_bytes(b"model-edited")
+        return {
+            "status": "MODIFIED", "kind": "STATIC", "candidate": str(candidate),
+            "candidate_sha256": mod._sha256(candidate), "candidate_size": candidate.stat().st_size,
+            "target_object": "Test", "verification": {"status": "PASS", "edit_observed": True},
+        }
+
+    monkeypatch.setattr(mod, "_build_model_candidate", fake_build)
+    monkeypatch.setattr(mod, "_post_validate_model", lambda data: {"status": "PASS"})
+    result = prepare_workspace_bundle(settings, resolver, registry, asset.primary_path, include_model=True)
+    applied = apply_workspace_bundle_transaction(result["manifest"], confirm=APPLY_CONFIRMATION)
+    assert applied["status"] == "PASS"
+    tex = settings.client_root / "char/npc/Test/skin.bmp"
+    assert model.read_bytes() == b"model-edited"
+    assert tex.read_bytes() == bytes(edited)
+
+    restored = restore_workspace_bundle_model_transaction(result["manifest"], confirm=RESTORE_CONFIRMATION)
+    assert restored["status"] == "PASS"
+    assert restored["state"] == "PARTIALLY_RESTORED_VERIFIED"
+    assert restored["remaining_deployed_count"] == 1
+    assert model.read_bytes() == b"model-baseline"
+    assert tex.read_bytes() == bytes(edited)
+
+    caps = workspace_bundle_restore_capabilities(settings.project_root, asset.primary_path)
+    assert caps["status"] == "PASS"
+    assert caps["can_restore_model"] is False
+    assert caps["can_restore_bundle"] is True
+    assert caps["deployed_model_count"] == 0
+    assert caps["deployed_texture_count"] == 1
+    assert latest_applied_bundle_manifest(settings.project_root, asset.primary_path) == pathlib.Path(result["manifest"]).resolve()
+
+    full = restore_workspace_bundle_transaction(result["manifest"], confirm=RESTORE_CONFIRMATION)
+    assert full["status"] == "PASS"
+    assert full["state"] == "RESTORED_VERIFIED"
+    assert tex.read_bytes() == original
+    assert latest_applied_bundle_manifest(settings.project_root, asset.primary_path) is None
+
+
+def test_manual_model_only_restore_refuses_drift_elsewhere_in_bundle(tmp_path, monkeypatch):
+    original = _bmp(seed=105); edited = bytearray(original); edited[-6] ^= 0x37
+    settings, resolver, registry, asset, model, inx, smb, work = _fixture(
+        tmp_path, texture_bytes=original, overlay_bytes=bytes(edited)
+    )
+    import pt_asset_tool.workspace_bundle_deploy as mod
+
+    def fake_build(settings, resolver, asset, txroot, **kwargs):
+        candidate = txroot / "evidence/model/Test.smd"
+        candidate.parent.mkdir(parents=True, exist_ok=True)
+        candidate.write_bytes(b"model-edited")
+        return {
+            "status": "MODIFIED", "kind": "STATIC", "candidate": str(candidate),
+            "candidate_sha256": mod._sha256(candidate), "candidate_size": candidate.stat().st_size,
+            "target_object": "Test", "verification": {"status": "PASS", "edit_observed": True},
+        }
+
+    monkeypatch.setattr(mod, "_build_model_candidate", fake_build)
+    monkeypatch.setattr(mod, "_post_validate_model", lambda data: {"status": "PASS"})
+    result = prepare_workspace_bundle(settings, resolver, registry, asset.primary_path, include_model=True)
+    assert apply_workspace_bundle_transaction(result["manifest"], confirm=APPLY_CONFIRMATION)["status"] == "PASS"
+    tex = settings.client_root / "char/npc/Test/skin.bmp"
+    tex.write_bytes(b"external-drift")
+    with pytest.raises(RuntimeError, match="unknown client drift"):
+        restore_workspace_bundle_model_transaction(result["manifest"], confirm=RESTORE_CONFIRMATION)
+    assert model.read_bytes() == b"model-edited"
+    assert tex.read_bytes() == b"external-drift"
+
+
 def test_exact_confirmation_is_required(tmp_path):
     original = _bmp(seed=110); edited = bytearray(original); edited[-1] ^= 1
     settings, resolver, registry, asset, *_ = _fixture(tmp_path, texture_bytes=original, overlay_bytes=bytes(edited))
@@ -236,15 +316,28 @@ def test_prepare_passes_strict_rigid_weight_policy_to_model_build(tmp_path, monk
 
 def test_ui_publish_and_restore_commands_are_explicit_client_mutations(tmp_path):
     from pt_asset_tool.ui_actions import ACTION_SPECS, build_command, public_action_specs
+    prepare = ACTION_SPECS["prepare_bundle"]
     publish = ACTION_SPECS["publish_bundle"]
     restore = ACTION_SPECS["restore_bundle"]
+    restore_model = ACTION_SPECS["restore_model_only"]
     check = ACTION_SPECS["check_bundle"]
+    assert prepare.mutates_client is False
+    assert prepare.group == "Roundtrip"
     assert publish.mutates_client is True
+    assert publish.group == "Roundtrip"
     assert restore.mutates_client is True
+    assert restore_model.mutates_client is True
+    assert restore_model.group == "Roundtrip"
     assert check.mutates_client is False
     public = {x["key"]: x for x in public_action_specs()}
     assert public["publish_bundle"]["mutates_client"] is True
+    assert public["restore_model_only"]["mutates_client"] is True
+    assert public["prepare_bundle"]["mutates_client"] is False
     (tmp_path / "pt_asset.py").write_text("# test entrypoint\n", encoding="utf-8")
+    pcmd = build_command(tmp_path, "prepare_bundle", "char/npc/Test/Test.smd", {})
+    assert pcmd[-3:] == ["deploy", "workspace-prepare", "char/npc/Test/Test.smd"]
+    pstrict = build_command(tmp_path, "prepare_bundle", "char/npc/Test/Test.smd", {"no_auto_rigid_weight_repair": True})
+    assert pstrict[-1] == "--no-auto-rigid-weight-repair"
     cmd = build_command(tmp_path, "publish_bundle", "char/npc/Test/Test.smd", {})
     assert cmd[-4:] == ["workspace-publish", "char/npc/Test/Test.smd", "--confirm", "APPLY CLIENT BUNDLE"]
     tcmd = build_command(tmp_path, "publish_bundle", "char/npc/Test/Test.smd", {"textures_only": True})
@@ -255,6 +348,8 @@ def test_ui_publish_and_restore_commands_are_explicit_client_mutations(tmp_path)
     assert ccmd[-3:] == ["deploy", "workspace-check", "char/npc/Test/Test.smd"]
     rcmd = build_command(tmp_path, "restore_bundle", "char/npc/Test/Test.smd", {})
     assert rcmd[-4:] == ["workspace-restore-latest", "char/npc/Test/Test.smd", "--confirm", "RESTORE CLIENT BUNDLE"]
+    rmcmd = build_command(tmp_path, "restore_model_only", "char/npc/Test/Test.smd", {})
+    assert rmcmd[-4:] == ["workspace-restore-model-latest", "char/npc/Test/Test.smd", "--confirm", "RESTORE CLIENT BUNDLE"]
 
 
 def test_publish_blocks_partial_runtime_lod_coverage_by_default(monkeypatch):
@@ -475,7 +570,8 @@ def test_prepare_warns_when_rigid_weights_are_auto_repaired(tmp_path, monkeypatc
         "blender_weight_mismatch_count": 1,
         "auto_rigid_weight_repair_enabled": True,
         "blender_weight_repair_count": 1,
-        "blender_weight_repairs": [{"object": "BodyL", "vertex": 7, "selected_bone": "Bip01", "serialized_weight": 1.0}],
+        "blender_weight_repair_strategy_counts": {"source_position_correspondence": 1},
+        "blender_weight_repairs": [{"object": "BodyL", "vertex": 7, "selected_bone": "Bip01", "serialized_weight": 1.0, "strategy": "source_position_correspondence"}],
         "verification": {"status": "PASS", "edit_observed": True},
     })
     result = prepare_workspace_bundle(settings, resolver, registry, asset.primary_path, include_model=True)
@@ -483,6 +579,7 @@ def test_prepare_warns_when_rigid_weights_are_auto_repaired(tmp_path, monkeypatc
     assert result["summary"]["unmodified_model_lods"] == ["high"]
     assert result["summary"]["blender_weight_mismatch_count"] == 1
     assert result["summary"]["blender_weight_repair_count"] == 1
+    assert result["summary"]["blender_weight_repair_strategy_counts"] == {"source_position_correspondence": 1}
     assert result["summary"]["auto_rigid_weight_repair_enabled"] is True
     assert result["summary"]["physique_preserve_objects"] == ["BodyH"]
     assert any(x.startswith("AUTO_RIGID_WEIGHT_REPAIR:") for x in result["warnings"])
@@ -516,18 +613,110 @@ def test_writer_auto_rigid_weight_repair_is_stable_and_serializes_one_bone(tmp_p
     skeleton = {"Bip01 Spine1": object(), "Bip01 L Clavicle": object()}
 
     bone1, repair1 = ns["auto_rigid_bone"](
-        obj, 0, seed_material="same-source|BodyH", skeleton=skeleton, conflict_keys=set(), source_bone="Bip01 Spine1"
+        obj, 0, seed_material="same-source|BodyH", skeleton=skeleton, conflict_keys=set(),
+        source_bone="Bip01 Spine1", source_strategy="source_position_correspondence", source_vertex=12,
     )
     bone2, repair2 = ns["auto_rigid_bone"](
-        obj, 0, seed_material="same-source|BodyH", skeleton=skeleton, conflict_keys=set(), source_bone="Bip01 Spine1"
+        obj, 0, seed_material="same-source|BodyH", skeleton=skeleton, conflict_keys=set(),
+        source_bone="Bip01 Spine1", source_strategy="source_position_correspondence", source_vertex=12,
     )
-    assert bone1 == bone2
-    assert bone1 in skeleton
+    assert bone1 == bone2 == "Bip01 Spine1"
     assert repair1 == repair2
     assert repair1["serialized_weight"] == 1.0
-    assert repair1["strategy"] == "stable_pseudorandom_group"
+    assert repair1["strategy"] == "source_position_correspondence"
+    assert repair1["source_vertex"] == 12
     assert repair1["original_weights"] == [["Bip01 Spine1", 0.5], ["Bip01 L Clavicle", 0.5]]
 
+
+
+
+def test_writer_source_position_correspondence_recovers_original_bone_after_vertex_split(tmp_path):
+    import ast
+    from collections import defaultdict
+    from types import SimpleNamespace
+
+    writer = pathlib.Path(__file__).resolve().parents[1] / "pt_blender_to_smd_free_mesh_v3.py"
+    tree = ast.parse(writer.read_text(encoding="utf-8"))
+    wanted = {"m", "world_fixed", "rigid_bone_rows", "_source_physique_position_map", "_source_bone_for_blender_vertex"}
+    keep = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name in wanted]
+    ns = {"defaultdict": defaultdict}
+    exec(compile(ast.Module(body=keep, type_ignores=[]), str(writer), "exec"), ns)
+
+    identity = (
+        256,0,0,0,
+        0,256,0,0,
+        0,0,256,0,
+        0,0,0,256,
+    )
+    skeleton = {"Hand": identity, "Finger": identity}
+    src_obj = {"nv": 1, "vertices": [(256, 0, 0, 0, 0, 256)], "bones": ["Hand"]}
+    position_map = ns["_source_physique_position_map"](src_obj, skeleton)
+    groups = [SimpleNamespace(name="Hand"), SimpleNamespace(name="Finger")]
+    vertices = [
+        SimpleNamespace(co=(9.0, 9.0, 9.0), groups=[]),
+        SimpleNamespace(co=(1.0, 0.0, 0.0), groups=[SimpleNamespace(group=0, weight=0.5), SimpleNamespace(group=1, weight=0.5)]),
+    ]
+    obj = SimpleNamespace(data=SimpleNamespace(vertices=vertices), vertex_groups=groups)
+    bone, strategy, source_vi = ns["_source_bone_for_blender_vertex"](
+        obj, 1, src_obj=src_obj, skeleton=skeleton, position_map=position_map
+    )
+    assert bone == "Hand"
+    assert strategy == "source_position_correspondence"
+    assert source_vi == 0
+
+def test_writer_auto_rigid_weight_repair_prefers_unique_highest_weight_before_fallback(tmp_path):
+    import ast
+    from types import SimpleNamespace
+
+    writer = pathlib.Path(__file__).resolve().parents[1] / "pt_blender_to_smd_free_mesh_v3.py"
+    tree = ast.parse(writer.read_text(encoding="utf-8"))
+    keep = []
+    for node in tree.body:
+        if isinstance(node, (ast.Import, ast.ImportFrom)):
+            names = [alias.name for alias in node.names] if isinstance(node, ast.Import) else [node.module or ""]
+            if "hashlib" in names:
+                keep.append(node)
+        elif isinstance(node, ast.FunctionDef) and node.name in {"rigid_bone_rows", "auto_rigid_bone"}:
+            keep.append(node)
+    ns = {}
+    exec(compile(ast.Module(body=keep, type_ignores=[]), str(writer), "exec"), ns)
+
+    groups = [SimpleNamespace(name="Hand"), SimpleNamespace(name="Finger")]
+    vertex = SimpleNamespace(groups=[SimpleNamespace(group=0, weight=0.8), SimpleNamespace(group=1, weight=0.2)])
+    obj = SimpleNamespace(data=SimpleNamespace(vertices=[vertex]), vertex_groups=groups)
+    skeleton = {"Hand": object(), "Finger": object()}
+    bone, repair = ns["auto_rigid_bone"](
+        obj, 0, seed_material="x", skeleton=skeleton, conflict_keys=set(), source_bone=None
+    )
+    assert bone == "Hand"
+    assert repair["strategy"] == "highest_blender_weight"
+
+
+def test_writer_auto_rigid_weight_repair_tie_fallback_remains_stable(tmp_path):
+    import ast
+    from types import SimpleNamespace
+
+    writer = pathlib.Path(__file__).resolve().parents[1] / "pt_blender_to_smd_free_mesh_v3.py"
+    tree = ast.parse(writer.read_text(encoding="utf-8"))
+    keep = []
+    for node in tree.body:
+        if isinstance(node, (ast.Import, ast.ImportFrom)):
+            names = [alias.name for alias in node.names] if isinstance(node, ast.Import) else [node.module or ""]
+            if "hashlib" in names:
+                keep.append(node)
+        elif isinstance(node, ast.FunctionDef) and node.name in {"rigid_bone_rows", "auto_rigid_bone"}:
+            keep.append(node)
+    ns = {}
+    exec(compile(ast.Module(body=keep, type_ignores=[]), str(writer), "exec"), ns)
+
+    groups = [SimpleNamespace(name="Hand"), SimpleNamespace(name="Finger")]
+    vertex = SimpleNamespace(groups=[SimpleNamespace(group=0, weight=0.5), SimpleNamespace(group=1, weight=0.5)])
+    obj = SimpleNamespace(data=SimpleNamespace(vertices=[vertex]), vertex_groups=groups)
+    skeleton = {"Hand": object(), "Finger": object()}
+    first = ns["auto_rigid_bone"](obj, 0, seed_material="x", skeleton=skeleton, conflict_keys=set())
+    second = ns["auto_rigid_bone"](obj, 0, seed_material="x", skeleton=skeleton, conflict_keys=set())
+    assert first == second
+    assert first[1]["strategy"] == "stable_pseudorandom_tie_break"
 
 def test_writer_auto_rigid_weight_repair_uses_source_only_when_no_valid_group(tmp_path):
     import ast

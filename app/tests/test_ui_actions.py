@@ -38,3 +38,14 @@ def test_stage_and_roundtrip_commands(tmp_path: Path):
     p=project(tmp_path)
     assert build_command(p,'validate_stage072_preview','field/a.smd',{})[-3:]==['validate','stage072-preview','field/a.smd']
     assert build_command(p,'validate_roundtrip','char/a.smd',{})[-3:]==['validate','roundtrip','char/a.smd']
+
+
+def test_texture_enhancement_publish_restore_commands(tmp_path: Path):
+    p = project(tmp_path)
+    rel = 'image/Sinimage/Items/DropItem/a02.tga'
+    assert build_command(p, 'publish_enhancement', rel, {})[-6:] == [
+        'texture-upscale', 'publish', '--include-exact', rel, '--confirm', 'APPLY CLIENT ENHANCEMENT'
+    ]
+    assert build_command(p, 'restore_enhancement', rel, {})[-6:] == [
+        'texture-upscale', 'restore', '--include-exact', rel, '--confirm', 'RESTORE CLIENT ENHANCEMENT'
+    ]

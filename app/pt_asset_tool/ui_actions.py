@@ -40,12 +40,16 @@ ACTION_SPECS: dict[str, ActionSpec] = {
     "view_rare": ActionSpec("view_rare", "Abrir no Blender", "Abrir", "Abre preview rare Model0.62 no Blender.", long_running=True),
     "view_stage072": ActionSpec("view_stage072", "Abrir Stage0.72", "Abrir", "Abre preview Stage0.72 no Blender.", long_running=True),
     "paint_stage072": ActionSpec("paint_stage072", "Texture Paint", "Editar", "Abre workspace de texture paint Stage0.72.", mutates_build=True, long_running=True),
-    "upscale_texture": ActionSpec("upscale_texture", "Upscale textura", "Editar", "Gera uma cópia 2x/3x/4x em pt_build; preserva headers protegidos TGA/BMP e nunca escreve no client.", mutates_build=True, long_running=True),
+    "upscale_texture": ActionSpec("upscale_texture", "Enhance / Upscale textura", "Enhancement", "Gera uma cópia melhorada 2x/3x/4x na pasta enhancement do projeto; preserva alpha e headers protegidos TGA/BMP e não escreve no client.", mutates_build=True, long_running=True),
+    "publish_enhancement": ActionSpec("publish_enhancement", "Enviar enhancement ao cliente", "Enhancement", "Publica apenas o último candidate verificado compatível com o hash atual deste asset, com backup, hash pós-write e recusa de drift.", mutates_build=True, long_running=True, mutates_client=True),
+    "restore_enhancement": ActionSpec("restore_enhancement", "Desfazer enhancement", "Enhancement", "Restaura os bytes anteriores ao último enhancement publicado; recusa drift desconhecido.", mutates_build=True, long_running=True, mutates_client=True),
     "edit_rare": ActionSpec("edit_rare", "Editar no Blender", "Editar", "Cria/abre workspace guardado de rare-model.", mutates_build=True, long_running=True),
     "write_rare": ActionSpec("write_rare", "Gerar SMD", "Build", "Executa o writer guardado; output permanece em pt_build.", mutates_build=True, long_running=True),
-    "publish_bundle": ActionSpec("publish_bundle", "Publicar no jogo", "Publicar", "Reconstrói semanticamente todos os LODs editados do workspace, cria backup completo, publica atomicamente no client e bloqueia cobertura parcial de LOD por defeito.", mutates_build=True, long_running=True, mutates_client=True),
-    "check_bundle": ActionSpec("check_bundle", "Verificar último deploy", "Validar", "Valida somente o último bundle deste asset (hashes, drift e modelo pós-write); não varre o corpus inteiro.", long_running=True),
-    "restore_bundle": ActionSpec("restore_bundle", "Restaurar último deploy", "Publicar", "Restaura o último bundle APPLIED_VERIFIED a partir do backup verificado; recusa qualquer drift desconhecido.", long_running=True, mutates_client=True),
+    "prepare_bundle": ActionSpec("prepare_bundle", "Preparar roundtrip", "Roundtrip", "Analisa somente este workspace: detecta LODs/texturas alterados, simula o writer, resume reparos de Physique e prepara backup/staging sem escrever no client.", mutates_build=True, long_running=True),
+    "publish_bundle": ActionSpec("publish_bundle", "Publicar roundtrip", "Roundtrip", "Executa prepare + backup completo + escrita atômica + validação pós-write. Só escreve ficheiros realmente modificados e faz rollback automático em falha.", mutates_build=True, long_running=True, mutates_client=True),
+    "check_bundle": ActionSpec("check_bundle", "Verificar roundtrip", "Roundtrip", "Valida somente o último bundle deste asset (hashes, drift e modelo pós-write); não varre o corpus inteiro.", long_running=True),
+    "restore_model_only": ActionSpec("restore_model_only", "Retirar modelo", "Roundtrip", "Rollback manual somente do modelo do último deploy verificado. Mantém texturas publicadas, usa o backup original e recusa drift desconhecido.", long_running=True, mutates_client=True),
+    "restore_bundle": ActionSpec("restore_bundle", "Restaurar roundtrip", "Roundtrip", "Restaura todos os ficheiros ainda publicados do último bundle verificado; aceita um rollback parcial anterior e recusa qualquer drift desconhecido.", long_running=True, mutates_client=True),
     "doctor": ActionSpec("doctor", "Doctor", "Sistema", "Executa pt_asset doctor."),
 }
 
@@ -172,13 +176,25 @@ def build_command(project_root: pathlib.Path, action: str, rel: str | None, opti
         scale = str(options.get("scale") or "4").strip()
         if scale not in {"2", "3", "4"}:
             raise ValueError("INVALID_TEXTURE_UPSCALE_SCALE")
-        backend = str(options.get("backend") or "lanczos").strip().lower()
-        if backend not in {"lanczos", "realesrgan"}:
+        backend = str(options.get("backend") or "auto").strip().lower()
+        if backend not in {"auto", "lanczos", "realesrgan"}:
             raise ValueError("INVALID_TEXTURE_UPSCALE_BACKEND")
+        profile_raw = options.get("profile")
+        profile = str(profile_raw or "balanced").strip().lower()
+        if profile not in {"faithful", "balanced", "detail", "pixel-art"}:
+            raise ValueError("INVALID_TEXTURE_QUALITY_PROFILE")
+        if profile == "pixel-art" and backend == "realesrgan":
+            raise ValueError("PIXEL_ART_REQUIRES_NON_AI_BACKEND")
         cmd = base + ["texture-upscale", "run", "--include-exact", rel, "--scale", scale, "--backend", backend]
+        if profile_raw is not None:
+            cmd += ["--profile", profile]
         if bool(options.get("include_ui")):
             cmd.append("--include-ui")
         return cmd
+    if action == "publish_enhancement":
+        return base + ["texture-upscale", "publish", "--include-exact", rel, "--confirm", "APPLY CLIENT ENHANCEMENT"]
+    if action == "restore_enhancement":
+        return base + ["texture-upscale", "restore", "--include-exact", rel, "--confirm", "RESTORE CLIENT ENHANCEMENT"]
     if action == "paint_stage072":
         stage = str(options.get("stage") if options.get("stage") is not None else "0")
         if stage not in {str(i) for i in range(8)}:
@@ -191,6 +207,13 @@ def build_command(project_root: pathlib.Path, action: str, rel: str | None, opti
         return cmd
     if action == "write_rare":
         return base + ["write", "rare-model", rel]
+    if action == "prepare_bundle":
+        cmd = base + ["deploy", "workspace-prepare", rel]
+        if bool(options.get("textures_only")):
+            cmd.append("--textures-only")
+        if bool(options.get("no_auto_rigid_weight_repair")):
+            cmd.append("--no-auto-rigid-weight-repair")
+        return cmd
     if action == "publish_bundle":
         cmd = base + ["deploy", "workspace-publish", rel, "--confirm", "APPLY CLIENT BUNDLE"]
         if bool(options.get("textures_only")):
@@ -200,6 +223,8 @@ def build_command(project_root: pathlib.Path, action: str, rel: str | None, opti
         return cmd
     if action == "check_bundle":
         return base + ["deploy", "workspace-check", rel]
+    if action == "restore_model_only":
+        return base + ["deploy", "workspace-restore-model-latest", rel, "--confirm", "RESTORE CLIENT BUNDLE"]
     if action == "restore_bundle":
         return base + ["deploy", "workspace-restore-latest", rel, "--confirm", "RESTORE CLIENT BUNDLE"]
     raise AssertionError(action)

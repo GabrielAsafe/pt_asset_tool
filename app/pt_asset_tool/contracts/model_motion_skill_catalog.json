@@ -1,0 +1,988 @@
+{
+  "format": "PT_SOURCE_MODEL_MOTION_SKILL_CATALOG_V1",
+  "source": "SrcGame/src/core/data/legacy_loader/SkillDataCode.inl",
+  "lookup_semantics": "FIRST_CASE_INSENSITIVE_MATCH_INDEX_STORED_AS_BYTE",
+  "entry_count": 196,
+  "entries": [
+    {
+      "index": 0,
+      "name": "xxxxxxxxxxxxx",
+      "source_expression": "0"
+    },
+    {
+      "index": 1,
+      "name": "ExtremeShield",
+      "source_expression": "SKILL_PLAY_EXTREME_SHIELD"
+    },
+    {
+      "index": 2,
+      "name": "MechanicBomb",
+      "source_expression": "SKILL_PLAY_MECHANIC_BOMB"
+    },
+    {
+      "index": 3,
+      "name": "PhysicalAbsorption",
+      "source_expression": "SKILL_PLAY_PHYSICAL_ABSORB"
+    },
+    {
+      "index": 4,
+      "name": "PoisonAttribute",
+      "source_expression": "0"
+    },
+    {
+      "index": 5,
+      "name": "roundimpact",
+      "source_expression": "SKILL_PLAY_GREAT_SMASH"
+    },
+    {
+      "index": 6,
+      "name": "Maximize",
+      "source_expression": "SKILL_PLAY_MAXIMIZE"
+    },
+    {
+      "index": 7,
+      "name": "Automation",
+      "source_expression": "SKILL_PLAY_AUTOMATION"
+    },
+    {
+      "index": 8,
+      "name": "Spark",
+      "source_expression": "SKILL_PLAY_SPARK"
+    },
+    {
+      "index": 9,
+      "name": "MetalArmor",
+      "source_expression": "SKILL_PLAY_METAL_ARMOR"
+    },
+    {
+      "index": 10,
+      "name": "GrandSmash",
+      "source_expression": "SKILL_PLAY_GRAND_SMASH"
+    },
+    {
+      "index": 11,
+      "name": "SparkShield",
+      "source_expression": "SKILL_PLAY_SPARK_SHIELD"
+    },
+    {
+      "index": 12,
+      "name": "IMPULSION",
+      "source_expression": "SKILL_PLAY_IMPULSION"
+    },
+    {
+      "index": 13,
+      "name": "COMPULSION",
+      "source_expression": "SKILL_PLAY_COMPULSION"
+    },
+    {
+      "index": 14,
+      "name": "MAGNETICSPHERE",
+      "source_expression": "SKILL_PLAY_MAGNETIC_SPHERE"
+    },
+    {
+      "index": 15,
+      "name": "METALGOLEM",
+      "source_expression": "SKILL_PLAY_METAL_GOLEM"
+    },
+    {
+      "index": 16,
+      "name": "LandMining",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 17,
+      "name": "Rupture",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 18,
+      "name": "HyperSonic",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 19,
+      "name": "ParasitShot",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 20,
+      "name": "RollingSmash",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 21,
+      "name": "HardeningShield",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 22,
+      "name": "PowerEnhance",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 23,
+      "name": "MagneticDischarge",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 24,
+      "name": "MeleeMastery",
+      "source_expression": "0"
+    },
+    {
+      "index": 25,
+      "name": "FireAttribute",
+      "source_expression": "0"
+    },
+    {
+      "index": 26,
+      "name": "Raving",
+      "source_expression": "SKILL_PLAY_RAVING"
+    },
+    {
+      "index": 27,
+      "name": "Impact",
+      "source_expression": "SKILL_PLAY_IMPACT"
+    },
+    {
+      "index": 28,
+      "name": "TripleImpact",
+      "source_expression": "SKILL_PLAY_TRIPLE_IMPACT"
+    },
+    {
+      "index": 29,
+      "name": "BrutalSwing",
+      "source_expression": "SKILL_PLAY_BRUTAL_SWING"
+    },
+    {
+      "index": 30,
+      "name": "Roar",
+      "source_expression": "SKILL_PLAY_ROAR"
+    },
+    {
+      "index": 31,
+      "name": "RageofZecram",
+      "source_expression": "SKILL_PLAY_RAGEOF_ZECRAM"
+    },
+    {
+      "index": 32,
+      "name": "Concentration",
+      "source_expression": "SKILL_PLAY_CONCENTRATION"
+    },
+    {
+      "index": 33,
+      "name": "AvangingCrash",
+      "source_expression": "SKILL_PLAY_AVANGING_CRASH"
+    },
+    {
+      "index": 34,
+      "name": "SwiftAxe",
+      "source_expression": "SKILL_PLAY_SWIFT_AXE"
+    },
+    {
+      "index": 35,
+      "name": "BoneSmash",
+      "source_expression": "SKILL_PLAY_BONE_SMASH"
+    },
+    {
+      "index": 36,
+      "name": "DESTROYER",
+      "source_expression": "SKILL_PLAY_DESTROYER"
+    },
+    {
+      "index": 37,
+      "name": "BERSERKER",
+      "source_expression": "SKILL_PLAY_BERSERKER"
+    },
+    {
+      "index": 38,
+      "name": "CYCLONESTRIKE",
+      "source_expression": "SKILL_PLAY_CYCLONE_STRIKE"
+    },
+    {
+      "index": 39,
+      "name": "DOWNHIT",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 40,
+      "name": "SesmicImpact",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 41,
+      "name": "SeismicImpact",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 42,
+      "name": "POWERDASH",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 43,
+      "name": "MOTALBLOW",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 44,
+      "name": "RuthlessofZecram",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 45,
+      "name": "BLOODYBERSERKER",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 46,
+      "name": "Whirlwind",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 47,
+      "name": "PikeWind",
+      "source_expression": "SKILL_PLAY_PIKEWIND"
+    },
+    {
+      "index": 48,
+      "name": "IceAttribute",
+      "source_expression": "0"
+    },
+    {
+      "index": 49,
+      "name": "CriticalHit",
+      "source_expression": "SKILL_PLAY_CRITICAL_HIT"
+    },
+    {
+      "index": 50,
+      "name": "JumpingCrash",
+      "source_expression": "SKILL_PLAY_JUMPING_CRASH"
+    },
+    {
+      "index": 51,
+      "name": "GroundPike",
+      "source_expression": "SKILL_PLAY_GROUND_PIKE"
+    },
+    {
+      "index": 52,
+      "name": "Tornado",
+      "source_expression": "SKILL_PLAY_TORNADO"
+    },
+    {
+      "index": 53,
+      "name": "WeaponDefenceMastery",
+      "source_expression": "0"
+    },
+    {
+      "index": 54,
+      "name": "Expansion",
+      "source_expression": "SKILL_PLAY_EXPANSION"
+    },
+    {
+      "index": 55,
+      "name": "VenomSpear",
+      "source_expression": "SKILL_PLAY_VENOM_SPEAR"
+    },
+    {
+      "index": 56,
+      "name": "BladeOfBlaze",
+      "source_expression": "SKILL_PLAY_BLADE_OF_BLAZE"
+    },
+    {
+      "index": 57,
+      "name": "ChainLance",
+      "source_expression": "SKILL_PLAY_CHAIN_LANCE"
+    },
+    {
+      "index": 58,
+      "name": "ASSASSINEYE",
+      "source_expression": "SKILL_PLAY_ASSASSIN_EYE"
+    },
+    {
+      "index": 59,
+      "name": "CHARGINGSTRIKE",
+      "source_expression": "SKILL_PLAY_CHARGING_STRIKE"
+    },
+    {
+      "index": 60,
+      "name": "VAGUE",
+      "source_expression": "SKILL_PLAY_VAGUE"
+    },
+    {
+      "index": 61,
+      "name": "SHADOWMASTER",
+      "source_expression": "SKILL_PLAY_SHADOW_MASTER"
+    },
+    {
+      "index": 62,
+      "name": "DANCINGREAPER",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 63,
+      "name": "RingofSpears",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 64,
+      "name": "RingOfSpears",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 65,
+      "name": "FINALSPEAR",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 66,
+      "name": "Focus",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 67,
+      "name": "DeathMantra",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 68,
+      "name": "AMPLIFIED",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 69,
+      "name": "DeathMaster",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 70,
+      "name": "ExDeath",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 71,
+      "name": "SIDESPINATTACK",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 72,
+      "name": "Twister",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 73,
+      "name": "SinisterSpin",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 74,
+      "name": "ScoutHawk",
+      "source_expression": "SKILL_PLAY_SCOUT_HAWK"
+    },
+    {
+      "index": 75,
+      "name": "ShootingMastery",
+      "source_expression": "0"
+    },
+    {
+      "index": 76,
+      "name": "WindArrow",
+      "source_expression": "SKILL_PLAY_WIND_ARROW"
+    },
+    {
+      "index": 77,
+      "name": "PerfectAim",
+      "source_expression": "SKILL_PLAY_PERFECT_AIM"
+    },
+    {
+      "index": 78,
+      "name": "DionsEye",
+      "source_expression": "0"
+    },
+    {
+      "index": 79,
+      "name": "Falcon",
+      "source_expression": "SKILL_PLAY_FALCON"
+    },
+    {
+      "index": 80,
+      "name": "ArrowofRage",
+      "source_expression": "SKILL_PLAY_ARROWOF_RAGE"
+    },
+    {
+      "index": 81,
+      "name": "Avalanche",
+      "source_expression": "SKILL_PLAY_AVALANCHE"
+    },
+    {
+      "index": 82,
+      "name": "ElementalShot",
+      "source_expression": "SKILL_PLAY_ELEMENTAL_SHOT"
+    },
+    {
+      "index": 83,
+      "name": "GoldenFalcon",
+      "source_expression": "SKILL_PLAY_GOLDEN_FALCON"
+    },
+    {
+      "index": 84,
+      "name": "BombShot",
+      "source_expression": "SKILL_PLAY_BOMB_SHOT"
+    },
+    {
+      "index": 85,
+      "name": "Perforation",
+      "source_expression": "SKILL_PLAY_PERFORATION"
+    },
+    {
+      "index": 86,
+      "name": "RECALLWOLVERIN",
+      "source_expression": "SKILL_PLAY_RECALL_WOLVERIN"
+    },
+    {
+      "index": 87,
+      "name": "PHOENIXSHOT",
+      "source_expression": "SKILL_PLAY_PHOENIX_SHOT"
+    },
+    {
+      "index": 88,
+      "name": "FORCEOFNATURE",
+      "source_expression": "SKILL_PLAY_FORCE_OF_NATURE"
+    },
+    {
+      "index": 89,
+      "name": "EVADESHOT",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 90,
+      "name": "LethalSight",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 91,
+      "name": "THUNDERROOP",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 92,
+      "name": "FierceWind",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 93,
+      "name": "NATURESPLASH",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 94,
+      "name": "EntalingRoots",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 95,
+      "name": "EntanglingRoots",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 96,
+      "name": "CIRCLETRAP",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 97,
+      "name": "Bombardment",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 98,
+      "name": "SwordBlast",
+      "source_expression": "SKILL_PLAY_SWORD_BLAST"
+    },
+    {
+      "index": 99,
+      "name": "HolyBody",
+      "source_expression": "SKILL_PLAY_HOLY_BODY"
+    },
+    {
+      "index": 100,
+      "name": "PhysicalTraning",
+      "source_expression": "0"
+    },
+    {
+      "index": 101,
+      "name": "DoubleCrash",
+      "source_expression": "SKILL_PLAY_DOUBLE_CRASH"
+    },
+    {
+      "index": 102,
+      "name": "holyteam",
+      "source_expression": "SKILL_PLAY_HOLY_VALOR"
+    },
+    {
+      "index": 103,
+      "name": "Brandish",
+      "source_expression": "SKILL_PLAY_BRANDISH"
+    },
+    {
+      "index": 104,
+      "name": "Piercing",
+      "source_expression": "SKILL_PLAY_PIERCING"
+    },
+    {
+      "index": 105,
+      "name": "DrasticSpirit",
+      "source_expression": "SKILL_PLAY_DRASTIC_SPIRIT"
+    },
+    {
+      "index": 106,
+      "name": "FlameBrandish",
+      "source_expression": "SKILL_PLAY_FLAME_BRANDISH"
+    },
+    {
+      "index": 107,
+      "name": "Divineinhalation",
+      "source_expression": "SKILL_PLAY_DIVINE_INHALATION"
+    },
+    {
+      "index": 108,
+      "name": "HolyIncantation",
+      "source_expression": "SKILL_PLAY_HOLY_INCANTATION"
+    },
+    {
+      "index": 109,
+      "name": "GrandCross",
+      "source_expression": "SKILL_PLAY_GRAND_CROSS"
+    },
+    {
+      "index": 110,
+      "name": "DIVINEPIERCING",
+      "source_expression": "SKILL_PLAY_DIVINE_PIERCING"
+    },
+    {
+      "index": 111,
+      "name": "DIVINEPIERCING2",
+      "source_expression": "SKILL_PLAY_DIVINE_PIERCING2"
+    },
+    {
+      "index": 112,
+      "name": "DIVINEPIERCING3",
+      "source_expression": "SKILL_PLAY_DIVINE_PIERCING3"
+    },
+    {
+      "index": 113,
+      "name": "GODLYSHIELD",
+      "source_expression": "SKILL_PLAY_GODLY_SHIELD"
+    },
+    {
+      "index": 114,
+      "name": "GODSBLESS",
+      "source_expression": "SKILL_PLAY_GODS_BLESS"
+    },
+    {
+      "index": 115,
+      "name": "SWORDOFJUSTICE",
+      "source_expression": "SKILL_PLAY_SWORD_OF_JUSTICE"
+    },
+    {
+      "index": 116,
+      "name": "SOULBREAKER",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 117,
+      "name": "HolyConviction",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 118,
+      "name": "CRESCENTMOON",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 119,
+      "name": "DivineInquisition",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 120,
+      "name": "SAINTBLADE",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 121,
+      "name": "GloriousShield",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 122,
+      "name": "HOLYBENEDIC",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 123,
+      "name": "DivineCross",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 124,
+      "name": "ShieldStrike",
+      "source_expression": "SKILL_PLAY_SHIELD_STRIKE"
+    },
+    {
+      "index": 125,
+      "name": "Farina",
+      "source_expression": "SKILL_PLAY_FARINA"
+    },
+    {
+      "index": 126,
+      "name": "ThrowingMastery",
+      "source_expression": "0"
+    },
+    {
+      "index": 127,
+      "name": "VigorSpear",
+      "source_expression": "SKILL_PLAY_VIGOR_SPEAR"
+    },
+    {
+      "index": 128,
+      "name": "Windy",
+      "source_expression": "SKILL_PLAY_WINDY"
+    },
+    {
+      "index": 129,
+      "name": "TwistJavelin",
+      "source_expression": "SKILL_PLAY_TWIST_JAVELIN"
+    },
+    {
+      "index": 130,
+      "name": "SoulSucker",
+      "source_expression": "SKILL_PLAY_SOUL_SUCKER"
+    },
+    {
+      "index": 131,
+      "name": "FireJavelin",
+      "source_expression": "SKILL_PLAY_FIRE_JAVELIN"
+    },
+    {
+      "index": 132,
+      "name": "SplitJavelin",
+      "source_expression": "SKILL_PLAY_SPLIT_JAVELIN"
+    },
+    {
+      "index": 133,
+      "name": "TriumphOfValhalla",
+      "source_expression": "SKILL_PLAY_TRIUMPH_OF_VALHALLA"
+    },
+    {
+      "index": 134,
+      "name": "LightningJavelin",
+      "source_expression": "SKILL_PLAY_LIGHTNING_JAVELIN"
+    },
+    {
+      "index": 135,
+      "name": "StormJavelin",
+      "source_expression": "SKILL_PLAY_STORM_JAVELIN"
+    },
+    {
+      "index": 136,
+      "name": "HALLOFVALHALLA",
+      "source_expression": "SKILL_PLAY_HALL_OF_VALHALLA"
+    },
+    {
+      "index": 137,
+      "name": "XRAGE",
+      "source_expression": "SKILL_PLAY_X_RAGE"
+    },
+    {
+      "index": 138,
+      "name": "FROSTJAVELIN",
+      "source_expression": "SKILL_PLAY_FROST_JAVELIN"
+    },
+    {
+      "index": 139,
+      "name": "VENGEANCE",
+      "source_expression": "SKILL_PLAY_VENGEANCE"
+    },
+    {
+      "index": 140,
+      "name": "TALARIA",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 141,
+      "name": "ComboJavelin",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 142,
+      "name": "SummonTiger",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 143,
+      "name": "GALAXYCOUP",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 144,
+      "name": "GoldenApple",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 145,
+      "name": "SUMMONARCUDA",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 146,
+      "name": "PlagueJavelin",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 147,
+      "name": "SNIPPYFEAR",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 148,
+      "name": "TripleThreat",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 149,
+      "name": "Healing",
+      "source_expression": "SKILL_PLAY_HEALING"
+    },
+    {
+      "index": 150,
+      "name": "HolyBolt",
+      "source_expression": "SKILL_PLAY_HOLY_BOLT"
+    },
+    {
+      "index": 151,
+      "name": "MultiSpark",
+      "source_expression": "SKILL_PLAY_MULTI_SPARK"
+    },
+    {
+      "index": 152,
+      "name": "HolyMind",
+      "source_expression": "SKILL_PLAY_HOLY_MIND"
+    },
+    {
+      "index": 153,
+      "name": "Meditation",
+      "source_expression": "0"
+    },
+    {
+      "index": 154,
+      "name": "DivineLightning",
+      "source_expression": "SKILL_PLAY_DIVINE_LIGHTNING"
+    },
+    {
+      "index": 155,
+      "name": "HolyReflection",
+      "source_expression": "SKILL_PLAY_HOLY_REFLECTION"
+    },
+    {
+      "index": 156,
+      "name": "GrandHealing",
+      "source_expression": "SKILL_PLAY_GREAT_HEALING"
+    },
+    {
+      "index": 157,
+      "name": "VigorBall",
+      "source_expression": "SKILL_PLAY_VIGOR_BALL"
+    },
+    {
+      "index": 158,
+      "name": "Resurrection",
+      "source_expression": "SKILL_PLAY_RESURRECTION"
+    },
+    {
+      "index": 159,
+      "name": "Extinction",
+      "source_expression": "SKILL_PLAY_EXTINCTION"
+    },
+    {
+      "index": 160,
+      "name": "VirtualLife",
+      "source_expression": "SKILL_PLAY_VIRTUAL_LIFE"
+    },
+    {
+      "index": 161,
+      "name": "GLACIALSPIKE",
+      "source_expression": "SKILL_PLAY_GLACIAL_SPIKE"
+    },
+    {
+      "index": 162,
+      "name": "REGENERATIONFIELD",
+      "source_expression": "SKILL_PLAY_REGENERATION_FIELD"
+    },
+    {
+      "index": 163,
+      "name": "CHAINLIGHTNING",
+      "source_expression": "SKILL_PLAY_CHAIN_LIGHTNING"
+    },
+    {
+      "index": 164,
+      "name": "SUMMONMUSPELL",
+      "source_expression": "SKILL_PLAY_SUMMON_MUSPELL"
+    },
+    {
+      "index": 165,
+      "name": "SpiritImpact",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 166,
+      "name": "IceElemental",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 167,
+      "name": "PiercingIce",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 168,
+      "name": "LightningSurge",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 169,
+      "name": "SummonRamiel",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 170,
+      "name": "HeavenlyLight",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 171,
+      "name": "BlessingKrishna",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 172,
+      "name": "Consecration",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 173,
+      "name": "Agony",
+      "source_expression": "SKILL_PLAY_AGONY"
+    },
+    {
+      "index": 174,
+      "name": "FireBolt",
+      "source_expression": "SKILL_PLAY_FIRE_BOLT"
+    },
+    {
+      "index": 175,
+      "name": "Zenith",
+      "source_expression": "SKILL_PLAY_ZENITH"
+    },
+    {
+      "index": 176,
+      "name": "FireBall",
+      "source_expression": "SKILL_PLAY_FIRE_BALL"
+    },
+    {
+      "index": 177,
+      "name": "MentalMastery",
+      "source_expression": "0"
+    },
+    {
+      "index": 178,
+      "name": "ColumnOfWater",
+      "source_expression": "SKILL_PLAY_COLUMN_OF_WATER"
+    },
+    {
+      "index": 179,
+      "name": "EnchantWeapon",
+      "source_expression": "SKILL_PLAY_ENCHANT_WEAPON"
+    },
+    {
+      "index": 180,
+      "name": "DeadRay",
+      "source_expression": "SKILL_PLAY_DEAD_RAY"
+    },
+    {
+      "index": 181,
+      "name": "EnergyShield",
+      "source_expression": "SKILL_PLAY_ENERGY_SHIELD"
+    },
+    {
+      "index": 182,
+      "name": "Diastrophism",
+      "source_expression": "SKILL_PLAY_DIASTROPHISM"
+    },
+    {
+      "index": 183,
+      "name": "SpiritElemental",
+      "source_expression": "SKILL_PLAY_SPIRIT_ELEMENTAL"
+    },
+    {
+      "index": 184,
+      "name": "DancingSword",
+      "source_expression": "SKILL_PLAY_DANCING_SWORD"
+    },
+    {
+      "index": 185,
+      "name": "FIREELEMENTAL",
+      "source_expression": "SKILL_PLAY_FIRE_ELEMENTAL"
+    },
+    {
+      "index": 186,
+      "name": "FLAMEWAVE",
+      "source_expression": "SKILL_PLAY_FLAME_WAVE"
+    },
+    {
+      "index": 187,
+      "name": "DISTORTION",
+      "source_expression": "SKILL_PLAY_DISTORTION"
+    },
+    {
+      "index": 188,
+      "name": "METEO",
+      "source_expression": "SKILL_PLAY_METEO"
+    },
+    {
+      "index": 189,
+      "name": "Silraphim",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 190,
+      "name": "StoneSkin",
+      "source_expression": "SKILL_PLAY_T51"
+    },
+    {
+      "index": 191,
+      "name": "Vistenus",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 192,
+      "name": "RedRay",
+      "source_expression": "SKILL_PLAY_T52"
+    },
+    {
+      "index": 193,
+      "name": "Primaignis",
+      "source_expression": "SKILL_PLAY_T53"
+    },
+    {
+      "index": 194,
+      "name": "Thirdanima",
+      "source_expression": "SKILL_PLAY_T54"
+    },
+    {
+      "index": 195,
+      "name": "Cataclysm",
+      "source_expression": "SKILL_PLAY_T54"
+    }
+  ]
+}

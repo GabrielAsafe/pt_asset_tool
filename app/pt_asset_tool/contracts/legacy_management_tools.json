@@ -1,0 +1,482 @@
+{
+  "format": "PT_LEGACY_MANAGEMENT_CONTRACT_V1",
+  "evidence": {
+    "management_archive": {
+      "name": "Management(1).zip",
+      "sha256": "18a126f6346fedec501738eda0c65233110571a3ba130aa172a1c24e03206d6c"
+    },
+    "reverse_archive": {
+      "name": "Management_reverse_python(1).zip",
+      "sha256": "0b381de0bb76d5d2587e6fb70da3c98a4d4ae01056329606b5497c61d2959200"
+    },
+    "tutorial_archive": {
+      "name": "@Tutoriais.zip",
+      "sha256": "90ce8941ffd85301a01767b37c390b77e0ea7806b336ad9d95388b28b5706858"
+    },
+    "policy": "STATIC_EVIDENCE_ONLY_NEVER_EXECUTE_LEGACY_EXE"
+  },
+  "tools": [
+    {
+      "name": "PriTaTor_1.8.857.exe",
+      "sha256": "2ccd73fe0fee7f4aa65eaafae7a0d4921ec375211c1d0dd93342a7ddfc4b1869",
+      "size": 316928,
+      "runtime": ".NET",
+      "confidence": "HIGH_FOR_WORKFLOW_MEDIUM_FOR_EXACT_WRITES",
+      "paths": [
+        "GameServer/Monster",
+        "GameServer/OpenItem",
+        "GameServer/NPC",
+        "GameServer/Field/*.spm"
+      ],
+      "capabilities": [
+        "monster_search",
+        "monster_edit_entry",
+        "monster_exp",
+        "monster_gold",
+        "monster_drop_lines",
+        "map_monster_membership",
+        "boss_membership",
+        "spawn_rate",
+        "spawn_times",
+        "item_search",
+        "item_add_remove",
+        "npc_add_remove",
+        "backup_restore",
+        "item_distributor_launch"
+      ]
+    },
+    {
+      "name": "NPCManager.exe",
+      "sha256": "9a404b7745f7d27cdcbcfa2c93863ba5da6f40a25da5fe8bd9ef1f14d09bd9d8",
+      "size": 81920,
+      "runtime": ".NET",
+      "confidence": "HIGH_FOR_SPC_WORKFLOW_MEDIUM_FOR_EXACT_LAYOUT",
+      "paths": [
+        "GameServer/Field/*.spc"
+      ],
+      "fields": [
+        "Name",
+        "ID",
+        "X",
+        "Y",
+        "Z",
+        "Angle",
+        "Enabled"
+      ],
+      "capabilities": [
+        "load_field_spc",
+        "new_field_spc",
+        "add_npc",
+        "remove_npc",
+        "save_field_spc"
+      ]
+    },
+    {
+      "name": "ItemDistributor.exe",
+      "sha256": "68cbe9fa73f9b57ee24dd4bddb624b7450b1adabe63a7b46c316ea5f37ca3982",
+      "size": 90112,
+      "runtime": ".NET",
+      "confidence": "MEDIUM_FOR_WORKFLOW_LOW_FOR_QUEUE_BINARY_FORMAT",
+      "paths": [
+        "DataServer/userdata"
+      ],
+      "capabilities": [
+        "account_lookup",
+        "character_lookup",
+        "item_code_input",
+        "item_spec_input",
+        "item_queue_check"
+      ]
+    },
+    {
+      "name": "Procura item pelo nome.exe",
+      "sha256": "c6a7bb4f379b6ae571763fb2ecd6873923a1819d0b02fbc64736ce4a572e6a16",
+      "size": 74240,
+      "runtime": ".NET",
+      "confidence": "MEDIUM_FOR_SCAN_WORKFLOW_LOW_FOR_BINARY_ITEM_LAYOUT",
+      "paths": [
+        "DataServer/userdata",
+        "DataServer/warehouse"
+      ],
+      "capabilities": [
+        "item_name_search",
+        "character_scan",
+        "warehouse_scan",
+        "duplicate_item_detection"
+      ]
+    },
+    {
+      "name": "Editor de Itens.exe",
+      "aliases": [
+        "ItemEditor.exe",
+        "Editor De Equipamentos.exe"
+      ],
+      "sha256": "537a9d40f6d604fba9a60685799167d659367fb26a93846e9545b8d165a99c84",
+      "size": 51712,
+      "runtime": "NATIVE_PACKED_OR_CUSTOM_LOADER",
+      "confidence": "LOW_FOR_INTERNAL_FORMAT",
+      "capabilities": [
+        "legacy_item_editor"
+      ]
+    },
+    {
+      "name": "Editor de Monstros.exe",
+      "sha256": "439a8cd1b5df9621aa862af098c38733ccf531343430b32dc404c358abaf8d2d",
+      "size": 37888,
+      "runtime": "NATIVE_PACKED_OR_CUSTOM_LOADER",
+      "confidence": "LOW_FOR_INTERNAL_FORMAT",
+      "capabilities": [
+        "legacy_monster_editor"
+      ]
+    },
+    {
+      "name": "Level Editor.exe",
+      "sha256": "2fe72bf09d788b5429caa402123699ca1fc950923d71bde49b100b69cc1084d0",
+      "size": 401408,
+      "runtime": "NATIVE",
+      "confidence": "MEDIUM_WITH_EXTERNAL_OFFSET_MAP",
+      "paths": [
+        "DataServer/userdata",
+        "XPHex.txt"
+      ],
+      "capabilities": [
+        "character_level_patch"
+      ]
+    },
+    {
+      "name": "ControllerUser.exe",
+      "aliases": [
+        "Editor de conta.exe"
+      ],
+      "sha256": "8cab308f4fb89cc69dc0d2a7ff68b1cd471aa2f94358979ecad1fecc9586e199",
+      "size": 651264,
+      "runtime": "NATIVE",
+      "confidence": "MEDIUM_FOR_ADMIN_WORKFLOW_LOW_FOR_BINARY_LAYOUT",
+      "paths": [
+        "DataServer/userdata",
+        "DataServer/userinfo",
+        "DataServer/warehouse"
+      ],
+      "capabilities": [
+        "account_file_inventory",
+        "warehouse_admin",
+        "duplicate_item_checks"
+      ],
+      "asset_authoring_scope": "NOT_PROMOTED"
+    },
+    {
+      "name": "MudarNome.exe",
+      "aliases": [
+        "Mudar Nick Do Personagen.exe"
+      ],
+      "sha256": "0a9b9e989a46fcf062896148990d5ab548f6a829a13e1e7e65cdba009be56599",
+      "size": 86016,
+      "runtime": "NATIVE",
+      "confidence": "MEDIUM_FOR_FILE_WORKFLOW_LOW_FOR_INTERNAL_REFERENCE_LAYOUT",
+      "paths": [
+        "DataServer/userdata",
+        "DataServer/userinfo",
+        "DataServer/warehouse"
+      ],
+      "capabilities": [
+        "character_rename_workflow"
+      ],
+      "asset_authoring_scope": "NOT_PROMOTED"
+    },
+    {
+      "name": "Editor Japaokiko.exe",
+      "sha256": "aa9067ce6014e9e9c7336b6bc02a51c93f6d947ff8453828168f306eb6cf25a0",
+      "size": 1076224,
+      "runtime": "NATIVE_DELPHI_OR_WRAPPED",
+      "confidence": "LOW_MEDIUM_STATIC_ONLY",
+      "capabilities": [
+        "server_ini_admin",
+        "field_spc_catalog",
+        "server_runtime_admin"
+      ],
+      "asset_authoring_scope": "NOT_PROMOTED"
+    },
+    {
+      "name": "PTprotector.exe",
+      "sha256": "df23d85fcd1791963ae08db0ed2fcff9f8276d28b4fb18b2b6220cef7a991dba",
+      "size": 299008,
+      "runtime": "VB6_NATIVE",
+      "confidence": "MEDIUM_FOR_LOG_PIPELINE",
+      "capabilities": [
+        "security_log_analysis",
+        "account_block_workflow"
+      ],
+      "asset_authoring_scope": "NOT_ASSET"
+    },
+    {
+      "name": "ClanSoDManager.exe",
+      "sha256": "058575d1004afc07d1cc253c7a4fd462157e0f39f1d023bce99fbe16f50c3923",
+      "size": 57344,
+      "runtime": ".NET",
+      "confidence": "HIGH_FOR_VISIBLE_SQL_WORKFLOW",
+      "capabilities": [
+        "clan_sod_score_update"
+      ],
+      "asset_authoring_scope": "NOT_ASSET"
+    },
+    {
+      "name": "SoD Atualiza.exe",
+      "sha256": "c58cd3b2e9962f7b91181322a4ecf805de7f8f82ff3e7956f4b887cac01d5d9c",
+      "size": 57344,
+      "runtime": ".NET",
+      "confidence": "HIGH_FOR_VISIBLE_SQL_WORKFLOW",
+      "capabilities": [
+        "clan_sod_score_update"
+      ],
+      "asset_authoring_scope": "NOT_ASSET"
+    }
+  ],
+  "duplicate_binary_groups": [
+    [
+      "Editor de Itens.exe",
+      "ItemEditor.exe",
+      "Editor De Equipamentos.exe"
+    ],
+    [
+      "ControllerUser.exe",
+      "Editor de conta.exe"
+    ],
+    [
+      "MudarNome.exe",
+      "Mudar Nick Do Personagen.exe"
+    ]
+  ],
+  "item_taxonomy": [
+    {
+      "group": "Defence",
+      "name": "Armor",
+      "prefixes": [
+        "DA1"
+      ]
+    },
+    {
+      "group": "Defence",
+      "name": "Robe",
+      "prefixes": [
+        "DA2"
+      ]
+    },
+    {
+      "group": "Defence",
+      "name": "Boots",
+      "prefixes": [
+        "DB"
+      ]
+    },
+    {
+      "group": "Defence",
+      "name": "Gauntlets",
+      "prefixes": [
+        "DG1"
+      ]
+    },
+    {
+      "group": "Defence",
+      "name": "Armlets",
+      "prefixes": [
+        "OA2"
+      ]
+    },
+    {
+      "group": "Defence",
+      "name": "Orb",
+      "prefixes": [
+        "OM"
+      ]
+    },
+    {
+      "group": "Defence",
+      "name": "Shield",
+      "prefixes": [
+        "DS"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Pike",
+      "prefixes": [
+        "WP"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Bow",
+      "prefixes": [
+        "WS1",
+        "WS3"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Axe",
+      "prefixes": [
+        "WA"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Staff/Wand",
+      "prefixes": [
+        "WM"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Javelin",
+      "prefixes": [
+        "WT"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Mace",
+      "prefixes": [
+        "WH"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Claw",
+      "prefixes": [
+        "WC"
+      ]
+    },
+    {
+      "group": "Weapons",
+      "name": "Sword",
+      "prefixes": [
+        "WS2",
+        "WS4"
+      ]
+    },
+    {
+      "group": "Accessories",
+      "name": "Ring",
+      "prefixes": [
+        "OR"
+      ]
+    },
+    {
+      "group": "Accessories",
+      "name": "Amulet",
+      "prefixes": [
+        "OA1"
+      ]
+    },
+    {
+      "group": "Accessories",
+      "name": "Sheltom",
+      "prefixes": [
+        "OS"
+      ]
+    },
+    {
+      "group": "Others",
+      "name": "Potions",
+      "prefixes": [
+        "PM",
+        "PS",
+        "PL"
+      ]
+    },
+    {
+      "group": "Others",
+      "name": "Crystals",
+      "prefixes": [
+        "GP"
+      ]
+    },
+    {
+      "group": "Others",
+      "name": "Force Orb",
+      "prefixes": [
+        "FO"
+      ]
+    },
+    {
+      "group": "Others",
+      "name": "Donation Items",
+      "prefixes": [
+        "B"
+      ]
+    },
+    {
+      "group": "Others",
+      "name": "Quest Items",
+      "prefixes": [
+        "_U",
+        "2_",
+        "MA",
+        "QT",
+        "SP",
+        "UW"
+      ]
+    },
+    {
+      "group": "Others",
+      "name": "Event Items",
+      "prefixes": [
+        "CH",
+        "PZ",
+        "SD",
+        "SE",
+        "SP"
+      ]
+    },
+    {
+      "group": "Others",
+      "name": "Other",
+      "prefixes": [
+        "EC"
+      ]
+    }
+  ],
+  "workflows": {
+    "monster_drop_and_exp": {
+      "status": "LEGACY_WORKFLOW_CONFIRMED",
+      "evidence": [
+        "PriTaTor static strings",
+        "tutorial Editar Drop de Mob e exp.txt"
+      ],
+      "flow": [
+        "identify field",
+        "resolve SPM actors",
+        "resolve GameServer/Monster INF",
+        "edit EXP/drop directives",
+        "resolve Name/*.zhoon",
+        "restart server"
+      ]
+    },
+    "npc_shop_item": {
+      "status": "LEGACY_WORKFLOW_CONFIRMED_EXACT_LINE_GRAMMAR_NOT_PROVED",
+      "evidence": [
+        "PriTaTor static strings",
+        "tutorial Exemplo como adicionar iten no npc.txt"
+      ],
+      "flow": [
+        "load GameServer/NPC definition",
+        "add item code",
+        "save",
+        "runtime test"
+      ]
+    },
+    "item_edit": {
+      "status": "TOOL_EXISTENCE_CONFIRMED_INTERNAL_FORMAT_NOT_PROVED",
+      "evidence": [
+        "native ItemEditor binary",
+        "tutorial Editar iten.txt"
+      ]
+    }
+  },
+  "safety": {
+    "execute_legacy_executables": false,
+    "production_writer_promotion": "REQUIRES_SOURCE_OR_CORPUS_ROUNDTRIP_EVIDENCE",
+    "binary_userdata_write": false,
+    "binary_warehouse_write": false
+  }
+}

@@ -64,12 +64,17 @@ def _parse(data:bytes):
                 if dd<0 or dd%ST: raise ValueError('next tex ptr invalid')
                 cur=dd//ST
             faces.append({'verts':(a,b,c),'material':mid,'uv_layers':chain})
-        end=to+nt*ST+nr*SR+np*SP+ns*SS+nr*SM+(nv*32 if phys else 0)
+        phys_off=to+nt*ST+nr*SR+np*SP+ns*SS+nr*SM
+        physique_names=[]
+        if phys:
+            for pi in range(nv):
+                physique_names.append(_cs(data[phys_off+pi*32:phys_off+(pi+1)*32]))
+        end=phys_off+(nv*32 if phys else 0)
         if end!=inf['start']+inf['length']:
             raise ValueError(f'{name} block length')
         obj={'index':inf['index'],'table_name':inf['name'],'name':name,
              'vertices':verts,'faces':faces,'nv':nv,'nf':nf,'nt':nt,
-             'nr':nr,'np':np,'ns':ns,'phys':phys,'vertex_offset':vo,
+             'nr':nr,'np':np,'ns':ns,'phys':phys,'physique_names':physique_names,'vertex_offset':vo,
              'block':data[inf['start']:inf['start']+inf['length']]}
         object_list.append(obj)
         # Backwards-compatible name lookup. Legacy authoring callers address

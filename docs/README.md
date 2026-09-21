@@ -1,5 +1,7 @@
 # Documentação Autoritativa — PT Asset Tool R14 1.0.0
 
+<!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->
+
 ## Comece aqui
 
 1. `comece_aqui/INSTALLATION_QUICKSTART_1_0.md`
@@ -45,10 +47,13 @@
 - `tematicos/EFFECTS_PARTICLES.md`;
 - `tematicos/SUPERSET_AGGREGATOR.md`;
 - `tematicos/ASSET_CONTRACT_GRAPH.md`;
-- `tematicos/TEXTURE_UPSCALE_PIPELINE.md` — upscale seguro BMP/TGA/PNG/JPG com staging em `pt_build`.
+- `tematicos/TEXTURE_UPSCALE_PIPELINE.md` — upscale seguro BMP/TGA/PNG/JPG com staging em `pt_build`;
+- `tematicos/LEGACY_MANAGEMENT_AUTHORING.md` — Management Legacy, World Closure e pipeline Python de ITEM/MONSTER/NPC/SPM/SPP/SPC com publish/restore transacional.
 
 ## Evidência e histórico
 
 O pacote distribui apenas documentação atual, os patch notes de validação desta revisão e a evidência final necessária da Release 1. Backups, handoffs intermediários e relatórios RC substituídos ficam no histórico Git, não na instalação operacional.
+
+A atualização 2026-09-21 de `MANUAL_UTILIZADOR.md`, `GUI_MANUAL_1_0.md` e `LEGACY_MANAGEMENT_AUTHORING.md` documenta a camada Legacy Authoring.
 
 Os documentos `*_1_0.md`, `CURRENT_READINESS.json`, `VALIDATION_STATUS.md` e `release/RELEASE_1_CERTIFICATION.md` são as referências autoritativas do estado atual.

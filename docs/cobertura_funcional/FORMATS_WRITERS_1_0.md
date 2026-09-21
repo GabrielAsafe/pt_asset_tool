@@ -1,5 +1,7 @@
 # PT Asset Tool R14 1.0.0 — Formatos, Parsers e Writers
 
+<!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->
+
 Este guia resume a superfície de formato suportada. O detalhe histórico/reverse-engineering permanece em `REVERSE_ENGINEERING_FORMATOS.md` e no `MANUAL_DESENVOLVEDOR.md`.
 
 ## Model0.62 (`SMD Model data Ver 0.62`)
@@ -70,16 +72,16 @@ A ferramenta oferece parse lexical/semântico, drafts, mutation corpus e preview
 
 ### SPM
 
-Texto legacy com aliases observados para ACTOR/BOSS_ACTOR/MAX_ACTOR_POS/MAX_ACTOR/DELAY. Draft preserva encoding/newline detectados.
+Texto legacy com aliases observados para ACTOR/BOSS_ACTOR/MAX_ACTOR_POS/MAX_ACTOR/DELAY. O Legacy Authoring suporta CREATE/EDIT, ADD/REMOVE actor, ADD/REMOVE boss e SET_DIRECTIVE. EDIT preserva encoding/newline detectados.
 
 ### SPP
 
-Layout Summit canónico certificado na superfície de autoria: 200 records × 12 bytes (`state,x,z` int32 LE) = 2400 bytes. Layouts diferentes ficam bloqueados/review.
+Layout Summit canónico certificado na superfície de autoria: 200 records × 12 bytes (`state,x,z` int32 LE) = 2400 bytes. Legacy Authoring edita records por índice e preserva tamanho. Layouts diferentes ficam bloqueados.
 
 ### SPC
 
-Corpus canónico: 100 records × 504 bytes. Autoria é template-clone limitada: usar record `ADD_NPC` conhecido, slot inativo/blank, editar somente campos permitidos e zerar identidades donor-specific não portáveis. Não existe synthetic-from-zero writer.
-
+Corpus canónico: 100 records × 504 bytes. Legacy Authoring suporta CREATE e EDIT com ADD/REPLACE/REMOVE de records fixos via writer nativo `build_spc_record`. Layout/slot incompatível permanece fail-closed.
+\n## Legacy text definitions (OpenItem / Monster / NPC)\n\nA camada `legacy_authoring.py` possui writer source-preserving para definições textuais existentes. Ela detecta encoding/newline, substitui apenas tokens suportados e preserva diretivas desconhecidas.\n\nPatch kinds de EDIT publicados pelo Asset Bundle Deploy:\n\n- `LEGACY_TEXT_PATCH` — `.txt`, `.inf`, `.npc`;\n- `LEGACY_SPM_PATCH` — `.spm`;\n- `LEGACY_SPP_PATCH` — `.spp`;\n- `LEGACY_SPC_PATCH` — `.spc`.\n\nCREATE usa os contracts nativos do Asset Compiler:\n\n- `item.definition.txt`;\n- `character.monster.inf`;\n- `character.npc.npc`;\n- `field.spawn.spm`;\n- `field.startpoints.spp`;\n- `field.fixed_npc.spc`.\n\n### ITEM runtime boundary\n\nOpenItem CREATE/EDIT é permitido somente quando o item code pertence à runtime table source-verificada. O authoring não registra novo code em `sITEM`.\n\n### Publish\n\n`stage` gera overlay/manifest em `pt_build`. `publish` é transacional, exige `APPLY ASSET BUNDLE`, compara hashes do target, cria backup e verifica os bytes pós-write. `restore` exige `RESTORE ASSET BUNDLE` e bloqueia drift externo.\n
 ## ASE e outros
 
 ASE aparece como authoring/reference em várias cadeias de Field/Enrichment, mas não recebe automaticamente a mesma autoridade de writer dos formatos certificados acima.

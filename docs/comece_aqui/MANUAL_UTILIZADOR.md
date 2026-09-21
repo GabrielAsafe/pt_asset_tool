@@ -1,5 +1,11 @@
 # PT Asset Tool R14 1.0.0 — Manual Completo do Utilizador
 
+<!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->
+
+**Atualização documental:** 2026-09-21 — Management Legacy + Legacy Authoring Python + World Closure → Authoring.  
+**Regra de precedência:** a seção “Atualização operacional 2026-09-21” no fim deste manual prevalece sobre descrições históricas incompatíveis sobre server write/publish.  
+**Guia temático:** `../tematicos/LEGACY_MANAGEMENT_AUTHORING.md`.
+
 **Estado:** release 1.0.0 safety-locked.
 **Público:** artista técnico, designer, integrador de assets, QA e operador da ferramenta.
 **Objetivo:** ensinar todas as funcionalidades alcançáveis pelas interfaces gráficas distribuídas e explicar quando a UI apenas inspeciona, quando cria staging em `pt_build` e quando depende de Blender.
@@ -2585,3 +2591,124 @@ publish externo deliberado (não exposto pela UI 1.0)
 ```
 
 Se o botão não aparece, não contorne a capability layer copiando manualmente um comando de outro asset. Primeiro descubra qual gate/contrato falta.
+
+---
+
+## Atualização operacional 2026-09-21 — Management Legacy + Legacy Authoring Python
+
+Esta seção é a referência operacional atual para as funcionalidades Management/World Closure/Authoring. Em caso de conflito com descrições históricas anteriores deste manual, **esta seção prevalece**.
+
+### Management Legacy: evidência, não dependência de executáveis
+
+PriTaTor, NPCManager, ItemDistributor, ItemEditor/Editor de Itens, Editor de Monstros e tooling relacionado foram incorporados como **evidência estática e contratos recuperados**. Nenhum executável legacy é requerido para operar os workflows Python já promovidos, e a aplicação não inicia esses EXEs.
+
+A auditoria Management cruza, quando os roots estão configurados:
+
+```text
+Field/SPM → Monster/INF → item code → OpenItem → sITEM → DorpItem → ícone/ASE
+```
+
+Ela complementa o census existente da aplicação; não cria um universo paralelo de assets.
+
+### World Closure Explorer
+
+O World Closure Explorer é uma camada de correlação e diagnóstico. Estados principais:
+
+- `CLOSED`: a closure esperada para aquele gate foi encontrada;
+- `REVIEW`: existe contexto suficiente, mas falta uma dependência ou decisão; não significa automaticamente asset quebrado;
+- `RUNTIME_CATALOG_MISSING`: o code apareceu no server/OpenItem, mas não há registro source-verificado correspondente na runtime table;
+- `RESOLVED`: referência resolvida para um target único;
+- `AMBIGUOUS`: mais de um target plausível; a UI não escolhe silenciosamente;
+- `UNRESOLVED`: target ainda não provado.
+
+Selecionar uma linha transporta o contexto para **Legacy Authoring / Reescrita Python**:
+
+```text
+ITEM row    → ITEM / EDIT
+SPM row     → SPM / EDIT
+MONSTER row → MONSTER / EDIT
+NPC row     → NPC / EDIT
+```
+
+Para ITEM, o path vem do census real de OpenItem; a aplicação não assume `CODE.txt`.
+
+### Legacy Authoring / Reescrita Python
+
+Kinds atualmente suportados:
+
+```text
+ITEM MONSTER NPC SPM SPP SPC
+```
+
+Pipeline:
+
+```text
+Inspect
+→ Edit/Create
+→ Stage em pt_build
+→ Validate
+→ hash preflight
+→ backup
+→ publish atómico
+→ post-write verify
+→ runtime review
+→ Restore, se necessário
+```
+
+`Stage` não altera client/server. Publish e restore são capability-scoped e exigem autorização/confirmação explícita.
+
+#### ITEM
+
+Cria/edita OpenItem para codes já reconhecidos pela runtime table source-verificada. Em EDIT, diretivas desconhecidas são preservadas sempre que o writer não precisa substituí-las. A pipeline integra identidade `sITEM`, `ItemFilePath`, `DorpItem` e closure visual.
+
+Registrar um **code runtime totalmente novo** em `sITEM` continua bloqueado enquanto o writer dessa tabela não estiver certificado.
+
+#### MONSTER
+
+Cria/edita definição de Monster, incluindo campos/stats, EXP, item drops, money drops, extra drops, dialogs e linked file no escopo provado.
+
+#### NPC
+
+Cria/edita definição NPC, flags/campos, dialogs e shops no escopo provado. Placement fixo usa o writer SPC.
+
+#### SPM
+
+Operações estruturadas incluem actor add/remove, boss add/remove, horas de boss/spawn e diretivas como `MAX_ACTOR_POS`, `MAX_ACTOR` e `DELAY`.
+
+#### SPP
+
+Writer para o layout canónico de start points (`200 × 12 bytes`, records `state,x,z`).
+
+#### SPC
+
+Writer para o layout canónico de fixed NPC (`100 × 504 bytes`) com `ADD`, `REPLACE` e `REMOVE`.
+
+### Safety arms e transação
+
+Na Web UI:
+
+- `ARM BUILD WRITES` autoriza staging em `pt_build`;
+- `ARM ASSET DEPLOY` é separado e necessário para publish/restore de Asset Bundles.
+
+CLI de publish/restore:
+
+```bash
+python3 pt_asset.py legacy-authoring publish \
+  --confirm 'APPLY ASSET BUNDLE'
+
+python3 pt_asset.py legacy-authoring restore \
+  --confirm 'RESTORE ASSET BUNDLE'
+```
+
+A transação executa hash preflight, backup, replace atómico e verificação pós-write. Drift externo desconhecido bloqueia a operação.
+
+### Limites fail-closed
+
+Continuam deliberadamente bloqueados:
+
+- registro arbitrário de code novo na runtime table `sITEM`;
+- mutação binária de userdata/warehouse;
+- internals não comprovados do ItemEditor nativo;
+- qualquer formato sem corpus/ABI/roundtrip suficiente para writer seguro.
+
+Guia aprofundado: `docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md`.
