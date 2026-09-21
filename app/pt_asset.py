@@ -1815,6 +1815,7 @@ def main() -> int:
             print(cp.stdout.rstrip())
         print("\nConsolidated application commands (1.0.0):")
         print("  status                         application readiness + writer hash status")
+        print("  dependencies [--json]          diagnose required/optional tools and show install/configuration instructions")
         print("  smoke | self-test              read-only real-client application smoke test")
         print("  ui | gui [options]             start the local graphical application")
         print("  compare trees --left A --right B [--hash] [--ext EXT] [--category CAT] [--path-contains TEXT] [--differences-only] [--output FILE]")
@@ -1851,10 +1852,13 @@ def main() -> int:
         print("  config clear-server-root       clear persistent server root and return to discovery")
         print("  registry status                generate/read machine-local asset registry state")
         print("  registry rebuild [--client-root PATH]  force a read-only registry rebuild from the current client")
-        print("  texture-upscale scan|run|resume|publish|restore|publish-batch|restore-batch ...   stage enhanced textures under <project>/enhancement and publish/undo verified single or batch changes")
+        print("  texture-upscale scan|run|resume|publish|restore|publish-batch|restore-batch ...   stage enhanced textures under app/pt_build/texture_upscale and publish/undo verified single or batch changes")
         return cp.returncode
     if args in (["status"], ["app-status"]):
         return _command_app_status()
+    if args and args[0] == "dependencies":
+        from pt_asset_tool.dependencies import cli_main as _dependencies_main
+        return _dependencies_main(args[1:], project_root=ROOT)
     if args in (["smoke"], ["self-test"]):
         return _command_app_smoke()
     if args and args[0] == "explain":

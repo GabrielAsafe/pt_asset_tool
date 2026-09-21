@@ -21,3 +21,10 @@ Missing/invalid target textures remain documented in `docs/release/KNOWN_LIMITAT
 ## Fresh-install maintenance — 2026-09-16
 
 Post-certification package maintenance separates immutable source/reference data from machine-local runtime state. Client-derived registry data, certifications, local configuration, caches and development evidence now live under `app/pt_build/` and are generated per installation. Historical backup trees/intermediate handoffs were removed from the distributed package while final Release 1 certification evidence remains bundled. See `docs/validation/PATCH_2026-09-16_FRESH_INSTALL_STATE.md`.
+
+
+## Consolidação técnica — 2026-09-21
+
+Esta manutenção consolida partículas na UI principal por `pt_asset_tool/particle_service.py`, centraliza diagnóstico de dependências, autodetecta o Real-ESRGAN bundled, move o estado de enhancement para `app/pt_build/texture_upscale/` e introduz `READY_TO_DEPLOY.py` para regressão + limpeza explicada + snapshot + package verifier + commit Git.
+
+A certificação física histórica 1.0.0 continua sendo evidência do baseline original. Alterações desta manutenção devem ser avaliadas pela regressão atual e pelos gates físicos no ambiente client/server/Blender antes de qualquer promoção operacional; não se reutiliza evidência histórica como autorização automática para o código modificado.

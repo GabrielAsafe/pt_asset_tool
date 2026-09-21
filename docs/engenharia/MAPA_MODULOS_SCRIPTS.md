@@ -745,3 +745,9 @@ Entradas de inventário de módulos runtime:
 - CLI: `legacy-authoring capabilities|inspect|stage|publish|restore`.
 - Web: seção **Legacy Authoring / Reescrita Python** na aba Management Legacy, com inspect/template/stage/publish/restore/status.
 - `legacy_authoring.py` — runtime module do authoring Python legado (Item/Monster/NPC/SPM/SPP/SPC), listado pelo basename para a gate de inventário.
+
+## Consolidação first-party / release hygiene (2026-09-21)
+
+- `dependencies.py` — inventário central de dependências Python/aplicações externas; informa estado, feature dependente, motivo técnico e instrução de instalação/configuração; compartilhado por CLI e GUI.
+- `particle_service.py` — serviço first-party de partículas `.part`, compartilhado pela aba **Partículas** da UI principal e pelo launcher standalone de compatibilidade; staging/preview ficam em `pt_build` e nunca escrevem o client fonte.
+- `READY_TO_DEPLOY.py` (raiz do repositório) — gate de preparação de commit: regressão, limpeza explicada de runtime/cache, regeneração do snapshot, `VERIFY_PACKAGE.sh`, stage e commit Git.

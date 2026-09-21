@@ -12,3 +12,23 @@ enhancement
 # Local editor/OS noise
 .DS_Store
 *~
+
+# >>> PT Asset Tool V3.1 managed release hygiene >>>
+# Generated/runtime state must not enter commits/releases because it contains
+# logs, reports, staging, backups, hashes and machine/run-specific state.
+app/pt_build/
+# Legacy duplicate enhancement root; canonical runtime is app/pt_build/texture_upscale.
+enhancement/
+# Python/test caches are reproducible, interpreter/local-history specific noise.
+**/__pycache__/
+**/.pytest_cache/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+# Local editor/OS noise.
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+# <<< PT Asset Tool V3.1 managed release hygiene <<<

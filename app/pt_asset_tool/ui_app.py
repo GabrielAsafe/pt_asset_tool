@@ -52,6 +52,8 @@ from .general_asset_census import query_general_asset_census
 from .source_catalog import configured_source_roots
 from .texture_upscale import capability_status as texture_upscale_capability_status, enhancement_status, enhancement_root, enhancement_batch_status
 from .blender_workspace import blender_edit_root
+from .dependencies import dependency_report
+from . import particle_service
 from .workspace_bundle_deploy import latest_applied_bundle_manifest, workspace_bundle_restore_capabilities
 
 LOOPBACKS = {"127.0.0.1", "localhost", "::1"}
@@ -173,6 +175,7 @@ class UIContext:
         self.write_armed_until = 0.0
         self.deploy_armed_until = 0.0
         self.server_deploy_armed_until = 0.0
+        self.particle_preview_lock = threading.Lock()
         self.server: ThreadingHTTPServer | None = None
 
     def set_server_root(self, value: pathlib.Path | None) -> None:
@@ -497,6 +500,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 "server_deploy_armed_until": self.ctx.server_deploy_armed_until,
                 "actions": public_action_specs(),
                 "optional_capabilities": {"texture_upscale": texture_upscale_capability_status()},
+                "dependencies": dependency_report(self.ctx.project_root),
                 "safety": {
                     "client_source_write": "EXPLICIT_VERIFIED_BUNDLE_ONLY",
                     "build_write_requires_arm": True,
@@ -789,6 +793,46 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "FIELD_METADATA_INVALID", str(exc))
             except Exception as exc:
                 return self._error(500, "FIELD_METADATA_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/particles":
+            try:
+                rows = particle_service.asset_index(self.ctx.client_root, _one(q, "q"))
+                return self._json(200, {"ok": True, "items": rows, "count": len(rows)})
+            except Exception as exc:
+                return self._error(400, "PARTICLE_INDEX_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/particles/inspect":
+            try:
+                asset = _one(q, "asset")
+                result = particle_service.inspect_asset(
+                    self.ctx.client_root, self.ctx.project_root / "pt_build" / "devtest", asset
+                )
+                return self._json(200, {"ok": True, "particle": result})
+            except FileNotFoundError as exc:
+                return self._error(404, "PARTICLE_ASSET_NOT_FOUND", str(exc))
+            except Exception as exc:
+                return self._error(400, "PARTICLE_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/particles/draft-verify":
+            try:
+                result = particle_service.verify_asset_draft(
+                    self.ctx.client_root, self.ctx.project_root / "pt_build" / "devtest", _one(q, "asset")
+                )
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "PARTICLE_DRAFT_VERIFY_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/particles/preview-image":
+            try:
+                image = particle_service.safe_preview_image(self.ctx.project_root, _one(q, "path"))
+                raw = image.read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "image/png")
+                self.send_header("Content-Length", str(len(raw)))
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self.wfile.write(raw)
+                return
+            except FileNotFoundError as exc:
+                return self._error(404, "PARTICLE_PREVIEW_NOT_FOUND", str(exc))
+            except Exception as exc:
+                return self._error(400, "PARTICLE_PREVIEW_IMAGE_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/asset-compiler/status":
             try:
                 return self._json(200, {"ok": True, "result": asset_bundle_deploy_status(self.ctx.project_root)})
@@ -1063,6 +1107,34 @@ class UIHandler(BaseHTTPRequestHandler):
             job = self.ctx.jobs.submit("enhancement_batch_restore", None, cmd)
             self.ctx.disarm_deploy()
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_restore"})
+        if u.path == "/api/particles/stage-edit":
+            try:
+                result = particle_service.apply_stage_edit(
+                    self.ctx.client_root, self.ctx.project_root / "pt_build" / "devtest", body
+                )
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "PARTICLE_STAGE_EDIT_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/particles/preview-plan":
+            try:
+                result = particle_service.build_effect_preview(
+                    self.ctx.client_root, self.ctx.project_root / "pt_build" / "devtest",
+                    self.ctx.project_root, str(body.get("asset") or "")
+                )
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "PARTICLE_PREVIEW_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/particles/preview-run":
+            try:
+                result = particle_service.run_effect_preview(
+                    self.ctx.client_root, self.ctx.project_root / "pt_build" / "devtest",
+                    self.ctx.project_root, str(body.get("asset") or ""), self.ctx.particle_preview_lock
+                )
+                return self._json(200, {"ok": True, "result": result})
+            except FileNotFoundError as exc:
+                return self._error(409, "PARTICLE_BLENDER_DEPENDENCY_MISSING", str(exc))
+            except Exception as exc:
+                return self._error(400, "PARTICLE_PREVIEW_RUN_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/contracts/analyze":
             if self.ctx.source_root is None or not self.ctx.source_root.is_dir():
                 return self._error(409, "SOURCE_ROOT_REQUIRED", "Configure o source Summit primeiro.")

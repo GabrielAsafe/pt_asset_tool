@@ -17,114 +17,18 @@ import pt_effect_preview as effect_preview
 FORMAT = "PT_PARTICLE_EDITOR_UI_STAGING_V3"
 MAX_BODY = 64 * 1024
 
-def safe_asset_path(client_root: Path, asset: str) -> tuple[Path, Path]:
-    if not isinstance(asset, str) or not asset.strip():
-        raise ValueError("asset is required")
-    root = client_root.resolve()
-    p = (root / asset).resolve()
-    try:
-        rel = p.relative_to(root)
-    except ValueError:
-        raise ValueError("asset escapes client root")
-    if p.suffix.lower() != ".part":
-        raise ValueError("only .part assets are allowed")
-    if not p.is_file():
-        raise FileNotFoundError(rel.as_posix())
-    return p, rel
+# Compatibility launcher: particle domain logic lives in the first-party core
+# service used by both this legacy standalone UI and the main PT Asset Tool UI.
+from pt_asset_tool import particle_service as _particles
 
-def safe_preview_image(app_root: Path, raw_path: str) -> Path:
-    if not isinstance(raw_path, str) or not raw_path:
-        raise ValueError("preview image path is required")
-    root=(app_root.resolve()/"pt_build"/"devtest"/"effect_preview"/"blender").resolve()
-    p=Path(raw_path).expanduser().resolve()
-    try: p.relative_to(root)
-    except ValueError: raise ValueError("preview image escapes effect preview root")
-    if p.suffix.lower() != ".png": raise ValueError("preview image must be PNG")
-    if not p.is_file(): raise FileNotFoundError(str(p))
-    return p
-
-def asset_index(client_root: Path, query: str = ""):
-    root = client_root.resolve()
-    q = (query or "").casefold().strip()
-    rows = []
-    for p in editor.iter_part_files(root):
-        rel = p.relative_to(root).as_posix()
-        if q and q not in rel.casefold():
-            continue
-        rows.append({"asset": rel, "size": p.stat().st_size})
-    return rows
-
-def inspect_asset(client_root: Path, build_root: Path, asset: str):
-    p, rel = safe_asset_path(client_root, asset)
-    data = p.read_bytes()
-    meta = editor.inspect_bytes(data)
-    draft = editor.show_draft(client_root, rel.as_posix(), build_root)
-    return {
-        "format": FORMAT,
-        "asset": rel.as_posix(),
-        "size": len(data),
-        "source_sha256": editor.sha256(data),
-        "parse_status": meta["parse_status"],
-        "authoring_status": meta["authoring_status"],
-        "eol": meta["eol"],
-        "brace_open_count": meta["brace_open_count"],
-        "brace_close_count": meta["brace_close_count"],
-        "occurrences": meta["occurrences"],
-        "draft": draft,
-        "production_authorized": False,
-        "client_write_authorized": False,
-        "server_write_authorized": False,
-    }
-
-def apply_stage_edit(client_root: Path, build_root: Path, payload: dict):
-    asset = payload.get("asset")
-    selector = payload.get("selector")
-    value = payload.get("value")
-    fresh = bool(payload.get("fresh", False))
-    if not isinstance(selector, str) or not selector:
-        raise ValueError("selector is required")
-    if not isinstance(value, str):
-        raise ValueError("value must be a string")
-    _, rel = safe_asset_path(client_root, asset)
-    expr = f"{selector}={value}"
-    return editor.stage_edit(client_root, rel.as_posix(), build_root, [expr], fresh=fresh)
-
-def verify_asset_draft(client_root: Path, build_root: Path, asset: str):
-    _, rel = safe_asset_path(client_root, asset)
-    return editor.verify_draft(client_root, rel.as_posix(), build_root)
-
-def build_effect_preview(client_root: Path, build_root: Path, app_root: Path, asset: str):
-    _, rel = safe_asset_path(client_root, asset)
-    plan = effect_preview.build_preview_plan(client_root, build_root, rel.as_posix(), prefer_staged=True, write=True)
-    cmd = effect_preview.blender_command(app_root, Path(plan["plan_path"]))
-    return {
-        "status": "PASS",
-        "asset": rel.as_posix(),
-        "event_count": plan["event_count"],
-        "missing_texture_reference_count": plan["missing_texture_reference_count"],
-        "complexity": plan["complexity"],
-        "source_base_kind": plan["source"]["base_kind"],
-        "preview_certification": plan["preview_certification"],
-        "plan_path": plan["plan_path"],
-        "blender_command": cmd,
-        "production_authorized": False,
-        "client_write_authorized": False,
-        "server_write_authorized": False,
-    }
-
-def run_effect_preview(client_root: Path, build_root: Path, app_root: Path, asset: str, lock: threading.Lock):
-    _, rel = safe_asset_path(client_root, asset)
-    if not lock.acquire(blocking=False):
-        raise RuntimeError("another Blender particle preview is already running")
-    try:
-        plan = effect_preview.build_preview_plan(client_root, build_root, rel.as_posix(), prefer_staged=True, write=True)
-        run = effect_preview.run_blender_preview(app_root, Path(plan["plan_path"]), timeout_seconds=120.0)
-        run["asset"] = rel.as_posix()
-        run["preview_certification"] = plan["preview_certification"]
-        run["plan_path"] = plan["plan_path"]
-        return run
-    finally:
-        lock.release()
+safe_asset_path = _particles.safe_asset_path
+safe_preview_image = _particles.safe_preview_image
+asset_index = _particles.asset_index
+inspect_asset = _particles.inspect_asset
+apply_stage_edit = _particles.apply_stage_edit
+verify_asset_draft = _particles.verify_asset_draft
+build_effect_preview = _particles.build_effect_preview
+run_effect_preview = _particles.run_effect_preview
 
 HTML = r'''<!doctype html>
 <html lang="en">

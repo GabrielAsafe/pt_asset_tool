@@ -1,6 +1,6 @@
 # Texture Enhance / Upscale — pipeline seguro
 
-O PT Asset Tool possui um pipeline de **enhance + upscale** para texturas físicas do client. Ele cria **cópias** na workspace dedicada `enhancement/` (ou noutra árvore explicitamente indicada). O estágio `run` nunca escreve no client; publicação individual ou em lote só acontece por comandos separados com confirmação explícita, backup e verificação de hash. O original continua sendo a referência e o manifest regista backend, perfil de qualidade, hashes e métricas antes/depois.
+O PT Asset Tool possui um pipeline de **enhance + upscale** para texturas físicas do client. Ele cria **cópias** na workspace dedicada `pt_build/texture_upscale/` (ou noutra árvore explicitamente indicada). O estágio `run` nunca escreve no client; publicação individual ou em lote só acontece por comandos separados com confirmação explícita, backup e verificação de hash. O original continua sendo a referência e o manifest regista backend, perfil de qualidade, hashes e métricas antes/depois.
 
 Formatos suportados:
 
@@ -42,12 +42,12 @@ O pipeline aplica estas regras:
 12. `publish-batch` faz preflight de **todos** os source/candidate hashes antes da primeira escrita; falha durante o lote dispara rollback automático do que já foi aplicado;
 13. `restore-batch` também faz preflight completo de drift/backups antes da primeira restauração.
 
-O projeto contém uma pasta `enhancement/` dedicada a este workflow; `runs/` e `transactions/` são runtime e ficam ignorados pelo Git.
+O projeto contém uma pasta `pt_build/texture_upscale/` dedicada a este workflow; `runs/` e `transactions/` são runtime e ficam ignorados pelo Git.
 
 Cada execução automática da UI é criada sob:
 
 ```text
-enhancement/runs/<run-id>/
+pt_build/texture_upscale/runs/<run-id>/
 ├── overlay/
 └── manifest.json
 ```
@@ -73,7 +73,7 @@ O manifest classifica cada entrada como:
 7. escolha `auto`, `lanczos` ou `realesrgan`; `auto` é o padrão seguro e usa AI apenas quando o perfil/ambiente justificam, com fallback para Lanczos;
 8. se o asset estiver num path UI/atlas, a GUI exige confirmação explícita;
 9. acompanhe a tarefa em **Tarefas & Console**;
-10. abra o manifest/output informado no console sob `enhancement/runs/...`;
+10. abra o manifest/output informado no console sob `pt_build/texture_upscale/runs/...`;
 11. compare visualmente o original e o output e valide in-game antes de qualquer promoção externa.
 
 A ação da GUI processa somente o asset selecionado. Depois que o candidate termina, o detalhe do asset é atualizado e passa a expor **Enviar enhancement ao cliente**. A publicação exige o arm de client, valida que o ficheiro fonte não mudou desde a geração do candidate, cria backup verificado e só então faz a substituição atômica. Quando a publicação termina, aparece **Desfazer enhancement**; esse rollback só executa se o client ainda contiver exatamente o hash publicado.
@@ -81,7 +81,7 @@ A ação da GUI processa somente o asset selecionado. Depois que o candidate ter
 As transações ficam sob:
 
 ```text
-enhancement/transactions/<asset-key>/<transaction-id>/
+pt_build/texture_upscale/transactions/<asset-key>/<transaction-id>/
 ├── backup/<client-relative-path>
 └── transaction.json
 ```
@@ -105,7 +105,7 @@ A aba **Cliente / Asset Enrichment** possui quatro ações globais:
 
 - **Enhance todas as texturas (AI)** — executa Real-ESRGAN `detail` para BMP/TGA/PNG/JPG/JPEG e inclui deliberadamente UI/atlases para o teste global;
 - **Retomar último run** — lê o manifest checkpointado, reutiliza candidates cujo source/output SHA-256 ainda confere e reprocessa somente falhas/pendentes;
-- **Publicar lote no cliente** — valida todos os hashes antes da primeira escrita, cria backup/transação por asset e mantém um `enhancement/batches/<batch-id>/batch.json`;
+- **Publicar lote no cliente** — valida todos os hashes antes da primeira escrita, cria backup/transação por asset e mantém um `pt_build/texture_upscale/batches/<batch-id>/batch.json`;
 - **Desfazer lote publicado** — recusa o lote inteiro se qualquer ficheiro tiver drift ou backup inválido; quando começa, restaura as transações do lote de forma controlada.
 
 CLI equivalente:
@@ -167,7 +167,7 @@ python3 pt_asset.py texture-upscale run \
   --profile balanced
 ```
 
-Sem `--output-root`, a execução cria automaticamente uma árvore única em `enhancement/runs/`. `run` nunca assume "todas as texturas": use `--all` somente quando essa intenção for explícita.
+Sem `--output-root`, a execução cria automaticamente uma árvore única em `pt_build/texture_upscale/runs/`. `run` nunca assume "todas as texturas": use `--all` somente quando essa intenção for explícita.
 
 ## Enhance CLI — backend automático
 
