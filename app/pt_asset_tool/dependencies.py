@@ -54,28 +54,174 @@ def _flatpak_blender_ready() -> tuple[bool, str]:
     return False, detail or "Flatpak Blender org.blender.Blender is not installed"
 
 
+_BLENDER_VERSION_CACHE: dict[tuple[str, ...], tuple[str | None, str | None]] = {}
+
+
+def _resolve_launcher_executable(token: str) -> str | None:
+    """Resolve one executable token without interpreting launcher arguments."""
+    raw = str(token or "").strip()
+    if not raw:
+        return None
+    path = Path(raw).expanduser()
+    if path.is_file():
+        return str(path.resolve())
+    return _which(raw)
+
+
+def _configured_blender_executable(project_root: Path) -> str | None:
+    try:
+        from .app_config import configured_blender_executable
+        return configured_blender_executable(project_root)
+    except Exception:
+        return None
+
+
+def _probe_blender_version(command: list[str]) -> tuple[str | None, str | None]:
+    """Return (version, error) for a resolved Blender launcher.
+
+    The probe intentionally uses ``--version`` rather than opening a GUI or
+    importing a project.  This is safe for headless machines and also works for
+    direct binaries, wrapper scripts and Flatpak launchers.  Results are cached
+    per process because catalog preview requests may ask for the same runtime
+    repeatedly.
+    """
+    key = tuple(command)
+    cached = _BLENDER_VERSION_CACHE.get(key)
+    if cached is not None:
+        return cached
+    try:
+        cp = subprocess.run(
+            [*command, "--version"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            timeout=12,
+            check=False,
+        )
+    except Exception as exc:
+        result = (None, f"version probe failed: {type(exc).__name__}: {exc}")
+        _BLENDER_VERSION_CACHE[key] = result
+        return result
+    output = (cp.stdout or "").strip()
+    if cp.returncode != 0:
+        detail = output.replace("\n", " ")[:500]
+        result = (None, f"version probe exited {cp.returncode}: {detail or 'no output'}")
+        _BLENDER_VERSION_CACHE[key] = result
+        return result
+    import re
+    match = re.search(r"\bBlender\s+([0-9]+(?:\.[0-9]+){1,2})", output, re.IGNORECASE)
+    if not match:
+        first = output.splitlines()[0] if output else "no output"
+        result = (None, f"version probe returned unrecognized output: {first[:300]}")
+        _BLENDER_VERSION_CACHE[key] = result
+        return result
+    result = (match.group(1), None)
+    _BLENDER_VERSION_CACHE[key] = result
+    return result
+
+
+def blender_runtime_info(project_root: Path | None = None, *, probe_version: bool = False) -> dict[str, Any]:
+    """Resolve the one Blender runtime used by every PT Asset Tool workflow.
+
+    Precedence is intentionally explicit and portable:
+
+    1. ``PT_BLENDER_EXE`` (single executable path/name)
+    2. legacy ``PT_BLENDER_COMMAND`` / ``PT_ASSET_BLENDER_COMMAND``
+    3. persistent machine-local ``blender_executable`` config
+    4. native ``blender`` on PATH
+    5. Flatpak ``org.blender.Blender``
+
+    Explicit environment/configuration values are fail-closed: when configured
+    but invalid, the resolver reports that error instead of silently selecting a
+    different Blender installation.
+    """
+    project = _project_root(project_root)
+    source = ""
+    command: list[str] = []
+    ready = False
+    detail = ""
+
+    explicit_exe = os.environ.get("PT_BLENDER_EXE")
+    if explicit_exe is not None:
+        source = "PT_BLENDER_EXE"
+        raw = explicit_exe.strip()
+        if not raw:
+            detail = "PT_BLENDER_EXE is empty"
+        else:
+            exe = _resolve_launcher_executable(raw)
+            if exe:
+                command = [exe]
+                ready = True
+                detail = f"configured executable available: {exe}"
+            else:
+                command = [str(Path(raw).expanduser())]
+                detail = f"configured Blender executable was not found: {raw}"
+    else:
+        raw_command = os.environ.get("PT_BLENDER_COMMAND") or os.environ.get("PT_ASSET_BLENDER_COMMAND")
+        if raw_command is not None:
+            import shlex
+            source = "PT_BLENDER_COMMAND" if os.environ.get("PT_BLENDER_COMMAND") is not None else "PT_ASSET_BLENDER_COMMAND"
+            command = shlex.split(raw_command)
+            if not command:
+                detail = f"{source} is empty"
+            else:
+                exe = _resolve_launcher_executable(command[0])
+                if not exe:
+                    detail = f"configured Blender launcher was not found: {command[0]}"
+                else:
+                    command[0] = exe
+                    if Path(exe).name == "flatpak" and "org.blender.Blender" in command:
+                        ready, detail = _flatpak_blender_ready()
+                    else:
+                        ready = True
+                        detail = f"configured launcher available: {exe}"
+        else:
+            configured = _configured_blender_executable(project)
+            if configured:
+                source = "PERSISTENT_CONFIG"
+                exe = _resolve_launcher_executable(configured)
+                command = [exe or str(Path(configured).expanduser())]
+                if exe:
+                    ready = True
+                    detail = f"persistent Blender executable available: {exe}"
+                else:
+                    detail = f"persistent Blender executable was not found: {configured}"
+            else:
+                native = _which("blender")
+                if native:
+                    source = "PATH"
+                    command = [native]
+                    ready = True
+                    detail = f"native Blender available: {native}"
+                else:
+                    source = "FLATPAK"
+                    command = ["flatpak", "run", "--filesystem=home", "org.blender.Blender"]
+                    ready, detail = _flatpak_blender_ready()
+
+    version = None
+    probe_error = None
+    if ready and probe_version:
+        version, probe_error = _probe_blender_version(command)
+        if probe_error:
+            ready = False
+            detail = f"{detail}; {probe_error}"
+        elif version:
+            detail = f"{detail}; Blender {version}"
+    return {
+        "command": command,
+        "ready": bool(ready),
+        "detail": detail,
+        "source": source or "UNRESOLVED",
+        "version": version,
+        "probe_error": probe_error,
+        "project_root": str(project),
+    }
+
+
 def resolve_blender_command(project_root: Path | None = None) -> tuple[list[str], bool, str]:
-    del project_root  # reserved for future project-local launchers
-    raw = os.environ.get("PT_BLENDER_COMMAND") or os.environ.get("PT_ASSET_BLENDER_COMMAND")
-    if raw:
-        import shlex
-        cmd = shlex.split(raw)
-        if not cmd:
-            return [], False, "PT_BLENDER_COMMAND is empty"
-        exe = _which(cmd[0]) if not Path(cmd[0]).expanduser().is_file() else str(Path(cmd[0]).expanduser().resolve())
-        if not exe:
-            return cmd, False, f"configured Blender launcher was not found: {cmd[0]}"
-        if Path(cmd[0]).name == "flatpak" and "org.blender.Blender" in cmd:
-            ok, detail = _flatpak_blender_ready()
-            return cmd, ok, detail
-        return cmd, True, f"configured launcher available: {exe}"
-
-    native = _which("blender")
-    if native:
-        return [native], True, f"native Blender available: {native}"
-    ok, detail = _flatpak_blender_ready()
-    return ["flatpak", "run", "--filesystem=home", "org.blender.Blender"], ok, detail
-
+    """Backward-compatible tuple API used by existing Blender workflows."""
+    info = blender_runtime_info(project_root, probe_version=False)
+    return list(info["command"]), bool(info["ready"]), str(info["detail"])
 
 def bundled_realesrgan(project_root: Path | None = None) -> Path | None:
     project = _project_root(project_root)
@@ -111,7 +257,10 @@ def resolve_realesrgan(project_root: Path | None = None, explicit: str | None = 
 def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
     project = _project_root(project_root)
     py_ok = sys.version_info >= (3, 11)
-    blender_cmd, blender_ok, blender_detail = resolve_blender_command(project)
+    blender_runtime = blender_runtime_info(project, probe_version=True)
+    blender_cmd = list(blender_runtime["command"])
+    blender_ok = bool(blender_runtime["ready"])
+    blender_detail = str(blender_runtime["detail"])
     realesrgan_path, realesrgan_source = resolve_realesrgan(project)
 
     vulkan_tool = _which("vulkaninfo")
@@ -157,8 +306,17 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "status": "READY" if blender_ok else "MISSING",
             "required_for": ["3D preview", "visual validation", "model import/edit", "animation checks", "particle preview"],
             "reason": "These workflows execute Blender-side scripts and therefore need the Blender runtime (bpy/bmesh/mathutils are provided by Blender itself).",
-            "detail": f"{' '.join(blender_cmd)} · {blender_detail}",
-            "install": "Fedora: sudo dnf install blender. Or: flatpak install flathub org.blender.Blender. To use another launcher: export PT_BLENDER_COMMAND='blender'",
+            "detail": (
+                f"source={blender_runtime['source']} · "
+                f"version={blender_runtime.get('version') or 'unverified'} · "
+                f"command={' '.join(blender_cmd) or 'unresolved'} · {blender_detail}"
+            ),
+            "install": (
+                "Fedora: sudo dnf install blender. Or: flatpak install flathub org.blender.Blender. "
+                "Portable override: export PT_BLENDER_EXE=/path/to/blender. "
+                "Persistent override: python3 pt_asset.py config set-blender-exe /path/to/blender. "
+                "PT_BLENDER_COMMAND remains supported for launcher commands with arguments."
+            ),
         },
         {
             "id": "realesrgan",

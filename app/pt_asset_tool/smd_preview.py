@@ -11,7 +11,7 @@ import time
 from typing import Any
 
 from .blender_workspace import asset_workspace_name
-from .dependencies import resolve_blender_command
+from .dependencies import blender_runtime_info
 
 FORMAT = "PT_CATALOG_SMD_PREVIEW_V1"
 
@@ -63,7 +63,7 @@ class SmdPreviewManager:
     def workspace(self, logical: str) -> pathlib.Path:
         return self.root / asset_workspace_name(logical)
 
-    def _cache_key(self, plan: dict[str, Any], blender_cmd: list[str]) -> str:
+    def _cache_key(self, plan: dict[str, Any], blender_runtime: dict[str, Any]) -> str:
         deps = []
         for raw in plan.get("dependency_paths") or []:
             p = pathlib.Path(str(raw))
@@ -77,7 +77,11 @@ class SmdPreviewManager:
             "lod": str(plan.get("lod") or "default"),
             "deps": deps,
             "scripts": [[str(p), _stat(p)] for p in scripts],
-            "blender": blender_cmd,
+            "blender": {
+                "command": list(blender_runtime.get("command") or []),
+                "source": blender_runtime.get("source"),
+                "version": blender_runtime.get("version"),
+            },
         }
         return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
 
@@ -89,14 +93,21 @@ class SmdPreviewManager:
             return {"format": FORMAT, "status": "UNSUPPORTED", "detail": "SMD_PREVIEW_PLAN_UNAVAILABLE"}
         logical = str(plan["logical"])
         key = self._key(logical)
-        blender_cmd, ready, detail = resolve_blender_command(self.project_root)
-        if not ready:
-            return {"format": FORMAT, "status": "UNAVAILABLE", "asset": logical, "detail": detail}
+        blender_runtime = blender_runtime_info(self.project_root, probe_version=True)
+        blender_cmd = list(blender_runtime.get("command") or [])
+        if not blender_runtime.get("ready"):
+            return {
+                "format": FORMAT, "status": "UNAVAILABLE", "asset": logical,
+                "detail": blender_runtime.get("detail"),
+                "blender_source": blender_runtime.get("source"),
+                "blender_version": blender_runtime.get("version"),
+                "blender_command": blender_cmd,
+            }
         workspace = self.workspace(logical)
         preview = workspace / "preview.png"
         blend = workspace / "model.blend"
         meta = workspace / "preview.json"
-        cache_key = self._cache_key(plan, blender_cmd)
+        cache_key = self._cache_key(plan, blender_runtime)
         old = _json_load(meta)
         if preview.is_file() and blend.is_file() and old.get("format") == FORMAT and old.get("cache_key") == cache_key and old.get("status") == "READY":
             return {
@@ -104,6 +115,9 @@ class SmdPreviewManager:
                 "image_url": "/api/smd-preview?path=" + __import__("urllib.parse").parse.quote(logical),
                 "blend": str(blend), "dependency_count": len(plan.get("dependency_paths") or []),
                 "source": "CACHE",
+                "blender_source": blender_runtime.get("source"),
+                "blender_version": blender_runtime.get("version"),
+                "blender_command": blender_cmd,
             }
         with self._lock:
             current = self._states.get(key)
@@ -116,6 +130,9 @@ class SmdPreviewManager:
                 "format": FORMAT, "status": "QUEUED", "asset": logical,
                 "queued_at": time.time(), "detail": "Blender low-res preview queued",
                 "dependency_count": len(plan.get("dependency_paths") or []),
+                "blender_source": blender_runtime.get("source"),
+                "blender_version": blender_runtime.get("version"),
+                "blender_command": blender_cmd,
                 "plan": dict(plan), "cache_key": cache_key,
             }
             self._states[key] = state
@@ -157,12 +174,13 @@ class SmdPreviewManager:
         meta = workspace / "preview.json"
         import_log = workspace / "import.log"
         render_log = workspace / "render.log"
-        blender_cmd, ready, detail = resolve_blender_command(self.project_root)
+        blender_runtime = blender_runtime_info(self.project_root, probe_version=True)
+        blender_cmd = list(blender_runtime.get("command") or [])
         with self._lock:
             state = self._states.setdefault(key, {})
             state.update({"format": FORMAT, "status": "RUNNING", "asset": logical, "started_at": time.time(), "cache_key": cache_key, "plan": dict(plan)})
-        if not ready:
-            self._fail(key, meta, cache_key, f"BLENDER_UNAVAILABLE:{detail}")
+        if not blender_runtime.get("ready"):
+            self._fail(key, meta, cache_key, f"BLENDER_UNAVAILABLE:{blender_runtime.get('detail')}")
             return
         importer = self.project_root / "pt_smd_blender_import_v4_generic.py"
         renderer = pathlib.Path(__file__).resolve().parent / "legacy_runtime" / "pt_catalog_smd_render.py"
@@ -177,8 +195,13 @@ class SmdPreviewManager:
         if plan.get("model_info"):
             cmd += ["--model-info", str(plan["model_info"])]
         try:
+            runtime_header = (
+                f"PT_ASSET_BLENDER source={blender_runtime.get('source')} "
+                f"version={blender_runtime.get('version') or 'unverified'} "
+                f"command={json.dumps(blender_cmd, ensure_ascii=False)}\n"
+            )
             p = subprocess.run(cmd, cwd=self.project_root, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=180, check=False)
-            import_log.write_text(p.stdout or "", encoding="utf-8")
+            import_log.write_text(runtime_header + (p.stdout or ""), encoding="utf-8")
             if p.returncode != 0 or not blend.is_file():
                 raise RuntimeError(f"IMPORT_FAILED:{p.returncode}")
             render_cmd = list(blender_cmd) + [
@@ -186,7 +209,7 @@ class SmdPreviewManager:
                 "--out", str(preview), "--size", "320",
             ]
             p2 = subprocess.run(render_cmd, cwd=self.project_root, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=120, check=False)
-            render_log.write_text(p2.stdout or "", encoding="utf-8")
+            render_log.write_text(runtime_header + (p2.stdout or ""), encoding="utf-8")
             if p2.returncode != 0 or not preview.is_file():
                 raise RuntimeError(f"RENDER_FAILED:{p2.returncode}")
             payload = {
@@ -195,6 +218,12 @@ class SmdPreviewManager:
                 "dependency_paths": list(plan.get("dependency_paths") or []),
                 "model_info": plan.get("model_info_logical"), "skeleton": plan.get("skeleton_logical"),
                 "client_modified": False,
+                "blender": {
+                    "source": blender_runtime.get("source"),
+                    "version": blender_runtime.get("version"),
+                    "command": blender_cmd,
+                    "detail": blender_runtime.get("detail"),
+                },
             }
             tmp = meta.with_suffix(".json.tmp")
             tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -205,6 +234,9 @@ class SmdPreviewManager:
                     "image_url": "/api/smd-preview?path=" + __import__("urllib.parse").parse.quote(logical),
                     "blend": str(blend), "dependency_count": len(plan.get("dependency_paths") or []),
                     "finished_at": time.time(), "source": "BLENDER",
+                    "blender_source": blender_runtime.get("source"),
+                    "blender_version": blender_runtime.get("version"),
+                    "blender_command": blender_cmd,
                 }
         except Exception as exc:
             self._fail(key, meta, cache_key, f"{type(exc).__name__}:{exc}")

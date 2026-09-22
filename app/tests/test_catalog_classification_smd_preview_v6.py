@@ -106,7 +106,7 @@ def test_smd_preview_pipeline_reuses_existing_importer_and_writes_only_pt_build(
     preview = (root / "pt_asset_tool/smd_preview.py").read_text(encoding="utf-8")
     renderer = (root / "pt_asset_tool/legacy_runtime/pt_catalog_smd_render.py").read_text(encoding="utf-8")
     assert 'pt_smd_blender_import_v4_generic.py' in preview
-    assert 'resolve_blender_command' in preview
+    assert 'blender_runtime_info' in preview
     assert 'pt_build" / "previews" / "smd_catalog' in preview
     assert 'client_modified": False' in preview
     assert 'bpy.ops.render.render(write_still=True)' in renderer

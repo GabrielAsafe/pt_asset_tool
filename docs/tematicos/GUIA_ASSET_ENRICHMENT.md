@@ -411,3 +411,32 @@ Filtros de select atualizam o Catálogo imediatamente no próprio clique/seleç�
 Modelos SMD Model0.62 com binding físico suficiente ganham preview Blender low-res automático ao serem selecionados. O pipeline reutiliza `pt_smd_blender_import_v4_generic.py`, o resolver global de Blender e as dependências INX/SMB/texturas já registradas. Outputs ficam somente em `app/pt_build/previews/smd_catalog/`; o client não é alterado. Um worker único evita saturar a máquina e o cache é invalidado quando qualquer dependência usada muda.
 
 A anotação manual usa dropdowns para Categoria, Role e Personagem. Overrides ficam em metadata do catálogo e não modificam assets. O valor automático continua visível para distinguir inferência do Asset Tool de correção humana.
+
+<!-- PT_BLENDER_RUNTIME_PORTABILITY_V7_2026-09-22 -->
+## Blender portátil por máquina (V7)
+
+Todos os workflows Blender usam o mesmo resolver. A ordem é:
+
+1. `PT_BLENDER_EXE` — executável/launcher explícito para esta execução;
+2. `PT_BLENDER_COMMAND` / `PT_ASSET_BLENDER_COMMAND` — compatibilidade com launchers antigos que precisam de argumentos;
+3. `blender_executable` salvo em `pt_build/state/pt_asset_app_config.json`;
+4. `blender` encontrado no `PATH`;
+5. Flatpak `org.blender.Blender`.
+
+Overrides explícitos são fail-closed: se `PT_BLENDER_EXE` ou a configuração persistida apontarem para algo inexistente, o Asset Tool não troca silenciosamente para outro Blender.
+
+Configuração persistente:
+
+```bash
+python3 pt_asset.py config set-blender-exe /caminho/para/blender
+python3 pt_asset.py config show
+python3 pt_asset.py dependencies
+```
+
+Para remover o override e voltar à descoberta automática:
+
+```bash
+python3 pt_asset.py config clear-blender-exe
+```
+
+O diagnóstico mostra `source`, versão e comando efetivo. Previews SMD também guardam estes dados em `preview.json`, `import.log` e `render.log`. O Asset Tool não injeta `LIBGL_ALWAYS_SOFTWARE` nem qualquer workaround gráfico específico de uma máquina.

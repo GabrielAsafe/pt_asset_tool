@@ -2809,3 +2809,24 @@ Se um arquivo esperado não entrar no bundle, não force uma associação pelo n
 - O preview é cacheado em `pt_build/previews/smd_catalog/`. Não há escrita no client.
 - Em **Anotação do catálogo**, Categoria, Role e Personagem são dropdowns. Escolher um valor cria override manual; escolher **Automático** remove o override e volta à classificação derivada do registry/dependency graph.
 - Para texturas com nomes ambíguos, prefira a ligação mostrada por `SMD_MATERIAL_TEXLINK`/INX→SMD. Nome de ficheiro isolado é apenas pista.
+
+<!-- PT_BLENDER_RUNTIME_PORTABILITY_MANUAL_V7_2026-09-22 -->
+## Escolher Blender no portátil e na torre
+
+O projeto não contém paths pessoais hardcoded. Para uma máquina com Blender normal no PATH, não é necessário configurar nada.
+
+Override temporário:
+
+```bash
+PT_BLENDER_EXE=/caminho/para/blender python3 pt_asset.py dependencies
+```
+
+Override persistente, apenas nesta instalação/máquina:
+
+```bash
+python3 pt_asset.py config set-blender-exe /caminho/para/blender
+```
+
+No portátil, o binário Blender 3.6 pode ser usado diretamente para processamento headless. Se workflows Blender interativos precisarem de um launcher que configure Mesa/llvmpipe, esse launcher executável também pode ser salvo como `blender_executable`. A ferramenta não altera drivers nem injeta variáveis gráficas.
+
+`python3 pt_asset.py dependencies` deve informar claramente o executável escolhido, a origem da escolha e a versão detectada. Blender 3.6.x não é rejeitado por exigir uma versão 4.x/5.x; compatibilidade de scripts continua sendo mantida no pipeline comum.
