@@ -2798,3 +2798,14 @@ Se um arquivo esperado não entrar no bundle, não force uma associação pelo n
 - Na coluna **Relação item**, o Catálogo identifica o papel observado do asset: imagem do inventário, modelo/textura no chão ou config/modelo/textura equipada.
 - Ao abrir um asset de item, **Bundle visual do item** mostra os códigos runtime associados e os arquivos relacionados agrupados por papel. Agrupamento visual não significa que os códigos runtime sejam o mesmo item.
 - Se um papel estiver classificado incorretamente, escolha outro em **Papel visual do item** e salve. O asset muda de grupo sem escrever no client. Escolha **Automático** para remover o override e voltar à evidência do censo/graph.
+
+<!-- PT_CATALOG_CLASSIFICATION_SMD_PREVIEWS_MANUAL_V6_2026-09-22 -->
+
+## Catálogo · filtros, personagem e preview SMD
+
+- Selecione filtros normalmente: Categoria, Entidade, Personagem, Pasta, Role e Extensão atualizam a lista imediatamente.
+- **Personagem** é um filtro separado de **Pasta**. Sons de uma classe continuam AUDIO e não transformam o nome da classe numa pasta semântica.
+- Ao selecionar um `.smd` Model0.62 com INX/SMB necessários comprovados, a UI agenda automaticamente um preview Blender low-res em background. Continue navegando; quando terminar, o PNG aparece no painel do asset.
+- O preview é cacheado em `pt_build/previews/smd_catalog/`. Não há escrita no client.
+- Em **Anotação do catálogo**, Categoria, Role e Personagem são dropdowns. Escolher um valor cria override manual; escolher **Automático** remove o override e volta à classificação derivada do registry/dependency graph.
+- Para texturas com nomes ambíguos, prefira a ligação mostrada por `SMD_MATERIAL_TEXLINK`/INX→SMD. Nome de ficheiro isolado é apenas pista.

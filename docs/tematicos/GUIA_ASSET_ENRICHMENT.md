@@ -399,3 +399,15 @@ A representação visual de item é uma visão derivada, não uma nova identidad
 O agrupamento automático só usa evidência persistida. Para itens diferentes, um bundle visual compartilhado requer o mesmo conjunto completo e não vazio de dependências de textura. Configs/INX/modelos equipados entram quando o registry ou o dependency graph prova a ligação. Sem prova, o asset permanece fora daquela relação.
 
 O utilizador pode corrigir o **papel visual** de um asset no detalhe do Catálogo. A correção fica apenas no estado da UI; não altera o client. A UI preserva e exibe a classificação automática original, permitindo distinguir evidência automática de override manual.
+
+<!-- PT_CATALOG_CLASSIFICATION_SMD_PREVIEWS_V6_2026-09-22 -->
+
+## Catálogo V6 · classificação por personagem e previews SMD
+
+O Catálogo separa agora **Pasta física** de **Personagem**. A atribuição automática de personagem usa primeiro evidência persistida do Asset Tool: pairing INX→SMD do registry e relações SMD→textura do inventário/dependency graph. Convenções de nome servem somente como hint quando não existe ligação comprovada.
+
+Filtros de select atualizam o Catálogo imediatamente no próprio clique/seleção. Áudio permanece na categoria AUDIO mesmo quando vive sob árvores `char/player`; o filtro Pasta usa raízes estruturais de áudio em vez de nomes de classes.
+
+Modelos SMD Model0.62 com binding físico suficiente ganham preview Blender low-res automático ao serem selecionados. O pipeline reutiliza `pt_smd_blender_import_v4_generic.py`, o resolver global de Blender e as dependências INX/SMB/texturas já registradas. Outputs ficam somente em `app/pt_build/previews/smd_catalog/`; o client não é alterado. Um worker único evita saturar a máquina e o cache é invalidado quando qualquer dependência usada muda.
+
+A anotação manual usa dropdowns para Categoria, Role e Personagem. Overrides ficam em metadata do catálogo e não modificam assets. O valor automático continua visível para distinguir inferência do Asset Tool de correção humana.

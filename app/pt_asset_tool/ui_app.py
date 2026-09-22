@@ -25,6 +25,8 @@ from .config import Settings
 from .registry import AssetRegistry
 from .registry_bootstrap import ensure_runtime_registry
 from .item_visual_index import load_or_build_item_visual_index
+from .catalog_character_index import load_or_build_character_index, PLAYABLE_CLASSES
+from .smd_preview import SmdPreviewManager
 from .resolver import ClientResolver
 from .legacy_management_web import (
     legacy_management_dashboard, legacy_management_item_detail,
@@ -197,6 +199,12 @@ class UIContext:
         self._item_visual_cache_revision = -1
         self._item_visual_cache_hit = False
         self._item_visual_last_build_ms = 0.0
+        self._character_index_lock = threading.RLock()
+        self._character_index_cache: dict[str, Any] | None = None
+        self._character_index_catalog_revision = -1
+        self._character_index_cache_hit = False
+        self._character_index_last_build_ms = 0.0
+        self.smd_previews = SmdPreviewManager(self.project_root, self.client_root)
         self.jobs = JobManager(
             self.project_root, max_concurrent=2,
             env_overrides={
@@ -265,12 +273,94 @@ class UIContext:
             self._registry_error = None
         self.invalidate_entities()
         self.invalidate_item_visual_index()
+        with self._character_index_lock:
+            self._character_index_cache = None
+            self._character_index_catalog_revision = -1
 
     def _item_visual_graph_path(self) -> pathlib.Path:
         return self.project_root / "pt_build" / "enrichment_vendor" / "dependency_graph" / "graph.json"
 
     def _item_visual_cache_path(self) -> pathlib.Path:
         return self.project_root / "pt_build" / "state" / "item_visual_bundle_index_v1.json"
+
+    def _character_index_cache_path(self) -> pathlib.Path:
+        return self.project_root / "pt_build" / "state" / "catalog_character_index_v1.json"
+
+    def character_index(self) -> dict[str, Any]:
+        revision = int(getattr(self.catalog, "revision", 0))
+        with self._character_index_lock:
+            if self._character_index_cache is not None and self._character_index_catalog_revision == revision:
+                return self._character_index_cache
+            started = time.perf_counter()
+            index, cache_hit = load_or_build_character_index(
+                inventory_path=self.settings.inventory,
+                pairing_path=self.settings.pairing,
+                graph_path=self._item_visual_graph_path(),
+                cache_path=self._character_index_cache_path(),
+            )
+            self.catalog.apply_character_index(index)
+            self._character_index_cache = index
+            self._character_index_catalog_revision = revision
+            self._character_index_cache_hit = bool(cache_hit)
+            self._character_index_last_build_ms = (time.perf_counter() - started) * 1000.0
+            return index
+
+    def ensure_character_annotations(self) -> dict[str, Any]:
+        return self.character_index()
+
+    def _smd_preview_plan(self, rel: str) -> dict[str, Any] | None:
+        if pathlib.PurePosixPath(str(rel or "")).suffix.casefold() != ".smd":
+            return None
+        try:
+            reg = self.registry()
+            asset = reg.resolve(rel)
+        except Exception:
+            return None
+        if asset.family not in {"SMD_MODEL_062_RIGID_PHYSIQUE", "SMD_MODEL_062_STATIC"}:
+            return None
+        smd = self.resolver.resolve(asset.primary_path, required=False)
+        if smd is None:
+            return None
+        skeleton_logical = ""
+        model_info_logical = ""
+        if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE":
+            if not asset.rigid_binding_ready or not asset.binding_skeleton_smb:
+                return None
+            skeleton_logical = str(asset.binding_skeleton_smb)
+            opts = rigid_model_info_options(asset)
+            if opts:
+                model_info_logical = str(opts[0].get("inx") or "")
+            if not model_info_logical:
+                model_info_logical = next((str(c.get("inx") or "") for c in asset.configs if c.get("inx")), "")
+            if not model_info_logical:
+                return None
+        else:
+            model_info_logical = next((str(c.get("inx") or "") for c in asset.configs if c.get("inx")), "")
+        skeleton = self.resolver.resolve(skeleton_logical, required=False) if skeleton_logical else None
+        model_info = self.resolver.resolve(model_info_logical, required=False) if model_info_logical else None
+        if skeleton_logical and skeleton is None:
+            return None
+        if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE" and model_info is None:
+            return None
+        logical_deps = [asset.primary_path, *list(asset.textures or [])]
+        if skeleton_logical:
+            logical_deps.append(skeleton_logical)
+        if model_info_logical:
+            logical_deps.append(model_info_logical)
+        physical_deps: list[str] = []
+        for logical in logical_deps:
+            p = self.resolver.resolve(logical, required=False)
+            if p is not None:
+                physical_deps.append(str(pathlib.Path(p).resolve()))
+        return {
+            "logical": asset.primary_path, "smd": str(pathlib.Path(smd).resolve()),
+            "skeleton": str(pathlib.Path(skeleton).resolve()) if skeleton is not None else "",
+            "skeleton_logical": skeleton_logical,
+            "model_info": str(pathlib.Path(model_info).resolve()) if model_info is not None else "",
+            "model_info_logical": model_info_logical, "lod": "default",
+            "dependency_paths": sorted(set(physical_deps), key=str.casefold),
+            "dependency_logical": sorted(set(logical_deps), key=str.casefold),
+        }
 
     def item_visual_index(self) -> dict[str, Any]:
         revision = int(getattr(self.state, "revision", 0))
@@ -306,10 +396,15 @@ class UIContext:
     def annotate_catalog_report(self, report: dict[str, Any]) -> dict[str, Any]:
         index = self.item_visual_index()
         by_path = index.get("by_path") or {}
+        bundle_map = index.get("bundle_map") or {}
         for row in report.get("items") or []:
             membership = by_path.get(str(row.get("path") or "").casefold())
             if membership:
-                row["item_visual"] = membership
+                enriched = dict(membership)
+                bundle = bundle_map.get(membership.get("bundle_key")) or {}
+                enriched["bundle_asset_count"] = int(bundle.get("asset_count") or sum(len(x) for x in (bundle.get("roles") or {}).values()))
+                enriched["runtime_identity_count"] = len(bundle.get("runtime_codes") or [])
+                row["item_visual"] = enriched
         report["item_visual_performance"] = {
             "cache_hit": self._item_visual_cache_hit,
             "load_ms": round(self._item_visual_last_build_ms, 3),
@@ -409,6 +504,7 @@ class UIContext:
                 raise
 
     def asset_detail(self, rel: str) -> dict[str, Any] | None:
+        self.ensure_character_annotations()
         row = self.catalog.get_asset(rel)
         if not row:
             return None
@@ -587,6 +683,14 @@ class UIContext:
             row["item_visual"] = visual["membership"]
             row["item_visual_bundle"] = visual["bundle"]
             row["item_visual_role_labels"] = visual["role_labels"]
+        options = self.catalog.annotation_options()
+        options["characters"] = list(PLAYABLE_CLASSES)
+        row["annotation_options"] = options
+        if pathlib.PurePosixPath(str(rel or "")).suffix.casefold() == ".smd":
+            plan = self._smd_preview_plan(rel)
+            row["smd_preview"] = self.smd_previews.request(plan) if plan else {
+                "status": "UNSUPPORTED", "detail": "SMD_PREVIEW_DEPENDENCY_CONTEXT_UNAVAILABLE"
+            }
         return row
 
     @property
@@ -789,6 +893,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "LEGACY_MANAGEMENT_REPORT_QUERY_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/catalog":
             try:
+                self.ctx.ensure_character_annotations()
                 entity_key = _one(q, "entity")
                 allowed_paths = None
                 active_entity = None
@@ -810,13 +915,17 @@ class UIHandler(BaseHTTPRequestHandler):
                     }
                 report = self.ctx.catalog.query(
                     q=_one(q, "q"), category="" if entity_key else _one(q, "category"), folder=_one(q, "folder"),
-                    role=_one(q, "role"), ext=_one(q, "ext"),
+                    role=_one(q, "role"), character=_one(q, "character"), ext=_one(q, "ext"),
                     favorites=_one(q, "favorites") in {"1", "true", "yes"},
                     show_system=_one(q, "show_system") in {"1", "true", "yes"},
                     allowed_paths=allowed_paths,
                     page=int(_one(q, "page") or 1), page_size=int(_one(q, "page_size") or 100),
                 )
                 self.ctx.annotate_catalog_report(report)
+                report["character_index_performance"] = {
+                    "cache_hit": self.ctx._character_index_cache_hit,
+                    "load_ms": round(self.ctx._character_index_last_build_ms, 3),
+                }
                 return self._json(200, {"ok": True, **report, "active_entity": active_entity})
             except Exception as exc:
                 return self._error(400, "CATALOG_QUERY_FAILED", str(exc))
@@ -1133,6 +1242,24 @@ class UIHandler(BaseHTTPRequestHandler):
             except Exception as exc:
                 return self._error(400, "REPORT_READ_FAILED", str(exc))
             return self._json(200, {"ok": True, "name": name, "report": data})
+        if path == "/api/smd-preview-status":
+            rel = _one(q, "path")
+            plan = self.ctx._smd_preview_plan(rel)
+            return self._json(200, {"ok": True, "preview": self.ctx.smd_previews.request(plan, retry=_one(q, "retry") in {"1","true","yes"})})
+        if path == "/api/smd-preview":
+            rel = _one(q, "path")
+            try:
+                image = self.ctx.smd_previews.image_path(rel)
+                raw = image.read_bytes()
+            except Exception as exc:
+                return self._error(404, "SMD_PREVIEW_NOT_READY", f"{type(exc).__name__}:{exc}")
+            self.send_response(200)
+            self.send_header("Content-Type", "image/png")
+            self.send_header("Content-Length", str(len(raw)))
+            self.send_header("Cache-Control", "private, max-age=3600")
+            self.end_headers()
+            self.wfile.write(raw)
+            return
         if path == "/api/preview":
             rel = _one(q, "path")
             row = self.ctx.catalog.get_asset(rel)
