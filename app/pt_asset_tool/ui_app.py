@@ -23,13 +23,17 @@ from .ui_image import PreviewDecodeError, preview_image_bytes
 from .ui_jobs import JobManager
 from .config import Settings
 from .registry import AssetRegistry
+from .registry_bootstrap import ensure_runtime_registry
+from .item_visual_index import load_or_build_item_visual_index
 from .resolver import ClientResolver
 from .legacy_management_web import (
     legacy_management_dashboard, legacy_management_item_detail,
     query_legacy_management_report, verify_management_for_web,
 )
 from .legacy_authoring import authoring_capabilities, authoring_workspace_guide, inspect_authoring, stage_authoring
-from .entity_catalog import entity_detail, load_entity_seed, query_entities
+from .entity_catalog import (
+    build_live_entities, entity_detail_from_built, load_entity_seed, query_built_entities,
+)
 from .server_ui import build_server_ui_summary, server_report_rows
 from .client_enrichment import asset_analysis_evidence, build_client_enrichment_summary, query_client_enrichment_report
 from .asset_contract_registry import registry_summary, get_contract, schema_for_contract, match_contracts_for_path
@@ -41,14 +45,13 @@ from .asset_bundle_deploy import (
 )
 from .app_config import (
     save_server_root, clear_server_root,
-    save_source_root, clear_source_root,
-    save_reference_source_root, clear_reference_source_root,
-    save_contract_donor_clients, configured_contract_donor_clients,
-    save_contract_donor_servers, configured_contract_donor_servers,
+    configured_contract_donor_clients, configured_contract_donor_servers,
+    validate_contract_donor_specs, save_contract_source_config,
 )
 from .validation import rigid_model_info_options
 from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_spp_records, stage_spc_native
 from .general_asset_census import query_general_asset_census
+from .server_enrichment_readiness import build_general_census_readiness
 from .source_catalog import configured_source_roots
 from .texture_upscale import capability_status as texture_upscale_capability_status, enhancement_status, enhancement_root, enhancement_batch_status
 from .blender_workspace import blender_edit_root
@@ -158,10 +161,18 @@ class UIContext:
         self.token = secrets.token_urlsafe(32)
         self.backend_version = _backend_version(self.project_root)
         self.state = UIStateStore(self.project_root / "pt_build" / "ui_state_v0100.json")
+        # UI startup trusts the persisted physical census. A strict filesystem
+        # signature walk is reserved for explicit Reindex/CLI validation.
+        self.settings = Settings.discover(
+            self.project_root, self.client_root, server_root, verify_registry=False
+        )
         self.catalog = CatalogIndex(self.client_root, self.state)
-        self.catalog.rebuild()
+        try:
+            self.catalog.rebuild_from_inventory(self.settings.inventory)
+        except Exception:
+            # Fresh/corrupt/mismatched state still has a safe physical fallback.
+            self.catalog.rebuild()
         self.entity_seed = load_entity_seed(self.project_root)
-        self.settings = Settings.discover(self.project_root, self.client_root, server_root)
         self.server_root = self.settings.server_root
         # Use the same bounded source auto-discovery as the CLI so a freshly
         # extracted FULL release does not force re-entry of known Summit roots.
@@ -175,6 +186,17 @@ class UIContext:
         self._registry: AssetRegistry | None = None
         self._registry_error: str | None = None
         self._registry_lock = threading.RLock()
+        self._entity_cache_lock = threading.RLock()
+        self._entity_cache: list[dict[str, Any]] | None = None
+        self._entity_cache_revision = -1
+        self._entity_cache_registry_id = ""
+        self._entity_cache_builds = 0
+        self._entity_cache_last_build_ms = 0.0
+        self._item_visual_lock = threading.RLock()
+        self._item_visual_cache: dict[str, Any] | None = None
+        self._item_visual_cache_revision = -1
+        self._item_visual_cache_hit = False
+        self._item_visual_last_build_ms = 0.0
         self.jobs = JobManager(
             self.project_root, max_concurrent=2,
             env_overrides={
@@ -197,7 +219,7 @@ class UIContext:
 
     def set_server_root(self, value: pathlib.Path | None) -> None:
         self.server_root = value.resolve() if value is not None else None
-        self.settings = Settings.discover(self.project_root, self.client_root, self.server_root)
+        self.settings = Settings.discover(self.project_root, self.client_root, self.server_root, verify_registry=False)
         if self.server_root:
             self.jobs.env_overrides["PT_SERVER_ROOT"] = str(self.server_root)
         else:
@@ -225,10 +247,151 @@ class UIContext:
         else:
             self.jobs.env_overrides.pop("PT_REFERENCE_SOURCE_ROOT", None)
 
+    def invalidate_entities(self) -> None:
+        with self._entity_cache_lock:
+            self._entity_cache = None
+            self._entity_cache_revision = -1
+            self._entity_cache_registry_id = ""
+
+    def invalidate_item_visual_index(self) -> None:
+        with self._item_visual_lock:
+            self._item_visual_cache = None
+            self._item_visual_cache_revision = -1
+            self._item_visual_cache_hit = False
+
     def invalidate_registry(self) -> None:
         with self._registry_lock:
             self._registry = None
             self._registry_error = None
+        self.invalidate_entities()
+        self.invalidate_item_visual_index()
+
+    def _item_visual_graph_path(self) -> pathlib.Path:
+        return self.project_root / "pt_build" / "enrichment_vendor" / "dependency_graph" / "graph.json"
+
+    def _item_visual_cache_path(self) -> pathlib.Path:
+        return self.project_root / "pt_build" / "state" / "item_visual_bundle_index_v1.json"
+
+    def item_visual_index(self) -> dict[str, Any]:
+        revision = int(getattr(self.state, "revision", 0))
+        with self._item_visual_lock:
+            if self._item_visual_cache is not None and self._item_visual_cache_revision == revision:
+                return self._item_visual_cache
+            started = time.perf_counter()
+            index, cache_hit = load_or_build_item_visual_index(
+                inventory_path=self.settings.inventory,
+                graph_path=self._item_visual_graph_path(),
+                cache_path=self._item_visual_cache_path(),
+                catalog_rows=self.catalog.assets,
+                state_revision=revision,
+                client_signature=str((getattr(self.catalog, "source_signature", {}) or {}).get("stat_sha256") or ""),
+            )
+            self._item_visual_last_build_ms = (time.perf_counter() - started) * 1000.0
+            self._item_visual_cache = index
+            self._item_visual_cache_revision = revision
+            self._item_visual_cache_hit = bool(cache_hit)
+            return index
+
+    def item_visual_for_path(self, rel: str) -> dict[str, Any] | None:
+        index = self.item_visual_index()
+        key = str(rel or "").replace("\\", "/").strip("/").casefold()
+        membership = (index.get("by_path") or {}).get(key)
+        if not membership:
+            return None
+        bundle = (index.get("bundle_map") or {}).get(membership.get("bundle_key"))
+        if not bundle:
+            return None
+        return {"membership": membership, "bundle": bundle, "role_labels": index.get("role_labels") or {}}
+
+    def annotate_catalog_report(self, report: dict[str, Any]) -> dict[str, Any]:
+        index = self.item_visual_index()
+        by_path = index.get("by_path") or {}
+        for row in report.get("items") or []:
+            membership = by_path.get(str(row.get("path") or "").casefold())
+            if membership:
+                row["item_visual"] = membership
+        report["item_visual_performance"] = {
+            "cache_hit": self._item_visual_cache_hit,
+            "load_ms": round(self._item_visual_last_build_ms, 3),
+            "bundle_count": int(index.get("bundle_count") or 0),
+            "sources": index.get("sources") or {},
+        }
+        return report
+
+    def _entity_snapshot_key(self) -> dict[str, Any]:
+        def stat_key(path: pathlib.Path) -> list[int]:
+            try:
+                st = path.stat()
+                return [int(st.st_size), int(st.st_mtime_ns)]
+            except OSError:
+                return [0, 0]
+        return {
+            "client_root": str(self.client_root),
+            "client_signature": str((getattr(self.catalog, "source_signature", {}) or {}).get("stat_sha256") or ""),
+            "ui_state_revision": int(getattr(self.state, "revision", 0)),
+            "inventory": stat_key(self.settings.inventory),
+            "pairing": stat_key(self.settings.pairing),
+        }
+
+    def _entity_snapshot_cache_path(self) -> pathlib.Path:
+        return self.project_root / "pt_build" / "state" / "ui_entity_snapshot_v2.json"
+
+    def _load_persisted_entity_snapshot(self, key: dict[str, Any]) -> list[dict[str, Any]] | None:
+        path = self._entity_snapshot_cache_path()
+        try:
+            raw = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return None
+        if not isinstance(raw, dict) or raw.get("format") != "PT_UI_ENTITY_SNAPSHOT_V2":
+            return None
+        if raw.get("key") != key or not isinstance(raw.get("entities"), list):
+            return None
+        return raw["entities"]
+
+    def _save_persisted_entity_snapshot(self, key: dict[str, Any], entities: list[dict[str, Any]]) -> None:
+        path = self._entity_snapshot_cache_path()
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_suffix(path.suffix + ".tmp")
+            tmp.write_text(json.dumps({
+                "format": "PT_UI_ENTITY_SNAPSHOT_V2",
+                "key": key,
+                "entity_count": len(entities),
+                "entities": entities,
+            }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+            os.replace(tmp, path)
+        except Exception:
+            # Cache persistence is an optimization only.
+            pass
+
+    def entities_snapshot(self, registry=None) -> list[dict[str, Any]]:
+        revision = int(getattr(self.catalog, "revision", 0))
+        key = self._entity_snapshot_key()
+        registry_id = json.dumps(key, sort_keys=True, ensure_ascii=False)
+        with self._entity_cache_lock:
+            if (
+                self._entity_cache is not None
+                and self._entity_cache_revision == revision
+                and self._entity_cache_registry_id == registry_id
+            ):
+                return self._entity_cache
+            persisted = self._load_persisted_entity_snapshot(key)
+            if persisted is not None:
+                self._entity_cache = persisted
+                self._entity_cache_revision = revision
+                self._entity_cache_registry_id = registry_id
+                return persisted
+            # One request performs the expensive full grouping; concurrent
+            # requests wait on this lock and then reuse the same snapshot.
+            started = time.perf_counter()
+            built = build_live_entities(self.catalog.assets, self.entity_seed, registry=registry)
+            self._entity_cache_last_build_ms = (time.perf_counter() - started) * 1000.0
+            self._entity_cache_builds += 1
+            self._entity_cache = built
+            self._entity_cache_revision = revision
+            self._entity_cache_registry_id = registry_id
+            self._save_persisted_entity_snapshot(key, built)
+            return built
 
     def registry(self) -> AssetRegistry:
         with self._registry_lock:
@@ -415,6 +578,15 @@ class UIContext:
                 "supports_head": False, "head_candidates": [], "supports_roundtrip": False,
             })
             row.setdefault("related_assets", [])
+        try:
+            visual = self.item_visual_for_path(rel)
+        except Exception as exc:
+            visual = None
+            row["item_visual_error"] = f"{type(exc).__name__}:{exc}"
+        if visual:
+            row["item_visual"] = visual["membership"]
+            row["item_visual_bundle"] = visual["bundle"]
+            row["item_visual_role_labels"] = visual["role_labels"]
         return row
 
     @property
@@ -625,11 +797,17 @@ class UIHandler(BaseHTTPRequestHandler):
                         registry = self.ctx.registry()
                     except Exception:
                         registry = None
-                    detail = entity_detail(self.ctx.catalog.assets, self.ctx.entity_seed, entity_key, registry=registry)
-                    if detail is None:
+                    entities = self.ctx.entities_snapshot(registry)
+                    active_entity = next((e for e in entities if str(e.get("entity_key")) == entity_key), None)
+                    if active_entity is None:
                         return self._error(404, "ENTITY_NOT_FOUND")
-                    active_entity = detail.get("entity") or {}
-                    allowed_paths = set(active_entity.get("all_paths") or [])
+                    # ITEM catalog filtering follows the proven visual bundle when
+                    # available; runtime item identities remain distinct inside it.
+                    allowed_paths = set(active_entity.get("visual_bundle_paths") or active_entity.get("all_paths") or [])
+                    active_entity = {
+                        k: v for k, v in active_entity.items()
+                        if k in {"entity_key", "semantic_group", "display_name", "asset_count", "visual_bundle_key", "visual_bundle_runtime_codes"}
+                    }
                 report = self.ctx.catalog.query(
                     q=_one(q, "q"), category="" if entity_key else _one(q, "category"), folder=_one(q, "folder"),
                     role=_one(q, "role"), ext=_one(q, "ext"),
@@ -638,6 +816,7 @@ class UIHandler(BaseHTTPRequestHandler):
                     allowed_paths=allowed_paths,
                     page=int(_one(q, "page") or 1), page_size=int(_one(q, "page_size") or 100),
                 )
+                self.ctx.annotate_catalog_report(report)
                 return self._json(200, {"ok": True, **report, "active_entity": active_entity})
             except Exception as exc:
                 return self._error(400, "CATALOG_QUERY_FAILED", str(exc))
@@ -653,16 +832,21 @@ class UIHandler(BaseHTTPRequestHandler):
                 except Exception as exc:
                     registry = None
                     registry_error = f"{type(exc).__name__}:{exc}"
-                report = query_entities(
-                    self.ctx.catalog.assets,
+                entities = self.ctx.entities_snapshot(registry)
+                report = query_built_entities(
+                    entities,
                     self.ctx.entity_seed,
                     group=_one(q, "group"),
                     q=_one(q, "q"),
                     limit=int(_one(q, "limit") or 500),
-                    registry=registry,
                 )
                 if registry_error:
                     report["registry_error"] = registry_error
+                report["performance"] = {
+                    "entity_snapshot_builds": self.ctx._entity_cache_builds,
+                    "entity_snapshot_last_build_ms": round(self.ctx._entity_cache_last_build_ms, 3),
+                    "catalog_revision": int(getattr(self.ctx.catalog, "revision", 0)),
+                }
                 report["enhancement_batch"] = enhancement_batch_status(self.ctx.project_root)
                 return self._json(200, {"ok": True, **report})
             except Exception as exc:
@@ -675,9 +859,9 @@ class UIHandler(BaseHTTPRequestHandler):
                 except Exception as exc:
                     registry = None
                     registry_error = f"{type(exc).__name__}:{exc}"
-                report = entity_detail(
-                    self.ctx.catalog.assets,
-                    self.ctx.entity_seed,
+                entities = self.ctx.entities_snapshot(registry)
+                report = entity_detail_from_built(
+                    entities,
                     _one(q, "key"),
                     registry=registry,
                 )
@@ -744,6 +928,17 @@ class UIHandler(BaseHTTPRequestHandler):
                             if int(server_superset.get("target_canonical_path_count") or -1) != int(inventory.get("total_files") or 0):
                                 reasons.append("SERVER_FILE_COUNT_CHANGED")
                     summit_superset["_freshness"] = {"status": "STALE" if reasons else "FRESH", "reasons": reasons}
+                active_general_census = next((
+                    job for job in self.ctx.jobs.list(50)
+                    if job.get("action") == "contracts_general_census"
+                    and job.get("status") in {"QUEUED", "RUNNING", "CANCELLING"}
+                ), None)
+                census_readiness = build_general_census_readiness(
+                    self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                    self.ctx.source_root, self.ctx.reference_source_root,
+                    self.ctx.contract_donor_clients, self.ctx.contract_donor_servers,
+                    active_job=active_general_census,
+                )
                 return self._json(200, {
                     "ok": True,
                     "source_root": str(self.ctx.source_root) if self.ctx.source_root else None,
@@ -755,6 +950,7 @@ class UIHandler(BaseHTTPRequestHandler):
                     "player_class_aggregate": player_aggregate,
                     "summit_superset": summit_superset,
                     "general_asset_census": load_json_path(self.ctx.project_root / "pt_build" / "general_asset_census" / "result.json"),
+                    "general_census_readiness": census_readiness,
                     "asset_contract_registry": registry_summary(),
                     "asset_compiler": compiler_capabilities(),
                 })
@@ -787,14 +983,14 @@ class UIHandler(BaseHTTPRequestHandler):
                     offset=int(_one(q, "offset") or 0),
                     limit=int(_one(q, "limit") or 200),
                 )
-                summary = report.get("summary") if isinstance(report, dict) else None
-                if isinstance(summary, dict):
-                    roots_match = (
-                        pathlib.Path(str(summary.get("client_root") or "")).resolve() == self.ctx.client_root.resolve()
-                        and self.ctx.server_root is not None
-                        and pathlib.Path(str(summary.get("server_root") or "")).resolve() == self.ctx.server_root.resolve()
-                    )
-                    report["freshness"] = "FRESH_ROOTS" if roots_match else "STALE_ROOTS"
+                readiness = build_general_census_readiness(
+                    self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                    self.ctx.source_root, self.ctx.reference_source_root,
+                    self.ctx.contract_donor_clients, self.ctx.contract_donor_servers,
+                )
+                report["freshness"] = readiness.get("freshness")
+                report["freshness_reasons"] = readiness.get("freshness_reasons") or []
+                report["readiness_state"] = readiness.get("state")
                 return self._json(200, {"ok": True, **report})
             except Exception as exc:
                 return self._error(400, "GENERAL_CENSUS_QUERY_FAILED", str(exc))
@@ -913,7 +1109,8 @@ class UIHandler(BaseHTTPRequestHandler):
             except Exception as exc:
                 return self._error(400, "ASSET_BUNDLE_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/jobs":
-            return self._json(200, {"ok": True, "jobs": self.ctx.jobs.list(int(_one(q, "limit") or 50))})
+            surface = _one(q, "surface").strip() or None
+            return self._json(200, {"ok": True, "jobs": self.ctx.jobs.list(int(_one(q, "limit") or 50), surface=surface)})
         if path == "/api/job":
             job = self.ctx.jobs.get(_one(q, "id"))
             return self._json(200, {"ok": True, "job": job}) if job else self._error(404, "JOB_NOT_FOUND")
@@ -1109,14 +1306,30 @@ class UIHandler(BaseHTTPRequestHandler):
             job = self.ctx.jobs.submit("legacy_management_audit", None, cmd)
             return self._json(202, {"ok": True, "job": job.public(), "mode": "legacy_management_audit"})
         if u.path == "/api/reindex":
-            s = self.ctx.catalog.rebuild()
+            # Reindex is the explicit synchronization point with external client
+            # changes. Build the persisted physical registry once, then populate
+            # the UI catalog from that census instead of scanning the tree twice.
+            registry_report = ensure_runtime_registry(
+                self.ctx.client_root, self.ctx.settings.inventory, self.ctx.settings.pairing,
+                force=True, verify_signature=False,
+            )
+            s = self.ctx.catalog.rebuild_from_inventory(self.ctx.settings.inventory)
             self.ctx.invalidate_registry()
-            return self._json(200, {"ok": True, "catalog": {"file_count": s.file_count, "total_bytes": s.total_bytes, "indexed_at": s.indexed_at}})
+            return self._json(200, {
+                "ok": True,
+                "catalog": {
+                    "file_count": s.file_count, "total_bytes": s.total_bytes, "indexed_at": s.indexed_at,
+                    "source_mode": self.ctx.catalog.source_mode,
+                },
+                "registry": registry_report,
+            })
         if u.path == "/api/state/update":
             rel = str(body.get("path") or "")
             row = self.ctx.catalog.apply_state_update(rel, body.get("patch") if isinstance(body.get("patch"), dict) else {})
             if not row:
                 return self._error(404, "ASSET_NOT_FOUND")
+            self.ctx.invalidate_entities()
+            self.ctx.invalidate_item_visual_index()
             return self._json(200, {"ok": True, "asset": self.ctx.asset_detail(rel)})
         if u.path == "/api/safety/arm":
             if str(body.get("confirm") or "") != ARM_PHRASE:
@@ -1181,35 +1394,50 @@ class UIHandler(BaseHTTPRequestHandler):
             source_raw = str(body.get("source_root") or "").strip()
             reference_raw = str(body.get("reference_source_root") or "").strip()
             donor_raw = body.get("donor_clients") if isinstance(body.get("donor_clients"), list) else []
-            donors = [str(x).strip() for x in donor_raw if str(x).strip()]
             donor_server_raw = body.get("donor_servers") if isinstance(body.get("donor_servers"), list) else []
-            donor_servers = [str(x).strip() for x in donor_server_raw if str(x).strip()]
             try:
                 source = pathlib.Path(source_raw).expanduser().resolve() if source_raw else None
                 reference = pathlib.Path(reference_raw).expanduser().resolve() if reference_raw else None
+                root_issues: list[dict[str, Any]] = []
                 if source is not None and not source.is_dir():
-                    return self._error(400, "SOURCE_ROOT_NOT_DIRECTORY", str(source))
+                    root_issues.append({"field": "source_root", "code": "SOURCE_ROOT_NOT_DIRECTORY", "message": f"Source Summit não existe ou não é uma pasta: {source}"})
                 if reference is not None and not reference.is_dir():
-                    return self._error(400, "REFERENCE_SOURCE_ROOT_NOT_DIRECTORY", str(reference))
-                if source is not None:
-                    save_source_root(self.ctx.project_root, source)
-                else:
-                    clear_source_root(self.ctx.project_root)
-                if reference is not None:
-                    save_reference_source_root(self.ctx.project_root, reference)
-                else:
-                    clear_reference_source_root(self.ctx.project_root)
-                save_contract_donor_clients(self.ctx.project_root, donors)
-                save_contract_donor_servers(self.ctx.project_root, donor_servers)
-                persisted_donors = configured_contract_donor_clients(self.ctx.project_root)
-                persisted_server_donors = configured_contract_donor_servers(self.ctx.project_root)
+                    root_issues.append({"field": "reference_source_root", "code": "REFERENCE_SOURCE_ROOT_NOT_DIRECTORY", "message": f"Source EU de referência não existe ou não é uma pasta: {reference}"})
+                client_validation = validate_contract_donor_specs(donor_raw, "client", require_existing=True)
+                server_validation = validate_contract_donor_specs(donor_server_raw, "server", require_existing=True)
+                issues = root_issues + list(client_validation["issues"]) + list(server_validation["issues"])
+                if issues:
+                    return self._json(400, {
+                        "ok": False,
+                        "error": "CONTRACT_SOURCE_CONFIG_INVALID",
+                        "detail": "A configuração não foi salva. Corrija as linhas indicadas; nenhuma alteração parcial foi persistida.",
+                        "issues": issues,
+                        "accepted_formats": {
+                            "client": client_validation["accepted_formats"],
+                            "server": server_validation["accepted_formats"],
+                        },
+                    })
+                # One atomic config replacement: roots and donors can never be partially saved.
+                persisted = save_contract_source_config(
+                    self.ctx.project_root, source, reference,
+                    client_validation["normalized"], server_validation["normalized"],
+                )
+                persisted_donors = list(persisted["donor_clients"])
+                persisted_server_donors = list(persisted["donor_servers"])
                 self.ctx.set_contract_sources(source, reference, persisted_donors, persisted_server_donors)
+                readiness = build_general_census_readiness(
+                    self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                    self.ctx.source_root, self.ctx.reference_source_root,
+                    self.ctx.contract_donor_clients, self.ctx.contract_donor_servers,
+                )
                 return self._json(200, {
                     "ok": True,
                     "source_root": str(self.ctx.source_root) if self.ctx.source_root else None,
                     "reference_source_root": str(self.ctx.reference_source_root) if self.ctx.reference_source_root else None,
                     "donor_clients": list(self.ctx.contract_donor_clients),
                     "donor_servers": list(self.ctx.contract_donor_servers),
+                    "validation": {"client": client_validation, "server": server_validation},
+                    "general_census_readiness": readiness,
                 })
             except Exception as exc:
                 return self._error(400, "CONTRACT_SOURCE_CONFIG_FAILED", str(exc))
@@ -1219,7 +1447,10 @@ class UIHandler(BaseHTTPRequestHandler):
                 "--client-root", str(self.ctx.client_root),
                 "audit", "client-enrichment",
             ]
-            job = self.ctx.jobs.submit("client_enrichment", None, cmd)
+            job = self.ctx.jobs.submit(
+                "client_enrichment", None, cmd,
+                surface="client", workflow="validation", result_anchor="clientValidationPanel",
+            )
             return self._json(202, {"ok": True, "job": job.public(), "mode": "client_enrichment"})
         if u.path == "/api/enhancement/batch-run":
             if not self.ctx.write_armed:
@@ -1246,7 +1477,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 "--gpu", str(int(body.get("gpu") or 0)),
                 "--model", str(body.get("model") or "realesrgan-x4plus"),
             ]
-            job = self.ctx.jobs.submit("enhancement_batch_run", None, cmd)
+            job = self.ctx.jobs.submit("enhancement_batch_run", None, cmd, surface="client", workflow="enhancement", result_anchor="clientEnhancementBatchSummary")
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_run"})
         if u.path == "/api/enhancement/batch-resume":
             if not self.ctx.write_armed:
@@ -1258,7 +1489,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 "--client-root", str(self.ctx.client_root),
                 "texture-upscale", "resume",
             ]
-            job = self.ctx.jobs.submit("enhancement_batch_resume", None, cmd)
+            job = self.ctx.jobs.submit("enhancement_batch_resume", None, cmd, surface="client", workflow="enhancement", result_anchor="clientEnhancementBatchSummary")
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_resume"})
         if u.path == "/api/enhancement/batch-publish":
             if not self.ctx.deploy_armed:
@@ -1271,7 +1502,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 "texture-upscale", "publish-batch",
                 "--confirm", "APPLY CLIENT ENHANCEMENT BATCH",
             ]
-            job = self.ctx.jobs.submit("enhancement_batch_publish", None, cmd)
+            job = self.ctx.jobs.submit("enhancement_batch_publish", None, cmd, surface="client", workflow="enhancement", result_anchor="clientEnhancementBatchSummary")
             self.ctx.disarm_deploy()
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_publish"})
         if u.path == "/api/enhancement/batch-restore":
@@ -1285,7 +1516,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 "texture-upscale", "restore-batch",
                 "--confirm", "RESTORE CLIENT ENHANCEMENT BATCH",
             ]
-            job = self.ctx.jobs.submit("enhancement_batch_restore", None, cmd)
+            job = self.ctx.jobs.submit("enhancement_batch_restore", None, cmd, surface="client", workflow="enhancement", result_anchor="clientEnhancementBatchSummary")
             self.ctx.disarm_deploy()
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_restore"})
         if u.path == "/api/particles/stage-edit":
@@ -1322,8 +1553,22 @@ class UIHandler(BaseHTTPRequestHandler):
             if self.ctx.reference_source_root is None or not self.ctx.reference_source_root.is_dir():
                 return self._error(409, "REFERENCE_SOURCE_ROOT_REQUIRED", "Configure o source EU de referência primeiro.")
             mode = str(body.get("mode") or "source").strip().lower()
+            surface = str(body.get("surface") or "server").strip().lower()
+            if surface not in {"server", "client"}:
+                return self._error(400, "CONTRACT_ANALYSIS_SURFACE_INVALID")
             if mode not in {"source", "player_classes", "aggregate_player_classes", "aggregate_summit", "general_census"}:
                 return self._error(400, "CONTRACT_ANALYSIS_MODE_INVALID")
+            census_preflight = None
+            if mode == "general_census":
+                census_preflight = build_general_census_readiness(
+                    self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                    self.ctx.source_root, self.ctx.reference_source_root,
+                    self.ctx.contract_donor_clients, self.ctx.contract_donor_servers,
+                )
+                if not census_preflight.get("can_run"):
+                    return self._error(409, "GENERAL_CENSUS_PREFLIGHT_BLOCKED", "O Censo geral está bloqueado pelo preflight. Corrija os roots/donors mostrados na aba Servidor e salve novamente.")
+                if self.ctx.jobs.has_active(None, "contracts_general_census"):
+                    return self._error(409, "GENERAL_CENSUS_ALREADY_RUNNING", "Já existe um Censo geral iniciado pela GUI em execução. Acompanhe-o na área de Atividade do workflow que o iniciou.")
             if mode == "general_census":
                 if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                     return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
@@ -1368,8 +1613,31 @@ class UIHandler(BaseHTTPRequestHandler):
             if mode in {"aggregate_summit", "general_census"}:
                 for donor in self.ctx.contract_donor_servers:
                     cmd.extend(["--donor-server", donor])
-            job = self.ctx.jobs.submit(f"contracts_{mode}", None, cmd)
-            return self._json(202, {"ok": True, "job": job.public(), "mode": mode})
+            workflow_map = {
+                "source": ("diagnostics", "sourceContractsSummary"),
+                "player_classes": ("diagnostics", "playerContractsSummary"),
+                "aggregate_player_classes": ("census", "playerAggregateSummary"),
+                "aggregate_summit": ("census", "summitAggregateSummary"),
+                "general_census": ("census", "generalCensusPanel"),
+            }
+            workflow, result_anchor = workflow_map[mode]
+            if surface == "client":
+                client_workflow_map = {
+                    "source": ("diagnostics", "clientFullEnrichmentSummary"),
+                    "player_classes": ("diagnostics", "clientPlayerSummary"),
+                    "aggregate_player_classes": ("census", "clientCensusPanel"),
+                    "aggregate_summit": ("census", "clientCensusPanel"),
+                    "general_census": ("census", "clientCensusPanel"),
+                }
+                workflow, result_anchor = client_workflow_map[mode]
+            job = self.ctx.jobs.submit(
+                f"contracts_{mode}", None, cmd,
+                surface=surface, workflow=workflow, result_anchor=result_anchor,
+            )
+            payload = {"ok": True, "job": job.public(), "mode": mode}
+            if census_preflight is not None:
+                payload["preflight"] = census_preflight
+            return self._json(202, payload)
         if u.path == "/api/legacy-authoring/stage":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
@@ -1400,6 +1668,9 @@ class UIHandler(BaseHTTPRequestHandler):
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
             mode = str(body.get("mode") or "design").strip().lower()
+            surface = str(body.get("surface") or "server").strip().lower()
+            if surface not in {"server", "client"}:
+                return self._error(400, "SERVER_ANALYSIS_SURFACE_INVALID")
             subcommands = {
                 "environment": ["validate", "server-environment-auto"],
                 "design": ["validate", "server-design-auto"],
@@ -1419,7 +1690,37 @@ class UIHandler(BaseHTTPRequestHandler):
                 "--server-root", str(self.ctx.server_root),
                 *subcommands[mode],
             ]
-            job = self.ctx.jobs.submit(f"server_{mode}", None, cmd)
+            workflow_map = {
+                "environment": ("diagnostics", "serverEnvironmentSummary"),
+                "inventory": ("diagnostics", "serverInventorySummary"),
+                "vendor_plan": ("census", "serverVendorPlanSummary"),
+                "vendor_graph": ("census", "serverVendorGraphSummary"),
+                "design": ("validation", "serverMetrics"),
+                "integration": ("validation", "serverIntegrationSummary"),
+                # API compatibility: these reports still exist, but authoring/exploration
+                # is surfaced only in Management Legacy.
+                "entities": ("validation", "serverEntitiesSummary"),
+                "fields": ("validation", "serverFieldsSummary"),
+                "items": ("validation", "serverItemsSummary"),
+            }
+            workflow, result_anchor = workflow_map[mode]
+            if surface == "client":
+                client_workflow_map = {
+                    "environment": ("diagnostics", "clientFullEnrichmentSummary"),
+                    "inventory": ("diagnostics", "clientRegistrySummary"),
+                    "vendor_plan": ("census", "clientCensusPanel"),
+                    "vendor_graph": ("census", "clientGraphSummary"),
+                    "design": ("validation", "clientValidationPanel"),
+                    "integration": ("validation", "clientValidationPanel"),
+                    "entities": ("validation", "clientValidationPanel"),
+                    "fields": ("validation", "clientValidationPanel"),
+                    "items": ("validation", "clientValidationPanel"),
+                }
+                workflow, result_anchor = client_workflow_map[mode]
+            job = self.ctx.jobs.submit(
+                f"server_{mode}", None, cmd,
+                surface=surface, workflow=workflow, result_anchor=result_anchor,
+            )
             return self._json(202, {"ok": True, "job": job.public(), "mode": mode})
         if u.path == "/api/server/field-editor/stage":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():

@@ -437,7 +437,7 @@ class UIStateStore:
     def __init__(self, path: pathlib.Path):
         self.path = path
         self._lock = threading.RLock()
-        self._data: dict[str, Any] = {"format": "PT_ASSET_UI_STATE_V1", "version": UI_VERSION, "assets": {}}
+        self._data: dict[str, Any] = {"format": "PT_ASSET_UI_STATE_V1", "version": UI_VERSION, "revision": 0, "assets": {}}
         self._load()
 
     def _load(self) -> None:
@@ -446,10 +446,17 @@ class UIStateStore:
                 if self.path.is_file():
                     raw = json.loads(self.path.read_text(encoding="utf-8"))
                     if isinstance(raw, dict) and isinstance(raw.get("assets"), dict):
+                        raw.setdefault("revision", 0)
                         self._data = raw
             except Exception:
                 # Broken UI metadata must never block the asset tool.
                 pass
+
+
+    @property
+    def revision(self) -> int:
+        with self._lock:
+            return int(self._data.get("revision") or 0)
 
     def get(self, rel: str) -> dict[str, Any]:
         with self._lock:
@@ -480,6 +487,7 @@ class UIStateStore:
             current.update(clean)
             current["updated_at"] = time.time()
             assets[rel] = current
+            self._data["revision"] = int(self._data.get("revision") or 0) + 1
             self.path.parent.mkdir(parents=True, exist_ok=True)
             tmp = self.path.with_suffix(self.path.suffix + ".tmp")
             tmp.write_text(json.dumps(self._data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -494,7 +502,106 @@ class CatalogIndex:
         self.assets: list[dict[str, Any]] = []
         self.by_path: dict[str, dict[str, Any]] = {}
         self.stats = CatalogStats()
+        self.revision = 0
+        self.source_mode = "UNINITIALIZED"
+        self.source_signature: dict[str, Any] = {}
         self._lock = threading.RLock()
+
+    @staticmethod
+    def _physical_hint_from_inventory(record: dict[str, Any], ext: str) -> str:
+        kind = str(record.get("kind") or "").upper()
+        if ext == ".smd":
+            if kind == "SMD_STAGE_072":
+                return "SMD_MODEL_072"
+            if kind.startswith("SMD_MODEL_062") or str(record.get("compatibility_family") or "").upper().startswith("SMD_MODEL_062"):
+                return "SMD_MODEL_062"
+            return "SMD_UNKNOWN"
+        if ext == ".smb":
+            return "SMB"
+        if ext in TEXTURE_EXTS:
+            return "TEXTURE"
+        return ""
+
+    def rebuild_from_inventory(self, inventory_path: pathlib.Path, *, registry_meta_path: pathlib.Path | None = None) -> CatalogStats:
+        """Populate the UI catalog from the persisted physical census.
+
+        The runtime registry already stores relative path, size, mtime and physical
+        inspection for every client file. Re-reading that JSON avoids a second
+        rglob/stat/header-sniff pass on every UI start. Explicit Reindex remains
+        the operation that refreshes the persisted census from disk.
+        """
+        inventory_path = pathlib.Path(inventory_path)
+        raw = json.loads(inventory_path.read_text(encoding="utf-8"))
+        saved_root = pathlib.Path(str(raw.get("canonical_client_root") or "")).expanduser()
+        try:
+            if saved_root.resolve() != self.client_root:
+                raise ValueError("CATALOG_INVENTORY_CLIENT_ROOT_MISMATCH")
+        except OSError:
+            raise ValueError("CATALOG_INVENTORY_CLIENT_ROOT_MISMATCH")
+        records = raw.get("records")
+        if not isinstance(records, list):
+            raise ValueError("CATALOG_INVENTORY_RECORDS_INVALID")
+        rows: list[dict[str, Any]] = []
+        total = 0
+        for rec in records:
+            if not isinstance(rec, dict):
+                continue
+            rel = _norm(str(rec.get("relative_path") or ""))
+            if not rel:
+                continue
+            ext = str(rec.get("extension") or pathlib.PurePosixPath(rel).suffix).lower()
+            category, role = infer_semantics(rel, ext)
+            folder, folder_path = infer_folder_bucket(rel, category)
+            meta = self.state.get(rel)
+            category_effective = meta.get("category_override") or category
+            role_effective = meta.get("role_override") or role
+            physical_hint = self._physical_hint_from_inventory(rec, ext)
+            row = {
+                "path": rel,
+                "name": pathlib.PurePosixPath(rel).name,
+                "ext": ext,
+                "size": int(rec.get("size") or 0),
+                "mtime_ns": int(rec.get("mtime_ns") or 0),
+                "category": category_effective,
+                "role": role_effective,
+                "inferred_category": category,
+                "inferred_role": role,
+                "physical_family": infer_physical_family(rel, ext),
+                "folder": folder,
+                "folder_path": folder_path,
+                "extension_description": extension_description(ext),
+                "favorite": bool(meta.get("favorite")),
+                "tags": list(meta.get("tags") or []),
+                "notes": str(meta.get("notes") or ""),
+                "physical_hint": physical_hint,
+                "capabilities": infer_capabilities(rel, ext, category, role, physical_hint),
+                "previewable": ext in IMAGE_EXTS,
+            }
+            row["visibility_tier"] = infer_visibility_tier(rel, ext, category_effective, role_effective)
+            row["system_operational"] = row["visibility_tier"] in HIDDEN_VISIBILITY_TIERS
+            row["_search_text"] = " ".join([
+                rel, category_effective, role_effective, folder, folder_path,
+                row["extension_description"], row["visibility_tier"],
+                " ".join(row["tags"]), row["notes"],
+            ]).casefold()
+            rows.append(row)
+            total += int(row["size"])
+        source_signature: dict[str, Any] = {}
+        meta_path = pathlib.Path(registry_meta_path) if registry_meta_path else inventory_path.parent / "registry_meta.json"
+        try:
+            if meta_path.is_file():
+                meta_raw = json.loads(meta_path.read_text(encoding="utf-8"))
+                source_signature = dict(meta_raw.get("client_signature") or {})
+        except Exception:
+            source_signature = {}
+        with self._lock:
+            self.assets = rows
+            self.by_path = {r["path"]: r for r in rows}
+            self.stats = CatalogStats(len(rows), total, time.time())
+            self.source_mode = "PERSISTED_RUNTIME_REGISTRY"
+            self.source_signature = source_signature
+            self.revision += 1
+            return self.stats
 
     def rebuild(self) -> CatalogStats:
         rows: list[dict[str, Any]] = []
@@ -537,12 +644,20 @@ class CatalogIndex:
             }
             row["visibility_tier"] = infer_visibility_tier(rel, ext, category_effective, role_effective)
             row["system_operational"] = row["visibility_tier"] in HIDDEN_VISIBILITY_TIERS
+            row["_search_text"] = " ".join([
+                rel, category_effective, role_effective, folder, folder_path,
+                row["extension_description"], row["visibility_tier"],
+                " ".join(row["tags"]), row["notes"],
+            ]).casefold()
             rows.append(row)
             total += int(st.st_size)
         with self._lock:
             self.assets = rows
             self.by_path = {r["path"]: r for r in rows}
             self.stats = CatalogStats(len(rows), total, time.time())
+            self.source_mode = "PHYSICAL_SCAN"
+            self.source_signature = {}
+            self.revision += 1
             return self.stats
 
     def get_asset(self, rel: str) -> dict[str, Any] | None:
@@ -565,6 +680,15 @@ class CatalogIndex:
             row["notes"] = str(meta.get("notes") or "")
             row["category"] = meta.get("category_override") or row["inferred_category"]
             row["role"] = meta.get("role_override") or row["inferred_role"]
+            row["visibility_tier"] = infer_visibility_tier(rel, row.get("ext", ""), row["category"], row["role"])
+            row["system_operational"] = row["visibility_tier"] in HIDDEN_VISIBILITY_TIERS
+            row["_search_text"] = " ".join([
+                str(row.get("path") or ""), str(row.get("category") or ""), str(row.get("role") or ""),
+                str(row.get("folder") or ""), str(row.get("folder_path") or ""),
+                str(row.get("extension_description") or ""), str(row.get("visibility_tier") or ""),
+                " ".join(row.get("tags") or []), str(row.get("notes") or ""),
+            ]).casefold()
+            self.revision += 1
             return dict(row)
 
     def query(
@@ -580,6 +704,7 @@ class CatalogIndex:
         page: int = 1,
         page_size: int = 100,
     ) -> dict[str, Any]:
+        started = time.perf_counter()
         q_tokens = [x.lower() for x in q.split() if x.strip()]
         category = category.strip().upper()
         folder = folder.strip()
@@ -591,7 +716,9 @@ class CatalogIndex:
         page = max(1, int(page))
         page_size = min(500, max(10, int(page_size)))
         with self._lock:
-            src = list(self.assets)
+            # rebuild() replaces the list atomically; retaining this reference is
+            # a safe immutable snapshot and avoids copying tens of thousands of rows.
+            src = self.assets
         if allowed_paths is not None:
             wanted = {_norm(x).casefold() for x in allowed_paths}
             src = [r for r in src if str(r.get("path") or "").casefold() in wanted]
@@ -612,10 +739,7 @@ class CatalogIndex:
             if favorites and not r["favorite"]:
                 continue
             if q_tokens:
-                hay = " ".join([
-                    r["path"], r["category"], r["role"], r.get("folder", ""),
-                    r.get("extension_description", ""), r.get("visibility_tier", ""), " ".join(r["tags"]), r["notes"]
-                ]).lower()
+                hay = str(r.get("_search_text") or "")
                 if not all(t in hay for t in q_tokens):
                     continue
             out.append(r)
@@ -630,12 +754,13 @@ class CatalogIndex:
         role_rows = [r for r in folder_rows if not role or r["role"].upper() == role]
         exts = collections_count(role_rows, "ext", description=True)
         return {
-            "items": [dict(x) for x in out[start:end]],
+            "items": [{k: v for k, v in x.items() if not k.startswith("_")} for x in out[start:end]],
             "total": total,
             "page": page,
             "page_size": page_size,
             "pages": max(1, (total + page_size - 1) // page_size),
             "facets": {"categories": cats, "folders": folders, "roles": roles, "extensions": exts},
+            "performance": {"query_ms": round((time.perf_counter() - started) * 1000.0, 3), "revision": self.revision},
         }
 
 

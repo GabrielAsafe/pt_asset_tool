@@ -191,16 +191,15 @@ def _decode_bmp_for_preview(path: pathlib.Path, project_root: pathlib.Path) -> b
         ) from ship_exc
 
 
-def preview_image_bytes(path: pathlib.Path, project_root: pathlib.Path, max_bytes: int = 64 * 1024 * 1024) -> tuple[bytes, str]:
-    """Return browser-renderable bytes without modifying the source client.
-
-    Proprietary texture families are normalized through the application's
-    existing adapters. Unsupported data is reported as a decode error rather
-    than as a missing-file error.
-    """
-    path = pathlib.Path(path)
-    if not path.is_file():
-        raise FileNotFoundError(path)
+@lru_cache(maxsize=64)
+def _preview_image_bytes_cached(
+    path_text: str, project_root_text: str, mtime_ns: int, size: int, max_bytes: int
+) -> tuple[bytes, str]:
+    # mtime/size are deliberately part of the cache key. They invalidate a
+    # decoded preview after an external client file update without touching the
+    # source tree or requiring a manual cache clear.
+    path = pathlib.Path(path_text)
+    project_root = pathlib.Path(project_root_text)
     ext = path.suffix.lower()
     if ext == ".tga":
         raw = _decode_tga_for_preview(path, project_root)
@@ -216,3 +215,19 @@ def preview_image_bytes(path: pathlib.Path, project_root: pathlib.Path, max_byte
     if len(raw) > max_bytes:
         raise PreviewDecodeError(f"PREVIEW_TOO_LARGE:{len(raw)}")
     return raw, mime
+
+
+def preview_image_bytes(path: pathlib.Path, project_root: pathlib.Path, max_bytes: int = 64 * 1024 * 1024) -> tuple[bytes, str]:
+    """Return browser-renderable bytes without modifying the source client.
+
+    The bounded in-memory cache is keyed by the physical file revision so
+    gallery/entity rerenders do not repeatedly decode the same protected TGA/BMP.
+    """
+    path = pathlib.Path(path)
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    st = path.stat()
+    return _preview_image_bytes_cached(
+        str(path.resolve()), str(pathlib.Path(project_root).resolve()),
+        int(st.st_mtime_ns), int(st.st_size), int(max_bytes),
+    )

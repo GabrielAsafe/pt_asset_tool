@@ -159,6 +159,105 @@ def _summaries(project_root: pathlib.Path) -> dict[str, Any]:
     }
 
 
+_REASON_GUIDANCE: dict[str, dict[str, str]] = {
+    "ZHOON_SHARED_DEFAULT_REVIEW": {
+        "summary": "A cadeia visual principal fecha, mas a referência Name/Name.zhoon é um default compartilhado e não prova uma dependência específica desta entidade.",
+        "missing": "Falta prova source/runtime de que este ZHOON compartilhado é obrigatório para este bundle concreto.",
+        "where": "Cruze a definição no Censo geral/source evidence. Não multiplique/copiei Name/Name.zhoon por entidade apenas para eliminar REVIEW.",
+    },
+    "ZHOON_REFERENCE_MISSING": {
+        "summary": "A definição aponta para um recurso ZHOON/nome/chat que não foi encontrado.",
+        "missing": "A referência server-side declarada não resolve no inventário observado.",
+        "where": "Revise a definição Monster/NPC/OpenItem e procure a mesma referência em target, source e donors antes de criar ou recuperar conteúdo.",
+    },
+    "MODEL_INX_NOT_RESOLVED_CLIENT_OR_SERVER": {
+        "summary": "O model lógico não resolve para um INX conhecido no client nem no server.",
+        "missing": "Falta uma ligação física comprovada do model lógico ao package INX.",
+        "where": "Abra a definição e o catálogo físico; valide aliases .ini → .inx e o package SMD/SMB antes de editar a definição server.",
+    },
+    "AMBIGUOUS_STAGE_BASENAME": {
+        "summary": "Há mais de um stage físico com o mesmo basename e a seleção automática seria ambígua.",
+        "missing": "Falta evidência suficiente para escolher um único stage como autoridade deste Field.",
+        "where": "Compare os candidatos, source evidence e relações SPP/SPC/SPM; selecione somente quando o vínculo estiver provado.",
+    },
+    "SPM_NOT_PRESENT": {
+        "summary": "O Field não possui SPM observado.",
+        "missing": "Não há metadata de spawn SPM para fechar o bundle por essa via.",
+        "where": "Confirme no source/runtime se o Field realmente usa SPM. Ausência física, sozinha, não autoriza criar um SPM vazio.",
+    },
+    "SPP_NOT_PRESENT": {
+        "summary": "O Field não possui SPP observado.",
+        "missing": "Não há tabela de start points SPP para fechar o bundle por essa via.",
+        "where": "Confirme no source/runtime se o Field precisa de start points persistidos antes de criar metadata.",
+    },
+    "SPC_NOT_PRESENT": {
+        "summary": "O Field não possui SPC observado.",
+        "missing": "Não há tabela de NPCs fixos SPC para fechar o bundle por essa via.",
+        "where": "Confirme se existem NPCs fixos neste Field. Não crie SPC apenas para transformar REVIEW em PASS.",
+    },
+    "CODE_NOT_PARSED": {
+        "summary": "A identidade do OpenItem não foi extraída com segurança.",
+        "missing": "Falta um item code comprovado pelo parser/filename/contrato conhecido.",
+        "where": "Revise o OpenItem e o catálogo de identidade; não derive code pelo nome visual do ficheiro.",
+    },
+    "DUPLICATE_CODE": {
+        "summary": "Mais de uma definição server-side usa o mesmo item code.",
+        "missing": "Falta decidir qual definição é autoridade ou se a duplicação é intencional.",
+        "where": "Use o lookup de item/duplicados e compare as definições antes de qualquer authoring ou migração.",
+    },
+}
+
+
+def _review_guidance(kind: str, row: dict[str, Any]) -> dict[str, Any]:
+    reasons = [str(x) for x in (row.get("reasons") or []) if str(x).strip()]
+    status = str(row.get("status") or "").upper()
+    structured = []
+    for code in reasons:
+        info = _REASON_GUIDANCE.get(code) or {
+            "summary": "Este motivo mantém o bundle fora de automação até o contrato correspondente estar provado.",
+            "missing": "Falta evidência suficiente para promover este estado automaticamente.",
+            "where": "Revise o relatório fonte e o Censo geral; preserve REVIEW se não houver prova adicional.",
+        }
+        structured.append({"code": code, **info})
+    review_required = bool(structured or "REVIEW" in status or "BLOCK" in status or "UNRESOLVED" in status)
+    if not review_required:
+        summary = "A cadeia observada fecha para este gate; continue com validação de runtime quando aplicável."
+    elif "BLOCK" in status:
+        summary = "O bundle tem uma dependência obrigatória ausente ou ambígua; não automatize escrita enquanto o blocker permanecer."
+    elif status.startswith("VISUAL_ENTRY_RESOLVED"):
+        summary = "O visual principal foi resolvido, mas há pendência de contrato/evidência que ainda exige revisão humana."
+    else:
+        summary = "Há evidência útil, mas o bundle ainda precisa de revisão antes de qualquer decisão de authoring/migração."
+
+    actions: list[dict[str, str]] = []
+    if kind == "entities":
+        inx = str(row.get("logical_inx") or "").strip()
+        if inx:
+            actions.append({"kind": "catalog", "label": "Abrir INX no Catálogo", "path": inx})
+        definition = str(row.get("definition") or "").strip()
+        if definition:
+            actions.append({"kind": "general_census", "label": "Cruzar definição no Censo geral", "query": definition})
+    elif kind == "fields":
+        basename = str(row.get("basename") or row.get("selected_stage") or "").strip()
+        if basename:
+            actions.append({"kind": "general_census", "label": "Cruzar Field no Censo geral", "query": basename})
+        for field_type, key in (("SPM", "spm"), ("SPP", "spp"), ("SPC", "spc")):
+            if row.get(key):
+                actions.append({"kind": "field_editor", "label": f"Abrir {field_type}", "field_type": field_type})
+    elif kind == "items":
+        code = str(row.get("code") or "").strip()
+        definition = str(row.get("definition") or "").strip()
+        if code:
+            actions.append({"kind": "legacy_item", "label": f"Localizar item {code}", "code": code})
+        if definition or code:
+            actions.append({"kind": "general_census", "label": "Cruzar item no Censo geral", "query": definition or code})
+    return {
+        "review_required": review_required,
+        "review_summary": summary,
+        "review_reasons": structured,
+        "review_actions": actions,
+    }
+
 
 def server_report_rows(
     project_root: pathlib.Path,
@@ -212,6 +311,7 @@ def server_report_rows(
         if not isinstance(raw, dict):
             continue
         row = dict(raw)
+        row.update(_review_guidance(key, row))
         if wanted_status and str(row.get("status") or "").casefold() != wanted_status:
             continue
         reasons = [str(x) for x in (row.get("reasons") or [])]

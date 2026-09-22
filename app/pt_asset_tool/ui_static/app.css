@@ -40,3 +40,35 @@ main{min-width:0;padding:22px 26px 38px}header{display:flex;justify-content:spac
 .legacy-review-box{border-color:#6d5530;background:#211b12}.legacy-review-box h4,.legacy-review-info h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em}.legacy-review-reason{padding:8px 0;border-top:1px solid rgba(255,255,255,.07)}.legacy-review-reason:first-of-type{border-top:0}.legacy-review-reason p{margin:4px 0;color:#c9d1dc;font-size:10px;line-height:1.45}.legacy-review-reason code{font-size:9px;color:var(--muted)}
 .legacy-review-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.legacy-review-ok{border-color:#315c46}.legacy-review-ok p,.legacy-review-info p{margin:5px 0;color:#c9d1dc;font-size:10px;line-height:1.5}.legacy-technical-detail{margin-top:10px}.legacy-technical-detail summary{cursor:pointer;color:var(--muted);font-size:10px;font-weight:700}
 .legacy-ops-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:10px;padding:12px}.legacy-ops-grid label{display:grid;gap:5px;color:var(--muted);font-size:10px}.legacy-ops-grid textarea{min-height:135px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.legacy-ops-wide{grid-column:1/-1}.legacy-ops-buttons{display:flex;gap:7px;align-items:end;flex-wrap:wrap}.legacy-ops-plan-panel{margin-top:12px}.legacy-ops-plan-panel.hidden{display:none!important}.legacy-ops-apply{display:grid;grid-template-columns:minmax(260px,1fr) auto;gap:10px;align-items:end;padding:0 12px 12px}.legacy-ops-apply label{display:grid;gap:5px;color:var(--muted);font-size:10px}@media(max-width:900px){.legacy-ops-grid{grid-template-columns:1fr}.legacy-ops-wide{grid-column:auto}.legacy-ops-apply{grid-template-columns:1fr}}
+.general-census-guide{margin:0 12px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);overflow:hidden}.general-census-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:12px}.general-census-check{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding:8px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}.general-census-check code{font-size:10px;overflow-wrap:anywhere;text-align:right}.general-census-notices{display:grid;gap:7px;padding:0 12px 12px}.general-census-notice{padding:8px 10px;border-radius:7px;border:1px solid var(--line);font-size:11px}.general-census-notice.blocked{border-color:rgba(255,92,92,.35);background:rgba(255,92,92,.06)}.general-census-notice.warning{border-color:rgba(255,192,74,.35);background:rgba(255,192,74,.06)}.general-census-notice.note{background:rgba(130,165,210,.06)}.general-census-command-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 12px 0}.general-census-command-row p{padding:0;margin:5px 0 0}.general-census-command{margin:10px 12px 12px;padding:10px;max-height:220px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid var(--line);border-radius:7px;background:var(--panel);font-size:11px}.general-census-guide>p{padding:0 12px 12px!important;margin:0!important}@media(max-width:900px){.general-census-checklist{grid-template-columns:1fr}.general-census-command-row{align-items:flex-start;flex-direction:column}}
+
+/* Server / Enrichment workflow architecture: one stage visible at a time. */
+.server-workflow-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px;padding:8px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.server-workflow-tab{border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:8px;padding:8px 11px;cursor:pointer;font-size:12px;font-weight:650}
+.server-workflow-tab:hover{color:var(--text);border-color:var(--accent)}
+.server-workflow-tab.active{color:var(--text);border-color:var(--accent);background:rgba(92,148,255,.10)}
+.server-workflow-tab.subtle{margin-left:auto}
+.server-workflow-pane{display:none}
+.server-workflow-pane.active{display:block}
+.server-workflow-actions{display:flex;gap:8px;flex-wrap:wrap;padding:12px}
+.server-handoff-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.server-handoff-grid>div{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel2)}
+.server-handoff-grid p{margin:6px 0 10px;color:var(--muted);font-size:12px;line-height:1.45}
+.server-handoff-panel>p{padding:0 12px;margin:0 0 10px;color:var(--muted)}
+.server-handoff-panel>.btn{margin:0 12px 12px}
+.server-policy-details{padding:10px 12px}.server-policy-details>summary{cursor:pointer;font-weight:650}.server-policy-details .server-grid{margin-top:10px}
+.contract-root-form .contract-donors{grid-column:auto}.contract-donors small{display:block;line-height:1.35;color:var(--muted)}
+.contract-feedback{grid-column:1/-1;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel2);display:grid;gap:7px}
+.contract-feedback.hidden{display:none}
+.contract-feedback.ok{border-color:rgba(88,200,140,.38);background:rgba(88,200,140,.06)}
+.contract-feedback.error{border-color:rgba(255,92,92,.38);background:rgba(255,92,92,.06)}
+.contract-feedback-row{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start;font-size:11px}
+.contract-feedback-row b{white-space:nowrap}.contract-feedback-row code{overflow-wrap:anywhere}.contract-feedback-row small{display:block;color:var(--muted);margin-top:3px}
+.server-activity-note{padding:0 12px 10px!important;margin:0!important}
+.server-activity-panel #serverActivityList{display:grid;gap:8px;padding:0 12px 12px}
+.server-job{display:grid;grid-template-columns:minmax(120px,.65fr) minmax(220px,1.7fr) auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--panel2)}
+.server-job>div{min-width:0}.server-job small,.server-job code{display:block;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.server-job-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.server-result-actions{display:flex;justify-content:flex-end;padding:0 12px 12px}
+.server-console-panel pre{max-height:360px}
+@media(max-width:900px){.server-workflow-tab.subtle{margin-left:0}.server-handoff-grid{grid-template-columns:1fr}.contract-root-form .contract-donors{grid-column:1/-1}.server-job{grid-template-columns:1fr}.server-job-actions{justify-content:flex-start}}
+.contract-feedback-row strong{white-space:nowrap}.contract-feedback-row code{grid-column:1/-1;overflow-wrap:anywhere;white-space:pre-wrap}.contract-feedback>p{margin:0;color:var(--muted);font-size:11px}.server-job.selected{border-color:var(--accent);background:rgba(92,148,255,.08)}
