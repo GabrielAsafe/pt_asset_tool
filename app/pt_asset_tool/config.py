@@ -14,7 +14,7 @@ class Settings:
     server_root: pathlib.Path | None = None
 
     @classmethod
-    def discover(cls, project_root: str | pathlib.Path | None = None, client_root: str | pathlib.Path | None = None, server_root: str | pathlib.Path | None = None):
+    def discover(cls, project_root: str | pathlib.Path | None = None, client_root: str | pathlib.Path | None = None, server_root: str | pathlib.Path | None = None, *, verify_registry: bool = True):
         if project_root is None:
             env = os.environ.get("PT_PROJECT_ROOT")
             if env:
@@ -62,7 +62,7 @@ class Settings:
         # first use from the configured client and keep it outside the package.
         if client.is_dir():
             from .registry_bootstrap import ensure_runtime_registry
-            ensure_runtime_registry(client, inventory, pairing)
+            ensure_runtime_registry(client, inventory, pairing, verify_signature=verify_registry)
 
         return cls(
             project_root=root,

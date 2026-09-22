@@ -535,7 +535,7 @@ def build_runtime_registry(client_root: pathlib.Path, inventory_path: pathlib.Pa
     }
 
 
-def ensure_runtime_registry(client_root: pathlib.Path, inventory_path: pathlib.Path, pairing_path: pathlib.Path, *, force: bool = False) -> dict[str, Any]:
+def ensure_runtime_registry(client_root: pathlib.Path, inventory_path: pathlib.Path, pairing_path: pathlib.Path, *, force: bool = False, verify_signature: bool = True) -> dict[str, Any]:
     client_root = pathlib.Path(client_root).expanduser().resolve()
     inventory_path = pathlib.Path(inventory_path)
     pairing_path = pathlib.Path(pairing_path)
@@ -553,6 +553,19 @@ def ensure_runtime_registry(client_root: pathlib.Path, inventory_path: pathlib.P
                 same_root = False
             if same_root:
                 saved_signature = meta.get("client_signature") or {}
+                # The UI hot path deliberately trusts the persisted registry snapshot.
+                # A full stat signature walks every client file, which duplicated the
+                # catalog scan on every UI start. Explicit Reindex still performs the
+                # strict physical refresh; CLI callers keep verify_signature=True.
+                if not verify_signature and saved_signature.get("stat_sha256"):
+                    return {
+                        "format": FORMAT, "status": "READY_PERSISTED", "client_root": str(client_root),
+                        "inventory": str(inventory_path), "pairing": str(pairing_path),
+                        "record_count": int(meta.get("record_count") or 0),
+                        "client_signature": saved_signature,
+                        "signature_verified_now": False,
+                        "client_modified": False,
+                    }
                 current_signature = _client_stat_signature(client_root)
                 if (
                     current_signature.get("status") == "PASS"
@@ -564,6 +577,7 @@ def ensure_runtime_registry(client_root: pathlib.Path, inventory_path: pathlib.P
                         "inventory": str(inventory_path), "pairing": str(pairing_path),
                         "record_count": int(meta.get("record_count") or 0),
                         "client_signature": current_signature,
+                        "signature_verified_now": True,
                         "client_modified": False,
                     }
     return build_runtime_registry(client_root, inventory_path, pairing_path)

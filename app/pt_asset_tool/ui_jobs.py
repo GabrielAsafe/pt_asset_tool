@@ -29,6 +29,9 @@ class Job:
     pid: int | None = None
     process: subprocess.Popen[str] | None = field(default=None, repr=False)
     interactive: bool = False
+    surface: str | None = None
+    workflow: str | None = None
+    result_anchor: str | None = None
     responses_sent: int = 0
 
     def public(self, tail: str | None = None) -> dict[str, Any]:
@@ -47,6 +50,9 @@ class Job:
             "finished_at": self.finished_at,
             "pid": self.pid,
             "interactive": self.interactive,
+            "surface": self.surface,
+            "workflow": self.workflow,
+            "result_anchor": self.result_anchor,
             "accepts_input": bool(self.interactive and self.status == "RUNNING" and self.process is not None),
             "responses_sent": self.responses_sent,
             "tail": tail,
@@ -70,10 +76,16 @@ class JobManager:
         self._lock = threading.RLock()
         self._sem = threading.Semaphore(self.max_concurrent)
 
-    def submit(self, action: str, asset: str | None, command: list[str], *, interactive: bool = False) -> Job:
+    def submit(self, action: str, asset: str | None, command: list[str], *, interactive: bool = False, surface: str | None = None, workflow: str | None = None, result_anchor: str | None = None) -> Job:
         jid = time.strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:8]
         log = self.log_root / f"{jid}.log"
-        job = Job(jid, action, asset, list(command), str(self.project_root), str(log), interactive=bool(interactive))
+        job = Job(
+            jid, action, asset, list(command), str(self.project_root), str(log),
+            interactive=bool(interactive),
+            surface=(str(surface).strip() or None) if surface is not None else None,
+            workflow=(str(workflow).strip() or None) if workflow is not None else None,
+            result_anchor=(str(result_anchor).strip() or None) if result_anchor is not None else None,
+        )
         with self._lock:
             self._jobs[jid] = job
             while len(self._jobs) > 200:
@@ -217,9 +229,12 @@ class JobManager:
         public["input_prompt"] = _latest_review_prompt(public["tail"]) if public["awaiting_input"] else None
         return public
 
-    def list(self, limit: int = 50) -> list[dict[str, Any]]:
+    def list(self, limit: int = 50, *, surface: str | None = None) -> list[dict[str, Any]]:
         with self._lock:
-            jobs = list(self._jobs.values())[-max(1, min(200, limit)):]
+            jobs = list(self._jobs.values())
+            if surface is not None:
+                jobs = [j for j in jobs if j.surface == surface]
+            jobs = jobs[-max(1, min(200, limit)):]
         return [j.public(_tail(pathlib.Path(j.log_path), 3000)) for j in reversed(jobs)]
 
 

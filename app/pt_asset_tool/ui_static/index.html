@@ -55,7 +55,7 @@
             <div class="quick-filters">
               <button data-category="UI">UI</button><button data-category="CHARACTER">Personagens</button><button data-category="MONSTER">Monstros</button><button data-category="NPC">NPCs</button><button data-category="ITEM">Itens</button><button data-category="MAP">Mapas</button><button data-category="EFFECT">Efeitos</button>
             </div>
-            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Asset</th><th>Categoria</th><th>Pasta</th><th>Role</th><th>Ext</th><th>Tamanho</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
+            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Asset</th><th>Categoria</th><th>Pasta</th><th>Role</th><th>Relação item</th><th>Ext</th><th>Tamanho</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
             <div class="pager"><button id="prevPage">Anterior</button><span id="pageInfo"></span><button id="nextPage">Próxima</button></div>
           </section>
 
@@ -63,11 +63,6 @@
             <div class="empty">Selecione um asset para ver detalhes e capacidades.</div>
           </aside>
         </div>
-        <section class="panel console-panel">
-          <div class="panel-title"><strong>Console ao vivo</strong><div class="console-head-actions"><span id="consoleStatus">Nenhuma tarefa selecionada</span><button id="cancelJobBtn" class="btn small danger-outline" style="display:none">Cancelar tarefa</button></div></div>
-          <pre id="console">Os comandos executados pela GUI aparecem aqui.</pre>
-          <div id="jobInput" class="job-input hidden"><span>O validator está aguardando sua avaliação:</span><div><button class="btn small" data-job-answer="y">PASS / Sim</button><button class="btn small danger-outline" data-job-answer="n">FAIL / Não</button><button class="btn small" data-job-answer="s">SKIP / Pular</button></div><small>Use estes botões somente quando o console mostrar <code>[y]es / [n]o / [s]kip</code>. A resposta é enviada ao mesmo processo CLI do validator.</small></div>
-        </section>
       </section>
 
       <section id="tab-entities" class="tab">
@@ -91,67 +86,109 @@
         <div class="server-hero panel">
           <div>
             <h2>Summit Client / Asset Enrichment</h2>
-            <p>Consolida inventário físico, registry, entidades, contratos, censo geral, dependency graph e evidência de validação produzida em <code>pt_build</code>. O enrichment não reinterpreta um PASS visual como autorização de writer/runtime.</p>
+            <p>Diagnóstico, censo, validação e recuperação client-side. O <strong>Catálogo</strong> é a autoridade para assets individuais e <strong>Entidades</strong> para relações físicas; esta página não duplica esses exploradores.</p>
           </div>
-          <span class="badge">CLIENT WRITE: VERIFIED TRANSACTIONS ONLY</span>
+          <span class="badge">READ-ONLY + TRANSAÇÕES VERIFICADAS</span>
         </div>
-        <section class="panel server-root-panel">
-          <div class="panel-title"><strong>Estado do cliente</strong><span id="clientEnrichmentState">Carregando…</span></div>
-          <div class="server-root-form">
-            <code id="clientEnrichmentRoot">—</code>
-            <button id="clientEnrichmentRefresh" class="btn">Atualizar visão</button>
-            <button id="clientEnrichmentReindex" class="btn">Reindexar client</button>
-            <button id="clientEnrichmentAnalyze" class="btn primary">Analisar enrichment client</button>
-            <button id="clientPlayerContractsBtn" class="btn">Auditar 10 classes</button>
-            <button id="clientGeneralCensusBtn" class="btn primary">Censo geral client</button>
-            <button id="clientVendorGraphBtn" class="btn">Grafo de dependências</button>
-          </div>
-          <p class="micro">Os botões de análise continuam read-only no client. Escritas no client só ocorrem por transações verificadas: Publish/Retirar/Restaurar de bundle de modelo e Publish/Desfazer de enhancement individual ou em lote, sempre com autorização separada, backup e hashes.</p>
+
+        <div class="server-workflow-tabs" role="tablist" aria-label="Workflow Cliente / Enrichment">
+          <button class="server-workflow-tab" data-client-workflow="overview">1 · Visão geral</button>
+          <button class="server-workflow-tab" data-client-workflow="diagnostics">2 · Diagnóstico</button>
+          <button class="server-workflow-tab" data-client-workflow="census">3 · Censo &amp; recuperação</button>
+          <button class="server-workflow-tab" data-client-workflow="validation">4 · Validação</button>
+          <button class="server-workflow-tab" data-client-workflow="enhancement">5 · Texture Enhancement</button>
+          <button class="server-workflow-tab subtle" data-client-workflow="activity">Atividade</button>
+        </div>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="overview">
+          <section class="panel server-root-panel">
+            <div class="panel-title"><strong>Estado do cliente</strong><span id="clientEnrichmentState">Carregando…</span></div>
+            <div class="server-root-form">
+              <code id="clientEnrichmentRoot">—</code>
+              <button id="clientEnrichmentRefresh" class="btn">Atualizar visão</button>
+              <button id="clientEnrichmentReindex" class="btn">Reindexar client</button>
+            </div>
+            <p class="micro">Reindexar atualiza o inventário do Catálogo. Análises e resultados ficam nos workflows abaixo; não é necessário procurar a saída em Tarefas gerais ou no Catálogo.</p>
+          </section>
+          <div id="clientEnrichmentMetrics" class="metrics server-metrics"></div>
+          <section class="panel server-handoff-panel">
+            <div class="panel-title"><strong>Divisão de responsabilidade</strong><span>uma autoridade por tarefa</span></div>
+            <div class="server-handoff-grid">
+              <div><b>Cliente / Enrichment</b><p>Medir cobertura, classificar gaps/reachability, produzir evidência e operar o batch global de texturas.</p></div>
+              <div><b>Catálogo</b><p>Inspecionar um asset específico, executar capacidades certificadas e enhancement individual.</p><button class="btn" data-open-client-target="catalog">Abrir Catálogo</button></div>
+              <div><b>Entidades</b><p>Inspecionar relações físicas/registry de Character, Item, Monster, NPC, Effect e Map/Field.</p><button class="btn" data-open-client-target="entities">Abrir Entidades</button></div>
+            </div>
+          </section>
         </section>
-        <div id="clientEnrichmentMetrics" class="metrics server-metrics"></div>
-        <section class="panel server-root-panel">
-          <div class="panel-title"><strong>Enhancement global de texturas</strong><span id="clientEnhancementBatchState">Sem lote</span></div>
-          <div class="server-root-form">
-            <button id="clientEnhanceAllBtn" class="btn primary">Enhance todas as texturas (AI)</button>
-            <button id="clientResumeEnhancementBatchBtn" class="btn">Retomar último run</button>
-            <button id="clientPublishEnhancementBatchBtn" class="btn">Publicar lote no cliente</button>
-            <button id="clientRestoreEnhancementBatchBtn" class="btn">Desfazer lote publicado</button>
-            <button id="clientEnhancementBatchRefresh" class="btn">Atualizar lote</button>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="diagnostics">
+          <section class="panel">
+            <div class="panel-title"><strong>Diagnóstico client-side</strong><span>evidência, não authoring</span></div>
+            <div class="server-workflow-actions">
+              <button id="clientEnrichmentAnalyze" class="btn primary">Analisar enrichment client</button>
+              <button id="clientPlayerContractsBtn" class="btn">Auditar 10 classes</button>
+            </div>
+            <p class="micro">Execução, console e histórico permanecem em <strong>Cliente → Atividade</strong>; ao terminar, “Abrir resultado” volta para este workflow ou para Validação.</p>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Client Enrichment</strong><span id="clientFullEnrichmentState">Sem relatório</span></div><div id="clientFullEnrichmentSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Player classes</strong><span id="clientPlayerState">Sem relatório</span></div><div id="clientPlayerSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Registry físico</strong><span id="clientRegistryState">Sem dados</span></div><div id="clientRegistrySummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Entidades client-side</strong><span id="clientEntitiesState">Sem dados</span></div><div id="clientEntitiesSummary" class="server-summary"></div></section>
           </div>
-          <div id="clientEnhancementBatchSummary" class="server-summary"></div>
-          <p class="micro"><strong>Fluxo:</strong> gera candidatos para BMP/TGA/PNG/JPG/JPEG em <code>app/pt_build/texture_upscale/runs</code>; a publicação faz pré-validação de todos os hashes antes da primeira escrita e cria backups/transações individuais. Se uma escrita falhar, o lote tenta rollback automático do que já foi aplicado. UI/atlas também entram quando você escolhe “todas”, por isso este modo é para teste global deliberado.</p>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Precisa explorar um asset ou entidade?</strong><span>handoff explícito</span></div><p>Os números acima são diagnóstico agregado. A exploração detalhada não é duplicada aqui.</p><div class="server-workflow-actions"><button class="btn" data-open-client-target="catalog">Abrir Catálogo</button><button class="btn" data-open-client-target="entities">Abrir Entidades</button></div></section>
         </section>
-        <div class="server-grid server-grid-reports">
-          <section class="panel"><div class="panel-title"><strong>Client Enrichment</strong><span id="clientFullEnrichmentState">Sem relatório</span></div><div id="clientFullEnrichmentSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Registry físico</strong><span id="clientRegistryState">Sem dados</span></div><div id="clientRegistrySummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Entidades client-side</strong><span id="clientEntitiesState">Sem dados</span></div><div id="clientEntitiesSummary" class="server-summary"></div></section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="census">
+          <section class="panel">
+            <div class="panel-title"><strong>Censo &amp; recuperação client</strong><span>plan-only / evidência</span></div>
+            <div class="server-workflow-actions"><button id="clientGeneralCensusBtn" class="btn primary">Censo geral client</button><button id="clientVendorGraphBtn" class="btn">Grafo de dependências</button><button class="btn" data-open-server-config="1">Configurar Source &amp; donors</button></div>
+            <p class="micro">O Censo usa a configuração compartilhada de Source/donors em <strong>Servidor → Configuração</strong>. Donor/reference/source são evidência; não viram import automático nem autorização de escrita.</p>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Censo geral · Client</strong><span id="clientCensusState">Sem relatório</span></div><div id="clientCensusSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Dependency graph</strong><span id="clientGraphState">Sem relatório</span></div><div id="clientGraphSummary" class="server-summary"></div></section>
+          </div>
+          <section class="panel server-explorer-panel" id="clientCensusPanel">
+            <div class="panel-title"><strong>Reachability · lado Client</strong><span id="clientCensusCount">Execute o Censo geral para classificar gaps client-side.</span></div>
+            <div class="server-explorer-toolbar"><input id="clientCensusSearch" type="search" placeholder="Buscar path, evidência, donor ou motivo…" /><select id="clientCensusDecision"><option value="">Todas as decisões</option></select><select id="clientCensusFamily"><option value="">Todas as famílias</option></select><button id="clientCensusRefresh" class="btn">Atualizar lista</button></div>
+            <div class="server-explorer-table"><table><thead><tr><th>Decisão</th><th>Família</th><th>Categoria</th><th>Path</th><th>Evidência / motivo</th></tr></thead><tbody id="clientCensusRows"><tr><td colspan="5" class="empty">Sem censo client carregado.</td></tr></tbody></table></div>
+            <p class="micro">Clique numa linha apenas para fazer handoff ao Catálogo quando o path for um asset físico existente. O resultado do censo continua sendo lido aqui.</p>
+          </section>
+        </section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="validation">
+          <section class="panel server-explorer-panel" id="clientValidationPanel">
+            <div class="panel-title"><strong>Gaps do Client Enrichment</strong><span id="clientEnrichmentCount">Execute “Analisar enrichment client” para fechar relações físicas e cobertura.</span></div>
+            <div class="server-explorer-toolbar"><input id="clientEnrichmentSearch" type="search" placeholder="Buscar entidade, modelo, path, motivo ou evidência…" /><select id="clientEnrichmentIssueState"><option value="">Todos os estados</option></select><select id="clientEnrichmentIssueGroup"><option value="">Todos os grupos</option></select><select id="clientEnrichmentIssueKind"><option value="">Todos os tipos</option></select><button id="clientEnrichmentIssueRefresh" class="btn">Atualizar gaps</button></div>
+            <div class="server-explorer-table"><table><thead><tr><th>Estado</th><th>Grupo</th><th>Tipo</th><th>Target / Path</th><th>Motivos / evidência</th></tr></thead><tbody id="clientEnrichmentRows"><tr><td colspan="5" class="empty">Sem relatório de enrichment client.</td></tr></tbody></table></div>
+            <p class="micro"><strong>CLOSED/PARTIAL</strong> são estados de completude de evidência; não são certificação de runtime nem autorização de writer. Clique numa linha para abrir o asset no Catálogo quando houver path físico.</p>
+          </section>
           <section class="panel"><div class="panel-title"><strong>Evidência / certificações</strong><span id="clientCertState">Sem dados</span></div><div id="clientCertSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Player classes</strong><span id="clientPlayerState">Sem relatório</span></div><div id="clientPlayerSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Censo geral · Client</strong><span id="clientCensusState">Sem relatório</span></div><div id="clientCensusSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Dependency graph</strong><span id="clientGraphState">Sem relatório</span></div><div id="clientGraphSummary" class="server-summary"></div></section>
-        </div>
-        <section class="panel server-explorer-panel">
-          <div class="panel-title"><strong>Gaps do Client Enrichment</strong><span id="clientEnrichmentCount">Execute “Analisar enrichment client” para fechar relações físicas e cobertura.</span></div>
-          <div class="server-explorer-toolbar">
-            <input id="clientEnrichmentSearch" type="search" placeholder="Buscar entidade, modelo, path, motivo ou evidência…" />
-            <select id="clientEnrichmentIssueState"><option value="">Todos os estados</option></select>
-            <select id="clientEnrichmentIssueGroup"><option value="">Todos os grupos</option></select>
-            <select id="clientEnrichmentIssueKind"><option value="">Todos os tipos</option></select>
-            <button id="clientEnrichmentIssueRefresh" class="btn">Atualizar gaps</button>
-          </div>
-          <div class="server-explorer-table"><table><thead><tr><th>Estado</th><th>Grupo</th><th>Tipo</th><th>Target / Path</th><th>Motivos / evidência</th></tr></thead><tbody id="clientEnrichmentRows"><tr><td colspan="5" class="empty">Sem relatório de enrichment client.</td></tr></tbody></table></div>
-          <p class="micro"><strong>Leitura:</strong> CLOSED/PARTIAL são estados de completude de evidência do catálogo; não são certificação de runtime nem autorização de writer.</p>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Próxima ação é editar/validar um asset?</strong><span>continue na autoridade correta</span></div><p>Use <strong>Catálogo</strong> para um asset físico e <strong>Entidades</strong> para relações de bundle. Esta página mantém o diagnóstico e o resultado agregado.</p><div class="server-workflow-actions"><button class="btn primary" data-open-client-target="catalog">Abrir Catálogo</button><button class="btn" data-open-client-target="entities">Abrir Entidades</button></div></section>
         </section>
-        <section class="panel server-explorer-panel">
-          <div class="panel-title"><strong>Reachability · Censo geral client</strong><span id="clientCensusCount">Execute o Censo geral para classificar gaps client-side por reachability/evidência.</span></div>
-          <div class="server-explorer-toolbar">
-            <input id="clientCensusSearch" type="search" placeholder="Buscar path, evidência, donor ou motivo…" />
-            <select id="clientCensusDecision"><option value="">Todas as decisões</option></select>
-            <select id="clientCensusFamily"><option value="">Todas as famílias</option></select>
-            <button id="clientCensusRefresh" class="btn">Atualizar lista</button>
-          </div>
-          <div class="server-explorer-table"><table><thead><tr><th>Decisão</th><th>Família</th><th>Categoria</th><th>Path</th><th>Evidência / motivo</th></tr></thead><tbody id="clientCensusRows"><tr><td colspan="5" class="empty">Sem censo client carregado.</td></tr></tbody></table></div>
-          <p class="micro"><strong>Leitura:</strong> esta vista agrega apenas o lado CLIENT do censo. Donor/reference/source são evidência; não viram import automático nem autorização de escrita.</p>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="enhancement">
+          <section class="panel server-root-panel">
+            <div class="panel-title"><strong>Enhancement global de texturas</strong><span id="clientEnhancementBatchState">Sem lote</span></div>
+            <div class="server-root-form"><button id="clientEnhanceAllBtn" class="btn primary">Enhance todas as texturas (AI)</button><button id="clientResumeEnhancementBatchBtn" class="btn">Retomar último run</button><button id="clientPublishEnhancementBatchBtn" class="btn">Publicar lote no cliente</button><button id="clientRestoreEnhancementBatchBtn" class="btn">Desfazer lote publicado</button><button id="clientEnhancementBatchRefresh" class="btn">Atualizar lote</button></div>
+            <div id="clientEnhancementBatchSummary" class="server-summary"></div>
+            <p class="micro"><strong>Fluxo dedicado:</strong> candidatos ficam em <code>app/pt_build/texture_upscale/runs</code>; publicar/rollback usam pré-validação, hashes e backups. Para enhancement de uma textura específica, use o <strong>Catálogo</strong>.</p>
+          </section>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Enhancement individual</strong><span>não duplicado aqui</span></div><p>Selecione a textura no Catálogo e use as capacidades do asset. Esta etapa contém somente o workflow global/batch.</p><button class="btn" data-open-client-target="catalog">Abrir Catálogo</button></section>
+        </section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="activity">
+          <section class="panel server-activity-panel">
+            <div class="panel-title"><strong>Atividade do Cliente / Enrichment</strong><button id="clientActivityRefresh" class="btn small">Atualizar</button></div>
+            <p class="micro server-activity-note">As tarefas iniciadas nesta página ficam aqui durante e depois da execução. Não são duplicadas em Tarefas gerais. <strong>Abrir resultado</strong> retorna ao workflow que produziu o relatório.</p>
+            <div id="clientActivityList"><div class="empty">Nenhuma tarefa deste workflow.</div></div>
+          </section>
+          <section class="panel console-panel server-console-panel">
+            <div class="panel-title"><strong>Console da tarefa</strong><div class="console-head-actions"><span id="clientConsoleStatus">Nenhuma tarefa selecionada</span><button id="clientCancelJobBtn" class="btn small danger-outline" style="display:none">Cancelar tarefa</button></div></div>
+            <pre id="clientConsole">Selecione uma tarefa acima.</pre>
+            <div class="server-result-actions"><button id="clientOpenResultBtn" class="btn primary" disabled>Abrir resultado no workflow</button></div>
+          </section>
         </section>
       </section>
 
@@ -160,129 +197,160 @@
         <div class="server-hero panel">
           <div>
             <h2>Summit Server / Asset Enrichment</h2>
-            <p>Visão read-only da cadeia server-side e dos bundles compartilhados com o client. A unidade de design é o bundle funcional, não a extensão isolada.</p>
+            <p>Diagnóstico, censo, recuperação e validação server-side. Authoring de Item, Monster, NPC e Field pertence ao <strong>Management Legacy</strong>; esta página não duplica esses editores.</p>
           </div>
-          <span class="badge">SERVER WRITE DISABLED</span>
+          <span class="badge">READ-ONLY + STAGING CONTROLADO</span>
         </div>
-        <section class="panel server-root-panel">
-          <div class="panel-title"><strong>Raiz do servidor</strong><span id="serverRootStatus">Carregando…</span></div>
-          <div class="server-root-form">
-            <input id="serverRootInput" type="text" placeholder="/path/to/Summit/Servidor" />
-            <button id="saveServerRootBtn" class="btn">Salvar raiz</button>
-            <button id="serverEnvBtn" class="btn">Validar ambiente</button>
-            <button id="serverDesignBtn" class="btn primary">Analisar Asset Enrichment</button>
-            <button id="serverIntegrationBtn" class="btn primary">Validar Client + Server</button>
-            <button id="serverInventoryBtn" class="btn">Inventário físico server</button>
-            <button id="serverVendorPlanBtn" class="btn">Gerar plano v9</button>
-            <button id="serverVendorGraphBtn" class="btn">Grafo de dependências v9</button>
-          </div>
-          <p class="micro">Todos os comandos são read-only no server/client; relatórios e outputs ficam em <code>pt_build</code>. <code>LogItemData</code>, <code>DataServer</code>, <code>PostBox</code>, <code>WAR</code>, <code>cpItem.dat</code>, <code>BlessCastle.dat</code>, <code>BlackUser</code> e <code>FuncBox</code> nunca entram na superfície de autoria.</p>
-        </section>
-        <section class="panel contract-root-panel">
-          <div class="panel-title"><strong>Asset Contracts · Source Evidence</strong><span id="contractState">Sem relatório</span></div>
-          <div class="contract-root-form">
-            <label>Source Summit<input id="sourceRootInput" type="text" placeholder="/caminho/para/src_atual" /></label>
-            <label>Source EU de referência<input id="referenceSourceRootInput" type="text" placeholder="/caminho/para/PristonTale-EU" /></label>
-            <label class="contract-donors">Donor clients read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractDonorsInput" placeholder="OFFICIAL=/path/to/donor/client&#10;PT_EU=/path/to/another/client"></textarea></label>
-            <label class="contract-donors">Donor servers read-only (um <code>LABEL=PATH</code> por linha)<textarea id="contractServerDonorsInput" placeholder="PT_EU_SERVER=/path/to/donor/server&#10;REFERENCE_SERVER=/path/to/another/server"></textarea></label>
-            <div class="contract-actions">
-              <button id="saveContractRootsBtn" class="btn">Salvar fontes</button>
-              <button id="sourceContractsBtn" class="btn">Ler contratos do source</button>
-              <button id="playerContractsBtn" class="btn primary">Auditar 10 classes</button>
-              <button id="aggregatePlayerClassesBtn" class="btn">Agregar 10 classes (staging)</button>
-              <button id="generalCensusBtn" class="btn primary">Censo geral (plan-only)</button>
-              <button id="aggregateSummitBtn" class="btn">Agregar Summit completo (staging)</button>
+
+        <div class="server-workflow-tabs" role="tablist" aria-label="Workflow Servidor / Enrichment">
+          <button class="server-workflow-tab" data-server-workflow="config">1 · Configuração</button>
+          <button class="server-workflow-tab" data-server-workflow="diagnostics">2 · Diagnóstico</button>
+          <button class="server-workflow-tab" data-server-workflow="census">3 · Censo &amp; recuperação</button>
+          <button class="server-workflow-tab" data-server-workflow="validation">4 · Validação</button>
+          <button class="server-workflow-tab" data-server-workflow="evidence">5 · Evidência avançada</button>
+          <button class="server-workflow-tab subtle" data-server-workflow="activity">Atividade</button>
+        </div>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="config">
+          <section class="panel server-root-panel">
+            <div class="panel-title"><strong>Roots funcionais</strong><span id="serverRootStatus">Carregando…</span></div>
+            <div class="server-root-form">
+              <label>Raiz do servidor<input id="serverRootInput" type="text" placeholder="/path/to/Summit/Servidor" /></label>
+              <button id="saveServerRootBtn" class="btn primary">Salvar raiz do servidor</button>
             </div>
-          </div>
-          <p class="micro">O <strong>Censo geral (plan-only)</strong> cruza roots funcionais, dependências runtime/model/particle/field, inventário físico, manifests, source e donors sem materializar assets. Donor gap não equivale a necessidade runtime. “Agregar Summit completo” continua sendo uma ação de staging separada em <code>pt_build</code>; client/server reais não são escritos.</p>
-          <div class="server-grid contract-report-grid">
-            <div><div class="panel-title"><strong>Source contracts</strong><span id="sourceContractsState">Sem relatório</span></div><div id="sourceContractsSummary" class="server-summary"></div></div>
-            <div><div class="panel-title"><strong>Player classes</strong><span id="playerContractsState">Sem relatório</span></div><div id="playerContractsSummary" class="server-summary"></div></div>
-            <div><div class="panel-title"><strong>Aggregate staging</strong><span id="playerAggregateState">Sem relatório</span></div><div id="playerAggregateSummary" class="server-summary"></div></div>
-            <div><div class="panel-title"><strong>Summit superset</strong><span id="summitAggregateState">Sem relatório</span></div><div id="summitAggregateSummary" class="server-summary"></div></div>
-            <div><div class="panel-title"><strong>General reachability census</strong><span id="generalCensusState">Sem relatório</span></div><div id="generalCensusSummary" class="server-summary"></div></div>
-          </div>
-          <div class="panel-title" style="margin-top:18px"><strong>Contract Registry · Asset Compiler</strong><span id="assetContractState">Carregando…</span></div>
-          <div class="server-summary" id="assetContractSummary"></div>
-          <div class="server-explorer-toolbar">
-            <input id="assetContractSearch" type="search" placeholder="Buscar contrato, formato, runtime, família…" />
-            <select id="assetContractImplementation"><option value="">Todas as implementações</option></select>
-            <button id="assetContractRefresh" class="btn">Atualizar contratos</button>
-          </div>
-          <div class="server-explorer-table"><table><thead><tr><th>Contrato</th><th>Família</th><th>Runtime</th><th>Source</th><th>Implementação</th></tr></thead><tbody id="assetContractRows"><tr><td colspan="5" class="empty">Carregando registry…</td></tr></tbody></table></div>
-          <details class="contract-compiler" style="margin-top:14px">
-            <summary><strong>Asset Compiler · receita tipada</strong></summary>
-            <p class="micro">Compila contratos individuais ou bundles <strong>Monster / NPC / Item / Field</strong> para <code>pt_build/asset_compiler</code>; nunca escreve diretamente no client/server. Bundles validam dependências client/server e podem preservar/patchar SPM/SPC existentes. “Build” exige workspace armado.</p>
-            <div class="contract-actions"><select id="assetBundleTemplate"><option value="">Receita vazia/manual</option><option value="MONSTER">Novo Monster</option><option value="NPC">Novo NPC</option><option value="ITEM">Novo Item</option><option value="FIELD">Novo Field (metadata)</option></select><button id="assetBundleTemplateBtn" class="btn">Carregar template</button></div>
-            <textarea id="assetRecipeInput" spellcheck="false" style="width:100%;min-height:300px;font-family:ui-monospace,monospace" placeholder='{"format":"PT_ASSET_RECIPE_V1","id":"novo_asset","contract_id":"field.startpoints.spp","target_side":"SERVER","output":"GameServer/Field/Novo.spp","payload":{"records":[]}}'></textarea>
-            <div class="contract-actions"><button id="assetRecipePlanBtn" class="btn">Validar receita / bundle</button><button id="assetRecipeBuildBtn" class="btn primary">Compilar overlay para pt_build</button><button id="assetBundleStatusBtn" class="btn">Estado do último bundle</button></div>
-            <div class="contract-actions"><button id="assetBundlePublishBtn" class="btn primary">Publicar bundle no jogo</button><button id="assetBundleRestoreBtn" class="btn danger-outline">Desfazer bundle publicado</button></div>
-            <p class="micro"><strong>Deploy:</strong> publicação/restauro usa <code>ARM ASSET DEPLOY</code>, faz preflight de todos os ficheiros antes da primeira escrita, backup, SHA-256, escrita atómica e bloqueio de drift. Configs operacionais, persistência, segurança e estado runtime não podem ser publicados por este fluxo.</p>
-            <pre id="assetRecipeResult" class="micro" style="white-space:pre-wrap;max-height:420px;overflow:auto">Nenhuma receita validada.</pre>
-          </details>
-        </section>
-
-        <section class="panel server-explorer-panel" id="generalCensusPanel">
-          <div class="panel-title"><strong>Explorador do censo geral</strong><span id="generalCensusCount">Execute “Censo geral (plan-only)” para classificar gaps por reachability.</span></div>
-          <div class="server-explorer-toolbar">
-            <select id="generalCensusSide"><option value="">Client + Server</option><option value="CLIENT">Client</option><option value="SERVER">Server</option></select>
-            <input id="generalCensusSearch" type="search" placeholder="Buscar path, evidência, donor ou motivo…" />
-            <select id="generalCensusDecision"><option value="">Todas as decisões</option></select>
-            <select id="generalCensusFamily"><option value="">Todas as famílias</option></select>
-            <button id="generalCensusRefresh" class="btn">Atualizar lista</button>
-          </div>
-          <div class="server-explorer-table"><table><thead><tr><th>Decisão</th><th>Lado</th><th>Família</th><th>Path</th><th>Evidência / motivo</th></tr></thead><tbody id="generalCensusRows"><tr><td colspan="5" class="empty">Sem censo geral carregado.</td></tr></tbody></table></div>
-          <p class="micro"><strong>Leitura:</strong> <code>RECOVERABLE_REACHABLE_CANDIDATE</code> significa que uma raiz funcional alcança o asset e há candidato donor; conflitos, manifesto-only e donor-only continuam em REVIEW. Esta tela é read-only/plan-only.</p>
-        </section>
-        <div id="serverMetrics" class="metrics server-metrics"></div>
-        <div class="server-grid">
-          <section class="panel">
-            <div class="panel-title"><strong>Bundles funcionais</strong><span>client ↔ server</span></div>
-            <div id="serverBundleModel" class="server-list"><div class="empty">Carregando…</div></div>
+            <p class="micro">Esta página usa o servidor para leitura/análise. Conta/personagem, PostBox, SQLite, launch e edição de conteúdo ficam em <strong>Management Legacy</strong>.</p>
           </section>
-          <section class="panel">
-            <div class="panel-title"><strong>Ciclo de vida / política</strong><span>path + parser, não só extensão</span></div>
-            <div id="serverLifecycle" class="server-list"><div class="empty">Carregando…</div></div>
-          </section>
-        </div>
-        <div class="server-grid server-grid-reports">
-          <section class="panel"><div class="panel-title"><strong>Validação Client + Server</strong><span id="serverIntegrationState">Sem relatório</span></div><div id="serverIntegrationSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Entidades Monster / NPC</strong><span id="serverEntitiesState">Sem relatório</span></div><div id="serverEntitiesSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Fields</strong><span id="serverFieldsState">Sem relatório</span></div><div id="serverFieldsSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>OpenItem</strong><span id="serverItemsState">Sem relatório</span></div><div id="serverItemsSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Inventário server-side</strong><span id="serverInventoryState">Sem relatório</span></div><div id="serverInventorySummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Readiness Release 1.0</strong><span id="release1State">Sem relatório completo</span></div><div id="release1Summary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Asset Enrichment v9 — plano</strong><span id="serverVendorPlanState">Sem relatório</span></div><div id="serverVendorPlanSummary" class="server-summary"></div></section>
-          <section class="panel"><div class="panel-title"><strong>Asset Enrichment v9 — grafo</strong><span id="serverVendorGraphState">Sem relatório</span></div><div id="serverVendorGraphSummary" class="server-summary"></div></section>
-        </div>
 
-        <section class="panel server-explorer-panel">
-          <div class="panel-title"><strong>Explorador de bundles</strong><span id="serverExplorerCount">Use os filtros para ver por que um bundle está PASS, REVIEW ou BLOCKED.</span></div>
-          <div class="server-explorer-toolbar">
-            <select id="serverExplorerKind"><option value="entities">Monster / NPC</option><option value="fields">Fields</option><option value="items">OpenItem</option></select>
-            <input id="serverExplorerSearch" type="search" placeholder="Buscar definição, código, stage, INX ou motivo…" />
-            <select id="serverExplorerStatus"><option value="">Todos os estados</option></select>
-            <select id="serverExplorerReason"><option value="">Todos os motivos</option></select>
-            <button id="serverExplorerRefresh" class="btn">Atualizar lista</button>
-          </div>
-          <div class="server-explorer-layout">
-            <div class="server-explorer-table"><table><thead><tr><th>Estado</th><th>Tipo</th><th>Definição / Bundle</th><th>Ligação principal</th><th>Motivo</th></tr></thead><tbody id="serverExplorerRows"><tr><td colspan="5" class="empty">Execute o Asset Enrichment ou carregue um relatório existente.</td></tr></tbody></table></div>
-            <aside id="serverExplorerDetail" class="server-explorer-detail"><div class="empty">Selecione uma linha para ver a cadeia de dependências e a explicação do estado.</div></aside>
-          </div>
-          <p class="micro server-explorer-note"><strong>Leitura:</strong> PASS/RESOLVED significa que a cadeia observada fecha para esse gate. REVIEW significa que há evidência útil, mas falta uma decisão/contrato. BLOCKED indica dependência obrigatória ausente ou ambígua. Nenhum destes estados autoriza escrita no servidor.</p>
+          <section class="panel contract-root-panel">
+            <div class="panel-title"><strong>Source &amp; donors de evidência</strong><span id="contractState">Carregando…</span></div>
+            <div class="contract-root-form">
+              <label>Source Summit<input id="sourceRootInput" type="text" placeholder="/caminho/para/SourceCode" /></label>
+              <label>Source EU de referência<input id="referenceSourceRootInput" type="text" placeholder="/caminho/para/PristonTale-EU" /></label>
+              <label class="contract-donors">Donor clients read-only
+                <small>Uma linha por donor. Aceita <code>DONOR1=/caminho/client</code> ou uma linha copiada do CLI como <code>--donor-client 'DONOR1=/caminho/client'</code>.</small>
+                <textarea id="contractDonorsInput" placeholder="DONOR1=/home/meu/donor/client&#10;DONOR2=/home/meu/outro client"></textarea>
+              </label>
+              <label class="contract-donors">Donor servers read-only
+                <small>Uma linha por donor. Aceita <code>DONOR1=/caminho/server</code> ou <code>--donor-server 'DONOR1=/caminho/server'</code>.</small>
+                <textarea id="contractServerDonorsInput" placeholder="DONOR1=/home/meu/donor/server&#10;DONOR2=/home/meu/outro server"></textarea>
+              </label>
+              <div class="contract-actions"><button id="saveContractRootsBtn" class="btn primary">Validar e salvar configuração</button></div>
+              <div id="contractConfigFeedback" class="contract-feedback hidden" aria-live="polite"></div>
+            </div>
+            <p class="micro">Labels usam apenas letras, números, <code>_</code> e <code>-</code>. Caminhos podem conter espaços. Se houver erro, a configuração inteira é rejeitada e nada é salvo parcialmente.</p>
+            <p class="micro">Argumentos <code>--donor-*</code> usados num terminal valem só para aquela execução; os workflows da GUI usam exclusivamente o que foi validado e salvo aqui.</p>
+          </section>
+
+          <section class="panel server-handoff-panel">
+            <div class="panel-title"><strong>Divisão de responsabilidade</strong><span>uma autoridade por tarefa</span></div>
+            <div class="server-handoff-grid">
+              <div><b>Servidor / Enrichment</b><p>Descobrir, medir, classificar reachability, localizar candidatos donor, validar integração e produzir evidência.</p></div>
+              <div><b>Management Legacy</b><p>Criar/editar Item, Monster, NPC, SPM/SPP/SPC, World Closure, conta/personagem, PostBox e administração local.</p><button class="btn" data-open-legacy="world">Abrir Management Legacy · World Closure</button></div>
+            </div>
+          </section>
         </section>
 
-        <section class="panel field-editor-panel">
-          <div class="panel-title"><strong>Field metadata staging — SPM / SPP / SPC</strong><span id="fieldEditorState">Selecione um Field no explorador.</span></div>
-          <p class="micro field-editor-note">SPM = spawn/atores; SPP = 200 start points; SPC = NPCs fixos/merchants. DRAFTS são criados somente em <code>pt_build/server_field_editor</code>. Nenhum botão publica no servidor.</p>
-          <div class="field-editor-toolbar">
-            <button id="fieldOpenSpm" class="btn" disabled>Abrir SPM</button>
-            <button id="fieldOpenSpp" class="btn" disabled>Abrir SPP</button>
-            <button id="fieldOpenSpc" class="btn" disabled>Abrir SPC</button>
-            <code id="fieldEditorPath">—</code>
+        <section class="server-workflow-pane" data-server-workflow-pane="diagnostics">
+          <section class="panel">
+            <div class="panel-title"><strong>Diagnóstico do ambiente</strong><span>pré-requisitos antes de censo/validação</span></div>
+            <div class="server-workflow-actions">
+              <button id="serverEnvBtn" class="btn primary">Validar ambiente</button>
+              <button id="serverInventoryBtn" class="btn">Inventário físico server</button>
+              <button id="sourceContractsBtn" class="btn">Ler contratos do source</button>
+              <button id="playerContractsBtn" class="btn">Auditar 10 classes</button>
+            </div>
+            <p class="micro">Estas tarefas são read-only. Execução, console e histórico permanecem em <strong>Servidor → Atividade</strong>; o resultado volta para este workflow.</p>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Ambiente server</strong><span id="serverEnvironmentState">Sem relatório</span></div><div id="serverEnvironmentSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Inventário server-side</strong><span id="serverInventoryState">Sem relatório</span></div><div id="serverInventorySummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Source contracts</strong><span id="sourceContractsState">Sem relatório</span></div><div id="sourceContractsSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Player classes</strong><span id="playerContractsState">Sem relatório</span></div><div id="playerContractsSummary" class="server-summary"></div></section>
           </div>
-          <div id="fieldEditorSummary" class="server-summary"><div class="empty">Escolha <strong>Fields</strong> no explorador e selecione um bundle.</div></div>
-          <div id="fieldEditorForm" class="field-editor-form hidden"></div>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="census">
+          <section class="panel">
+            <div class="panel-title"><strong>Censo &amp; recuperação</strong><span id="generalCensusState">Sem relatório</span></div>
+            <div class="server-workflow-actions">
+              <button id="generalCensusBtn" class="btn primary">Executar Censo geral</button>
+              <button id="aggregatePlayerClassesBtn" class="btn">Agregar 10 classes · staging</button>
+              <button id="aggregateSummitBtn" class="btn">Agregar Summit completo · staging</button>
+              <button id="serverVendorPlanBtn" class="btn">Plano de recuperação v9</button>
+              <button id="serverVendorGraphBtn" class="btn">Grafo de dependências</button>
+            </div>
+            <p class="micro">Censo é <strong>plan-only</strong>. Agregações escrevem só em <code>pt_build</code>. Donor gap não equivale a necessidade runtime; nada nesta etapa publica no client/server.</p>
+            <div class="general-census-guide" id="generalCensusGuide">
+              <div class="panel-title"><strong>Preflight do Censo geral</strong><span id="generalCensusReadinessState">Verificando…</span></div>
+              <div id="generalCensusChecklist" class="general-census-checklist"></div>
+              <div id="generalCensusNotices" class="general-census-notices"></div>
+              <div class="general-census-command-row"><div><b>Comando equivalente</b><p class="micro">Reproduz exatamente a configuração persistida nesta GUI.</p></div><button id="copyGeneralCensusCommandBtn" class="btn">Copiar comando</button></div>
+              <pre id="generalCensusCommand" class="general-census-command">Carregando configuração…</pre>
+            </div>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Aggregate classes</strong><span id="playerAggregateState">Sem relatório</span></div><div id="playerAggregateSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Summit superset</strong><span id="summitAggregateState">Sem relatório</span></div><div id="summitAggregateSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Plano v9</strong><span id="serverVendorPlanState">Sem relatório</span></div><div id="serverVendorPlanSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Grafo v9</strong><span id="serverVendorGraphState">Sem relatório</span></div><div id="serverVendorGraphSummary" class="server-summary"></div></section>
+          </div>
+          <section class="panel server-explorer-panel" id="generalCensusPanel">
+            <div class="panel-title"><strong>Resultado do Censo geral</strong><span id="generalCensusCount">Execute o censo para classificar gaps.</span></div>
+            <div id="generalCensusSummary" class="server-summary"></div>
+            <div class="server-explorer-toolbar">
+              <select id="generalCensusSide"><option value="">Client + Server</option><option value="CLIENT">Client</option><option value="SERVER">Server</option></select>
+              <input id="generalCensusSearch" type="search" placeholder="Buscar path, evidência, donor ou motivo…" />
+              <select id="generalCensusDecision"><option value="">Todas as decisões</option></select>
+              <select id="generalCensusFamily"><option value="">Todas as famílias</option></select>
+              <button id="generalCensusRefresh" class="btn">Atualizar lista</button>
+            </div>
+            <div class="server-explorer-table"><table><thead><tr><th>Decisão</th><th>Lado</th><th>Família</th><th>Path</th><th>Evidência / motivo</th></tr></thead><tbody id="generalCensusRows"><tr><td colspan="5" class="empty">Sem censo geral carregado.</td></tr></tbody></table></div>
+          </section>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="validation">
+          <section class="panel">
+            <div class="panel-title"><strong>Validação de integração</strong><span>gates, não authoring</span></div>
+            <div class="server-workflow-actions"><button id="serverDesignBtn" class="btn primary">Analisar Asset Enrichment</button><button id="serverIntegrationBtn" class="btn primary">Validar Client + Server</button></div>
+          </section>
+          <div id="serverMetrics" class="metrics server-metrics"></div>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Validação Client + Server</strong><span id="serverIntegrationState">Sem relatório</span></div><div id="serverIntegrationSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Readiness Release 1.0</strong><span id="release1State">Sem relatório completo</span></div><div id="release1Summary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Monster / NPC closure</strong><span id="serverEntitiesState">Sem relatório</span></div><div id="serverEntitiesSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Field closure</strong><span id="serverFieldsState">Sem relatório</span></div><div id="serverFieldsSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>OpenItem closure</strong><span id="serverItemsState">Sem relatório</span></div><div id="serverItemsSummary" class="server-summary"></div></section>
+          </div>
+          <section class="panel server-handoff-panel">
+            <div class="panel-title"><strong>Encontrou REVIEW de conteúdo?</strong><span>continue no workflow correto</span></div>
+            <p>Estes são gates agregados. Para investigar e corrigir Monster, NPC, Item ou Field, use <strong>Management Legacy · World Closure</strong>. O explorador/editor duplicado foi removido daqui.</p>
+            <button class="btn primary" data-open-legacy="world">Abrir World Closure</button>
+          </section>
+          <details class="panel server-policy-details"><summary>Modelo de bundles e política de lifecycle</summary><div class="server-grid"><div><div class="panel-title"><strong>Bundles funcionais</strong><span>client ↔ server</span></div><div id="serverBundleModel" class="server-list"></div></div><div><div class="panel-title"><strong>Ciclo de vida / política</strong><span>path + parser</span></div><div id="serverLifecycle" class="server-list"></div></div></div></details>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="evidence">
+          <section class="panel">
+            <div class="panel-title"><strong>Contract Registry · evidência técnica</strong><span id="assetContractState">Carregando…</span></div>
+            <p class="micro server-evidence-note">Registry serve para entender formato/runtime. O <strong>Asset Compiler</strong> de Monster/NPC/Item/Field não fica aqui: authoring pertence ao Management Legacy.</p>
+            <div class="server-summary" id="assetContractSummary"></div>
+            <div class="server-explorer-toolbar"><input id="assetContractSearch" type="search" placeholder="Buscar contrato, formato, runtime, família…" /><select id="assetContractImplementation"><option value="">Todas as implementações</option></select><button id="assetContractRefresh" class="btn">Atualizar contratos</button></div>
+            <div class="server-explorer-table"><table><thead><tr><th>Contrato</th><th>Família</th><th>Runtime</th><th>Source</th><th>Implementação</th></tr></thead><tbody id="assetContractRows"><tr><td colspan="5" class="empty">Carregando registry…</td></tr></tbody></table></div>
+          </section>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Precisa editar conteúdo?</strong><span>handoff explícito</span></div><p>Use a evidência para entender o contrato; criação/edição e World Closure ficam numa única superfície.</p><button class="btn primary" data-open-legacy="world">Abrir Management Legacy</button></section>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="activity">
+          <section class="panel server-activity-panel">
+            <div class="panel-title"><strong>Atividade do Servidor / Enrichment</strong><button id="serverActivityRefresh" class="btn small">Atualizar</button></div>
+            <p class="micro server-activity-note">As tarefas iniciadas nesta página ficam aqui durante e depois da execução. Não são duplicadas na lista geral de Tarefas. O botão <strong>Abrir resultado</strong> volta ao workflow que produziu o relatório.</p>
+            <div id="serverActivityList"><div class="empty">Nenhuma tarefa deste workflow.</div></div>
+          </section>
+          <section class="panel console-panel server-console-panel">
+            <div class="panel-title"><strong>Console da tarefa</strong><div class="console-head-actions"><span id="serverConsoleStatus">Nenhuma tarefa selecionada</span><button id="serverCancelJobBtn" class="btn small danger-outline" style="display:none">Cancelar tarefa</button></div></div>
+            <pre id="serverConsole">Selecione uma tarefa acima.</pre>
+            <div class="server-result-actions"><button id="serverOpenResultBtn" class="btn primary" disabled>Abrir resultado no workflow</button></div>
+          </section>
         </section>
       </section>
 
@@ -538,14 +606,17 @@
           <div id="compareResult" class="compare-result"><div class="empty">Execute uma comparação para ver o resumo e as diferenças aqui.</div></div>
         </section>
       </section>
-      <section id="tab-jobs" class="tab"><section class="panel"><div class="panel-title"><strong>Tarefas</strong><button id="refreshJobs" class="btn small">Atualizar</button></div><div id="jobsList"></div></section></section>
+      <section id="tab-jobs" class="tab">
+        <section class="panel"><div class="panel-title"><strong>Tarefas gerais</strong><button id="refreshJobs" class="btn small">Atualizar</button></div><p class="micro" style="padding:0 12px">Workflows com página própria mantêm execução e resultado nessa página. Jobs de Cliente / Enrichment ficam em <strong>Cliente → Atividade</strong> e jobs de Servidor / Enrichment em <strong>Servidor → Atividade</strong>.</p><div id="jobsList"></div></section>
+        <section class="panel console-panel"><div class="panel-title"><strong>Console da tarefa</strong><div class="console-head-actions"><span id="consoleStatus">Nenhuma tarefa selecionada</span><button id="cancelJobBtn" class="btn small danger-outline" style="display:none">Cancelar tarefa</button></div></div><pre id="console">Selecione uma tarefa acima.</pre><div id="jobInput" class="job-input hidden"><span>O validator está aguardando sua avaliação:</span><div><button class="btn small" data-job-answer="y">PASS / Sim</button><button class="btn small danger-outline" data-job-answer="n">FAIL / Não</button><button class="btn small" data-job-answer="s">SKIP / Pular</button></div><small>A resposta é enviada ao mesmo processo CLI do validator.</small></div></section>
+      </section>
       <section id="tab-reports" class="tab"><section class="panel"><div class="panel-title"><strong>Relatórios de pt_build</strong><div><button id="monsterNpcBtn" class="btn small">Censo Monster/NPC</button> <button id="refreshReports" class="btn small">Atualizar</button></div></div><div id="reportsList"></div></section></section>
 
       <section id="tab-docs" class="tab">
         <div class="guide-hero panel"><div><h2>Como usar as ferramentas</h2><p>O Design Tool cuida do inventário, inspeção, validação 3D e workflows certificados. O Asset Enrichment conecta o conteúdo do servidor ao client por bundles funcionais. Use os dois juntos; não tente resolver uma entidade apenas copiando ficheiros com a mesma extensão.</p></div><span class="badge">READ-ONLY POR PADRÃO · AUTHORING TRANSACIONAL QUANDO ARMADO</span></div>
         <div class="guide-grid">
           <section class="panel guide-card"><h3>1. Design Tool / PT Asset Tool</h3><p><strong>Para quê:</strong> descobrir assets, entender bindings, validar SMD/SMB/INX/texturas, gerar candidates em <code>pt_build</code> e acompanhar gates.</p><ol><li>Configure o <code>client_root</code>.</li><li>Rode <strong>Doctor</strong> ou <code>validate environment-auto</code>.</li><li>Use Catálogo/Entidades para encontrar o asset.</li><li>Leia Structural, Binding, Visual e Roundtrip como níveis de evidência diferentes.</li><li>Antes de qualquer release, rode os gates automáticos indicados pela readiness.</li></ol><p class="micro">Manual completo: <code>docs/tematicos/GUIA_DESIGN_TOOL.md</code></p></section>
-          <section class="panel guide-card"><h3>2. Asset Enrichment</h3><p><strong>Para quê:</strong> enxergar o que um Monster, NPC, Field ou Item precisa no lado servidor e como isso se liga ao client.</p><ol><li>Configure o <code>server_root</code>.</li><li>Rode <strong>Analisar Asset Enrichment</strong>.</li><li>Use o Explorador de bundles para investigar REVIEW/BLOCKED.</li><li>Não trate <code>DataServer</code>, <code>LogItemData</code>, <code>PostBox</code>, WAR ou estados de segurança como assets.</li><li>Quando um bundle exigir SMD/SMB/INX, volte ao pipeline certificado do Design Tool.</li></ol><p class="micro">Manual completo: <code>docs/tematicos/GUIA_ASSET_ENRICHMENT.md</code></p></section>
+          <section class="panel guide-card"><h3>2. Asset Enrichment</h3><p><strong>Para quê:</strong> enxergar o que um Monster, NPC, Field ou Item precisa no lado servidor e como isso se liga ao client.</p><ol><li>Configure o <code>server_root</code>.</li><li>Rode <strong>Analisar Asset Enrichment</strong>.</li><li>Use Censo/Validação para medir gaps; REVIEW de conteúdo segue para <strong>Management Legacy · World Closure</strong>.</li><li>Não trate <code>DataServer</code>, <code>LogItemData</code>, <code>PostBox</code>, WAR ou estados de segurança como assets.</li><li>Quando um bundle exigir SMD/SMB/INX, volte ao pipeline certificado do Design Tool.</li></ol><p class="micro">Manual completo: <code>docs/tematicos/GUIA_ASSET_ENRICHMENT.md</code></p></section>
           <section class="panel guide-card"><h3>3. Fluxo combinado</h3><p><strong>Monster/NPC:</strong> definição server → ZHOON → INI/INX → SMD/SMB → texturas → spawn/placement.</p><p><strong>Field:</strong> stage → SPP/SPC/SPM → entidades referenciadas.</p><p><strong>Item:</strong> OpenItem → code map → catálogo client → modelo/icon → drops/shops.</p><p class="micro">Guia de ponta a ponta: <code>docs/tematicos/GUIA_WORKFLOW_CLIENT_SERVER.md</code></p></section>
           <section class="panel guide-card" data-manual-legacy-authoring="2026-09-21"><h3>4. Management Legacy + Authoring Python</h3><p><strong>Para quê:</strong> usar o census/World Closure para localizar o target correto e criar/editar Item, Monster, NPC e Field sem executar PriTaTor/NPCManager/ItemEditor.</p><ol><li>Selecione uma linha no <strong>World Closure Explorer</strong> ou informe kind/path.</li><li>Use <strong>Abrir / Inspecionar</strong>; ITEM usa o path real do census.</li><li>Edite o spec e arme <code>ARM BUILD WRITES</code>.</li><li><strong>Stage em pt_build</strong> não altera o target.</li><li>Revise o manifest, arme <code>ARM ASSET DEPLOY</code> e publique.</li><li>Valide no jogo; use Restore se necessário.</li></ol><p class="micro">Kinds: ITEM · MONSTER · NPC · SPM · SPP · SPC. Manual: <code>docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md</code></p></section>
           <section class="panel guide-card"><h3>Estados sem mistério</h3><dl><dt>PASS</dt><dd>O gate executado passou.</dd><dt>REVIEW</dt><dd>Há dados suficientes para investigar, mas ainda falta decisão/prova para automatizar.</dd><dt>BLOCKED</dt><dd>Uma dependência ou contrato obrigatório não está provado.</dd><dt>PENDING</dt><dd>Aquele gate ainda não foi executado.</dd><dt>Runtime review</dt><dd>Os testes automáticos passaram, mas ainda falta observar o resultado dentro do jogo.</dd></dl></section>

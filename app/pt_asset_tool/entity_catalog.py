@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import pathlib
 import re
@@ -516,6 +517,147 @@ def _append_role_path(entity: dict[str, Any], path: str, row: dict[str, Any] | N
         entity['support_paths'].append(path)
 
 
+
+def _item_code_from_entity(entity: dict[str, Any]) -> str:
+    stem = str(entity.get('display_name') or '').casefold()
+    return stem[2:] if stem.startswith('it') else stem
+
+
+def _annotate_item_visual_bundles(
+    entities: list[dict[str, Any]],
+    rows_by_path: dict[str, dict[str, Any]],
+    registry=None,
+) -> None:
+    """Attach visual-bundle evidence without collapsing runtime item identity.
+
+    Priston item identity and visual representation are different contracts:
+    runtime sITEM/OpenItem codes may point at DorpItem assets, while equipped
+    armor configs can reuse model/texture combinations. A bundle therefore
+    groups only strongly evidenced visual dependencies; runtime codes remain a
+    list of distinct identities inside that bundle.
+    """
+    items = [e for e in entities if str(e.get('semantic_group') or '') == 'ITEM']
+    if not items:
+        return
+
+    try:
+        from .item_runtime_catalog import item_runtime_catalog
+        runtime_entries = list(item_runtime_catalog().get('entries') or [])
+    except Exception:
+        runtime_entries = []
+    by_dorp: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in runtime_entries:
+        dorp = str(row.get('dorp_item') or '').casefold()
+        if dorp:
+            by_dorp[dorp].append(row)
+
+    # Strong visual fingerprint: the complete non-empty registry texture set
+    # for a concrete item model entity. Shared single path names are not enough;
+    # equality is evaluated on the full dependency set.
+    signature_groups: dict[tuple[str, ...], list[dict[str, Any]]] = defaultdict(list)
+    for e in items:
+        code = _item_code_from_entity(e)
+        matches = by_dorp.get(code, [])
+        runtime_codes = sorted({str(x.get('code') or '') for x in matches if x.get('code')}, key=str.casefold)
+        e['runtime_item_codes'] = runtime_codes
+        e['runtime_dorp_item'] = code if matches else None
+        for r in matches:
+            expected = r.get('expected_client_paths') or {}
+            for kind, path in expected.items():
+                if path:
+                    e.setdefault('relationships', []).append({
+                        'type': 'RUNTIME_ITEM_EXPECTS_VISUAL',
+                        'from': str(r.get('code') or ''),
+                        'to': _norm(path),
+                        'evidence': f'SITEM_{str(kind).upper()}',
+                    })
+        textures = sorted({
+            _norm(t).casefold()
+            for asset in (e.get('registry_assets') or [])
+            for t in (asset.get('textures') or [])
+            if _norm(t)
+        })
+        if textures:
+            signature_groups[tuple(textures)].append(e)
+
+    # Build lookup of registry assets by exact texture dependency signature so
+    # equipped armor configs/models can join a drop-item visual bundle without
+    # filename guessing.
+    registry_by_signature: dict[tuple[str, ...], list[Any]] = defaultdict(list)
+    if registry is not None:
+        for asset in getattr(registry, 'assets', []) or []:
+            textures = tuple(sorted({
+                _norm(t).casefold() for t in (getattr(asset, 'textures', []) or []) if _norm(t)
+            }))
+            if textures:
+                registry_by_signature[textures].append(asset)
+
+    for signature, members in signature_groups.items():
+        digest = hashlib.sha1(('\n'.join(signature)).encode('utf-8')).hexdigest()[:16]
+        bundle_key = f'ITEM_VISUAL|texset:{digest}'
+        entity_keys = sorted({str(e.get('entity_key') or '') for e in members}, key=str.casefold)
+        runtime_codes = sorted({
+            code for e in members for code in (e.get('runtime_item_codes') or []) if code
+        }, key=str.casefold)
+        paths: set[str] = set()
+        for e in members:
+            paths.update(_norm(x) for x in (e.get('all_paths') or []) if _norm(x))
+        for texture in signature:
+            row = rows_by_path.get(texture)
+            paths.add(_norm((row or {}).get('path') or texture))
+
+        # Include equipped-model/config paths only when the registry proves the
+        # exact same complete texture dependency set. If an INX has a physical
+        # same-stem INI sibling, include it as a companion config path.
+        for asset in registry_by_signature.get(signature, []):
+            primary = _norm(getattr(asset, 'primary_path', ''))
+            if primary:
+                paths.add(primary)
+            for cfg in getattr(asset, 'configs', []) or []:
+                if not isinstance(cfg, dict):
+                    continue
+                for field in ('inx', 'motion_inx'):
+                    config = _norm(cfg.get(field) or '')
+                    if not config:
+                        continue
+                    paths.add(config)
+                    pure = pathlib.PurePosixPath(config)
+                    ini = pure.with_suffix('.ini').as_posix()
+                    row = rows_by_path.get(ini.casefold())
+                    if row:
+                        paths.add(_norm(row.get('path') or ini))
+            skeleton = _norm(getattr(asset, 'binding_skeleton_smb', ''))
+            if skeleton:
+                paths.add(skeleton)
+
+        evidence = 'EXACT_FULL_TEXTURE_DEPENDENCY_SET'
+        for e in members:
+            e['visual_bundle_key'] = bundle_key
+            e['visual_bundle_evidence'] = evidence
+            e['visual_bundle_entity_keys'] = entity_keys
+            e['visual_bundle_runtime_codes'] = runtime_codes
+            e['visual_bundle_paths'] = sorted(paths, key=str.casefold)
+            e['visual_bundle_member_count'] = len(entity_keys)
+            e.setdefault('relationships', []).append({
+                'type': 'ITEM_VISUAL_BUNDLE',
+                'from': e.get('entity_key'),
+                'to': bundle_key,
+                'evidence': evidence,
+            })
+
+    # Items without a shared/full texture signature still get a stable local
+    # bundle so UI semantics are uniform. This bundle has no cross-item claim.
+    for e in items:
+        if e.get('visual_bundle_key'):
+            continue
+        digest = hashlib.sha1(str(e.get('entity_key') or '').encode('utf-8')).hexdigest()[:16]
+        e['visual_bundle_key'] = f'ITEM_VISUAL|entity:{digest}'
+        e['visual_bundle_evidence'] = 'ENTITY_LOCAL_ONLY'
+        e['visual_bundle_entity_keys'] = [str(e.get('entity_key') or '')]
+        e['visual_bundle_runtime_codes'] = list(e.get('runtime_item_codes') or [])
+        e['visual_bundle_paths'] = list(e.get('all_paths') or [])
+        e['visual_bundle_member_count'] = 1
+
 def build_live_entities(rows: Iterable[dict[str, Any]], seed: dict[str, Any] | None = None, registry=None) -> list[dict[str, Any]]:
     rows = list(rows)
     rows_by_path = {str(r.get('path') or '').casefold(): r for r in rows}
@@ -691,7 +833,145 @@ def build_live_entities(rows: Iterable[dict[str, Any]], seed: dict[str, Any] | N
         e['has_animation'] = bool(e['animation_paths'])
         e['has_preview_candidate'] = bool(e['representative_preview'])
         out.append(e)
+    _annotate_item_visual_bundles(out, rows_by_path, registry=registry)
     return sorted(out, key=lambda x: (x['semantic_group'], x['display_name'].casefold()))
+
+
+def _entity_summary(entity: dict[str, Any]) -> dict[str, Any]:
+    """Thin entity row for list/grid endpoints.
+
+    Entity detail owns the large path/relationship payload. Keeping list rows
+    compact avoids serializing thousands of path strings on every search.
+    """
+    keep = (
+        'entity_key', 'semantic_group', 'display_name', 'folder_root',
+        'identity_evidence', 'known_canonical_entity', 'asset_count', 'total_bytes',
+        'role_counts', 'extension_counts', 'representative_model',
+        'representative_preview', 'registry_evidence', 'registry_asset_count',
+        'registry_family_counts', 'registry_binding_mode_counts', 'rigid_model_count',
+        'rigid_binding_ready_count', 'animation_binding_ready_count',
+        'physical_rigid_binding_ready_count', 'physical_animation_binding_ready_count',
+        'runtime_status', 'writer_status', 'has_model', 'has_config',
+        'has_animation', 'has_preview_candidate', 'visual_bundle_key',
+        'visual_bundle_runtime_codes', 'visual_bundle_member_count',
+        'visual_bundle_evidence',
+    )
+    return {k: entity.get(k) for k in keep if k in entity}
+
+
+def _entity_search_text(entity: dict[str, Any]) -> str:
+    cached = entity.get('_search_text')
+    if isinstance(cached, str):
+        return cached
+    text = ' '.join([
+        str(entity.get('display_name') or ''),
+        str(entity.get('folder_root') or ''),
+        ' '.join(str(x) for x in (entity.get('role_counts') or {})),
+        ' '.join(str(x) for x in (entity.get('all_paths') or [])),
+        str(entity.get('identity_evidence') or ''),
+        ' '.join(str(x) for x in (entity.get('visual_bundle_runtime_codes') or [])),
+    ]).casefold()
+    entity['_search_text'] = text
+    return text
+
+
+def query_built_entities(
+    entities: Iterable[dict[str, Any]],
+    seed: dict[str, Any] | None = None,
+    *,
+    group: str = '',
+    q: str = '',
+    limit: int = 500,
+) -> dict[str, Any]:
+    entities = list(entities)
+    group = group.strip().upper()
+    if group == 'MAP':
+        group = 'MAP_FIELD'
+    terms = [x.casefold() for x in q.split() if x.strip()]
+    out = []
+    for e in entities:
+        if group and e.get('semantic_group') != group:
+            continue
+        if terms and not all(t in _entity_search_text(e) for t in terms):
+            continue
+        out.append(_entity_summary(e))
+    out = out[: max(1, min(2000, int(limit)))]
+    counts = Counter(x.get('semantic_group') for x in entities)
+    return {
+        'format': 'PT_LIVE_ENTITY_CATALOG_V3',
+        'status': 'PASS',
+        'policy': {
+            'identity': 'typed physical/registry relationships; filename-family guesses are not entity truth',
+            'runtime': 'UNPROVEN unless separately validated',
+            'writer': 'UNAUTHORIZED unless separately certified',
+            'character_priority': 'source-proven class config + verified binding context + exact canonical class path component',
+            'item_priority': 'runtime DorpItem + registry model/material relations; visual bundles do not merge runtime item identities',
+        },
+        'live_entity_count': len(entities),
+        'live_group_counts': dict(counts),
+        'known_seed_entity_count': int((seed or {}).get('entity_count') or 0),
+        'items': out,
+    }
+
+
+def _add_targeted_physical_evidence(found: dict[str, Any], registry) -> None:
+    """Add expensive physical dependency evidence only for one selected entity."""
+    assets = list(found.get('registry_assets') or [])
+    rigid = 0
+    animated = 0
+    for row in assets:
+        path = str(row.get('path') or '')
+        if not path:
+            continue
+        try:
+            asset = registry.resolve(path)
+        except Exception:
+            continue
+        try:
+            physical = registry.physical_dependency_status(asset)
+        except Exception as exc:
+            physical = {'status': 'ERROR', 'error': f'{type(exc).__name__}:{exc}'}
+        row['physical_dependency_status'] = physical
+        if physical.get('rigid_binding_ready_physical'):
+            rigid += 1
+        if physical.get('animation_binding_ready_physical'):
+            animated += 1
+    found['physical_rigid_binding_ready_count'] = rigid
+    found['physical_animation_binding_ready_count'] = animated
+
+
+def entity_detail_from_built(
+    entities: Iterable[dict[str, Any]],
+    entity_key: str,
+    *,
+    registry=None,
+) -> dict[str, Any] | None:
+    wanted = str(entity_key or '').strip()
+    if not wanted:
+        return None
+    found0 = next((e for e in entities if str(e.get('entity_key')) == wanted), None)
+    if found0 is None:
+        return None
+    # Cached entities are shared across request threads. Copy mutable nested
+    # fields that detail enrichment may update so the cache remains immutable.
+    found = dict(found0)
+    found['registry_assets'] = [dict(x) for x in (found0.get('registry_assets') or [])]
+    if registry is not None:
+        _add_targeted_physical_evidence(found, registry)
+    found.pop('_search_text', None)
+    return {
+        'format': 'PT_LIVE_ENTITY_DETAIL_V3',
+        'status': 'PASS',
+        'entity': found,
+        'policy': {
+            'folder_identity_is_runtime_evidence': False,
+            'registry_binding_is_runtime_certification': False,
+            'writer_requires_separate_certification': True,
+            'naming_guess_is_entity_identity': False,
+            'visual_bundle_merges_runtime_identity': False,
+        },
+        'client_modified': False,
+    }
 
 
 def query_entities(
@@ -704,39 +984,7 @@ def query_entities(
     registry=None,
 ) -> dict[str, Any]:
     entities = build_live_entities(list(rows), seed, registry=registry)
-    group = group.strip().upper()
-    if group == 'MAP':
-        group = 'MAP_FIELD'
-    terms = [x.lower() for x in q.split() if x.strip()]
-    out = []
-    for e in entities:
-        if group and e['semantic_group'] != group:
-            continue
-        if terms:
-            hay = ' '.join([
-                e['display_name'], e['folder_root'], ' '.join(e['role_counts']),
-                ' '.join(e.get('all_paths') or []), e.get('identity_evidence', ''),
-            ]).lower()
-            if not all(t in hay for t in terms):
-                continue
-        out.append({k: v for k, v in e.items() if k != 'registry_assets'})
-    out = out[: max(1, min(2000, int(limit)))]
-    counts = Counter(x['semantic_group'] for x in entities)
-    return {
-        'format': 'PT_LIVE_ENTITY_CATALOG_V2',
-        'status': 'PASS',
-        'policy': {
-            'identity': 'typed physical/registry relationships; filename-family guesses are not entity truth',
-            'runtime': 'UNPROVEN unless separately validated',
-            'writer': 'UNAUTHORIZED unless separately certified',
-            'character_priority': 'source-proven class config + verified binding context + exact canonical class path component',
-            'item_priority': 'registry model identity + SMD material/TexLink texture relationships',
-        },
-        'live_entity_count': len(entities),
-        'live_group_counts': dict(counts),
-        'known_seed_entity_count': int((seed or {}).get('entity_count') or 0),
-        'items': out,
-    }
+    return query_built_entities(entities, seed, group=group, q=q, limit=limit)
 
 
 def entity_detail(
@@ -746,33 +994,6 @@ def entity_detail(
     *,
     registry=None,
 ) -> dict[str, Any] | None:
-    wanted = str(entity_key or '').strip()
-    if not wanted:
-        return None
     entities = build_live_entities(list(rows), seed, registry=registry)
-    found = next((e for e in entities if str(e.get('entity_key')) == wanted), None)
-    if found is None:
-        return None
-    if registry is not None:
-        # Re-run only to add physical dependency details to registry assets.
-        physical = _registry_evidence(registry, include_assets=True, include_physical=True).get(wanted)
-        if physical:
-            for field in (
-                'physical_rigid_binding_ready_count', 'physical_animation_binding_ready_count',
-                'registry_assets', 'relationships', 'cross_entity_links', 'related_entity_keys',
-                'referenced_by_entity_keys',
-            ):
-                if field in physical:
-                    found[field] = physical[field]
-    return {
-        'format': 'PT_LIVE_ENTITY_DETAIL_V2',
-        'status': 'PASS',
-        'entity': found,
-        'policy': {
-            'folder_identity_is_runtime_evidence': False,
-            'registry_binding_is_runtime_certification': False,
-            'writer_requires_separate_certification': True,
-            'naming_guess_is_entity_identity': False,
-        },
-        'client_modified': False,
-    }
+    return entity_detail_from_built(entities, entity_key, registry=registry)
+

@@ -296,3 +296,106 @@ SPM e SPP são mais bem compreendidos. SPC exige clone/typed patch. Stage SMD 0.
 4. Gere planos standalone apenas quando precisar de migração/enriquecimento controlado.
 5. Mantenha writes separados de discovery.
 6. Antes de produção, valide o bundle completo no runtime.
+
+<!-- PT_GENERAL_CENSUS_GUI_PREFLIGHT_2026-09-21 -->
+
+## Censo geral: configuração e acompanhamento sem ambiguidade
+
+Antes do censo, a GUI valida client, server, Source Summit e Source EU, lista donors salvos, mostra blockers/warnings e gera o comando CLI equivalente. Donors vazios não bloqueiam execução, mas reduzem a evidência de recovery.
+
+O botão usa a configuração persistente. Se `pt_asset.py ... audit general-asset-census --donor-client ...` for executado manualmente, esses argumentos não são importados automaticamente para o formulário. Salve os mesmos roots/donors para tornar os dois caminhos equivalentes.
+
+A UI distingue `NOT_RUN`, `RUNNING`, `FRESH_CONFIG` e `STALE_CONFIG`. Processos iniciados fora da GUI não têm acompanhamento de progresso; o resultado só é observado depois da gravação do relatório final.
+
+<!-- PT_SERVER_ENRICHMENT_WORKFLOW_ARCH_V2_2026-09-22 -->
+## GUI Server / Enrichment: uma etapa por workflow
+
+A página **Servidor / Asset Enrichment** não é um segundo editor de conteúdo. A responsabilidade dela é descobrir, medir, classificar, recuperar para staging e validar evidência server-side. Authoring de Item, Monster, NPC, SPM/SPP/SPC e investigação de World Closure pertencem a **Management Legacy**.
+
+A GUI é dividida em seis superfícies independentes:
+
+1. **Configuração** — `server_root`, Source Summit, Source EU e donors read-only.
+2. **Diagnóstico** — ambiente, inventário e contratos source/player.
+3. **Censo & recuperação** — Censo geral plan-only, agregações em `pt_build`, plano/grafo de donors.
+4. **Validação** — gates agregados Client + Server. REVIEW de conteúdo é encaminhado para Management Legacy.
+5. **Evidência avançada** — Contract Registry para entender formatos/runtime; não contém o Asset Compiler de conteúdo.
+6. **Atividade** — execução, console, histórico e acesso ao resultado dos jobs iniciados nesta página.
+
+Uma tarefa iniciada em Server permanece em **Servidor → Atividade** enquanto executa e depois de terminar. **Abrir resultado** retorna ao workflow que gerou o relatório; o Catálogo não é usado como caixa de saída de jobs.
+
+### Formato dos donors
+
+Cada textarea aceita uma entrada por linha. São válidas tanto a forma persistente quanto uma linha copiada do CLI:
+
+```text
+DONOR1=/caminho/para/client
+DONOR2=/caminho com espaços/client
+--donor-client 'DONOR3=/caminho com espaços/client'
+```
+
+Para server, use o mesmo formato ou `--donor-server 'LABEL=/caminho'`. Labels aceitam letras, números, `_` e `-`. Linhas vazias e comentários iniciados por `#` são ignorados. A validação informa a linha e o motivo exatos; se houver erro, roots e donors não são persistidos parcialmente.
+
+<!-- PT_CLIENT_ENRICHMENT_WORKFLOW_ARCH_V3_2026-09-22 -->
+## Cliente / Enrichment — arquitetura por workflow
+
+A aba **Cliente / Enrichment** não é um segundo Catálogo nem um segundo explorador de Entidades. Ela organiza operações agregadas client-side em workflows separados:
+
+1. **Visão geral** — root atual, métricas e handoff explícito para Catálogo/Entidades;
+2. **Diagnóstico** — `audit client-enrichment`, auditoria das 10 classes e resumos de registry/entidades;
+3. **Censo & recuperação** — lado CLIENT do censo geral e dependency graph; Source/donors são a configuração compartilhada em **Servidor → Configuração**;
+4. **Validação** — gaps do Client Enrichment e evidência/certificações, sem duplicar authoring;
+5. **Texture Enhancement** — somente o workflow global/batch; enhancement individual continua no Catálogo;
+6. **Atividade** — execução, console, histórico e retorno ao resultado das tarefas iniciadas nessa página.
+
+### Autoridade por tarefa
+
+- **Catálogo**: asset físico individual, capabilities certificadas e enhancement individual;
+- **Entidades**: relações físicas/registry por entidade;
+- **Cliente / Enrichment**: análise agregada, reachability, gaps, dependency graph e batch global de texturas.
+
+Uma linha de gap/censo pode fazer handoff para o Catálogo quando existe um path físico, mas o relatório continua sendo lido na aba Cliente.
+
+### Tarefas
+
+Jobs iniciados em Cliente / Enrichment são marcados com `surface=client` e permanecem em **Cliente → Atividade** durante e depois da execução. Eles não são duplicados em **Tarefas gerais**. O botão **Abrir resultado** retorna para Diagnóstico, Censo, Validação ou Texture Enhancement conforme a origem.
+
+### Texture Enhancement global
+
+O batch global continua separado do enhancement individual porque possui lifecycle próprio: geração/resume em `app/pt_build/texture_upscale/runs`, pré-validação de hashes, publicação transacional, backups e rollback. Para uma única textura, use o Catálogo.
+
+<!-- PT_CATALOG_ENTITY_PERF_VISUAL_V4_2026-09-22 -->
+
+## Catálogo / Entidades — performance e Visual Bundles (V4)
+
+### Performance
+
+`Entidades` usa um snapshot derivado do catálogo + registry, invalidado por revisão. A listagem e a busca reutilizam esse snapshot; apenas o detalhe selecionado calcula `physical_dependency_status`. A resposta de lista é resumida e não transporta `all_paths`, `registry_assets` ou relações completas.
+
+No Catálogo, selecionar um asset não recarrega a listagem. Buscas obsoletas de Catálogo/Entidades são canceladas no browser. A galeria só cria `<img>` de preview quando o modo Galeria está visível. Previews BMP/TGA decodificados ficam em cache limitado por `path + mtime_ns + size`.
+
+A API expõe métricas não autoritativas de diagnóstico (`performance.query_ms` no Catálogo e contadores/tempo do snapshot em Entidades). Elas servem para observar o hot path; não são gates de release.
+
+### Item runtime != representação visual
+
+O Catálogo distingue duas camadas:
+
+- **identidade runtime**: código sITEM/OpenItem (ex.: `DA102`, `DA301`);
+- **Visual Bundle**: conjunto físico de icon/drop/equipped-model/config/textures que compartilha uma aparência comprovada.
+
+Um Visual Bundle nunca funde códigos runtime. Itens separados podem aparecer no mesmo bundle quando o registry comprova o mesmo conjunto completo de dependências de textura. Configs/modelos equipados entram no bundle somente quando a cadeia registry comprova a mesma assinatura visual. Um `Axxx.INI` same-stem de um INX comprovado pode ser anexado quando o arquivo físico existe.
+
+O filtro `Entidade -> Catálogo`, para ITEM, abre os paths do Visual Bundle quando este existe. Isso permite navegar em conjunto por arquivos como `it<code>`, texturas drop e configs de aparência sem transformar convenções de filename em identidade runtime.
+
+Agrupamento por semelhança parcial de nome ou por uma única textura compartilhada não é promovido a verdade de identidade.
+
+<!-- PT_CATALOG_PERSISTENT_ITEM_RELATIONS_V5_2026-09-22 -->
+
+## Catálogo persistente e relações visuais de item · V5
+
+O Catálogo/Entidades não deve fazer uma nova varredura física do client apenas porque o utilizador mudou de aba ou reiniciou a UI. O ponto de sincronização física é **Reindexar**. A navegação normal reutiliza o censo persistido em `pt_build/state/asset_registry/asset_inventory.json`, o pairing INX e snapshots derivados. Alterações externas ao client tornam-se visíveis após Reindexar.
+
+A representação visual de item é uma visão derivada, não uma nova identidade runtime. O índice `pt_build/state/item_visual_bundle_index_v1.json` reutiliza o runtime item catalog, o `asset_inventory.json` e, quando disponível, `pt_build/enrichment_vendor/dependency_graph/graph.json`. Ele separa explicitamente: **Inventário · imagem**, **Chão · modelo**, **Chão · textura**, **Equipado · config**, **Equipado · modelo** e **Equipado · textura**. Códigos runtime distintos continuam distintos mesmo quando reutilizam exatamente o mesmo conjunto visual.
+
+O agrupamento automático só usa evidência persistida. Para itens diferentes, um bundle visual compartilhado requer o mesmo conjunto completo e não vazio de dependências de textura. Configs/INX/modelos equipados entram quando o registry ou o dependency graph prova a ligação. Sem prova, o asset permanece fora daquela relação.
+
+O utilizador pode corrigir o **papel visual** de um asset no detalhe do Catálogo. A correção fica apenas no estado da UI; não altera o client. A UI preserva e exibe a classificação automática original, permitindo distinguir evidência automática de override manual.

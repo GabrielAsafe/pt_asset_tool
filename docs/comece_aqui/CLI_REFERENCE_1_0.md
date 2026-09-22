@@ -231,22 +231,32 @@ plan-only general client/server reachability census; separates donor gaps from r
 | `--donor-client` | default=[] | read-only donor client root; repeatable; persisted donors used when omitted |
 | `--donor-server` | default=[] | read-only donor server root; repeatable; persisted donors used when omitted |
 
-**exemplo**
-`--
-python3 pt_asset.py \
-  --client-root '/home/gabriel/Área de Trabalho/summit/Summit Tale Client Full/cliente' \
-  --server-root '/home/gabriel/Área de Trabalho/summit/Servidor' \
-  audit general-asset-census \
-  --source-root '/home/gabriel/Área de Trabalho/summit/SourceCode' \
-  --reference-source-root '/home/gabriel/armazem/priston/PristonTale-EU-main-master' \
-  --donor-client 'DONOR1=/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Game' \
-  --donor-server 'DONOR1=/home/gabriel/armazem/priston/servidor_cliente_PT_EU/Files/Server/game-server' \
-   --donor-client 'DONOR2=/home/gabriel/armazem/priston/ExMachina/client' \
-  --donor-server 'DONOR2=/home/gabriel/armazem/priston/ExMachina/server' \
-   --donor-client 'DONOR3=/home/gabriel/armazem/priston/pristontale-1-master/bin/Client' \
-  --donor-server 'DONOR3=/home/gabriel/armazem/priston/pristontale-1-master/bin/Server'
+<!-- PT_CLI_GENERAL_ASSET_CENSUS_GUIDE_2026-09-21 -->
 
-`
+**Exemplo operacional completo**
+
+```bash
+cd app
+python3 pt_asset.py \
+  --client-root '/caminho/cliente' \
+  --server-root '/caminho/Servidor' \
+  audit general-asset-census \
+  --source-root '/caminho/SourceCode' \
+  --reference-source-root '/caminho/PristonTale-EU' \
+  --donor-client 'PT_EU=/caminho/pt-eu/client' \
+  --donor-server 'PT_EU_SERVER=/caminho/pt-eu/server' \
+  --donor-client 'EXMACHINA=/caminho/exmachina/client' \
+  --donor-server 'EXMACHINA_SERVER=/caminho/exmachina/server'
+```
+
+Notas:
+
+- `--donor-client` e `--donor-server` são repetíveis e usam `LABEL=PATH`;
+- donors são opcionais, mas sem eles o censo não pode descobrir candidatos de recuperação nessas árvores;
+- argumentos explícitos do terminal valem só para a execução atual; para a GUI reutilizar os mesmos roots/donors, use **Servidor / Asset Enrichment → Asset Contracts · Source Evidence → Salvar fontes**;
+- a operação é plan-only e não escreve nos roots client/server;
+- a GUI só acompanha jobs iniciados por ela; processos externos aparecem quando o relatório final for gravado.
+
 
 
 ### `pt_asset.py audit t5-assets`

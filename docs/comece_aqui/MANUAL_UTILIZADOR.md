@@ -2132,6 +2132,47 @@ Depois use o **Explorador do censo geral**:
 
 `RECOVERABLE_REACHABLE_CANDIDATE` significa que um root funcional alcança o asset e existe candidato donor. Donor-only, manifest-only, conflitos e evidência fraca continuam em REVIEW.
 
+
+<!-- PT_SERVER_ENRICHMENT_CENSUS_GUIDE_2026-09-21 -->
+
+### 45.5.1 Preflight operacional e acompanhamento do Censo geral
+
+Antes de depender do resultado, use o bloco **Antes de executar o Censo geral**. Ele mostra Client root, Server root, Source Summit, Source EU de referência, donors client/server, blockers/warnings, freshness do último relatório e o comando CLI equivalente montado a partir da configuração persistente.
+
+Estados principais:
+
+- `BLOQUEADO`: falta root obrigatório ou um donor salvo deixou de existir;
+- `PRONTO PARA EXECUTAR`: configuração válida e nenhum relatório atual;
+- `EM EXECUÇÃO`: job iniciado pela própria GUI;
+- `RELATÓRIO ATUAL`: roots e conjunto de donors coincidem com o relatório;
+- `RELATÓRIO DESATUALIZADO`: client/server/source/reference ou donors mudaram.
+
+Donors são opcionais para executar, mas zero donors reduz a autoridade de recovery. Portanto `Recoverable = 0` com nenhum donor configurado não prova que não exista conteúdo recuperável.
+
+**CLI versus GUI:** `--source-root`, `--reference-source-root`, `--donor-client` e `--donor-server` passados manualmente no terminal valem para aquela execução. Para a GUI reutilizar os mesmos valores, preencha-os em **Asset Contracts · Source Evidence** e clique **Salvar fontes**.
+
+A GUI acompanha em **Tarefas & Console** apenas jobs iniciados por ela. Um `audit general-asset-census` iniciado em outro terminal aparece na UI somente quando terminar e gravar `pt_build/general_asset_census/result.json`.
+
+O comando genérico é:
+
+```bash
+cd app
+python3 pt_asset.py \
+  --client-root '/caminho/cliente' \
+  --server-root '/caminho/Servidor' \
+  audit general-asset-census \
+  --source-root '/caminho/SourceCode' \
+  --reference-source-root '/caminho/source-eu' \
+  --donor-client 'PT_EU=/caminho/pt-eu/client' \
+  --donor-server 'PT_EU_SERVER=/caminho/pt-eu/server'
+```
+
+A própria GUI exibe o comando exato para os roots salvos na máquina.
+
+### REVIEW no Explorador de bundles
+
+Ao selecionar Monster/NPC, Field ou OpenItem em REVIEW/BLOCKED, a lateral mostra separadamente: resumo operacional, motivo, o que falta, onde verificar e próximas ações seguras. Ações apenas navegam para Catálogo, Censo geral, Field editor ou lookup de item; selecionar a linha continua read-only e nenhuma dessas ações publica no servidor.
+
 ## 45.6 Agregar Summit completo (staging)
 
 Clique **Agregar Summit completo (staging)** para materializar o superset de staging em `pt_build`, usando client/server/donors configurados.
@@ -2714,3 +2755,46 @@ Continuam deliberadamente bloqueados:
 - qualquer formato sem corpus/ABI/roundtrip suficiente para writer seguro.
 
 Guia aprofundado: `docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md`.
+
+<!-- PT_SERVER_ENRICHMENT_MANUAL_WORKFLOW_V2_2026-09-22 -->
+## Servidor / Enrichment — workflow operacional
+
+Use esta página para **configurar → diagnosticar → censar/recuperar → validar → consultar evidência**. Use **Management Legacy** para criar/editar Item, Monster, NPC e Field ou para resolver World Closure. Não existe um segundo authoring cockpit na página Server.
+
+Jobs iniciados no Server são acompanhados em **Servidor → Atividade**. O console e o histórico ficam ali e o botão **Abrir resultado** retorna à etapa que produziu o relatório.
+
+Em **Source & donors de evidência**, use uma linha por donor: `LABEL=/caminho`. Também é permitido colar a linha completa do comando, por exemplo `--donor-client 'DONOR1=/caminho com espaços'`. Se a entrada for inválida, a UI mostra lado, número da linha, motivo e exemplo; a configuração inteira permanece inalterada.
+
+<!-- PT_CLIENT_ENRICHMENT_MANUAL_WORKFLOW_V3_2026-09-22 -->
+# Cliente / Enrichment — fluxo operacional
+
+Use **Cliente / Enrichment** para resultados agregados do client, não para navegar novamente por todos os assets.
+
+- **Visão geral** mostra root/métricas e encaminha para Catálogo ou Entidades quando a tarefa é inspeção individual.
+- **Diagnóstico** executa Client Enrichment e auditoria das classes.
+- **Censo & recuperação** contém o lado CLIENT do Censo geral e o dependency graph. Se Source/donors estiverem incompletos, use **Configurar Source & donors**, que abre a configuração compartilhada em Servidor.
+- **Validação** mostra gaps/certificações; clicar num path físico pode abrir o asset no Catálogo, mas o resultado agregado permanece nesta aba.
+- **Texture Enhancement** contém somente o lote global. Enhancement individual pertence ao Catálogo.
+- **Atividade** contém as tarefas iniciadas nesta página, console e **Abrir resultado**. Esses jobs não são repetidos em Tarefas gerais.
+
+Essa divisão evita três autoridades para a mesma operação: Catálogo cuida de assets individuais, Entidades cuida de relações, e Cliente / Enrichment cuida de análise/recovery agregados.
+
+<!-- PT_CATALOG_ENTITY_PERF_VISUAL_MANUAL_V4_2026-09-22 -->
+
+## Catálogo e Entidades: leitura rápida e Visual Bundle
+
+A listagem de Entidades é cacheada por revisão. Reindexar o client ou alterar categoria/role de um asset invalida o snapshot automaticamente. Ao pesquisar rapidamente, requests antigos são cancelados e não continuam acumulando resultados atrasados.
+
+Em **Item**, a tela de detalhe mostra também **Visual bundle**. `runtime ...` lista códigos de item que permanecem identidades distintas; `VISUAL ×N` indica quantas identidades ITEM compartilham a mesma aparência segundo dependências comprovadas. **Ver visual bundle no Catálogo** mostra os paths físicos relacionados, incluindo drop model/textures e, quando provado pelo registry, config/modelo equipado.
+
+Se um arquivo esperado não entrar no bundle, não force uma associação pelo nome: use o detalhe/registry para verificar a cadeia. O agrupamento é deliberadamente conservador.
+
+<!-- PT_CATALOG_PERSISTENT_ITEM_RELATIONS_MANUAL_V5_2026-09-22 -->
+
+## Catálogo e itens relacionados · fluxo rápido
+
+- Use **Reindexar** quando arquivos do client forem alterados fora do PT Asset Tool. Esse é o comando que atualiza o censo físico persistido.
+- Sair e voltar para **Catálogo** ou **Entidades** não deve disparar nova varredura do client. A UI reutiliza os índices persistidos e cache do browser.
+- Na coluna **Relação item**, o Catálogo identifica o papel observado do asset: imagem do inventário, modelo/textura no chão ou config/modelo/textura equipada.
+- Ao abrir um asset de item, **Bundle visual do item** mostra os códigos runtime associados e os arquivos relacionados agrupados por papel. Agrupamento visual não significa que os códigos runtime sejam o mesmo item.
+- Se um papel estiver classificado incorretamente, escolha outro em **Papel visual do item** e salve. O asset muda de grupo sem escrever no client. Escolha **Automático** para remover o override e voltar à evidência do censo/graph.
