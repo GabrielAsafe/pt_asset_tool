@@ -40,6 +40,51 @@ def _atomic_write_json(path: pathlib.Path, data: dict[str, Any]) -> pathlib.Path
     return path
 
 
+
+
+def configured_blender_executable(project_root: pathlib.Path) -> str | None:
+    """Return the machine-local Blender executable override, if configured."""
+    cfg = load_config(project_root.resolve())
+    for key in ("blender_executable", "blender_path"):
+        value = cfg.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return None
+
+
+def save_blender_executable(project_root: pathlib.Path, executable: pathlib.Path | str) -> pathlib.Path:
+    """Persist one explicit Blender executable without machine-specific defaults."""
+    project_root = project_root.resolve()
+    raw = str(executable).strip()
+    if not raw:
+        raise ValueError("BLENDER_EXECUTABLE_EMPTY")
+    candidate = pathlib.Path(raw).expanduser()
+    if not candidate.is_file():
+        raise FileNotFoundError(f"BLENDER_EXECUTABLE_NOT_FOUND:{candidate}")
+    resolved = candidate.resolve()
+    if not os.access(resolved, os.X_OK):
+        raise PermissionError(f"BLENDER_EXECUTABLE_NOT_EXECUTABLE:{resolved}")
+    path = config_path(project_root)
+    current = load_config(project_root)
+    current.update({"format": "PT_ASSET_APP_CONFIG_V1", "blender_executable": str(resolved)})
+    current.pop("blender_path", None)
+    return _atomic_write_json(path, current)
+
+
+def clear_blender_executable(project_root: pathlib.Path) -> pathlib.Path:
+    project_root = project_root.resolve()
+    path = config_path(project_root)
+    current = load_config(project_root)
+    changed = False
+    for key in ("blender_executable", "blender_path"):
+        if key in current:
+            current.pop(key, None)
+            changed = True
+    if changed:
+        current.setdefault("format", "PT_ASSET_APP_CONFIG_V1")
+        _atomic_write_json(path, current)
+    return path
+
 def save_client_root(project_root: pathlib.Path, client_root: pathlib.Path) -> pathlib.Path:
     project_root = project_root.resolve()
     client_root = client_root.expanduser().resolve()

@@ -9,7 +9,7 @@ import time
 from dataclasses import dataclass
 from typing import Any
 
-UI_VERSION = "1.0.2"
+UI_VERSION = "1.0.4"
 BROWSER_IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".webp", ".ico"}
 CONVERTIBLE_IMAGE_EXTS = {".tga"}
 IMAGE_EXTS = BROWSER_IMAGE_EXTS | CONVERTIBLE_IMAGE_EXTS
@@ -205,6 +205,15 @@ def infer_folder_bucket(rel: str, category: str) -> tuple[str, str]:
                 chosen = parts[i+n:i+n+depth]
                 return "/".join(chosen), "/".join(parts[:i+n+depth])
     candidates: list[tuple[str, ...]] = []
+    if cat == "AUDIO":
+        # Keep audio folders structural. Do not expose class/person names as
+        # folder facets; class ownership has its own dedicated filter.
+        for marker in (("sound", "character"), ("wav", "effects", "player"), ("sound",), ("wav",), ("audio",)):
+            n = len(marker)
+            for i in range(0, len(low) - n + 1):
+                if tuple(low[i:i+n]) == marker:
+                    label = "/".join(parts[i:i+n])
+                    return label, "/".join(parts[:i+n])
     if cat == "NPC":
         candidates = [("char", "npc"), ("image", "sinimage", "npc"), ("npc",)]
     elif cat == "MONSTER":
@@ -338,6 +347,10 @@ def infer_semantics(rel: str, ext: str) -> tuple[str, str]:
         if ext == ".sin":
             return "MAP", "RUNTIME_DATA"
         return "MAP", "WORLD"
+    # Audio remains AUDIO even when physically stored below char/player trees.
+    # Character ownership is a separate dependency-backed facet.
+    if ext in AUDIO_EXTS:
+        return "AUDIO", "CHARACTER_AUDIO" if ("/char/" in low or "/character/" in low or "/player/" in low) else "AUDIO"
     if "/char/" in low or "/character/" in low or "/player/" in low:
         if ext == ".smb":
             return "CHARACTER", "SKELETON_MOTION"
@@ -465,14 +478,14 @@ class UIStateStore:
 
     def update(self, rel: str, patch: dict[str, Any]) -> dict[str, Any]:
         rel = _norm(rel)
-        allowed = {"favorite", "role_override", "category_override", "tags", "notes"}
+        allowed = {"favorite", "role_override", "category_override", "character_override", "tags", "notes"}
         clean: dict[str, Any] = {}
         for k, v in patch.items():
             if k not in allowed:
                 continue
             if k == "favorite":
                 clean[k] = bool(v)
-            elif k in {"role_override", "category_override"}:
+            elif k in {"role_override", "category_override", "character_override"}:
                 clean[k] = str(v or "")[:80]
             elif k == "notes":
                 clean[k] = str(v or "")[:4000]
@@ -573,6 +586,10 @@ class CatalogIndex:
                 "favorite": bool(meta.get("favorite")),
                 "tags": list(meta.get("tags") or []),
                 "notes": str(meta.get("notes") or ""),
+                "character": str(meta.get("character_override") or ""),
+                "inferred_character": "",
+                "character_evidence": [],
+                "character_candidates": [],
                 "physical_hint": physical_hint,
                 "capabilities": infer_capabilities(rel, ext, category, role, physical_hint),
                 "previewable": ext in IMAGE_EXTS,
@@ -580,7 +597,7 @@ class CatalogIndex:
             row["visibility_tier"] = infer_visibility_tier(rel, ext, category_effective, role_effective)
             row["system_operational"] = row["visibility_tier"] in HIDDEN_VISIBILITY_TIERS
             row["_search_text"] = " ".join([
-                rel, category_effective, role_effective, folder, folder_path,
+                rel, category_effective, role_effective, row.get("character", ""), folder, folder_path,
                 row["extension_description"], row["visibility_tier"],
                 " ".join(row["tags"]), row["notes"],
             ]).casefold()
@@ -638,6 +655,10 @@ class CatalogIndex:
                 "favorite": bool(meta.get("favorite")),
                 "tags": list(meta.get("tags") or []),
                 "notes": str(meta.get("notes") or ""),
+                "character": str(meta.get("character_override") or ""),
+                "inferred_character": "",
+                "character_evidence": [],
+                "character_candidates": [],
                 "physical_hint": physical_hint,
                 "capabilities": infer_capabilities(rel, ext, category, role, physical_hint),
                 "previewable": ext in IMAGE_EXTS,
@@ -645,7 +666,7 @@ class CatalogIndex:
             row["visibility_tier"] = infer_visibility_tier(rel, ext, category_effective, role_effective)
             row["system_operational"] = row["visibility_tier"] in HIDDEN_VISIBILITY_TIERS
             row["_search_text"] = " ".join([
-                rel, category_effective, role_effective, folder, folder_path,
+                rel, category_effective, role_effective, row.get("character", ""), folder, folder_path,
                 row["extension_description"], row["visibility_tier"],
                 " ".join(row["tags"]), row["notes"],
             ]).casefold()
@@ -680,10 +701,11 @@ class CatalogIndex:
             row["notes"] = str(meta.get("notes") or "")
             row["category"] = meta.get("category_override") or row["inferred_category"]
             row["role"] = meta.get("role_override") or row["inferred_role"]
+            row["character"] = meta.get("character_override") or row.get("inferred_character") or ""
             row["visibility_tier"] = infer_visibility_tier(rel, row.get("ext", ""), row["category"], row["role"])
             row["system_operational"] = row["visibility_tier"] in HIDDEN_VISIBILITY_TIERS
             row["_search_text"] = " ".join([
-                str(row.get("path") or ""), str(row.get("category") or ""), str(row.get("role") or ""),
+                str(row.get("path") or ""), str(row.get("category") or ""), str(row.get("role") or ""), str(row.get("character") or ""),
                 str(row.get("folder") or ""), str(row.get("folder_path") or ""),
                 str(row.get("extension_description") or ""), str(row.get("visibility_tier") or ""),
                 " ".join(row.get("tags") or []), str(row.get("notes") or ""),
@@ -691,13 +713,58 @@ class CatalogIndex:
             self.revision += 1
             return dict(row)
 
+    def apply_character_index(self, index: dict[str, Any]) -> None:
+        by_path = index.get("by_path") or {}
+        with self._lock:
+            for row in self.assets:
+                rel = str(row.get("path") or "")
+                meta = self.state.get(rel)
+                info = by_path.get(rel.casefold()) or {}
+                inferred = str(info.get("owner") or "")
+                row["inferred_character"] = inferred
+                row["character"] = str(meta.get("character_override") or inferred)
+                row["character_evidence"] = list(info.get("evidence") or [])
+                row["character_candidates"] = list(info.get("candidates") or [])
+                row["character_status"] = str(info.get("status") or "UNCLASSIFIED")
+                row["character_filename_hint"] = str(info.get("filename_hint") or "")
+                row["_search_text"] = " ".join([
+                    str(row.get("path") or ""), str(row.get("category") or ""), str(row.get("role") or ""),
+                    str(row.get("character") or ""), str(row.get("folder") or ""), str(row.get("folder_path") or ""),
+                    str(row.get("extension_description") or ""), str(row.get("visibility_tier") or ""),
+                    " ".join(row.get("tags") or []), str(row.get("notes") or ""),
+                ]).casefold()
+            self.by_path = {r["path"]: r for r in self.assets}
+
+    def annotation_options(self) -> dict[str, list[str]]:
+        with self._lock:
+            rows = self.assets
+            categories = sorted({str(r.get("category") or "") for r in rows if r.get("category")}, key=str.casefold)
+            roles = sorted({str(r.get("role") or "") for r in rows if r.get("role")}, key=str.casefold)
+            characters = sorted({str(r.get("character") or "") for r in rows if r.get("character")}, key=str.casefold)
+        return {"categories": categories, "roles": roles, "characters": characters}
+
+    def apply_smd_preview_index(self, preview_index: dict[str, dict[str, Any]]) -> None:
+        """Attach persistent SMD thumbnail state without invoking Blender."""
+        with self._lock:
+            for row in self.assets:
+                if str(row.get("ext") or "").casefold() != ".smd":
+                    row.pop("smd_preview_status", None)
+                    row.pop("smd_preview_detail", None)
+                    continue
+                key = str(row.get("path") or "").replace("\\", "/").strip("/").casefold()
+                state = preview_index.get(key) or {}
+                row["smd_preview_status"] = str(state.get("status") or "MISSING").upper()
+                row["smd_preview_detail"] = str(state.get("detail") or "")
+
     def query(
         self,
         q: str = "",
         category: str = "",
         folder: str = "",
         role: str = "",
+        character: str = "",
         ext: str = "",
+        preview_status: str = "",
         favorites: bool = False,
         show_system: bool = False,
         allowed_paths: set[str] | None = None,
@@ -709,7 +776,9 @@ class CatalogIndex:
         category = category.strip().upper()
         folder = folder.strip()
         role = role.strip().upper()
+        character = character.strip().casefold()
         ext = ext.strip().lower()
+        preview_status = preview_status.strip().upper()
         no_extension = ext == "__no_ext__"
         if ext and not no_extension and not ext.startswith("."):
             ext = "." + ext
@@ -732,10 +801,17 @@ class CatalogIndex:
                 continue
             if role and r["role"].upper() != role:
                 continue
+            if character and str(r.get("character") or "").casefold() != character:
+                continue
             if no_extension and r["ext"]:
                 continue
             if ext and not no_extension and r["ext"] != ext:
                 continue
+            if preview_status:
+                if str(r.get("ext") or "").casefold() != ".smd":
+                    continue
+                if str(r.get("smd_preview_status") or "MISSING").upper() != preview_status:
+                    continue
             if favorites and not r["favorite"]:
                 continue
             if q_tokens:
@@ -748,18 +824,21 @@ class CatalogIndex:
         end = start + page_size
         cats = collections_count(src, "category")
         category_rows = [r for r in src if not category or r["category"].upper() == category]
-        folders = collections_count(category_rows, "folder_path", label_key="folder")
-        folder_rows = [r for r in category_rows if not folder or r.get("folder_path", "") == folder]
+        characters = collections_count(category_rows, "character")
+        character_rows = [r for r in category_rows if not character or str(r.get("character") or "").casefold() == character]
+        folders = collections_count(character_rows, "folder_path", label_key="folder")
+        folder_rows = [r for r in character_rows if not folder or r.get("folder_path", "") == folder]
         roles = collections_count(folder_rows, "role")
         role_rows = [r for r in folder_rows if not role or r["role"].upper() == role]
         exts = collections_count(role_rows, "ext", description=True)
+        previews = collections_count([r for r in role_rows if str(r.get("ext") or "").casefold() == ".smd"], "smd_preview_status")
         return {
             "items": [{k: v for k, v in x.items() if not k.startswith("_")} for x in out[start:end]],
             "total": total,
             "page": page,
             "page_size": page_size,
             "pages": max(1, (total + page_size - 1) // page_size),
-            "facets": {"categories": cats, "folders": folders, "roles": roles, "extensions": exts},
+            "facets": {"categories": cats, "characters": characters, "folders": folders, "roles": roles, "extensions": exts, "smd_previews": previews},
             "performance": {"query_ms": round((time.perf_counter() - started) * 1000.0, 3), "revision": self.revision},
         }
 

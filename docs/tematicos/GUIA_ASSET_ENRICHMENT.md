@@ -399,3 +399,69 @@ A representação visual de item é uma visão derivada, não uma nova identidad
 O agrupamento automático só usa evidência persistida. Para itens diferentes, um bundle visual compartilhado requer o mesmo conjunto completo e não vazio de dependências de textura. Configs/INX/modelos equipados entram quando o registry ou o dependency graph prova a ligação. Sem prova, o asset permanece fora daquela relação.
 
 O utilizador pode corrigir o **papel visual** de um asset no detalhe do Catálogo. A correção fica apenas no estado da UI; não altera o client. A UI preserva e exibe a classificação automática original, permitindo distinguir evidência automática de override manual.
+
+<!-- PT_CATALOG_CLASSIFICATION_SMD_PREVIEWS_V6_2026-09-22 -->
+
+## Catálogo V6 · classificação por personagem e previews SMD
+
+O Catálogo separa agora **Pasta física** de **Personagem**. A atribuição automática de personagem usa primeiro evidência persistida do Asset Tool: pairing INX→SMD do registry e relações SMD→textura do inventário/dependency graph. Convenções de nome servem somente como hint quando não existe ligação comprovada.
+
+Filtros de select atualizam o Catálogo imediatamente no próprio clique/seleção. Áudio permanece na categoria AUDIO mesmo quando vive sob árvores `char/player`; o filtro Pasta usa raízes estruturais de áudio em vez de nomes de classes.
+
+Modelos SMD Model0.62 com binding físico suficiente ganham preview Blender low-res automático ao serem selecionados. O pipeline reutiliza `pt_smd_blender_import_v4_generic.py`, o resolver global de Blender e as dependências INX/SMB/texturas já registradas. Outputs ficam somente em `app/pt_build/previews/smd_catalog/`; o client não é alterado. Um worker único evita saturar a máquina e o cache é invalidado quando qualquer dependência usada muda.
+
+A anotação manual usa dropdowns para Categoria, Role e Personagem. Overrides ficam em metadata do catálogo e não modificam assets. O valor automático continua visível para distinguir inferência do Asset Tool de correção humana.
+
+<!-- PT_BLENDER_RUNTIME_PORTABILITY_V7_2026-09-22 -->
+## Blender portátil por máquina (V7)
+
+Todos os workflows Blender usam o mesmo resolver. A ordem é:
+
+1. `PT_BLENDER_EXE` — executável/launcher explícito para esta execução;
+2. `PT_BLENDER_COMMAND` / `PT_ASSET_BLENDER_COMMAND` — compatibilidade com launchers antigos que precisam de argumentos;
+3. `blender_executable` salvo em `pt_build/state/pt_asset_app_config.json`;
+4. `blender` encontrado no `PATH`;
+5. Flatpak `org.blender.Blender`.
+
+Overrides explícitos são fail-closed: se `PT_BLENDER_EXE` ou a configuração persistida apontarem para algo inexistente, o Asset Tool não troca silenciosamente para outro Blender.
+
+Configuração persistente:
+
+```bash
+python3 pt_asset.py config set-blender-exe /caminho/para/blender
+python3 pt_asset.py config show
+python3 pt_asset.py dependencies
+```
+
+Para remover o override e voltar à descoberta automática:
+
+```bash
+python3 pt_asset.py config clear-blender-exe
+```
+
+O diagnóstico mostra `source`, versão e comando efetivo. Previews SMD também guardam estes dados em `preview.json`, `import.log` e `render.log`. O Asset Tool não injeta `LIBGL_ALWAYS_SOFTWARE` nem qualquer workaround gráfico específico de uma máquina.
+
+<!-- PT_SMD_PREVIEW_BACKGROUND_V8_2026-09-22 -->
+## Previews SMD em background (V8)
+
+O Catálogo usa previews SMD persistentes como miniaturas sem invocar Blender durante a listagem. O índice fica em `app/pt_build/previews/smd_catalog/index.json` e o estado do batch em `app/pt_build/previews/smd_catalog/batch_state.json`.
+
+A fonte dos candidatos é o registry persistido (`asset_inventory.json`/pairing); o batch não faz `rglob` no client. `Reindexar` continua sendo o único ponto explícito de sincronização física e marca previews existentes como `STALE`, preservando os PNGs até a regeneração.
+
+CLI:
+
+```bash
+cd app
+python3 pt_asset.py preview render-all-smd --mode warmup --workers 1
+```
+
+Modos: `warmup` (MISSING + STALE + FAILED), `missing`, `stale`, `failed` e `all`. `--force` força rerender mesmo quando o cache está válido. O default é 1 worker; o limite é 4.
+
+Na UI, `READY` usa o PNG já cacheado como thumbnail; `MISSING`, `STALE` e `FAILED` mostram estado/placeholder e nunca disparam Blender por linha. A tarefa batch aparece em Cliente → Atividade.
+
+<!-- PT_SMD_PREVIEW_V81_2026-09-22 -->
+### SMD Preview V8.1 — contexto Paint/Edit e cancelamento
+
+Os thumbnails SMD usam o contexto visual estável de Paint/Edit e nunca carregam Actions de animação. Para SMD rígido, o preview escolhe apenas INX/LOD cuja cobertura física dos nós do SMD passa; se nenhum contexto INX for apropriado para um thumbnail, mas o skeleton estiver comprovado no registry, usa import skeleton-only como fallback read-only. Essa tolerância existe apenas para preview e não altera os gates fail-closed de authoring/writers.
+
+`preview render-all-smd` mantém no máximo `--workers` renders submetidos, propaga cancelamento para Blender e persiste `CANCELED`/retryable no batch state. Um novo warmup reaproveita `READY` e tenta novamente os restantes.

@@ -45,9 +45,11 @@
               <input id="search" type="search" placeholder="Buscar path, role, tags, notas…" />
               <select id="category"><option value="">Todas as categorias</option></select>
               <select id="entityFilter" disabled><option value="">Entidade: escolha uma categoria</option></select>
+              <select id="character"><option value="">Todas as personagens</option></select>
               <select id="folder"><option value="">Todas as pastas</option></select>
               <select id="role"><option value="">Todos os roles</option></select>
               <select id="ext"><option value="">Todas as extensões</option></select>
+              <select id="smdPreviewStatus"><option value="">Todos previews SMD</option><option value="READY">Preview pronto</option><option value="MISSING">Sem preview</option><option value="STALE">Preview stale</option><option value="FAILED">Preview falhou</option></select>
               <label class="check"><input id="favorites" type="checkbox" /> Favoritos</label>
               <label class="check"><input id="showSystem" type="checkbox" /> Mostrar sistema/operacional</label>
               <div class="view-toggle"><button id="tableView" class="active">Tabela</button><button id="galleryView">Galeria</button></div>
@@ -55,7 +57,12 @@
             <div class="quick-filters">
               <button data-category="UI">UI</button><button data-category="CHARACTER">Personagens</button><button data-category="MONSTER">Monstros</button><button data-category="NPC">NPCs</button><button data-category="ITEM">Itens</button><button data-category="MAP">Mapas</button><button data-category="EFFECT">Efeitos</button>
             </div>
-            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Asset</th><th>Categoria</th><th>Pasta</th><th>Role</th><th>Relação item</th><th>Ext</th><th>Tamanho</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
+            <div id="catalogSmdPreviewTools" class="panel" style="margin:8px 0;padding:10px">
+              <div class="panel-title"><strong>Previews SMD</strong><span id="smdPreviewBatchState">carregando estado…</span></div>
+              <div class="server-workflow-actions"><button id="smdPreviewWarmupBtn" class="btn primary">Gerar previews SMD</button><button id="smdPreviewStaleBtn" class="btn">Regerar stale</button><button id="smdPreviewFailedBtn" class="btn">Repetir falhados</button><button id="smdPreviewBatchRefresh" class="btn">Atualizar estado</button></div>
+              <div id="smdPreviewBatchSummary" class="micro">O batch usa o asset registry persistido e não varre o client silenciosamente.</div>
+            </div>
+            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Preview</th><th>Asset</th><th>Categoria</th><th>Personagem</th><th>Pasta</th><th>Role</th><th>Relação item</th><th>Ext</th><th>Tamanho</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
             <div class="pager"><button id="prevPage">Anterior</button><span id="pageInfo"></span><button id="nextPage">Próxima</button></div>
           </section>
 

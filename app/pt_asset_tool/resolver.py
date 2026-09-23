@@ -27,6 +27,35 @@ class ClientResolver:
         self.collisions = collisions
         return idx
 
+    def prime_from_inventory(self, inventory_path: pathlib.Path) -> dict[str, pathlib.Path]:
+        """Prime the case-insensitive resolver from the persisted physical census.
+
+        This intentionally does not stat/rglob the client. Explicit Reindex owns
+        physical synchronization; normal UI/preview work reuses that snapshot.
+        """
+        import json
+        raw = json.loads(pathlib.Path(inventory_path).read_text(encoding="utf-8"))
+        saved = pathlib.Path(str(raw.get("canonical_client_root") or "")).expanduser()
+        if saved.resolve() != self.client_root:
+            raise ValueError("RESOLVER_INVENTORY_CLIENT_ROOT_MISMATCH")
+        idx: dict[str, pathlib.Path] = {}
+        collisions: dict[str, list[pathlib.Path]] = {}
+        for rec in raw.get("records") or []:
+            if not isinstance(rec, dict):
+                continue
+            rel = norm_path(rec.get("relative_path") or "")
+            if not rel:
+                continue
+            physical = self.client_root / pathlib.PurePosixPath(rel)
+            key = low_path(rel)
+            if key in idx and idx[key] != physical:
+                collisions.setdefault(key, [idx[key]]).append(physical)
+            else:
+                idx[key] = physical
+        self._index = idx
+        self.collisions = collisions
+        return idx
+
     @property
     def index(self):
         return self._index if self._index is not None else self.build_index()

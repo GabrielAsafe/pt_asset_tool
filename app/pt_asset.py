@@ -136,60 +136,27 @@ def _resolve_name_from_baseline(path_value: Any, object_index: int) -> str | Non
 
 
 def _blender_command() -> list[str]:
-    raw = (
-        os.environ.get("PT_BLENDER_COMMAND")
-        or os.environ.get("PT_ASSET_BLENDER_COMMAND")  # legacy alias
-        or "flatpak run --filesystem=home org.blender.Blender"
-    )
-    cmd = shlex.split(raw)
-    if not cmd:
-        raise RuntimeError("EMPTY_BLENDER_COMMAND")
-    return cmd
+    """Use the same Blender resolver as dependencies, particles and previews."""
+    from pt_asset_tool.dependencies import resolve_blender_command
+    cmd, ready, detail = resolve_blender_command(ROOT)
+    if not ready or not cmd:
+        raise RuntimeError(f"BLENDER_UNAVAILABLE:{detail}")
+    return list(cmd)
 
 
 def _blender_launcher_status(cmd: list[str] | None = None) -> tuple[bool, str]:
-    """Return whether the configured Blender application is actually available.
-
-    For a Flatpak command, merely finding the ``flatpak`` executable is not enough:
-    the configured Blender app must also be installed.  Direct/native launchers are
-    considered available when their executable resolves on PATH.
-    """
-    cmd = list(cmd or _blender_command())
-    if not cmd:
-        return False, "EMPTY_BLENDER_COMMAND"
-    executable = shutil.which(cmd[0])
-    if not executable:
-        return False, f"EXECUTABLE_NOT_FOUND:{cmd[0]}"
-
-    if Path(cmd[0]).name == "flatpak":
-        app_id = next((arg for arg in cmd if arg == "org.blender.Blender"), None)
-        if app_id is None:
-            # Generic Flatpak Blender configuration: use the first app-like token
-            # after `run`, ignoring options.
-            try:
-                run_i = cmd.index("run")
-            except ValueError:
-                run_i = -1
-            if run_i >= 0:
-                app_id = next((arg for arg in cmd[run_i + 1:] if not arg.startswith("-")), None)
-        if not app_id:
-            return False, "FLATPAK_APP_ID_NOT_FOUND"
-        try:
-            proc = subprocess.run(
-                [executable, "info", app_id],
-                text=True,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.PIPE,
-                timeout=5,
-            )
-        except (OSError, subprocess.TimeoutExpired) as exc:
-            return False, f"FLATPAK_INFO_FAILED:{type(exc).__name__}:{exc}"
-        if proc.returncode != 0:
-            detail = (proc.stderr or "").strip().replace("\n", " ")
-            return False, f"FLATPAK_APP_UNAVAILABLE:{app_id}:{detail}"
-        return True, f"FLATPAK_APP_INSTALLED:{app_id}"
-
-    return True, f"EXECUTABLE_FOUND:{executable}"
+    """Compatibility wrapper around the central Blender runtime resolver."""
+    from pt_asset_tool.dependencies import blender_runtime_info
+    info = blender_runtime_info(ROOT, probe_version=True)
+    if cmd is not None and list(cmd) != list(info.get("command") or []):
+        return False, "BLENDER_COMMAND_DIVERGED_FROM_CENTRAL_RESOLVER"
+    detail = (
+        f"source={info.get('source')} "
+        f"version={info.get('version') or 'unverified'} "
+        f"command={' '.join(info.get('command') or [])} "
+        f"detail={info.get('detail')}"
+    )
+    return bool(info.get("ready")), detail
 
 
 def _run_core(args: list[str], capture: bool = False) -> subprocess.CompletedProcess[str]:
@@ -1619,8 +1586,9 @@ def _command_app_smoke() -> int:
 
 def _command_app_config(args: list[str]) -> int:
     from pt_asset_tool.app_config import (
-        clear_client_root, clear_server_root, config_path, load_config,
-        resolve_client_root, resolve_server_root, save_client_root, save_server_root,
+        clear_blender_executable, clear_client_root, clear_server_root, config_path,
+        configured_blender_executable, load_config, resolve_client_root, resolve_server_root,
+        save_blender_executable, save_client_root, save_server_root,
     )
     if not args or args == ["show"]:
         cfg = load_config(ROOT)
@@ -1640,6 +1608,8 @@ def _command_app_config(args: list[str]) -> int:
             resolved_server = None
             resolved_server_source = None
             server_discovery_status = f"WARN:{type(exc).__name__}:{exc}"
+        from pt_asset_tool.dependencies import blender_runtime_info
+        blender = blender_runtime_info(ROOT, probe_version=True)
         report = {
             "format": "PT_ASSET_APP_CONFIG_STATUS_V1",
             "status": "PASS" if resolved else "WARN",
@@ -1653,6 +1623,12 @@ def _command_app_config(args: list[str]) -> int:
             "resolved_server_root": resolved_server,
             "resolved_server_root_source": resolved_server_source,
             "server_root_discovery": server_discovery_status,
+            "configured_blender_executable": configured_blender_executable(ROOT),
+            "resolved_blender_command": list(blender.get("command") or []),
+            "resolved_blender_source": blender.get("source"),
+            "resolved_blender_version": blender.get("version"),
+            "blender_ready": bool(blender.get("ready")),
+            "blender_detail": blender.get("detail"),
         }
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0 if resolved else 1
@@ -1699,7 +1675,40 @@ def _command_app_config(args: list[str]) -> int:
             "note": "Persistent server root cleared; environment/layout discovery remains available.",
         }, ensure_ascii=False, indent=2))
         return 0
-    print("usage: pt_asset.py config show | config set-client-root PATH | config clear-client-root | config set-server-root PATH | config clear-server-root", file=sys.stderr)
+    if len(args) == 2 and args[0] in {"set-blender-exe", "set-blender"}:
+        executable = Path(args[1]).expanduser()
+        path = save_blender_executable(ROOT, executable)
+        from pt_asset_tool.dependencies import blender_runtime_info
+        info = blender_runtime_info(ROOT, probe_version=True)
+        print(json.dumps({
+            "format": "PT_ASSET_APP_CONFIG_WRITE_V1",
+            "status": "PASS" if info.get("ready") else "WARN",
+            "release_version": OVERLAY_VERSION,
+            "config_path": str(path),
+            "blender_executable": configured_blender_executable(ROOT),
+            "resolved_blender_source": info.get("source"),
+            "resolved_blender_version": info.get("version"),
+            "resolved_blender_command": info.get("command"),
+            "blender_detail": info.get("detail"),
+        }, ensure_ascii=False, indent=2))
+        return 0 if info.get("ready") else 1
+    if args == ["clear-blender-exe"] or args == ["clear-blender"]:
+        path = clear_blender_executable(ROOT)
+        from pt_asset_tool.dependencies import blender_runtime_info
+        info = blender_runtime_info(ROOT, probe_version=True)
+        print(json.dumps({
+            "format": "PT_ASSET_APP_CONFIG_WRITE_V1",
+            "status": "PASS",
+            "release_version": OVERLAY_VERSION,
+            "config_path": str(path),
+            "blender_executable": None,
+            "resolved_blender_source": info.get("source"),
+            "resolved_blender_version": info.get("version"),
+            "resolved_blender_command": info.get("command"),
+            "note": "Persistent Blender override cleared; environment/PATH/Flatpak discovery remains available.",
+        }, ensure_ascii=False, indent=2))
+        return 0
+    print("usage: pt_asset.py config show | config set-client-root PATH | config clear-client-root | config set-server-root PATH | config clear-server-root | config set-blender-exe PATH | config clear-blender-exe", file=sys.stderr)
     return 2
 
 
@@ -1876,11 +1885,14 @@ def main() -> int:
         print("  deploy workspace-history ASSET     list retained bundle transactions")
         print("  deploy workspace-restore-latest ASSET --confirm 'RESTORE CLIENT BUNDLE'  verified rollback to prior bytes")
         print("  explain TOPIC                  explain statuses/bindings/validators in user terms")
+        print("  preview render-all-smd [--mode warmup|all|missing|stale|failed] [--workers N]  generate/cache catalog SMD thumbnails in pt_build")
         print("  config show                    show persistent application configuration")
         print("  config set-client-root PATH    persist client root for GUI/desktop use")
         print("  config clear-client-root       clear persistent client root and return to discovery")
         print("  config set-server-root PATH    persist server root for Asset Enrichment/GUI use")
         print("  config clear-server-root       clear persistent server root and return to discovery")
+        print("  config set-blender-exe PATH    persist an explicit Blender executable for this machine")
+        print("  config clear-blender-exe       clear Blender override; return to env/PATH/Flatpak discovery")
         print("  registry status                generate/read machine-local asset registry state")
         print("  registry rebuild [--client-root PATH]  force a read-only registry rebuild from the current client")
         print("  texture-upscale scan|run|resume|publish|restore|publish-batch|restore-batch ...   stage enhanced textures under app/pt_build/texture_upscale and publish/undo verified single or batch changes")
@@ -1894,6 +1906,9 @@ def main() -> int:
         return _command_app_smoke()
     if args and args[0] == "explain":
         return _command_explain(args[1:])
+    if len(args) >= 2 and args[0] == "preview" and args[1] == "render-all-smd":
+        from pt_asset_tool.smd_preview_batch import cli_main as _smd_preview_batch_main
+        return _smd_preview_batch_main(args[2:], project_root=ROOT)
     if args and args[0] == "config":
         return _command_app_config(args[1:])
     if args and args[0] == "registry":

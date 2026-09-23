@@ -2798,3 +2798,65 @@ Se um arquivo esperado não entrar no bundle, não force uma associação pelo n
 - Na coluna **Relação item**, o Catálogo identifica o papel observado do asset: imagem do inventário, modelo/textura no chão ou config/modelo/textura equipada.
 - Ao abrir um asset de item, **Bundle visual do item** mostra os códigos runtime associados e os arquivos relacionados agrupados por papel. Agrupamento visual não significa que os códigos runtime sejam o mesmo item.
 - Se um papel estiver classificado incorretamente, escolha outro em **Papel visual do item** e salve. O asset muda de grupo sem escrever no client. Escolha **Automático** para remover o override e voltar à evidência do censo/graph.
+
+<!-- PT_CATALOG_CLASSIFICATION_SMD_PREVIEWS_MANUAL_V6_2026-09-22 -->
+
+## Catálogo · filtros, personagem e preview SMD
+
+- Selecione filtros normalmente: Categoria, Entidade, Personagem, Pasta, Role e Extensão atualizam a lista imediatamente.
+- **Personagem** é um filtro separado de **Pasta**. Sons de uma classe continuam AUDIO e não transformam o nome da classe numa pasta semântica.
+- Ao selecionar um `.smd` Model0.62 com INX/SMB necessários comprovados, a UI agenda automaticamente um preview Blender low-res em background. Continue navegando; quando terminar, o PNG aparece no painel do asset.
+- O preview é cacheado em `pt_build/previews/smd_catalog/`. Não há escrita no client.
+- Em **Anotação do catálogo**, Categoria, Role e Personagem são dropdowns. Escolher um valor cria override manual; escolher **Automático** remove o override e volta à classificação derivada do registry/dependency graph.
+- Para texturas com nomes ambíguos, prefira a ligação mostrada por `SMD_MATERIAL_TEXLINK`/INX→SMD. Nome de ficheiro isolado é apenas pista.
+
+<!-- PT_BLENDER_RUNTIME_PORTABILITY_MANUAL_V7_2026-09-22 -->
+## Escolher Blender no portátil e na torre
+
+O projeto não contém paths pessoais hardcoded. Para uma máquina com Blender normal no PATH, não é necessário configurar nada.
+
+Override temporário:
+
+```bash
+PT_BLENDER_EXE=/caminho/para/blender python3 pt_asset.py dependencies
+```
+
+Override persistente, apenas nesta instalação/máquina:
+
+```bash
+python3 pt_asset.py config set-blender-exe /caminho/para/blender
+```
+
+No portátil, o binário Blender 3.6 pode ser usado diretamente para processamento headless. Se workflows Blender interativos precisarem de um launcher que configure Mesa/llvmpipe, esse launcher executável também pode ser salvo como `blender_executable`. A ferramenta não altera drivers nem injeta variáveis gráficas.
+
+`python3 pt_asset.py dependencies` deve informar claramente o executável escolhido, a origem da escolha e a versão detectada. Blender 3.6.x não é rejeitado por exigir uma versão 4.x/5.x; compatibilidade de scripts continua sendo mantida no pipeline comum.
+
+<!-- PT_SMD_PREVIEW_BACKGROUND_MANUAL_V8_2026-09-22 -->
+## Gerar previews de modelos SMD em lote
+
+No Catálogo, use **Gerar previews SMD** para aquecer o cache em background. Há ações separadas para **Regerar stale** e **Repetir falhados**. O progresso aparece em Cliente → Atividade e a navegação continua disponível durante o processamento.
+
+Também é possível executar pela linha de comando:
+
+```bash
+cd app
+python3 pt_asset.py preview render-all-smd --mode warmup --workers 1
+```
+
+Os resultados são gravados somente em `app/pt_build/previews/smd_catalog/`. O client permanece read-only. O Catálogo oferece o filtro de preview (`READY`, `MISSING`, `STALE`, `FAILED`) e usa o PNG gerado como imagem padrão de cada SMD quando o estado é `READY`.
+
+Após **Reindexar**, previews já existentes são marcados `STALE`; eles não são apagados. Rode **Regerar stale** para atualizar apenas o que precisa ser reprocessado.
+
+<!-- PT_SMD_PREVIEW_V81_MANUAL_2026-09-22 -->
+### Previews SMD V8.1
+
+O preview do Catálogo representa o ambiente de pintura/modelo, não o ambiente de animação. A ferramenta não carrega Actions para gerar a miniatura. Modelos rígidos usam INX/LOD somente quando a cobertura do modelo é válida; caso contrário, podem usar o skeleton comprovado para uma visualização read-only.
+
+Para retomar depois de interrupção:
+
+```bash
+cd app
+python3 pt_asset.py preview render-all-smd --mode warmup --workers 1
+```
+
+`Ctrl+C` cancela o batch e os processos Blender em andamento sem descartar previews `READY` já gerados.
