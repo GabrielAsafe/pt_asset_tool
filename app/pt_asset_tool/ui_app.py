@@ -26,8 +26,7 @@ from .registry import AssetRegistry
 from .registry_bootstrap import ensure_runtime_registry
 from .item_visual_index import load_or_build_item_visual_index
 from .catalog_character_index import load_or_build_character_index, PLAYABLE_CLASSES
-from .smd_preview import SmdPreviewManager, build_smd_preview_plan
-from .smd_preview_batch import read_batch_state
+from .smd_preview import SmdPreviewManager
 from .resolver import ClientResolver
 from .legacy_management_web import (
     legacy_management_dashboard, legacy_management_item_detail,
@@ -314,14 +313,58 @@ class UIContext:
         return self.character_index()
 
     def _smd_preview_plan(self, rel: str) -> dict[str, Any] | None:
+        if pathlib.PurePosixPath(str(rel or "")).suffix.casefold() != ".smd":
+            return None
         try:
-            return build_smd_preview_plan(self.registry(), self.resolver, rel)
+            reg = self.registry()
+            asset = reg.resolve(rel)
         except Exception:
             return None
-
-    def refresh_smd_preview_annotations(self) -> None:
-        self.catalog.apply_smd_preview_index(self.smd_previews.status_index())
-
+        if asset.family not in {"SMD_MODEL_062_RIGID_PHYSIQUE", "SMD_MODEL_062_STATIC"}:
+            return None
+        smd = self.resolver.resolve(asset.primary_path, required=False)
+        if smd is None:
+            return None
+        skeleton_logical = ""
+        model_info_logical = ""
+        if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE":
+            if not asset.rigid_binding_ready or not asset.binding_skeleton_smb:
+                return None
+            skeleton_logical = str(asset.binding_skeleton_smb)
+            opts = rigid_model_info_options(asset)
+            if opts:
+                model_info_logical = str(opts[0].get("inx") or "")
+            if not model_info_logical:
+                model_info_logical = next((str(c.get("inx") or "") for c in asset.configs if c.get("inx")), "")
+            if not model_info_logical:
+                return None
+        else:
+            model_info_logical = next((str(c.get("inx") or "") for c in asset.configs if c.get("inx")), "")
+        skeleton = self.resolver.resolve(skeleton_logical, required=False) if skeleton_logical else None
+        model_info = self.resolver.resolve(model_info_logical, required=False) if model_info_logical else None
+        if skeleton_logical and skeleton is None:
+            return None
+        if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE" and model_info is None:
+            return None
+        logical_deps = [asset.primary_path, *list(asset.textures or [])]
+        if skeleton_logical:
+            logical_deps.append(skeleton_logical)
+        if model_info_logical:
+            logical_deps.append(model_info_logical)
+        physical_deps: list[str] = []
+        for logical in logical_deps:
+            p = self.resolver.resolve(logical, required=False)
+            if p is not None:
+                physical_deps.append(str(pathlib.Path(p).resolve()))
+        return {
+            "logical": asset.primary_path, "smd": str(pathlib.Path(smd).resolve()),
+            "skeleton": str(pathlib.Path(skeleton).resolve()) if skeleton is not None else "",
+            "skeleton_logical": skeleton_logical,
+            "model_info": str(pathlib.Path(model_info).resolve()) if model_info is not None else "",
+            "model_info_logical": model_info_logical, "lod": "default",
+            "dependency_paths": sorted(set(physical_deps), key=str.casefold),
+            "dependency_logical": sorted(set(logical_deps), key=str.casefold),
+        }
 
     def item_visual_index(self) -> dict[str, Any]:
         revision = int(getattr(self.state, "revision", 0))
@@ -874,10 +917,9 @@ class UIHandler(BaseHTTPRequestHandler):
                         k: v for k, v in active_entity.items()
                         if k in {"entity_key", "semantic_group", "display_name", "asset_count", "visual_bundle_key", "visual_bundle_runtime_codes"}
                     }
-                self.ctx.refresh_smd_preview_annotations()
                 report = self.ctx.catalog.query(
                     q=_one(q, "q"), category="" if entity_key else _one(q, "category"), folder=_one(q, "folder"),
-                    role=_one(q, "role"), character=_one(q, "character"), ext=_one(q, "ext"), preview_status=_one(q, "preview_status"),
+                    role=_one(q, "role"), character=_one(q, "character"), ext=_one(q, "ext"),
                     favorites=_one(q, "favorites") in {"1", "true", "yes"},
                     show_system=_one(q, "show_system") in {"1", "true", "yes"},
                     allowed_paths=allowed_paths,
@@ -1204,14 +1246,6 @@ class UIHandler(BaseHTTPRequestHandler):
             except Exception as exc:
                 return self._error(400, "REPORT_READ_FAILED", str(exc))
             return self._json(200, {"ok": True, "name": name, "report": data})
-        if path == "/api/smd-preview-batch":
-            self.ctx.refresh_smd_preview_annotations()
-            preview_index = self.ctx.smd_previews.status_index()
-            counts: dict[str, int] = {}
-            for row in preview_index.values():
-                status = str((row or {}).get("status") or "MISSING").upper()
-                counts[status] = counts.get(status, 0) + 1
-            return self._json(200, {"ok": True, "batch": read_batch_state(self.ctx.project_root), "index": {"items": len(preview_index), "counts": counts}})
         if path == "/api/smd-preview-status":
             rel = _one(q, "path")
             plan = self.ctx._smd_preview_plan(rel)
@@ -1422,12 +1456,6 @@ class UIHandler(BaseHTTPRequestHandler):
             )
             s = self.ctx.catalog.rebuild_from_inventory(self.ctx.settings.inventory)
             self.ctx.invalidate_registry()
-            try:
-                self.ctx.resolver.prime_from_inventory(self.ctx.settings.inventory)
-            except Exception:
-                pass
-            stale_count = self.ctx.smd_previews.mark_all_stale("REGISTRY_REINDEXED")
-            self.ctx.refresh_smd_preview_annotations()
             return self._json(200, {
                 "ok": True,
                 "catalog": {
@@ -1435,7 +1463,6 @@ class UIHandler(BaseHTTPRequestHandler):
                     "source_mode": self.ctx.catalog.source_mode,
                 },
                 "registry": registry_report,
-                "smd_previews_marked_stale": stale_count,
             })
         if u.path == "/api/state/update":
             rel = str(body.get("path") or "")

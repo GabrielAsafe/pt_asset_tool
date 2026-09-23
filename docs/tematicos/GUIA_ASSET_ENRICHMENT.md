@@ -440,28 +440,3 @@ python3 pt_asset.py config clear-blender-exe
 ```
 
 O diagnóstico mostra `source`, versão e comando efetivo. Previews SMD também guardam estes dados em `preview.json`, `import.log` e `render.log`. O Asset Tool não injeta `LIBGL_ALWAYS_SOFTWARE` nem qualquer workaround gráfico específico de uma máquina.
-
-<!-- PT_SMD_PREVIEW_BACKGROUND_V8_2026-09-22 -->
-## Previews SMD em background (V8)
-
-O Catálogo usa previews SMD persistentes como miniaturas sem invocar Blender durante a listagem. O índice fica em `app/pt_build/previews/smd_catalog/index.json` e o estado do batch em `app/pt_build/previews/smd_catalog/batch_state.json`.
-
-A fonte dos candidatos é o registry persistido (`asset_inventory.json`/pairing); o batch não faz `rglob` no client. `Reindexar` continua sendo o único ponto explícito de sincronização física e marca previews existentes como `STALE`, preservando os PNGs até a regeneração.
-
-CLI:
-
-```bash
-cd app
-python3 pt_asset.py preview render-all-smd --mode warmup --workers 1
-```
-
-Modos: `warmup` (MISSING + STALE + FAILED), `missing`, `stale`, `failed` e `all`. `--force` força rerender mesmo quando o cache está válido. O default é 1 worker; o limite é 4.
-
-Na UI, `READY` usa o PNG já cacheado como thumbnail; `MISSING`, `STALE` e `FAILED` mostram estado/placeholder e nunca disparam Blender por linha. A tarefa batch aparece em Cliente → Atividade.
-
-<!-- PT_SMD_PREVIEW_V81_2026-09-22 -->
-### SMD Preview V8.1 — contexto Paint/Edit e cancelamento
-
-Os thumbnails SMD usam o contexto visual estável de Paint/Edit e nunca carregam Actions de animação. Para SMD rígido, o preview escolhe apenas INX/LOD cuja cobertura física dos nós do SMD passa; se nenhum contexto INX for apropriado para um thumbnail, mas o skeleton estiver comprovado no registry, usa import skeleton-only como fallback read-only. Essa tolerância existe apenas para preview e não altera os gates fail-closed de authoring/writers.
-
-`preview render-all-smd` mantém no máximo `--workers` renders submetidos, propaga cancelamento para Blender e persiste `CANCELED`/retryable no batch state. Um novo warmup reaproveita `READY` e tenta novamente os restantes.

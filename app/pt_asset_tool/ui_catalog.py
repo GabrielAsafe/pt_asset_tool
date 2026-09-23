@@ -743,19 +743,6 @@ class CatalogIndex:
             characters = sorted({str(r.get("character") or "") for r in rows if r.get("character")}, key=str.casefold)
         return {"categories": categories, "roles": roles, "characters": characters}
 
-    def apply_smd_preview_index(self, preview_index: dict[str, dict[str, Any]]) -> None:
-        """Attach persistent SMD thumbnail state without invoking Blender."""
-        with self._lock:
-            for row in self.assets:
-                if str(row.get("ext") or "").casefold() != ".smd":
-                    row.pop("smd_preview_status", None)
-                    row.pop("smd_preview_detail", None)
-                    continue
-                key = str(row.get("path") or "").replace("\\", "/").strip("/").casefold()
-                state = preview_index.get(key) or {}
-                row["smd_preview_status"] = str(state.get("status") or "MISSING").upper()
-                row["smd_preview_detail"] = str(state.get("detail") or "")
-
     def query(
         self,
         q: str = "",
@@ -838,7 +825,7 @@ class CatalogIndex:
             "page": page,
             "page_size": page_size,
             "pages": max(1, (total + page_size - 1) // page_size),
-            "facets": {"categories": cats, "characters": characters, "folders": folders, "roles": roles, "extensions": exts, "smd_previews": previews},
+            "facets": {"categories": cats, "characters": characters, "folders": folders, "roles": roles, "extensions": exts},
             "performance": {"query_ms": round((time.perf_counter() - started) * 1000.0, 3), "revision": self.revision},
         }
 
