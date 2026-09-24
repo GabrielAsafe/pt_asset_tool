@@ -7,17 +7,21 @@ import re
 import shlex
 from typing import Any, Iterable
 
+from .runtime_paths import config_root as runtime_config_root, executable_dir, invocation_label, is_frozen
+
 CONFIG_FILENAME = "pt_asset_app_config.json"
 STATE_RELATIVE_DIR = pathlib.Path("pt_build") / "state"
 
 
 def config_path(project_root: pathlib.Path) -> pathlib.Path:
-    """Return the machine-local configuration path.
+    """Return machine-local configuration outside the frozen application.
 
-    Configuration is runtime state and must never be shipped as part of a
-    release snapshot.  Keeping it under ``pt_build/state`` also makes a fresh
-    checkout deterministic: no developer-specific absolute paths are loaded.
+    Source checkouts keep the historical ``pt_build/state`` location. Frozen
+    builds use XDG/``PT_ASSET_HOME`` so replacing or moving the executable does
+    not lose configuration.
     """
+    if is_frozen():
+        return runtime_config_root() / CONFIG_FILENAME
     return project_root.resolve() / STATE_RELATIVE_DIR / CONFIG_FILENAME
 
 
@@ -109,6 +113,13 @@ def clear_client_root(project_root: pathlib.Path) -> pathlib.Path:
     return path
 
 
+def _safe_is_dir(path: pathlib.Path) -> bool:
+    try:
+        return path.is_dir()
+    except OSError:
+        return False
+
+
 def candidate_client_roots_with_source(project_root: pathlib.Path) -> list[tuple[pathlib.Path, str]]:
     project_root = project_root.resolve()
     parent = project_root.parent
@@ -123,24 +134,37 @@ def candidate_client_roots_with_source(project_root: pathlib.Path) -> list[tuple
     if isinstance(configured, str) and configured.strip():
         candidates.append((pathlib.Path(configured).expanduser(), "PERSISTENT_CONFIG"))
 
-    # Project-relative layouts (legacy + standalone project folder).
-    candidates.extend([
-        (project_root.parent / "Summit Tale Client Full" / "cliente", "LEGACY_PARENT_LAYOUT"),
-        (project_root / "Summit Tale Client Full" / "cliente", "PROJECT_LAYOUT"),
-        (project_root / "client", "PROJECT_CLIENT_DIR"),
-        (project_root / "cliente", "PROJECT_CLIENTE_DIR"),
-        (parent.parent / "client", "WORKSPACE_CLIENT_DIR"),
-        (parent.parent / "cliente", "WORKSPACE_CLIENTE_DIR"),
-        (parent / "summit" / "Summit Tale Client Full" / "cliente", "SIBLING_SUMMIT_LAYOUT"),
-    ])
-
-    # Shallow sibling discovery keeps the tool relocatable without scanning the disk.
-    try:
-        for sibling in sorted(parent.iterdir(), key=lambda p: p.name.casefold()):
-            if sibling.is_dir():
-                candidates.append((sibling / "Summit Tale Client Full" / "cliente", f"SIBLING_DISCOVERY:{sibling.name}"))
-    except OSError:
-        pass
+    if is_frozen():
+        # Never derive discovery paths from the PyInstaller _MEI extraction
+        # directory. Its parent is commonly /tmp and may contain private
+        # systemd directories that are intentionally unreadable. Frozen builds
+        # discover only explicit config/environment and paths next to the
+        # executable, making startup independent from cwd and /tmp contents.
+        exe_dir = executable_dir()
+        candidates.extend([
+            (exe_dir / "cliente", "EXECUTABLE_DIR_CLIENTE"),
+            (exe_dir / "client", "EXECUTABLE_DIR_CLIENT"),
+            (exe_dir.parent / "cliente", "EXECUTABLE_PARENT_CLIENTE"),
+            (exe_dir.parent / "client", "EXECUTABLE_PARENT_CLIENT"),
+        ])
+    else:
+        # Source checkout compatibility: keep the historical workspace layouts
+        # and shallow sibling discovery.
+        candidates.extend([
+            (project_root.parent / "Summit Tale Client Full" / "cliente", "LEGACY_PARENT_LAYOUT"),
+            (project_root / "Summit Tale Client Full" / "cliente", "PROJECT_LAYOUT"),
+            (project_root / "client", "PROJECT_CLIENT_DIR"),
+            (project_root / "cliente", "PROJECT_CLIENTE_DIR"),
+            (parent.parent / "client", "WORKSPACE_CLIENT_DIR"),
+            (parent.parent / "cliente", "WORKSPACE_CLIENTE_DIR"),
+            (parent / "summit" / "Summit Tale Client Full" / "cliente", "SIBLING_SUMMIT_LAYOUT"),
+        ])
+        try:
+            for sibling in sorted(parent.iterdir(), key=lambda p: p.name.casefold()):
+                if _safe_is_dir(sibling):
+                    candidates.append((sibling / "Summit Tale Client Full" / "cliente", f"SIBLING_DISCOVERY:{sibling.name}"))
+        except OSError:
+            pass
 
     out: list[tuple[pathlib.Path, str]] = []
     seen: set[str] = set()
@@ -155,17 +179,16 @@ def candidate_client_roots_with_source(project_root: pathlib.Path) -> list[tuple
             out.append((rp, source))
     return out
 
-
 def candidate_client_roots(project_root: pathlib.Path) -> list[pathlib.Path]:
     return [p for p, _ in candidate_client_roots_with_source(project_root)]
 
 
 def resolve_client_root(project_root: pathlib.Path) -> tuple[pathlib.Path, str]:
     for p, source in candidate_client_roots_with_source(project_root):
-        if p.is_dir():
+        if _safe_is_dir(p):
             return p, source
     raise FileNotFoundError(
-        "CLIENT_ROOT_NOT_FOUND; run `python3 pt_asset.py config set-client-root PATH`, "
+        f"CLIENT_ROOT_NOT_FOUND; run `{invocation_label()} config set-client-root PATH`, "
         "use --client-root, or set PT_CLIENT_ROOT"
     )
 
@@ -212,19 +235,27 @@ def candidate_server_roots_with_source(project_root: pathlib.Path) -> list[tuple
     if isinstance(configured, str) and configured.strip():
         candidates.append((pathlib.Path(configured).expanduser(), "PERSISTENT_CONFIG"))
 
-    candidates.extend([
-        (project_root / "Servidor", "PROJECT_SERVIDOR_DIR"),
-        (parent / "Servidor", "PARENT_SERVIDOR_DIR"),
-        (parent.parent / "Servidor", "WORKSPACE_SERVIDOR_DIR"),
-        (parent / "summit" / "Servidor", "SIBLING_SUMMIT_LAYOUT"),
-    ])
-
-    try:
-        for sibling in sorted(parent.iterdir(), key=lambda p: p.name.casefold()):
-            if sibling.is_dir():
-                candidates.append((sibling / "Servidor", f"SIBLING_DISCOVERY:{sibling.name}"))
-    except OSError:
-        pass
+    if is_frozen():
+        exe_dir = executable_dir()
+        candidates.extend([
+            (exe_dir / "Servidor", "EXECUTABLE_DIR_SERVIDOR"),
+            (exe_dir / "server", "EXECUTABLE_DIR_SERVER"),
+            (exe_dir.parent / "Servidor", "EXECUTABLE_PARENT_SERVIDOR"),
+            (exe_dir.parent / "server", "EXECUTABLE_PARENT_SERVER"),
+        ])
+    else:
+        candidates.extend([
+            (project_root / "Servidor", "PROJECT_SERVIDOR_DIR"),
+            (parent / "Servidor", "PARENT_SERVIDOR_DIR"),
+            (parent.parent / "Servidor", "WORKSPACE_SERVIDOR_DIR"),
+            (parent / "summit" / "Servidor", "SIBLING_SUMMIT_LAYOUT"),
+        ])
+        try:
+            for sibling in sorted(parent.iterdir(), key=lambda p: p.name.casefold()):
+                if _safe_is_dir(sibling):
+                    candidates.append((sibling / "Servidor", f"SIBLING_DISCOVERY:{sibling.name}"))
+        except OSError:
+            pass
 
     out: list[tuple[pathlib.Path, str]] = []
     seen: set[str] = set()
@@ -239,13 +270,12 @@ def candidate_server_roots_with_source(project_root: pathlib.Path) -> list[tuple
             out.append((rp, source))
     return out
 
-
 def resolve_server_root(project_root: pathlib.Path) -> tuple[pathlib.Path, str]:
     for p, source in candidate_server_roots_with_source(project_root):
-        if p.is_dir():
+        if _safe_is_dir(p):
             return p, source
     raise FileNotFoundError(
-        "SERVER_ROOT_NOT_FOUND; run `python3 pt_asset.py config set-server-root PATH`, "
+        f"SERVER_ROOT_NOT_FOUND; run `{invocation_label()} config set-server-root PATH`, "
         "use --server-root, or set PT_SERVER_ROOT"
     )
 

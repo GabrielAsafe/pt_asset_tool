@@ -17,6 +17,8 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Iterable
 
+from .runtime_paths import external_process_env, invocation_label
+
 try:
     from PIL import Image, ImageFilter, ImageStat
 except Exception as exc:  # pragma: no cover - environment-specific
@@ -506,7 +508,7 @@ def _resolve_realesrgan(executable: str | None) -> str:
     raise FileNotFoundError(
         "realesrgan-ncnn-vulkan is unavailable: " + detail +
         ". The AI backend needs this executable plus a working Vulkan driver. "
-        "Install/configure it, or use --backend lanczos. Run `python3 pt_asset.py dependencies` for exact instructions."
+        f"Install/configure it, or use --backend lanczos. Run `{invocation_label()} dependencies` for exact instructions."
     )
 
 
@@ -566,7 +568,7 @@ def upscale_realesrgan(
             "-g", str(gpu),
             "-f", "png",
         ]
-        cp = subprocess.run(cmd, text=True, capture_output=True, cwd=str(Path(exe).resolve().parent))
+        cp = subprocess.run(cmd, text=True, capture_output=True, cwd=str(Path(exe).resolve().parent), env=external_process_env())
         if cp.returncode != 0 or not out.is_file():
             detail = (cp.stderr or cp.stdout or "unknown Real-ESRGAN failure").strip()
             raise RuntimeError(f"Real-ESRGAN failed ({cp.returncode}): {detail}")

@@ -1,5 +1,6 @@
 from __future__ import annotations
 import argparse, collections, json, os, pathlib, shutil, subprocess, sys
+from .runtime_paths import invocation_label, is_frozen, python_script_command
 from . import __version__
 from .certification import CertificationRegistry
 from .config import Settings
@@ -255,7 +256,7 @@ def cmd_doctor(a):
     for rel in required:
         add(rel, (s.project_root / rel).is_file(), s.project_root / rel)
     add("client_root", s.client_root.is_dir(), s.client_root)
-    add("python", bool(shutil.which("python3")), shutil.which("python3") or "not found")
+    add("python", True if is_frozen() else bool(shutil.which("python3")), "embedded" if is_frozen() else (shutil.which("python3") or "not found"))
     bc = s.blender_command()
     if bc and bc[0] == "flatpak":
         ok = bool(shutil.which("flatpak"))
@@ -769,7 +770,7 @@ def _print_asset_table_legend():
     print("  SELF_CONTAINED = this model's config directly resolves its motion/skeleton SMB.")
     print("  ROOT_SKELETON_BOUND = this model reuses a verified root skeleton/motion context.")
     print("  CONFIG_ONLY = config exists, but a unique animation root is not sufficiently resolved; animation stays fail-closed.")
-    print("  Tip: `python3 pt_asset.py explain bindings` and `python3 pt_asset.py explain statuses`.")
+    print(f"  Tip: `{invocation_label()} explain bindings` and `{invocation_label()} explain statuses`.")
 
 
 def cmd_assets_list(a):
@@ -1743,7 +1744,7 @@ def cmd_validate_animation(a):
             candidate_count=len(reg.head_candidates(asset))
         except Exception:
             candidate_count=0
-        print(f"ASSEMBLED_HEAD=NONE AUTO_HEAD_CANDIDATES={candidate_count}; use `python3 pt_asset.py asset heads {asset.primary_path}` to inspect verified candidates")
+        print(f"ASSEMBLED_HEAD=NONE AUTO_HEAD_CANDIDATES={candidate_count}; use `{invocation_label()} asset heads {asset.primary_path}` to inspect verified candidates")
     runner = ValidationRunner(ValidationContext(s, resolver, cert))
     result = runner.visual_animation(asset, lod=a.lod, motion=a.motion, load_actions=a.load_actions, fps=a.fps, head_asset=head, head_variant=head_variant)
     print(json.dumps(result, ensure_ascii=False, indent=2))
@@ -2592,7 +2593,7 @@ def cmd_binding_discover(a, s, reg, resolver):
             continue
         rid=stable_id("smb-gate-first", rel).replace("AST-", "")
         rp=reports / f"{rid}.json"; lp=reports / f"{rid}.log"
-        proc=subprocess.run(["python3", str(gate), "--smd", str(src), "--smb", str(smb), "--report", str(rp)],
+        proc=subprocess.run(python_script_command(gate, "--smd", str(src), "--smb", str(smb), "--report", str(rp)),
                             text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         lp.write_text(proc.stdout or "", encoding="utf-8")
         fresh += 1
@@ -2714,7 +2715,7 @@ def cmd_binding_discover(a, s, reg, resolver):
     _atomic_json(cache_path, cache)
     print(json.dumps({"asset_id":asset.asset_id,"asset":asset.primary_path,**entry}, ensure_ascii=False, indent=2))
     if entry["status"] in {"UNIQUE_SKELETON","CONFIG_EXPLICIT_SKELETON_UNIQUE","ASSEMBLY_COMPONENT_SKELETON_UNIQUE"}:
-        print(f"binding_discovery={entry['status']}; rerun `python3 pt_asset.py asset inspect <asset> --physical`")
+        print(f"binding_discovery={entry['status']}; rerun `{invocation_label()} asset inspect <asset> --physical`")
         return 0
     if entry["status"] in {"AMBIGUOUS_SKELETON_MATCH","AMBIGUOUS_CONFIG_EXPLICIT_SKELETON","AMBIGUOUS_ASSEMBLY_COMPONENT_SKELETON"}:
         print(f"binding_discovery={entry['status']} (fail-closed)")

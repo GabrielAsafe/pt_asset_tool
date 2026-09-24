@@ -5,18 +5,20 @@ import argparse
 import pathlib
 import sys
 
+from pt_asset_tool.runtime_paths import bundle_root, invocation_label, prepare_runtime_layout
+
 
 def _project_root() -> pathlib.Path:
-    return pathlib.Path(__file__).resolve().parent
+    return bundle_root()
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        prog="pt_asset_gui.py",
+        prog="pt-asset-tool gui",
         description="PT Asset Tool local graphical catalog/editor shell",
     )
     parser.add_argument("--version", action="store_true")
-    parser.add_argument("--project-root", default=str(_project_root()))
+    parser.add_argument("--project-root", default=str(_project_root()), help=argparse.SUPPRESS)
     parser.add_argument("--client-root", default=None)
     parser.add_argument("--server-root", default=None)
     parser.add_argument("--host", default="127.0.0.1")
@@ -29,7 +31,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     project_root = pathlib.Path(args.project_root).expanduser().resolve()
-    sys.path.insert(0, str(project_root))
+    prepare_runtime_layout(project_root)
+    if str(project_root) not in sys.path:
+        sys.path.insert(0, str(project_root))
     from pt_asset_tool.ui_app import run_ui
 
     try:
@@ -42,11 +46,11 @@ def main(argv: list[str] | None = None) -> int:
             open_browser=not args.no_browser,
             allow_remote=args.allow_remote,
         )
-    except FileNotFoundError as exc:
+    except (FileNotFoundError, PermissionError) as exc:
         print("PT Asset Tool: client root não encontrado.", file=sys.stderr)
         print(str(exc), file=sys.stderr)
         print("Configure uma vez com:", file=sys.stderr)
-        print(f'  python3 "{project_root / "pt_asset.py"}" config set-client-root "/caminho/do/cliente"', file=sys.stderr)
+        print(f'  {invocation_label()} config set-client-root "/caminho/do/cliente"', file=sys.stderr)
         return 2
     except RuntimeError as exc:
         print(f"PT Asset Tool UI: {exc}", file=sys.stderr)

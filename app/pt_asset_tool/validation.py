@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .runtime_paths import python_script_command
 import json, os, pathlib, shutil, subprocess
 from dataclasses import dataclass
 from .certification import CertificationRegistry
@@ -100,7 +101,7 @@ class ValidationRunner:
             smb = self.ctx.resolver.resolve(asset.binding_skeleton_smb)
             structural_report = work / "character_structural.json"
             run_logged([
-                "python3", str(self.root / "pt_character_structural_gate_v2.py"),
+                *python_script_command(self.root / "pt_character_structural_gate_v2.py"),
                 "--smd", str(src), "--smb", str(smb), "--report", str(structural_report)
             ], work / "character_structural.log")
             inx_rows = []
@@ -114,7 +115,7 @@ class ValidationRunner:
                 motion = self.ctx.resolver.resolve(cfg["motion_smb"])
                 rp = work / f"inx_{i:03d}.json"
                 run_logged([
-                    "python3", str(self.root / "pt_inx_motion_core_v2.py"),
+                    *python_script_command(self.root / "pt_inx_motion_core_v2.py"),
                     "--inx", str(inx), "--smb", str(motion), "--report", str(rp)
                 ], work / f"inx_{i:03d}.log")
                 inx_rows.append(json.loads(rp.read_text(encoding="utf-8")))
@@ -125,7 +126,7 @@ class ValidationRunner:
         elif asset.family == "SMD_MODEL_062_STATIC":
             rp = work / "static_capability.json"
             run_logged([
-                "python3", str(self.root / "pt_smd_static_capability_probe_v1.py"),
+                *python_script_command(self.root / "pt_smd_static_capability_probe_v1.py"),
                 "--smd", str(src), "--report", str(rp)
             ], work / "static_capability.log")
             probe = json.loads(rp.read_text(encoding="utf-8"))
@@ -238,7 +239,7 @@ class ValidationRunner:
         work.mkdir(parents=True, exist_ok=True)
         report = work / "structural.json"
         run_logged([
-            "python3", str(self.root / "pt_character_structural_gate_v2.py"),
+            *python_script_command(self.root / "pt_character_structural_gate_v2.py"),
             "--smd", str(source), "--smb", str(skeleton), "--report", str(report),
         ], work / "structural.log")
         data = json.loads(report.read_text(encoding="utf-8"))
@@ -278,7 +279,7 @@ class ValidationRunner:
         work.mkdir(parents=True, exist_ok=True)
         report = work / "structural.json"
         run_logged([
-            "python3", str(self.root / "pt_character_structural_gate_v2.py"),
+            *python_script_command(self.root / "pt_character_structural_gate_v2.py"),
             "--smd", str(source), "--smb", str(skeleton), "--report", str(report),
         ], work / "structural.log")
         data = json.loads(report.read_text(encoding="utf-8"))
@@ -1966,7 +1967,7 @@ class ValidationRunner:
 
         rebuilt_probe_path = work / "rebuilt_static_capability.json"
         run_logged([
-            "python3", str(self.root / "pt_smd_static_capability_probe_v1.py"),
+            *python_script_command(self.root / "pt_smd_static_capability_probe_v1.py"),
             "--smd", str(rebuilt), "--report", str(rebuilt_probe_path),
         ], work / "04_rebuilt_probe.log")
         rebuilt_probe = json.loads(rebuilt_probe_path.read_text(encoding="utf-8"))

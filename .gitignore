@@ -35,3 +35,9 @@ Thumbs.db
 
 # Local patch backups
 .pt_asset_patch_backups/
+
+# PT_PORTABLE_APP_V10_2026-09-24
+app/.portable-build-venv/
+app/build/
+app/dist/
+dist-portable/

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .runtime_paths import invocation_label
+
 import collections
 import pathlib
 from typing import Any
@@ -147,7 +149,7 @@ def build_animation_certification_plan(
                 "load_actions": "core",
                 "human_gates": ["VISUAL_RIG", "VISUAL_ANIMATION", "VISUAL_TEXTURE_MATERIAL"],
                 "command": (
-                    f"python3 pt_asset.py validate animation {_quoted(representative)} "
+                    f"{invocation_label()} validate animation {_quoted(representative)} "
                     f"--motion {state} --load-actions core --head {head}"
                 ),
                 "client_write": False,

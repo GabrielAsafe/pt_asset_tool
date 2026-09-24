@@ -11,6 +11,8 @@ import subprocess
 import sys
 from typing import Any, Iterable
 
+from pt_asset_tool.runtime_paths import bundle_root, invocation_label, is_frozen, persistent_pt_build, prepare_runtime_layout, python_script_command
+
 OVERLAY_VERSION = "1.0.0"
 WORKSPACE_FORMAT = "PT_RARE_RIGID_GUARDED_EDIT_WORKSPACE_V5"
 SELECTION_FORMAT = "PT_RARE_RIGID_VISIBLE_TRANSACTION_SELECTION_V2"
@@ -20,7 +22,7 @@ DEFAULT_LOGICAL = "char/tmABCD/at_dragon.smd"
 DEFAULT_OBJECT_INDEX = 0
 DEFAULT_VERTICES = [33, 155]
 
-ROOT = Path(__file__).resolve().parent
+ROOT = bundle_root()
 CORE = ROOT / "pt_asset_core_v0_8_9.py"
 HELPER = ROOT / "pt_asset_tool" / "blender" / "ensure_rare_rigid_transaction_selection.py"
 VERIFY = ROOT / "pt_asset_tool" / "blender" / "verify_rare_rigid_transaction_selection.py"
@@ -165,7 +167,7 @@ def _run_core(args: list[str], capture: bool = False) -> subprocess.CompletedPro
     kwargs: dict[str, Any] = {"text": True}
     if capture:
         kwargs.update(stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    return subprocess.run([sys.executable, str(CORE), *args], **kwargs)
+    return subprocess.run(python_script_command(CORE, *args), **kwargs)
 
 
 def _selection_report_path(blend: Path) -> Path:
@@ -1844,8 +1846,46 @@ def _command_explain(args: list[str]) -> int:
     return 0
 
 
+def _portable_doctor_setup_preflight() -> int | None:
+    """Avoid treating a fresh portable install as a corrupted application.
+
+    The source-tree doctor historically assumes the persisted asset census is
+    already present. A one-file release intentionally starts with empty user
+    state, so report the missing setup action instead of letting the legacy
+    doctor dereference a non-existent inventory under the extraction symlink.
+    Once the registry exists, the normal certified doctor runs unchanged.
+    """
+    if not is_frozen():
+        return None
+    inventory = persistent_pt_build() / "state" / "asset_registry" / "asset_inventory.json"
+    if inventory.is_file():
+        return None
+    try:
+        from pt_asset_tool.app_config import resolve_client_root
+        client, source = resolve_client_root(ROOT)
+    except Exception:
+        print("doctor_check=SETUP_REQUIRED")
+        print("reason=CLIENT_ROOT_NOT_CONFIGURED")
+        print(f'action={invocation_label()} config set-client-root "/caminho/do/cliente"')
+        print("client_modified=false")
+        return 0
+    print("doctor_check=SETUP_REQUIRED")
+    print("reason=ASSET_REGISTRY_MISSING")
+    print(f"client_root={client}")
+    print(f"client_root_source={source}")
+    print(f"runtime_inventory={inventory}")
+    print(f"action={invocation_label()} registry rebuild")
+    print("client_modified=false")
+    return 0
+
+
 def main() -> int:
+    prepare_runtime_layout(ROOT)
     args = sys.argv[1:]
+    if args == ["doctor"]:
+        portable_preflight = _portable_doctor_setup_preflight()
+        if portable_preflight is not None:
+            return portable_preflight
     if args == ["--version"]:
         print(OVERLAY_VERSION)
         return 0

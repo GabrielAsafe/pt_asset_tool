@@ -2874,3 +2874,12 @@ python3 pt_asset.py preview render-all-smd --mode warmup --workers 1
 8. World Closure é descoberta/diagnóstico: REVIEW explica o motivo e encaminha para a tarefa apropriada.
 9. Interpretação de erros: `404` = não encontrado; `409` = pré-requisito/armamento; `422` = valor/payload rejeitado; `500` = bug/falha inesperada.
 10. Arquivos gerados permanecem sob `app/pt_build/**`; runtime/user data em `app/pt_build/**` e `enhancement/**` nunca é limpo pelo patch.
+
+<!-- PT_PORTABLE_APP_V10_2026-09-24 -->
+### Executável portátil Linux
+
+O release portátil usa um único `pt-asset-tool` Linux x86_64. Python, Pillow, NumPy, scripts first-party, contratos/UI e o vendor de enrichment são incorporados ao bundle; Real-ESRGAN também é incorporado quando está presente em `tools/realesrgan/`. Blender continua externo e opcional.
+
+No binário congelado, estado e configuração não ficam no diretório temporário do executável: `pt_build` persiste em `~/.local/share/pt-asset-tool/pt_build`, configuração em `~/.config/pt-asset-tool/` e cache em `~/.cache/pt-asset-tool/`. Para uma instalação autocontida, defina `PT_ASSET_HOME=/caminho`.
+
+Build de release recomendado: `./build_portable_container.sh`. O artefacto sai em `dist-portable/pt-asset-tool`. Build local de desenvolvimento: `cd app && ./build_portable_linux.sh`.

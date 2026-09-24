@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .runtime_paths import python_script_command
 import importlib.util, json, os, pathlib, shutil, struct, subprocess
 from .utils import norm_path
 
@@ -305,7 +306,7 @@ def prepare_texture_overlay(*, asset, resolver, root: pathlib.Path, work: pathli
             log = work / "texture_overlay_logs" / (dst.name + ".decode.log")
             log.parent.mkdir(parents=True, exist_ok=True)
             cmd = [
-                "python3", str(root / "pt_protected_tga_v1.py"), "decode", str(src), "--out", str(dst)
+                *python_script_command(root / "pt_protected_tga_v1.py"), "decode", str(src), "--out", str(dst)
             ]
             proc = subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             log.write_text(proc.stdout or "", encoding="utf-8")

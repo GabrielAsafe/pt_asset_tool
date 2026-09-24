@@ -5,6 +5,8 @@ import re
 from dataclasses import dataclass
 from typing import Any
 
+from .runtime_paths import app_command
+
 
 @dataclass(frozen=True)
 class ActionSpec:
@@ -76,10 +78,7 @@ def build_command(project_root: pathlib.Path, action: str, rel: str | None, opti
     if action not in ACTION_SPECS:
         raise ValueError("ACTION_NOT_ALLOWED")
     options = options or {}
-    exe = project_root / "pt_asset.py"
-    if not exe.is_file():
-        raise FileNotFoundError(f"PT_ASSET_NOT_FOUND:{exe}")
-    base = ["python3", str(exe)]
+    base = app_command(project_root)
     if action == "doctor":
         return base + ["doctor"]
     if not rel:

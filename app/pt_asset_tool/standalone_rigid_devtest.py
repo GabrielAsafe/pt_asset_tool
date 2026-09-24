@@ -5,6 +5,8 @@ import pathlib
 import re
 import shutil
 from collections import defaultdict
+from .runtime_paths import python_script_command
+
 from typing import Any
 
 from .authoring import authoring_plan, build_selected_authoring_context, build_standalone_rigid_authoring_context
@@ -577,7 +579,7 @@ def run_standalone_rigid_automated_devtest(
     # the authorization boundary for using this SMB in this devtest.
     structural_report = structural_work / "structural.json"
     run_logged([
-        "python3", str(root / "pt_character_structural_gate_v2.py"),
+        *python_script_command(root / "pt_character_structural_gate_v2.py"),
         "--smd", str(source), "--smb", str(skeleton), "--report", str(structural_report),
     ], structural_work / "structural.log")
     structural = json.loads(structural_report.read_text(encoding="utf-8"))

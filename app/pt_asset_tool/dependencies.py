@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import os
@@ -8,7 +9,11 @@ import platform
 import shutil
 import subprocess
 import sys
+import tarfile
+import threading
 from typing import Any
+
+from .runtime_paths import cache_root, external_process_command, external_process_env, invocation_label, is_frozen
 
 FORMAT = "PT_ASSET_DEPENDENCY_REPORT_V1"
 
@@ -29,8 +34,8 @@ def _project_root(project_root: Path | None = None) -> Path:
 
 
 def _repo_root(project_root: Path) -> Path:
-    # Normal distribution layout: <repo>/app/pt_asset_tool/dependencies.py.
-    return project_root.parent.resolve()
+    # Source: <repo>/app. Frozen: tools are bundled next to the app payload.
+    return project_root.resolve() if is_frozen() else project_root.parent.resolve()
 
 
 def _flatpak_blender_ready() -> tuple[bool, str]:
@@ -45,6 +50,7 @@ def _flatpak_blender_ready() -> tuple[bool, str]:
             text=True,
             timeout=5,
             check=False,
+            env=external_process_env(),
         )
     except Exception as exc:
         return False, f"flatpak probe failed: {type(exc).__name__}: {exc}"
@@ -97,6 +103,7 @@ def _probe_blender_version(command: list[str]) -> tuple[str | None, str | None]:
             text=True,
             timeout=12,
             check=False,
+            env=external_process_env(),
         )
     except Exception as exc:
         result = (None, f"version probe failed: {type(exc).__name__}: {exc}")
@@ -198,17 +205,24 @@ def blender_runtime_info(project_root: Path | None = None, *, probe_version: boo
                     command = ["flatpak", "run", "--filesystem=home", "org.blender.Blender"]
                     ready, detail = _flatpak_blender_ready()
 
+    raw_command = list(command)
     version = None
     probe_error = None
     if ready and probe_version:
-        version, probe_error = _probe_blender_version(command)
+        version, probe_error = _probe_blender_version(raw_command)
         if probe_error:
             ready = False
             detail = f"{detail}; {probe_error}"
         elif version:
             detail = f"{detail}; Blender {version}"
+
+    # Every consumer receives a child-safe launcher in frozen mode.  This is
+    # deliberately done *after* resolution/version probing so launcher identity
+    # checks continue to operate on the actual Blender executable.
+    command = external_process_command(raw_command) if ready else raw_command
     return {
         "command": command,
+        "raw_command": raw_command,
         "ready": bool(ready),
         "detail": detail,
         "source": source or "UNRESOLVED",
@@ -223,10 +237,116 @@ def resolve_blender_command(project_root: Path | None = None) -> tuple[list[str]
     info = blender_runtime_info(project_root, probe_version=False)
     return list(info["command"]), bool(info["ready"]), str(info["detail"])
 
+_REALESRGAN_PAYLOAD_LOCK = threading.Lock()
+_BUNDLED_REALESRGAN_GLIBC_FLOOR = (2, 29)
+
+
+def _version_tuple(raw: str) -> tuple[int, ...]:
+    import re
+    nums = re.findall(r"\d+", str(raw or ""))
+    return tuple(int(x) for x in nums[:3])
+
+
+def _bundled_realesrgan_host_compatible() -> tuple[bool, str]:
+    if not sys.platform.startswith("linux"):
+        return True, "non-Linux host"
+    name, version = platform.libc_ver()
+    if str(name).casefold() not in {"glibc", "gnu libc"} or not version:
+        return True, f"host libc unverified: {name or 'unknown'} {version or ''}".strip()
+    found = _version_tuple(version)
+    if found and found < _BUNDLED_REALESRGAN_GLIBC_FLOOR:
+        floor = ".".join(map(str, _BUNDLED_REALESRGAN_GLIBC_FLOOR))
+        return False, f"bundled Real-ESRGAN requires glibc >= {floor}; host has {version}"
+    return True, f"host glibc {version}"
+
+
+def _safe_extract_tar(archive: Path, destination: Path) -> None:
+    destination = destination.resolve()
+    with tarfile.open(archive, "r:gz") as tf:
+        for member in tf.getmembers():
+            target = (destination / member.name).resolve()
+            try:
+                target.relative_to(destination)
+            except ValueError as exc:
+                raise RuntimeError(f"UNSAFE_BUNDLED_PAYLOAD_PATH:{member.name}") from exc
+            if member.isdir():
+                target.mkdir(parents=True, exist_ok=True)
+                continue
+            if not member.isfile():
+                raise RuntimeError(f"UNSUPPORTED_BUNDLED_PAYLOAD_MEMBER:{member.name}")
+            source = tf.extractfile(member)
+            if source is None:
+                raise RuntimeError(f"BUNDLED_PAYLOAD_READ_FAILED:{member.name}")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with source, target.open("wb") as out:
+                while True:
+                    chunk = source.read(1024 * 1024)
+                    if not chunk:
+                        break
+                    out.write(chunk)
+            try:
+                target.chmod(member.mode & 0o777)
+            except OSError:
+                pass
+
+
+def _materialize_realesrgan_payload(archive: Path) -> Path | None:
+    digest = hashlib.sha256(archive.read_bytes()).hexdigest()
+    base = cache_root() / "payloads" / "realesrgan"
+    target = base / digest[:16]
+    exe = target / "realesrgan" / "realesrgan-ncnn-vulkan"
+    exe_win = target / "realesrgan" / "realesrgan-ncnn-vulkan.exe"
+    for candidate in (exe, exe_win):
+        if candidate.is_file():
+            return candidate.resolve()
+    with _REALESRGAN_PAYLOAD_LOCK:
+        for candidate in (exe, exe_win):
+            if candidate.is_file():
+                return candidate.resolve()
+        import shutil
+        import tempfile
+        base.mkdir(parents=True, exist_ok=True)
+        stage = Path(tempfile.mkdtemp(prefix="extract-", dir=str(base)))
+        try:
+            _safe_extract_tar(archive, stage)
+            if target.exists():
+                shutil.rmtree(stage, ignore_errors=True)
+            else:
+                os.replace(stage, target)
+        finally:
+            if stage.exists():
+                shutil.rmtree(stage, ignore_errors=True)
+    for candidate in (exe, exe_win):
+        if candidate.is_file():
+            if candidate.suffix.casefold() != ".exe":
+                try:
+                    candidate.chmod(candidate.stat().st_mode | 0o111)
+                except OSError:
+                    pass
+            return candidate.resolve()
+    return None
+
+
 def bundled_realesrgan(project_root: Path | None = None) -> Path | None:
     project = _project_root(project_root)
     repo = _repo_root(project)
     names = ("realesrgan-ncnn-vulkan", "realesrgan-ncnn-vulkan.exe")
+
+    # Source/dev mode keeps the ordinary tools directory. Frozen one-file
+    # builds carry a tar payload so PyInstaller does not inspect/relink the
+    # prebuilt NCNN executable against the old manylinux build image.
+    if is_frozen():
+        compatible, _detail = _bundled_realesrgan_host_compatible()
+        if not compatible:
+            return None
+        for archive in (
+            project / "payloads" / "realesrgan_payload.tar.gz",
+            repo / "payloads" / "realesrgan_payload.tar.gz",
+        ):
+            if archive.is_file():
+                return _materialize_realesrgan_payload(archive)
+        return None
+
     for base in (repo / "tools" / "realesrgan", project / "tools" / "realesrgan"):
         for name in names:
             p = base / name
@@ -248,17 +368,21 @@ def resolve_realesrgan(project_root: Path | None = None, explicit: str | None = 
         found = _which(name)
         if found:
             return found, "resolved on PATH"
+    if is_frozen():
+        compatible, detail = _bundled_realesrgan_host_compatible()
+        if not compatible:
+            return None, detail + "; Lanczos remains available"
     bundled = bundled_realesrgan(project_root)
     if bundled:
-        return str(bundled), "bundled with PT Asset Tool"
-    return None, "not found on PATH and no bundled executable was found"
+        return str(bundled), "bundled payload materialized from PT Asset Tool" if is_frozen() else "bundled with PT Asset Tool"
+    return None, "not found on PATH and no compatible bundled executable was found"
 
 
 def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
     project = _project_root(project_root)
     py_ok = sys.version_info >= (3, 11)
     blender_runtime = blender_runtime_info(project, probe_version=True)
-    blender_cmd = list(blender_runtime["command"])
+    blender_cmd = list(blender_runtime.get("raw_command") or blender_runtime["command"])
     blender_ok = bool(blender_runtime["ready"])
     blender_detail = str(blender_runtime["detail"])
     realesrgan_path, realesrgan_source = resolve_realesrgan(project)
@@ -272,12 +396,12 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
         {
             "id": "python",
             "name": "Python 3.11+",
-            "kind": "required",
-            "status": "READY" if py_ok else "MISSING",
+            "kind": "embedded" if is_frozen() else "required",
+            "status": "READY" if (is_frozen() or py_ok) else "MISSING",
             "required_for": ["CLI", "GUI", "parsers", "validators", "build/staging"],
-            "reason": "The application and all first-party workflows run on Python; 3.11+ is the supported baseline.",
-            "detail": sys.version.split()[0],
-            "install": "Fedora: sudo dnf install python3 python3-pip. Debian/Ubuntu: sudo apt install python3 python3-venv python3-pip",
+            "reason": "The application and all first-party workflows run on Python; frozen releases embed the interpreter.",
+            "detail": sys.version.split()[0] + (" · embedded in executable" if is_frozen() else ""),
+            "install": "Embedded in the portable executable." if is_frozen() else "Fedora: sudo dnf install python3 python3-pip. Debian/Ubuntu: sudo apt install python3 python3-venv python3-pip",
         },
         {
             "id": "pillow",
@@ -287,7 +411,7 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "required_for": ["texture enhancement", "image preview", "image-producing asset compiler paths"],
             "reason": "Image decoding, resizing, sharpening and several preview/build paths use Pillow.",
             "detail": "PIL import available" if _module("PIL") else "PIL import unavailable",
-            "install": "python3 -m pip install -r app/requirements.txt  # or: python3 -m pip install Pillow",
+            "install": "Embedded in the portable executable." if is_frozen() else "python3 -m pip install -r app/requirements.txt  # or: python3 -m pip install Pillow",
         },
         {
             "id": "numpy",
@@ -297,7 +421,7 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "required_for": ["fast Stage 0.72 normal analysis"],
             "reason": "The Stage 0.72 normal analyzer has a NumPy implementation used for fast vectorized validation.",
             "detail": "numpy import available" if _module("numpy") else "numpy import unavailable",
-            "install": "python3 -m pip install -r app/requirements.txt  # or: python3 -m pip install numpy",
+            "install": "Embedded in the portable executable." if is_frozen() else "python3 -m pip install -r app/requirements.txt  # or: python3 -m pip install numpy",
         },
         {
             "id": "blender",
@@ -314,7 +438,7 @@ def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
             "install": (
                 "Fedora: sudo dnf install blender. Or: flatpak install flathub org.blender.Blender. "
                 "Portable override: export PT_BLENDER_EXE=/path/to/blender. "
-                "Persistent override: python3 pt_asset.py config set-blender-exe /path/to/blender. "
+                f"Persistent override: {invocation_label()} config set-blender-exe /path/to/blender. "
                 "PT_BLENDER_COMMAND remains supported for launcher commands with arguments."
             ),
         },
@@ -410,9 +534,9 @@ def dependency_message(project_root: Path | None, dependency_id: str) -> str:
     report = dependency_report(project_root)
     row = next((r for r in report.get("dependencies", []) if r.get("id") == dependency_id), None)
     if not row:
-        return f"Dependency unavailable: {dependency_id}. Run `python3 pt_asset.py dependencies`."
+        return f"Dependency unavailable: {dependency_id}. Run `{invocation_label()} dependencies`."
     return (
         f"{row['name']} is unavailable. Required for: {', '.join(row.get('required_for') or [])}. "
         f"Why: {row.get('reason')}. Current state: {row.get('detail')}. "
-        f"Install/configure: {row.get('install')}. Run `python3 pt_asset.py dependencies` for the full environment report."
+        f"Install/configure: {row.get('install')}. Run `{invocation_label()} dependencies` for the full environment report."
     )

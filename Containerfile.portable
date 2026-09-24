@@ -1,0 +1,57 @@
+FROM quay.io/pypa/manylinux2014_x86_64:latest
+
+ARG PBS_VERSION=3.11.16
+ARG PBS_RELEASE=20260825
+ARG PBS_SHA256=25844eb97cdc72cdc78addaad0969ce3b2133a4de54bfcfa4d57f8a6d095eaab
+ARG PBS_TARBALL=cpython-${PBS_VERSION}+${PBS_RELEASE}-x86_64-unknown-linux-gnu-install_only.tar.gz
+ARG PBS_URL=https://github.com/astral-sh/python-build-standalone/releases/download/${PBS_RELEASE}/${PBS_TARBALL}
+
+# The CPython interpreters shipped in the stock manylinux image are wheel-build
+# interpreters and do not expose a shared libpython. PyInstaller needs one.
+# Keep manylinux2014/glibc 2.17 as the container baseline, but use a pinned
+# python-build-standalone runtime which provides libpython for embedders.
+RUN curl --fail --location --retry 4 --retry-delay 2 \
+      "$PBS_URL" -o /tmp/pt-python.tar.gz \
+ && echo "$PBS_SHA256  /tmp/pt-python.tar.gz" | sha256sum -c - \
+ && mkdir -p /opt/pt-python \
+ && tar -xzf /tmp/pt-python.tar.gz -C /opt/pt-python --strip-components=1 \
+ && rm -f /tmp/pt-python.tar.gz
+
+ENV PYTHON=/opt/pt-python/bin/python3 \
+    PIP_ONLY_BINARY=:all: \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONNOUSERSITE=1
+
+# Fail early with an actionable error instead of letting PyInstaller fail in
+# Analysis. python-build-standalone may use a python executable that is not
+# itself linked to libpython; PyInstaller supports that as long as the shared
+# library exists and sysconfig reports Py_ENABLE_SHARED=1.
+RUN test -x "$PYTHON" \
+ && test -f /opt/pt-python/lib/libpython3.11.so.1.0 \
+ && "$PYTHON" -c "import pathlib,sys,sysconfig; p=pathlib.Path('/opt/pt-python/lib/libpython3.11.so.1.0'); assert p.is_file(); assert int(sysconfig.get_config_var('Py_ENABLE_SHARED') or 0) == 1; print('portable_shared_python=READY', sys.version.split()[0], p)" \
+ && ! readelf -lW /opt/pt-python/lib/libpython3.11.so.1.0 | grep 'GNU_STACK' | grep -q 'RWE'
+
+WORKDIR /src/app
+COPY app/ /src/app/
+COPY tools/ /src/tools/
+COPY vendor/ /src/vendor/
+
+# Real-ESRGAN is shipped as an opaque executable payload. Report its own host
+# ABI requirement explicitly; it is intentionally not linked into the PT Asset
+# Tool ELF. The main application keeps the manylinux2014/glibc 2.17 baseline.
+RUN if test -x /src/tools/realesrgan/realesrgan-ncnn-vulkan; then \
+      REQ_GLIBC="$(readelf --version-info /src/tools/realesrgan/realesrgan-ncnn-vulkan 2>/dev/null | grep -o 'GLIBC_[0-9][0-9.]*' | sort -Vu | tail -n1 || true)"; \
+      echo "portable_realesrgan_payload=READY host_glibc_floor=${REQ_GLIBC:-unknown} vulkan_driver=host"; \
+    else \
+      echo "portable_realesrgan_payload=ERROR executable_missing" >&2; exit 2; \
+    fi
+
+RUN ${PYTHON} -m pip install -r requirements-portable-build.txt \
+ && ${PYTHON} -c "import PIL, numpy; print('portable_binary_wheels=READY', 'Pillow='+PIL.__version__, 'NumPy='+numpy.__version__)" \
+ && ${PYTHON} -m PyInstaller --clean --noconfirm pt_asset_tool_portable.spec
+RUN ./dist/pt-asset-tool --version \
+ && ./dist/pt-asset-tool dependencies > /tmp/pt-dependencies.txt \
+ && PT_ASSET_HOME=/tmp/pt-portable-smoke ./dist/pt-asset-tool doctor > /tmp/pt-doctor.txt \
+ && grep -q 'doctor_check=SETUP_REQUIRED' /tmp/pt-doctor.txt \
+ && echo 'portable_runtime_smoke=PASS version=true dependencies=true fresh_state=true'
+CMD ["bash", "-lc", "sha256sum dist/pt-asset-tool && file dist/pt-asset-tool"]

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .runtime_paths import repository_resource_root
+
 import json
 import pathlib
 from typing import Any
@@ -344,7 +346,7 @@ def build_server_ui_summary(project_root: pathlib.Path, server_root: pathlib.Pat
     project_root = pathlib.Path(project_root).resolve()
     server = pathlib.Path(server_root).resolve() if server_root is not None else None
     client = pathlib.Path(client_root).resolve()
-    vendor_base = project_root.parent / "vendor"
+    vendor_base = repository_resource_root(project_root) / "vendor"
     vendor_manifest = vendor_base / "summit_asset_enrichment_v9" / "PACKAGE_MANIFEST.json"
     vendor_info: dict[str, Any] = {"present": False, "version": None, "path": None, "file_count": 0}
     if vendor_manifest.is_file():

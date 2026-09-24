@@ -6,6 +6,7 @@ import mimetypes
 import os
 import pathlib
 import secrets
+import shutil
 import socket
 import subprocess
 import threading
@@ -14,6 +15,8 @@ import urllib.parse
 import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
+
+from .runtime_paths import app_command, external_process_env, is_frozen, prepare_runtime_layout
 
 from .ui_actions import ACTION_SPECS, build_command, public_action_specs
 from .app_config import discover_client_root, load_config
@@ -94,7 +97,7 @@ def _discover_client_root(project_root: pathlib.Path) -> pathlib.Path:
 def _backend_version(project_root: pathlib.Path) -> str:
     try:
         p = subprocess.run(
-            ["python3", str(project_root / "pt_asset.py"), "--version"],
+            app_command(project_root, "--version"),
             cwd=project_root,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
@@ -1445,7 +1448,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 if raw and not pathlib.Path(raw).expanduser().is_dir():
                     return self._error(400, f"{label}_NOT_DIRECTORY", raw)
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
             ]
             if self.ctx.server_root is not None and self.ctx.server_root.is_dir():
@@ -1464,7 +1467,7 @@ class UIHandler(BaseHTTPRequestHandler):
             workers = max(1, min(4, int(body.get("workers") or 1)))
             if self.ctx.jobs.has_active(None, "smd_preview_batch"):
                 return self._error(409, "SMD_PREVIEW_BATCH_ALREADY_RUNNING")
-            cmd = [os.environ.get("PYTHON", "python3"), str(self.ctx.project_root / "pt_asset.py"), "preview", "render-all-smd", "--client-root", str(self.ctx.client_root), "--mode", mode, "--workers", str(workers)]
+            cmd = app_command(self.ctx.project_root, "preview", "render-all-smd", "--client-root", str(self.ctx.client_root), "--mode", mode, "--workers", str(workers))
             job = self.ctx.jobs.submit("smd_preview_batch", None, cmd, surface="client", workflow="activity", result_anchor=None)
             return self._json(202, {"ok": True, "job": job.public(), "mode": mode})
         if u.path == "/api/reindex":
@@ -1612,7 +1615,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "CONTRACT_SOURCE_CONFIG_FAILED", str(exc))
         if u.path == "/api/client/analyze":
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
                 "audit", "client-enrichment",
             ]
@@ -1639,7 +1642,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
                 return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "Real-ESRGAN não está disponível neste ambiente.")
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
                 "texture-upscale", "run", "--all", "--include-ui",
                 "--scale", scale, "--backend", backend, "--profile", profile,
@@ -1654,7 +1657,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if self.ctx.jobs.has_active(None):
                 return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de retomar o enhancement global.")
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
                 "texture-upscale", "resume",
             ]
@@ -1666,7 +1669,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if self.ctx.jobs.has_active(None):
                 return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de publicar o lote.")
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
                 "texture-upscale", "publish-batch",
                 "--confirm", "APPLY CLIENT ENHANCEMENT BATCH",
@@ -1680,7 +1683,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if self.ctx.jobs.has_active(None):
                 return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de restaurar o lote.")
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
                 "texture-upscale", "restore-batch",
                 "--confirm", "RESTORE CLIENT ENHANCEMENT BATCH",
@@ -1742,7 +1745,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                     return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
                 cmd = [
-                    "python3", str(self.ctx.project_root / "pt_asset.py"),
+                    *app_command(self.ctx.project_root),
                     "--client-root", str(self.ctx.client_root),
                     "--server-root", str(self.ctx.server_root),
                     "audit", "general-asset-census",
@@ -1753,7 +1756,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                     return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
                 cmd = [
-                    "python3", str(self.ctx.project_root / "pt_asset.py"),
+                    *app_command(self.ctx.project_root),
                     "--client-root", str(self.ctx.client_root),
                     "--server-root", str(self.ctx.server_root),
                     "aggregate", "summit-superset",
@@ -1762,7 +1765,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 ]
             elif mode == "aggregate_player_classes":
                 cmd = [
-                    "python3", str(self.ctx.project_root / "pt_asset.py"),
+                    *app_command(self.ctx.project_root),
                     "--client-root", str(self.ctx.client_root),
                     "aggregate", "player-classes",
                     "--source-root", str(self.ctx.source_root),
@@ -1770,7 +1773,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 ]
             else:
                 cmd = [
-                    "python3", str(self.ctx.project_root / "pt_asset.py"),
+                    *app_command(self.ctx.project_root),
                     "--client-root", str(self.ctx.client_root),
                     "audit", "source-contracts" if mode == "source" else "player-class-contracts",
                     "--source-root", str(self.ctx.source_root),
@@ -1858,7 +1861,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if mode not in subcommands:
                 return self._error(400, "SERVER_ANALYSIS_MODE_INVALID")
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
                 "--server-root", str(self.ctx.server_root),
                 *subcommands[mode],
@@ -1946,7 +1949,7 @@ class UIHandler(BaseHTTPRequestHandler):
             stamp = time.strftime("%Y%m%d_%H%M%S") + "_" + secrets.token_hex(3)
             output = self.ctx.project_root / "pt_build" / f"tree_compare_ui_{stamp}.json"
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "compare", "trees", "--left", str(left), "--right", str(right),
                 "--output", str(output),
             ]
@@ -1971,7 +1974,7 @@ class UIHandler(BaseHTTPRequestHandler):
             stamp = time.strftime("%Y%m%d_%H%M%S") + "_" + secrets.token_hex(3)
             output = self.ctx.project_root / "pt_build" / f"monster_npc_census_ui_{stamp}.json"
             cmd = [
-                "python3", str(self.ctx.project_root / "pt_asset.py"),
+                *app_command(self.ctx.project_root),
                 "audit", "monster-npc-census",
                 "--client-root", str(self.ctx.client_root),
                 "--output", str(output),
@@ -2072,6 +2075,26 @@ def _is_loopback(host: str) -> bool:
         return False
 
 
+def _open_browser(url: str) -> None:
+    """Open the host browser without leaking PyInstaller's private libraries."""
+    opener = shutil.which("xdg-open") if os.name == "posix" else None
+    if opener:
+        try:
+            subprocess.Popen(
+                [opener, url],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                env=external_process_env(),
+                start_new_session=True,
+            )
+            return
+        except Exception:
+            pass
+    # Fallback for environments without xdg-open. Source mode is unchanged; in
+    # frozen mode most Linux desktop environments provide xdg-open.
+    webbrowser.open(url, new=2)
+
+
 def run_ui(
     project_root: pathlib.Path,
     client_root: pathlib.Path | None,
@@ -2082,7 +2105,8 @@ def run_ui(
     allow_remote: bool,
 ) -> int:
     project_root = project_root.resolve()
-    if not (project_root / "pt_asset.py").is_file():
+    prepare_runtime_layout(project_root)
+    if not is_frozen() and not (project_root / "pt_asset.py").is_file():
         raise FileNotFoundError(f"pt_asset.py not found in {project_root}")
     if not _is_loopback(host):
         raise RuntimeError("REMOTE_BIND_DISABLED_V1; the current UI session token is intended for loopback-only use")
@@ -2109,7 +2133,7 @@ def run_ui(
     }, ensure_ascii=False, indent=2), flush=True)
     print(f"pt_asset_ui=READY url={url} client_modified=false core_modified=false", flush=True)
     if open_browser:
-        threading.Timer(0.35, lambda: webbrowser.open(url, new=2)).start()
+        threading.Timer(0.35, lambda: _open_browser(url)).start()
     try:
         server.serve_forever(poll_interval=0.25)
     except KeyboardInterrupt:

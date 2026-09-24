@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import pathlib
 import shlex
+from .runtime_paths import app_command
+
 from typing import Any, Iterable
 
 FORMAT = "PT_ASSET_GENERAL_CENSUS_READINESS_V1"
@@ -189,7 +191,7 @@ def build_general_census_readiness(
 
     can_run = not blockers and not missing_donors
     cmd = [
-        "python3", str(project / "pt_asset.py"),
+        *app_command(project),
         "--client-root", str(client),
         "--server-root", current_paths["server_root"] or "<CONFIGURE_SERVER_ROOT>",
         "audit", "general-asset-census",

@@ -11,6 +11,8 @@ import pathlib
 import re
 import subprocess
 import sys
+from .runtime_paths import app_command
+
 from typing import Any, Iterable
 
 VERSION = "1.0.0"
@@ -312,7 +314,7 @@ def build_entity_catalog(selected: list[dict[str, Any]]) -> list[dict[str, Any]]
 
 
 def refresh_census(project: pathlib.Path, census: pathlib.Path, client: pathlib.Path) -> None:
-    cmd = [sys.executable, str(project / "pt_asset.py"), "audit", "semantic-asset-census", "--client-root", str(client), "--output", str(census)]
+    cmd = app_command(project, "audit", "semantic-asset-census", "--client-root", str(client), "--output", str(census))
     cp = subprocess.run(cmd, cwd=project, text=True)
     if cp.returncode != 0:
         raise RuntimeError(f"semantic census refresh failed rc={cp.returncode}")

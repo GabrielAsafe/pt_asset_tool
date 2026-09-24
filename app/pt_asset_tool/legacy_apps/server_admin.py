@@ -236,10 +236,11 @@ def run_server_once(plan: dict[str, Any], *, confirmation: str, env: dict[str, s
     merged = os.environ.copy()
     if env:
         merged.update({str(k): str(v) for k, v in env.items()})
+    from ..runtime_paths import external_process_env
     cp = subprocess.run(
         [str(x) for x in plan["command"]],
         cwd=str(plan["cwd"]),
-        env=merged,
+        env=external_process_env(merged),
         check=False,
     )
     return {

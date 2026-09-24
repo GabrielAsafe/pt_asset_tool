@@ -6,6 +6,7 @@ import subprocess
 import sys
 from typing import Any, Callable
 
+from .runtime_paths import python_script_command, repository_resource_root
 from .app_config import configured_contract_donor_clients, configured_contract_donor_servers
 
 FORMAT_PLAN = "PT_ASSET_ENRICHMENT_VENDOR_PLAN_V1"
@@ -13,7 +14,7 @@ FORMAT_GRAPH = "PT_ASSET_ENRICHMENT_VENDOR_GRAPH_V1"
 
 
 def _vendor_root(project_root: pathlib.Path) -> pathlib.Path:
-    vendor_base = pathlib.Path(project_root).resolve().parent / "vendor"
+    vendor_base = repository_resource_root(project_root) / "vendor"
     root = vendor_base / "summit_asset_enrichment_v9"
     if (root / "PACKAGE_MANIFEST.json").is_file():
         return root
@@ -89,7 +90,7 @@ def generate_migration_plan(
     out_dir = project / "pt_build" / "enrichment_vendor"
     manifest = out_dir / "migration_plan.csv"
     cp = _run(
-        [sys.executable, str(vendor / "migrate_assets.py"), "--config", str(cfg), "plan", "--out", str(manifest)],
+        [*python_script_command(vendor / "migrate_assets.py"), "--config", str(cfg), "plan", "--out", str(manifest)],
         timeout=timeout_seconds,
         progress=progress,
     )
@@ -141,7 +142,7 @@ def build_dependency_graph(
     cfg, available, missing = _current_config(project, client_root, server_root)
     out_dir = project / "pt_build" / "enrichment_vendor" / "dependency_graph"
     out_dir.mkdir(parents=True, exist_ok=True)
-    cmd = [sys.executable, str(vendor / "build_dependency_graph.py"), "--config", str(cfg), "--out-dir", str(out_dir)]
+    cmd = [*python_script_command(vendor / "build_dependency_graph.py"), "--config", str(cfg), "--out-dir", str(out_dir)]
     if skip_client_scan:
         cmd.append("--skip-client-scan")
     cp = _run(cmd, timeout=timeout_seconds, progress=progress)
