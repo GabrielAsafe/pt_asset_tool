@@ -362,3 +362,51 @@ Bloqueado:
 ## 19. Regra operacional
 
 Não use os executáveis históricos para “completar” uma operação que o Asset Tool bloqueou. Um bloqueio significa que falta contrato/evidência para aquele write. Recupere/prove o formato primeiro e então promova o writer com testes/corpus/roundtrip.
+
+<!-- PT_MANAGEMENT_LEGACY_WORKFLOW_V9_2026-09-23 -->
+## Management Legacy V9 — workflows por tarefa, SQLite e seleção source-backed
+
+A superfície **Management Legacy** é organizada por tarefa. O editor Python não é global: ele aparece somente dentro de **Item**, **Monstro**, **NPC** ou **Mapa / Field** e mantém estado independente por workflow. **Personagem / Conta**, **Itens / Postbox**, **Admin local** e **World Closure** não reutilizam esse editor.
+
+### Item
+
+A UI carrega o catálogo runtime source-backed e cruza os códigos com `GameServer/OpenItem/*.txt`. Os seletores mostram `CODE — Nome` quando existe uma definição OpenItem, ou indicam claramente quando o código runtime ainda não possui OpenItem. O operador não precisa memorizar nem digitar códigos em operações de distribuição/shops/drops assistidas.
+
+Criar Item nesta página significa criar uma nova definição OpenItem para um código runtime já conhecido. Registrar um código `sITEM` totalmente novo continua fora do writer certificado.
+
+### Monstro / NPC / Mapa
+
+Cada tarefa monta o writer correspondente. Monstro e NPC usam os parsers/writers textuais source-backed; Mapa seleciona explicitamente SPM, SPP ou SPC. `World Closure` serve para localizar relações, explicar REVIEW e abrir o target na tarefa correta — não existe um segundo editor global.
+
+O fluxo de escrita é sempre:
+
+`selecionar target → inspect/create → stage em pt_build → revisar manifest → publish armado → validar no jogo → restore se necessário`
+
+`Publish` só é habilitado depois de um Stage bem-sucedido da tarefa atual. Um manifest antigo de outra tarefa não é reutilizado silenciosamente.
+
+### Personagem / Conta e Postbox
+
+Personagens e contas existentes são lidos de `DataServer/userdata` e `DataServer/userinfo` e aparecem como seletores. Alterações viram planos revisáveis e, quando aplicáveis, usam backup e guards de drift. Distribuição via Postbox usa um item escolhido do catálogo `CODE — Nome`.
+
+### Admin local / SQLite
+
+O runtime atual usa SQLite local. A UI procura arquivos `.sqlite3`, `.sqlite` e `.db`, abre-os em modo read-only para descobrir o schema e escolhe a base pelo conjunto de tabelas realmente presente. SoD, BPRank e bloqueio de conta verificam a tabela/colunas antes de produzir plano. Quando existem bancos separados, a ação seleciona um candidato que suporte a capability correspondente.
+
+O adapter SQL Server/pyodbc permanece apenas como referência/migração histórica em código isolado e não é usado pela superfície Fedora atual.
+
+### Workspace de planos
+
+Planos e backups Legacy usam o app root canônico:
+
+`app/pt_build/legacy_apps/...`
+
+O backend aceita tanto o root do repositório quanto o diretório `app/` sem gerar `app/app/pt_build`.
+
+### Erros HTTP
+
+- `404`: identidade/arquivo/target não existe.
+- `409`: configuração ou armamento necessário está ausente.
+- `422`: payload, valor, confirmação ou operação foi rejeitado pelo contrato.
+- `500`: falha interna inesperada.
+
+Requests canceladas pelo browser durante navegação/filtros são tratadas como disconnect benigno; `BrokenPipeError` não gera uma segunda resposta nem traceback ruidoso.

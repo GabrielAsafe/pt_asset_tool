@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import errno
 import json
 import mimetypes
 import os
@@ -26,7 +27,8 @@ from .registry import AssetRegistry
 from .registry_bootstrap import ensure_runtime_registry
 from .item_visual_index import load_or_build_item_visual_index
 from .catalog_character_index import load_or_build_character_index, PLAYABLE_CLASSES
-from .smd_preview import SmdPreviewManager
+from .smd_preview import SmdPreviewManager, build_smd_preview_plan
+from .smd_preview_batch import read_batch_state
 from .resolver import ClientResolver
 from .legacy_management_web import (
     legacy_management_dashboard, legacy_management_item_detail,
@@ -76,6 +78,7 @@ from .legacy_apps.pritator_bulk import (
     plan_bulk_gold as legacy_plan_bulk_gold, stage_bulk_gold as legacy_stage_bulk_gold,
 )
 from .legacy_apps.apply import apply_saved_plan as legacy_apps_apply_saved_plan
+from .legacy_apps.selections import selection_catalog as legacy_selection_catalog
 from .workspace_bundle_deploy import latest_applied_bundle_manifest, workspace_bundle_restore_capabilities
 
 LOOPBACKS = {"127.0.0.1", "localhost", "::1"}
@@ -185,6 +188,10 @@ class UIContext:
         self.contract_donor_clients = configured_contract_donor_clients(self.project_root)
         self.contract_donor_servers = configured_contract_donor_servers(self.project_root)
         self.resolver = ClientResolver(self.client_root)
+        try:
+            self.resolver.prime_from_inventory(self.settings.inventory)
+        except Exception:
+            pass
         self._registry: AssetRegistry | None = None
         self._registry_error: str | None = None
         self._registry_lock = threading.RLock()
@@ -309,58 +316,14 @@ class UIContext:
         return self.character_index()
 
     def _smd_preview_plan(self, rel: str) -> dict[str, Any] | None:
-        if pathlib.PurePosixPath(str(rel or "")).suffix.casefold() != ".smd":
-            return None
         try:
-            reg = self.registry()
-            asset = reg.resolve(rel)
+            return build_smd_preview_plan(self.registry(), self.resolver, rel)
         except Exception:
             return None
-        if asset.family not in {"SMD_MODEL_062_RIGID_PHYSIQUE", "SMD_MODEL_062_STATIC"}:
-            return None
-        smd = self.resolver.resolve(asset.primary_path, required=False)
-        if smd is None:
-            return None
-        skeleton_logical = ""
-        model_info_logical = ""
-        if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE":
-            if not asset.rigid_binding_ready or not asset.binding_skeleton_smb:
-                return None
-            skeleton_logical = str(asset.binding_skeleton_smb)
-            opts = rigid_model_info_options(asset)
-            if opts:
-                model_info_logical = str(opts[0].get("inx") or "")
-            if not model_info_logical:
-                model_info_logical = next((str(c.get("inx") or "") for c in asset.configs if c.get("inx")), "")
-            if not model_info_logical:
-                return None
-        else:
-            model_info_logical = next((str(c.get("inx") or "") for c in asset.configs if c.get("inx")), "")
-        skeleton = self.resolver.resolve(skeleton_logical, required=False) if skeleton_logical else None
-        model_info = self.resolver.resolve(model_info_logical, required=False) if model_info_logical else None
-        if skeleton_logical and skeleton is None:
-            return None
-        if asset.family == "SMD_MODEL_062_RIGID_PHYSIQUE" and model_info is None:
-            return None
-        logical_deps = [asset.primary_path, *list(asset.textures or [])]
-        if skeleton_logical:
-            logical_deps.append(skeleton_logical)
-        if model_info_logical:
-            logical_deps.append(model_info_logical)
-        physical_deps: list[str] = []
-        for logical in logical_deps:
-            p = self.resolver.resolve(logical, required=False)
-            if p is not None:
-                physical_deps.append(str(pathlib.Path(p).resolve()))
-        return {
-            "logical": asset.primary_path, "smd": str(pathlib.Path(smd).resolve()),
-            "skeleton": str(pathlib.Path(skeleton).resolve()) if skeleton is not None else "",
-            "skeleton_logical": skeleton_logical,
-            "model_info": str(pathlib.Path(model_info).resolve()) if model_info is not None else "",
-            "model_info_logical": model_info_logical, "lod": "default",
-            "dependency_paths": sorted(set(physical_deps), key=str.casefold),
-            "dependency_logical": sorted(set(logical_deps), key=str.casefold),
-        }
+
+    def refresh_smd_preview_annotations(self) -> None:
+        self.catalog.apply_smd_preview_index(self.smd_previews.status_index())
+
 
     def item_visual_index(self) -> dict[str, Any]:
         revision = int(getattr(self.state, "revision", 0))
@@ -737,12 +700,24 @@ class UIHandler(BaseHTTPRequestHandler):
 
     def _json(self, status: int, data: Any) -> None:
         raw = json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-        self.send_response(status)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Content-Length", str(len(raw)))
-        self.send_header("Cache-Control", "no-store")
-        self.end_headers()
-        self.wfile.write(raw)
+        try:
+            self.send_response(status)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(raw)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(raw)
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+            # Browsers routinely abort stale entity/catalog requests while the
+            # user changes tab/filter.  That is client cancellation, not an
+            # application error and must not trigger a second JSON response.
+            self.close_connection = True
+            return
+        except OSError as exc:
+            if exc.errno in {errno.EPIPE, errno.ECONNRESET, errno.ECONNABORTED}:
+                self.close_connection = True
+                return
+            raise
 
     def _error(self, status: int, code: str, detail: str | None = None) -> None:
         self._json(status, {"ok": False, "error": code, "detail": detail})
@@ -768,6 +743,11 @@ class UIHandler(BaseHTTPRequestHandler):
         q = urllib.parse.parse_qs(u.query)
         if path == "/":
             return self._serve_static("index.html")
+        if path == "/favicon.ico":
+            self.send_response(204)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
         if path.startswith("/static/"):
             return self._serve_static(path[len("/static/"):])
         if path == "/api/bootstrap":
@@ -814,7 +794,15 @@ class UIHandler(BaseHTTPRequestHandler):
             try:
                 return self._json(200, {"ok": True, **legacy_apps_workspace_status(self.ctx.project_root, self.ctx.server_root)})
             except Exception as exc:
-                return self._error(400, "LEGACY_OPS_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_OPS_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/legacy-ops/selections":
+            if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED", "Configure a raiz do servidor antes de carregar personagens, contas e itens.")
+            try:
+                refresh = _one(q, "refresh").strip() in {"1", "true", "yes"}
+                return self._json(200, {"ok": True, "result": legacy_selection_catalog(self.ctx.server_root, refresh=refresh)})
+            except Exception as exc:
+                return self._error(500, "LEGACY_SELECTIONS_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-ops/character":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -823,8 +811,12 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "CHARACTER_NAME_REQUIRED")
             try:
                 return self._json(200, {"ok": True, "result": legacy_apps_inspect_character(self.ctx.server_root, name)})
+            except FileNotFoundError as exc:
+                return self._error(404, "LEGACY_CHARACTER_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_CHARACTER_INVALID", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_CHARACTER_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_CHARACTER_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-ops/account":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -833,8 +825,12 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "ACCOUNT_NAME_REQUIRED")
             try:
                 return self._json(200, {"ok": True, "result": legacy_apps_inspect_account(self.ctx.server_root, account)})
+            except FileNotFoundError as exc:
+                return self._error(404, "LEGACY_ACCOUNT_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_ACCOUNT_INVALID", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_ACCOUNT_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_ACCOUNT_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-ops/postbox":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -843,8 +839,12 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "ACCOUNT_NAME_REQUIRED")
             try:
                 return self._json(200, {"ok": True, "result": legacy_apps_queue_status(self.ctx.server_root, account)})
+            except FileNotFoundError as exc:
+                return self._error(404, "LEGACY_POSTBOX_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_POSTBOX_REQUEST_INVALID", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_POSTBOX_READ_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_POSTBOX_READ_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-ops/inventory":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -856,30 +856,38 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "INVENTORY_KEY_REQUIRED")
             try:
                 return self._json(200, {"ok": True, "result": legacy_apps_inventory_status(self.ctx.server_root, store=store, key=key)})
+            except FileNotFoundError as exc:
+                return self._error(404, "LEGACY_INVENTORY_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_INVENTORY_REQUEST_INVALID", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_INVENTORY_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_INVENTORY_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-ops/admin":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
             try:
                 return self._json(200, {"ok": True, "result": legacy_apps_admin_status(self.ctx.server_root)})
             except Exception as exc:
-                return self._error(400, "LEGACY_ADMIN_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_ADMIN_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-management":
             try:
                 return self._json(200, {"ok": True, **legacy_management_dashboard(
                     self.ctx.project_root, client_root=self.ctx.client_root, server_root=self.ctx.server_root
                 )})
             except Exception as exc:
-                return self._error(400, "LEGACY_MANAGEMENT_SUMMARY_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_MANAGEMENT_SUMMARY_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-management/item":
             code = _one(q, "code").strip()
             if not code:
                 return self._error(400, "LEGACY_ITEM_CODE_REQUIRED")
             try:
                 return self._json(200, {"ok": True, **legacy_management_item_detail(code, resolver=self.ctx.resolver)})
+            except KeyError as exc:
+                return self._error(404, "LEGACY_ITEM_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_ITEM_LOOKUP_INVALID", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_ITEM_LOOKUP_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_ITEM_LOOKUP_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-management/report":
             try:
                 result = query_legacy_management_report(
@@ -913,9 +921,10 @@ class UIHandler(BaseHTTPRequestHandler):
                         k: v for k, v in active_entity.items()
                         if k in {"entity_key", "semantic_group", "display_name", "asset_count", "visual_bundle_key", "visual_bundle_runtime_codes"}
                     }
+                self.ctx.refresh_smd_preview_annotations()
                 report = self.ctx.catalog.query(
                     q=_one(q, "q"), category="" if entity_key else _one(q, "category"), folder=_one(q, "folder"),
-                    role=_one(q, "role"), character=_one(q, "character"), ext=_one(q, "ext"),
+                    role=_one(q, "role"), character=_one(q, "character"), ext=_one(q, "ext"), preview_status=_one(q, "preview_status"),
                     favorites=_one(q, "favorites") in {"1", "true", "yes"},
                     show_system=_one(q, "show_system") in {"1", "true", "yes"},
                     allowed_paths=allowed_paths,
@@ -1242,6 +1251,14 @@ class UIHandler(BaseHTTPRequestHandler):
             except Exception as exc:
                 return self._error(400, "REPORT_READ_FAILED", str(exc))
             return self._json(200, {"ok": True, "name": name, "report": data})
+        if path == "/api/smd-preview-batch":
+            self.ctx.refresh_smd_preview_annotations()
+            preview_index = self.ctx.smd_previews.status_index()
+            counts: dict[str, int] = {}
+            for row in preview_index.values():
+                status = str((row or {}).get("status") or "MISSING").upper()
+                counts[status] = counts.get(status, 0) + 1
+            return self._json(200, {"ok": True, "batch": read_batch_state(self.ctx.project_root), "index": {"items": len(preview_index), "counts": counts}})
         if path == "/api/smd-preview-status":
             rel = _one(q, "path")
             plan = self.ctx._smd_preview_plan(rel)
@@ -1305,8 +1322,12 @@ class UIHandler(BaseHTTPRequestHandler):
                 plan = legacy_apps_plan_operation(self.ctx.server_root, operation, payload)
                 saved = legacy_apps_save_plan(self.ctx.project_root, operation, plan)
                 return self._json(200, {"ok": True, "result": saved})
+            except FileNotFoundError as exc:
+                return self._error(404, "LEGACY_OPERATION_SOURCE_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_OPERATION_REQUEST_INVALID", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_OPERATION_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_OPERATION_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-ops/apply":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1319,8 +1340,12 @@ class UIHandler(BaseHTTPRequestHandler):
             try:
                 result = legacy_apps_apply_saved_plan(self.ctx.project_root, self.ctx.server_root, plan_id, confirmation)
                 return self._json(200, {"ok": True, "result": result})
+            except FileNotFoundError as exc:
+                return self._error(404, "LEGACY_OPERATION_APPLY_SOURCE_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_OPERATION_APPLY_REJECTED", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_OPERATION_APPLY_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_OPERATION_APPLY_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-ops/monster-bulk-exp-plan":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1336,7 +1361,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 saved = legacy_apps_save_plan(self.ctx.project_root, "PRITATOR_BULK_EXP", plan)
                 return self._json(200, {"ok": True, "result": saved})
             except Exception as exc:
-                return self._error(400, "MONSTER_BULK_EXP_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(422 if isinstance(exc, ValueError) else 500, "MONSTER_BULK_EXP_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-ops/monster-bulk-exp-stage":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1350,7 +1375,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 result = legacy_stage_bulk_exp(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, loaded["plan"])
                 return self._json(200, {"ok": True, "result": result})
             except Exception as exc:
-                return self._error(400, "MONSTER_BULK_EXP_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(422 if isinstance(exc, ValueError) else 500, "MONSTER_BULK_EXP_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-ops/monster-bulk-gold-plan":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1366,7 +1391,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 saved = legacy_apps_save_plan(self.ctx.project_root, "PRITATOR_BULK_GOLD", plan)
                 return self._json(200, {"ok": True, "result": saved})
             except Exception as exc:
-                return self._error(400, "MONSTER_BULK_GOLD_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(422 if isinstance(exc, ValueError) else 500, "MONSTER_BULK_GOLD_PLAN_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-ops/monster-bulk-gold-stage":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1380,7 +1405,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 result = legacy_stage_bulk_gold(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, loaded["plan"])
                 return self._json(200, {"ok": True, "result": result})
             except Exception as exc:
-                return self._error(400, "MONSTER_BULK_GOLD_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(422 if isinstance(exc, ValueError) else 500, "MONSTER_BULK_GOLD_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-ops/item-scan":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1392,7 +1417,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 )
                 return self._json(200, {"ok": True, "result": result})
             except Exception as exc:
-                return self._error(400, "LEGACY_ITEM_SCAN_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(422 if isinstance(exc, ValueError) else 500, "LEGACY_ITEM_SCAN_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-ops/protector-analyze":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1400,7 +1425,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 result = legacy_apps_analyze_protector_log(self.ctx.server_root, str(body.get("text") or ""))
                 return self._json(200, {"ok": True, "result": result})
             except Exception as exc:
-                return self._error(400, "LEGACY_PROTECTOR_ANALYZE_FAILED", f"{type(exc).__name__}:{exc}")
+                return self._error(422 if isinstance(exc, ValueError) else 500, "LEGACY_PROTECTOR_ANALYZE_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-management/verify":
             root = str(body.get("management_root") or "").strip()
             if not root:
@@ -1432,6 +1457,16 @@ class UIHandler(BaseHTTPRequestHandler):
                 cmd.extend(["--tutorial-root", tutorial_root])
             job = self.ctx.jobs.submit("legacy_management_audit", None, cmd)
             return self._json(202, {"ok": True, "job": job.public(), "mode": "legacy_management_audit"})
+        if u.path == "/api/smd-preview-batch":
+            mode = str(body.get("mode") or "warmup").strip().lower()
+            if mode not in {"warmup", "all", "missing", "stale", "failed"}:
+                return self._error(400, "SMD_PREVIEW_BATCH_MODE_INVALID")
+            workers = max(1, min(4, int(body.get("workers") or 1)))
+            if self.ctx.jobs.has_active(None, "smd_preview_batch"):
+                return self._error(409, "SMD_PREVIEW_BATCH_ALREADY_RUNNING")
+            cmd = [os.environ.get("PYTHON", "python3"), str(self.ctx.project_root / "pt_asset.py"), "preview", "render-all-smd", "--client-root", str(self.ctx.client_root), "--mode", mode, "--workers", str(workers)]
+            job = self.ctx.jobs.submit("smd_preview_batch", None, cmd, surface="client", workflow="activity", result_anchor=None)
+            return self._json(202, {"ok": True, "job": job.public(), "mode": mode})
         if u.path == "/api/reindex":
             # Reindex is the explicit synchronization point with external client
             # changes. Build the persisted physical registry once, then populate
@@ -1442,6 +1477,12 @@ class UIHandler(BaseHTTPRequestHandler):
             )
             s = self.ctx.catalog.rebuild_from_inventory(self.ctx.settings.inventory)
             self.ctx.invalidate_registry()
+            try:
+                self.ctx.resolver.prime_from_inventory(self.ctx.settings.inventory)
+            except Exception:
+                pass
+            stale_count = self.ctx.smd_previews.mark_all_stale("REGISTRY_REINDEXED")
+            self.ctx.refresh_smd_preview_annotations()
             return self._json(200, {
                 "ok": True,
                 "catalog": {
@@ -1449,6 +1490,7 @@ class UIHandler(BaseHTTPRequestHandler):
                     "source_mode": self.ctx.catalog.source_mode,
                 },
                 "registry": registry_report,
+                "smd_previews_marked_stale": stale_count,
             })
         if u.path == "/api/state/update":
             rel = str(body.get("path") or "")
@@ -1774,8 +1816,12 @@ class UIHandler(BaseHTTPRequestHandler):
             try:
                 result = stage_authoring(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, spec)
                 return self._json(200, {"ok": True, "result": result})
+            except FileNotFoundError as exc:
+                return self._error(404, "LEGACY_AUTHORING_SOURCE_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "LEGACY_AUTHORING_STAGE_REJECTED", str(exc))
             except Exception as exc:
-                return self._error(400, "LEGACY_AUTHORING_STAGE_REJECTED", f"{type(exc).__name__}:{exc}")
+                return self._error(500, "LEGACY_AUTHORING_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/server/config":
             raw = str(body.get("server_root") or "").strip()
             try:

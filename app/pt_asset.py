@@ -1885,6 +1885,7 @@ def main() -> int:
         print("  deploy workspace-history ASSET     list retained bundle transactions")
         print("  deploy workspace-restore-latest ASSET --confirm 'RESTORE CLIENT BUNDLE'  verified rollback to prior bytes")
         print("  explain TOPIC                  explain statuses/bindings/validators in user terms")
+        print("  preview render-all-smd [--mode warmup|all|missing|stale|failed] [--workers N]  generate/cache catalog SMD thumbnails in pt_build")
         print("  config show                    show persistent application configuration")
         print("  config set-client-root PATH    persist client root for GUI/desktop use")
         print("  config clear-client-root       clear persistent client root and return to discovery")
@@ -1905,6 +1906,9 @@ def main() -> int:
         return _command_app_smoke()
     if args and args[0] == "explain":
         return _command_explain(args[1:])
+    if len(args) >= 2 and args[0] == "preview" and args[1] == "render-all-smd":
+        from pt_asset_tool.smd_preview_batch import cli_main as _smd_preview_batch_main
+        return _smd_preview_batch_main(args[2:], project_root=ROOT)
     if args and args[0] == "config":
         return _command_app_config(args[1:])
     if args and args[0] == "registry":

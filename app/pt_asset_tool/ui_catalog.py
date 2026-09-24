@@ -743,6 +743,19 @@ class CatalogIndex:
             characters = sorted({str(r.get("character") or "") for r in rows if r.get("character")}, key=str.casefold)
         return {"categories": categories, "roles": roles, "characters": characters}
 
+    def apply_smd_preview_index(self, preview_index: dict[str, dict[str, Any]]) -> None:
+        """Attach persistent SMD thumbnail state without invoking Blender."""
+        with self._lock:
+            for row in self.assets:
+                if str(row.get("ext") or "").casefold() != ".smd":
+                    row.pop("smd_preview_status", None)
+                    row.pop("smd_preview_detail", None)
+                    continue
+                key = str(row.get("path") or "").replace("\\", "/").strip("/").casefold()
+                state = preview_index.get(key) or {}
+                row["smd_preview_status"] = str(state.get("status") or "MISSING").upper()
+                row["smd_preview_detail"] = str(state.get("detail") or "")
+
     def query(
         self,
         q: str = "",
@@ -751,6 +764,7 @@ class CatalogIndex:
         role: str = "",
         character: str = "",
         ext: str = "",
+        preview_status: str = "",
         favorites: bool = False,
         show_system: bool = False,
         allowed_paths: set[str] | None = None,
@@ -764,6 +778,7 @@ class CatalogIndex:
         role = role.strip().upper()
         character = character.strip().casefold()
         ext = ext.strip().lower()
+        preview_status = preview_status.strip().upper()
         no_extension = ext == "__no_ext__"
         if ext and not no_extension and not ext.startswith("."):
             ext = "." + ext
@@ -792,6 +807,11 @@ class CatalogIndex:
                 continue
             if ext and not no_extension and r["ext"] != ext:
                 continue
+            if preview_status:
+                if str(r.get("ext") or "").casefold() != ".smd":
+                    continue
+                if str(r.get("smd_preview_status") or "MISSING").upper() != preview_status:
+                    continue
             if favorites and not r["favorite"]:
                 continue
             if q_tokens:
@@ -811,13 +831,14 @@ class CatalogIndex:
         roles = collections_count(folder_rows, "role")
         role_rows = [r for r in folder_rows if not role or r["role"].upper() == role]
         exts = collections_count(role_rows, "ext", description=True)
+        previews = collections_count([r for r in role_rows if str(r.get("ext") or "").casefold() == ".smd"], "smd_preview_status")
         return {
             "items": [{k: v for k, v in x.items() if not k.startswith("_")} for x in out[start:end]],
             "total": total,
             "page": page,
             "page_size": page_size,
             "pages": max(1, (total + page_size - 1) // page_size),
-            "facets": {"categories": cats, "characters": characters, "folders": folders, "roles": roles, "extensions": exts},
+            "facets": {"categories": cats, "characters": characters, "folders": folders, "roles": roles, "extensions": exts, "smd_previews": previews},
             "performance": {"query_ms": round((time.perf_counter() - started) * 1000.0, 3), "revision": self.revision},
         }
 

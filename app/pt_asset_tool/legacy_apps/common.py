@@ -10,6 +10,26 @@ import time
 from typing import Any
 
 
+def app_project_root(project_root: Path) -> Path:
+    """Normalize either repository root or app root to the active app directory.
+
+    The UI process runs with ``project_root`` pointing at ``.../pt_asset_tool/app``.
+    Patch/CLI helpers may instead pass the repository root.  Legacy workspace
+    code must accept both without ever producing ``app/app/pt_build``.
+    """
+    root = Path(project_root).expanduser().resolve()
+    if (root / "pt_asset.py").is_file() and (root / "pt_asset_tool").is_dir():
+        return root
+    app = root / "app"
+    if (app / "pt_asset.py").is_file() and (app / "pt_asset_tool").is_dir():
+        return app.resolve()
+    return root
+
+
+def legacy_build_root(project_root: Path) -> Path:
+    return app_project_root(project_root) / "pt_build"
+
+
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
     with Path(path).open("rb") as f:

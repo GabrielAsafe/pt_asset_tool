@@ -2830,3 +2830,47 @@ python3 pt_asset.py config set-blender-exe /caminho/para/blender
 No portátil, o binário Blender 3.6 pode ser usado diretamente para processamento headless. Se workflows Blender interativos precisarem de um launcher que configure Mesa/llvmpipe, esse launcher executável também pode ser salvo como `blender_executable`. A ferramenta não altera drivers nem injeta variáveis gráficas.
 
 `python3 pt_asset.py dependencies` deve informar claramente o executável escolhido, a origem da escolha e a versão detectada. Blender 3.6.x não é rejeitado por exigir uma versão 4.x/5.x; compatibilidade de scripts continua sendo mantida no pipeline comum.
+
+<!-- PT_SMD_PREVIEW_BACKGROUND_MANUAL_V8_2026-09-22 -->
+## Gerar previews de modelos SMD em lote
+
+No Catálogo, use **Gerar previews SMD** para aquecer o cache em background. Há ações separadas para **Regerar stale** e **Repetir falhados**. O progresso aparece em Cliente → Atividade e a navegação continua disponível durante o processamento.
+
+Também é possível executar pela linha de comando:
+
+```bash
+cd app
+python3 pt_asset.py preview render-all-smd --mode warmup --workers 1
+```
+
+Os resultados são gravados somente em `app/pt_build/previews/smd_catalog/`. O client permanece read-only. O Catálogo oferece o filtro de preview (`READY`, `MISSING`, `STALE`, `FAILED`) e usa o PNG gerado como imagem padrão de cada SMD quando o estado é `READY`.
+
+Após **Reindexar**, previews já existentes são marcados `STALE`; eles não são apagados. Rode **Regerar stale** para atualizar apenas o que precisa ser reprocessado.
+
+<!-- PT_SMD_PREVIEW_V81_MANUAL_2026-09-22 -->
+### Previews SMD V8.1
+
+O preview do Catálogo representa o ambiente de pintura/modelo, não o ambiente de animação. A ferramenta não carrega Actions para gerar a miniatura. Modelos rígidos usam INX/LOD somente quando a cobertura do modelo é válida; caso contrário, podem usar o skeleton comprovado para uma visualização read-only.
+
+Para retomar depois de interrupção:
+
+```bash
+cd app
+python3 pt_asset.py preview render-all-smd --mode warmup --workers 1
+```
+
+`Ctrl+C` cancela o batch e os processos Blender em andamento sem descartar previews `READY` já gerados.
+
+<!-- PT_MANAGEMENT_LEGACY_MANUAL_V9_2026-09-23 -->
+## Management Legacy — guia operacional V9
+
+1. Configure a raiz do servidor. A página detecta `GameServer`, `DataServer` e bases SQLite locais.
+2. Escolha uma tarefa no topo. Item, Monstro, NPC e Mapa possuem editor próprio dentro da tarefa; trocar de tab não mistura spec/path/manifest.
+3. Em Item/Postbox, selecione `código — nome` nas listas carregadas pelo backend. Personagens e contas também vêm do DataServer.
+4. Use **Inspecionar** antes de editar. `Stage` grava somente em `pt_build`; o servidor real não é alterado nesse passo.
+5. Revise o manifest gerado. **Publicar bundle** só fica disponível para o manifest produzido pelo Stage atual.
+6. Personagem/Conta/Postbox/Admin usam **plano → revisão → confirmação → apply** quando a escrita é suportada.
+7. Admin local usa SQLite por schema. Se houver mais de uma base, a UI mostra os candidatos e escolhe uma que suporte SoD/BPRank/bloqueio conforme a operação.
+8. World Closure é descoberta/diagnóstico: REVIEW explica o motivo e encaminha para a tarefa apropriada.
+9. Interpretação de erros: `404` = não encontrado; `409` = pré-requisito/armamento; `422` = valor/payload rejeitado; `500` = bug/falha inesperada.
+10. Arquivos gerados permanecem sob `app/pt_build/**`; runtime/user data em `app/pt_build/**` e `enhancement/**` nunca é limpo pelo patch.

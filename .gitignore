@@ -32,3 +32,6 @@ Thumbs.db
 *.swp
 *.swo
 # <<< PT Asset Tool V3.1 managed release hygiene <<<
+
+# Local patch backups
+.pt_asset_patch_backups/

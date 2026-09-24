@@ -9,6 +9,7 @@ what do I need, what is ready on this server, and what confirmation is required.
 
 from pathlib import Path
 from typing import Any
+import sqlite3
 
 from .reverse_manifest import reverse_status
 from .server_admin import (
@@ -47,18 +48,80 @@ def _find_existing(root: Path, *candidates: str) -> Path | None:
     return None
 
 
+def _sqlite_tables(path: Path) -> dict[str, list[str]]:
+    try:
+        with sqlite3.connect(f"file:{path.resolve()}?mode=ro", uri=True) as db:
+            names = [str(r[0]) for r in db.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name")]
+            out: dict[str, list[str]] = {}
+            for name in names:
+                if not name or name.startswith("sqlite_"):
+                    continue
+                safe = name.replace('"', '""')
+                try:
+                    out[name] = [str(r[1]) for r in db.execute(f'PRAGMA table_info("{safe}")')]
+                except sqlite3.Error:
+                    out[name] = []
+            return out
+    except sqlite3.Error:
+        return {}
+
+
 def _database_status(server_root: Path) -> dict[str, Any]:
-    candidates = [
-        server_root / "Database" / "summit.sqlite3",
-        server_root / "database" / "summit.sqlite3",
-        server_root / "summit.sqlite3",
+    root = Path(server_root).resolve()
+    preferred = [
+        root / "Database" / "summit.sqlite3",
+        root / "database" / "summit.sqlite3",
+        root / "summit.sqlite3",
     ]
-    path = next((p for p in candidates if p.is_file()), candidates[0])
+    discovered: list[Path] = []
+    seen: set[Path] = set()
+    for p in preferred:
+        rp = p.resolve()
+        if rp not in seen:
+            seen.add(rp); discovered.append(rp)
+    for base in (root / "Database", root / "database", root):
+        if not base.is_dir():
+            continue
+        try:
+            rows = list(base.glob("*.sqlite3")) + list(base.glob("*.sqlite")) + list(base.glob("*.db"))
+        except OSError:
+            rows = []
+        for p in rows:
+            rp = p.resolve()
+            if rp not in seen:
+                seen.add(rp); discovered.append(rp)
+
+    expected = {"RunLog", "UL", "CL", "GameRecordBPRank", "GameUser", "UserInfo"}
+    candidates: list[dict[str, Any]] = []
+    for p in discovered:
+        if not p.is_file():
+            continue
+        tables = _sqlite_tables(p)
+        matched = sorted(expected.intersection(tables))
+        score = len(matched)
+        candidates.append({
+            "path": str(p),
+            "tables": sorted(tables),
+            "matched_tables": matched,
+            "score": score,
+            "capabilities": {
+                "sod": all(x in tables for x in ("RunLog", "UL", "CL")),
+                "bprank": "GameRecordBPRank" in tables,
+                "account_block": "GameUser" in tables or "UserInfo" in tables,
+            },
+        })
+    candidates.sort(key=lambda x: (-int(x["score"]), 0 if Path(x["path"]).name == "summit.sqlite3" else 1, x["path"].casefold()))
+    selected = candidates[0] if candidates else None
+    fallback = preferred[0]
     return {
         "backend": "SQLite",
         "network": "localhost",
-        "path": str(path),
-        "exists": path.is_file(),
+        "path": str(selected["path"] if selected else fallback),
+        "exists": bool(selected),
+        "tables": list(selected.get("tables") or []) if selected else [],
+        "capabilities": dict(selected.get("capabilities") or {}) if selected else {"sod": False, "bprank": False, "account_block": False},
+        "candidates": candidates,
+        "selection_basis": "SCHEMA_MATCH" if selected and selected.get("score") else ("FIRST_SQLITE_CANDIDATE" if selected else "DEFAULT_NOT_FOUND"),
         "required_for": ["SoD", "BPRank", "account protection/blocking"],
     }
 
@@ -131,7 +194,7 @@ def workspace_status(project_root: Path, server_root: Path | None) -> dict[str, 
             "status": "READY" if db["exists"] else "REVIEW",
             "summary": "SoD, BPRank, proteção de conta e supervisor do servidor em localhost + SQLite.",
             "requirements": [
-                req("SQLite summit.sqlite3", bool(db["exists"]), db["path"]),
+                req("SQLite local", bool(db["exists"]), f"{db['path']} · {db.get('selection_basis')}") ,
                 req("ConfigRestarter.ini", bool(restarter_cfg), str(restarter_cfg or "opcional / não encontrado")),
                 req("hotuk.ini", bool(hotuk), str(hotuk or "opcional / não encontrado")),
             ],
@@ -216,37 +279,43 @@ def admin_status(server_root: Path) -> dict[str, Any]:
 def plan_operation(server_root: Path, operation: str, payload: dict[str, Any]) -> dict[str, Any]:
     root = Path(server_root).resolve()
     op = str(operation or "").upper()
+
+    def required(value: Any, code: str) -> str:
+        text = str(value or "").strip()
+        if not text:
+            raise ValueError(code)
+        return text
     if op == "CHARACTER_LEVEL":
         xp = payload.get("xp_table")
-        return plan_level_edit(root, str(payload.get("character") or ""), int(payload.get("level")), xphen_path=Path(xp) if xp else None)
+        return plan_level_edit(root, required(payload.get("character"), "CHARACTER_REQUIRED"), int(payload.get("level")), xphen_path=Path(xp) if xp else None)
     if op == "CHARACTER_FIELDS":
         updates = payload.get("updates") or {}
         if not isinstance(updates, dict):
             raise ValueError("CHARACTER_UPDATES_OBJECT_REQUIRED")
-        return plan_character_fields_update(root, str(payload.get("character") or ""), updates)
+        return plan_character_fields_update(root, required(payload.get("character"), "CHARACTER_REQUIRED"), updates)
     if op == "CHARACTER_EXPERT_FIELDS":
         updates = payload.get("updates") or {}
         if not isinstance(updates, dict):
             raise ValueError("CHARACTER_EXPERT_UPDATES_OBJECT_REQUIRED")
-        return plan_character_expert_fields_update(root, str(payload.get("character") or ""), updates)
+        return plan_character_expert_fields_update(root, required(payload.get("character"), "CHARACTER_REQUIRED"), updates)
     if op == "CHARACTER_RENAME":
-        return plan_character_rename(root, str(payload.get("old_name") or ""), str(payload.get("new_name") or ""))
+        return plan_character_rename(root, required(payload.get("old_name"), "CHARACTER_REQUIRED"), required(payload.get("new_name"), "NEW_CHARACTER_NAME_REQUIRED"))
     if op == "ACCOUNT_RENAME":
-        return plan_account_rename(root, str(payload.get("old_account") or ""), str(payload.get("new_account") or ""))
+        return plan_account_rename(root, required(payload.get("old_account"), "ACCOUNT_REQUIRED"), required(payload.get("new_account"), "NEW_ACCOUNT_NAME_REQUIRED"))
     if op == "ACCOUNT_GRAPH_COPY":
         source_root = str(payload.get("source_server_root") or "").strip()
         if not source_root:
             raise ValueError("SOURCE_SERVER_ROOT_REQUIRED")
         return plan_account_graph_copy(
-            Path(source_root), root, str(payload.get("account") or ""),
+            Path(source_root), root, required(payload.get("account"), "ACCOUNT_REQUIRED"),
             allow_replace=bool(payload.get("allow_replace", False)),
         )
     if op == "ITEM_DISTRIBUTE":
         return plan_distribution(
             root,
-            account=str(payload.get("account") or ""),
-            character=str(payload.get("character") or ""),
-            item_code=str(payload.get("item_code") or ""),
+            account=required(payload.get("account"), "ACCOUNT_REQUIRED"),
+            character=required(payload.get("character"), "CHARACTER_REQUIRED"),
+            item_code=required(payload.get("item_code"), "ITEM_CODE_REQUIRED"),
             spec_index=int(payload.get("spec_index") or 0),
             message=str(payload.get("message") or ""),
             quantity=int(payload.get("quantity") or 1),
@@ -256,7 +325,7 @@ def plan_operation(server_root: Path, operation: str, payload: dict[str, Any]) -
         return plan_item_delete(
             root,
             store=str(payload.get("store") or ""),
-            key=str(payload.get("key") or ""),
+            key=required(payload.get("key"), "INVENTORY_KEY_REQUIRED"),
             record_index=int(payload.get("record_index")),
         )
     if op == "INVENTORY_ITEM_BATCH_DELETE":
@@ -268,7 +337,7 @@ def plan_operation(server_root: Path, operation: str, payload: dict[str, Any]) -
         return plan_item_batch_delete(
             root,
             store=str(payload.get("store") or ""),
-            key=str(payload.get("key") or ""),
+            key=required(payload.get("key"), "INVENTORY_KEY_REQUIRED"),
             record_indices=[int(x) for x in raw_indices],
         )
     if op == "INVENTORY_SCOPE_CLEAR":
@@ -278,16 +347,31 @@ def plan_operation(server_root: Path, operation: str, payload: dict[str, Any]) -
         )
     if op == "ACCOUNT_BLOCK":
         db = _database_status(root)
+        db_path = Path(str(payload.get("db_path") or db["path"])).expanduser().resolve()
+        if not db_path.is_file():
+            return {"format": FORMAT, "status": "BLOCKED", "operation": "ACCOUNT_BLOCK_SQLITE", "reason": "SQLITE_DATABASE_NOT_FOUND", "db_path": str(db_path)}
+        table = str(payload.get("table") or "GameUser")
+        account_column = str(payload.get("account_column") or "userid")
+        block_column = str(payload.get("block_column") or "BlockChk")
+        reason_column = str(payload.get("reason_column")) if payload.get("reason_column") else None
+        tables = _sqlite_tables(db_path)
+        actual = next((cols for name, cols in tables.items() if name.casefold() == table.casefold()), None)
+        required_cols = [account_column, block_column] + ([reason_column] if reason_column else [])
+        if actual is None or any(not any(c.casefold() == wanted.casefold() for c in actual) for wanted in required_cols):
+            return {
+                "format": FORMAT, "status": "BLOCKED", "operation": "ACCOUNT_BLOCK_SQLITE",
+                "reason": "SQLITE_SCHEMA_MISMATCH", "db_path": str(db_path), "table": table,
+                "required_columns": required_cols, "available_tables": sorted(tables),
+                "available_columns": actual or [],
+            }
         plan = plan_account_block_sqlite(
-            table=str(payload.get("table") or "UserInfo"),
-            account_column=str(payload.get("account_column") or "AccountName"),
-            account=str(payload.get("account") or ""),
-            block_column=str(payload.get("block_column") or "BlockChk"),
+            table=table, account_column=account_column, account=required(payload.get("account"), "ACCOUNT_REQUIRED"),
+            block_column=block_column,
             block_value=int(payload.get("block_value") if payload.get("block_value") is not None else 1),
-            reason_column=str(payload.get("reason_column")) if payload.get("reason_column") else None,
-            reason=str(payload.get("reason")) if payload.get("reason") is not None else None,
+            reason_column=reason_column, reason=str(payload.get("reason")) if payload.get("reason") is not None else None,
         )
-        plan["db_path"] = db["path"]
+        plan["db_path"] = str(db_path)
+        plan["schema_verified"] = True
         return plan
     if op == "SOD_UPDATE":
         db = _database_status(root)
@@ -311,7 +395,12 @@ def plan_operation(server_root: Path, operation: str, payload: dict[str, Any]) -
             return {"format": FORMAT, "status": "BLOCKED", "operation": "BPRANK_MARK", "reason": "SQLITE_DATABASE_NOT_FOUND", "db_path": str(db_path)}
         table = str(payload.get("table") or "GameRecordBPRank")
         bprank_sqlite_plan(table=table)  # identifier validation
-        return {"format": FORMAT, "status": "READY", "operation": "BPRANK_MARK", "db_path": str(db_path), "table": table, "char_name": char_name, "write_authorized": False}
+        tables = _sqlite_tables(db_path)
+        actual = next((cols for name, cols in tables.items() if name.casefold() == table.casefold()), None)
+        required = ["CharName", "ok"]
+        if actual is None or any(not any(c.casefold() == wanted.casefold() for c in actual) for wanted in required):
+            return {"format": FORMAT, "status": "BLOCKED", "operation": "BPRANK_MARK", "reason": "SQLITE_SCHEMA_MISMATCH", "db_path": str(db_path), "table": table, "required_columns": required, "available_tables": sorted(tables), "available_columns": actual or []}
+        return {"format": FORMAT, "status": "READY", "operation": "BPRANK_MARK", "db_path": str(db_path), "table": table, "char_name": char_name, "schema_verified": True, "write_authorized": False}
     if op == "HOTUK_UPDATE":
         raw_path = str(payload.get("path") or "").strip()
         if not raw_path:

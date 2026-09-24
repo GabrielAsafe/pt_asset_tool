@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from .plan_store import load_plan
+from .common import legacy_build_root
 from .userdata_admin import (
     apply_character_fields_update, apply_character_expert_fields_update, apply_level_edit,
     apply_character_rename, apply_account_rename, apply_account_graph_copy,
@@ -21,7 +22,7 @@ def apply_saved_plan(project_root: Path, server_root: Path, plan_id: str, confir
     loaded = load_plan(project_root, plan_id)
     plan = loaded["plan"]
     op = str(loaded.get("operation_request") or "").upper()
-    backup_root = Path(project_root).resolve() / "app" / "pt_build" / "legacy_apps" / "backups" / plan_id
+    backup_root = legacy_build_root(project_root) / "legacy_apps" / "backups" / plan_id
     backup_root.mkdir(parents=True, exist_ok=True)
 
     # All filesystem plans were created for a concrete server root/path.  Do not

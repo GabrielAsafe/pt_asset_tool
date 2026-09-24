@@ -24,8 +24,8 @@
         <button class="nav" data-tab="settings">Configurações</button>
       </nav>
       <div class="safety-card">
-        <span class="dot safe"></span><strong>Fonte somente leitura</strong>
-        <p>A GUI nunca instala arquivos no client nem no servidor. Persistência/logs/estado ficam fora do grafo de assets.</p>
+        <span class="dot safe"></span><strong>Leitura por padrão</strong>
+        <p>Catálogo e diagnósticos são read-only. Writes só acontecem em workflows transacionais explicitamente armados, com stage, backup, hash e restore.</p>
         <button id="armBtn" class="btn subtle">Armar workspace/build</button>
         <div id="armState" class="micro">Ações de build bloqueadas</div>
       </div>
@@ -49,6 +49,7 @@
               <select id="folder"><option value="">Todas as pastas</option></select>
               <select id="role"><option value="">Todos os roles</option></select>
               <select id="ext"><option value="">Todas as extensões</option></select>
+              <select id="smdPreviewStatus"><option value="">Todos previews SMD</option><option value="READY">Preview pronto</option><option value="MISSING">Sem preview</option><option value="STALE">Preview stale</option><option value="FAILED">Preview falhou</option></select>
               <label class="check"><input id="favorites" type="checkbox" /> Favoritos</label>
               <label class="check"><input id="showSystem" type="checkbox" /> Mostrar sistema/operacional</label>
               <div class="view-toggle"><button id="tableView" class="active">Tabela</button><button id="galleryView">Galeria</button></div>
@@ -56,7 +57,12 @@
             <div class="quick-filters">
               <button data-category="UI">UI</button><button data-category="CHARACTER">Personagens</button><button data-category="MONSTER">Monstros</button><button data-category="NPC">NPCs</button><button data-category="ITEM">Itens</button><button data-category="MAP">Mapas</button><button data-category="EFFECT">Efeitos</button>
             </div>
-            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Asset</th><th>Categoria</th><th>Personagem</th><th>Pasta</th><th>Role</th><th>Relação item</th><th>Ext</th><th>Tamanho</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
+            <div id="catalogSmdPreviewTools" class="panel" style="margin:8px 0;padding:10px">
+              <div class="panel-title"><strong>Previews SMD</strong><span id="smdPreviewBatchState">carregando estado…</span></div>
+              <div class="server-workflow-actions"><button id="smdPreviewWarmupBtn" class="btn primary">Gerar previews SMD</button><button id="smdPreviewStaleBtn" class="btn">Regerar stale</button><button id="smdPreviewFailedBtn" class="btn">Repetir falhados</button><button id="smdPreviewBatchRefresh" class="btn">Atualizar estado</button></div>
+              <div id="smdPreviewBatchSummary" class="micro">O batch usa o asset registry persistido e não varre o client silenciosamente.</div>
+            </div>
+            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Preview</th><th>Asset</th><th>Categoria</th><th>Personagem</th><th>Pasta</th><th>Role</th><th>Relação item</th><th>Ext</th><th>Tamanho</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
             <div class="pager"><button id="prevPage">Anterior</button><span id="pageInfo"></span><button id="nextPage">Próxima</button></div>
           </section>
 
@@ -359,9 +365,9 @@
         <div class="server-hero panel legacy-hero">
           <div>
             <h2>Authoring Legacy — tarefas Python</h2>
-            <p>Crie/edite conteúdo suportado diretamente pelos writers Python. World Closure serve para descobrir relações e targets; executáveis antigos são apenas evidência técnica e nunca são necessários no Fedora.</p>
+            <p>Administre conteúdo e persistência por tarefa. Cada workflow mostra apenas os dados necessários, gera plano/stage antes de qualquer write e mantém o resultado junto da tarefa que o originou.</p>
           </div>
-          <span class="badge">PYTHON-NATIVE · LEGACY EXE NOT REQUIRED</span>
+          <span class="badge">TASK-ORIENTED · PLAN/STAGE FIRST</span>
         </div>
 
         <div class="legacy-task-tabs" role="tablist" aria-label="Tarefas Legacy">
@@ -383,9 +389,10 @@
           </section>
           <section class="panel legacy-item-panel">
             <div class="panel-title"><strong>Pesquisar código runtime</strong><span id="legacyItemState">sITEM / OpenItem / DorpItem</span></div>
-            <div class="legacy-item-search"><input id="legacyItemCode" type="search" placeholder="Código, ex.: WA121" /><button id="legacyItemLookupBtn" class="btn primary">Pesquisar item</button></div>
+            <div class="legacy-item-search"><select id="legacyItemCode"><option value="">Carregando códigos e nomes…</option></select><button id="legacyItemLookupBtn" class="btn primary">Abrir item</button><button id="legacySelectionsRefresh" class="btn">Atualizar listas</button></div>
             <div id="legacyItemResult" class="legacy-item-result"><div class="empty">Pesquise o código antes de criar um OpenItem. Novo código runtime sITEM continua bloqueado.</div></div>
           </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="item"></div>
         </section>
 
         <section class="legacy-task-pane" data-legacy-pane="monster">
@@ -394,7 +401,7 @@
             <div id="legacyGuideMonster" class="legacy-requirements"><div class="empty">Carregando requisitos…</div></div>
             <div class="legacy-task-actions"><button class="btn primary" data-legacy-open="MONSTER:CREATE">Criar monstro</button><button class="btn" data-legacy-open="MONSTER:EDIT">Editar monstro</button><button class="btn" data-legacy-world="definitions">Encontrar no World Closure</button></div>
             <details class="legacy-ops-wide">
-              <summary>Bulk EXP · substituto do PriTaTor</summary>
+              <summary>Bulk EXP · edição em lote</summary>
               <p class="micro">Use paths lógicos, um por linha. Fórmulas aceitam <code>EXP</code>, <code>LVL</code>, números, <code>+ - * / %</code> e parênteses. Primeiro gera preview; Stage cria bundles em <code>pt_build</code> e não altera o servidor.</p>
               <label>Monster INF paths<textarea id="legacyMonsterBulkPaths" spellcheck="false" placeholder="GameServer/Monster/13_Wolverine de Ouro.inf"></textarea></label>
               <div class="legacy-ops-grid"><label>Fórmula EXP<input id="legacyMonsterBulkFormula" value="EXP" /></label><label>Max EXP (opcional)<input id="legacyMonsterBulkMaxExp" type="number" min="0" /></label></div>
@@ -402,7 +409,7 @@
               <pre id="legacyMonsterBulkResult" class="legacy-authoring-result">Nenhum plano Bulk EXP.</pre>
             </details>
             <details class="legacy-ops-wide">
-              <summary>Bulk Gold · substituto do PriTaTor</summary>
+              <summary>Bulk Gold · edição em lote</summary>
               <p class="micro">Transforma somente a primeira diretiva de drop <code>Money</code> de cada Monster INF, preservando a percentagem e um ou dois valores de faixa. Fórmulas aceitam <code>GOLD</code>, <code>LVL</code>, números e <code>+ - * / %</code>. Preview primeiro; Stage apenas gera bundles revisáveis.</p>
               <label>Monster INF paths<textarea id="legacyMonsterBulkGoldPaths" spellcheck="false" placeholder="GameServer/Monster/13_Wolverine de Ouro.inf"></textarea></label>
               <div class="legacy-ops-grid"><label>Fórmula Gold<input id="legacyMonsterBulkGoldFormula" value="GOLD" /></label><label>Max Gold (opcional)<input id="legacyMonsterBulkMaxGold" type="number" min="0" /></label></div>
@@ -410,6 +417,7 @@
               <pre id="legacyMonsterBulkGoldResult" class="legacy-authoring-result">Nenhum plano Bulk Gold.</pre>
             </details>
           </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="monster"></div>
         </section>
 
         <section class="legacy-task-pane" data-legacy-pane="npc">
@@ -418,6 +426,7 @@
             <div id="legacyGuideNpc" class="legacy-requirements"><div class="empty">Carregando requisitos…</div></div>
             <div class="legacy-task-actions"><button class="btn primary" data-legacy-open="NPC:CREATE">Criar NPC</button><button class="btn" data-legacy-open="NPC:EDIT">Editar NPC</button><button class="btn" data-legacy-open="SPC:EDIT">Editar placement SPC</button><button class="btn" data-legacy-world="definitions">Encontrar no World Closure</button></div>
           </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="npc"></div>
         </section>
 
         <section class="legacy-task-pane" data-legacy-pane="map">
@@ -431,14 +440,15 @@
             </div>
             <p class="micro"><strong>Importante:</strong> isto não cria a geometria visual/Stage do mapa no client. Stage 0.72 continua no pipeline de mapas/client.</p>
           </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="map"></div>
         </section>
 
         <section class="legacy-task-pane" data-legacy-pane="character">
           <section class="panel legacy-task-card">
             <div class="panel-title"><strong>Personagem / Conta</strong><span id="legacyOpsCharacterState">userdata + userinfo · Python</span></div>
-            <p class="micro">Substitui as capacidades comprovadas de Level Editor, MudarNome e ControllerUser/Japaokiko. <strong>SumFile.dat e CompyItem.dat não são dependências</strong>; eram artefatos gerados pelas ferramentas antigas.</p>
+            <p class="micro">Escolha uma identidade que já existe no DataServer. Inspecionar é read-only; Level/XP, stats e renames sempre geram um plano revisável antes da aplicação.</p>
             <div class="legacy-ops-grid">
-              <label>Personagem<input id="legacyCharacterName" type="text" placeholder="Nome do personagem" /></label>
+              <label>Personagem<select id="legacyCharacterName"><option value="">Carregando personagens…</option></select></label>
               <div class="legacy-ops-buttons"><button id="legacyCharacterInspectBtn" class="btn primary">Inspecionar personagem</button></div>
               <label>Level desejado<input id="legacyCharacterLevel" type="number" min="1" max="1000" placeholder="ex.: 120" /></label>
               <div class="legacy-ops-buttons"><button id="legacyCharacterLevelPlanBtn" class="btn">Gerar plano Level/XP</button></div>
@@ -461,11 +471,11 @@
               </details>
               <label>Renomear personagem para<input id="legacyCharacterNewName" type="text" placeholder="NovoNome" /></label>
               <div class="legacy-ops-buttons"><button id="legacyCharacterRenamePlanBtn" class="btn">Planejar rename</button></div>
-              <label>Conta<input id="legacyAccountName" type="text" placeholder="account" /></label>
+              <label>Conta<select id="legacyAccountName"><option value="">Carregando contas…</option></select></label>
               <div class="legacy-ops-buttons"><button id="legacyAccountInspectBtn" class="btn">Inspecionar conta</button></div>
               <label>Renomear conta para<input id="legacyAccountNewName" type="text" placeholder="nova_account" /></label>
               <div class="legacy-ops-buttons"><button id="legacyAccountRenamePlanBtn" class="btn">Planejar rename da conta</button></div>
-              <div class="legacy-ops-wide legacy-subsection"><strong>Migrar / restaurar conta entre servidores</strong><p class="micro">Substitui o botão <code>Copy</code> do ControllerUser. A origem é explícita; o destino é o servidor configurado. O plano inclui userinfo, warehouse quando existir e até seis userdata referenciados. Nada é sobrescrito sem marcar substituição intencional.</p></div>
+              <div class="legacy-ops-wide legacy-subsection"><strong>Migrar / restaurar conta entre servidores</strong><p class="micro">Escolha uma conta existente e uma raiz de servidor de origem. O plano copia userinfo, warehouse quando existir e até seis userdata referenciados para o servidor configurado. Colisões são bloqueadas por padrão e qualquer substituição autorizada cria backup.</p></div>
               <label class="legacy-ops-wide">Servidor de origem<input id="legacyAccountCopySourceRoot" type="text" placeholder="/caminho/ServidorAntigo" /></label>
               <label class="legacy-checkbox"><input id="legacyAccountCopyAllowReplace" type="checkbox" /> Permitir substituir identidades já existentes no destino (com backup)</label>
               <div class="legacy-ops-buttons"><button id="legacyAccountCopyPlanBtn" class="btn">Planejar migração da conta</button></div>
@@ -477,26 +487,26 @@
         <section class="legacy-task-pane" data-legacy-pane="postbox">
           <section class="panel legacy-task-card">
             <div class="panel-title"><strong>Itens / Postbox</strong><span id="legacyPostboxState">ItemDistributor + scanner userdata/warehouse</span></div>
-            <p class="micro">Distribuição usa append + backup por padrão; o EXE antigo sobrescrevia a fila. O scanner de duplicados é read-only e usa os serials do formato real.</p>
+            <p class="micro">Distribuição adiciona entradas à Postbox com plano, backup e escrita atômica. O scanner de duplicados é read-only e usa os serials persistidos reais.</p>
             <div class="legacy-ops-grid">
-              <label>Conta<input id="legacyPostboxAccount" type="text" placeholder="account" /></label>
-              <label>Personagem<input id="legacyPostboxCharacter" type="text" placeholder="character" /></label>
-              <label>Código do item<input id="legacyPostboxItem" type="text" placeholder="WA121" /></label>
+              <label>Conta<select id="legacyPostboxAccount"><option value="">Selecione uma conta</option></select></label>
+              <label>Personagem<select id="legacyPostboxCharacter"><option value="">Selecione um personagem</option></select></label>
+              <label>Item<select id="legacyPostboxItem"><option value="">Selecione código — nome</option></select></label>
               <label>Spec<select id="legacyPostboxSpec"><option value="0">Non Spec</option><option value="1">Fighter</option><option value="2">Mechanician</option><option value="3">Archer</option><option value="4">Pikeman</option><option value="5">Atalanta</option><option value="6">Knight</option><option value="7">Magician</option><option value="8">Priestess</option></select></label>
               <label>Quantidade<input id="legacyPostboxQuantity" type="number" min="1" max="10000" value="1" /></label>
               <label>Mensagem<input id="legacyPostboxMessage" type="text" placeholder="mensagem opcional" /></label>
               <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyPostboxReadBtn" class="btn">Ler fila</button><button id="legacyPostboxPlanBtn" class="btn primary">Planejar distribuição</button></div>
               <label class="legacy-ops-wide">Buscar item/serial<input id="legacyItemScanQuery" type="search" placeholder="nome do item, personagem ou conta" /></label>
               <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyItemScanBtn" class="btn">Escanear userdata + warehouse</button></div>
-              <div class="legacy-ops-wide legacy-subsection"><strong>Inventário local · delete comprovado</strong><p class="micro">O reverse do ControllerUser provou apagar um registro persistente, não editar Code/Head/CheckSum arbitrariamente. Inspecione primeiro; o plano fixa hash + Head + CheckSum + hash do slot antes de permitir o delete.</p></div>
+              <div class="legacy-ops-wide legacy-subsection"><strong>Inventário local · delete comprovado</strong><p class="micro">Inspecione o inventário primeiro. O delete remove apenas o registro selecionado e o plano fixa identidade/hash do slot antes de permitir a escrita; edição arbitrária de identificadores do item não é oferecida.</p></div>
               <label>Origem<select id="legacyInventoryStore"><option value="userdata">Personagem / userdata</option><option value="warehouse">Conta / warehouse</option></select></label>
-              <label>Personagem ou conta<input id="legacyInventoryKey" type="text" placeholder="Hero ou account" /></label>
+              <label>Personagem ou conta<select id="legacyInventoryKey"><option value="">Selecione uma identidade</option></select></label>
               <label>Índice do slot<input id="legacyInventoryRecordIndex" type="number" min="0" value="0" /></label>
               <label>Slots para apagar em lote<input id="legacyInventoryBatchIndices" type="text" placeholder="ex.: 2, 5, 9" /></label>
               <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyInventoryInspectBtn" class="btn">Inspecionar slots</button><button id="legacyInventoryDeletePlanBtn" class="btn danger">Planejar apagar slot</button><button id="legacyInventoryBatchDeletePlanBtn" class="btn danger">Planejar apagar slots</button></div>
             </div>
             <details class="legacy-danger-zone">
-              <summary>Operações destrutivas globais (legado ControllerUser)</summary>
+              <summary>Operações destrutivas globais</summary>
               <p class="micro"><b>Não são limpeza de cache.</b> Estas ações equivalem aos botões históricos <code>User Item</code>/<code>WHItem</code>: removem todos os itens persistidos de todos os personagens ou de todos os warehouses. O PT Asset Tool apenas gera um plano primeiro, valida todos os hashes, faz backup de todos os alvos antes da primeira escrita e exige uma frase forte de confirmação.</p>
               <div class="legacy-ops-buttons legacy-ops-wide">
                 <button id="legacyInventoryClearUserdataPlanBtn" class="btn danger">Planejar apagar TODOS os itens dos personagens</button>
@@ -510,20 +520,21 @@
         <section class="legacy-task-pane" data-legacy-pane="admin">
           <section class="panel legacy-task-card">
             <div class="panel-title"><strong>Admin local</strong><span id="legacyAdminState">localhost + SQLite</span></div>
-            <p class="micro">Portas SQL/firewall/ODBC foram removidos do produto. As tarefas administrativas usam o SQLite local e o servidor via Wine quando necessário.</p>
+            <p class="micro">As operações abaixo usam SQLite local. A aplicação detecta os ficheiros SQLite do servidor, inspeciona o schema e mostra qual base foi selecionada antes de gerar qualquer plano.</p>
             <div id="legacyAdminSummary" class="server-summary"><div class="empty">Carregando runtime local…</div></div>
             <div class="legacy-ops-grid">
+              <label class="legacy-ops-wide">Base SQLite<select id="legacyDatabasePath"><option value="">Detectando base local…</option></select></label>
               <label>SoD table<input id="legacySodTable" value="RunLog" /></label>
               <label>Participantes mínimos<input id="legacySodMinimum" type="number" min="1" value="1" /></label>
               <div class="legacy-ops-buttons"><button id="legacySodPlanBtn" class="btn">Planejar atualização SoD</button></div>
-              <label>BPRank personagem<input id="legacyBPRankCharacter" placeholder="CharName" /></label>
+              <label>BPRank personagem<select id="legacyBPRankCharacter"><option value="">Selecione um personagem</option></select></label>
               <div class="legacy-ops-buttons"><button id="legacyBPRankPlanBtn" class="btn">Planejar marcar processado</button></div>
-              <label>Bloquear conta<input id="legacyBlockAccount" placeholder="account" /></label>
+              <label>Bloquear conta<select id="legacyBlockAccount"><option value="">Selecione uma conta</option></select></label>
               <label>Motivo<input id="legacyBlockReason" placeholder="motivo" /></label>
               <div class="legacy-ops-buttons"><button id="legacyBlockPlanBtn" class="btn">Planejar bloqueio SQLite</button></div>
               <details class="legacy-ops-wide">
-                <summary>Configuração Hotuk · substituto do editor Japaokiko</summary>
-                <p class="micro">Edita chaves do <code>hotuk.ini</code> de forma lossless. Configuração de rede Windows e patching direto de Server.exe não são reproduzidos: o runtime atual é localhost + SQLite e patches binários dependentes de versão ficam bloqueados.</p>
+                <summary>Configuração Hotuk</summary>
+                <p class="micro">Edita chaves do <code>hotuk.ini</code> preservando o restante do arquivo. O runtime atual é localhost + SQLite; configuração de firewall/ODBC e patch binário de executável não fazem parte deste workflow.</p>
                 <label>Caminho (opcional)<input id="legacyHotukPath" type="text" placeholder="detectado automaticamente" /></label>
                 <label>Atualizações (JSON)<textarea id="legacyHotukUpdates" spellcheck="false">{}</textarea></label>
                 <div class="legacy-ops-buttons"><button id="legacyHotukPlanBtn" class="btn">Planejar alteração Hotuk</button></div>
@@ -558,9 +569,10 @@
 
         <section class="panel legacy-authoring-panel" id="legacyAuthoringPanel">
           <div class="panel-title"><strong id="legacyAuthoringTitle">Item — editor Python</strong><span id="legacyAuthoringState">Escolha Criar ou Editar acima</span></div>
-          <div class="legacy-authoring-toolbar"><select id="legacyAuthoringKind"><option>ITEM</option><option>MONSTER</option><option>NPC</option><option>SPM</option><option>SPP</option><option>SPC</option></select><select id="legacyAuthoringMode"><option>EDIT</option><option>CREATE</option></select><input id="legacyAuthoringPath" type="text" placeholder="GameServer/OpenItem/WA121.txt" /><button id="legacyAuthoringInspectBtn" class="btn">Abrir / Inspecionar</button><button id="legacyAuthoringTemplateBtn" class="btn">Recarregar template</button></div>
-          <div class="legacy-authoring-layout"><div><label class="legacy-authoring-label">Spec Python-native / JSON<textarea id="legacyAuthoringSpec" spellcheck="false"></textarea></label><div class="legacy-authoring-actions"><button id="legacyAuthoringStageBtn" class="btn primary">Stage em pt_build</button><button id="legacyAuthoringPublishBtn" class="btn">Publicar bundle</button><button id="legacyAuthoringRestoreBtn" class="btn">Restaurar bundle</button><button id="legacyAuthoringStatusBtn" class="btn">Status transação</button></div><p class="micro">Fluxo: <code>requisitos → inspect/create → stage → revisar manifest → publish → runtime review → restore</code>. Nenhum executável histórico é necessário.</p></div><pre id="legacyAuthoringResult" class="legacy-authoring-result">Escolha uma tarefa acima.</pre></div>
+          <div class="legacy-authoring-toolbar"><select id="legacyAuthoringKind"></select><select id="legacyAuthoringMode"><option>EDIT</option><option>CREATE</option></select><input id="legacyAuthoringPath" type="text" placeholder="Path server-side" /><button id="legacyAuthoringInspectBtn" class="btn">Abrir / Inspecionar</button><button id="legacyAuthoringTemplateBtn" class="btn">Recarregar template</button></div><div id="legacyAuthoringItemHelper" class="legacy-item-search"><select id="legacyAuthoringItemCode"><option value="">Item relacionado: código — nome</option></select><button id="legacyAuthoringInsertItemBtn" class="btn">Inserir código no spec</button></div>
+          <div class="legacy-authoring-layout"><div><label class="legacy-authoring-label">Spec Python-native / JSON<textarea id="legacyAuthoringSpec" spellcheck="false"></textarea></label><div class="legacy-authoring-actions"><button id="legacyAuthoringStageBtn" class="btn primary">Stage em pt_build</button><button id="legacyAuthoringPublishBtn" class="btn" disabled>Publicar bundle</button><button id="legacyAuthoringRestoreBtn" class="btn">Restaurar bundle</button><button id="legacyAuthoringStatusBtn" class="btn">Status transação</button></div><p class="micro">Fluxo: <code>selecionar target → inspect/create → stage → revisar manifest → publish → validar no jogo → restore</code>. Publish só é habilitado depois de um stage bem-sucedido desta tarefa.</p></div><pre id="legacyAuthoringResult" class="legacy-authoring-result">Escolha uma tarefa acima.</pre></div>
         </section>
+        <div id="legacyAuthoringParking" class="hidden"></div>
       </section>
 
       <section id="tab-particles" class="tab">
@@ -619,10 +631,11 @@
           <section class="panel guide-card"><h3>1. Design Tool / PT Asset Tool</h3><p><strong>Para quê:</strong> descobrir assets, entender bindings, validar SMD/SMB/INX/texturas, gerar candidates em <code>pt_build</code> e acompanhar gates.</p><ol><li>Configure o <code>client_root</code>.</li><li>Rode <strong>Doctor</strong> ou <code>validate environment-auto</code>.</li><li>Use Catálogo/Entidades para encontrar o asset.</li><li>Leia Structural, Binding, Visual e Roundtrip como níveis de evidência diferentes.</li><li>Antes de qualquer release, rode os gates automáticos indicados pela readiness.</li></ol><p class="micro">Manual completo: <code>docs/tematicos/GUIA_DESIGN_TOOL.md</code></p></section>
           <section class="panel guide-card"><h3>2. Asset Enrichment</h3><p><strong>Para quê:</strong> enxergar o que um Monster, NPC, Field ou Item precisa no lado servidor e como isso se liga ao client.</p><ol><li>Configure o <code>server_root</code>.</li><li>Rode <strong>Analisar Asset Enrichment</strong>.</li><li>Use Censo/Validação para medir gaps; REVIEW de conteúdo segue para <strong>Management Legacy · World Closure</strong>.</li><li>Não trate <code>DataServer</code>, <code>LogItemData</code>, <code>PostBox</code>, WAR ou estados de segurança como assets.</li><li>Quando um bundle exigir SMD/SMB/INX, volte ao pipeline certificado do Design Tool.</li></ol><p class="micro">Manual completo: <code>docs/tematicos/GUIA_ASSET_ENRICHMENT.md</code></p></section>
           <section class="panel guide-card"><h3>3. Fluxo combinado</h3><p><strong>Monster/NPC:</strong> definição server → ZHOON → INI/INX → SMD/SMB → texturas → spawn/placement.</p><p><strong>Field:</strong> stage → SPP/SPC/SPM → entidades referenciadas.</p><p><strong>Item:</strong> OpenItem → code map → catálogo client → modelo/icon → drops/shops.</p><p class="micro">Guia de ponta a ponta: <code>docs/tematicos/GUIA_WORKFLOW_CLIENT_SERVER.md</code></p></section>
-          <section class="panel guide-card" data-manual-legacy-authoring="2026-09-21"><h3>4. Management Legacy + Authoring Python</h3><p><strong>Para quê:</strong> usar o census/World Closure para localizar o target correto e criar/editar Item, Monster, NPC e Field sem executar PriTaTor/NPCManager/ItemEditor.</p><ol><li>Selecione uma linha no <strong>World Closure Explorer</strong> ou informe kind/path.</li><li>Use <strong>Abrir / Inspecionar</strong>; ITEM usa o path real do census.</li><li>Edite o spec e arme <code>ARM BUILD WRITES</code>.</li><li><strong>Stage em pt_build</strong> não altera o target.</li><li>Revise o manifest, arme <code>ARM ASSET DEPLOY</code> e publique.</li><li>Valide no jogo; use Restore se necessário.</li></ol><p class="micro">Kinds: ITEM · MONSTER · NPC · SPM · SPP · SPC. Manual: <code>docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md</code></p></section>
+          <section class="panel guide-card" data-manual-legacy-authoring="2026-09-23"><h3>4. Management Legacy</h3><p><strong>Para quê:</strong> administrar conteúdo server-side e persistência local por workflow, sem misturar authoring, conta/personagem e administração.</p><ol><li><strong>Item / Monstro / NPC / Mapa:</strong> escolha a tarefa; o editor aparece dentro dessa tarefa e usa apenas os writers correspondentes.</li><li><strong>Personagem / Conta:</strong> escolha uma identidade existente; inspect é read-only e alterações viram planos com backup.</li><li><strong>Itens / Postbox:</strong> escolha <code>código — nome</code> no catálogo runtime/OpenItem; distribuição e deletes exigem plano.</li><li><strong>Admin local:</strong> a base é SQLite detectada por schema; SoD/BPRank/bloqueios não usam ODBC/SQL Server.</li><li><strong>World Closure:</strong> encontra relações/targets e encaminha para a tarefa correta; REVIEW explica o que falta.</li><li><strong>Authoring:</strong> Stage grava só em <code>pt_build</code>; Publish exige manifest do stage atual, armamento, backup e verificação.</li></ol><p class="micro">Manual: <code>docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md</code></p></section>
+          <section class="panel guide-card" data-manual-aux-tools="2026-09-23"><h3>5. Partículas, Comparar, Tarefas e Relatórios</h3><p><strong>Partículas:</strong> inspeciona <code>.part</code>, gera plano de preview sem Blender e usa o Blender configurado quando render visual for solicitado.</p><p><strong>Comparar:</strong> compara duas árvores por path/hash sem alterar nenhuma delas.</p><p><strong>Tarefas:</strong> mostra apenas jobs que não têm uma superfície própria; Cliente e Servidor mantêm atividade/resultados nas páginas correspondentes.</p><p><strong>Relatórios:</strong> abre artefatos já produzidos em <code>pt_build</code>; não reexecuta automaticamente o censo.</p><p><strong>Configurações:</strong> mostra roots e dependências efetivamente resolvidos pelo backend, incluindo Blender.</p></section>
           <section class="panel guide-card"><h3>Estados sem mistério</h3><dl><dt>PASS</dt><dd>O gate executado passou.</dd><dt>REVIEW</dt><dd>Há dados suficientes para investigar, mas ainda falta decisão/prova para automatizar.</dd><dt>BLOCKED</dt><dd>Uma dependência ou contrato obrigatório não está provado.</dd><dt>PENDING</dt><dd>Aquele gate ainda não foi executado.</dd><dt>Runtime review</dt><dd>Os testes automáticos passaram, mas ainda falta observar o resultado dentro do jogo.</dd></dl></section>
         </div>
-        <section class="panel guide-runbook" data-manual-legacy-runbook="2026-09-21"><div class="panel-title"><strong>Legacy Authoring — guia operacional</strong><span>Auditoria encontra; Authoring altera</span></div><div class="chain"><div class="chain-row"><b>World Closure</b><span><code>REVIEW</code> é diagnóstico. Se o target editável estiver resolvido, a linha pode ser aberta no Authoring.</span></div><div class="chain-row"><b>ITEM</b><span>OpenItem CREATE/EDIT para code existente no runtime <code>sITEM</code>. Novo code runtime continua bloqueado.</span></div><div class="chain-row"><b>MONSTER</b><span>Stats/EXP, drops, money, extra drops, dialogs e linked file.</span></div><div class="chain-row"><b>NPC</b><span>Fields, dialogs e shops. Placement fixo usa SPC.</span></div><div class="chain-row"><b>SPM/SPP/SPC</b><span>Actors/boss/directives; start points; fixed NPC records canónicos.</span></div><div class="chain-row"><b>Segurança</b><span>Stage → <code>pt_build</code>. Publish → hash preflight + backup + atomic replace + verify. Restore bloqueia drift.</span></div><div class="chain-row"><b>EXEs antigos</b><span>Não são executados nem necessários para os workflows Python já promovidos.</span></div></div><p class="micro">Referência completa: <code>docs/comece_aqui/MANUAL_UTILIZADOR.md</code> e <code>docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md</code>.</p></section>
+        <section class="panel guide-runbook" data-manual-legacy-runbook="2026-09-21"><div class="panel-title"><strong>Legacy Authoring — guia operacional</strong><span>Auditoria encontra; Authoring altera</span></div><div class="chain"><div class="chain-row"><b>World Closure</b><span><code>REVIEW</code> é diagnóstico. Se o target editável estiver resolvido, a linha pode ser aberta no Authoring.</span></div><div class="chain-row"><b>ITEM</b><span>OpenItem CREATE/EDIT para code existente no runtime <code>sITEM</code>. Novo code runtime continua bloqueado.</span></div><div class="chain-row"><b>MONSTER</b><span>Stats/EXP, drops, money, extra drops, dialogs e linked file.</span></div><div class="chain-row"><b>NPC</b><span>Fields, dialogs e shops. Placement fixo usa SPC.</span></div><div class="chain-row"><b>SPM/SPP/SPC</b><span>Actors/boss/directives; start points; fixed NPC records canónicos.</span></div><div class="chain-row"><b>Segurança</b><span>Stage → <code>pt_build</code>. Publish → hash preflight + backup + atomic replace + verify. Restore bloqueia drift.</span></div><div class="chain-row"><b>Erros</b><span>404 = identidade/target não existe; 409 = configuração/armamento pendente; 422 = valor/payload inválido. A UI mostra a causa junto da tarefa.</span></div></div><p class="micro">Referência completa: <code>docs/comece_aqui/MANUAL_UTILIZADOR.md</code> e <code>docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md</code>.</p></section>
         <section class="panel guide-runbook"><div class="panel-title"><strong>Runbook recomendado</strong><span>Do ambiente limpo até a Release 1.0</span></div><div class="guide-steps"><div><b>01</b><span>VERIFY_PACKAGE</span><small>Confirma que a distribuição está completa.</small></div><div><b>02</b><span>Environment</span><small>Python, paths, Blender, hashes e isolamento.</small></div><div><b>03</b><span>Integration Regression</span><small>Client + server + outliers recentes.</small></div><div><b>04</b><span>Release 1 Auto</span><small>Matriz física completa; pode demorar.</small></div><div><b>05</b><span>Runtime/Game</span><small>Revisão integrada no jogo.</small></div><div><b>06</b><span>Publish/Restore</span><small>Promoção controlada e rollback antes da 1.0.</small></div></div></section>
       </section>
 

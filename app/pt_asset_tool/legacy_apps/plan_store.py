@@ -9,7 +9,7 @@ import hashlib
 import json
 import secrets
 
-from .common import atomic_write_bytes, sha256_file
+from .common import atomic_write_bytes, sha256_file, legacy_build_root
 from .workspace import public_plan
 
 FORMAT = "PT_LEGACY_APPS_PLAN_STORE_V1"
@@ -70,7 +70,7 @@ def _decode(value: Any) -> Any:
 
 
 def _root(project_root: Path) -> Path:
-    return Path(project_root).resolve() / "app" / "pt_build" / "legacy_apps" / "plans"
+    return legacy_build_root(project_root) / "legacy_apps" / "plans"
 
 
 def save_plan(project_root: Path, operation: str, plan: dict[str, Any]) -> dict[str, Any]:
