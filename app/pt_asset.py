@@ -147,19 +147,46 @@ def _blender_command() -> list[str]:
 
 
 def _blender_launcher_status(cmd: list[str] | None = None) -> tuple[bool, str]:
-    """Compatibility wrapper around the central Blender runtime resolver."""
-    from pt_asset_tool.dependencies import blender_runtime_info
-    info = blender_runtime_info(ROOT, probe_version=True)
-    if cmd is not None and list(cmd) != list(info.get("command") or []):
-        return False, "BLENDER_COMMAND_DIVERGED_FROM_CENTRAL_RESOLVER"
-    detail = (
-        f"source={info.get('source')} "
-        f"version={info.get('version') or 'unverified'} "
-        f"command={' '.join(info.get('command') or [])} "
-        f"detail={info.get('detail')}"
-    )
-    return bool(info.get("ready")), detail
+    """Return whether the configured Blender application is actually available.
 
+    Flatpak launchers must have the configured app installed.  This check is
+    intentionally independent from Blender version probing so the historical
+    boolean/reason contract remains deterministic and easy to test.
+    """
+    cmd = list(cmd or _blender_command())
+    if not cmd:
+        return False, "EMPTY_BLENDER_COMMAND"
+    executable = shutil.which(cmd[0])
+    if not executable:
+        return False, f"EXECUTABLE_NOT_FOUND:{cmd[0]}"
+
+    if Path(cmd[0]).name == "flatpak":
+        app_id = next((arg for arg in cmd if arg == "org.blender.Blender"), None)
+        if app_id is None:
+            try:
+                run_i = cmd.index("run")
+            except ValueError:
+                run_i = -1
+            if run_i >= 0:
+                app_id = next((arg for arg in cmd[run_i + 1:] if not arg.startswith("-")), None)
+        if not app_id:
+            return False, "FLATPAK_APP_ID_NOT_FOUND"
+        try:
+            proc = subprocess.run(
+                [executable, "info", app_id],
+                text=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.PIPE,
+                timeout=5,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return False, f"FLATPAK_INFO_FAILED:{type(exc).__name__}:{exc}"
+        if proc.returncode != 0:
+            detail = (proc.stderr or "").strip().replace("\n", " ")
+            return False, f"FLATPAK_APP_UNAVAILABLE:{app_id}:{detail}"
+        return True, f"FLATPAK_APP_INSTALLED:{app_id}"
+
+    return True, f"EXECUTABLE_FOUND:{executable}"
 
 def _run_core(args: list[str], capture: bool = False) -> subprocess.CompletedProcess[str]:
     if not CORE.is_file():

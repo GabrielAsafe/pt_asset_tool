@@ -997,3 +997,184 @@ def entity_detail(
     entities = build_live_entities(list(rows), seed, registry=registry)
     return entity_detail_from_built(entities, entity_key, registry=registry)
 
+# PT_POST_CONSOLIDATION_REGRESSION_REPAIR_2026-09-25
+# Compatibility enrichment restored after technical-debt consolidation dropped
+# path/registry relationship facets from the public entity catalog contract.
+_PT_ENTITY_QUERY_BASE = query_entities
+_PT_ENTITY_DETAIL_BASE = entity_detail
+
+def _pt_rr_norm_path(value):
+    return str(value or "").replace("\\", "/").strip("/")
+
+def _pt_rr_row_bucket(row):
+    import pathlib as _p
+    path = _pt_rr_norm_path(row.get("path"))
+    role = str(row.get("role") or "").upper()
+    ext = str(row.get("ext") or _p.PurePosixPath(path).suffix).lower()
+    if role.startswith("ITEM_ICON") or role in {"ICON", "SKILL", "ITEM_ICON"}:
+        return "icon_paths"
+    if ext in {".wav", ".mp3", ".ogg"} or role == "AUDIO":
+        return "audio_paths"
+    if ext in {".smd", ".ase"} or "MODEL" in role:
+        return "model_paths"
+    if ext in {".inx", ".ini"} or role == "CONFIG":
+        return "config_paths"
+    if ext in {".smb"} or "ANIMATION" in role or "MOTION" in role:
+        return "animation_paths"
+    if ext in {".bmp", ".tga", ".png", ".jpg", ".jpeg", ".dds"} or "TEXTURE" in role:
+        return "texture_paths"
+    return "support_paths"
+
+def _pt_rr_canonical_actor_key(path):
+    import pathlib as _p
+    parts = _p.PurePosixPath(_pt_rr_norm_path(path)).parts
+    if len(parts) >= 3 and parts[0].casefold() == "char" and parts[1].casefold() in {"npc", "monster"}:
+        group = "NPC" if parts[1].casefold() == "npc" else "MONSTER"
+        return f"{group}|{('/'.join(parts[:3])).casefold()}"
+    return None
+
+def _pt_rr_registry_match(entity, asset):
+    import pathlib as _p
+    group = str(entity.get("semantic_group") or "").upper()
+    key = str(entity.get("entity_key") or "").casefold()
+    display = str(entity.get("display_name") or "").casefold()
+    primary = _pt_rr_norm_path(getattr(asset, "primary_path", ""))
+    if primary and primary.casefold() in {str(x).casefold() for x in entity.get("model_paths", [])}:
+        return True
+    if group in {"NPC", "MONSTER"}:
+        return _pt_rr_canonical_actor_key(primary) == key
+    if group == "ITEM" and primary:
+        return _p.PurePosixPath(primary).stem.casefold() == display
+    return False
+
+def _pt_rr_enrich_entity(entity, rows, registry=None, *, include_assets=False, include_physical=False):
+    import pathlib as _p
+    from collections import Counter as _Counter
+    group = str(entity.get("semantic_group") or "").upper()
+    display = str(entity.get("display_name") or "")
+    display_cf = display.casefold()
+    key = str(entity.get("entity_key") or "")
+    all_existing = {_pt_rr_norm_path(x) for x in (entity.get("all_paths") or []) if x}
+    buckets = {name: set(entity.get(name) or []) for name in (
+        "model_paths", "config_paths", "animation_paths", "texture_paths",
+        "icon_paths", "audio_paths", "support_paths")}
+    candidate_rows = []
+    for row in rows:
+        path = _pt_rr_norm_path(row.get("path"))
+        if not path: continue
+        pp = _p.PurePosixPath(path)
+        role = str(row.get("role") or "").upper()
+        cat = str(row.get("category") or "").upper()
+        include = path in all_existing
+        if group == "ITEM":
+            include = include or (pp.stem.casefold() == display_cf and (cat == "ITEM" or (cat == "UI" and role.startswith("ITEM_ICON"))))
+        elif group in {"NPC", "MONSTER"}:
+            token = "npc" if group == "NPC" else "monster"
+            parts = pp.parts
+            include = include or (len(parts) >= 3 and parts[0].casefold() == "char" and parts[1].casefold() == token and parts[2].casefold() == display_cf)
+            for i, part in enumerate(parts[:-1]):
+                if part.casefold() == token and i + 1 < len(parts) and parts[i + 1].casefold() == display_cf:
+                    include = True; break
+        if include:
+            candidate_rows.append(row)
+            buckets[_pt_rr_row_bucket(row)].add(path)
+    relationships = list(entity.get("relationships") or [])
+    model = sorted(buckets["model_paths"], key=str.casefold)
+    model0 = model[0] if model else None
+    if group == "ITEM" and model0:
+        for p in sorted(buckets["texture_paths"], key=str.casefold):
+            relationships.append({"type":"MODEL_USES_TEXTURE","from":model0,"to":p,"evidence":"EXACT_ITEM_CODE_STEM"})
+        for p in sorted(buckets["icon_paths"], key=str.casefold):
+            relationships.append({"type":"ITEM_HAS_ICON","from":model0,"to":p,"evidence":"EXACT_ITEM_CODE_STEM"})
+    if group in {"NPC", "MONSTER"}:
+        canonical_prefix = f"char/{'npc' if group == 'NPC' else 'monster'}/{display}/".casefold()
+        for row in candidate_rows:
+            p = _pt_rr_norm_path(row.get("path"))
+            if not p.casefold().startswith(canonical_prefix):
+                relationships.append({"type":"ENTITY_HAS_SUPPORT_ASSET","from":key,"to":p,"evidence":"EXACT_ACTOR_FOLDER_COMPONENT"})
+    reg_assets=[]; fam=_Counter(); bind_modes=_Counter(); rigid_ready=anim_ready=phys_rigid=phys_anim=0
+    skeletons=set(entity.get("binding_skeleton_paths") or []); motions=set(entity.get("motion_smb_paths") or [])
+    if registry is not None:
+        probe_entity = {**entity, **{k:list(v) for k,v in buckets.items()}}
+        for asset in getattr(registry,"assets",[]) or []:
+            if not _pt_rr_registry_match(probe_entity, asset): continue
+            fam[str(getattr(asset,"family","") or "UNKNOWN")]+=1
+            bind_modes[str(getattr(asset,"binding_mode","") or "NONE")]+=1
+            rigid_ready += int(bool(getattr(asset,"rigid_binding_ready",False)))
+            anim_ready += int(bool(getattr(asset,"animation_binding_ready",False)))
+            skeleton=_pt_rr_norm_path(getattr(asset,"binding_skeleton_smb",""))
+            if skeleton: skeletons.add(skeleton); buckets["animation_paths"].add(skeleton)
+            for motion in getattr(asset,"motions",[]) or []:
+                motion=_pt_rr_norm_path(motion)
+                if motion: motions.add(motion); buckets["animation_paths"].add(motion)
+            for texture in getattr(asset,"textures",[]) or []:
+                texture=_pt_rr_norm_path(texture)
+                if texture:
+                    buckets["texture_paths"].add(texture)
+                    if model0: relationships.append({"type":"MODEL_USES_TEXTURE","from":model0,"to":texture,"evidence":"SMD_MATERIAL_TEXLINK"})
+            cfg_rows=[]
+            for c in getattr(asset,"configs",[]) or []:
+                if not isinstance(c,dict): continue
+                for field in ("inx","motion_inx"):
+                    logical=_pt_rr_norm_path(c.get(field))
+                    if logical: buckets["config_paths"].add(logical)
+                cfg_rows.append({"inx":c.get("inx"),"motion_inx":c.get("motion_inx"),"motion_smb":c.get("motion_smb")})
+            physical=None
+            if include_physical and hasattr(registry,"physical_dependency_status"):
+                try: physical=registry.physical_dependency_status(asset)
+                except Exception as exc: physical={"status":"ERROR","error":f"{type(exc).__name__}:{exc}"}
+                phys_rigid += int(bool((physical or {}).get("rigid_binding_ready_physical")))
+                phys_anim += int(bool((physical or {}).get("animation_binding_ready_physical")))
+            if include_assets:
+                rr={"asset_id":getattr(asset,"asset_id",None),"path":_pt_rr_norm_path(getattr(asset,"primary_path","")),"family":getattr(asset,"family",None),"kind":getattr(asset,"kind",None),"category":getattr(asset,"category",None),"binding_mode":getattr(asset,"binding_mode",None),"binding_source":getattr(asset,"binding_source",None),"rigid_binding_ready":bool(getattr(asset,"rigid_binding_ready",False)),"animation_binding_ready":bool(getattr(asset,"animation_binding_ready",False)),"binding_skeleton_smb":skeleton or None,"motions":list(getattr(asset,"motions",[]) or []),"textures":list(getattr(asset,"textures",[]) or []),"configs":cfg_rows}
+                if physical is not None: rr["physical_dependency_status"]=physical
+                reg_assets.append(rr)
+        for pair in getattr(registry,"pairing",[]) or []:
+            if not isinstance(pair,dict): continue
+            source_key=_pt_rr_canonical_actor_key(pair.get("inx") or "")
+            if source_key != key: continue
+            targets=sorted({k for k in (_pt_rr_canonical_actor_key(pair.get("model_smd") or ""),_pt_rr_canonical_actor_key(pair.get("motion_smb") or "")) if k and k != source_key})
+            if targets:
+                entity["related_entity_keys"]=sorted(set(entity.get("related_entity_keys") or [])|set(targets),key=str.casefold)
+                entity.setdefault("cross_entity_links",[]).append({"evidence":"INX_PHYSICAL_PAIRING","inx":_pt_rr_norm_path(pair.get("inx") or "") or None,"model_smd":_pt_rr_norm_path(pair.get("model_smd") or "") or None,"motion_smb":_pt_rr_norm_path(pair.get("motion_smb") or "") or None,"target_entity_keys":targets,"model_resolved":str(pair.get("model_resolved") or "").casefold()=="true","motion_resolved":str(pair.get("motion_resolved") or "").casefold()=="true"})
+    for field, values in buckets.items(): entity[field]=sorted({_pt_rr_norm_path(x) for x in values if x},key=str.casefold)
+    entity["all_paths"]=sorted(set(entity.get("all_paths") or [])|set().union(*buckets.values()),key=str.casefold)
+    seen=set(); dedup=[]
+    for rel in relationships:
+        rk=(rel.get("type"),str(rel.get("from") or "").casefold(),str(rel.get("to") or "").casefold())
+        if rk in seen: continue
+        seen.add(rk); dedup.append(rel)
+    entity["relationships"]=dedup
+    if registry is not None:
+        count=sum(fam.values())
+        if count:
+            entity["registry_evidence"]=True; entity["registry_asset_count"]=count; entity["registry_family_counts"]=dict(sorted(fam.items())); entity["registry_binding_mode_counts"]=dict(sorted(bind_modes.items())); entity["rigid_binding_ready_count"]=rigid_ready; entity["animation_binding_ready_count"]=anim_ready
+        entity["binding_skeleton_paths"]=sorted(skeletons,key=str.casefold); entity["motion_smb_paths"]=sorted(motions,key=str.casefold)
+        if include_physical:
+            entity["physical_rigid_binding_ready_count"]=phys_rigid; entity["physical_animation_binding_ready_count"]=phys_anim
+        if include_assets: entity["registry_assets"]=sorted(reg_assets,key=lambda x:str(x.get("path") or "").casefold())
+    entity.setdefault("registry_evidence",False); entity.setdefault("registry_asset_count",0); entity.setdefault("registry_family_counts",{}); entity.setdefault("rigid_binding_ready_count",0); entity.setdefault("animation_binding_ready_count",0); entity.setdefault("binding_skeleton_paths",[]); entity.setdefault("motion_smb_paths",[]); entity.setdefault("related_entity_keys",[]); entity.setdefault("referenced_by_entity_keys",[]); entity.setdefault("cross_entity_links",[]); entity.setdefault("runtime_status","UNPROVEN"); entity.setdefault("writer_status","UNAUTHORIZED")
+    return entity
+
+def _pt_rr_apply_reverse_pair_links(items):
+    by_key={str(x.get("entity_key") or ""):x for x in items}
+    for item in items:
+        for target in item.get("related_entity_keys") or []:
+            if target in by_key:
+                tgt=by_key[target]
+                tgt["referenced_by_entity_keys"]=sorted(set(tgt.get("referenced_by_entity_keys") or [])|{str(item.get("entity_key") or "")},key=str.casefold)
+
+def query_entities(rows, seed=None, *, group="", q="", limit=500, registry=None):
+    rows_list=list(rows)
+    report=_PT_ENTITY_QUERY_BASE(rows_list,seed,group=group,q=q,limit=limit,registry=registry)
+    items=report.get("items") or []
+    for entity in items: _pt_rr_enrich_entity(entity,rows_list,registry,include_assets=False,include_physical=False)
+    _pt_rr_apply_reverse_pair_links(items)
+    return report
+
+def entity_detail(rows, seed, entity_key, *, registry=None):
+    rows_list=list(rows)
+    report=_PT_ENTITY_DETAIL_BASE(rows_list,seed,entity_key,registry=registry)
+    if report and isinstance(report.get("entity"),dict): _pt_rr_enrich_entity(report["entity"],rows_list,registry,include_assets=True,include_physical=True)
+    return report
+

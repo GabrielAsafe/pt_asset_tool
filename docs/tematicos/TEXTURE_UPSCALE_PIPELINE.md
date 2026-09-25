@@ -267,3 +267,11 @@ No nível do report há também `source_write_attempted=false` e `source_client_
 - `pixel-art` usa nearest-neighbour.
 
 Use `python3 pt_asset.py texture-upscale capabilities` para verificar os backends antes de um lote. `PASS` significa que o output de staging foi criado e verificado; não implica que AI tenha sido usada. Confira `ai_enhancement_used`, `enhancement_class` e `backend_decision`.
+
+<!-- PT_TEXTURE_RUNTIME_CANONICAL_2026-09-25 -->
+
+## Preservação antes de clean/release
+
+O fato de `app/pt_build/texture_upscale/` ser runtime gerado não torna transações/manifests automaticamente descartáveis. Antes de uma consolidação/clean que remova `pt_build`, arquive/exporte qualquer run, transaction, batch ou manifest necessário para auditoria, comparação ou rollback futuro.
+
+Nunca apague esse estado assumindo que existe uma migração: primeiro confirme o destino e hashes da cópia.

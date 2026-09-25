@@ -81,7 +81,35 @@ Layout Summit canónico certificado na superfície de autoria: 200 records × 12
 ### SPC
 
 Corpus canónico: 100 records × 504 bytes. Legacy Authoring suporta CREATE e EDIT com ADD/REPLACE/REMOVE de records fixos via writer nativo `build_spc_record`. Layout/slot incompatível permanece fail-closed.
-\n## Legacy text definitions (OpenItem / Monster / NPC)\n\nA camada `legacy_authoring.py` possui writer source-preserving para definições textuais existentes. Ela detecta encoding/newline, substitui apenas tokens suportados e preserva diretivas desconhecidas.\n\nPatch kinds de EDIT publicados pelo Asset Bundle Deploy:\n\n- `LEGACY_TEXT_PATCH` — `.txt`, `.inf`, `.npc`;\n- `LEGACY_SPM_PATCH` — `.spm`;\n- `LEGACY_SPP_PATCH` — `.spp`;\n- `LEGACY_SPC_PATCH` — `.spc`.\n\nCREATE usa os contracts nativos do Asset Compiler:\n\n- `item.definition.txt`;\n- `character.monster.inf`;\n- `character.npc.npc`;\n- `field.spawn.spm`;\n- `field.startpoints.spp`;\n- `field.fixed_npc.spc`.\n\n### ITEM runtime boundary\n\nOpenItem CREATE/EDIT é permitido somente quando o item code pertence à runtime table source-verificada. O authoring não registra novo code em `sITEM`.\n\n### Publish\n\n`stage` gera overlay/manifest em `pt_build`. `publish` é transacional, exige `APPLY ASSET BUNDLE`, compara hashes do target, cria backup e verifica os bytes pós-write. `restore` exige `RESTORE ASSET BUNDLE` e bloqueia drift externo.\n
+
+## Legacy text definitions (OpenItem / Monster / NPC)
+
+A camada `legacy_authoring.py` possui writer source-preserving para definições textuais existentes. Ela detecta encoding/newline, substitui apenas tokens suportados e preserva diretivas desconhecidas.
+
+Patch kinds de EDIT publicados pelo Asset Bundle Deploy:
+
+- `LEGACY_TEXT_PATCH` — `.txt`, `.inf`, `.npc`;
+- `LEGACY_SPM_PATCH` — `.spm`;
+- `LEGACY_SPP_PATCH` — `.spp`;
+- `LEGACY_SPC_PATCH` — `.spc`.
+
+CREATE usa os contracts nativos do Asset Compiler:
+
+- `item.definition.txt`;
+- `character.monster.inf`;
+- `character.npc.npc`;
+- `field.spawn.spm`;
+- `field.startpoints.spp`;
+- `field.fixed_npc.spc`.
+
+### ITEM runtime boundary
+
+OpenItem CREATE/EDIT é permitido somente quando o item code pertence à runtime table source-verificada. O authoring não registra novo code em `sITEM`.
+
+### Publish
+
+`stage` gera overlay/manifest em `pt_build`. `publish` é transacional, exige `APPLY ASSET BUNDLE`, compara hashes do target, cria backup e verifica os bytes pós-write. `restore` exige `RESTORE ASSET BUNDLE` e bloqueia drift externo.
+
 ## ASE e outros
 
 ASE aparece como authoring/reference em várias cadeias de Field/Enrichment, mas não recebe automaticamente a mesma autoridade de writer dos formatos certificados acima.

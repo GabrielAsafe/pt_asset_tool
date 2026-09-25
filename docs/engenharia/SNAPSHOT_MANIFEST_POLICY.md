@@ -20,3 +20,17 @@ python3 app/update_snapshot_manifest.py --current-root .
 ```
 
 O gerador exclui `.git/`, caches de ferramentas (`__pycache__/`, `.pytest_cache/`, `.mypy_cache/`, `.ruff_cache/`), `*.pyc`, qualquer `pt_build/`, o próprio `SNAPSHOT_SHA256SUMS.txt` e os paths declarados em `SNAPSHOT_MUTABLE_PATHS.txt`. Não regenere o manifest para esconder diferenças inesperadas; primeiro revise o diff.
+
+<!-- PT_DOC_VALIDATION_SNAPSHOT_2026-09-25 -->
+
+## Testes sem sujar bytecode
+
+Durante pytest em uma árvore que será empacotada, prefira:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 "$PY" -m pytest -q dev_tests tests
+```
+
+Isso evita `.pyc` produzidos por imports normais. `python -m compileall`, por definição, gera bytecode; o estado gerado precisa ser removido pelo clean workflow antes de certificar o snapshot.
+
+A política completa está em `VALIDACAO_TESTES_DESENVOLVIMENTO.md`.

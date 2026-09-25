@@ -1528,8 +1528,8 @@ Estes comandos são interceptados por `app/pt_asset.py` antes da delegação ao 
 | `smoke / self-test` | Smoke real do pacote: catálogo, registry, GUI contracts, Blender/import bridge, writers e pt_build. Só cria e remove probe em pt_build. | read-only + pt_build probe |
 | `ui / gui` | Inicia a aplicação gráfica local. | UI local |
 | `texture-upscale scan` | Classifica texturas suportadas e riscos sem escrever no client. | pt_build/report |
-| `texture-upscale run` | Enhance/upscale 2x/3x/4x com perfis `faithful`, `balanced`, `detail` ou `pixel-art` e backend `auto`, Lanczos ou Real-ESRGAN; `--all --include-ui` é o modo global explícito. O manifest é checkpointado durante runs longos. | `enhancement/runs`, nunca client |
-| `texture-upscale resume` | Retoma o último run checkpointado e reutiliza candidates cujo source/output SHA-256 ainda confere. | `enhancement/runs`, nunca client |
+| `texture-upscale run` | Enhance/upscale 2x/3x/4x com perfis `faithful`, `balanced`, `detail` ou `pixel-art` e backend `auto`, Lanczos ou Real-ESRGAN; `--all --include-ui` é o modo global explícito. O manifest é checkpointado durante runs longos. | `app/pt_build/texture_upscale/runs`, nunca client |
+| `texture-upscale resume` | Retoma o último run checkpointado e reutiliza candidates cujo source/output SHA-256 ainda confere. | `app/pt_build/texture_upscale/runs`, nunca client |
 | `texture-upscale publish-batch` | Pré-valida todos os hashes do último run e publica o lote com backup/transação por asset; falha no meio tenta rollback automático. | client, confirmação explícita |
 | `texture-upscale restore-batch` | Pré-valida drift/backups e desfaz o último lote `APPLIED_VERIFIED`. | client, confirmação explícita |
 | `texture-upscale batch-status` | Resume último run/lote e disponibilidade de rollback global. | read-only |
@@ -1661,3 +1661,11 @@ python3 pt_asset.py legacy-authoring restore \
 ```
 
 Restore usa o backup da transação e bloqueia drift externo desconhecido.
+
+<!-- PT_DOC_VALIDATION_CLI_2026-09-25 -->
+
+## Validação de comandos/documentação
+
+A referência para executar testes do projeto é `docs/engenharia/VALIDACAO_TESTES_DESENVOLVIMENTO.md`. Para um teste específico use `arquivo.py::test_nome`; para regressão principal use `PYTHONDONTWRITEBYTECODE=1 "$PY" -m pytest -q dev_tests tests`.
+
+Texture Upscale usa `app/pt_build/texture_upscale/` como runtime canónico. Referências antigas a um root top-level `enhancement/` são históricas e não devem ser usadas para criar um segundo estado concorrente.

@@ -63,4 +63,83 @@ Read-only continua sendo o default. Não altere flags como atalho. Para Legacy A
 ## T5 effect/audio divergente
 
 Use `audit t5-assets`, `source-contracts` e `player-class-contracts`. Lembre que PRELOAD não prova ACTIVATION e reference-only não é recovery authority.
-\n## World Closure mostra REVIEW por ASE missing\n\n`REVIEW` é diagnóstico, não confirmação de que o item está quebrado. Verifique se a família realmente exige DropItem ASE e se o item possui target OpenItem/runtime válido. Selecionar a linha pode carregar o OpenItem correspondente no Legacy Authoring.\n\n## Explorer não carregou o Authoring\n\nVerifique o detalhe da linha:\n\n- `authoring_reason`;\n- path ambíguo;\n- mais de uma definição OpenItem para o mesmo code;\n- row sem kind suportado.\n\nTargets ambíguos não são escolhidos automaticamente.\n\n## `ITEM_CODE_NOT_IN_RUNTIME_TABLE`\n\nO OpenItem tentou usar um code sem contrato `sITEM` source-verificado. Não force. O writer de registro de novo code runtime ainda não foi promovido.\n\n## `LEGACY_AUTHORING_SOURCE_DRIFT`\n\nO arquivo mudou desde o Inspect/hash esperado. Reabra/inspecione o target, revise a nova versão e gere um novo stage.\n\n## `SPP_NON_CANONICAL_LAYOUT` / `SPC_NON_CANONICAL_LAYOUT`\n\nO arquivo não possui o layout canónico provado. Não redimensione/trunque manualmente para “fazer passar”; recupere o formato/corpus correto.\n\n## Publish recusado\n\nCheque:\n\n1. `server_root`;\n2. stage/manifest atual;\n3. `ARM ASSET DEPLOY` na GUI ou confirmação literal na CLI;\n4. target drift;\n5. transaction state.\n\n## Preciso abrir PriTaTor/NPCManager?\n\nNão para os workflows já reescritos. Os EXEs antigos são evidência histórica. Um bloqueio do Python authoring deve ser resolvido provando o contrato, não recorrendo ao EXE como bypass automático.\n
+
+## World Closure mostra REVIEW por ASE missing
+
+`REVIEW` é diagnóstico, não confirmação de que o item está quebrado. Verifique se a família realmente exige DropItem ASE e se o item possui target OpenItem/runtime válido. Selecionar a linha pode carregar o OpenItem correspondente no Legacy Authoring.
+
+## Explorer não carregou o Authoring
+
+Verifique o detalhe da linha:
+
+- `authoring_reason`;
+- path ambíguo;
+- mais de uma definição OpenItem para o mesmo code;
+- row sem kind suportado.
+
+Targets ambíguos não são escolhidos automaticamente.
+
+## `ITEM_CODE_NOT_IN_RUNTIME_TABLE`
+
+O OpenItem tentou usar um code sem contrato `sITEM` source-verificado. Não force. O writer de registro de novo code runtime ainda não foi promovido.
+
+## `LEGACY_AUTHORING_SOURCE_DRIFT`
+
+O arquivo mudou desde o Inspect/hash esperado. Reabra/inspecione o target, revise a nova versão e gere um novo stage.
+
+## `SPP_NON_CANONICAL_LAYOUT` / `SPC_NON_CANONICAL_LAYOUT`
+
+O arquivo não possui o layout canónico provado. Não redimensione/trunque manualmente para “fazer passar”; recupere o formato/corpus correto.
+
+## Publish recusado
+
+Cheque:
+
+1. `server_root`;
+2. stage/manifest atual;
+3. `ARM ASSET DEPLOY` na GUI ou confirmação literal na CLI;
+4. target drift;
+5. transaction state.
+
+## Preciso abrir PriTaTor/NPCManager?
+
+Não para os workflows já reescritos. Os EXEs antigos são evidência histórica. Um bloqueio do Python authoring deve ser resolvido provando o contrato, não recorrendo ao EXE como bypass automático.
+
+<!-- PT_DOC_VALIDATION_TROUBLESHOOTING_2026-09-25 -->
+
+## `No module named pytest`
+
+O Python usado para a aplicação pode não ter dependências de desenvolvimento. Não instale às cegas em outro interpretador.
+
+```bash
+cd ~/Transferências/pt_asset_tool/app
+PY="${PT_ASSET_TEST_PYTHON:-python3}"
+"$PY" --version
+"$PY" -m pytest --version
+```
+
+Se esse mesmo Python não possuir pytest:
+
+```bash
+"$PY" -m pip install -r requirements-dev.txt
+```
+
+Na raiz do projeto, o path equivalente é `app/requirements-dev.txt`.
+
+## pytest recriou `__pycache__` / `.pyc`
+
+Use `PYTHONDONTWRITEBYTECODE=1` em pytest. Isso não impede `.pytest_cache` e não impede `compileall` de escrever `.pyc` deliberadamente.
+
+## Como rodar só o teste que falhou
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 \
+"$PY" -m pytest -q \
+  dev_tests/test_arquivo.py::test_nome_exato
+```
+
+Depois do PASS focado, rode a regressão aplicável (`dev_tests tests`) antes de declarar a árvore verde.
+
+## Antes de `READY_TO_DEPLOY`
+
+Siga `docs/engenharia/VALIDACAO_TESTES_DESENVOLVIMENTO.md`. `READY_TO_DEPLOY.py` é gate final; não substitui teste específico, regressão e revisão de runtime state.

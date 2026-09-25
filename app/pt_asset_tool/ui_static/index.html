@@ -6,7 +6,7 @@
   <title>PT Asset Tool</title>
   <link rel="stylesheet" href="/static/app.css" />
 </head>
-<body>
+<body data-manual-legacy-authoring="2026-09-21">
   <div id="app">
     <aside class="sidebar">
       <div class="brand"><div class="brand-mark">PT</div><div><strong>Asset Tool</strong><small id="versions">UI</small></div></div>
@@ -318,7 +318,9 @@
         <section class="server-workflow-pane" data-server-workflow-pane="validation">
           <section class="panel">
             <div class="panel-title"><strong>Validação de integração</strong><span>gates, não authoring</span></div>
-            <div class="server-workflow-actions"><button id="serverDesignBtn" class="btn primary">Analisar Asset Enrichment</button><button id="serverIntegrationBtn" class="btn primary">Validar Client + Server</button></div>
+            <div class="server-workflow-actions"><button id="serverDesignBtn" class="btn primary">Analisar Asset Enrichment</button><button id="serverIntegrationBtn" class="btn primary">Validar Client + Server</button>
+            <button id="serverVendorPlanBtn" class="btn">Gerar plano v9</button>
+            <button id="serverVendorGraphBtn" class="btn">Grafo de dependências v9</button></div>
           </section>
           <div id="serverMetrics" class="metrics server-metrics"></div>
           <div class="server-grid server-grid-reports">
@@ -359,7 +361,24 @@
             <div class="server-result-actions"><button id="serverOpenResultBtn" class="btn primary" disabled>Abrir resultado no workflow</button></div>
           </section>
         </section>
-      </section>
+      
+<section class="panel server-explorer-panel pt-post-consolidation-server-compat">
+  <div class="panel-title"><strong>Explorador de bundles</strong><span id="serverExplorerCount">Use os filtros para inspecionar bundles.</span></div>
+  <div class="server-explorer-toolbar">
+    <select id="serverExplorerKind"><option value="entities">Monster / NPC</option><option value="fields">Fields</option><option value="spawns">Spawnpoints</option><option value="items">OpenItem</option></select>
+    <input id="serverExplorerSearch" type="search" placeholder="Buscar definição, código, stage, INX ou motivo…" />
+    <select id="serverExplorerStatus"><option value="">Todos os estados</option></select>
+    <select id="serverExplorerReason"><option value="">Todos os motivos</option></select>
+    <button id="serverExplorerRefresh" class="btn">Atualizar lista</button>
+  </div>
+  <div class="server-explorer-layout">
+    <div class="server-explorer-table"><table><thead><tr><th>Estado</th><th>Tipo</th><th>Definição / Bundle</th><th>Ligação principal</th><th>Motivo</th></tr></thead><tbody id="serverExplorerRows"><tr><td colspan="5" class="empty">Carregue um relatório existente.</td></tr></tbody></table></div>
+    <aside id="serverExplorerDetail" class="server-explorer-detail"><div class="empty">Selecione uma linha para ver a cadeia de dependências.</div></aside>
+  </div>
+</section>
+
+\n        <section class="panel field-editor-panel">\n          <div class="panel-title"><strong>Field metadata staging — SPM / SPP / SPC</strong><span id="fieldEditorState">Selecione um Field no explorador.</span></div>\n          <p class="micro field-editor-note">SPM = spawn/atores; SPP = 200 start points; SPC = NPCs fixos/merchants. DRAFTS são criados somente em <code>pt_build/server_field_editor</code>. Nenhum botão publica no servidor.</p>\n          <div class="field-editor-toolbar">\n            <button id="fieldOpenSpm" class="btn" disabled>Abrir SPM</button>\n            <button id="fieldOpenSpp" class="btn" disabled>Abrir SPP</button>\n            <button id="fieldOpenSpc" class="btn" disabled>Abrir SPC</button>\n            <code id="fieldEditorPath">—</code>\n          </div>\n          <div id="fieldEditorSummary" class="server-summary"><div class="empty">Escolha <strong>Fields</strong> no explorador e selecione um bundle.</div></div>\n          <div id="fieldEditorForm" class="field-editor-form hidden"></div>\n        </section>\n
+</section>
 
       <section id="tab-legacy" class="tab">
         <div class="server-hero panel legacy-hero">
@@ -573,7 +592,21 @@
           <div class="legacy-authoring-layout"><div><label class="legacy-authoring-label">Spec Python-native / JSON<textarea id="legacyAuthoringSpec" spellcheck="false"></textarea></label><div class="legacy-authoring-actions"><button id="legacyAuthoringStageBtn" class="btn primary">Stage em pt_build</button><button id="legacyAuthoringPublishBtn" class="btn" disabled>Publicar bundle</button><button id="legacyAuthoringRestoreBtn" class="btn">Restaurar bundle</button><button id="legacyAuthoringStatusBtn" class="btn">Status transação</button></div><p class="micro">Fluxo: <code>selecionar target → inspect/create → stage → revisar manifest → publish → validar no jogo → restore</code>. Publish só é habilitado depois de um stage bem-sucedido desta tarefa.</p></div><pre id="legacyAuthoringResult" class="legacy-authoring-result">Escolha uma tarefa acima.</pre></div>
         </section>
         <div id="legacyAuthoringParking" class="hidden"></div>
-      </section>
+      
+<section class="panel pt-post-consolidation-legacy-compat">
+  <div class="panel-title"><strong>Legacy operations · compatibilidade restaurada</strong><span>Python nativo</span></div>
+  <p class="micro"><strong>Os executáveis antigos são apenas evidência</strong>; operações suportadas usam os módulos Python do Asset Tool.</p>
+  <p class="micro">Migração de conta: <strong>Substitui o botão <code>Copy</code></strong> por um plano explícito de cópia do grafo de conta.</p>
+  <div class="legacy-inventory-compat-grid">
+    <label>Store<select id="legacyInventoryStore"><option value="">Selecione</option></select></label>
+    <label>Key<input id="legacyInventoryKey" type="text" placeholder="account / character / warehouse" /></label>
+    <label>Record index<input id="legacyInventoryRecordIndex" type="number" min="0" value="0" /></label>
+    <button id="legacyInventoryInspectBtn" class="btn">Inspecionar inventário</button>
+    <button id="legacyInventoryDeletePlanBtn" class="btn danger-outline">Planear exclusão</button>
+  </div>
+  <p class="micro"><strong>Segurança:</strong> não editar Code/Head/CheckSum arbitrariamente; use inspect/plan/apply com os contratos recuperados.</p>
+</section>
+</section>
 
       <section id="tab-particles" class="tab">
         <div class="server-hero panel">

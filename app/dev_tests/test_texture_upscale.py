@@ -146,7 +146,7 @@ def test_realesrgan_wrapper_preserves_resampled_alpha(tmp_path: Path, monkeypatc
     exe = tmp_path / "realesrgan-ncnn-vulkan"; exe.write_text("stub", encoding="utf-8")
     monkeypatch.setattr(mod, "_resolve_realesrgan", lambda executable: str(exe))
 
-    def fake_run(cmd, text, capture_output, cwd):
+    def fake_run(cmd, text, capture_output, cwd, env=None):
         inp = Path(cmd[cmd.index("-i") + 1]); out = Path(cmd[cmd.index("-o") + 1]); scale = int(cmd[cmd.index("-s") + 1])
         with Image.open(inp) as im:
             im.convert("RGBA").resize((im.width * scale, im.height * scale), Image.Resampling.NEAREST).save(out, format="PNG")

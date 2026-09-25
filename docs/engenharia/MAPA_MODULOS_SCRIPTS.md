@@ -751,3 +751,16 @@ Entradas de inventário de módulos runtime:
 - `dependencies.py` — inventário central de dependências Python/aplicações externas; informa estado, feature dependente, motivo técnico e instrução de instalação/configuração; compartilhado por CLI e GUI.
 - `particle_service.py` — serviço first-party de partículas `.part`, compartilhado pela aba **Partículas** da UI principal e pelo launcher standalone de compatibilidade; staging/preview ficam em `pt_build` e nunca escrevem o client fonte.
 - `READY_TO_DEPLOY.py` (raiz do repositório) — gate de preparação de commit: regressão, limpeza apenas de caches reproduzíveis, preservação explícita de runtime/user data (`pt_build`, enhancement), regeneração do snapshot, `VERIFY_PACKAGE.sh`, stage e commit Git.
+
+<!-- PT_POST_CONSOLIDATION_RUNTIME_INVENTORY_2026-09-25 -->
+## Runtime modules discovered after consolidation
+
+Generated from the current runtime tree so the developer inventory remains exhaustive.
+
+- `catalog_character_index.py` — `pt_asset_tool/catalog_character_index.py` — Runtime Python module discovered by the documentation inventory gate.
+- `item_visual_index.py` — `pt_asset_tool/item_visual_index.py` — Runtime Python module discovered by the documentation inventory gate.
+- `runtime_paths.py` — `pt_asset_tool/runtime_paths.py` — Runtime Python module discovered by the documentation inventory gate.
+- `server_enrichment_readiness.py` — `pt_asset_tool/server_enrichment_readiness.py` — Runtime Python module discovered by the documentation inventory gate.
+- `smd_preview.py` — `pt_asset_tool/smd_preview.py` — Runtime Python module discovered by the documentation inventory gate.
+- `smd_preview_batch.py` — `pt_asset_tool/smd_preview_batch.py` — Runtime Python module discovered by the documentation inventory gate.
+- `pt_asset_app.py` — `pt_asset_app.py` — Runtime Python module discovered by the documentation inventory gate.

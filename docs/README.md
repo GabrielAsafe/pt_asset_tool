@@ -27,6 +27,7 @@
 - `engenharia/MAPA_MODULOS_SCRIPTS.md` — mapa conceitual histórico/detalhado;
 - `engenharia/REVERSE_ENGINEERING_FORMATOS.md` — formatos e descobertas históricas;
 - `engenharia/SNAPSHOT_MANIFEST_POLICY.md` — integridade do pacote.
+- `engenharia/VALIDACAO_TESTES_DESENVOLVIMENTO.md` — runbook canónico de pytest, sintaxe, package verification e READY_TO_DEPLOY.
 - `engenharia/SUMMIT_GAME_ASSET_ENRICHMENT.md` — arquitetura server-aware e bundles client/server.
 
 ## Release 1.0
@@ -57,3 +58,12 @@ O pacote distribui apenas documentação atual, os patch notes de validação de
 A atualização 2026-09-21 de `MANUAL_UTILIZADOR.md`, `GUI_MANUAL_1_0.md` e `LEGACY_MANAGEMENT_AUTHORING.md` documenta a camada Legacy Authoring.
 
 Os documentos `*_1_0.md`, `CURRENT_READINESS.json`, `VALIDATION_STATUS.md` e `release/RELEASE_1_CERTIFICATION.md` são as referências autoritativas do estado atual.
+
+
+## Validação da própria documentação
+
+```bash
+python3 docs/validation/validate_documentation.py
+```
+
+A gate verifica o runbook canónico, newlines escapados acidentalmente e o runtime root atual do Texture Upscale.

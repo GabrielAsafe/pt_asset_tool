@@ -113,3 +113,11 @@ DataServer/userdata, warehouse, logs, anti-cheat e estado runtime não passam a 
 - `ARM CLIENT DEPLOY`: pipelines específicas de client workspace.
 
 Os arms não desabilitam guards backend.
+
+<!-- PT_DOC_VALIDATION_SECURITY_2026-09-25 -->
+
+## Gate de engenharia antes de deploy/release
+
+Arms e confirmações de publish não substituem validação de código. Antes de `READY_TO_DEPLOY`, siga `docs/engenharia/VALIDACAO_TESTES_DESENVOLVIMENTO.md`: teste focado, regressão aplicável, checagens sintáticas, revisão de runtime state e package verification.
+
+Nunca use limpeza de caches/runtime como forma de esconder falhas ou drift. Se `app/pt_build` contém transações/manifests que precisam ser preservados para auditoria/rollback, exporte/arquive antes do clean.

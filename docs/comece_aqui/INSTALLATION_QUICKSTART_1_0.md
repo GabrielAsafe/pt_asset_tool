@@ -112,3 +112,39 @@ O smoke lê o client e usa apenas `pt_build` para probes temporários.
 - não habilite client/server write simplesmente editando flags de readiness;
 - não confunda `BLOCKED_EXTERNAL` com falha automática do tool;
 - não use documentos históricos de `docs/validation/` como estado atual.
+
+<!-- PT_DOC_VALIDATION_QUICKSTART_2026-09-25 -->
+
+## Ambiente de desenvolvimento e testes
+
+Para operar a aplicação, `pytest` não é requisito. Para desenvolver/validar alterações, use um Python com `requirements-dev.txt` instalado.
+
+A partir de `app/`:
+
+```bash
+PY="${PT_ASSET_TEST_PYTHON:-python3}"
+"$PY" -m pytest --version
+```
+
+Se necessário:
+
+```bash
+"$PY" -m pip install -r requirements-dev.txt
+```
+
+Validação principal:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 \
+"$PY" -m pytest -q dev_tests tests
+```
+
+Teste específico:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 \
+"$PY" -m pytest -q \
+  dev_tests/test_modulo.py::test_contrato_especifico
+```
+
+Consulte `../engenharia/VALIDACAO_TESTES_DESENVOLVIMENTO.md` para a ordem completa, sintaxe, snapshot e `READY_TO_DEPLOY`.

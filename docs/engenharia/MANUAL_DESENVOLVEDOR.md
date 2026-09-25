@@ -35,12 +35,26 @@ Todo estado operacional mutável grava em `app/pt_build`; o pacote limpo exclui 
 
 ### Testes mínimos antes de distribuir
 
+A política canónica de validação está em `VALIDACAO_TESTES_DESENVOLVIMENTO.md`. Não presuma que o Python global possui `pytest`; selecione explicitamente o Python/venv de desenvolvimento.
+
+Resumo, a partir de `app/`:
+
+```bash
+PY="${PT_ASSET_TEST_PYTHON:-python3}"
+
+PYTHONDONTWRITEBYTECODE=1 \
+"$PY" -m pytest -q dev_tests tests
+
+node --check pt_asset_tool/ui_static/app.js
+```
+
+Da raiz, depois de revisar a mudança e o estado gerado:
+
 ```bash
 ./VERIFY_PACKAGE.sh
-cd app
-python3 -m pytest -q dev_tests/test_registry_bootstrap_fresh.py dev_tests/test_general_asset_census.py dev_tests/test_release_1_auto.py
-./RUN_REGRESSION_FOCUSED.sh
 ```
+
+Use `arquivo.py::test_nome` para fechar um bug específico, mas não trate esse PASS focado como substituto da regressão aplicável. `compileall` é opcional e cria `.pyc`; para sintaxe sem cache use a checagem AST documentada no runbook.
 
 Gates que precisam de client/server/Blender real devem ser executados somente onde essas roots existirem; nunca substitua ausência de ambiente por mock que transforme um gate físico em PASS.
 

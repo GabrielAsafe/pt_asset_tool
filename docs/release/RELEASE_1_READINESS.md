@@ -1,5 +1,9 @@
 # Release 1.0 Readiness — FINAL
 
+<!-- PT_HISTORICAL_RELEASE_CONTEXT_2026-09-25 -->
+
+> **Contexto histórico:** este documento preserva evidência/claims da Release 1.0 na data indicada. Para validar o checkout atual, use `docs/engenharia/VALIDACAO_TESTES_DESENVOLVIMENTO.md` e não trate contagens/flags históricas como resultado de uma execução nova.
+
 Date: 2026-09-14  
 Version: **1.0.0**
 

@@ -364,18 +364,14 @@ def resolve_realesrgan(project_root: Path | None = None, explicit: str | None = 
         if found:
             return found, "explicit executable resolved on PATH"
         return None, f"explicit Real-ESRGAN executable not found: {explicit}"
+    bundled = bundled_realesrgan(project_root)
+    if bundled:
+        return str(bundled), "bundled with PT Asset Tool"
     for name in ("realesrgan-ncnn-vulkan", "realesrgan-ncnn-vulkan.exe"):
         found = _which(name)
         if found:
             return found, "resolved on PATH"
-    if is_frozen():
-        compatible, detail = _bundled_realesrgan_host_compatible()
-        if not compatible:
-            return None, detail + "; Lanczos remains available"
-    bundled = bundled_realesrgan(project_root)
-    if bundled:
-        return str(bundled), "bundled payload materialized from PT Asset Tool" if is_frozen() else "bundled with PT Asset Tool"
-    return None, "not found on PATH and no compatible bundled executable was found"
+    return None, "no bundled executable was found and Real-ESRGAN was not found on PATH"
 
 
 def dependency_report(project_root: Path | None = None) -> dict[str, Any]:
