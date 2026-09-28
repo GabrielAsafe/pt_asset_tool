@@ -45,7 +45,7 @@ def test_legacy_ui_exposes_task_tabs_and_demotes_historical_tools():
     assert 'data-legacy-task="map"' in html
     assert 'data-legacy-task="world"' in html
     assert 'data-legacy-task="evidence"' not in html
-    assert "executáveis antigos são apenas evidência" in html.casefold()
+    assert "legacy executables are evidence only" in html.casefold()
     assert 'id="legacyReplacementMatrix"' not in html
     assert "/api/legacy-authoring/guide" in js
     assert "openLegacyAuthoring" in js
@@ -70,6 +70,6 @@ def test_character_account_ui_exposes_explicit_account_graph_migration_not_magic
     assert 'id="legacyAccountCopySourceRoot"' in html
     assert 'id="legacyAccountCopyAllowReplace"' in html
     assert 'id="legacyAccountCopyPlanBtn"' in html
-    assert "Substitui o botão <code>Copy</code>" in html
+    assert "Replaces the button <code>Copy</code>" in html
     assert "ACCOUNT_GRAPH_COPY" in js
     assert "source_server_root" in js

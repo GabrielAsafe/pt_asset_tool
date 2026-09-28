@@ -163,49 +163,49 @@ def _summaries(project_root: pathlib.Path) -> dict[str, Any]:
 
 _REASON_GUIDANCE: dict[str, dict[str, str]] = {
     "ZHOON_SHARED_DEFAULT_REVIEW": {
-        "summary": "A cadeia visual principal fecha, mas a referência Name/Name.zhoon é um default compartilhado e não prova uma dependência específica desta entidade.",
-        "missing": "Falta prova source/runtime de que este ZHOON compartilhado é obrigatório para este bundle concreto.",
-        "where": "Cruze a definição no Censo geral/source evidence. Não multiplique/copiei Name/Name.zhoon por entidade apenas para eliminar REVIEW.",
+        "summary": "The main visual chain closes, but the Name/Name.zhoon reference is a shared default and does not prove a dependency specific to this entity.",
+        "missing": "Source/runtime proof that this shared ZHOON is required for this specific bundle is missing.",
+        "where": "Cross-check the definition in General Census/source evidence. Do not multiply/copy Name/Name.zhoon per entity merely to eliminate REVIEW.",
     },
     "ZHOON_REFERENCE_MISSING": {
-        "summary": "A definição aponta para um recurso ZHOON/nome/chat que não foi encontrado.",
-        "missing": "A referência server-side declarada não resolve no inventário observado.",
-        "where": "Revise a definição Monster/NPC/OpenItem e procure a mesma referência em target, source e donors antes de criar ou recuperar conteúdo.",
+        "summary": "The definition points to a ZHOON/name/chat resource that was not found.",
+        "missing": "The declared server-side reference does not resolve in the observed inventory.",
+        "where": "Review the Monster/NPC/OpenItem definition and look for the same reference in target, source, and donors before creating or recovering content.",
     },
     "MODEL_INX_NOT_RESOLVED_CLIENT_OR_SERVER": {
-        "summary": "O model lógico não resolve para um INX conhecido no client nem no server.",
-        "missing": "Falta uma ligação física comprovada do model lógico ao package INX.",
-        "where": "Abra a definição e o catálogo físico; valide aliases .ini → .inx e o package SMD/SMB antes de editar a definição server.",
+        "summary": "The logical model does not resolve to a known INX in either client or server.",
+        "missing": "A proven physical binding from the logical model to the INX package is missing.",
+        "where": "Open the definition and physical catalog; validate .ini → .inx aliases and the SMD/SMB package before editing the server definition.",
     },
     "AMBIGUOUS_STAGE_BASENAME": {
-        "summary": "Há mais de um stage físico com o mesmo basename e a seleção automática seria ambígua.",
-        "missing": "Falta evidência suficiente para escolher um único stage como autoridade deste Field.",
-        "where": "Compare os candidatos, source evidence e relações SPP/SPC/SPM; selecione somente quando o vínculo estiver provado.",
+        "summary": "More than one physical stage has the same basename, so automatic selection would be ambiguous.",
+        "missing": "There is not enough evidence to choose a single stage as the authority for this Field.",
+        "where": "Compare candidates, source evidence, and SPP/SPC/SPM relationships; select only when the binding is proven.",
     },
     "SPM_NOT_PRESENT": {
-        "summary": "O Field não possui SPM observado.",
-        "missing": "Não há metadata de spawn SPM para fechar o bundle por essa via.",
-        "where": "Confirme no source/runtime se o Field realmente usa SPM. Ausência física, sozinha, não autoriza criar um SPM vazio.",
+        "summary": "The Field has no observed SPM.",
+        "missing": "There is no SPM spawn metadata to close the bundle through this path.",
+        "where": "Confirm in source/runtime whether the Field actually uses SPM. Physical absence alone does not authorize creating an empty SPM.",
     },
     "SPP_NOT_PRESENT": {
-        "summary": "O Field não possui SPP observado.",
-        "missing": "Não há tabela de start points SPP para fechar o bundle por essa via.",
-        "where": "Confirme no source/runtime se o Field precisa de start points persistidos antes de criar metadata.",
+        "summary": "The Field has no observed SPP.",
+        "missing": "There is no SPP start-point table to close the bundle through this path.",
+        "where": "Confirm in source/runtime whether the Field needs persisted start points before creating metadata.",
     },
     "SPC_NOT_PRESENT": {
-        "summary": "O Field não possui SPC observado.",
-        "missing": "Não há tabela de NPCs fixos SPC para fechar o bundle por essa via.",
-        "where": "Confirme se existem NPCs fixos neste Field. Não crie SPC apenas para transformar REVIEW em PASS.",
+        "summary": "The Field has no observed SPC.",
+        "missing": "There is no fixed-NPC SPC table to close the bundle through this path.",
+        "where": "Confirm whether fixed NPCs exist in this Field. Do not create SPC merely to turn REVIEW into PASS.",
     },
     "CODE_NOT_PARSED": {
-        "summary": "A identidade do OpenItem não foi extraída com segurança.",
-        "missing": "Falta um item code comprovado pelo parser/filename/contrato conhecido.",
-        "where": "Revise o OpenItem e o catálogo de identidade; não derive code pelo nome visual do ficheiro.",
+        "summary": "The OpenItem identity was not extracted safely.",
+        "missing": "A proven item code from parser/filename/known contract is missing.",
+        "where": "Review the OpenItem and identity catalog; do not derive code from the file display name.",
     },
     "DUPLICATE_CODE": {
-        "summary": "Mais de uma definição server-side usa o mesmo item code.",
-        "missing": "Falta decidir qual definição é autoridade ou se a duplicação é intencional.",
-        "where": "Use o lookup de item/duplicados e compare as definições antes de qualquer authoring ou migração.",
+        "summary": "More than one server-side definition uses the same item code.",
+        "missing": "It is not yet established which definition is authoritative or whether the duplication is intentional.",
+        "where": "Use the item/duplicate lookup and compare definitions before authoring or migration.",
     },
 }
 
@@ -216,43 +216,43 @@ def _review_guidance(kind: str, row: dict[str, Any]) -> dict[str, Any]:
     structured = []
     for code in reasons:
         info = _REASON_GUIDANCE.get(code) or {
-            "summary": "Este motivo mantém o bundle fora de automação até o contrato correspondente estar provado.",
-            "missing": "Falta evidência suficiente para promover este estado automaticamente.",
-            "where": "Revise o relatório fonte e o Censo geral; preserve REVIEW se não houver prova adicional.",
+            "summary": "This reason keeps the bundle out of automation until the corresponding contract is proven.",
+            "missing": "There is not enough evidence to promote this state automatically.",
+            "where": "Review the source report and General Census; keep REVIEW if there is no additional proof.",
         }
         structured.append({"code": code, **info})
     review_required = bool(structured or "REVIEW" in status or "BLOCK" in status or "UNRESOLVED" in status)
     if not review_required:
-        summary = "A cadeia observada fecha para este gate; continue com validação de runtime quando aplicável."
+        summary = "The observed chain closes for this gate; continue with runtime validation when applicable."
     elif "BLOCK" in status:
-        summary = "O bundle tem uma dependência obrigatória ausente ou ambígua; não automatize escrita enquanto o blocker permanecer."
+        summary = "The bundle has a missing or ambiguous required dependency; do not automate writes while the blocker remains."
     elif status.startswith("VISUAL_ENTRY_RESOLVED"):
-        summary = "O visual principal foi resolvido, mas há pendência de contrato/evidência que ainda exige revisão humana."
+        summary = "The primary visual was resolved, but a contract/evidence issue still requires human review."
     else:
-        summary = "Há evidência útil, mas o bundle ainda precisa de revisão antes de qualquer decisão de authoring/migração."
+        summary = "There is useful evidence, but the bundle still requires review before any authoring/migration decision."
 
     actions: list[dict[str, str]] = []
     if kind == "entities":
         inx = str(row.get("logical_inx") or "").strip()
         if inx:
-            actions.append({"kind": "catalog", "label": "Abrir INX no Catálogo", "path": inx})
+            actions.append({"kind": "catalog", "label": "Open INX in Catalog", "path": inx})
         definition = str(row.get("definition") or "").strip()
         if definition:
-            actions.append({"kind": "general_census", "label": "Cruzar definição no Censo geral", "query": definition})
+            actions.append({"kind": "general_census", "label": "Cross-check definition in General Census", "query": definition})
     elif kind == "fields":
         basename = str(row.get("basename") or row.get("selected_stage") or "").strip()
         if basename:
-            actions.append({"kind": "general_census", "label": "Cruzar Field no Censo geral", "query": basename})
+            actions.append({"kind": "general_census", "label": "Cross-check Field in General Census", "query": basename})
         for field_type, key in (("SPM", "spm"), ("SPP", "spp"), ("SPC", "spc")):
             if row.get(key):
-                actions.append({"kind": "field_editor", "label": f"Abrir {field_type}", "field_type": field_type})
+                actions.append({"kind": "field_editor", "label": f"Open {field_type}", "field_type": field_type})
     elif kind == "items":
         code = str(row.get("code") or "").strip()
         definition = str(row.get("definition") or "").strip()
         if code:
-            actions.append({"kind": "legacy_item", "label": f"Localizar item {code}", "code": code})
+            actions.append({"kind": "legacy_item", "label": f"Locate item {code}", "code": code})
         if definition or code:
-            actions.append({"kind": "general_census", "label": "Cruzar item no Censo geral", "query": definition or code})
+            actions.append({"kind": "general_census", "label": "Cross-check item in General Census", "query": definition or code})
     return {
         "review_required": review_required,
         "review_summary": summary,
@@ -370,21 +370,21 @@ def build_server_ui_summary(project_root: pathlib.Path, server_root: pathlib.Pat
         "asset_enrichment_tool": vendor_info,
         "reports": _summaries(project_root),
         "lifecycle_policy": [
-            {"lifecycle": ASSET_STATIC, "ui": "Asset estático", "policy": "bundle validation before authoring"},
-            {"lifecycle": ASSET_MAP_METADATA, "ui": "Metadata de field", "policy": "layout validation"},
-            {"lifecycle": ASSET_MAP_METADATA_REVIEW, "ui": "Metadata de field em review", "policy": "typed clone only"},
+            {"lifecycle": ASSET_STATIC, "ui": "Static asset", "policy": "bundle validation before authoring"},
+            {"lifecycle": ASSET_MAP_METADATA, "ui": "Field metadata", "policy": "layout validation"},
+            {"lifecycle": ASSET_MAP_METADATA_REVIEW, "ui": "Field metadata em review", "policy": "typed clone only"},
             {"lifecycle": ASSET_SHARED_3D, "ui": "3D compartilhado", "policy": "PT Asset pipeline; server copy read-only"},
             {"lifecycle": ASSET_SHARED_VISUAL, "ui": "Visual compartilhado", "policy": "reference required"},
-            {"lifecycle": CONFIG_REVIEW, "ui": "Configuração operacional", "policy": "review only"},
-            {"lifecycle": PERSISTENCE_BLOCKED, "ui": "Persistência", "policy": "blocked from asset graph"},
-            {"lifecycle": SECURITY_STATE_BLOCKED, "ui": "Estado/segurança", "policy": "blocked from asset graph"},
+            {"lifecycle": CONFIG_REVIEW, "ui": "Operational configuration", "policy": "review only"},
+            {"lifecycle": PERSISTENCE_BLOCKED, "ui": "Persistence", "policy": "blocked from asset graph"},
+            {"lifecycle": SECURITY_STATE_BLOCKED, "ui": "Status/safety", "policy": "blocked from asset graph"},
             {"lifecycle": RUNTIME_INTEGRITY_BLOCKED, "ui": "Integridade de runtime", "policy": "blocked from asset graph"},
             {"lifecycle": LOG_FORENSICS_EXCLUDED, "ui": "Logs/forensics", "policy": "excluded from authoring"},
         ],
         "bundle_model": [
-            "Monster: INF → ZHOON → INI lógico/INX → SMD/SMB/texturas + drops + spawn",
-            "NPC: NPC → ZHOON → model package + SPC/event/quest/shop quando aplicável",
-            "Field: stage SMD/ASE → SPP/SPC/SPM → entidades referenciadas",
+            "Monster: INF → ZHOON → logical INI/INX → SMD/SMB/textures + drops + spawn",
+            "NPC: NPC → ZHOON → model package + SPC/event/quest/shop when applicable",
+            "Field: stage SMD/ASE → SPP/SPC/SPM → referenced entities",
             "Item: OpenItem/ZHOON → server code map → client catalog/model/icon",
         ],
         "safety": {

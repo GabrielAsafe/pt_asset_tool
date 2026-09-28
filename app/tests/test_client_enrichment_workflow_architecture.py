@@ -59,11 +59,11 @@ def test_client_page_is_workflow_oriented_and_does_not_duplicate_catalog_entitie
         assert client.find(id=duplicated_id) is None
 
     text = client.get_text(" ", strip=True)
-    assert "uma autoridade por tarefa" in text
-    assert "Catálogo" in text and "Entidades" in text
-    assert "Atividade do Cliente / Enrichment" in text
-    assert "não são duplicadas em tarefas gerais" in text.lower()
-    assert "workflow global/batch" in text
+    assert "one authority per task" in text
+    assert "Catalog" in text and "Entities" in text
+    assert "Client / Enrichment Activity" in text
+    assert "workflows with their own page" in (root / "pt_asset_tool/ui_static/index.html").read_text(encoding="utf-8").lower()
+    assert "global/batch workflow" in text
 
     assert "switchClientWorkflow" in js
     assert "loadClientActivity" in js

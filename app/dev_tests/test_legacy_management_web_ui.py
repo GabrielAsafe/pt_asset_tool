@@ -73,10 +73,10 @@ def test_legacy_management_web_surface_is_wired_into_ui_sources():
     py = (root / "pt_asset_tool/ui_app.py").read_text(encoding="utf-8")
     assert 'data-tab="legacy"' in html
     assert 'id="tab-legacy"' in html
-    assert 'Item · criar/editar' in html
-    assert 'Monstro · criar/editar' in html
-    assert 'Mapa / Field' in html
-    assert 'Evidência técnica' not in html
+    assert 'Item — create/edit' in html
+    assert 'Monster — create/edit' in html
+    assert 'Map / Field' in html
+    assert 'Technical Evidence' in html
     assert 'World Closure Explorer' in html
     assert '/api/legacy-management/item?' in js
     assert '/api/legacy-management/report?' in js
@@ -120,7 +120,7 @@ def test_legacy_authoring_web_surface_is_wired():
     html = (root / "pt_asset_tool/ui_static/index.html").read_text(encoding="utf-8")
     js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")
     py = (root / "pt_asset_tool/ui_app.py").read_text(encoding="utf-8")
-    assert "Authoring Legacy — tarefas Python" in html
+    assert "Legacy Authoring — Python tasks" in html
     assert 'id="legacyAuthoringStageBtn"' in html
     assert '/api/legacy-authoring/inspect?' in js
     assert '/api/legacy-authoring/stage' in js
@@ -206,8 +206,8 @@ def test_definition_review_explains_reason_and_zero_is_not_claimed_as_no_drop(tm
     zero = rows[0]
     assert zero["status"] == "PASS"
     assert zero["drop_item_reference_count"] == 0
-    assert "não prova 'sem drop'" in zero["drop_note"]
-    assert "não é uma tabela de drop" in zero["zhoon_note"]
+    assert "does not prove 'no drop'" in zero["drop_note"]
+    assert "is not a drop table" in zero["zhoon_note"]
     review = rows[1]
     assert review["status"] == "REVIEW"
     assert review["review_required"] is True
@@ -222,7 +222,7 @@ def test_legacy_ui_hides_operator_taxonomy_and_requires_explicit_review_action()
     assert "Taxonomia histórica de itens" not in html
     assert 'id="legacyTaxonomy"' not in html
     assert "renderLegacyTaxonomy" not in js
-    assert "Por que está em REVIEW?" in js
+    assert "Why is this in REVIEW?" in js
     assert "runLegacyReviewAction" in js
     assert "await legacyAuthoringLoadExplorerSelection(section,row)" not in js
 

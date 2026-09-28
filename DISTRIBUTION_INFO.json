@@ -1,28 +1,40 @@
 {
   "format": "PT_ASSET_TOOL_DISTRIBUTION_INFO_V1",
   "version": "1.0.0",
-  "edition": "LEGACY_AUTHORING_SEMANTIC_CATALOG_V29",
+  "edition": "ENGLISH_UI_DOCS_LOCALIZATION_V210",
   "date": "2026-09-28",
-  "code_basis": "PT_ASSET_TOOL_V28_PLUS_SEMANTIC_AUTHORING_NAME_CATALOG_CANONICAL_ID_BINDINGS",
+  "code_basis": "PT_ASSET_TOOL_V29_PLUS_ENGLISH_FIRST_UI_AND_OPERATIONAL_DOCUMENTATION",
   "application_code_changed_by_docs_refresh": true,
-  "automatic_gate_status": "TARGETED_V29_PASS_REGRESSION_PASS_PACKAGE_VERIFY_PASS_FULL_RUNTIME_GATE_NOT_RERUN",
+  "automatic_gate_status": "TARGETED_V210_PASS_EN_LOCALIZATION_PASS_REGRESSION_PASS_DOC_AUDIT_PASS_SNAPSHOT_PASS_PACKAGE_VERIFY_PASS",
   "automatic_blockers": null,
   "production_authorized": false,
   "client_write_authorized": false,
   "server_write_authorized": false,
-  "documentation_index": "docs/README.md",
+  "documentation_index": "docs/en/README.md",
   "cli_leaf_route_count": 154,
   "module_count": 184,
   "integration_validation": {
-    "passed": 64,
-    "skipped": 1,
+    "passed": 42,
+    "skipped": 0,
     "failed": 0
   },
-  "integration_doc": "docs/validation/INTEGRATION_LEGACY_AUTHORING_NAME_CATALOG_V29_2026-09-28.md",
+  "integration_doc": "docs/en/validation/LOCALIZATION_EN_V210.md",
   "focused_regression": {
     "passed": 40,
     "skipped": 1,
     "failed": 0,
     "status": "PASS"
-  }
+  },
+  "localization": {
+    "ui_language": "en",
+    "default_documentation_language": "en",
+    "semantic_catalog_display_names_translated": false,
+    "historical_portuguese_docs_retained": true,
+    "validation_status": "PASS"
+  },
+  "snapshot": {
+    "file_count": 757,
+    "status": "PASS"
+  },
+  "package_verify": "PASS"
 }

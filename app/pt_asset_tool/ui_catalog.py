@@ -26,34 +26,34 @@ HIDDEN_VISIBILITY_TIERS = {"OPERATIONAL", "USER_DATA", "INSTALLER_SYSTEM", "NOIS
 EFFECT_SCRIPT_EXTS = {".part", ".lua"}
 
 EXTENSION_DESCRIPTIONS = {
-    ".smd": "Modelo 3D / Stage SMD",
-    ".smb": "Skeleton e animações",
-    ".inx": "Configuração, binding e MotionInfo",
-    ".inf": "Configuração/metadata auxiliar",
-    ".bmp": "Imagem/textura BMP",
-    ".tga": "Imagem/textura TGA",
-    ".dds": "Textura DDS",
+    ".smd": "3D model / Stage SMD",
+    ".smb": "Skeleton and animations",
+    ".inx": "Configuration, binding, and MotionInfo",
+    ".inf": "Auxiliary configuration/metadata",
+    ".bmp": "BMP image/texture",
+    ".tga": "TGA image/texture",
+    ".dds": "DDS texture",
     ".png": "Imagem PNG",
     ".jpg": "Imagem JPEG",
     ".jpeg": "Imagem JPEG",
     ".gif": "Imagem GIF",
     ".webp": "Imagem WebP",
-    ".ico": "Ícone",
-    ".wav": "Áudio/efeito sonoro",
-    ".ase": "Modelo/cena ASCII 3D (ASE)",
+    ".ico": "Icon",
+    ".wav": "Audio/sound effect",
+    ".ase": "ASCII 3D model/scene (ASE)",
     ".pkg": "Pacote de effect/assets",
     ".gpk": "Pacote de assets",
     ".cab": "Pacote de sistema/instalador (normalmente DirectX/runtime)",
-    ".exe": "Executável/runtime do cliente",
-    ".dll": "Biblioteca runtime do cliente",
+    ".exe": "Client executable/runtime",
+    ".dll": "Client runtime library",
     ".log": "Log operacional",
     ".bak": "Backup/artefato auxiliar",
     ".db": "Base/cache auxiliar",
     ".sin": "Dados runtime do jogo",
     ".part": "Fragmento/parte de pacote",
-    ".ini": "Configuração INI",
-    ".txt": "Texto/configuração",
-    ".lst": "Lista/configuração",
+    ".ini": "INI configuration",
+    ".txt": "Text/configuration",
+    ".lst": "List/configuration",
 }
 
 UI_PATH_HINTS = {
@@ -114,8 +114,8 @@ def _norm(rel: str) -> str:
 def extension_description(ext: str) -> str:
     ext = (ext or "").lower()
     if not ext:
-        return "Arquivo sem extensão"
-    return EXTENSION_DESCRIPTIONS.get(ext, "Tipo de arquivo não catalogado")
+        return "File without extension"
+    return EXTENSION_DESCRIPTIONS.get(ext, "Uncataloged file type")
 
 
 def _role_for_entity_file(ext: str) -> str:
@@ -235,7 +235,7 @@ def infer_folder_bucket(rel: str, category: str) -> tuple[str, str]:
     parent = pathlib.PurePosixPath(path).parent
     if parent.as_posix() not in {".", ""}:
         return parent.name, parent.as_posix()
-    return "(raiz)", ""
+    return "(root)", ""
 
 
 def infer_visibility_tier(rel: str, ext: str, category: str = "", role: str = "") -> str:
@@ -285,7 +285,7 @@ def infer_semantics(rel: str, ext: str) -> tuple[str, str]:
 
     # Image/Sinimage/Items mixes inventory UI art with world drop assets.
     # Keep the two concepts separate: icons are UI, DropItem is a world/item
-    # family and may contain SMD/ASE as well as textures.
+    # family and may accountin SMD/ASE as well as textures.
     if "/image/sinimage/items/dropitem/" in low:
         if ext == ".smd":
             return "ITEM", "DROP_MODEL"
@@ -316,7 +316,7 @@ def infer_semantics(rel: str, ext: str) -> tuple[str, str]:
         return "UI", "HUD"
 
     # Runtime entity trees are semantic evidence only after the known frontend
-    # / UI trees above have had a chance to claim paths containing words such
+    # / UI trees above have had a chance to claim paths accountining words such
     # as "npc".  This prevents StartImage/Opening/npc and Sinimage/NPC from
     # polluting the runtime NPC category while retaining char/npc as a real
     # physical entity hierarchy.

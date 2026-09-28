@@ -11,6 +11,16 @@ required=(
   "VALIDATION_STATUS.md"
   "READY_TO_DEPLOY.py"
   "docs/README.md"
+  "docs/en/README.md"
+  "docs/en/getting_started/INSTALLATION_QUICKSTART.md"
+  "docs/en/getting_started/USER_MANUAL.md"
+  "docs/en/getting_started/GUI_MANUAL.md"
+  "docs/en/getting_started/CLI_REFERENCE.md"
+  "docs/en/engineering/ARCHITECTURE.md"
+  "docs/en/topics/SEMANTIC_AUTHORING_CATALOG.md"
+  "docs/en/topics/ASSET_QUARANTINE_WORKFLOW.md"
+  "docs/en/validation/LOCALIZATION_EN_V210.md"
+  "docs/validation/validate_english_localization.py"
   "docs/CURRENT_STATUS_2026-09-14.md"
   "docs/comece_aqui/INSTALLATION_QUICKSTART_1_0.md"
   "docs/comece_aqui/DEPENDENCIES.md"
@@ -233,6 +243,10 @@ expected=(Path.cwd()/'pt_build/state/pt_asset_app_config.json').resolve()
 if config_path(Path.cwd()) != expected:
     raise SystemExit(f'config is not machine-local runtime state: {config_path(Path.cwd())}')
 PY
+
+
+# English UI/documentation localization contract.
+python3 "$ROOT/docs/validation/validate_english_localization.py"
 
 # Static UI/contracts.
 grep -q 'Asset Enrichment' pt_asset_tool/ui_static/index.html

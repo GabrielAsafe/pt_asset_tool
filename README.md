@@ -1,81 +1,68 @@
-# PT Asset Tool R14 1.0.0 — Distribuição Completa
+# PT Asset Tool R14 1.0.0
 
-Esta é a distribuição 1.0.0 com documentação consolidada e completa.
+PT Asset Tool is an evidence-driven Priston Tale asset and legacy-content engineering toolkit. It combines client inventory/inspection, server-aware enrichment, source-backed Legacy Management authoring, semantic name mapping, reversible quarantine, texture workflows, and transactional publication.
 
-## Estado
+## Language
 
-- automatic gate: **PASS**;
-- automatic blockers: **0**;
-- package: **SAFETY LOCKED**;
-- produção/client/server writes: **não autorizados por padrão**;
-- código funcional: baseline certificado 1.0.0;
-- documentação: referência CLI gerada do parser + manuais completos.
+The first-party UI and default operational documentation are English as of V2.10.
 
-## Primeiro passo
+Game display names stored in the semantic authoring catalog remain in their source game locale. Internal IDs, runtime codes, paths, hashes, and raw evidence are never translated.
 
-Leia `docs/README.md`, depois `docs/comece_aqui/INSTALLATION_QUICKSTART_1_0.md`.
+English documentation starts at:
 
-## Verificação
+```text
+docs/en/README.md
+```
+
+## Verify the package
 
 ```bash
 ./VERIFY_PACKAGE.sh
 ```
 
-## Aplicação
+## CLI
 
 ```bash
 cd app
 python3 pt_asset.py --help
+```
+
+## UI
+
+```bash
+cd app
 python3 pt_asset_gui.py
 ```
 
-## Dependências
+The UI is read-only by default. Workspace/build staging requires a temporary arm. Client/server publication uses separate explicit transactional authorization, hash preflight, backup, post-write verification, and restore/rollback.
 
-Antes de testar features que usam aplicações externas, rode:
+## Dependencies
 
 ```bash
 cd app
 python3 pt_asset.py dependencies
 ```
 
-O diagnóstico informa o que falta, **por que** a dependência é necessária e como instalar/configurar. Veja `docs/comece_aqui/DEPENDENCIES.md`.
+## Runtime data
 
-## UI consolidada
+Generated/user runtime data belongs under `app/pt_build` and related local workspaces. Runtime data is excluded from the static package snapshot and must not be removed as part of normal release hygiene.
 
-O editor de partículas `.part` é first-party e está integrado na aba **Partículas** da UI principal. O launcher `app/pt_part_ui.py` permanece apenas por compatibilidade e reutiliza o mesmo serviço do core.
+## Asset retention and quarantine
 
-Texture enhancement usa como workspace canônico `app/pt_build/texture_upscale/`. Tanto essa árvore quanto um eventual diretório legado `enhancement/` são **dados locais do usuário/runtime**: ficam fora do Git/snapshot e nunca são apagados recursivamente por `READY_TO_DEPLOY`. Um archive de distribuição não deve embuti-los.
+Retention distinguishes generic graph linkage from strong-root reachability. `ORPHAN_CANDIDATE` and Q1 review scores are not delete authority.
 
-## Preparar commit limpo
+Quarantine remains reversible:
 
-Na raiz do repositório:
+- Q0 — narrow documented-invalid zero-linkage orphans;
+- Q1 — root-unreachable components ranked for review;
+- manual Q1 component quarantine — exact component, strict eligibility, physical hashes, explicit confirmation, transactional restore.
 
-```bash
-python3 READY_TO_DEPLOY.py --check
-python3 READY_TO_DEPLOY.py --message "chore: ready to deploy"
-```
+There is no automatic delete authority.
 
-O fluxo roda a regressão, remove somente caches reproduzíveis (`__pycache__`, `.pytest_cache`, `.pyc/.pyo`), **preserva `app/pt_build` e `enhancement/`**, atualiza o snapshot (que já exclui runtime), executa `VERIFY_PACKAGE.sh`, faz `git add -A`, `git diff --cached --check` e cria o commit. A higiene de release verifica que runtime não está versionado; não exige apagar dados locais.
+## Semantic authoring catalog
 
-## Integração Summit asset-retention / cooked DDS
+Legacy Management packages a semantic catalog mapping game display names to stable internal identities for Item, Monster, NPC, and Map/Field authoring.
 
-O General Asset Census inclui uma projeção fail-closed de retenção física e importa o manifest V2 do Summit DDS cooker. A integração reutiliza ContractGraph, source evidence, client manifests e dependency graph existentes; não cria uma segunda autoridade de assets e não autoriza delete/quarantine. Consulte `docs/tematicos/ASSET_RETENTION_AND_COOKED_DDS.md`.
+`canonical_id` is the primary authoring selection identity. Runtime codes remain format/runtime identities where required and may be shared by distinct semantic variants.
 
-O V2.6 adiciona quarantine reversível em duas camadas: Q0 pode mover somente documented invalid orphans com zero linkage/root/evidence; Q1 é review-only por componente `URC-*`. Não existe delete automático. Consulte `docs/tematicos/ASSET_QUARANTINE_WORKFLOW.md`.
-
-O V2.7 adiciona ranking read-only dos componentes Q1 (`A/B/C/BLOCKED`). O score prioriza revisão de componentes pequenos/isolados com membros inválidos documentados; nunca autoriza move/delete e `quarantine apply` continua restrito ao Q0.
-
-O V2.8 adiciona quarantine **manual e explícita** de um único componente Q1 estritamente elegível por `quarantine apply-component`. O componente precisa ser banda A, pequeno (máx. 10 membros), sem proteção/entity/evidência positiva, sem edges externos, conter inválido documentado e ter SHA-256 físico capturado no plano. O score continua sem autoridade de move/delete; a operação exige `--component` exato + confirmação separada e permanece 100% restaurável.
-
-
-## Effect runtime coverage / root-unreachable components (V2.5)
-
-O Censo geral resolve roots de efeitos a partir de loaders legacy conhecidos e agrupa
-subgrafos client não alcançados por strong roots em componentes `URC-xxxxx`. A camada é
-read-only e serve para reduzir falsos órfãos antes de qualquer workflow de quarantine.
-
-## Catálogo semântico de authoring (V2.9)
-
-O Management Legacy agora empacota `contracts/priston_asset_name_map_v1.json` como contrato de nome visível → identidade interna para criação/edição. A identidade primária de authoring é `canonical_id`; `code` continua sendo identidade runtime onde o formato exige código sITEM. Isso evita colapsar variantes que compartilham o mesmo code.
-
-A UI usa o catálogo em ITEM, MONSTER, NPC e MAP/Field; SPM oferece seletor de mob para actor e SPC oferece seletor de NPC fixo. Mapas resolvem nome → field/stage → SPM/SPP/SPC, incluindo a correção `Ricarten → village-2`. Nomes visíveis ambíguos permanecem marcados e nunca são resolvidos silenciosamente.
+The map catalog resolves map identity to field/stage and SPM/SPP/SPC targets; related Item/Mob/NPC selectors preserve semantic provenance in authoring specs.

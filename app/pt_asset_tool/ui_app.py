@@ -801,7 +801,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(500, "LEGACY_OPS_STATUS_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-ops/selections":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED", "Configure a raiz do servidor antes de carregar personagens, contas e itens.")
+                return self._error(409, "SERVER_ROOT_NOT_CONFIGURED", "Configure the server root before loading characters, accounts, and items.")
             try:
                 refresh = _one(q, "refresh").strip() in {"1", "true", "yes"}
                 return self._json(200, {"ok": True, "result": legacy_selection_catalog(self.ctx.server_root, refresh=refresh)})
@@ -1084,7 +1084,7 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(200, {"ok": True, "result": authoring_workspace_guide(server_root=self.ctx.server_root, client_root=self.ctx.client_root)})
         if path == "/api/legacy-authoring/inspect":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
             kind = _one(q, "kind").strip().upper()
             logical = _one(q, "path").strip()
             if not kind or not logical:
@@ -1186,7 +1186,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "SERVER_REPORT_QUERY_FAILED", str(exc))
         if path == "/api/server/field-editor":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
             rel = _one(q, "path").strip()
             if not rel:
                 return self._error(400, "FIELD_PATH_REQUIRED")
@@ -1350,7 +1350,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
             if not self.ctx.write_armed:
-                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme workspace/build antes de aplicar uma operação de persistência Legacy Python.")
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build before applying a Legacy Python persistence operation.")
             plan_id = str(body.get("plan_id") or "").strip()
             confirmation = str(body.get("confirmation") or "")
             if not plan_id:
@@ -1549,14 +1549,14 @@ class UIHandler(BaseHTTPRequestHandler):
                     result = plan_compiler_input(recipe, client_root=self.ctx.client_root, server_root=self.ctx.server_root)
                     return self._json(200, {"ok": True, "result": result})
                 if not self.ctx.write_armed:
-                    return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme workspace/build antes de compilar o asset para pt_build.")
+                    return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build before compiling the asset to pt_build.")
                 result = compile_compiler_input(self.ctx.project_root, recipe, client_root=self.ctx.client_root, server_root=self.ctx.server_root)
                 return self._json(200, {"ok": True, "result": result})
             except Exception as exc:
                 return self._error(400, "ASSET_COMPILER_REJECTED", f"{type(exc).__name__}:{exc}")
         if u.path in {"/api/asset-compiler/publish", "/api/asset-compiler/restore"}:
             if not self.ctx.server_deploy_armed:
-                return self._error(409, "ASSET_DEPLOY_NOT_ARMED", "Arme temporariamente o deploy de Asset Bundle antes desta transação.")
+                return self._error(409, "ASSET_DEPLOY_NOT_ARMED", "Temporarily arm Asset Bundle deployment before this transaction.")
             try:
                 raw_manifest = str(body.get("manifest") or "").strip()
                 manifest = pathlib.Path(raw_manifest).expanduser().resolve() if raw_manifest else latest_bundle_manifest(self.ctx.project_root)
@@ -1587,9 +1587,9 @@ class UIHandler(BaseHTTPRequestHandler):
                 reference = pathlib.Path(reference_raw).expanduser().resolve() if reference_raw else None
                 root_issues: list[dict[str, Any]] = []
                 if source is not None and not source.is_dir():
-                    root_issues.append({"field": "source_root", "code": "SOURCE_ROOT_NOT_DIRECTORY", "message": f"Source Summit não existe ou não é uma pasta: {source}"})
+                    root_issues.append({"field": "source_root", "code": "SOURCE_ROOT_NOT_DIRECTORY", "message": f"Summit source does not exist or is not a directory: {source}"})
                 if reference is not None and not reference.is_dir():
-                    root_issues.append({"field": "reference_source_root", "code": "REFERENCE_SOURCE_ROOT_NOT_DIRECTORY", "message": f"Source EU de referência não existe ou não é uma pasta: {reference}"})
+                    root_issues.append({"field": "reference_source_root", "code": "REFERENCE_SOURCE_ROOT_NOT_DIRECTORY", "message": f"Reference EU source does not exist or is not a directory: {reference}"})
                 client_validation = validate_contract_donor_specs(donor_raw, "client", require_existing=True)
                 server_validation = validate_contract_donor_specs(donor_server_raw, "server", require_existing=True)
                 issues = root_issues + list(client_validation["issues"]) + list(server_validation["issues"])
@@ -1597,7 +1597,7 @@ class UIHandler(BaseHTTPRequestHandler):
                     return self._json(400, {
                         "ok": False,
                         "error": "CONTRACT_SOURCE_CONFIG_INVALID",
-                        "detail": "A configuração não foi salva. Corrija as linhas indicadas; nenhuma alteração parcial foi persistida.",
+                        "detail": "The configuration was not saved. Fix the indicated rows; no partial changes were persisted.",
                         "issues": issues,
                         "accepted_formats": {
                             "client": client_validation["accepted_formats"],
@@ -1641,9 +1641,9 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(202, {"ok": True, "job": job.public(), "mode": "client_enrichment"})
         if u.path == "/api/enhancement/batch-run":
             if not self.ctx.write_armed:
-                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme as ações de workspace/build antes de gerar o enhancement global.")
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build actions before generating the global enhancement.")
             if self.ctx.jobs.has_active(None):
-                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de iniciar o enhancement global.")
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "A job is already active. Wait for it to finish or cancel it before starting global enhancement.")
             tcaps = texture_upscale_capability_status()
             backend = str(body.get("backend") or "realesrgan").strip().lower()
             profile = str(body.get("profile") or "detail").strip().lower()
@@ -1655,7 +1655,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if profile not in {"faithful", "balanced", "detail", "pixel-art"}:
                 return self._error(400, "TEXTURE_QUALITY_PROFILE_INVALID")
             if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
-                return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "Real-ESRGAN não está disponível neste ambiente.")
+                return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "Real-ESRGAN is not available in this environment.")
             cmd = [
                 *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
@@ -1668,9 +1668,9 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_run"})
         if u.path == "/api/enhancement/batch-resume":
             if not self.ctx.write_armed:
-                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme as ações de workspace/build antes de retomar o enhancement global.")
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build actions before resuming global enhancement.")
             if self.ctx.jobs.has_active(None):
-                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de retomar o enhancement global.")
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "A job is already active. Wait for it to finish or cancel it before resuming global enhancement.")
             cmd = [
                 *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
@@ -1680,9 +1680,9 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_resume"})
         if u.path == "/api/enhancement/batch-publish":
             if not self.ctx.deploy_armed:
-                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Arme explicitamente o deploy do client antes de publicar o lote de enhancement.")
+                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Explicitly arm client deploy before publishing the enhancement batch.")
             if self.ctx.jobs.has_active(None):
-                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de publicar o lote.")
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "A job is already active. Wait for it to finish or cancel it before publishing the batch.")
             cmd = [
                 *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
@@ -1694,9 +1694,9 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_publish"})
         if u.path == "/api/enhancement/batch-restore":
             if not self.ctx.deploy_armed:
-                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Arme explicitamente o deploy do client antes de restaurar o lote de enhancement.")
+                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Explicitly arm client deploy before restoring the enhancement batch.")
             if self.ctx.jobs.has_active(None):
-                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "Já existe uma tarefa ativa. Aguarde ou cancele antes de restaurar o lote.")
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "A job is already active. Wait for it to finish or cancel it before restoring the batch.")
             cmd = [
                 *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
@@ -1736,9 +1736,9 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "PARTICLE_PREVIEW_RUN_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/contracts/analyze":
             if self.ctx.source_root is None or not self.ctx.source_root.is_dir():
-                return self._error(409, "SOURCE_ROOT_REQUIRED", "Configure o source Summit primeiro.")
+                return self._error(409, "SOURCE_ROOT_REQUIRED", "Configure o source Summit first.")
             if self.ctx.reference_source_root is None or not self.ctx.reference_source_root.is_dir():
-                return self._error(409, "REFERENCE_SOURCE_ROOT_REQUIRED", "Configure o source EU de referência primeiro.")
+                return self._error(409, "REFERENCE_SOURCE_ROOT_REQUIRED", "Configure the reference EU source first.")
             mode = str(body.get("mode") or "source").strip().lower()
             surface = str(body.get("surface") or "server").strip().lower()
             if surface not in {"server", "client"}:
@@ -1753,12 +1753,12 @@ class UIHandler(BaseHTTPRequestHandler):
                     self.ctx.contract_donor_clients, self.ctx.contract_donor_servers,
                 )
                 if not census_preflight.get("can_run"):
-                    return self._error(409, "GENERAL_CENSUS_PREFLIGHT_BLOCKED", "O Censo geral está bloqueado pelo preflight. Corrija os roots/donors mostrados na aba Servidor e salve novamente.")
+                    return self._error(409, "GENERAL_CENSUS_PREFLIGHT_BLOCKED", "The General Census is blocked by preflight. Fix the roots/donors shown on the Server tab and save again.")
                 if self.ctx.jobs.has_active(None, "contracts_general_census"):
-                    return self._error(409, "GENERAL_CENSUS_ALREADY_RUNNING", "Já existe um Censo geral iniciado pela GUI em execução. Acompanhe-o na área de Atividade do workflow que o iniciou.")
+                    return self._error(409, "GENERAL_CENSUS_ALREADY_RUNNING", "A General Census started by the UI is already running. Follow it in the Activity area of the workflow that started it.")
             if mode == "general_census":
                 if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                    return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+                    return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
                 cmd = [
                     *app_command(self.ctx.project_root),
                     "--client-root", str(self.ctx.client_root),
@@ -1769,7 +1769,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 ]
             elif mode == "aggregate_summit":
                 if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                    return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+                    return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
                 cmd = [
                     *app_command(self.ctx.project_root),
                     "--client-root", str(self.ctx.client_root),
@@ -1827,9 +1827,9 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(202, payload)
         if u.path == "/api/legacy-authoring/stage":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
             if not self.ctx.write_armed:
-                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme workspace/build antes de criar o draft de authoring.")
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build before creating the authoring draft.")
             spec = body.get("spec") if isinstance(body.get("spec"), dict) else body
             try:
                 result = stage_authoring(self.ctx.project_root, self.ctx.server_root, self.ctx.client_root, spec)
@@ -1857,7 +1857,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "SERVER_ROOT_CONFIG_FAILED", str(exc))
         if u.path == "/api/server/analyze":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
             mode = str(body.get("mode") or "design").strip().lower()
             surface = str(body.get("surface") or "server").strip().lower()
             if surface not in {"server", "client"}:
@@ -1915,9 +1915,9 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(202, {"ok": True, "job": job.public(), "mode": mode})
         if u.path == "/api/server/field-editor/stage":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
-                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure a raiz do servidor primeiro.")
+                return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
             if not self.ctx.write_armed:
-                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme temporariamente as ações de workspace/build antes de criar um draft de Field.")
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Temporarily arm workspace/build actions before creating a Field draft.")
             rel = str(body.get("path") or "").strip()
             kind = str(body.get("type") or "").strip().upper()
             expected = str(body.get("expected_sha256") or "").strip() or None
@@ -1980,9 +1980,9 @@ class UIHandler(BaseHTTPRequestHandler):
             category = str(body.get("category") or "").strip().upper()
             if category:
                 cmd.extend(["--category", category])
-            path_contains = str(body.get("path_contains") or "").strip()
-            if path_contains:
-                cmd.extend(["--path-contains", path_contains])
+            path_accountins = str(body.get("path_accountins") or "").strip()
+            if path_accountins:
+                cmd.extend(["--path-accountins", path_accountins])
             job = self.ctx.jobs.submit("tree_compare", None, cmd)
             return self._json(202, {"ok": True, "job": job.public(), "output": str(output)})
         if u.path == "/api/monster-npc-census":
@@ -2008,7 +2008,7 @@ class UIHandler(BaseHTTPRequestHandler):
             if action == "upscale_texture":
                 tcaps = texture_upscale_capability_status()
                 if not bool(tcaps.get("lanczos_ready")):
-                    return self._error(409, "TEXTURE_UPSCALE_PILLOW_UNAVAILABLE", "Instale Pillow para habilitar upscale de texturas.")
+                    return self._error(409, "TEXTURE_UPSCALE_PILLOW_UNAVAILABLE", "Install Pillow to enable texture upscaling.")
                 backend = str(options.get("backend") or "auto").strip().lower()
                 profile = str(options.get("profile") or "balanced").strip().lower()
                 if backend not in {"auto", "lanczos", "realesrgan"}:
@@ -2016,9 +2016,9 @@ class UIHandler(BaseHTTPRequestHandler):
                 if profile not in {"faithful", "balanced", "detail", "pixel-art"}:
                     return self._error(400, "TEXTURE_QUALITY_PROFILE_INVALID")
                 if profile == "pixel-art" and backend == "realesrgan":
-                    return self._error(400, "TEXTURE_PIXEL_ART_AI_INVALID", "pixel-art deve usar auto ou Lanczos.")
+                    return self._error(400, "TEXTURE_PIXEL_ART_AI_INVALID", "pixel-art must use auto or Lanczos.")
                 if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
-                    return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "realesrgan-ncnn-vulkan não foi encontrado; use Auto/Lanczos ou instale/configure o executável.")
+                    return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "realesrgan-ncnn-vulkan was not found; use Auto/Lanczos or install/configure the executable.")
             detail = None
             if rel:
                 detail = self.ctx.asset_detail(rel)
@@ -2030,13 +2030,13 @@ class UIHandler(BaseHTTPRequestHandler):
             elif action != "doctor":
                 return self._error(400, "ASSET_PATH_REQUIRED")
             if spec.mutates_client and not self.ctx.deploy_armed:
-                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Arme explicitamente o deploy do client antes de publicar/restaurar um bundle.")
+                return self._error(409, "CLIENT_DEPLOY_NOT_ARMED", "Explicitly arm client deploy before publishing/restoring a bundle.")
             # A client-deploy arm is stronger and one-shot; it also authorizes the
             # pt_build transaction preparation required by publish/restore.
             if spec.mutates_build and not spec.mutates_client and not self.ctx.write_armed:
-                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arme temporariamente as ações de workspace/build no painel de Segurança.")
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Temporarily arm workspace/build actions in the Safety panel.")
             if spec.mutates_build and self.ctx.jobs.has_active(rel):
-                return self._error(409, "ASSET_EDIT_ALREADY_RUNNING", "Já existe uma tarefa ativa para este asset; aguarde ou cancele-a antes de iniciar outra edição/build.")
+                return self._error(409, "ASSET_EDIT_ALREADY_RUNNING", "An active job already exists for this asset; wait for it to finish or cancel it before starting another edit/build.")
             try:
                 cmd = build_command(self.ctx.project_root, action, rel, options)
             except Exception as exc:
@@ -2047,7 +2047,7 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(202, {"ok": True, "job": job.public(), "write_armed": self.ctx.write_armed, "deploy_armed": self.ctx.deploy_armed})
         if u.path == "/api/job/input":
             ok = self.ctx.jobs.send_input(str(body.get("id") or ""), str(body.get("value") or ""))
-            return self._json(200, {"ok": True}) if ok else self._error(409, "JOB_INPUT_NOT_ACCEPTED", "A tarefa não está aguardando uma resposta interativa válida.")
+            return self._json(200, {"ok": True}) if ok else self._error(409, "JOB_INPUT_NOT_ACCEPTED", "The job is not waiting for a valid interactive response.")
         if u.path == "/api/job/cancel":
             ok = self.ctx.jobs.cancel(str(body.get("id") or ""))
             return self._json(200, {"ok": ok}) if ok else self._error(409, "JOB_NOT_CANCELLABLE")

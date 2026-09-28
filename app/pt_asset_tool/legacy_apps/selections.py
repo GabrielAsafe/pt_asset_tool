@@ -139,9 +139,9 @@ def _catalog_cached(server_root_text: str) -> dict[str, Any]:
         if suffix:
             row["display"] = f"{row['code']} — {suffix}"
         elif row.get("openitem_present"):
-            row["display"] = f"{row['code']} — OpenItem sem Name"
+            row["display"] = f"{row['code']} — OpenItem without Name"
         else:
-            row["display"] = f"{row['code']} — sem OpenItem"
+            row["display"] = f"{row['code']} — without OpenItem"
         items.append(row)
     items.sort(key=lambda x: (str(x.get("name") or "").casefold(), str(x.get("code") or "").casefold()))
 
@@ -172,7 +172,7 @@ def _catalog_cached(server_root_text: str) -> dict[str, Any]:
         elif len(variants) > 1:
             row["semantic_canonical_id"] = None
             row["semantic_display_name"] = None
-            row["display"] = f"{row['code']} — {len(variants)} definições mapeadas"
+            row["display"] = f"{row['code']} — {len(variants)} mapped definitions"
 
     characters = _identity_files(server_root, "userdata", ".dat")
     accounts = _identity_files(server_root, "userinfo", ".dat")

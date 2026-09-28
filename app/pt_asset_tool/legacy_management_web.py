@@ -181,7 +181,7 @@ def verify_management_for_web(root: str | pathlib.Path) -> dict[str, Any]:
     return verify_management_root(pathlib.Path(root).expanduser())
 
 
-def _text_contains(row: Any, query: str) -> bool:
+def _text_accountins(row: Any, query: str) -> bool:
     if not query:
         return True
     try:
@@ -209,30 +209,30 @@ def _decorate_item_review(row: dict[str, Any]) -> None:
         if icon != "PRESENT":
             reasons.append(_review_reason(
                 "INVENTORY_ICON_NOT_PRESENT",
-                "Ícone do inventário não foi fechado no client",
-                "O path calculado pelo contrato runtime não resolveu para um arquivo presente. Revise ItemFilePath/DorpItem e o asset físico do client.",
+                "Inventory icon was not resolved in the client",
+                "The path computed by the runtime contract did not resolve to an existing file. Review ItemFilePath/DorpItem and the physical client asset.",
             ))
         if drop != "PRESENT":
             reasons.append(_review_reason(
                 "DROP_MODEL_NOT_PRESENT",
-                "Modelo visual de drop não foi fechado no client",
-                "O ASE esperado em Items/DropItem não foi encontrado. Isso é closure visual; não significa que o item não possa existir no OpenItem.",
+                "Drop visual model was not resolved in the client",
+                "The expected ASE under Items/DropItem was not found. This is visual closure; it does not mean the item cannot exist in OpenItem.",
             ))
     if row.get("status") == "RUNTIME_CATALOG_MISSING":
         reasons.append(_review_reason(
             "RUNTIME_CATALOG_MISSING",
-            "Código não existe no catálogo runtime source-verificado",
-            "Não crie um OpenItem para este código até existir contrato sITEM comprovado. Registro de novo código runtime continua fora do writer promovido.",
+            "Code does not exist in the source-verified runtime catalog",
+            "Do not create an OpenItem for this code until a proven sITEM contract exists. Registration of a new runtime code remains outside the promoted writer.",
         ))
     if row.get("authoring_ready"):
-        actions.append(_review_action("AUTHORING", "Abrir definição do item", authoring_kind="ITEM", path=row.get("authoring_path")))
-    actions.append(_review_action("ITEM_LOOKUP", "Inspecionar contrato runtime", code=row.get("code")))
+        actions.append(_review_action("AUTHORING", "Open item definition", authoring_kind="ITEM", path=row.get("authoring_path")))
+    actions.append(_review_action("ITEM_LOOKUP", "Inspect runtime contract", code=row.get("code")))
     row["review_required"] = row.get("status") != "CLOSED"
     row["review_reasons"] = reasons
     row["review_actions"] = actions
     row["review_summary"] = (
-        "Closure visual completa." if not row["review_required"]
-        else "Revise as dependências visuais abaixo; o estado REVIEW não é, sozinho, prova de item inválido."
+        "Visual closure complete." if not row["review_required"]
+        else "Review the visual dependencies below; REVIEW status alone does not prove the item is invalid."
     )
 
 
@@ -245,22 +245,22 @@ def _decorate_map_review(row: dict[str, Any]) -> None:
         names = ", ".join(str(x.get("name") or "?") for x in unresolved[:8])
         reasons.append(_review_reason(
             "SPM_ACTOR_UNRESOLVED",
-            "Actor do SPM não encontrou definição Monster",
-            f"Sem definição única para: {names}. Corrija o nome no SPM ou crie/corrija a definição do monstro.",
+            "SPM actor did not resolve to a Monster definition",
+            f"No unique definition for: {names}. Fix the name in SPM or create/fix the monster definition.",
         ))
     if ambiguous:
         names = ", ".join(str(x.get("name") or "?") for x in ambiguous[:8])
         reasons.append(_review_reason(
             "SPM_ACTOR_AMBIGUOUS",
-            "Actor do SPM corresponde a mais de uma definição",
-            f"Correspondência ambígua para: {names}. Escolha/corrija a definição antes de confiar na closure de drops.",
+            "SPM actor matches more than one definition",
+            f"Ambiguous match for: {names}. Choose/fix the definition before trusting drop closure.",
         ))
     row["review_required"] = bool(reasons)
     row["review_reasons"] = reasons
     row["review_actions"] = [
-        _review_action("AUTHORING", "Editar SPM", authoring_kind="SPM", path=row.get("authoring_path"))
+        _review_action("AUTHORING", "Edit SPM", authoring_kind="SPM", path=row.get("authoring_path"))
     ] if row.get("authoring_ready") else []
-    row["review_summary"] = "Mapa resolvido." if not reasons else "A closure do mapa não está completa; siga as ações abaixo."
+    row["review_summary"] = "Map resolved." if not reasons else "Map closure is incomplete; follow the actions below."
 
 
 def _decorate_definition_review(row: dict[str, Any]) -> None:
@@ -270,50 +270,50 @@ def _decorate_definition_review(row: dict[str, Any]) -> None:
     if row.get("error"):
         reasons.append(_review_reason(
             "READ_OR_DECODE_ERROR",
-            "A definição não pôde ser lida corretamente",
+            "The definition could not be read correctly",
             str(row.get("error")),
         ))
     for code in row.get("reasons") or []:
         if code == "READ_OR_DECODE_ERROR":
             continue
-        reasons.append(_review_reason(str(code), "Auditoria marcou esta definição para revisão", str(code)))
+        reasons.append(_review_reason(str(code), "The audit marked this definition for review", str(code)))
     missing_refs = [x for x in row.get("item_references") or [] if not bool((x or {}).get("openitem_definition_present"))]
     if missing_refs:
         codes = [str((x or {}).get("code") or "?") for x in missing_refs]
         reasons.append(_review_reason(
             "ITEM_REFERENCE_WITHOUT_OPENITEM",
-            "Há referências de item sem definição OpenItem encontrada",
-            "Códigos: " + ", ".join(codes[:20]) + (" …" if len(codes) > 20 else "") + ". Pesquise cada código e crie/corrija a definição somente se o código runtime for source-verificado.",
+            "There are item references without a matching OpenItem definition",
+            "Codes: " + ", ".join(codes[:20]) + (" …" if len(codes) > 20 else "") + ". Look up each code and create/fix the definition only if the runtime code is source-verified.",
         ))
         for code in codes[:8]:
-            actions.append(_review_action("ITEM_LOOKUP", f"Revisar item {code}", code=code))
+            actions.append(_review_action("ITEM_LOOKUP", f"Review item {code}", code=code))
     if row.get("authoring_ready"):
         actions.insert(0, _review_action(
             "AUTHORING",
-            "Editar monstro" if kind == "MONSTER" else "Editar NPC",
+            "Edit monster" if kind == "MONSTER" else "Edit NPC",
             authoring_kind=kind,
             path=row.get("authoring_path"),
         ))
     row["review_required"] = bool(reasons)
     row["review_reasons"] = reasons
     row["review_actions"] = actions
-    row["review_summary"] = "Definição sem bloqueios detectados pela closure." if not reasons else "REVIEW significa que existe uma pendência concreta; veja motivo e ação abaixo."
+    row["review_summary"] = "Definition with no blockers detected by closure." if not reasons else "REVIEW means there is a concrete pending issue; see the reason and action below."
     row["item_reference_note"] = (
-        "Esta contagem é uma varredura ampla de códigos de item no arquivo; 0 NÃO significa automaticamente 'sem drop'. "
-        "Para MONSTER, use 'Drops item' quando disponível, pois ele olha especificamente FallItem/ExtraFallItem."
+        "This count is a broad scan of item codes in the file; 0 does NOT automatically mean 'no drop'. "
+        "For MONSTER, use 'Drops item' when available because it specifically inspects FallItem/ExtraFallItem."
     )
     if kind == "MONSTER":
         if row.get("drop_item_reference_count") is None:
-            row["drop_note"] = "Relatório antigo: audite novamente para separar drops explícitos de outras referências de item."
+            row["drop_note"] = "Old report: audit again to separate explicit drops from other item references."
         elif int(row.get("drop_item_reference_count") or 0) == 0:
             row["drop_note"] = (
-                "Nenhum código de item foi detectado nas diretivas FallItem/ExtraFallItem. Isso não prova 'sem drop': "
-                "podem existir diretivas de dinheiro ou mecanismos ainda fora deste contrato."
+                "No item code was detected in FallItem/ExtraFallItem directives. This does not prove 'no drop': "
+                "money directives or mechanisms still outside this contract may exist."
             )
         else:
-            row["drop_note"] = "Códigos detectados especificamente em FallItem/ExtraFallItem."
+            row["drop_note"] = "Codes detected specifically in FallItem/ExtraFallItem."
     row["zhoon_note"] = (
-        ".zhoon é uma referência companion/visual histórica do monstro; não é uma tabela de drop e não deve ser interpretada como item."
+        ".zhoon is a historical companion/visual reference for the monster; it is not a drop table and must not be interpreted as an item."
     )
 
 
@@ -390,7 +390,7 @@ def query_legacy_management_report(
     for row in rows:
         if wanted_status and str((row or {}).get("status") or "").casefold() != wanted_status:
             continue
-        if not _text_contains(row, str(query or "")):
+        if not _text_accountins(row, str(query or "")):
             continue
         filtered.append(row)
     offset = max(0, int(offset or 0))

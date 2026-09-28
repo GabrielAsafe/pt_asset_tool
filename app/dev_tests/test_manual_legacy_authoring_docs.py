@@ -24,7 +24,7 @@ def test_gui_help_surfaces_explorer_to_authoring_workflow():
     assert 'data-manual-legacy-runbook="2026-09-21"' in html
     assert "ARM BUILD WRITES" in html
     assert "ARM ASSET DEPLOY" in html
-    assert "docs/tematicos/LEGACY_MANAGEMENT_AUTHORING.md" in html
+    assert "docs/en/topics/LEGACY_MANAGEMENT_AUTHORING.md" in html
 
 
 def test_supporting_manuals_no_longer_claim_server_is_unconditionally_read_only():
