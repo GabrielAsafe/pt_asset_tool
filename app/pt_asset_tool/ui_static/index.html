@@ -313,6 +313,18 @@
             </div>
             <div class="server-explorer-table"><table><thead><tr><th>Decisão</th><th>Lado</th><th>Família</th><th>Path</th><th>Evidência / motivo</th></tr></thead><tbody id="generalCensusRows"><tr><td colspan="5" class="empty">Sem censo geral carregado.</td></tr></tbody></table></div>
           </section>
+          <section class="panel server-explorer-panel" id="assetRetentionPanel">
+            <div class="panel-title"><strong>Retenção / órfãos do client</strong><span id="assetRetentionCount">Execute o Censo geral para gerar a classificação.</span></div>
+            <div id="assetRetentionSummary" class="server-summary"></div>
+            <p class="micro">Fail-closed: <strong>ORPHAN_CANDIDATE não autoriza delete</strong>. Monster/NPC ligado por catálogo, grafo ou bundle permanece protegido; falha de DDS é apenas evidência de build.</p>
+            <div class="server-explorer-toolbar">
+              <input id="assetRetentionSearch" type="search" placeholder="Buscar path, bundle, evidência ou falha DDS…" />
+              <select id="assetRetentionState"><option value="">Todos os estados</option></select>
+              <select id="assetRetentionFamily"><option value="">Todas as famílias</option></select>
+              <button id="assetRetentionRefresh" class="btn">Atualizar retenção</button>
+            </div>
+            <div class="server-explorer-table"><table><thead><tr><th>Estado</th><th>Família</th><th>Path</th><th>Root</th><th>Componente</th><th>Edges</th><th>Evidência / DDS</th></tr></thead><tbody id="assetRetentionRows"><tr><td colspan="7" class="empty">Sem relatório de retenção carregado.</td></tr></tbody></table></div>
+          </section>
         </section>
 
         <section class="server-workflow-pane" data-server-workflow-pane="validation">
@@ -588,7 +600,10 @@
 
         <section class="panel legacy-authoring-panel" id="legacyAuthoringPanel">
           <div class="panel-title"><strong id="legacyAuthoringTitle">Item — editor Python</strong><span id="legacyAuthoringState">Escolha Criar ou Editar acima</span></div>
-          <div class="legacy-authoring-toolbar"><select id="legacyAuthoringKind"></select><select id="legacyAuthoringMode"><option>EDIT</option><option>CREATE</option></select><input id="legacyAuthoringPath" type="text" placeholder="Path server-side" /><button id="legacyAuthoringInspectBtn" class="btn">Abrir / Inspecionar</button><button id="legacyAuthoringTemplateBtn" class="btn">Recarregar template</button></div><div id="legacyAuthoringItemHelper" class="legacy-item-search"><select id="legacyAuthoringItemCode"><option value="">Item relacionado: código — nome</option></select><button id="legacyAuthoringInsertItemBtn" class="btn">Inserir código no spec</button></div>
+          <div class="legacy-authoring-toolbar"><select id="legacyAuthoringKind"></select><select id="legacyAuthoringMode"><option>EDIT</option><option>CREATE</option></select><input id="legacyAuthoringPath" type="text" placeholder="Path server-side" /><button id="legacyAuthoringInspectBtn" class="btn">Abrir / Inspecionar</button><button id="legacyAuthoringTemplateBtn" class="btn">Recarregar template</button></div>
+          <div id="legacyAuthoringCatalogHelper" class="legacy-item-search"><select id="legacyAuthoringCatalogEntry"><option value="">Catálogo semântico: selecione um alvo</option></select><button id="legacyAuthoringUseCatalogBtn" class="btn primary">Usar mapeamento</button><span id="legacyAuthoringCatalogMeta" class="micro"></span></div>
+          <div id="legacyAuthoringItemHelper" class="legacy-item-search"><select id="legacyAuthoringItemCode"><option value="">Item relacionado: nome — código — canonical id</option></select><button id="legacyAuthoringInsertItemBtn" class="btn">Inserir item relacionado</button></div>
+          <div id="legacyAuthoringEntityHelper" class="legacy-item-search hidden"><select id="legacyAuthoringEntityRef"><option value="">Entidade relacionada</option></select><button id="legacyAuthoringInsertEntityBtn" class="btn">Inserir entidade no spec</button></div>
           <div class="legacy-authoring-layout"><div><label class="legacy-authoring-label">Spec Python-native / JSON<textarea id="legacyAuthoringSpec" spellcheck="false"></textarea></label><div class="legacy-authoring-actions"><button id="legacyAuthoringStageBtn" class="btn primary">Stage em pt_build</button><button id="legacyAuthoringPublishBtn" class="btn" disabled>Publicar bundle</button><button id="legacyAuthoringRestoreBtn" class="btn">Restaurar bundle</button><button id="legacyAuthoringStatusBtn" class="btn">Status transação</button></div><p class="micro">Fluxo: <code>selecionar target → inspect/create → stage → revisar manifest → publish → validar no jogo → restore</code>. Publish só é habilitado depois de um stage bem-sucedido desta tarefa.</p></div><pre id="legacyAuthoringResult" class="legacy-authoring-result">Escolha uma tarefa acima.</pre></div>
         </section>
         <div id="legacyAuthoringParking" class="hidden"></div>

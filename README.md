@@ -56,3 +56,26 @@ python3 READY_TO_DEPLOY.py --message "chore: ready to deploy"
 ```
 
 O fluxo roda a regressão, remove somente caches reproduzíveis (`__pycache__`, `.pytest_cache`, `.pyc/.pyo`), **preserva `app/pt_build` e `enhancement/`**, atualiza o snapshot (que já exclui runtime), executa `VERIFY_PACKAGE.sh`, faz `git add -A`, `git diff --cached --check` e cria o commit. A higiene de release verifica que runtime não está versionado; não exige apagar dados locais.
+
+## Integração Summit asset-retention / cooked DDS
+
+O General Asset Census inclui uma projeção fail-closed de retenção física e importa o manifest V2 do Summit DDS cooker. A integração reutiliza ContractGraph, source evidence, client manifests e dependency graph existentes; não cria uma segunda autoridade de assets e não autoriza delete/quarantine. Consulte `docs/tematicos/ASSET_RETENTION_AND_COOKED_DDS.md`.
+
+O V2.6 adiciona quarantine reversível em duas camadas: Q0 pode mover somente documented invalid orphans com zero linkage/root/evidence; Q1 é review-only por componente `URC-*`. Não existe delete automático. Consulte `docs/tematicos/ASSET_QUARANTINE_WORKFLOW.md`.
+
+O V2.7 adiciona ranking read-only dos componentes Q1 (`A/B/C/BLOCKED`). O score prioriza revisão de componentes pequenos/isolados com membros inválidos documentados; nunca autoriza move/delete e `quarantine apply` continua restrito ao Q0.
+
+O V2.8 adiciona quarantine **manual e explícita** de um único componente Q1 estritamente elegível por `quarantine apply-component`. O componente precisa ser banda A, pequeno (máx. 10 membros), sem proteção/entity/evidência positiva, sem edges externos, conter inválido documentado e ter SHA-256 físico capturado no plano. O score continua sem autoridade de move/delete; a operação exige `--component` exato + confirmação separada e permanece 100% restaurável.
+
+
+## Effect runtime coverage / root-unreachable components (V2.5)
+
+O Censo geral resolve roots de efeitos a partir de loaders legacy conhecidos e agrupa
+subgrafos client não alcançados por strong roots em componentes `URC-xxxxx`. A camada é
+read-only e serve para reduzir falsos órfãos antes de qualquer workflow de quarantine.
+
+## Catálogo semântico de authoring (V2.9)
+
+O Management Legacy agora empacota `contracts/priston_asset_name_map_v1.json` como contrato de nome visível → identidade interna para criação/edição. A identidade primária de authoring é `canonical_id`; `code` continua sendo identidade runtime onde o formato exige código sITEM. Isso evita colapsar variantes que compartilham o mesmo code.
+
+A UI usa o catálogo em ITEM, MONSTER, NPC e MAP/Field; SPM oferece seletor de mob para actor e SPC oferece seletor de NPC fixo. Mapas resolvem nome → field/stage → SPM/SPP/SPC, incluindo a correção `Ricarten → village-2`. Nomes visíveis ambíguos permanecem marcados e nunca são resolvidos silenciosamente.

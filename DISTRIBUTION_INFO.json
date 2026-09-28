@@ -1,16 +1,28 @@
 {
   "format": "PT_ASSET_TOOL_DISTRIBUTION_INFO_V1",
   "version": "1.0.0",
-  "edition": "DOCUMENTATION_COMPLETE",
-  "date": "2026-09-14",
-  "code_basis": "PT_ASSET_TOOL_1_0_CERTIFIED_SAFETY_LOCKED",
-  "application_code_changed_by_docs_refresh": false,
-  "automatic_gate_status": "PASS",
-  "automatic_blockers": 0,
+  "edition": "LEGACY_AUTHORING_SEMANTIC_CATALOG_V29",
+  "date": "2026-09-28",
+  "code_basis": "PT_ASSET_TOOL_V28_PLUS_SEMANTIC_AUTHORING_NAME_CATALOG_CANONICAL_ID_BINDINGS",
+  "application_code_changed_by_docs_refresh": true,
+  "automatic_gate_status": "TARGETED_V29_PASS_REGRESSION_PASS_PACKAGE_VERIFY_PASS_FULL_RUNTIME_GATE_NOT_RERUN",
+  "automatic_blockers": null,
   "production_authorized": false,
   "client_write_authorized": false,
   "server_write_authorized": false,
   "documentation_index": "docs/README.md",
-  "cli_leaf_route_count": 117,
-  "module_count": 153
+  "cli_leaf_route_count": 154,
+  "module_count": 184,
+  "integration_validation": {
+    "passed": 64,
+    "skipped": 1,
+    "failed": 0
+  },
+  "integration_doc": "docs/validation/INTEGRATION_LEGACY_AUTHORING_NAME_CATALOG_V29_2026-09-28.md",
+  "focused_regression": {
+    "passed": 40,
+    "skipped": 1,
+    "failed": 0,
+    "status": "PASS"
+  }
 }

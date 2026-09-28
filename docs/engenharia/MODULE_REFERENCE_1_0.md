@@ -1,6 +1,6 @@
 # PT Asset Tool R14 1.0.0 — Referência de Módulos
 
-Inventário automático de 153 módulos Python diretamente em `app/pt_asset_tool/`. O mapa conceitual detalhado continua em `MAPA_MODULOS_SCRIPTS.md`.
+Inventário dos módulos Python distribuídos diretamente em `app/pt_asset_tool/`. O mapa conceitual detalhado continua em `MAPA_MODULOS_SCRIPTS.md`.
 
 | Módulo | Família | Símbolos públicos principais |
 |---|---|---|
@@ -14,6 +14,7 @@ Inventário automático de 153 módulos Python diretamente em `app/pt_asset_tool
 | `animation_pose_devtest.py` | Animation | `choose_animation_pose_representatives()`, `filter_animation_pose_physical_representatives()`, `choose_animation_pose_physical_representatives()`, `run_animation_pose_automated_devtest()`, `run_animation_pose_automated_devtest_batch()` |
 | `animation_source_regression.py` | Animation | `audit_animation_source_regression()` |
 | `app_config.py` | Core / misc | `config_path()`, `load_config()`, `save_client_root()`, `clear_client_root()`, `candidate_client_roots_with_source()`, `candidate_client_roots()` |
+| `asset_retention.py` | Core / misc | `audit_asset_retention()`, `query_asset_retention()` |
 | `authoring.py` | Core / misc | `normalize_lod_groups()`, `lod_groups_signature()`, `build_selected_authoring_context()`, `build_standalone_rigid_authoring_context()`, `verify_selected_authoring_context()`, `verify_selected_context_for_asset()` |
 | `binding_coverage.py` | Core / misc | `audit_binding_coverage()` |
 | `blender_workspace.py` | Core / misc | `asset_workspace_name()`, `blender_edit_root()`, `write_workspace_info()` |
@@ -24,6 +25,8 @@ Inventário automático de 153 módulos Python diretamente em `app/pt_asset_tool
 | `cli.py` | Core / misc | `make_context()`, `table()`, `cmd_doctor()`, `cmd_audit_physique()`, `cmd_audit_animation_certification_plan()`, `cmd_audit_object_local()` |
 | `client_manifest_evidence.py` | Core / misc | `parse_fixed_manifest()`, `audit_client_manifests()` |
 | `config.py` | Core / misc | `Settings` |
+| `cooked_texture_evidence.py` | Core / misc | `audit_cooked_texture_evidence()`, `cooked_index()` |
+| `effect_runtime_coverage.py` | Core / misc | `audit_effect_runtime_coverage()` — promove apenas calls de loaders legacy conhecidos e resolve INIs dinâmicos de efeito sem transformar source literal genérico em runtime root |
 | `contract_graph.py` | Core / misc | `ContractNode`, `ContractEdge`, `ContractGraph` |
 | `deployment.py` | Core / misc | `plan_deployment()`, `prepare_deployment_transaction()`, `verify_deployment_transaction()`, `simulate_deployment_transaction()`, `classify_client_transaction_state()`, `plan_restore_transaction()` |
 | `development_readiness.py` | Core / misc | `audit_development_readiness()` |

@@ -49,7 +49,10 @@ Target client/server -> read-only por padrão
 
 - `source_catalog.py`, `source_evidence.py`, `source_contract_census.py`, `skill_contract_census.py`;
 - `server_inventory.py`, `server_bundle_census.py`, `server_field_census.py`, `server_item_census.py`;
-- `general_asset_census.py`, `contract_graph.py`, `client_manifest_evidence.py`.
+- `general_asset_census.py`, `contract_graph.py`, `client_manifest_evidence.py`;
+- `asset_retention.py`: projeção física fail-closed de reachability/retention, distinguindo graph linkage de strong-root reachability, sem autorização de delete;
+- `effect_runtime_coverage.py`: bridge read-only entre calls legacy de efeitos no C/C++ e paths físicos do client; resolve nomes dinâmicos conhecidos sem promover literals genéricos;
+- `cooked_texture_evidence.py`: import read-only do `cooked/manifest.json`/`failed.json` do Summit DDS cooker.
 
 ## Format families
 
@@ -78,3 +81,21 @@ Target client/server -> read-only por padrão
 - `app/tests/`: integration/source/UI tests adicionais;
 - `RUN_REGRESSION_FOCUSED.sh`, `RUN_RELEASE_FAST.sh`: runners operacionais;
 - gates reais podem exigir client/server/Blender externos.
+
+## Runtime effect coverage e componentes root-unreachable — revisão V2.5
+
+O General Asset Census possui uma etapa explícita para cobrir assets de efeitos que
+não aparecem como path físico completo no source. O scanner `effect_runtime_coverage.py`
+reconhece apenas APIs legacy conhecidas. Nomes como `Return1.ini`, quando passados por
+`StartBillRect`/`StartDestPath`, são resolvidos primeiro no namespace histórico
+`Effect/AnimationData/`. Um basename ambíguo permanece REVIEW e nunca vira strong root.
+
+Paths `Effect/...` completos também só viram root quando aparecem no contexto de loaders
+legacy reconhecidos. A mera existência de uma string no C/C++ continua sendo source
+evidence, não runtime proof.
+
+Depois da closure dirigida de strong roots, o `asset_retention.py` agrupa assets client
+que têm ContractGraph edges mas continuam sem root em componentes fracos `URC-xxxxx`.
+Cada componente registra tamanho, entry nodes e edges externos. Component membership é
+uma unidade de revisão, **não** autoridade de quarantine/delete. Monster/NPC mantém a
+política fail-closed de bundle/catalog já definida.

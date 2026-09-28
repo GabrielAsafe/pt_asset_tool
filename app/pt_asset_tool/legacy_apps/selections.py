@@ -20,6 +20,7 @@ from typing import Any
 
 from ..item_runtime_catalog import item_runtime_catalog
 from ..legacy_authoring import _inspect_text_definition
+from ..legacy_name_catalog import public_authoring_name_catalog
 
 FORMAT = "PT_LEGACY_UI_SELECTIONS_V1"
 
@@ -144,12 +145,56 @@ def _catalog_cached(server_root_text: str) -> dict[str, Any]:
         items.append(row)
     items.sort(key=lambda x: (str(x.get("name") or "").casefold(), str(x.get("code") or "").casefold()))
 
+    semantic = public_authoring_name_catalog()
+    semantic_by_code: dict[str, list[dict[str, Any]]] = {}
+    for row in semantic.get("items") or []:
+        code = str(row.get("code") or "").strip().casefold()
+        if code:
+            semantic_by_code.setdefault(code, []).append(row)
+    for row in items:
+        variants = semantic_by_code.get(str(row.get("code") or "").casefold(), [])
+        row["semantic_variant_count"] = len(variants)
+        row["semantic_variants"] = [
+            {
+                "canonical_id": x.get("canonical_id"),
+                "display_name": x.get("display_name"),
+                "logical_path": x.get("logical_path"),
+                "linked_asset": x.get("linked_asset"),
+                "confidence": x.get("confidence"),
+            }
+            for x in variants
+        ]
+        if len(variants) == 1:
+            row["semantic_canonical_id"] = variants[0].get("canonical_id")
+            row["semantic_display_name"] = variants[0].get("display_name")
+            if not row.get("name") and variants[0].get("display_name"):
+                row["display"] = f"{row['code']} — {variants[0]['display_name']}"
+        elif len(variants) > 1:
+            row["semantic_canonical_id"] = None
+            row["semantic_display_name"] = None
+            row["display"] = f"{row['code']} — {len(variants)} definições mapeadas"
+
     characters = _identity_files(server_root, "userdata", ".dat")
     accounts = _identity_files(server_root, "userinfo", ".dat")
     return {
         "format": FORMAT,
         "status": "PASS",
         "server_root": str(server_root),
+        "semantic_catalog": {
+            "format": semantic.get("format"),
+            "title": semantic.get("title"),
+            "generated_from": semantic.get("generated_from"),
+            "counts": semantic.get("counts"),
+            "important_correction": semantic.get("important_correction"),
+        },
+        "authoring_catalog": {
+            "items": semantic.get("items") or [],
+            "mobs": semantic.get("mobs") or [],
+            "npcs": semantic.get("npcs") or [],
+            "maps": semantic.get("maps") or [],
+            "spawn_stages": semantic.get("spawn_stages") or [],
+            "ambiguous": semantic.get("ambiguous") or [],
+        },
         "items": items,
         "item_count": len(items),
         "runtime_item_count": sum(1 for x in items if x.get("runtime_verified")),

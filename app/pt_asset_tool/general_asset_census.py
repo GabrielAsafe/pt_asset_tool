@@ -25,6 +25,9 @@ from .texture_overlay import face_texture_references_model062
 from .monster_npc_census import extract_refs as extract_bundle_refs
 from .ui_catalog import infer_physical_family
 from .class_ui_alias_audit import audit_class_ui_aliases
+from .cooked_texture_evidence import audit_cooked_texture_evidence, cooked_index
+from .effect_runtime_coverage import audit_effect_runtime_coverage
+from .asset_retention import audit_asset_retention
 
 FORMAT = "PT_ASSET_GENERAL_REACHABILITY_CENSUS_V1"
 RECOVERY_ACTIONS = {"RECOVER", "RECOVER_DEDUPED", "RECOVER_PREFERRED_VARIANT"}
@@ -1121,6 +1124,9 @@ def audit_general_asset_census(
     field_report = audit_server_field_bundles(project, server, progress=lambda m: p("fields: " + m))
     item_report = audit_server_item_bundles(project, server, progress=lambda m: p("items: " + m))
     manifest_report = audit_client_manifests(project, client)
+    p("cooked DDS evidence")
+    cooked_report = audit_cooked_texture_evidence(project, client)
+    cooked_by_source = cooked_index(cooked_report)
     p("class UI alias audit")
     class_ui_alias = audit_class_ui_aliases(project, client)
 
@@ -1190,6 +1196,26 @@ def audit_general_asset_census(
             return rel
         (strong_server if strong else review_server)[rel.casefold()].add(evidence)
         return rel
+
+    # ------------------------------------------------------------------
+    # Legacy effect runtime loaders. Bare animation names such as Return1.ini
+    # are resolved through Effect/AnimationData; exact Effect/... literals are
+    # promoted only when passed to known effect loader APIs. This bridges the
+    # dynamic name-based effect runtime into physical client paths without
+    # treating arbitrary source literals as roots.
+    # ------------------------------------------------------------------
+    p("legacy effect runtime root coverage")
+    effect_runtime = audit_effect_runtime_coverage(project, client, current_tree)
+    for root_row in effect_runtime.get("roots", []):
+        rel = _norm(root_row.get("path") or "")
+        for evidence in root_row.get("evidence", []) or ["EFFECT_RUNTIME_LOADER"]:
+            if rel:
+                mark_client(rel, str(evidence), strong=True)
+    for review_row in effect_runtime.get("review", []):
+        for candidate in review_row.get("candidates", []) or []:
+            rel = _norm(candidate)
+            if rel:
+                mark_client(rel, f"EFFECT_RUNTIME_AMBIGUOUS:{review_row.get('callee')}:{review_row.get('source_file')}:{review_row.get('source_line')}", strong=False)
 
     # ------------------------------------------------------------------
     # Current-source literals are useful evidence, but not automatically a
@@ -1985,6 +2011,17 @@ def audit_general_asset_census(
     bundle_incomplete = [x for x in recovery_bundles if x.get("status") == "INCOMPLETE"]
     bundle_not_closed = bundle_review + bundle_incomplete
 
+    p("asset retention / orphan evidence")
+    retention_report = audit_asset_retention(
+        project, client,
+        strong_paths=strong_client,
+        review_paths=review_client,
+        manifest_exact=manifest_exact,
+        source_literal_paths=source_literal_paths,
+        cooked_by_source=cooked_by_source,
+        graph_path=pathlib.Path(str(vendor.get("graph_dir") or "")) / "graph.json",
+    )
+
     result = {
         "format": FORMAT,
         "status": "PASS",
@@ -2005,6 +2042,23 @@ def audit_general_asset_census(
         "source_literal_path_count": len(source_literal_paths),
         "manifest_exact_path_count": len(manifest_exact),
         "manifest_boundary_path_count": len(manifest_boundary),
+        "cooked_texture_state": cooked_report.get("state"),
+        "cooked_texture_entry_count": cooked_report.get("entry_count", 0),
+        "effect_runtime_root_count": effect_runtime.get("strong_root_count", 0),
+        "effect_runtime_review_witness_count": effect_runtime.get("review_witness_count", 0),
+        "cooked_texture_failure_count": cooked_report.get("failure_count", 0),
+        "cooked_texture_failure_class_counts": cooked_report.get("failure_class_counts", {}),
+        "cooked_texture_documented_outlier_failure_count": cooked_report.get("documented_outlier_failure_count", 0),
+        "cooked_texture_skip_count": cooked_report.get("skip_count", 0),
+        "cooked_texture_skip_class_counts": cooked_report.get("skip_class_counts", {}),
+        "cooked_texture_integrity_state_counts": cooked_report.get("asset_integrity_state_counts", {}),
+        "asset_retention_state": retention_report.get("state"),
+        "asset_retention_asset_count": retention_report.get("asset_count", 0),
+        "asset_retention_orphan_candidate_count": retention_report.get("orphan_candidate_count", 0),
+        "asset_retention_root_reachable_client_path_count": retention_report.get("root_reachable_client_path_count", 0),
+        "asset_retention_graph_linked_root_unreachable_review_count": retention_report.get("graph_linked_root_unreachable_review_count", 0),
+        "asset_retention_state_counts": retention_report.get("state_counts", {}),
+        "asset_retention_integrity_action_counts": retention_report.get("integrity_action_counts", {}),
         "spm_actor_resolution_counts": dict(sorted(spm_actor_resolution.items())),
         "spc_runtime_counts": dict(sorted(spc_runtime_counts.items())),
         "field_runtime_witness_counts": dict(sorted(field_runtime_witness_counts.items())),
@@ -2061,6 +2115,9 @@ def audit_general_asset_census(
             "summit_superset": superset,
             "vendor_graph": vendor,
             "client_manifests": manifest_report,
+            "cooked_texture_evidence": cooked_report,
+            "effect_runtime_coverage": effect_runtime,
+            "asset_retention": retention_report,
             "class_ui_aliases": class_ui_alias,
             "server_entities_report": entity_report.get("report"),
             "server_fields_report": field_report.get("report"),
@@ -2077,6 +2134,15 @@ def audit_general_asset_census(
             "plan_only": True,
             "donor_gap_is_not_runtime_need": True,
             "manifest_presence_is_not_runtime_need": True,
+            "asset_retention_delete_authorized": False,
+            "known_effect_runtime_loader_can_promote_strong_root": True,
+            "effect_bare_ini_prefers_animationdata_namespace": True,
+            "ambiguous_effect_basename_is_review_not_root": True,
+            "root_unreachable_component_is_review_not_delete_authority": True,
+            "orphan_requires_zero_known_linkage": True,
+            "monster_npc_bundle_guard_enabled": True,
+            "monster_npc_catalog_guard_enabled": True,
+            "cooked_failure_is_diagnostic_not_removal_authority": True,
             "same_basename_is_not_generic_equivalence": True,
             "raw_smd_string_reference_is_not_strong_reachability": True,
             "model062_face_used_materials_are_strong_reachability": True,
@@ -2127,6 +2193,13 @@ def audit_general_asset_census(
         for pth, arc in (
             (project / "pt_build" / "general_asset_census" / "manifest_evidence" / "result.json", "manifest_evidence/result.json"),
             (project / "pt_build" / "general_asset_census" / "manifest_evidence" / "manifest_paths.tsv", "manifest_evidence/manifest_paths.tsv"),
+            (project / "pt_build" / "cooked_texture_evidence" / "result.json", "components/cooked_texture_evidence.json"),
+            (project / "pt_build" / "cooked_texture_evidence" / "entries.tsv", "components/cooked_texture_entries.tsv"),
+            (project / "pt_build" / "effect_runtime_coverage" / "result.json", "components/effect_runtime_coverage.json"),
+            (project / "pt_build" / "asset_retention" / "result.json", "components/asset_retention.json"),
+            (project / "pt_build" / "asset_retention" / "assets.tsv", "components/asset_retention_assets.tsv"),
+            (project / "pt_build" / "asset_retention" / "components.json", "components/asset_retention_components.json"),
+            (project / "pt_build" / "asset_retention" / "components.tsv", "components/asset_retention_components.tsv"),
             (project / "pt_build" / "devtest" / "server_bundle_census" / "result.json", "components/server_bundle_census.json"),
             (project / "pt_build" / "devtest" / "server_field_census" / "result.json", "components/server_field_census.json"),
             (project / "pt_build" / "devtest" / "server_item_census" / "result.json", "components/server_item_census.json"),

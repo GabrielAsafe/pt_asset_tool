@@ -1669,3 +1669,128 @@ Restore usa o backup da transação e bloqueia drift externo desconhecido.
 A referência para executar testes do projeto é `docs/engenharia/VALIDACAO_TESTES_DESENVOLVIMENTO.md`. Para um teste específico use `arquivo.py::test_nome`; para regressão principal use `PYTHONDONTWRITEBYTECODE=1 "$PY" -m pytest -q dev_tests tests`.
 
 Texture Upscale usa `app/pt_build/texture_upscale/` como runtime canónico. Referências antigas a um root top-level `enhancement/` são históricas e não devem ser usadas para criar um segundo estado concorrente.
+
+---
+
+### `pt_asset.py audit cooked-textures`
+
+Importa read-only o contrato do Summit DDS cooker em `<client>/cooked/manifest.json` e, quando presente, `failed.json`. Reporta sucessos/falhas e metadata de diagnóstico. Não altera source textures nem cooked artifacts.
+
+```bash
+python3 pt_asset.py --client-root /path/client audit cooked-textures
+```
+
+Opcional:
+
+```text
+--manifest PATH   usar manifest cooked específico
+```
+
+Outputs:
+
+```text
+pt_build/cooked_texture_evidence/result.json
+pt_build/cooked_texture_evidence/entries.tsv
+```
+
+### `pt_asset.py audit asset-retention`
+
+Executa o General Asset Census e devolve a projeção fail-closed de retenção/orphan evidence. Um `ORPHAN_CANDIDATE` nunca autoriza delete. Strong-root reachability protege transitivamente; manifest/source evidence e monster/NPC bundle/catalog guards continuam positivos. Um ContractGraph edge isolado, sem caminho desde strong root, passa a `REVIEW_GRAPH_LINKED_ROOT_UNREACHABLE` para evitar proteção eterna de subgrafos mortos.
+
+Aceita os mesmos roots/donors de `general-asset-census`.
+
+Outputs:
+
+```text
+pt_build/asset_retention/result.json
+pt_build/asset_retention/assets.tsv
+```
+
+Ver `docs/tematicos/ASSET_RETENTION_AND_COOKED_DDS.md`.
+
+### `pt_asset.py audit asset-retention-query`
+
+Consulta o relatório de retenção já persistido sem rerodar o General Asset
+Census. É a forma recomendada de diagnosticar um único asset e seus edges sem
+imprimir o grafo inteiro.
+
+```bash
+python3 pt_asset.py audit asset-retention-query \
+  --path 'Effect/AssaEffect/MonsterFury/m_fury.tga'
+```
+
+Filtros disponíveis:
+
+```text
+--path PATH       path client-relative exato
+--query TEXT      substring em path/state/evidence/root/edges/cooker
+--state STATE     estado de retenção exato
+--family FAMILY   família física exata
+--component ID     componente root-unreachable exato, por exemplo URC-00001
+--offset N
+--limit N
+```
+
+
+### `pt_asset.py audit effect-runtime-coverage`
+
+Auditoria read-only de calls C/C++ que carregam efeitos legacy e dos paths físicos do
+client que essas calls selecionam. Não promove source literals genéricos: apenas loaders
+conhecidos e resolução não ambígua podem gerar strong roots.
+
+```bash
+python3 pt_asset.py --client-root /path/client audit effect-runtime-coverage \
+  --source-root /path/Summit/SourceCode
+```
+
+Output:
+
+```text
+pt_build/effect_runtime_coverage/result.json
+```
+
+Para revisar um componente inteiro depois do Censo geral:
+
+```bash
+python3 pt_asset.py audit asset-retention-query \
+  --component URC-00001 --limit 200
+```
+
+Esses comandos são diagnósticos; não quarentenam nem apagam assets.
+
+
+### `pt_asset.py audit quarantine-plan`
+
+Gera `pt_build/quarantine_plan/plan.json`, `q0_assets.tsv` e `q1_components.tsv`. É plan-only e não move assets. Q0 exige documented invalid orphan com zero graph/root/evidence; Q1 é review-only.
+
+### `pt_asset.py quarantine status`
+
+Mostra plano e última transação de quarantine.
+
+### `pt_asset.py quarantine apply`
+
+Move somente Q0 para `pt_build/quarantine_store`. Requer `--confirm MOVE_Q0_TO_QUARANTINE`. Valida retention report, asset TSV e SHA-256 físicos antes de mover. Não apaga.
+
+### `pt_asset.py quarantine apply-component`
+
+Move manualmente **um único** componente Q1 estritamente elegível. Requer `--component URC-xxxxx` exato e `--confirm MOVE_Q1_COMPONENT_TO_QUARANTINE`. O plano V2 precisa registrar banda A, tamanho <= 10, zero proteção/entity/evidência positiva, zero edges externos, pelo menos um inválido documentado e manifest físico completo com SHA-256. Não aceita batch, banda ou wildcard e nunca autoriza delete.
+
+```bash
+python3 app/pt_asset.py quarantine apply-component --component URC-02537 --confirm MOVE_Q1_COMPONENT_TO_QUARANTINE
+```
+
+### `pt_asset.py quarantine restore`
+
+Restaura a última transação ou `--transaction` explícita. Requer `--confirm RESTORE_QUARANTINE`.
+
+
+### `pt_asset.py quarantine review`
+
+Consulta a fila Q1 já persistida e ordenada por prioridade de revisão. É read-only.
+
+```bash
+python3 pt_asset.py quarantine review --band A --limit 50
+python3 pt_asset.py quarantine review --component URC-02537
+```
+
+`A/B/C` são prioridades de revisão; `BLOCKED` contém evidência positiva/entity bundle. O score não autoriza quarantine nem delete. `quarantine apply` continua movendo apenas Q0; o V2.8 possui `apply-component` separado, manual e restrito a um Q1 que passe o gate físico/estrutural adicional.

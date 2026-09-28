@@ -440,6 +440,9 @@ A arquitetura server-aware, os lifecycles excluídos, os bundles Monster/NPC/Fie
 | `affine_factor.py` | RUNTIME_CORE | fatoração determinística de matrizes afins legacy em dois fatores TRS para preservar shear/non-TRS sem relaxar tolerâncias |
 | `affine_animation_selftest.py` | READ_ONLY_AUDIT | self-test Blender headless save/reopen da representação affine two-bone; grava somente em `pt_build` e falha fechado se a matriz global não sobreviver |
 | `integration_regression_auto.py` | READ_ONLY_AUDIT | gate focado client+server após o primeiro corpus físico: ambiente, self-test affine, pose-space, SMB outliers, TGA outlier/codecs e censos server corrigidos |
+| `asset_retention.py` | READ_ONLY_AUDIT | classifica assets físicos por strong roots/closure/graph/manifests/source/catalog bundle; separa `graph_linked` de `root_reachable`; `ORPHAN_CANDIDATE` nunca autoriza delete |
+| `cooked_texture_evidence.py` | READ_ONLY_AUDIT | importa manifest/failed DDS V1/V2 e anexa build/failure evidence sem alterar source/cooked |
+| `effect_runtime_coverage.py` | READ_ONLY_AUDIT | resolve roots de efeitos a partir de calls legacy conhecidas (`StartBillRect`, `StartDestPath`, loaders de Effect paths); ambiguity fica REVIEW, nunca root por basename arbitrário |
 | `enrichment_vendor_adapter.py` | READ_ONLY_AUDIT / WORKSPACE | integra o Summit Asset Enrichment v9 Fix136 ao Design Tool para gerar migration plan e dependency graph usando os roots atuais; escreve apenas manifests/graph em `pt_build`, filtra donors inexistentes e não expõe `apply`/install writes |
 | `affine_rig_selftest_build.py` | BLENDER_HELPER | constrói em Blender um rig sintético com helper bone não-deformável para provar a decomposição two-bone em shear/reflection/rank-deficient |
 | `affine_rig_selftest_check.py` | BLENDER_HELPER | reabre o `.blend` do self-test e verifica matrizes globais após persistência/evaluation |
@@ -483,6 +486,7 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `animation_pose_devtest.py`
 - `animation_source_regression.py`
 - `app_config.py`
+- `asset_retention.py`
 - `authoring.py`
 - `binding_coverage.py`
 - `blender_workspace.py`
@@ -494,6 +498,7 @@ Este apêndice é gerado diretamente da árvore 1.0 e garante que todo módulo/s
 - `cli.py`
 - `client_manifest_evidence.py`
 - `config.py`
+- `cooked_texture_evidence.py`
 - `contract_graph.py`
 - `deployment.py`
 - `development_readiness.py`

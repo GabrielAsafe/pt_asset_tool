@@ -79,6 +79,17 @@ from .aggregation import build_player_class_aggregation
 from .superset_aggregation import build_client_superset, build_server_superset, build_summit_superset
 from .source_contract_census import audit_source_contracts
 from .general_asset_census import audit_general_asset_census
+from .cooked_texture_evidence import audit_cooked_texture_evidence
+from .effect_runtime_coverage import audit_effect_runtime_coverage
+from .source_catalog import require_source_trees
+from .asset_retention import query_asset_retention
+from .asset_quarantine import (
+    APPLY_CONFIRM as ASSET_QUARANTINE_APPLY_CONFIRM,
+    Q1_COMPONENT_CONFIRM as ASSET_QUARANTINE_Q1_COMPONENT_CONFIRM,
+    RESTORE_CONFIRM as ASSET_QUARANTINE_RESTORE_CONFIRM,
+    build_quarantine_plan, apply_quarantine_plan, apply_q1_component_quarantine,
+    restore_quarantine_transaction, quarantine_status, quarantine_review_queue,
+)
 from .class_ui_alias_audit import audit_class_ui_aliases
 from .class_ui_alias_canonicalize import canonicalize_class_ui_alias_only
 from .general_asset_recovery import recover_closed_general_asset_bundles
@@ -3230,6 +3241,142 @@ def cmd_recover_class_ui_alias_only(a):
     return 0 if result.get("status") == "PASS" else 3
 
 
+def cmd_audit_cooked_textures(a):
+    s, reg, cert, resolver = make_context(a)
+    result = audit_cooked_texture_evidence(
+        s.project_root,
+        s.client_root,
+        manifest_path=getattr(a, "manifest", None),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_audit_effect_runtime_coverage(a):
+    s, reg, cert, resolver = make_context(a)
+    current, _reference = require_source_trees(
+        s.project_root, source_root=getattr(a, "source_root", None),
+        reference_source_root=getattr(a, "reference_source_root", None),
+        require_current=True, require_reference=False,
+    )
+    assert current is not None
+    result = audit_effect_runtime_coverage(s.project_root, s.client_root, current)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_audit_asset_retention(a):
+    """Run the normal census and return its fail-closed retention slice."""
+    s, reg, cert, resolver = make_context(a)
+    if s.server_root is None:
+        raise FileNotFoundError("SERVER_ROOT_NOT_FOUND; configure --server-root or PT_SERVER_ROOT")
+    donor_clients = getattr(a, "donor_client", None) or configured_contract_donor_clients(s.project_root)
+    donor_servers = getattr(a, "donor_server", None) or configured_contract_donor_servers(s.project_root)
+    census = audit_general_asset_census(
+        s.project_root, s.client_root, s.server_root,
+        source_root=getattr(a, "source_root", None),
+        reference_source_root=getattr(a, "reference_source_root", None),
+        donor_clients=donor_clients,
+        donor_servers=donor_servers,
+        progress=lambda msg: print(f"[asset-retention] {msg}", flush=True),
+    )
+    report_path = pathlib.Path(str(((census.get("components") or {}).get("asset_retention") or {}).get("report") or ""))
+    if not report_path.is_file():
+        report_path = s.project_root / "pt_build" / "asset_retention" / "result.json"
+    result = json.loads(report_path.read_text(encoding="utf-8"))
+    result["general_census_report"] = census.get("report")
+    result["reports_bundle"] = census.get("reports_bundle")
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_query_asset_retention(a):
+    """Query the persisted retention report without rerunning the census."""
+    s, reg, cert, resolver = make_context(a)
+    result = query_asset_retention(
+        s.project_root,
+        path=getattr(a, "path", "") or "",
+        query=getattr(a, "query", "") or "",
+        state=getattr(a, "state", "") or "",
+        family=getattr(a, "family", "") or "",
+        component=getattr(a, "component", "") or "",
+        offset=int(getattr(a, "offset", 0) or 0),
+        limit=int(getattr(a, "limit", 50) or 50),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") in {"PASS", "NOT_RUN"} else 3
+
+
+def cmd_audit_quarantine_plan(a):
+    s, reg, cert, resolver = make_context(a)
+    result = build_quarantine_plan(s.project_root, s.client_root)
+    # The persisted plan can contain thousands of Q1 components. Keep terminal
+    # output compact and point to the full JSON/TSV artifacts instead.
+    shown = {k: v for k, v in result.items() if k not in {"q0", "q1_components"}}
+    shown["q0_preview"] = [x.get("path") for x in (result.get("q0") or [])[:20]]
+    shown["q1_component_preview"] = [x.get("component_id") for x in (result.get("q1_components") or [])[:20]]
+    shown["q1_priority_a_preview"] = [
+        x.get("component_id") for x in (result.get("q1_components") or [])
+        if x.get("review_band") == "A"
+    ][:20]
+    print(json.dumps(shown, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") in {"PASS", "NOT_RUN"} else 3
+
+
+def cmd_quarantine_status(a):
+    s, reg, cert, resolver = make_context(a)
+    result = quarantine_status(s.project_root)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_quarantine_review(a):
+    s, reg, cert, resolver = make_context(a)
+    result = quarantine_review_queue(
+        s.project_root,
+        band=getattr(a, "band", "") or "",
+        component=getattr(a, "component", "") or "",
+        offset=int(getattr(a, "offset", 0) or 0),
+        limit=int(getattr(a, "limit", 50) or 50),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") in {"PASS", "NOT_RUN"} else 3
+
+
+def cmd_quarantine_apply(a):
+    s, reg, cert, resolver = make_context(a)
+    result = apply_quarantine_plan(
+        s.project_root, s.client_root,
+        plan_path=getattr(a, "plan", None),
+        confirm=getattr(a, "confirm", "") or "",
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" or result.get("status") == "QUARANTINED" else 3
+
+
+def cmd_quarantine_apply_component(a):
+    s, reg, cert, resolver = make_context(a)
+    result = apply_q1_component_quarantine(
+        s.project_root, s.client_root,
+        component_id=getattr(a, "component", "") or "",
+        plan_path=getattr(a, "plan", None),
+        confirm=getattr(a, "confirm", "") or "",
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "QUARANTINED" else 3
+
+
+def cmd_quarantine_restore(a):
+    s, reg, cert, resolver = make_context(a)
+    result = restore_quarantine_transaction(
+        s.project_root, s.client_root,
+        transaction_path=getattr(a, "transaction", None),
+        confirm=getattr(a, "confirm", "") or "",
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "RESTORED" else 3
+
+
 def cmd_audit_general_asset_census(a):
     s, reg, cert, resolver = make_context(a)
     if s.server_root is None:
@@ -4258,6 +4405,30 @@ def build_parser():
     x = lap.add_parser("publish", help=f"publish latest/specified staged authoring bundle; requires --confirm '{ASSET_BUNDLE_APPLY_CONFIRM}'"); x.add_argument("--manifest"); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_legacy_authoring_publish)
     x = lap.add_parser("restore", help=f"restore latest/specified authoring bundle; requires --confirm '{ASSET_BUNDLE_RESTORE_CONFIRM}'"); x.add_argument("--manifest"); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_legacy_authoring_restore)
 
+    quarantine = sp.add_parser("quarantine", help="reversible quarantine workflow; never deletes assets")
+    qtp = quarantine.add_subparsers(dest="quarantine_cmd", required=True)
+    x = qtp.add_parser("status", help="show latest quarantine plan/transaction state")
+    x.set_defaults(func=cmd_quarantine_status)
+    x = qtp.add_parser("review", help="read-only ranked Q1 component review queue; never moves or deletes assets")
+    x.add_argument("--band", choices=["A", "B", "C", "BLOCKED"], help="filter review band")
+    x.add_argument("--component", help="filter one URC component id")
+    x.add_argument("--offset", type=int, default=0)
+    x.add_argument("--limit", type=int, default=50)
+    x.set_defaults(func=cmd_quarantine_review)
+    x = qtp.add_parser("apply", help=f"move Q0 high-confidence invalid orphans into pt_build quarantine storage; requires --confirm '{ASSET_QUARANTINE_APPLY_CONFIRM}'")
+    x.add_argument("--plan", help="plan.json; defaults to latest pt_build/quarantine_plan/plan.json")
+    x.add_argument("--confirm", required=True)
+    x.set_defaults(func=cmd_quarantine_apply)
+    x = qtp.add_parser("apply-component", help=f"manually quarantine exactly one strict Q1 band-A isolated component; requires --component and --confirm '{ASSET_QUARANTINE_Q1_COMPONENT_CONFIRM}'")
+    x.add_argument("--component", required=True, help="exact URC component id from the current quarantine plan")
+    x.add_argument("--plan", help="plan.json; defaults to latest pt_build/quarantine_plan/plan.json")
+    x.add_argument("--confirm", required=True)
+    x.set_defaults(func=cmd_quarantine_apply_component)
+    x = qtp.add_parser("restore", help=f"restore latest/specified quarantine transaction; requires --confirm '{ASSET_QUARANTINE_RESTORE_CONFIRM}'")
+    x.add_argument("--transaction", help="transaction.json; defaults to latest transaction")
+    x.add_argument("--confirm", required=True)
+    x.set_defaults(func=cmd_quarantine_restore)
+
     audit = sp.add_parser("audit"); audp = audit.add_subparsers(dest="audit_cmd", required=True)
     x = audp.add_parser("physique", help="audit canonical Model0.62 files for mixed Physique/static object modes"); x.add_argument("--output", help="optional JSON report path"); x.set_defaults(func=cmd_audit_physique)
     x = audp.add_parser("client-enrichment", help="read-only client enrichment: entity closure, registry relations, validation coverage and actionable gaps; writes only pt_build/client_enrichment")
@@ -4285,6 +4456,30 @@ def build_parser():
     x = audp.add_parser("enrichment-graph", help="build the Asset Enrichment v9 client/server dependency graph under pt_build; source roots remain read-only"); x.add_argument("--skip-client-scan", action="store_true"); x.add_argument("--timeout", type=float, default=240.0); x.set_defaults(func=cmd_audit_enrichment_graph)
     x = audp.add_parser("class-ui-aliases", help="read-only class skill-UI alias audit; detects split roots such as Mecha/Mechanician and never moves/deletes client files")
     x.set_defaults(func=cmd_audit_class_ui_aliases)
+    x = audp.add_parser("cooked-textures", help="read-only import of Summit cooked/manifest.json + failed.json; reports DDS success/failure metadata without changing runtime authority")
+    x.add_argument("--manifest", help="optional cooked manifest path; default <client-root>/cooked/manifest.json")
+    x.set_defaults(func=cmd_audit_cooked_textures)
+    x = audp.add_parser("effect-runtime-coverage", help="scan current C/C++ effect loader calls and resolve runtime effect roots into client paths; read-only")
+    x.add_argument("--source-root", required=False, help="current Summit C/C++ source root; fallback config/discovery")
+    x.add_argument("--reference-source-root", required=False, help="accepted for shared source-root configuration; not required by this audit")
+    x.set_defaults(func=cmd_audit_effect_runtime_coverage)
+    x = audp.add_parser("asset-retention", help="run the general reachability census and emit fail-closed retention/orphan evidence; never deletes or quarantines assets")
+    x.add_argument("--source-root", required=False, help="current Summit C/C++ source root; fallback config/discovery")
+    x.add_argument("--reference-source-root", required=False, help="EU reference C/C++ source root; fallback config/discovery")
+    x.add_argument("--donor-client", action="append", default=[], metavar="LABEL=PATH", help="read-only donor client root; repeatable; persisted donors used when omitted")
+    x.add_argument("--donor-server", action="append", default=[], metavar="LABEL=PATH", help="read-only donor server root; repeatable; persisted donors used when omitted")
+    x.set_defaults(func=cmd_audit_asset_retention)
+    x = audp.add_parser("asset-retention-query", help="query the persisted asset-retention report without rerunning the census; useful for one asset/edge/root diagnosis")
+    x.add_argument("--path", default="", help="exact client-relative asset path")
+    x.add_argument("--query", default="", help="substring search across path/state/evidence/root/edge/cooker fields")
+    x.add_argument("--state", default="", help="exact retention state filter")
+    x.add_argument("--family", default="", help="exact physical family filter")
+    x.add_argument("--component", default="", help="exact root-unreachable component id, e.g. URC-00001")
+    x.add_argument("--offset", type=int, default=0)
+    x.add_argument("--limit", type=int, default=50)
+    x.set_defaults(func=cmd_query_asset_retention)
+    x = audp.add_parser("quarantine-plan", help="build Q0 reversible quarantine candidates plus Q1 root-unreachable component review; never moves or deletes files")
+    x.set_defaults(func=cmd_audit_quarantine_plan)
     x = audp.add_parser("general-asset-census", help="plan-only general client/server reachability census; separates donor gaps from runtime-reachable dependencies and never writes target roots")
     x.add_argument("--source-root", required=False, help="current Summit C/C++ source root; fallback config/discovery")
     x.add_argument("--reference-source-root", required=False, help="EU reference C/C++ source root; fallback config/discovery")

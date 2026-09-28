@@ -410,3 +410,9 @@ O backend aceita tanto o root do repositório quanto o diretório `app/` sem ger
 - `500`: falha interna inesperada.
 
 Requests canceladas pelo browser durante navegação/filtros são tratadas como disconnect benigno; `BrokenPipeError` não gera uma segunda resposta nem traceback ruidoso.
+
+## 14. Catálogo semântico V2.9
+
+A tela de criação/edição não depende mais de o operador memorizar nomes internos. O contrato `priston_asset_name_map_v1.json` alimenta seletores para ITEM, MONSTER, NPC e MAP. A seleção usa `canonical_id` como identidade primária; códigos runtime repetidos permanecem variantes distintas. Mapas ligam nome humano ao stage/spawn e a SPM/SPP/SPC; SPM e SPC também oferecem seletores de mob/NPC relacionados.
+
+`semantic_ref` é gravado no manifest do target. Relações inseridas por helper (item de drop/shop, actor de SPM, NPC de SPC) entram em `semantic_related_refs` e são revalidadas no backend antes do stage. Ambiguidade de nome visível é exibida em vez de resolvida implicitamente.

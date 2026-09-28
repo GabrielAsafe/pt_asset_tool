@@ -33,6 +33,12 @@ required=(
   "docs/tematicos/GUIA_DESIGN_TOOL.md"
   "docs/tematicos/GUIA_ASSET_ENRICHMENT.md"
   "docs/tematicos/GUIA_WORKFLOW_CLIENT_SERVER.md"
+  "docs/tematicos/ASSET_RETENTION_AND_COOKED_DDS.md"
+  "docs/tematicos/ASSET_QUARANTINE_WORKFLOW.md"
+  "docs/validation/INTEGRATION_ASSET_QUARANTINE_V26_2026-09-27.md"
+  "docs/validation/INTEGRATION_ASSET_QUARANTINE_Q1_RANK_V27_2026-09-27.md"
+  "docs/validation/INTEGRATION_ASSET_QUARANTINE_Q1_MANUAL_V28_2026-09-27.md"
+  "docs/validation/INTEGRATION_EFFECT_RUNTIME_COMPONENTS_V25_2026-09-27.md"
   "vendor/summit_asset_enrichment_v9/PACKAGE_MANIFEST.json"
   "vendor/summit_asset_enrichment_v9/PATCH_NOTES_v9.md"
   "vendor/summit_asset_enrichment_v9/character_bundle_tool.py"
@@ -61,6 +67,10 @@ required=(
   "app/pt_asset_tool/server_field_editor.py"
   "app/pt_asset_tool/ui_app.py"
   "app/pt_asset_tool/general_asset_census.py"
+  "app/pt_asset_tool/asset_retention.py"
+  "app/pt_asset_tool/asset_quarantine.py"
+  "app/pt_asset_tool/cooked_texture_evidence.py"
+  "app/pt_asset_tool/effect_runtime_coverage.py"
   "app/pt_asset_tool/general_asset_recovery.py"
   "app/pt_asset_tool/client_manifest_evidence.py"
   "app/pt_asset_tool/server_lifecycle.py"
@@ -89,6 +99,10 @@ required=(
   "app/dev_tests/test_general_asset_census.py"
   "app/dev_tests/test_general_asset_census_helpers.py"
   "app/dev_tests/test_general_asset_recovery.py"
+  "app/dev_tests/test_asset_retention.py"
+  "app/dev_tests/test_asset_quarantine.py"
+  "app/dev_tests/test_cooked_texture_evidence.py"
+  "app/dev_tests/test_effect_runtime_coverage.py"
   "app/dev_tests/test_vendor_spm_semantics.py"
   "app/data/reference/entity_catalog/monster_npc_entities_v1.json"
   "app/dev_tests/fixtures/character_profiles/pikeman_c01_m4.json"
@@ -199,7 +213,7 @@ p=build_parser()
 top=next(a for a in p._actions if a.__class__.__name__=='_SubParsersAction')
 required={
  'validate': {'environment-auto','server-environment-auto','server-design-auto','physical-regression-auto','integration-regression-auto','release-1-auto'},
- 'audit': {'server-inventory','server-bundles','server-fields','server-items','enrichment-plan','enrichment-graph','class-ui-aliases','general-asset-census','t5-assets'},
+ 'audit': {'server-inventory','server-bundles','server-fields','server-items','enrichment-plan','enrichment-graph','class-ui-aliases','cooked-textures','effect-runtime-coverage','asset-retention','asset-retention-query','quarantine-plan','general-asset-census','t5-assets'},
  'recover': {'general-closed-bundles'},
 }
 for group,names in required.items():
@@ -207,6 +221,11 @@ for group,names in required.items():
     sub=next(a for a in sp._actions if a.__class__.__name__=='_SubParsersAction')
     missing=names-set(sub.choices)
     if missing: raise SystemExit(f'parser missing {group}: {sorted(missing)}')
+q=top.choices.get('quarantine')
+if q is None: raise SystemExit('parser missing top-level quarantine')
+qsub=next(a for a in q._actions if a.__class__.__name__=='_SubParsersAction')
+qmissing={'status','review','apply','apply-component','restore'}-set(qsub.choices)
+if qmissing: raise SystemExit(f'parser missing quarantine: {sorted(qmissing)}')
 v=_vendor_root(Path.cwd())
 if v.name!='summit_asset_enrichment_v9':
     raise SystemExit(f'active vendor is not v9: {v}')
@@ -216,7 +235,7 @@ if config_path(Path.cwd()) != expected:
 PY
 
 # Static UI/contracts.
-grep -q 'Asset Enrichment v9' pt_asset_tool/ui_static/index.html
+grep -q 'Asset Enrichment' pt_asset_tool/ui_static/index.html
 grep -q 'id="fieldOpenSpm"' pt_asset_tool/ui_static/index.html
 grep -q 'id="fieldOpenSpp"' pt_asset_tool/ui_static/index.html
 grep -q 'id="fieldOpenSpc"' pt_asset_tool/ui_static/index.html
@@ -225,7 +244,33 @@ grep -q 'u.path == "/api/server/field-editor/stage"' pt_asset_tool/ui_app.py
 grep -q 'id="generalCensusBtn"' pt_asset_tool/ui_static/index.html
 grep -q '/api/general-census' pt_asset_tool/ui_static/app.js
 grep -q 'path == "/api/general-census"' pt_asset_tool/ui_app.py
+grep -q 'id="assetRetentionPanel"' pt_asset_tool/ui_static/index.html
+grep -q '/api/asset-retention' pt_asset_tool/ui_static/app.js
+grep -q 'path == "/api/asset-retention"' pt_asset_tool/ui_app.py
 grep -q 'general-asset-census' pt_asset_tool/cli.py
+grep -q 'cooked-textures' pt_asset_tool/cli.py
+grep -q 'asset-retention' pt_asset_tool/cli.py
+grep -q 'asset-retention-query' pt_asset_tool/cli.py
+grep -q 'effect-runtime-coverage' pt_asset_tool/cli.py
+grep -q 'quarantine-plan' pt_asset_tool/cli.py
+grep -q 'MOVE_Q0_TO_QUARANTINE' pt_asset_tool/asset_quarantine.py
+grep -q 'MOVE_Q1_COMPONENT_TO_QUARANTINE' pt_asset_tool/asset_quarantine.py
+grep -q 'apply-component' pt_asset_tool/cli.py
+grep -q 'PT_LEGACY_AUTHORING_NAME_CATALOG_V1' pt_asset_tool/legacy_name_catalog.py
+grep -q 'priston_asset_name_map_v1.json' pt_asset_tool/legacy_name_catalog.py
+test -f pt_asset_tool/contracts/priston_asset_name_map_v1.json
+grep -q 'legacyAuthoringCatalogEntry' pt_asset_tool/ui_static/index.html
+grep -q 'semantic_related_refs' pt_asset_tool/ui_static/app.js
+grep -q 'RESTORE_QUARANTINE' pt_asset_tool/asset_quarantine.py
+grep -q 'Q0_HIGH_CONFIDENCE_INVALID_ORPHAN' pt_asset_tool/asset_quarantine.py
+grep -q 'q1_is_review_only' pt_asset_tool/asset_quarantine.py
+grep -q 'review_score_is_not_delete_authority' pt_asset_tool/asset_quarantine.py
+grep -q 'Q1_PRIORITY_' pt_asset_tool/asset_quarantine.py
+grep -q 'ambiguous_basename_is_review_not_root' pt_asset_tool/effect_runtime_coverage.py
+grep -q 'component_membership_is_review_not_delete_authority' pt_asset_tool/asset_retention.py
+grep -q 'monster_npc_asset_removal_requires_zero_linkage' pt_asset_tool/asset_retention.py
+grep -q 'contract_graph_edge_alone_is_review_not_runtime_protection' pt_asset_tool/asset_retention.py
+grep -q 'failed_cook_does_not_make_source_removable' pt_asset_tool/cooked_texture_evidence.py
 grep -q 'class-ui-aliases' pt_asset_tool/cli.py
 grep -q 'donor_gap_is_not_runtime_need' pt_asset_tool/general_asset_census.py
 grep -q 'RECOVERY_APPLY_REQUIRES_EXPECTED_ROOTS' pt_asset_tool/general_asset_recovery.py

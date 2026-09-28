@@ -204,3 +204,9 @@ A materialização é um overlay em `pt_build/aggregate/player_classes/<selectio
 O ContractGraph continua sendo a camada de evidência; a 0.17.0 acrescenta materialização genérica de staging. `build_summit_superset()` combina o bundle semântico de PLAYER_CLASS/SKILL com superset path-based client/server. Isto permite aumentar o corpus sem transformar presença física em prova semântica: providers continuam responsáveis por `required/optional`, enquanto o agregador só resolve proveniência, variantes, staging e integridade.
 
 O objetivo para ITEM/FIELD/MONSTER/NPC é reutilizar esta mesma camada, não criar novos copiadores.
+
+## Integração Asset Retention + Cooked DDS
+
+O ContractGraph agora também alimenta uma projeção de retenção física. A política e os outputs estão documentados em `ASSET_RETENTION_AND_COOKED_DDS.md`.
+
+A regra adicional não altera `required` nos edges existentes: ela usa reachability/degree/manifest/source evidence para impedir que ausência de grep seja confundida com asset órfão. Monster/NPC recebem bundle guard conservador. O estado DDS cooked é importado como build evidence e nunca como autoridade de remoção.

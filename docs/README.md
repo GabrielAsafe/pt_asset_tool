@@ -48,10 +48,15 @@
 - `tematicos/EFFECTS_PARTICLES.md`;
 - `tematicos/SUPERSET_AGGREGATOR.md`;
 - `tematicos/ASSET_CONTRACT_GRAPH.md`;
+- `tematicos/ASSET_RETENTION_AND_COOKED_DDS.md` — retenção fail-closed, Monster/NPC bundle/catalog guards e integração do manifest DDS cooked/failures;
 - `tematicos/TEXTURE_UPSCALE_PIPELINE.md` — upscale seguro BMP/TGA/PNG/JPG com staging em `pt_build`;
 - `tematicos/LEGACY_MANAGEMENT_AUTHORING.md` — Management Legacy, World Closure e pipeline Python de ITEM/MONSTER/NPC/SPM/SPP/SPC com publish/restore transacional.
+- `tematicos/SEMANTIC_AUTHORING_CATALOG.md` — catálogo nome visível → canonical_id/path para ITEM/MONSTER/NPC/MAP e relações SPM/SPC;
 
 ## Evidência e histórico
+
+- `validation/INTEGRATION_ASSET_RETENTION_COOKED_DDS_2026-09-27.md` — evidência dos gates da integração retention + DDS failure metadata.
+- `validation/INTEGRATION_ASSET_RETENTION_COOKED_DDS_V23_2026-09-27.md` — revisão 3 de metadata: skips válidos, integrity_action e residual failures sem override de reachability.
 
 O pacote distribui apenas documentação atual, os patch notes de validação desta revisão e a evidência final necessária da Release 1. Backups, handoffs intermediários e relatórios RC substituídos ficam no histórico Git, não na instalação operacional.
 
@@ -67,3 +72,16 @@ python3 docs/validation/validate_documentation.py
 ```
 
 A gate verifica o runbook canónico, newlines escapados acidentalmente e o runtime root atual do Texture Upscale.
+
+- `validation/INTEGRATION_ASSET_RETENTION_ROOT_REACHABILITY_V24_2026-09-27.md` — separação entre ContractGraph linkage e strong-root reachability, com consulta CLI curta por asset.
+
+- `validation/INTEGRATION_EFFECT_RUNTIME_COMPONENTS_V25_2026-09-27.md` — cobertura de roots de efeitos via loaders legacy e agrupamento de componentes graph-linked sem strong root.
+
+- `tematicos/ASSET_QUARANTINE_WORKFLOW.md` — plano Q0/Q1, apply reversível, hash preflight e restore sem delete.
+- `validation/INTEGRATION_ASSET_QUARANTINE_V26_2026-09-27.md` — gates do workflow de quarantine V2.6.
+- `validation/INTEGRATION_ASSET_QUARANTINE_Q1_RANK_V27_2026-09-27.md` — ranking read-only dos componentes Q1.
+- `validation/INTEGRATION_ASSET_QUARANTINE_Q1_MANUAL_V28_2026-09-27.md` — quarantine manual, explícita e reversível de um único Q1 estritamente elegível.
+
+- `validation/INTEGRATION_ASSET_QUARANTINE_Q1_RANK_V27_2026-09-27.md` — ranking read-only da fila Q1 por componente; sem move/delete de Q1.
+
+- `validation/INTEGRATION_LEGACY_AUTHORING_NAME_CATALOG_V29_2026-09-28.md` — gates do catálogo semântico integrado ao Legacy Authoring.

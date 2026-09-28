@@ -21,6 +21,8 @@ Não confunda artefactos de `pt_build` com assets publicados no target.
 - `devtest/server_*` — server gates;
 - `devtest/release_1_auto/result.json` — gate consolidado quando executado numa working tree;
 - `general_asset_census/` — reachability/recovery/T5 reports;
+- `asset_retention/` — classificação física fail-closed, full TSV + resumo de candidatos;
+- `cooked_texture_evidence/` — projeção read-only do estado/falhas do Summit DDS cooker;
 - `aggregate/` — superset overlays e manifests;
 - `server_field_editor/` — drafts SPM/SPP/SPC;
 - `blender_edits/` — workspaces/edit evidence;

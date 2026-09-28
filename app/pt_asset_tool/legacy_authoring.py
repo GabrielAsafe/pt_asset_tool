@@ -31,6 +31,7 @@ from .asset_compiler import (
 )
 from .item_runtime_catalog import lookup_item_runtime
 from .legacy_management_contracts import classify_item_code
+from .legacy_name_catalog import public_authoring_name_catalog, semantic_binding_for_spec, semantic_matches_for_path, semantic_related_bindings_for_spec
 from .server_field_editor import (
     SPC_FILE_SIZE,
     SPC_RECORD_COUNT,
@@ -201,6 +202,7 @@ def inspect_authoring(project_root: pathlib.Path, server_root: pathlib.Path, cli
         return {
             "format": FORMAT, "status": "NEW", "kind": kind, "logical_path": rel.as_posix(),
             "exists": False, "source": None, "source_sha256": None, "detail": None,
+            "semantic_catalog_matches": semantic_matches_for_path(rel.as_posix()),
             "create_authorized": True, "edit_authorized": False,
         }
     raw = source.read_bytes()
@@ -221,6 +223,7 @@ def inspect_authoring(project_root: pathlib.Path, server_root: pathlib.Path, cli
         "format": FORMAT, "status": detail.get("status", "PASS"), "kind": kind,
         "logical_path": rel.as_posix(), "exists": True, "source": str(source),
         "source_sha256": _sha_bytes(raw), "source_size": len(raw), "detail": detail,
+        "semantic_catalog_matches": semantic_matches_for_path(rel.as_posix()),
         "create_authorized": False, "edit_authorized": detail.get("status", "PASS") == "PASS",
     }
 
@@ -483,6 +486,32 @@ def _write_patch_bundle(project_root: pathlib.Path, kind: str, rel: pathlib.Pure
     return manifest
 
 
+def _attach_semantic_binding(
+    manifest: dict[str, Any],
+    binding: dict[str, Any] | None,
+    related: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    related = list(related or [])
+    if binding:
+        manifest["authoring_semantic_binding"] = binding
+    if related:
+        manifest["authoring_semantic_related_bindings"] = related
+    if not binding and not related:
+        return manifest
+    for asset in manifest.get("assets") or []:
+        if isinstance(asset, dict):
+            if binding:
+                asset["authoring_semantic_binding"] = binding
+            if related:
+                asset["authoring_semantic_related_bindings"] = related
+    manifest_path = manifest.get("manifest")
+    if manifest_path:
+        p = pathlib.Path(str(manifest_path))
+        if p.is_file():
+            p.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return manifest
+
+
 def _create_bundle_recipe(kind: str, logical: str, spec: dict[str, Any]) -> dict[str, Any]:
     cid={"ITEM":"item.definition.txt","MONSTER":"character.monster.inf","NPC":"character.npc.npc","SPM":"field.spawn.spm","SPP":"field.startpoints.spp","SPC":"field.fixed_npc.spc"}[kind]
     payload=dict(spec.get("payload") or {})
@@ -498,12 +527,19 @@ def _create_bundle_recipe(kind: str, logical: str, spec: dict[str, Any]) -> dict
 def stage_authoring(project_root: pathlib.Path, server_root: pathlib.Path, client_root: pathlib.Path | None, spec: dict[str, Any]) -> dict[str, Any]:
     kind=str(spec.get("kind") or "").upper(); logical=str(spec.get("path") or spec.get("logical_path") or "")
     rel=_validate_kind_path(kind,logical); mode=str(spec.get("mode") or "EDIT").upper()
+    spec = dict(spec)
+    spec["kind"] = kind
+    spec["mode"] = mode
+    spec["path"] = rel.as_posix()
+    semantic_binding = semantic_binding_for_spec(kind, spec)
+    semantic_related_bindings = semantic_related_bindings_for_spec(kind, spec)
     source=_ci_file(pathlib.Path(server_root),rel.as_posix())
     if mode=="CREATE":
         if source is not None: raise ValueError("LEGACY_AUTHORING_CREATE_TARGET_EXISTS")
         recipe=_create_bundle_recipe(kind,rel.as_posix(),spec)
         manifest=compile_asset_bundle(project_root,recipe,client_root=client_root,server_root=server_root)
-        return {"format":FORMAT,"status":"STAGED","mode":"CREATE","kind":kind,"manifest":manifest,"spec":spec}
+        manifest=_attach_semantic_binding(manifest, semantic_binding, semantic_related_bindings)
+        return {"format":FORMAT,"status":"STAGED","mode":"CREATE","kind":kind,"manifest":manifest,"spec":spec,"semantic_binding":semantic_binding,"semantic_related_bindings":semantic_related_bindings}
     if mode!="EDIT": raise ValueError("LEGACY_AUTHORING_MODE_INVALID")
     if source is None: raise FileNotFoundError(f"LEGACY_AUTHORING_SOURCE_NOT_FOUND:{rel.as_posix()}")
     raw=source.read_bytes(); expected=str(spec.get("expected_sha256") or "").strip().lower()
@@ -525,7 +561,8 @@ def stage_authoring(project_root: pathlib.Path, server_root: pathlib.Path, clien
     else: data,writer=_patch_spc(raw,patch)
     if data==raw: raise ValueError("LEGACY_AUTHORING_NO_CHANGE")
     manifest=_write_patch_bundle(pathlib.Path(project_root),kind,rel,source,data,writer)
-    return {"format":FORMAT,"status":"STAGED","mode":"EDIT","kind":kind,"manifest":manifest,"spec":spec}
+    manifest=_attach_semantic_binding(manifest, semantic_binding, semantic_related_bindings)
+    return {"format":FORMAT,"status":"STAGED","mode":"EDIT","kind":kind,"manifest":manifest,"spec":spec,"semantic_binding":semantic_binding,"semantic_related_bindings":semantic_related_bindings}
 
 
 def publish_authoring(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, manifest: str | pathlib.Path, *, confirm: str) -> dict[str, Any]:
@@ -557,6 +594,7 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
         req("stage_first", "Stage antes de publicar", "Toda alteração é gerada primeiro em pt_build; o target real não é escrito durante o stage."),
         req("publish_gate", "Publicação armada", "Depois de revisar o manifest, a publicação exige ARM ASSET DEPLOY e cria backup/hash/transação."),
         req("runtime_review", "Validação no jogo", "O writer prova formato e transação; comportamento de gameplay ainda precisa ser observado no runtime."),
+        req("semantic_catalog", "Catálogo semântico", "A criação/edição pode selecionar nomes visíveis e persistir a identidade canônica (canonical_id), sem colapsar códigos runtime reutilizados."),
     ]
     domains = {
         "ITEM": {
@@ -567,7 +605,8 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
             "path_example": "GameServer/OpenItem/WA121.txt",
             "required_fields": ["name", "code"],
             "requirements": common + [
-                req("runtime_code", "Código sITEM existente", "O campo code deve existir no catálogo runtime source-verificado; a UI pode pesquisar o código antes do stage."),
+                req("runtime_code", "Código sITEM existente", "O campo code deve existir no catálogo runtime source-verificado; a identidade de authoring é canonical_id porque um mesmo code pode representar definições distintas."),
+                req("semantic_item", "Nome → definição canônica", "Selecione pelo nome visível/canonical_id para preencher OpenItem, code e linked asset sem perder variantes quest/event."),
                 req("name", "Nome do item", "Campo Name da definição OpenItem."),
                 req("logical_path", "Path OpenItem", "Novo target sob GameServer/OpenItem/ com extensão .txt."),
                 req("client_visual", "Ícone / drop model", "Recomendado para closure visual: ItemFilePath/DorpItem devem resolver para os assets esperados no client.", required=False, status="READY" if client_ready else "CLIENT_NOT_CONFIGURED"),
@@ -580,7 +619,7 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
             "path_example": "GameServer/Monster/NewMonster.inf",
             "required_fields": ["name", "model_file"],
             "requirements": common + [
-                req("name", "Nome do monstro", "Campo Name da definição Monster."),
+                req("name", "Nome do monstro", "Campo Name da definição Monster; o catálogo mapeia nome visível → definição/modelo canônico."),
                 req("model_file", "ModelFile", "Path/config de modelo consumido pelo runtime; precisa existir/ser validado no fluxo client para um monstro completo."),
                 req("logical_path", "Path Monster", "Novo target sob GameServer/Monster/ com extensão .inf."),
                 req("spawn", "Placement/spawn", "Criar a definição não coloca o monstro no mundo. Use o SPM do mapa para adicionar actor/boss.", required=False),
@@ -593,7 +632,7 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
             "path_example": "GameServer/NPC/NewNPC.npc",
             "required_fields": ["name", "model_file"],
             "requirements": common + [
-                req("name", "Nome do NPC", "Campo Name da definição NPC."),
+                req("name", "Nome do NPC", "Campo Name da definição NPC; o catálogo mapeia nome visível → definição/modelo canônico."),
                 req("model_file", "ModelFile", "Config/modelo usado pelo NPC no client/runtime."),
                 req("logical_path", "Path NPC", "Novo target sob GameServer/NPC/ com extensão .npc."),
                 req("placement", "Placement SPC", "Para aparecer fixo em um Field, adicione depois um record em GameServer/Field/*.spc.", required=False),
@@ -605,9 +644,10 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
             "summary": "O Legacy Authoring cobre os arquivos server-side do Field. A geometria Stage do client é outro pipeline.",
             "hard_block": "Esta tela não cria a geometria/Stage visual do mapa; ela edita SPM/SPP/SPC do GameServer/Field.",
             "requirements": common + [
-                req("spm", "SPM — spawns", "Actors, bosses, MAX_ACTOR, MAX_ACTOR_POS e DELAY. Um CREATE precisa de pelo menos uma diretiva."),
+                req("map_catalog", "Mapa → Stage/Field", "O seletor resolve nome do mapa, field_code, stage/spawn e os targets SPM/SPP/SPC. Ex.: Ricarten → village-2."),
+                req("spm", "SPM — spawns", "Actors, bosses, MAX_ACTOR, MAX_ACTOR_POS e DELAY. Mobs podem ser inseridos pelo catálogo sem digitar o nome interno."),
                 req("spp", "SPP — start points", "Arquivo binário canônico de 200 records x 12 bytes; cada record usa state, x e z."),
-                req("spc", "SPC — NPCs fixos", "Arquivo binário canônico de 100 records x 504 bytes; cada NPC precisa de name, model_ini, server_npc e coordenadas."),
+                req("spc", "SPC — NPCs fixos", "Arquivo binário canônico de 100 records x 504 bytes; NPCs podem ser escolhidos no catálogo para preencher name/model_ini/server_npc."),
                 req("client_stage", "Stage/client geometry", "Valide/crie a parte visual pelo pipeline Stage 0.72, fora do Legacy Authoring.", required=False, status="READY" if client_ready else "CLIENT_NOT_CONFIGURED"),
             ],
             "subtypes": {
@@ -617,9 +657,17 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
             },
         },
     }
+    semantic = public_authoring_name_catalog()
     return {
-        "format": "PT_LEGACY_AUTHORING_WORKSPACE_GUIDE_V1",
+        "format": "PT_LEGACY_AUTHORING_WORKSPACE_GUIDE_V2",
         "status": "PASS",
+        "semantic_catalog": {
+            "format": semantic.get("format"),
+            "title": semantic.get("title"),
+            "counts": semantic.get("counts"),
+            "important_correction": semantic.get("important_correction"),
+            "identity_policy": "CANONICAL_ID_PRIMARY_RUNTIME_CODE_SECONDARY",
+        },
         "server_root_configured": server_ready,
         "client_root_configured": client_ready,
         "domains": domains,
@@ -628,8 +676,18 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
     }
 
 def authoring_capabilities() -> dict[str, Any]:
+    semantic = public_authoring_name_catalog()
     return {
-        "format":FORMAT,"status":"PASS","kinds":{
+        "format":FORMAT,"status":"PASS",
+        "semantic_catalog": {
+            "enabled": True,
+            "format": semantic.get("format"),
+            "counts": semantic.get("counts"),
+            "canonical_id_is_primary_authoring_identity": True,
+            "runtime_code_may_have_multiple_definitions": True,
+            "ambiguous_visible_names_are_not_collapsed": True,
+        },
+        "kinds":{
             "ITEM":{"create":True,"edit":True,"runtime_code_boundary":True,"features":["OpenItem fields","jobs","unique color","linked file"]},
             "MONSTER":{"create":True,"edit":True,"features":["stats","experience","drops","money drops","extra drops","dialogs","linked file"]},
             "NPC":{"create":True,"edit":True,"features":["flags","dialogs","shops","linked file"]},

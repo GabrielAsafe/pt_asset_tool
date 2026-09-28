@@ -2883,3 +2883,7 @@ O release portátil usa um único `pt-asset-tool` Linux x86_64. Python, Pillow, 
 No binário congelado, estado e configuração não ficam no diretório temporário do executável: `pt_build` persiste em `~/.local/share/pt-asset-tool/pt_build`, configuração em `~/.config/pt-asset-tool/` e cache em `~/.cache/pt-asset-tool/`. Para uma instalação autocontida, defina `PT_ASSET_HOME=/caminho`.
 
 Build de release recomendado: `./build_portable_container.sh`. O artefacto sai em `dist-portable/pt-asset-tool`. Build local de desenvolvimento: `cd app && ./build_portable_linux.sh`.
+
+## Atualização operacional 2026-09-28 — nomes coerentes no Legacy Authoring
+
+A criação/edição de Item, Monster, NPC e Field agora usa o catálogo semântico empacotado. Procure pelo nome visível e escolha a entrada canônica; a ferramenta resolve o path e os identificadores necessários. `canonical_id` distingue variantes que compartilham o mesmo código runtime. Para mapas, o catálogo resolve Map → Stage/Spawn → SPM/SPP/SPC; para placements, SPM oferece mobs e SPC oferece NPCs. A seleção não publica nada: o fluxo de stage/publish/restore continua obrigatório.

@@ -58,6 +58,7 @@ from .app_config import (
 from .validation import rigid_model_info_options
 from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_spp_records, stage_spc_native
 from .general_asset_census import query_general_asset_census
+from .asset_retention import query_asset_retention
 from .server_enrichment_readiness import build_general_census_readiness
 from .source_catalog import configured_source_roots
 from .texture_upscale import capability_status as texture_upscale_capability_status, enhancement_status, enhancement_root, enhancement_batch_status
@@ -1101,6 +1102,7 @@ class UIHandler(BaseHTTPRequestHandler):
                     side=_one(q, "side"),
                     decision=_one(q, "decision"),
                     family=_one(q, "family"),
+                    component=_one(q, "component"),
                     offset=int(_one(q, "offset") or 0),
                     limit=int(_one(q, "limit") or 200),
                 )
@@ -1115,6 +1117,19 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, **report})
             except Exception as exc:
                 return self._error(400, "GENERAL_CENSUS_QUERY_FAILED", str(exc))
+        if path == "/api/asset-retention":
+            try:
+                report = query_asset_retention(
+                    self.ctx.project_root,
+                    query=_one(q, "q"),
+                    state=_one(q, "state"),
+                    family=_one(q, "family"),
+                    offset=int(_one(q, "offset") or 0),
+                    limit=int(_one(q, "limit") or 200),
+                )
+                return self._json(200, {"ok": True, **report})
+            except Exception as exc:
+                return self._error(400, "ASSET_RETENTION_QUERY_FAILED", str(exc))
         if path == "/api/client/report":
             try:
                 report = query_client_enrichment_report(

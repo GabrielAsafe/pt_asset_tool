@@ -203,3 +203,7 @@ Nenhum PriTaTor/NPCManager/ItemEditor.exe é executado pela GUI.
 `ARM ASSET DEPLOY` é uma autorização separada para publish/restore de bundles suportados; o backend ainda exige hashes, backup, drift gate e verificação pós-write.
 
 Nenhum PriTaTor/NPCManager/ItemEditor.exe é executado pela GUI.
+
+## Atualização GUI 2026-09-28 — catálogo semântico de authoring
+
+No editor ITEM/MONSTER/NPC/MAP, use **Catálogo semântico** para selecionar pelo nome visível. O seletor persiste `canonical_id`, preenche o path correto e mantém variantes com o mesmo código runtime separadas. Em MONSTER/NPC, o helper de item usa o catálogo para drops/shops. Em SPM escolha um mob relacionado; em SPC escolha um NPC relacionado. Nomes ambíguos aparecem com aviso e exigem seleção explícita da identidade canônica.
