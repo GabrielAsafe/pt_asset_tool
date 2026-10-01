@@ -18,6 +18,7 @@ required=(
   "docs/en/getting_started/CLI_REFERENCE.md"
   "docs/en/engineering/ARCHITECTURE.md"
   "docs/en/topics/SEMANTIC_AUTHORING_CATALOG.md"
+  "docs/en/topics/SUMMIT_CANONICAL_SOURCE_V211.md"
   "docs/en/topics/ASSET_QUARANTINE_WORKFLOW.md"
   "docs/en/validation/LOCALIZATION_EN_V210.md"
   "docs/validation/validate_english_localization.py"
@@ -45,6 +46,8 @@ required=(
   "docs/tematicos/GUIA_WORKFLOW_CLIENT_SERVER.md"
   "docs/tematicos/ASSET_RETENTION_AND_COOKED_DDS.md"
   "docs/tematicos/ASSET_QUARANTINE_WORKFLOW.md"
+  "docs/tematicos/SUMMIT_CANONICAL_SOURCE_V211.md"
+  "docs/validation/INTEGRATION_SUMMIT_CANONICAL_V211_2026-10-01.md"
   "docs/validation/INTEGRATION_ASSET_QUARANTINE_V26_2026-09-27.md"
   "docs/validation/INTEGRATION_ASSET_QUARANTINE_Q1_RANK_V27_2026-09-27.md"
   "docs/validation/INTEGRATION_ASSET_QUARANTINE_Q1_MANUAL_V28_2026-09-27.md"
@@ -76,6 +79,8 @@ required=(
   "app/pt_asset_tool/server_ui.py"
   "app/pt_asset_tool/server_field_editor.py"
   "app/pt_asset_tool/ui_app.py"
+  "app/pt_asset_tool/summit_canonical.py"
+  "app/pt_asset_tool/canonical_authoring.py"
   "app/pt_asset_tool/general_asset_census.py"
   "app/pt_asset_tool/asset_retention.py"
   "app/pt_asset_tool/asset_quarantine.py"
@@ -99,6 +104,7 @@ required=(
   "app/pt_part_editor.py"
   "app/pt_part_ui.py"
   "app/dev_tests/test_registry_bootstrap_fresh.py"
+  "app/dev_tests/test_summit_canonical_v211.py"
   "app/dev_tests/test_texture_upscale.py"
   "app/dev_tests/test_texture_upscale_integration.py"
   "app/tests/conftest.py"
@@ -236,6 +242,11 @@ if q is None: raise SystemExit('parser missing top-level quarantine')
 qsub=next(a for a in q._actions if a.__class__.__name__=='_SubParsersAction')
 qmissing={'status','review','apply','apply-component','restore'}-set(qsub.choices)
 if qmissing: raise SystemExit(f'parser missing quarantine: {sorted(qmissing)}')
+c=top.choices.get('canonical')
+if c is None: raise SystemExit('parser missing top-level canonical')
+csub=next(a for a in c._actions if a.__class__.__name__=='_SubParsersAction')
+cmissing={'status','catalog','capabilities','stage','publish-source','publish-packs','restore'}-set(csub.choices)
+if cmissing: raise SystemExit(f'parser missing canonical: {sorted(cmissing)}')
 v=_vendor_root(Path.cwd())
 if v.name!='summit_asset_enrichment_v9':
     raise SystemExit(f'active vendor is not v9: {v}')
@@ -305,6 +316,16 @@ grep -q 'particle_service' pt_part_ui.py
 grep -q 'dependency_report' pt_asset_tool/ui_app.py
 grep -q 'dependencies' pt_asset.py
 grep -q 'pt_build.*texture_upscale' pt_asset_tool/texture_upscale.py
+grep -qi 'Summit Canonical Source' pt_asset_tool/ui_static/index.html
+grep -q '/api/canonical/stage' pt_asset_tool/ui_static/app.js
+grep -q 'u.path == "/api/canonical/stage"' pt_asset_tool/ui_app.py
+grep -q 'class SummitCanonicalContentProvider' pt_asset_tool/summit_canonical.py
+grep -q 'PT_ASSET_SEMANTIC_CATALOG_V2' pt_asset_tool/summit_canonical.py
+grep -q 'def atomic_update_definition' pt_asset_tool/canonical_authoring.py
+grep -q 'PUBLISH CANONICAL SOURCE' pt_asset_tool/canonical_authoring.py
+grep -q 'PUBLISH CANONICAL PACKS' pt_asset_tool/canonical_authoring.py
+grep -q 'RESTORE CANONICAL TRANSACTION' pt_asset_tool/canonical_authoring.py
+grep -q 'CANONICAL_DYNAMIC_FIELD_53_LEGACY_READ_ONLY' pt_asset_tool/canonical_authoring.py
 
 VERIFY_TMP="$(mktemp -d)"
 trap 'rm -rf "$VERIFY_TMP"' EXIT

@@ -1,3 +1,5 @@
+> **V2.11 canonical authority:** when `Content/CANONICAL_SOURCE.json` is configured, persistent Item/Monster/NPC/Field/Map authoring uses canonical JSON and rebuilt packs. Legacy content writers are import/diagnostic only.
+
 # PT Asset Tool R14 1.0.0 — Matriz de Funcionalidades
 
 <!-- PT_MANUAL_LEGACY_AUTHORING_2026-09-21 -->

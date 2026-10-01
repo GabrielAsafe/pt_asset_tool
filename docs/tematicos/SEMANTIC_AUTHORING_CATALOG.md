@@ -1,3 +1,5 @@
+> **V2.11 authority notice (2026-10-01):** This V2.9 catalog is retained as historical/display-alias evidence. In canonical mode, entity existence and authoring authority come from `Summit Content/canonical/**`; see `SUMMIT_CANONICAL_SOURCE_V211.md`.
+
 # Catálogo semântico de authoring — V2.9
 
 **Data:** 2026-09-28  

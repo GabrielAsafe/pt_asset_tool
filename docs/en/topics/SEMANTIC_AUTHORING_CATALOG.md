@@ -1,3 +1,5 @@
+> **V2.11 authority notice (2026-10-01):** this V2.9 catalog is retained as historical/display-alias evidence. In canonical mode, entity existence and persistent authoring authority come from `Summit Content/canonical/**`; see `SUMMIT_CANONICAL_SOURCE_V211.md`.
+
 # Semantic Authoring Catalog
 
 The semantic authoring catalog maps human-facing game names to stable internal authoring identities.

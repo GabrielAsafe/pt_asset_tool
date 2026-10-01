@@ -1,3 +1,5 @@
+> **Canonical-mode change (V2.11):** legacy definition/SPM/SPP/SPC writers are inspect/import/compare-only when a valid Summit canonical source is configured. Persistent content authoring is staged against `Content/canonical/**` and rebuilt packs.
+
 # Legacy Management Authoring
 
 Legacy Management provides first-party Python workflows for server content and local persistence operations that historically depended on external management executables.

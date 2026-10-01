@@ -30,6 +30,7 @@ from .asset_compiler import (
     compile_asset_bundle,
 )
 from .item_runtime_catalog import lookup_item_runtime
+from .summit_canonical import SummitCanonicalContentProvider
 from .legacy_management_contracts import classify_item_code
 from .legacy_name_catalog import public_authoring_name_catalog, semantic_binding_for_spec, semantic_matches_for_path, semantic_related_bindings_for_spec
 from .server_field_editor import (
@@ -525,6 +526,9 @@ def _create_bundle_recipe(kind: str, logical: str, spec: dict[str, Any]) -> dict
 
 
 def stage_authoring(project_root: pathlib.Path, server_root: pathlib.Path, client_root: pathlib.Path | None, spec: dict[str, Any]) -> dict[str, Any]:
+    canonical_provider = SummitCanonicalContentProvider.try_from_project(pathlib.Path(project_root))
+    if canonical_provider is not None:
+        raise ValueError("LEGACY_AUTHORITATIVE_WRITER_DISABLED_IN_CANONICAL_MODE:use canonical authoring")
     kind=str(spec.get("kind") or "").upper(); logical=str(spec.get("path") or spec.get("logical_path") or "")
     rel=_validate_kind_path(kind,logical); mode=str(spec.get("mode") or "EDIT").upper()
     spec = dict(spec)
@@ -566,6 +570,8 @@ def stage_authoring(project_root: pathlib.Path, server_root: pathlib.Path, clien
 
 
 def publish_authoring(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, manifest: str | pathlib.Path, *, confirm: str) -> dict[str, Any]:
+    if SummitCanonicalContentProvider.try_from_project(pathlib.Path(project_root)) is not None:
+        raise ValueError("LEGACY_AUTHORITATIVE_PUBLISH_DISABLED_IN_CANONICAL_MODE:use canonical two-phase publish")
     return publish_asset_bundle(project_root,client_root,server_root,manifest,confirm=confirm)
 
 
@@ -574,7 +580,7 @@ def restore_authoring(project_root: pathlib.Path, client_root: pathlib.Path, ser
 
 
 
-def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client_root: pathlib.Path | None = None) -> dict[str, Any]:
+def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client_root: pathlib.Path | None = None, project_root: pathlib.Path | None = None) -> dict[str, Any]:
     """User-facing task guide for the Python-native legacy authoring surface.
 
     This deliberately describes what the current Python writers actually need.
@@ -582,6 +588,8 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
     """
     server_ready = bool(server_root is not None and pathlib.Path(server_root).is_dir())
     client_ready = bool(client_root is not None and pathlib.Path(client_root).is_dir())
+    canonical_provider = SummitCanonicalContentProvider.try_from_project(pathlib.Path(project_root)) if project_root is not None else None
+    canonical_mode = canonical_provider is not None
 
     def req(key: str, label: str, detail: str, *, required: bool = True, status: str | None = None) -> dict[str, Any]:
         row = {"key": key, "label": label, "detail": detail, "required": required}
@@ -594,7 +602,7 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
         req("stage_first", "Stage antes de publicar", "Toda alteração é gerada primeiro em pt_build; o target real não é escrito durante o stage."),
         req("publish_gate", "Publicação armada", "Depois de revisar o manifest, a publicação exige ARM ASSET DEPLOY e cria backup/hash/transação."),
         req("runtime_review", "Validação no jogo", "O writer prova formato e transação; comportamento de gameplay ainda precisa ser observado no runtime."),
-        req("semantic_catalog", "Catálogo semântico", "A criação/edição pode selecionar nomes visíveis e persistir a identidade canônica (canonical_id), sem colapsar códigos runtime reutilizados."),
+        req("semantic_catalog", "Catálogo semântico", "Em canonical mode, Summit Content/canonical é autoridade de identidade/campos/paths; o mapa V2.9 é somente overlay de nomes/ambiguidade." if canonical_mode else "A criação/edição pode selecionar nomes visíveis e persistir a identidade canônica (canonical_id), sem colapsar códigos runtime reutilizados."),
     ]
     domains = {
         "ITEM": {
@@ -622,7 +630,7 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
                 req("name", "Nome do monstro", "Campo Name da definição Monster; o catálogo mapeia nome visível → definição/modelo canônico."),
                 req("model_file", "ModelFile", "Path/config de modelo consumido pelo runtime; precisa existir/ser validado no fluxo client para um monstro completo."),
                 req("logical_path", "Path Monster", "Novo target sob GameServer/Monster/ com extensão .inf."),
-                req("spawn", "Placement/spawn", "Criar a definição não coloca o monstro no mundo. Use o SPM do mapa para adicionar actor/boss.", required=False),
+                req("spawn", "Placement/spawn", "Criar a definição não coloca o monstro no mundo. Em canonical mode, edite stage_spawns JSON; SPM é import/compare only." if canonical_mode else "Criar a definição não coloca o monstro no mundo. Use o SPM do mapa para adicionar actor/boss.", required=False),
             ],
             "optional": ["level/life/stats", "experience", "drops e money drops", "extra drops", "dialogs", "linked file", "race/nature/skills"],
         },
@@ -635,7 +643,7 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
                 req("name", "Nome do NPC", "Campo Name da definição NPC; o catálogo mapeia nome visível → definição/modelo canônico."),
                 req("model_file", "ModelFile", "Config/modelo usado pelo NPC no client/runtime."),
                 req("logical_path", "Path NPC", "Novo target sob GameServer/NPC/ com extensão .npc."),
-                req("placement", "Placement SPC", "Para aparecer fixo em um Field, adicione depois um record em GameServer/Field/*.spc.", required=False),
+                req("placement", "Placement fixo", "Em canonical mode, edite fixed_npcs JSON; SPC é import/compare only." if canonical_mode else "Para aparecer fixo em um Field, adicione depois um record em GameServer/Field/*.spc.", required=False),
             ],
             "optional": ["dialogs", "shops weapon/defence/etc", "warehouse", "aging/mix/refining", "teleport/event flags"],
         },
@@ -645,9 +653,9 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
             "hard_block": "Esta tela não cria a geometria/Stage visual do mapa; ela edita SPM/SPP/SPC do GameServer/Field.",
             "requirements": common + [
                 req("map_catalog", "Mapa → Stage/Field", "O seletor resolve nome do mapa, field_code, stage/spawn e os targets SPM/SPP/SPC. Ex.: Ricarten → village-2."),
-                req("spm", "SPM — spawns", "Actors, bosses, MAX_ACTOR, MAX_ACTOR_POS e DELAY. Mobs podem ser inseridos pelo catálogo sem digitar o nome interno."),
-                req("spp", "SPP — start points", "Arquivo binário canônico de 200 records x 12 bytes; cada record usa state, x e z."),
-                req("spc", "SPC — NPCs fixos", "Arquivo binário canônico de 100 records x 504 bytes; NPCs podem ser escolhidos no catálogo para preencher name/model_ini/server_npc."),
+                req("spm", "Spawns", "Canonical stage_spawns JSON por monster_id; SPM fica import/read/compare only." if canonical_mode else "Actors, bosses, MAX_ACTOR, MAX_ACTOR_POS e DELAY. Mobs podem ser inseridos pelo catálogo sem digitar o nome interno."),
+                req("spp", "Start points", "Canonical stage_start_points JSON por slot/state/x/z; SPP fica import/read/compare only." if canonical_mode else "Arquivo binário canônico de 200 records x 12 bytes; cada record usa state, x e z."),
+                req("spc", "NPCs fixos", "Canonical fixed_npcs JSON por npc_id/slot/state/transform; SPC fica import/read/compare only." if canonical_mode else "Arquivo binário canônico de 100 records x 504 bytes; NPCs podem ser escolhidos no catálogo para preencher name/model_ini/server_npc."),
                 req("client_stage", "Stage/client geometry", "Valide/crie a parte visual pelo pipeline Stage 0.72, fora do Legacy Authoring.", required=False, status="READY" if client_ready else "CLIENT_NOT_CONFIGURED"),
             ],
             "subtypes": {
@@ -673,10 +681,14 @@ def authoring_workspace_guide(*, server_root: pathlib.Path | None = None, client
         "domains": domains,
         "workflow": ["escolher tarefa", "ver requisitos", "inspect/create", "stage", "revisar manifest", "publish", "runtime review", "restore se necessário"],
         "legacy_executable_required": False,
+        "canonical_mode": canonical_mode,
+        "legacy_authoritative_write": not canonical_mode,
     }
 
-def authoring_capabilities() -> dict[str, Any]:
+def authoring_capabilities(project_root: pathlib.Path | None = None) -> dict[str, Any]:
     semantic = public_authoring_name_catalog()
+    canonical_provider = SummitCanonicalContentProvider.try_from_project(pathlib.Path(project_root)) if project_root is not None else None
+    canonical_mode = canonical_provider is not None
     return {
         "format":FORMAT,"status":"PASS",
         "semantic_catalog": {
@@ -688,13 +700,14 @@ def authoring_capabilities() -> dict[str, Any]:
             "ambiguous_visible_names_are_not_collapsed": True,
         },
         "kinds":{
-            "ITEM":{"create":True,"edit":True,"runtime_code_boundary":True,"features":["OpenItem fields","jobs","unique color","linked file"]},
-            "MONSTER":{"create":True,"edit":True,"features":["stats","experience","drops","money drops","extra drops","dialogs","linked file"]},
-            "NPC":{"create":True,"edit":True,"features":["flags","dialogs","shops","linked file"]},
-            "SPM":{"create":True,"edit":True,"features":["actors","remove actor","boss actors","remove boss","spawn hours","max actor","delay"]},
-            "SPP":{"create":True,"edit":True,"features":["start point records"]},
-            "SPC":{"create":True,"edit":True,"features":["add","replace","remove fixed NPC records"]},
+            "ITEM":{"create":not canonical_mode,"edit":not canonical_mode,"inspect":True,"runtime_code_boundary":True,"features":["OpenItem fields","jobs","unique color","linked file"],"canonical_replacement":"ITEM" if canonical_mode else None},
+            "MONSTER":{"create":not canonical_mode,"edit":not canonical_mode,"inspect":True,"features":["stats","experience","drops","money drops","extra drops","dialogs","linked file"],"canonical_replacement":"MONSTER" if canonical_mode else None},
+            "NPC":{"create":not canonical_mode,"edit":not canonical_mode,"inspect":True,"features":["flags","dialogs","shops","linked file"],"canonical_replacement":"NPC" if canonical_mode else None},
+            "SPM":{"create":not canonical_mode,"edit":not canonical_mode,"inspect":True,"features":["actors","remove actor","boss actors","remove boss","spawn hours","max actor","delay"],"canonical_replacement":"STAGE_SPAWN" if canonical_mode else None},
+            "SPP":{"create":not canonical_mode,"edit":not canonical_mode,"inspect":True,"features":["start point records"],"canonical_replacement":"STAGE_START_POINT" if canonical_mode else None},
+            "SPC":{"create":not canonical_mode,"edit":not canonical_mode,"inspect":True,"features":["add","replace","remove fixed NPC records"],"canonical_replacement":"FIXED_NPC" if canonical_mode else None},
         },
+        "canonical_mode":canonical_mode,"legacy_authoritative_write":not canonical_mode,
         "publish_confirmation":APPLY_CONFIRM,"restore_confirmation":RESTORE_CONFIRM,
         "legacy_executable_required":False,
         "blocked":["new runtime sITEM code registration","userdata/warehouse mutation","unproved native ItemEditor binary internals"],

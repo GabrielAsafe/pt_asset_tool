@@ -59,10 +59,12 @@ Quarantine remains reversible:
 
 There is no automatic delete authority.
 
-## Semantic authoring catalog
+## Summit canonical authoring (V2.11)
 
-Legacy Management packages a semantic catalog mapping game display names to stable internal identities for Item, Monster, NPC, and Map/Field authoring.
+Authoring authority now comes from the configured Summit source tree under `Content/canonical/**`. The application loads it through `SummitCanonicalContentProvider`, builds Semantic Catalog V2 live, validates typed edits, compiles the canonical pack set in a complete staging tree, validates hashes, and publishes through explicit source/packs phases.
 
-`canonical_id` is the primary authoring selection identity. Runtime codes remain format/runtime identities where required and may be shared by distinct semantic variants.
+`priston_asset_name_map_v1.json` is retained only as a display-alias / pt-BR friendly-name / ambiguity / migration overlay. It no longer decides which Item, Monster, NPC, or Map entities exist.
 
-The map catalog resolves map identity to field/stage and SPM/SPP/SPC targets; related Item/Mob/NPC selectors preserve semantic provenance in authoring specs.
+In canonical mode, legacy Item/Monster/NPC/SPM/SPP/SPC formats remain inspect/import/compare/diagnostic inputs. Persistent authoring goes through canonical JSON and rebuilt packs. CLIENT and SERVER map profiles remain separate, dynamic field 53 is an explicit legacy exception, and localization production publish stays fail-closed until the runtime bridge validator passes.
+
+See `docs/en/topics/SUMMIT_CANONICAL_SOURCE_V211.md`.

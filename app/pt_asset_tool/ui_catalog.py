@@ -9,7 +9,7 @@ import time
 from dataclasses import dataclass
 from typing import Any
 
-UI_VERSION = "1.0.4"
+UI_VERSION = "1.0.5"
 BROWSER_IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".webp", ".ico"}
 CONVERTIBLE_IMAGE_EXTS = {".tga"}
 IMAGE_EXTS = BROWSER_IMAGE_EXTS | CONVERTIBLE_IMAGE_EXTS

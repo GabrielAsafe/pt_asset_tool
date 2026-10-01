@@ -38,6 +38,15 @@ from .legacy_management_web import (
     query_legacy_management_report, verify_management_for_web,
 )
 from .legacy_authoring import authoring_capabilities, authoring_workspace_guide, inspect_authoring, stage_authoring
+from .summit_canonical import (
+    SummitCanonicalContentProvider, canonical_mode_status, build_semantic_catalog_v2, build_canonical_contract_graph,
+    query_canonical_resources, gameplay_reference_browser, gameplay_config_browser, localization_browser, compare_map_profiles,
+)
+from .canonical_authoring import (
+    canonical_authoring_capabilities, stage_canonical_authoring, publish_canonical_source,
+    publish_canonical_packs, restore_canonical_transaction, PUBLISH_SOURCE_CONFIRM,
+    PUBLISH_PACKS_CONFIRM, RESTORE_CONFIRM,
+)
 from .entity_catalog import (
     build_live_entities, entity_detail_from_built, load_entity_seed, query_built_entities,
 )
@@ -804,7 +813,24 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED", "Configure the server root before loading characters, accounts, and items.")
             try:
                 refresh = _one(q, "refresh").strip() in {"1", "true", "yes"}
-                return self._json(200, {"ok": True, "result": legacy_selection_catalog(self.ctx.server_root, refresh=refresh)})
+                result = legacy_selection_catalog(self.ctx.server_root, refresh=refresh)
+                provider = SummitCanonicalContentProvider.try_from_project(self.ctx.project_root, self.ctx.source_root)
+                if provider is not None:
+                    semantic = build_semantic_catalog_v2(provider)
+                    result = dict(result)
+                    result["semantic_catalog"] = {
+                        "format": semantic.get("format"), "title": semantic.get("title"),
+                        "generated_from": semantic.get("generated_from"), "counts": semantic.get("counts"),
+                        "important_correction": semantic.get("important_correction"),
+                        "authority": semantic.get("authority"), "canonical_mode": True,
+                    }
+                    result["authoring_catalog"] = {
+                        "items": semantic.get("items") or [], "mobs": semantic.get("mobs") or [],
+                        "npcs": semantic.get("npcs") or [], "maps": semantic.get("maps") or [],
+                        "spawn_stages": semantic.get("spawn_stages") or [],
+                        "ambiguous": semantic.get("ambiguous") or [],
+                    }
+                return self._json(200, {"ok": True, "result": result})
             except Exception as exc:
                 return self._error(500, "LEGACY_SELECTIONS_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-ops/character":
@@ -1078,10 +1104,73 @@ class UIHandler(BaseHTTPRequestHandler):
                 })
             except Exception as exc:
                 return self._error(400, "CONTRACT_SUMMARY_FAILED", str(exc))
+        if path == "/api/canonical/status":
+            return self._json(200, {"ok": True, "result": canonical_mode_status(self.ctx.project_root, self.ctx.source_root)})
+        if path == "/api/canonical/capabilities":
+            try:
+                provider = SummitCanonicalContentProvider.try_from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": canonical_authoring_capabilities(provider)})
+            except Exception as exc:
+                return self._error(422, "CANONICAL_SOURCE_INVALID", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/resources":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": query_canonical_resources(
+                    provider, q=_one(q, "q"), family=_one(q, "family"),
+                    limit=int(_one(q, "limit") or 200), offset=int(_one(q, "offset") or 0),
+                )})
+            except Exception as exc:
+                return self._error(422, "CANONICAL_RESOURCE_BROWSER_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/gameplay-config":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": gameplay_config_browser(provider, q=_one(q, "q"), limit=int(_one(q, "limit") or 100))})
+            except Exception as exc:
+                return self._error(422, "CANONICAL_GAMEPLAY_CONFIG_BROWSER_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/localization":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": localization_browser(
+                    provider, locale=_one(q, "locale") or "pt-BR", q=_one(q, "q"),
+                    limit=int(_one(q, "limit") or 200), offset=int(_one(q, "offset") or 0),
+                )})
+            except KeyError as exc:
+                return self._error(404, "CANONICAL_LOCALIZATION_LOCALE_NOT_FOUND", str(exc))
+            except Exception as exc:
+                return self._error(422, "CANONICAL_LOCALIZATION_BROWSER_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/gameplay-reference":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": gameplay_reference_browser(provider, q=_one(q, "q"), limit=int(_one(q, "limit") or 500))})
+            except Exception as exc:
+                return self._error(422, "CANONICAL_GAMEPLAY_REFERENCE_BROWSER_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/map-compare":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": compare_map_profiles(provider, _one(q, "canonical_id"))})
+            except KeyError as exc:
+                return self._error(404, "CANONICAL_MAP_NOT_FOUND", str(exc))
+            except Exception as exc:
+                return self._error(422, "CANONICAL_MAP_COMPARE_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/contract-graph":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                include_documents = _one(q, "documents").strip().lower() in {"1", "true", "yes"}
+                return self._json(200, {"ok": True, "result": build_canonical_contract_graph(provider, include_documents=include_documents)})
+            except Exception as exc:
+                return self._error(422, "CANONICAL_CONTRACT_GRAPH_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/catalog":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": build_semantic_catalog_v2(provider)})
+            except FileNotFoundError as exc:
+                return self._error(404, "CANONICAL_SOURCE_NOT_CONFIGURED", str(exc))
+            except Exception as exc:
+                return self._error(422, "CANONICAL_CATALOG_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/legacy-authoring/capabilities":
-            return self._json(200, {"ok": True, "result": authoring_capabilities()})
+            return self._json(200, {"ok": True, "result": authoring_capabilities(self.ctx.project_root)})
         if path == "/api/legacy-authoring/guide":
-            return self._json(200, {"ok": True, "result": authoring_workspace_guide(server_root=self.ctx.server_root, client_root=self.ctx.client_root)})
+            return self._json(200, {"ok": True, "result": authoring_workspace_guide(server_root=self.ctx.server_root, client_root=self.ctx.client_root, project_root=self.ctx.project_root)})
         if path == "/api/legacy-authoring/inspect":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")
@@ -1825,6 +1914,48 @@ class UIHandler(BaseHTTPRequestHandler):
             if census_preflight is not None:
                 payload["preflight"] = census_preflight
             return self._json(202, payload)
+        if u.path == "/api/canonical/stage":
+            if not self.ctx.write_armed:
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build before staging canonical authoring.")
+            spec = body.get("spec") if isinstance(body.get("spec"), dict) else body
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                result = stage_canonical_authoring(
+                    self.ctx.project_root, provider, spec,
+                    run_validation=bool(body.get("run_validation", True)),
+                    run_build=bool(body.get("run_build", True)),
+                )
+                return self._json(200, {"ok": True, "result": result})
+            except FileNotFoundError as exc:
+                return self._error(404, "CANONICAL_SOURCE_NOT_FOUND", str(exc))
+            except ValueError as exc:
+                return self._error(422, "CANONICAL_STAGE_REJECTED", str(exc))
+            except Exception as exc:
+                return self._error(500, "CANONICAL_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path in {"/api/canonical/publish-source", "/api/canonical/publish-packs", "/api/canonical/restore"}:
+            if not self.ctx.server_deploy_armed:
+                return self._error(409, "ASSET_DEPLOY_NOT_ARMED", "Arm Asset Bundle deployment before each canonical publish/restore phase.")
+            manifest = body.get("manifest")
+            if not isinstance(manifest, (dict, str)) or not manifest:
+                return self._error(400, "CANONICAL_MANIFEST_REQUIRED")
+            try:
+                if u.path.endswith("/publish-source"):
+                    result = publish_canonical_source(self.ctx.project_root, manifest, confirm=str(body.get("confirm") or ""))
+                elif u.path.endswith("/publish-packs"):
+                    result = publish_canonical_packs(self.ctx.project_root, manifest, confirm=str(body.get("confirm") or ""))
+                else:
+                    result = restore_canonical_transaction(self.ctx.project_root, manifest, confirm=str(body.get("confirm") or ""))
+                self.ctx.disarm_server_deploy()
+                return self._json(200, {"ok": True, "result": result, "server_deploy_armed": False})
+            except PermissionError as exc:
+                self.ctx.disarm_server_deploy()
+                return self._error(403, "CANONICAL_CONFIRMATION_REQUIRED", str(exc))
+            except (FileNotFoundError, ValueError) as exc:
+                self.ctx.disarm_server_deploy()
+                return self._error(422, "CANONICAL_PUBLISH_REJECTED", str(exc))
+            except Exception as exc:
+                self.ctx.disarm_server_deploy()
+                return self._error(500, "CANONICAL_PUBLISH_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/legacy-authoring/stage":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_REQUIRED", "Configure the server root first.")

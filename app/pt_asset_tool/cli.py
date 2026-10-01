@@ -116,6 +116,12 @@ from .legacy_management_contracts import classify_item_code, legacy_management_s
 from .item_runtime_catalog import lookup_item_runtime
 from .legacy_management_audit import audit_legacy_management
 from .legacy_authoring import authoring_capabilities, inspect_authoring, stage_authoring, publish_authoring, restore_authoring
+from .summit_canonical import SummitCanonicalContentProvider, canonical_mode_status, build_semantic_catalog_v2
+from .canonical_authoring import (
+    canonical_authoring_capabilities, stage_canonical_authoring, publish_canonical_source,
+    publish_canonical_packs, restore_canonical_transaction, PUBLISH_SOURCE_CONFIRM,
+    PUBLISH_PACKS_CONFIRM, RESTORE_CONFIRM,
+)
 from .asset_compiler import compiler_capabilities, plan_compiler_input, compile_compiler_input
 from .asset_bundle_deploy import (
     APPLY_CONFIRM as ASSET_BUNDLE_APPLY_CONFIRM,
@@ -3069,7 +3075,8 @@ def cmd_audit_legacy_management(a):
 
 
 def cmd_legacy_authoring_capabilities(a):
-    print(json.dumps(authoring_capabilities(), ensure_ascii=False, indent=2))
+    s = Settings.discover(getattr(a, "root", None), getattr(a, "client_root", None), getattr(a, "server_root", None))
+    print(json.dumps(authoring_capabilities(s.project_root), ensure_ascii=False, indent=2))
     return 0
 
 
@@ -3115,6 +3122,64 @@ def cmd_legacy_authoring_restore(a):
     result = restore_authoring(s.project_root, s.client_root, s.server_root, manifest, confirm=str(a.confirm))
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
+
+def _canonical_context(a):
+    s = Settings.discover(getattr(a, "root", None), getattr(a, "client_root", None), getattr(a, "server_root", None))
+    source_root = pathlib.Path(a.source_root).expanduser().resolve() if getattr(a, "source_root", None) else None
+    provider = SummitCanonicalContentProvider.from_project(s.project_root, source_root)
+    return s, provider
+
+
+def cmd_canonical_status(a):
+    s = Settings.discover(getattr(a, "root", None), getattr(a, "client_root", None), getattr(a, "server_root", None))
+    source_root = pathlib.Path(a.source_root).expanduser().resolve() if getattr(a, "source_root", None) else None
+    print(json.dumps(canonical_mode_status(s.project_root, source_root), ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_canonical_catalog(a):
+    _s, provider = _canonical_context(a)
+    result = build_semantic_catalog_v2(provider)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_canonical_capabilities(a):
+    _s, provider = _canonical_context(a)
+    print(json.dumps(canonical_authoring_capabilities(provider), ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_canonical_stage(a):
+    s, provider = _canonical_context(a)
+    spec = json.loads(pathlib.Path(a.spec).expanduser().read_text(encoding="utf-8"))
+    if not isinstance(spec, dict):
+        raise ValueError("CANONICAL_AUTHORING_SPEC_MUST_BE_OBJECT")
+    result = stage_canonical_authoring(s.project_root, provider, spec, run_validation=not a.skip_validation, run_build=not a.skip_build)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_canonical_publish_source(a):
+    s, _provider = _canonical_context(a)
+    result = publish_canonical_source(s.project_root, pathlib.Path(a.manifest).expanduser().resolve(), confirm=str(a.confirm))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_canonical_publish_packs(a):
+    s, _provider = _canonical_context(a)
+    result = publish_canonical_packs(s.project_root, pathlib.Path(a.manifest).expanduser().resolve(), confirm=str(a.confirm))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_canonical_restore(a):
+    s, _provider = _canonical_context(a)
+    result = restore_canonical_transaction(s.project_root, pathlib.Path(a.manifest).expanduser().resolve(), confirm=str(a.confirm))
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
 
 def cmd_contracts_registry_list(a):
     result = registry_summary(
@@ -4390,6 +4455,16 @@ def build_parser():
     x = acp.add_parser("restore", help=f"restore latest transaction for a compiled bundle; requires --confirm '{ASSET_BUNDLE_RESTORE_CONFIRM}'")
     x.add_argument("--manifest", help="bundle manifest; defaults to latest compiled bundle")
     x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_asset_compiler_restore)
+
+    canonical = sp.add_parser("canonical", help="Summit canonical-source V2.11 provider, typed authoring, staged compilation and explicit publish")
+    cap = canonical.add_subparsers(dest="canonical_cmd", required=True)
+    x = cap.add_parser("status", help="show canonical authority, fingerprints, pack freshness and localization publish gate"); x.add_argument("--source-root"); x.set_defaults(func=cmd_canonical_status)
+    x = cap.add_parser("catalog", help="emit Semantic Catalog V2 from Summit Content/canonical plus display-alias overlay"); x.add_argument("--source-root"); x.set_defaults(func=cmd_canonical_catalog)
+    x = cap.add_parser("capabilities", help="show typed writers, import-only legacy surfaces and publish phases"); x.add_argument("--source-root"); x.set_defaults(func=cmd_canonical_capabilities)
+    x = cap.add_parser("stage", help="stage a typed canonical JSON edit, validate schemas and compile/inspect all canonical packs"); x.add_argument("--source-root"); x.add_argument("--spec", required=True); x.add_argument("--skip-validation", action="store_true"); x.add_argument("--skip-build", action="store_true"); x.set_defaults(func=cmd_canonical_stage)
+    x = cap.add_parser("publish-source", help=f"phase 1: publish canonical JSON only; requires --confirm '{PUBLISH_SOURCE_CONFIRM}'"); x.add_argument("--source-root"); x.add_argument("--manifest", required=True); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_canonical_publish_source)
+    x = cap.add_parser("publish-packs", help=f"phase 2: publish verified packs + BUILD.json; requires --confirm '{PUBLISH_PACKS_CONFIRM}'"); x.add_argument("--source-root"); x.add_argument("--manifest", required=True); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_canonical_publish_packs)
+    x = cap.add_parser("restore", help=f"transactionally restore canonical JSON/packs/BUILD; requires --confirm '{RESTORE_CONFIRM}'"); x.add_argument("--source-root"); x.add_argument("--manifest", required=True); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_canonical_restore)
 
     lm = sp.add_parser("legacy-management", help="static integration of historical Management tooling evidence; never executes legacy EXEs")
     lmp = lm.add_subparsers(dest="legacy_management_cmd", required=True)

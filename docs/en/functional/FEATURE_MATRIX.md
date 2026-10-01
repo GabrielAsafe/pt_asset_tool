@@ -1,3 +1,5 @@
+> **V2.11 canonical authority:** when `Content/CANONICAL_SOURCE.json` is configured, persistent Item/Monster/NPC/Field/Map authoring uses canonical JSON and rebuilt packs. Legacy content writers are import/diagnostic only.
+
 # Feature Matrix
 
 | Area | Read/Inspect | Stage/Build | Publish | Restore | Notes |

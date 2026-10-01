@@ -1,11 +1,11 @@
 {
   "format": "PT_ASSET_TOOL_DISTRIBUTION_INFO_V1",
   "version": "1.0.0",
-  "edition": "ENGLISH_UI_DOCS_LOCALIZATION_V210",
-  "date": "2026-09-28",
-  "code_basis": "PT_ASSET_TOOL_V29_PLUS_ENGLISH_FIRST_UI_AND_OPERATIONAL_DOCUMENTATION",
+  "edition": "SUMMIT_CANONICAL_SOURCE_V211",
+  "date": "2026-10-01",
+  "code_basis": "PT_ASSET_TOOL_V210_PLUS_SUMMIT_CANONICAL_SOURCE_V211",
   "application_code_changed_by_docs_refresh": true,
-  "automatic_gate_status": "TARGETED_V210_PASS_EN_LOCALIZATION_PASS_REGRESSION_PASS_DOC_AUDIT_PASS_SNAPSHOT_PASS_PACKAGE_VERIFY_PASS",
+  "automatic_gate_status": "V211_FOCUSED_PASS_CONTENT_SOURCE_AUDIT_PASS_PACKAGE_VERIFY_PASS_TOOLCHAIN_RECOMPILE_RUNTIME_GATE",
   "automatic_blockers": null,
   "production_authorized": false,
   "client_write_authorized": false,
@@ -14,11 +14,12 @@
   "cli_leaf_route_count": 154,
   "module_count": 184,
   "integration_validation": {
-    "passed": 42,
+    "passed": 38,
     "skipped": 0,
-    "failed": 0
+    "failed": 0,
+    "scope": "V2.11 canonical + legacy-authoring + legacy-name focused suite"
   },
-  "integration_doc": "docs/en/validation/LOCALIZATION_EN_V210.md",
+  "integration_doc": "docs/validation/INTEGRATION_SUMMIT_CANONICAL_V211_2026-10-01.md",
   "focused_regression": {
     "passed": 40,
     "skipped": 1,
@@ -33,8 +34,21 @@
     "validation_status": "PASS"
   },
   "snapshot": {
-    "file_count": 757,
+    "file_count": 764,
     "status": "PASS"
   },
-  "package_verify": "PASS"
+  "package_verify": "PASS",
+  "canonical_source_v211": {
+    "authority": "Content/canonical/**",
+    "legacy_name_map_role": "DISPLAY_ALIAS_OVERLAY_ONLY",
+    "typed_definition_writer": "ATOMIC_FIELDS_DIRECTIVES",
+    "legacy_spm_spp_spc": "IMPORT_COMPARE_ONLY_IN_CANONICAL_MODE",
+    "publish": "TWO_PHASE_SOURCE_THEN_PACKS; CLIENT_SERVER_DEPLOY_SEPARATE",
+    "localization_publish": "FAIL_CLOSED_UNTIL_BRIDGE_VALIDATOR_PASS",
+    "live_source_validation": "CONTENT_TREE_AUDITED; MODIFIED_STAGE_RECOMPILE_REQUIRES_FULL_SUMMIT_TOOLCHAIN",
+    "supplied_content_audit": "PASS_1924_ITEMS_383_MONSTERS_175_NPCS_53X2_MAPS_31_MISSING_ALIASES",
+    "supplied_build_freshness": "PASS_9_OF_9_PACK_SHA256_MATCH_BUILD_JSON",
+    "gameplay_config_scope": "10_DOCUMENTS_578_ENTRIES",
+    "reference_content": "QUESTS_88_BINDINGS_14_SUPPORTED_13_MIX_RECIPES_127_REFERENCE_ONLY"
+  }
 }
