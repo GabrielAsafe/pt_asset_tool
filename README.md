@@ -68,3 +68,9 @@ Authoring authority now comes from the configured Summit source tree under `Cont
 In canonical mode, legacy Item/Monster/NPC/SPM/SPP/SPC formats remain inspect/import/compare/diagnostic inputs. Persistent authoring goes through canonical JSON and rebuilt packs. CLIENT and SERVER map profiles remain separate, dynamic field 53 is an explicit legacy exception, and localization production publish stays fail-closed until the runtime bridge validator passes.
 
 See `docs/en/topics/SUMMIT_CANONICAL_SOURCE_V211.md`.
+
+## Summit asset migration / cook coverage audit
+
+The read-only `summit-canonical-assets` and `summit-asset-migration` audits import `SourceCode/Content/canonical/**/*.json` as asset evidence, compare it with current C/C++ asset literals and UI text candidates, and emit a deterministic runtime cook/package plan. Normal `asset-retention` also consumes the canonical strong roots so canonical assets cannot fall into orphan/quarantine review simply because their legacy source literal disappeared.
+
+See `docs/tematicos/SUMMIT_ASSET_MIGRATION_AUDIT.md` and `RUN_SUMMIT_ASSET_MIGRATION_AUDIT.sh`.

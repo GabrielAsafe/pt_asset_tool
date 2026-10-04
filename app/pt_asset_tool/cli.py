@@ -81,6 +81,7 @@ from .source_contract_census import audit_source_contracts
 from .general_asset_census import audit_general_asset_census
 from .cooked_texture_evidence import audit_cooked_texture_evidence
 from .effect_runtime_coverage import audit_effect_runtime_coverage
+from .summit_asset_migration_audit import audit_canonical_asset_relations, audit_summit_asset_migration_gap
 from .source_catalog import require_source_trees
 from .asset_retention import query_asset_retention
 from .asset_quarantine import (
@@ -3336,6 +3337,32 @@ def cmd_audit_effect_runtime_coverage(a):
     return 0 if result.get("status") == "PASS" else 3
 
 
+def cmd_audit_summit_canonical_assets(a):
+    s, reg, cert, resolver = make_context(a)
+    current, _reference = require_source_trees(
+        s.project_root, source_root=getattr(a, "source_root", None),
+        reference_source_root=getattr(a, "reference_source_root", None),
+        require_current=True, require_reference=False,
+    )
+    assert current is not None
+    result = audit_canonical_asset_relations(s.project_root, s.client_root, current.root)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") in {"PASS", "REVIEW_REQUIRED"} else 3
+
+
+def cmd_audit_summit_asset_migration(a):
+    s, reg, cert, resolver = make_context(a)
+    current, _reference = require_source_trees(
+        s.project_root, source_root=getattr(a, "source_root", None),
+        reference_source_root=getattr(a, "reference_source_root", None),
+        require_current=True, require_reference=False,
+    )
+    assert current is not None
+    result = audit_summit_asset_migration_gap(s.project_root, s.client_root, current)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
 def cmd_audit_asset_retention(a):
     """Run the normal census and return its fail-closed retention slice."""
     s, reg, cert, resolver = make_context(a)
@@ -4545,6 +4572,14 @@ def build_parser():
     x.add_argument("--source-root", required=False, help="current Summit C/C++ source root; fallback config/discovery")
     x.add_argument("--reference-source-root", required=False, help="accepted for shared source-root configuration; not required by this audit")
     x.set_defaults(func=cmd_audit_effect_runtime_coverage)
+    x = audp.add_parser("summit-canonical-assets", help="import Content/canonical JSON asset relations as fail-closed retention roots/review evidence; read-only")
+    x.add_argument("--source-root", required=False, help="Summit SourceCode root containing Content/canonical; fallback config/discovery")
+    x.add_argument("--reference-source-root", required=False, help="accepted for shared source-root configuration; not required by this audit")
+    x.set_defaults(func=cmd_audit_summit_canonical_assets)
+    x = audp.add_parser("summit-asset-migration", help="cross-check canonical JSON against current source hardcoded asset literals, UI text candidates and cooked/package coverage; read-only")
+    x.add_argument("--source-root", required=False, help="Summit SourceCode root containing Content/canonical and current C/C++ source; fallback config/discovery")
+    x.add_argument("--reference-source-root", required=False, help="accepted for shared source-root configuration; not required by this audit")
+    x.set_defaults(func=cmd_audit_summit_asset_migration)
     x = audp.add_parser("asset-retention", help="run the general reachability census and emit fail-closed retention/orphan evidence; never deletes or quarantines assets")
     x.add_argument("--source-root", required=False, help="current Summit C/C++ source root; fallback config/discovery")
     x.add_argument("--reference-source-root", required=False, help="EU reference C/C++ source root; fallback config/discovery")

@@ -27,6 +27,7 @@ from .ui_catalog import infer_physical_family
 from .class_ui_alias_audit import audit_class_ui_aliases
 from .cooked_texture_evidence import audit_cooked_texture_evidence, cooked_index
 from .effect_runtime_coverage import audit_effect_runtime_coverage
+from .summit_asset_migration_audit import audit_canonical_asset_relations
 from .asset_retention import audit_asset_retention
 
 FORMAT = "PT_ASSET_GENERAL_REACHABILITY_CENSUS_V1"
@@ -1198,6 +1199,23 @@ def audit_general_asset_census(
         return rel
 
     # ------------------------------------------------------------------
+    # Summit canonical JSON is the preferred asset authority for paths already
+    # migrated out of source. Explicit CLIENT runtime fields become strong roots;
+    # report/provenance/server references remain review evidence only.
+    p("Summit canonical asset relations")
+    canonical_assets = audit_canonical_asset_relations(project, client, current_tree.root)
+    for root_row in canonical_assets.get("strong_client_roots", []):
+        rel = _norm(root_row.get("path") or "")
+        for evidence in root_row.get("evidence", []) or ["SUMMIT_CANONICAL"]:
+            if rel:
+                mark_client(rel, str(evidence), strong=True)
+    for review_row in canonical_assets.get("review_client_paths", []):
+        rel = _norm(review_row.get("path") or "")
+        for evidence in review_row.get("evidence", []) or ["SUMMIT_CANONICAL_REVIEW"]:
+            if rel:
+                mark_client(rel, str(evidence), strong=False)
+
+    # ------------------------------------------------------------------
     # Legacy effect runtime loaders. Bare animation names such as Return1.ini
     # are resolved through Effect/AnimationData; exact Effect/... literals are
     # promoted only when passed to known effect loader APIs. This bridges the
@@ -2046,6 +2064,8 @@ def audit_general_asset_census(
         "cooked_texture_entry_count": cooked_report.get("entry_count", 0),
         "effect_runtime_root_count": effect_runtime.get("strong_root_count", 0),
         "effect_runtime_review_witness_count": effect_runtime.get("review_witness_count", 0),
+        "summit_canonical_asset_root_count": canonical_assets.get("strong_client_root_count", 0),
+        "summit_canonical_asset_review_count": canonical_assets.get("review_client_path_count", 0),
         "cooked_texture_failure_count": cooked_report.get("failure_count", 0),
         "cooked_texture_failure_class_counts": cooked_report.get("failure_class_counts", {}),
         "cooked_texture_documented_outlier_failure_count": cooked_report.get("documented_outlier_failure_count", 0),
@@ -2196,6 +2216,8 @@ def audit_general_asset_census(
             (project / "pt_build" / "cooked_texture_evidence" / "result.json", "components/cooked_texture_evidence.json"),
             (project / "pt_build" / "cooked_texture_evidence" / "entries.tsv", "components/cooked_texture_entries.tsv"),
             (project / "pt_build" / "effect_runtime_coverage" / "result.json", "components/effect_runtime_coverage.json"),
+            (project / "pt_build" / "summit_asset_migration" / "canonical_asset_relations.json", "components/summit_canonical_asset_relations.json"),
+            (project / "pt_build" / "summit_asset_migration" / "canonical_asset_relations.tsv", "components/summit_canonical_asset_relations.tsv"),
             (project / "pt_build" / "asset_retention" / "result.json", "components/asset_retention.json"),
             (project / "pt_build" / "asset_retention" / "assets.tsv", "components/asset_retention_assets.tsv"),
             (project / "pt_build" / "asset_retention" / "components.json", "components/asset_retention_components.json"),
