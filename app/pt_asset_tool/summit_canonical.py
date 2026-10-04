@@ -30,11 +30,25 @@ PACK_FILENAMES = (
     "field_runtime.sfld",
     "maps_client.smap",
     "maps_server.smap",
+    "coin_shop.scsp",
 )
 
 DEFINITION_FAMILIES = {"open_item_definition", "monster_definition", "npc_definition"}
 TEXT_RESOURCE_FAMILIES = {"generic_text", "ini_config", "localization_resource", "message_catalog", "monster_definition", "npc_definition", "open_item_definition", "sin_resource"}
-CANONICAL_FINGERPRINT_FAMILIES = ("text", "stage_spawns", "stage_start_points", "fixed_npcs", "maps", "item_profiles", "gameplay_reference")
+CANONICAL_FINGERPRINT_FAMILIES = ("text", "stage_spawns", "stage_start_points", "fixed_npcs", "maps", "item_profiles", "gameplay_reference", "commerce", "model_configs", "equipment_sets", "head_cosmetics", "world_story", "world_phases", "covenant_altars", "gameplay_balance")
+
+
+EXTENDED_CANONICAL_DOMAINS = (
+    {"id": "coin_shop", "kind": "COIN_SHOP_CATALOG", "path": "canonical/commerce/coin_shop.json", "runtime": "COMPILED", "description": "Premium Coin/Time static catalog; wallet state remains DB-backed."},
+    {"id": "npc_shop_overrides", "kind": "NPC_SHOP_OVERRIDES", "path": "canonical/commerce/npc_shop_overrides.json", "runtime": "DEFINITION_COMPILE_INPUT", "description": "Semantic suppress/add overlay for NPC vendor inventories."},
+    {"id": "model_configs", "kind": "MODEL_CONFIG", "path": "canonical/model_configs/models", "runtime": "AUTHORING_SOURCE", "description": "Structured model-config authority; legacy INX remains derived/cache compatibility."},
+    {"id": "equipment_sets", "kind": "EQUIPMENT_SETS", "path": "canonical/equipment_sets/equipment_sets.json", "runtime": "SERVICE_INPUT", "description": "Server-authoritative equipment set definitions."},
+    {"id": "head_cosmetics", "kind": "HEAD_COSMETICS", "path": "canonical/head_cosmetics/head_cosmetics.json", "runtime": "MILESTONE_PENDING", "description": "Head/mask cosmetic definitions and asset references."},
+    {"id": "world_story", "kind": "WORLD_STORY", "path": "canonical/world_story/campaigns.json", "runtime": "MILESTONE_PENDING", "description": "Collective/global story campaigns and phase objectives."},
+    {"id": "world_phases", "kind": "WORLD_PHASES", "path": "canonical/world_phases/world_phases.json", "runtime": "MILESTONE_PENDING", "description": "World phase -> map/spawn/NPC/gate reconciliation definitions."},
+    {"id": "covenant_altars", "kind": "COVENANT_ALTARS", "path": "canonical/covenant_altars/placement_plan.json", "runtime": "MILESTONE_PENDING", "description": "Covenant altar placements and interaction authoring."},
+    {"id": "experience_balance", "kind": "EXPERIENCE_BALANCE", "path": "canonical/gameplay_balance/experience.json", "runtime": "MILESTONE_PENDING", "description": "Canonical experience/party progression tuning."},
+)
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -446,6 +460,29 @@ class SummitCanonicalContentProvider:
                 out[profile] = {"path": _safe_rel(self.content_root, path), "sha256": sha256_file(path), "data": _json(path)}
         return out
 
+    def extended_domains(self) -> list[dict[str, Any]]:
+        rows: list[dict[str, Any]] = []
+        for spec in EXTENDED_CANONICAL_DOMAINS:
+            rel = pathlib.PurePosixPath(str(spec["path"]))
+            path = self.content_root / pathlib.Path(*rel.parts)
+            row = dict(spec)
+            row["present"] = path.exists()
+            row["is_directory"] = path.is_dir()
+            if path.is_file():
+                row["sha256"] = sha256_file(path)
+                try:
+                    doc = _json(path)
+                    row["schema"] = doc.get("schema") if isinstance(doc, dict) else None
+                    row["entries"] = _extended_domain_entry_count(doc)
+                except Exception as exc:
+                    row["error"] = f"{type(exc).__name__}:{exc}"
+            elif path.is_dir():
+                docs = sorted(path.rglob("*.json"), key=lambda p: p.as_posix().casefold())
+                row["documents"] = len(docs)
+                row["entries"] = len(docs)
+            rows.append(row)
+        return rows
+
     def canonical_family_fingerprints(self) -> dict[str, dict[str, Any]]:
         # Keep the provider result compact and directly comparable with staged
         # fingerprints used by the two-phase publish drift gates.
@@ -531,10 +568,41 @@ class SummitCanonicalContentProvider:
             "text_family_counts": dict(sorted(counts.items())),
             "map_profiles": {k: {"path": v["path"], "sha256": v["sha256"]} for k, v in self.map_profiles().items()},
             "item_profiles": {k: {"path": v["path"], "sha256": v["sha256"]} for k, v in self.item_profiles().items()},
+            "extended_domains": self.extended_domains(),
             "build_freshness": self.pack_freshness(),
             "localization": self.localization_publish_gate(run_validator=False),
-            "dynamic_field_53": "LEGACY_EXCEPTION",
+            "dynamic_field_policy": "APPEND_AFTER_STATIC_CATALOG",
         }
+
+
+def _extended_domain_entry_count(doc: Any) -> int | None:
+    if not isinstance(doc, dict):
+        return None
+    for key in ("sets", "cosmetics", "campaigns", "worlds", "placements", "altars", "entries"):
+        value = doc.get(key)
+        if isinstance(value, list):
+            return len(value)
+    shops = doc.get("shops")
+    if isinstance(shops, dict):
+        return sum(len(v) for v in shops.values() if isinstance(v, list))
+    overrides = doc.get("overrides")
+    if isinstance(overrides, list):
+        return len(overrides)
+    return None
+
+
+def extended_content_browser(provider: SummitCanonicalContentProvider, *, q: str = "") -> dict[str, Any]:
+    needle = str(q or "").strip().casefold()
+    rows = provider.extended_domains()
+    if needle:
+        rows = [row for row in rows if needle in json.dumps(row, ensure_ascii=False).casefold()]
+    return {
+        "format": "PT_ASSET_CANONICAL_EXTENDED_DOMAINS_V1",
+        "authority": "SUMMIT_CANONICAL_SOURCE",
+        "rows": rows,
+        "total": len(rows),
+        "authoring_note": "Use canonical stage with the row kind; MODEL_CONFIG accepts canonical_id or explicit path.",
+    }
 
 
 def canonical_mode_status(project_root: pathlib.Path, source_root: pathlib.Path | str | None = None) -> dict[str, Any]:
@@ -630,6 +698,8 @@ def _map_rows(provider: SummitCanonicalContentProvider, overlay_by_id: dict[str,
             canonical_name = str(_first_scalar(_lookup_field(map_doc, "name", "display_name")) or "").strip()
             display_name = str((overlay or {}).get("display_name") or canonical_name or cid or "Unnamed map")
             field_code = _first_scalar(_lookup_field(map_doc, "legacy_field_code", "field_code", "code"))
+            dynamic_cfg = data.get("legacy_dynamic_field") if isinstance(data, dict) else None
+            dynamic_code = _first_scalar(_lookup_field(dynamic_cfg, "field_code", "dynamic_field_code", "code")) if isinstance(dynamic_cfg, dict) else None
             rows.append({
                 "category": "MAP",
                 "canonical_id": cid,
@@ -637,7 +707,8 @@ def _map_rows(provider: SummitCanonicalContentProvider, overlay_by_id: dict[str,
                 "display_name": display_name,
                 "display_alias": (overlay or {}).get("display_name") if overlay else None,
                 "field_code": field_code,
-                "dynamic_legacy_exception": str(field_code) == "53",
+                "dynamic_field_code": dynamic_code,
+                "dynamic_reserved_entry": dynamic_code is not None and str(field_code) == str(dynamic_code),
                 "canonical_path": entry["path"],
                 "canonical_sha256": entry["sha256"],
                 "data": copy.deepcopy(map_doc),
@@ -837,7 +908,8 @@ def compare_map_profiles(provider: SummitCanonicalContentProvider, canonical_id:
         "status": "PASS", "canonical_id": canonical_id, "client": client, "server": server,
         "profiles_present": sorted(by_profile), "differences": differences,
         "profiles_must_remain_separate": True,
-        "dynamic_field_53": bool((client or server or {}).get("dynamic_legacy_exception")),
+        "dynamic_field_policy": "APPEND_AFTER_STATIC_CATALOG",
+        "dynamic_field_codes": {k: v.get("dynamic_field_code") for k, v in by_profile.items()},
     }
 
 
@@ -858,10 +930,11 @@ def build_canonical_contract_graph(provider: SummitCanonicalContentProvider, *, 
         "stage_spawns": ["field_runtime.sfld"],
         "stage_start_points": ["field_runtime.sfld"],
         "fixed_npcs": ["field_runtime.sfld"],
+        "commerce": ["coin_shop.scsp", "definitions_client.scfg", "definitions_server.scfg"],
         "maps:client": ["maps_client.smap"],
         "maps:server": ["maps_server.smap"],
     }
-    for family in ("text", "item_profiles", "gameplay_reference", "stage_spawns", "stage_start_points", "fixed_npcs"):
+    for family in ("text", "item_profiles", "gameplay_reference", "stage_spawns", "stage_start_points", "fixed_npcs", "commerce", "model_configs", "equipment_sets", "head_cosmetics", "world_story", "world_phases", "covenant_altars", "gameplay_balance"):
         node = f"canonical:family:{family}"
         g.ensure_node(node, "CANONICAL_FAMILY", family, path=f"Content/canonical/{family}")
         g.connect("canonical:source", node, "DECLARES_AUTHORITY_FOR", evidence="CANONICAL_SOURCE.json + Content/canonical tree", confidence=1.0, required=True, status="AUTHORITATIVE")
@@ -959,8 +1032,8 @@ def build_canonical_contract_graph(provider: SummitCanonicalContentProvider, *, 
                     rnode = f"canonical:ref:{refkey}:{str(value).casefold()}"
                     g.ensure_node(rnode, "CANONICAL_REFERENCE", str(value), reference_key=refkey)
                     g.connect(node, rnode, "REFERENCES", evidence=str(row.get("canonical_path")), confidence=1.0, required=None, status="SOURCE_PROVEN")
-    g.ensure_node("canonical:legacy:field53", "LEGACY_EXCEPTION", "Dynamic field 53", field_code=53)
-    g.connect("canonical:source", "canonical:legacy:field53", "EXPLICIT_LEGACY_EXCEPTION", evidence="canonical map profile contract", confidence=1.0, required=False, status="LEGACY_EXCEPTION")
+    g.ensure_node("canonical:map_dynamic_append", "MAP_DYNAMIC_POLICY", "Dynamic field appends after static catalog", strategy="append_after_static")
+    g.connect("canonical:source", "canonical:map_dynamic_append", "DECLARES_DYNAMIC_FIELD_POLICY", evidence="canonical map profile contract", confidence=1.0, required=True, status="AUTHORITATIVE")
     return g.to_dict(metadata={
         "authority": "SUMMIT_CANONICAL_SOURCE",
         "source_root": str(provider.source_root),
@@ -1032,7 +1105,7 @@ def build_semantic_catalog_v2(provider: SummitCanonicalContentProvider) -> dict[
         "maps": maps,
         "text_resources": text_resources,
         "missing_display_name_ids": missing_display,
-        "dynamic_field_53": "LEGACY_EXCEPTION",
+        "dynamic_field_policy": "APPEND_AFTER_STATIC_CATALOG",
         "localization": status["localization"],
         "reference_content": {"quest_codex": "REFERENCE_ONLY", "mix_guide": "REFERENCE_ONLY"},
         "contract_graph": build_canonical_contract_graph(provider, include_documents=False),

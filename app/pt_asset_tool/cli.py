@@ -116,7 +116,7 @@ from .legacy_management_contracts import classify_item_code, legacy_management_s
 from .item_runtime_catalog import lookup_item_runtime
 from .legacy_management_audit import audit_legacy_management
 from .legacy_authoring import authoring_capabilities, inspect_authoring, stage_authoring, publish_authoring, restore_authoring
-from .summit_canonical import SummitCanonicalContentProvider, canonical_mode_status, build_semantic_catalog_v2
+from .summit_canonical import SummitCanonicalContentProvider, canonical_mode_status, build_semantic_catalog_v2, extended_content_browser
 from .canonical_authoring import (
     canonical_authoring_capabilities, stage_canonical_authoring, publish_canonical_source,
     publish_canonical_packs, restore_canonical_transaction, PUBLISH_SOURCE_CONFIRM,
@@ -3150,6 +3150,12 @@ def cmd_canonical_capabilities(a):
     return 0
 
 
+def cmd_canonical_domains(a):
+    _s, provider = _canonical_context(a)
+    print(json.dumps(extended_content_browser(provider, q=getattr(a, "query", "")), ensure_ascii=False, indent=2))
+    return 0
+
+
 def cmd_canonical_stage(a):
     s, provider = _canonical_context(a)
     spec = json.loads(pathlib.Path(a.spec).expanduser().read_text(encoding="utf-8"))
@@ -4461,6 +4467,7 @@ def build_parser():
     x = cap.add_parser("status", help="show canonical authority, fingerprints, pack freshness and localization publish gate"); x.add_argument("--source-root"); x.set_defaults(func=cmd_canonical_status)
     x = cap.add_parser("catalog", help="emit Semantic Catalog V2 from Summit Content/canonical plus display-alias overlay"); x.add_argument("--source-root"); x.set_defaults(func=cmd_canonical_catalog)
     x = cap.add_parser("capabilities", help="show typed writers, import-only legacy surfaces and publish phases"); x.add_argument("--source-root"); x.set_defaults(func=cmd_canonical_capabilities)
+    x = cap.add_parser("domains", help="list extended Summit canonical domains and their runtime/authoring state"); x.add_argument("--source-root"); x.add_argument("--query", default=""); x.set_defaults(func=cmd_canonical_domains)
     x = cap.add_parser("stage", help="stage a typed canonical JSON edit, validate schemas and compile/inspect all canonical packs"); x.add_argument("--source-root"); x.add_argument("--spec", required=True); x.add_argument("--skip-validation", action="store_true"); x.add_argument("--skip-build", action="store_true"); x.set_defaults(func=cmd_canonical_stage)
     x = cap.add_parser("publish-source", help=f"phase 1: publish canonical JSON only; requires --confirm '{PUBLISH_SOURCE_CONFIRM}'"); x.add_argument("--source-root"); x.add_argument("--manifest", required=True); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_canonical_publish_source)
     x = cap.add_parser("publish-packs", help=f"phase 2: publish verified packs + BUILD.json; requires --confirm '{PUBLISH_PACKS_CONFIRM}'"); x.add_argument("--source-root"); x.add_argument("--manifest", required=True); x.add_argument("--confirm", required=True); x.set_defaults(func=cmd_canonical_publish_packs)

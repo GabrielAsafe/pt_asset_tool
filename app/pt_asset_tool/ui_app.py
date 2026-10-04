@@ -40,7 +40,7 @@ from .legacy_management_web import (
 from .legacy_authoring import authoring_capabilities, authoring_workspace_guide, inspect_authoring, stage_authoring
 from .summit_canonical import (
     SummitCanonicalContentProvider, canonical_mode_status, build_semantic_catalog_v2, build_canonical_contract_graph,
-    query_canonical_resources, gameplay_reference_browser, gameplay_config_browser, localization_browser, compare_map_profiles,
+    query_canonical_resources, gameplay_reference_browser, gameplay_config_browser, localization_browser, compare_map_profiles, extended_content_browser,
 )
 from .canonical_authoring import (
     canonical_authoring_capabilities, stage_canonical_authoring, publish_canonical_source,
@@ -1144,6 +1144,12 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, "result": gameplay_reference_browser(provider, q=_one(q, "q"), limit=int(_one(q, "limit") or 500))})
             except Exception as exc:
                 return self._error(422, "CANONICAL_GAMEPLAY_REFERENCE_BROWSER_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/canonical/domains":
+            try:
+                provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                return self._json(200, {"ok": True, "result": extended_content_browser(provider, q=_one(q, "q"))})
+            except Exception as exc:
+                return self._error(422, "CANONICAL_EXTENDED_DOMAINS_BROWSER_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/canonical/map-compare":
             try:
                 provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)

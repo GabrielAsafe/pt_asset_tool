@@ -6,9 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from pt_asset_tool.canonical_authoring import atomic_update_definition, stage_canonical_authoring
+from pt_asset_tool.canonical_authoring import atomic_update_definition, stage_canonical_authoring, typed_patch_document, resolve_authoring_document
 from pt_asset_tool.legacy_authoring import stage_authoring
-from pt_asset_tool.summit_canonical import PACK_FILENAMES, SummitCanonicalContentProvider, build_semantic_catalog_v2, gameplay_config_browser, gameplay_reference_browser, localization_browser, query_canonical_resources
+from pt_asset_tool.summit_canonical import PACK_FILENAMES, SummitCanonicalContentProvider, build_semantic_catalog_v2, gameplay_config_browser, gameplay_reference_browser, localization_browser, query_canonical_resources, extended_content_browser
 
 
 def _write_json(path: Path, value):
@@ -75,8 +75,8 @@ def _source(tmp_path: Path) -> Path:
     })
     _write_json(content / "canonical/item_profiles/client.items.json", {"profile": "client", "items": [{"code": "WA108"}, {"code": "BC130"}]})
     _write_json(content / "canonical/item_profiles/server.items.json", {"profile": "server", "items": [{"code": "WA108"}]})
-    _write_json(content / "canonical/maps/client.maps.json", {"profile": "client", "maps": [{"canonical_id": "map.fore_3", "legacy_field_code": 0, "name": "Forest Client"}, {"canonical_id": "map.dynamic", "legacy_field_code": 53, "name": "Dynamic"}]})
-    _write_json(content / "canonical/maps/server.maps.json", {"profile": "server", "maps": [{"canonical_id": "map.fore_3", "legacy_field_code": 0, "name": "Forest Server"}, {"canonical_id": "map.dynamic", "legacy_field_code": 53, "name": "Dynamic"}]})
+    _write_json(content / "canonical/maps/client.maps.json", {"profile": "client", "legacy_dynamic_field": {"field_code": 54, "strategy": "append_after_static"}, "maps": [{"canonical_id": "map.fore_3", "legacy_field_code": 0, "name": "Forest Client"}, {"canonical_id": "map.field53", "legacy_field_code": 53, "name": "Field 53 Client"}]})
+    _write_json(content / "canonical/maps/server.maps.json", {"profile": "server", "legacy_dynamic_field": {"field_code": 54, "strategy": "append_after_static"}, "maps": [{"canonical_id": "map.fore_3", "legacy_field_code": 0, "name": "Forest Server"}, {"canonical_id": "map.field53", "legacy_field_code": 53, "name": "Field 53 Server"}]})
     _write_json(content / "canonical/text/resources/Servidor/Configs/game.ini.json", {
         "schema": "summit.canonical-text-resource/v1", "id": "text.game", "kind": "ini_config",
         "selection_reason": "immutable_gameplay_config", "source": {"legacy_path": "Servidor/Configs/game.ini"},
@@ -110,6 +110,35 @@ def _source(tmp_path: Path) -> Path:
         "schema": "summit.mix-guide/v1",
         "recipes": [{"id": "r1"}, {"id": "r2"}, {"id": "r3"}],
     })
+    _write_json(content / "canonical/commerce/coin_shop.json", {
+        "schema": "summit.coin-shop-catalog/v1",
+        "shops": {"coin": [{"code": "WA108", "section": 1, "price": 100}], "time": [{"code": "BC130", "section": 1, "price": 10}]},
+        "policy": {"quest_only_item_codes": ["QW103", "QW106"]},
+    })
+    _write_json(content / "canonical/commerce/npc_shop_overrides.json", {
+        "schema": "summit.npc-shop-overrides/v1", "overrides": []
+    })
+    _write_json(content / "canonical/model_configs/models/char.monster.cuepy.json", {
+        "schema": "summit.model-config/v1", "schema_version": 1, "id": "model.char.monster.cuepy", "semantic": {}
+    })
+    _write_json(content / "canonical/equipment_sets/equipment_sets.json", {
+        "schema": "summit.equipment-sets/v1", "schema_version": 1, "sets": [{"id": "set.test", "pieces": [], "bonuses": []}]
+    })
+    _write_json(content / "canonical/head_cosmetics/head_cosmetics.json", {
+        "schema": "summit.head-cosmetics/v1", "schema_version": 1, "cosmetics": []
+    })
+    _write_json(content / "canonical/world_story/campaigns.json", {
+        "schema": "summit.world-story-campaigns/v1", "schema_version": 1, "campaigns": []
+    })
+    _write_json(content / "canonical/world_phases/world_phases.json", {
+        "schema": "summit.world-phases/v1", "schema_version": 1, "worlds": []
+    })
+    _write_json(content / "canonical/covenant_altars/placement_plan.json", {
+        "schema": "summit.covenant-altar-placement-plan/v1", "schema_version": 1, "placements": []
+    })
+    _write_json(content / "canonical/gameplay_balance/experience.json", {
+        "schema": "summit.experience-balance/v1", "schema_version": 1, "party": {"max_members": 8}
+    })
     return root
 
 
@@ -135,8 +164,10 @@ def test_semantic_catalog_v2_uses_canonical_identity_and_alias_overlay(tmp_path)
     assert by_id["item.bc130"]["in_server_profile"] is False
     assert catalog["counts"]["maps_client"] == 2
     assert catalog["counts"]["maps_server"] == 2
-    assert sum(1 for x in catalog["maps"] if x["dynamic_legacy_exception"]) == 2
+    assert sum(1 for x in catalog["maps"] if x["dynamic_reserved_entry"]) == 0
     assert {x["field_code"] for x in catalog["maps"]} == {0, 53}
+    assert {x["dynamic_field_code"] for x in catalog["maps"]} == {54}
+    assert catalog["dynamic_field_policy"] == "APPEND_AFTER_STATIC_CATALOG"
     assert catalog["counts"]["gameplay_configs"] == 1
     assert catalog["counts"]["gameplay_config_entries"] == 1
     assert catalog["counts"]["text_resources"] == 6
@@ -252,14 +283,14 @@ def test_legacy_stage_is_disabled_when_canonical_mode_is_active(tmp_path, monkey
         stage_authoring(project, server, client, {"kind": "SPM", "mode": "EDIT", "path": "GameServer/Field/a.spm", "patch": {"action": "ADD_ACTOR"}})
 
 
-def test_canonical_contract_graph_keeps_profiles_and_legacy_exception_explicit(tmp_path):
+def test_canonical_contract_graph_keeps_profiles_and_dynamic_append_policy_explicit(tmp_path):
     from pt_asset_tool.summit_canonical import build_canonical_contract_graph
     provider = SummitCanonicalContentProvider(_source(tmp_path))
     graph = build_canonical_contract_graph(provider, include_documents=False)
     keys = {(e["source"], e["target"], e["relation"]) for e in graph["edges"]}
     assert ("canonical:map_profile:client", "canonical:pack:maps_client.smap", "COMPILES_TO") in keys
     assert ("canonical:map_profile:server", "canonical:pack:maps_server.smap", "COMPILES_TO") in keys
-    assert ("canonical:source", "canonical:legacy:field53", "EXPLICIT_LEGACY_EXCEPTION") in keys
+    assert ("canonical:source", "canonical:map_dynamic_append", "DECLARES_DYNAMIC_FIELD_POLICY") in keys
     assert graph["metadata"]["profile_collapse_forbidden"] is True
 
 
@@ -275,18 +306,19 @@ def test_publish_source_rejects_diagnostic_stage_without_validated_build(tmp_pat
         publish_canonical_source(project, staged["manifest"], confirm="PUBLISH CANONICAL SOURCE")
 
 
-def test_map_profile_compare_and_dynamic_field_guard(tmp_path):
+def test_map_profile_compare_and_field53_is_normal_static_map(tmp_path):
     from pt_asset_tool.summit_canonical import compare_map_profiles
-    from pt_asset_tool.canonical_authoring import typed_patch_document
     provider = SummitCanonicalContentProvider(_source(tmp_path))
     cmp = compare_map_profiles(provider, "map.fore_3")
     assert cmp["profiles_present"] == ["CLIENT", "SERVER"]
     assert any(x["field"] == "name" for x in cmp["differences"])
+    assert cmp["dynamic_field_policy"] == "APPEND_AFTER_STATIC_CATALOG"
+    assert cmp["dynamic_field_codes"] == {"CLIENT": 54, "SERVER": 54}
     client_doc = provider.map_profiles()["client"]["data"]
     edited = typed_patch_document("MAP", client_doc, {"fields": {"name": "Renamed Client"}}, canonical_id="map.fore_3")
     assert edited["maps"][0]["name"] == "Renamed Client"
-    with pytest.raises(ValueError, match="FIELD_53_LEGACY_READ_ONLY"):
-        typed_patch_document("MAP", client_doc, {"fields": {"name": "Nope"}}, canonical_id="map.dynamic")
+    field53 = typed_patch_document("MAP", client_doc, {"fields": {"name": "Editable Field 53"}}, canonical_id="map.field53")
+    assert field53["maps"][1]["name"] == "Editable Field 53"
 
 
 def test_generic_canonical_text_is_read_only_without_typed_writer(tmp_path):
@@ -295,14 +327,40 @@ def test_generic_canonical_text_is_read_only_without_typed_writer(tmp_path):
         typed_patch_document("CANONICAL_TEXT", {"x": 1}, {"set": {"x": 2}})
 
 
+def test_extended_domains_browser_and_fixed_document_authoring(tmp_path):
+    provider = SummitCanonicalContentProvider(_source(tmp_path))
+    result = extended_content_browser(provider)
+    by_id = {row["id"]: row for row in result["rows"]}
+    assert by_id["coin_shop"]["present"] is True
+    assert by_id["coin_shop"]["entries"] == 2
+    assert by_id["model_configs"]["documents"] == 1
+    assert by_id["equipment_sets"]["schema"] == "summit.equipment-sets/v1"
+
+    kind, path, doc = resolve_authoring_document(provider, {"kind": "EQUIPMENT_SETS"})
+    assert kind == "EQUIPMENT_SETS"
+    assert path.name == "equipment_sets.json"
+    edited = typed_patch_document(kind, doc, {"set": {"sets.0.id": "set.renamed"}})
+    assert edited["sets"][0]["id"] == "set.renamed"
+    with pytest.raises(ValueError, match="SCHEMA_IMMUTABLE"):
+        typed_patch_document(kind, doc, {"set": {"schema": "bad/v1"}})
+
+    mkind, mpath, mdoc = resolve_authoring_document(provider, {"kind": "MODEL_CONFIG", "canonical_id": "model.char.monster.cuepy"})
+    assert mkind == "MODEL_CONFIG"
+    assert mpath.name == "char.monster.cuepy.json"
+    assert mdoc["schema"] == "summit.model-config/v1"
+
+
 def test_v211_ui_and_api_surfaces_are_wired():
     root = Path(__file__).resolve().parents[1]
     html = (root / "pt_asset_tool/ui_static/index.html").read_text(encoding="utf-8")
     js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")
     py = (root / "pt_asset_tool/ui_app.py").read_text(encoding="utf-8")
-    assert 'V2.11 · Summit Canonical Source' in html
+    assert 'V2.12 · Summit Canonical Source' in html
     assert 'canonicalV211ItemProfiles' in html
     assert 'canonicalV211References' in html
+    assert 'canonicalV211Domains' in html
+    assert 'COIN_SHOP_CATALOG' in html
+    assert 'WORLD_PHASES' in html
     assert 'canonicalV211GameplayConfig' in html
     assert 'canonicalV211Localization' in html
     assert 'canonicalV211CompareMap' in html
@@ -311,5 +369,6 @@ def test_v211_ui_and_api_surfaces_are_wired():
     assert 'u.path == "/api/canonical/stage"' in py
     assert 'path == "/api/canonical/resources"' in py
     assert 'path == "/api/canonical/gameplay-reference"' in py
+    assert 'path == "/api/canonical/domains"' in py
     assert 'path == "/api/canonical/gameplay-config"' in py
     assert 'path == "/api/canonical/localization"' in py

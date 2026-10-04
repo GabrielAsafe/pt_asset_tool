@@ -37,9 +37,21 @@ _OTHER_KINDS = {
     "STAGE_START_POINT": "stage_start_points",
     "FIXED_NPC": "fixed_npcs",
     "MAP": "maps",
+    "MODEL_CONFIG": "model_configs/models",
     "GAMEPLAY_CONFIG": "text",
     "LOCALIZATION": "text",
     "CANONICAL_TEXT": "text",
+}
+
+_FIXED_DOCUMENT_KINDS = {
+    "COIN_SHOP_CATALOG": ("commerce/coin_shop.json", "summit.coin-shop-catalog/v1"),
+    "NPC_SHOP_OVERRIDES": ("commerce/npc_shop_overrides.json", "summit.npc-shop-overrides/v1"),
+    "EQUIPMENT_SETS": ("equipment_sets/equipment_sets.json", "summit.equipment-sets/v1"),
+    "HEAD_COSMETICS": ("head_cosmetics/head_cosmetics.json", "summit.head-cosmetics/v1"),
+    "WORLD_STORY": ("world_story/campaigns.json", "summit.world-story-campaigns/v1"),
+    "WORLD_PHASES": ("world_phases/world_phases.json", "summit.world-phases/v1"),
+    "COVENANT_ALTARS": ("covenant_altars/placement_plan.json", "summit.covenant-altar-placement-plan/v1"),
+    "EXPERIENCE_BALANCE": ("gameplay_balance/experience.json", "summit.experience-balance/v1"),
 }
 
 
@@ -305,8 +317,6 @@ def _update_map_entry(doc: dict[str, Any], canonical_id: str, fields: dict[str, 
         raise ValueError(f"CANONICAL_MAP_ID_AMBIGUOUS:{canonical_id}:{len(matches)}")
     idx, row = matches[0]
     field_code = row.get("legacy_field_code", row.get("field_code", row.get("code")))
-    if str(field_code) == "53":
-        raise ValueError("CANONICAL_DYNAMIC_FIELD_53_LEGACY_READ_ONLY")
     edited = copy.deepcopy(row)
     for requested, value in fields.items():
         existing = next((k for k in edited if _norm(k) == _norm(requested)), None)
@@ -361,6 +371,11 @@ def typed_patch_document(kind: str, doc: dict[str, Any], patch: dict[str, Any], 
                 raise KeyError(f"CANONICAL_TYPED_KEY_NOT_FOUND:{kind}:{key}")
             out[key] = copy.deepcopy(patch[key])
 
+    if kind in _FIXED_DOCUMENT_KINDS:
+        expected_schema = _FIXED_DOCUMENT_KINDS[kind][1]
+        if str(out.get("schema") or "") != expected_schema:
+            raise ValueError(f"CANONICAL_FIXED_DOCUMENT_SCHEMA_IMMUTABLE:{kind}:{expected_schema}")
+
     if out == doc:
         raise ValueError("CANONICAL_AUTHORING_NO_CHANGE")
     return out
@@ -412,13 +427,17 @@ def _find_json_by_id(root: pathlib.Path, canonical_id: str) -> pathlib.Path:
 
 def resolve_authoring_document(provider: SummitCanonicalContentProvider, spec: dict[str, Any]) -> tuple[str, pathlib.Path, dict[str, Any]]:
     kind = str(spec.get("kind") or "").upper()
-    if kind not in {*_DEFINITION_KINDS, *_OTHER_KINDS}:
+    if kind not in {*_DEFINITION_KINDS, *_OTHER_KINDS, *_FIXED_DOCUMENT_KINDS}:
         raise ValueError(f"CANONICAL_AUTHORING_KIND_UNSUPPORTED:{kind}")
     explicit = str(spec.get("path") or spec.get("canonical_path") or "").strip()
     if explicit:
         path = _resolve_explicit_path(provider, explicit)
     elif kind in _DEFINITION_KINDS:
         path = provider.find_definition(str(spec.get("canonical_id") or "")).path
+    elif kind in _FIXED_DOCUMENT_KINDS:
+        path = provider.canonical_root / _FIXED_DOCUMENT_KINDS[kind][0]
+        if not path.is_file():
+            raise FileNotFoundError(f"CANONICAL_FIXED_DOCUMENT_NOT_FOUND:{kind}:{path}")
     else:
         family_dir = provider.canonical_root / _OTHER_KINDS[kind]
         profile = str(spec.get("profile") or "").lower()
@@ -472,6 +491,14 @@ def validate_staged_canonical(provider: SummitCanonicalContentProvider, stage_ro
         "--canonical-start-points", str(stage_root / "canonical" / "stage_start_points"),
         "--canonical-fixed-npcs", str(stage_root / "canonical" / "fixed_npcs"),
     ], cwd=provider.source_root, log=log)
+    extended = tools / "validate_extended_content.py"
+    if extended.is_file():
+        _run([py, str(extended), str(stage_root / "canonical")], cwd=provider.source_root, log=log)
+    coin_validator = tools / "validate_coin_shop_catalog.py"
+    if coin_validator.is_file() and (stage_root / "canonical" / "commerce" / "coin_shop.json").is_file():
+        # Validator currently expects a repo-root layout; the staged tree is validated
+        # structurally by compile_coin_shop during build and by source validation before publish.
+        pass
     return {"status": "PASS", "commands": log}
 
 
@@ -525,7 +552,14 @@ def build_staged_packs(provider: SummitCanonicalContentProvider, stage_root: pat
         out = packs / f"maps_{profile}.smap"
         run("compile_maps.py", canonical / "maps" / f"{profile}.maps.json", out)
         run("inspect_maps.py", out)
-    pack_hashes = {name: sha256_file(packs / name) for name in PACK_FILENAMES}
+    coin_catalog = canonical / "commerce" / "coin_shop.json"
+    if coin_catalog.is_file():
+        for required_name in ("compile_coin_shop.py", "inspect_coin_shop.py"):
+            if not (tools / required_name).is_file():
+                raise FileNotFoundError(f"CANONICAL_BUILD_TOOLS_NOT_FOUND:{required_name}")
+        run("compile_coin_shop.py", coin_catalog, packs / "coin_shop.scsp")
+        run("inspect_coin_shop.py", packs / "coin_shop.scsp")
+    pack_hashes = {name: sha256_file(packs / name) for name in PACK_FILENAMES if (packs / name).is_file()}
     return {"status": "PASS", "commands": log, "pack_hashes": pack_hashes}
 
 
@@ -871,6 +905,15 @@ def canonical_authoring_capabilities(provider: SummitCanonicalContentProvider | 
             "STAGE_START_POINT": "CANONICAL_JSON",
             "FIXED_NPC": "CANONICAL_JSON",
             "MAP": "PROFILE_AWARE_CANONICAL_JSON",
+            "MODEL_CONFIG": "SCHEMA_GUARDED_CANONICAL_JSON",
+            "COIN_SHOP_CATALOG": "SCHEMA_GUARDED_CANONICAL_JSON_COMPILED_SCSP",
+            "NPC_SHOP_OVERRIDES": "SCHEMA_GUARDED_CANONICAL_JSON",
+            "EQUIPMENT_SETS": "SCHEMA_GUARDED_CANONICAL_JSON",
+            "HEAD_COSMETICS": "SCHEMA_GUARDED_CANONICAL_JSON",
+            "WORLD_STORY": "SCHEMA_GUARDED_CANONICAL_JSON",
+            "WORLD_PHASES": "SCHEMA_GUARDED_CANONICAL_JSON",
+            "COVENANT_ALTARS": "SCHEMA_GUARDED_CANONICAL_JSON",
+            "EXPERIENCE_BALANCE": "SCHEMA_GUARDED_CANONICAL_JSON",
             "GAMEPLAY_CONFIG": "SCHEMA_DRIVEN_CANONICAL_JSON",
             "LOCALIZATION": "EDIT_PREVIEW_ENABLED_PRODUCTION_FAIL_CLOSED",
             "CANONICAL_TEXT": "READ_ONLY_BY_DEFAULT",

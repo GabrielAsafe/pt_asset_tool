@@ -402,7 +402,7 @@
         </div>
 
         <section class="panel canonical-v211-panel" id="canonicalV211Panel">
-          <div class="panel-title"><strong>V2.11 · Summit Canonical Source</strong><span id="canonicalV211State">Checking canonical authority…</span></div>
+          <div class="panel-title"><strong>V2.12 · Summit Canonical Source</strong><span id="canonicalV211State">Checking canonical authority…</span></div>
           <p class="micro">Authority: <code>Summit Content/canonical/**</code>. The legacy name map is display/ambiguity/migration overlay only. Legacy ITEM/MONSTER/NPC/SPM/SPP/SPC writers are import/compare-only while canonical mode is active.</p>
           <div id="canonicalV211Summary" class="server-summary"><div class="empty">Loading canonical status…</div></div>
           <details class="legacy-ops-wide">
@@ -412,13 +412,13 @@
               <label>Family<input id="canonicalV211Family" placeholder="e.g. localization_resource / ini_config" /></label>
               <label>Locale<select id="canonicalV211Locale"><option>pt-BR</option><option>en</option><option>zh-TW</option><option>ko</option></select></label>
             </div>
-            <div class="legacy-ops-buttons"><button id="canonicalV211Browse" class="btn">Canonical Text Browser</button><button id="canonicalV211ItemProfiles" class="btn">Item Profile Browser</button><button id="canonicalV211GameplayConfig" class="btn">Gameplay Config</button><button id="canonicalV211Localization" class="btn">Localization</button><button id="canonicalV211References" class="btn">Quest Codex / Mix Guide</button><button id="canonicalV211CompareMap" class="btn">Compare CLIENT/SERVER map</button></div>
+            <div class="legacy-ops-buttons"><button id="canonicalV211Browse" class="btn">Canonical Text Browser</button><button id="canonicalV211ItemProfiles" class="btn">Item Profile Browser</button><button id="canonicalV211GameplayConfig" class="btn">Gameplay Config</button><button id="canonicalV211Localization" class="btn">Localization</button><button id="canonicalV211References" class="btn">Quest Codex / Mix Guide</button><button id="canonicalV211Domains" class="btn">Extended Domains</button><button id="canonicalV211CompareMap" class="btn">Compare CLIENT/SERVER map</button></div>
             <pre id="canonicalV211BrowserResult" class="legacy-authoring-result">Read-only canonical browser. Families without a typed writer remain read-only.</pre>
           </details>
           <details open class="legacy-ops-wide">
             <summary>Typed Canonical Authoring</summary>
             <div class="legacy-ops-grid">
-              <label>Kind<select id="canonicalV211Kind"><option>ITEM</option><option>MONSTER</option><option>NPC</option><option>STAGE_SPAWN</option><option>STAGE_START_POINT</option><option>FIXED_NPC</option><option>MAP</option><option>GAMEPLAY_CONFIG</option><option>LOCALIZATION</option><option>CANONICAL_TEXT</option></select></label>
+              <label>Kind<select id="canonicalV211Kind"><option>ITEM</option><option>MONSTER</option><option>NPC</option><option>STAGE_SPAWN</option><option>STAGE_START_POINT</option><option>FIXED_NPC</option><option>MAP</option><option>MODEL_CONFIG</option><option>COIN_SHOP_CATALOG</option><option>NPC_SHOP_OVERRIDES</option><option>EQUIPMENT_SETS</option><option>HEAD_COSMETICS</option><option>WORLD_STORY</option><option>WORLD_PHASES</option><option>COVENANT_ALTARS</option><option>EXPERIENCE_BALANCE</option><option>GAMEPLAY_CONFIG</option><option>LOCALIZATION</option><option>CANONICAL_TEXT</option></select></label>
               <label>Canonical ID<input id="canonicalV211Id" placeholder="item.bc130 / stage / map id" /></label>
               <label>Profile<select id="canonicalV211Profile"><option value="">—</option><option value="client">CLIENT</option><option value="server">SERVER</option></select></label>
               <label>Canonical path (optional)<input id="canonicalV211Path" placeholder="canonical/text/...json" /></label>
