@@ -328,3 +328,60 @@ def test_source_sres_pack_payload_and_runtime_deployment_can_be_verified(tmp_pat
         row = next(csv.DictReader(handle, delimiter="\t"))
     assert row["canonical_runtime_class"] == "SRES_PACK_DEPLOYED_VERIFIED"
     assert row["canonical_source_pack_payload_match"] == "True"
+
+
+def test_runtime_tree_scan_marks_audio_mirror_and_unique_recovery_candidates(tmp_path: Path):
+    source = tmp_path / "summit/SourceCode"
+    source.mkdir(parents=True)
+    client = tmp_path / "summit/cliente"
+    server = tmp_path / "summit/Servidor"
+    (client / "Effect/Recovered").mkdir(parents=True)
+    (client / "Effect/Recovered/B_e20.bmp").write_bytes(b"bmp")
+    (server / "Assets/Audio/Sod").mkdir(parents=True)
+    (server / "Assets/Audio/Sod/round9.wav").write_bytes(b"wav")
+
+    rows = [
+        _migration_row(client_path="Effect/NewEffect/Res/TextureHit/B_e20.bmp", raw_literal="Effect/NewEffect/Res/TextureHit/B_e20.bmp"),
+        _migration_row(client_path="wav/Sod/round9.wav", raw_literal="wav/Sod/round9.wav", source_file="SrcGame/src/systems/audio/effects/legacy/effectsnd.cpp"),
+    ]
+    from pt_asset_tool.summit_asset_audit_refinement import detect_runtime_asset_trees
+    trees = detect_runtime_asset_trees(source)
+    out = refine_migration_rows(rows, source_root=source, runtime_trees=trees)
+    assert out[0]["runtime_physical_class"] == "CLIENT_UNIQUE_BASENAME_RELOCATION_CANDIDATE"
+    assert out[0]["runtime_client_basename_candidates"] == "Effect/Recovered/B_e20.bmp"
+    assert out[1]["runtime_physical_class"] == "SERVER_AUDIO_MIRROR_RECOVERY_CANDIDATE"
+    assert out[1]["runtime_audio_server_mirror_present"] == "True"
+    assert out[1]["runtime_audio_server_mirror_path"] == "Assets/Audio/Sod/round9.wav"
+
+
+def test_model_config_runtime_scan_probes_legacy_inx_cache(tmp_path: Path):
+    source = tmp_path / "summit/SourceCode"
+    source.mkdir(parents=True)
+    server = tmp_path / "summit/Servidor/char/npc/phl"
+    server.mkdir(parents=True)
+    (server / "phl.inx").write_bytes(b"inx")
+    canonical = tmp_path / "summit/SourceCode/Content/canonical/model_configs/models"
+    canonical.mkdir(parents=True)
+    (canonical / "char.npc.phl.phl.json").write_text(json.dumps({
+        "schema": "summit.model-config/v1",
+        "schema_version": 1,
+        "id": "model.char.npc.phl.phl",
+        "logical_config": "char/npc/phl/phl.ini",
+        "legacy_cache": "char/npc/phl/phl.inx",
+        "consumers": [],
+        "source": {"status": "unresolved"},
+        "semantic": {},
+        "inventory_presence": {"server": {"present": False, "path": ""}, "client": {"present": False, "path": ""}},
+    }), encoding="utf-8")
+    from pt_asset_tool.summit_asset_audit_refinement import build_model_config_index, detect_runtime_asset_trees
+    model_index = build_model_config_index(canonical.parent.parent)
+    trees = detect_runtime_asset_trees(source)
+    row = _migration_row(
+        state="CANONICAL_RUNTIME_ASSET_MISSING", scope="CHARACTER_MODEL",
+        client_path="char/npc/phl/phl.ini", raw_literal="char/npc/phl/phl.ini",
+        source_file="", source_line="", canonical_strong="True",
+    )
+    out = refine_migration_rows([row], source_root=source, model_config_index=model_index, runtime_trees=trees)[0]
+    assert out["runtime_server_exact_present"] == "True"
+    assert out["runtime_server_exact_path"] == "char/npc/phl/phl.inx"
+    assert out["runtime_physical_class"] == "SERVER_EXACT_PATH_RECOVERY_CANDIDATE"

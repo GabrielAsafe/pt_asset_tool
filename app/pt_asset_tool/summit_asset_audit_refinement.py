@@ -12,7 +12,7 @@ from collections import defaultdict
 from pathlib import PurePosixPath
 from typing import Any, Iterable
 
-FORMAT = "PT_SUMMIT_ASSET_AUDIT_REFINEMENT_V2"
+FORMAT = "PT_SUMMIT_ASSET_AUDIT_REFINEMENT_V3"
 SRES_HEADER = struct.Struct("<4sHH10I32s")
 SRES_RECORD = struct.Struct("<6I")
 
@@ -335,6 +335,132 @@ def detect_text_pack_deployment(source_root: pathlib.Path | None, canonical_root
     return result
 
 
+
+def _build_runtime_tree_index(root: pathlib.Path | None) -> dict[str, Any]:
+    """Build a case-insensitive physical-file index for a runtime tree.
+
+    This is recovery evidence only. A basename match never proves that a legacy
+    path is semantically interchangeable with the candidate.
+    """
+    result: dict[str, Any] = {"root": str(root) if root else "", "present": False, "file_count": 0, "by_path": {}, "by_basename": {}}
+    if root is None or not root.is_dir():
+        return result
+    by_path: dict[str, str] = {}
+    by_basename: dict[str, list[str]] = defaultdict(list)
+    count = 0
+    for path in root.rglob("*"):
+        if not path.is_file():
+            continue
+        try:
+            rel = path.relative_to(root).as_posix()
+        except ValueError:
+            continue
+        normalized = _runtime_norm(rel)
+        if not normalized:
+            continue
+        count += 1
+        by_path.setdefault(normalized, rel)
+        by_basename[_basename(normalized)].append(rel)
+    for values in by_basename.values():
+        values.sort(key=str.casefold)
+    result.update({"present": True, "file_count": count, "by_path": by_path, "by_basename": dict(by_basename)})
+    return result
+
+
+def detect_runtime_asset_trees(source_root: pathlib.Path | None) -> dict[str, Any]:
+    repo_root = source_root.parent if source_root is not None else None
+    if repo_root is None:
+        return {"client": _build_runtime_tree_index(None), "server": _build_runtime_tree_index(None)}
+    return {
+        "client": _build_runtime_tree_index(repo_root / "cliente"),
+        "server": _build_runtime_tree_index(repo_root / "Servidor"),
+    }
+
+
+def _runtime_recovery_evidence(
+    path: str,
+    runtime_trees: dict[str, Any] | None,
+    *,
+    alternate_paths: Iterable[str] = (),
+) -> dict[str, str]:
+    normalized = _runtime_norm(path)
+    probes = [normalized] + [_runtime_norm(item) for item in alternate_paths if _runtime_norm(item)]
+    probes = list(dict.fromkeys(item for item in probes if item))
+    bases = list(dict.fromkeys(_basename(item) for item in probes if _basename(item)))
+    base = bases[0] if bases else ""
+    out = {
+        "runtime_client_exact_present": "False",
+        "runtime_server_exact_present": "False",
+        "runtime_client_exact_path": "",
+        "runtime_server_exact_path": "",
+        "runtime_client_basename_candidate_count": "0",
+        "runtime_client_basename_candidates": "",
+        "runtime_server_basename_candidate_count": "0",
+        "runtime_server_basename_candidates": "",
+        "runtime_audio_server_mirror_present": "False",
+        "runtime_audio_server_mirror_path": "",
+        "runtime_physical_class": "NO_RUNTIME_TREE_EVIDENCE",
+        "runtime_recovery_requirement": "REVIEW_WITH_RUNTIME_TREE",
+    }
+    if not runtime_trees:
+        return out
+    client = runtime_trees.get("client") or {}
+    server = runtime_trees.get("server") or {}
+    client_by_path = client.get("by_path") or {}
+    server_by_path = server.get("by_path") or {}
+    client_by_base = client.get("by_basename") or {}
+    server_by_base = server.get("by_basename") or {}
+    client_exact = next((client_by_path[item] for item in probes if item in client_by_path), "")
+    server_exact = next((server_by_path[item] for item in probes if item in server_by_path), "")
+    client_candidates = sorted({candidate for item in bases for candidate in client_by_base.get(item, [])}, key=str.casefold)
+    server_candidates = sorted({candidate for item in bases for candidate in server_by_base.get(item, [])}, key=str.casefold)
+    out.update({
+        "runtime_client_exact_present": str(bool(client_exact)),
+        "runtime_server_exact_present": str(bool(server_exact)),
+        "runtime_client_exact_path": str(client_exact),
+        "runtime_server_exact_path": str(server_exact),
+        "runtime_client_basename_candidate_count": str(len(client_candidates)),
+        "runtime_client_basename_candidates": ";".join(client_candidates[:32]),
+        "runtime_server_basename_candidate_count": str(len(server_candidates)),
+        "runtime_server_basename_candidates": ";".join(server_candidates[:32]),
+    })
+
+    # Client audio literals historically use wav/... while the server mirror uses
+    # Assets/Audio/.... This is a strong recovery hint, but never an automatic
+    # equivalence because the target client still needs a deliberate deploy/copy.
+    audio_server_key = ""
+    if normalized.startswith("wav/"):
+        audio_server_key = "assets/audio/" + normalized[len("wav/"):]
+    if audio_server_key:
+        audio_server_path = server_by_path.get(audio_server_key, "")
+        out["runtime_audio_server_mirror_present"] = str(bool(audio_server_path))
+        out["runtime_audio_server_mirror_path"] = str(audio_server_path)
+    else:
+        audio_server_path = ""
+
+    if client_exact:
+        out["runtime_physical_class"] = "CLIENT_EXACT_PRESENT_BASELINE_STALE"
+        out["runtime_recovery_requirement"] = "REFRESH_BASELINE_PHYSICAL_STATE"
+    elif audio_server_path:
+        out["runtime_physical_class"] = "SERVER_AUDIO_MIRROR_RECOVERY_CANDIDATE"
+        out["runtime_recovery_requirement"] = "COPY_OR_MAP_SERVER_AUDIO_TO_CLIENT_AND_VALIDATE"
+    elif server_exact:
+        out["runtime_physical_class"] = "SERVER_EXACT_PATH_RECOVERY_CANDIDATE"
+        out["runtime_recovery_requirement"] = "RECOVER_SERVER_EXACT_PATH_TO_CLIENT_AND_VALIDATE"
+    elif len(client_candidates) == 1:
+        out["runtime_physical_class"] = "CLIENT_UNIQUE_BASENAME_RELOCATION_CANDIDATE"
+        out["runtime_recovery_requirement"] = "REVIEW_CLIENT_RELOCATION_OR_ALIAS_AND_VALIDATE"
+    elif len(server_candidates) == 1:
+        out["runtime_physical_class"] = "SERVER_UNIQUE_BASENAME_RECOVERY_CANDIDATE"
+        out["runtime_recovery_requirement"] = "RECOVER_FROM_SERVER_CANDIDATE_AND_VALIDATE"
+    elif len(client_candidates) > 1 or len(server_candidates) > 1:
+        out["runtime_physical_class"] = "AMBIGUOUS_BASENAME_RECOVERY_CANDIDATES"
+        out["runtime_recovery_requirement"] = "REVIEW_MULTIPLE_PHYSICAL_CANDIDATES"
+    else:
+        out["runtime_physical_class"] = "PHYSICAL_ASSET_UNRESOLVED"
+        out["runtime_recovery_requirement"] = "RECOVER_OR_DOCUMENT_LEGACY_REFERENCE"
+    return out
+
 def _ifdef_guard_table(lines: list[str]) -> list[list[str]]:
     """Return active positive #ifdef/defined guards for every source line in O(n)."""
     stack: list[str | None] = []
@@ -569,6 +695,7 @@ def refine_migration_rows(
     model_config_index: dict[str, dict[str, Any]] | None = None,
     text_pack_contract: dict[str, Any] | None = None,
     text_pack_deployment: dict[str, Any] | None = None,
+    runtime_trees: dict[str, Any] | None = None,
 ) -> list[dict[str, str]]:
     owner_index = canonical_owner_index or {}
     text_runtime_index = canonical_text_runtime_index or {}
@@ -752,6 +879,11 @@ def refine_migration_rows(
             "canonical_source_pack_alias_present": str(bool(pack_records)),
             "canonical_source_pack_payload_match": str(source_pack_payload_match),
             "canonical_runtime_pack_deployed": str(runtime_deployed),
+            **_runtime_recovery_evidence(
+                runtime_path or path,
+                runtime_trees,
+                alternate_paths=([str(model.get("legacy_cache") or "")] if model else []),
+            ),
             "model_config_owner": str(model.get("owner_file") or "") if model else "",
             "model_config_source_status": str(model.get("source_status") or "") if model else "",
             "model_config_legacy_cache": str(model.get("legacy_cache") or "") if model else "",
@@ -870,6 +1002,7 @@ def audit_summit_asset_refinement(
     model_configs = build_model_config_index(canonical)
     pack_contract = detect_text_pack_contract(source)
     pack_deployment = detect_text_pack_deployment(source, canonical)
+    runtime_trees = detect_runtime_asset_trees(source)
     refined_migration = refine_migration_rows(
         migration,
         source_root=source,
@@ -878,6 +1011,7 @@ def audit_summit_asset_refinement(
         model_config_index=model_configs,
         text_pack_contract=pack_contract,
         text_pack_deployment=pack_deployment,
+        runtime_trees=runtime_trees,
     )
     refined_ui = refine_ui_rows(ui, source_root=source)
 
@@ -890,6 +1024,9 @@ def audit_summit_asset_refinement(
         "explicit_path_candidate_count", "explicit_path_candidates", "semantic_review_class", "actionable_primary_evidence",
         "canonical_owner_count", "canonical_owner_files", "canonical_text_runtime_owner_count",
         "canonical_text_payload_valid", "canonical_text_runtime_owners", "canonical_runtime_class", "release_requirement", "canonical_source_pack_alias_present", "canonical_source_pack_payload_match", "canonical_runtime_pack_deployed",
+        "runtime_client_exact_present", "runtime_server_exact_present", "runtime_client_exact_path", "runtime_server_exact_path",
+        "runtime_client_basename_candidate_count", "runtime_client_basename_candidates", "runtime_server_basename_candidate_count", "runtime_server_basename_candidates",
+        "runtime_audio_server_mirror_present", "runtime_audio_server_mirror_path", "runtime_physical_class", "runtime_recovery_requirement",
         "model_config_owner", "model_config_source_status", "model_config_legacy_cache",
     ]
     ui_fields = list(ui[0].keys()) if ui else []
@@ -932,10 +1069,24 @@ def audit_summit_asset_refinement(
     model_unresolved = [row for row in canonical_missing if row.get("canonical_runtime_class") == "MODEL_CONFIG_SOURCE_UNRESOLVED"]
     model_server_cache = [row for row in canonical_missing if row.get("canonical_runtime_class") == "MODEL_CONFIG_SERVER_CACHE_RECOVERY_CANDIDATE"]
     physical_unresolved = [row for row in canonical_missing if row.get("canonical_runtime_class") not in sres_classes]
+    physical_recovery_classes = {
+        "CLIENT_EXACT_PRESENT_BASELINE_STALE",
+        "SERVER_AUDIO_MIRROR_RECOVERY_CANDIDATE",
+        "CLIENT_UNIQUE_BASENAME_RELOCATION_CANDIDATE",
+        "SERVER_UNIQUE_BASENAME_RECOVERY_CANDIDATE",
+        "SERVER_EXACT_PATH_RECOVERY_CANDIDATE",
+        "AMBIGUOUS_BASENAME_RECOVERY_CANDIDATES",
+    }
+    source_physical_recovery = [row for row in unresolved_p0_source_missing if row.get("runtime_physical_class") in physical_recovery_classes]
+    source_physical_no_candidate = [row for row in unresolved_p0_source_missing if row.get("runtime_physical_class") == "PHYSICAL_ASSET_UNRESOLVED"]
+    canonical_physical_recovery = [row for row in physical_unresolved if row.get("runtime_physical_class") in physical_recovery_classes]
 
     _write_tsv(output / "p0_source_missing_unresolved.tsv", unresolved_p0_source_missing, migration_fields)
     _write_tsv(output / "p0_source_missing_nonblocking_evidence.tsv", p0_source_nonblocking_evidence, migration_fields)
     _write_tsv(output / "canonical_physical_missing.tsv", physical_unresolved, canonical_fields)
+    _write_tsv(output / "p0_source_physical_recovery_candidates.tsv", source_physical_recovery, migration_fields)
+    _write_tsv(output / "p0_source_physical_no_candidate.tsv", source_physical_no_candidate, migration_fields)
+    _write_tsv(output / "canonical_physical_recovery_candidates.tsv", canonical_physical_recovery, canonical_fields)
     _write_tsv(output / "canonical_sres_pack_review.tsv", pack_backed, canonical_fields)
     _write_tsv(output / "ui_review_primary.tsv", primary_ui, ui_fields)
 
@@ -991,6 +1142,11 @@ def audit_summit_asset_refinement(
             "canonical_missing_model_config_unresolved": len(model_unresolved),
             "canonical_missing_model_config_server_cache_recovery": len(model_server_cache),
             "canonical_missing_physical_unresolved_after_pack_contract": len(physical_unresolved),
+            "runtime_client_tree_files_indexed": int((runtime_trees.get("client") or {}).get("file_count") or 0),
+            "runtime_server_tree_files_indexed": int((runtime_trees.get("server") or {}).get("file_count") or 0),
+            "p0_source_physical_recovery_candidate_rows": len(source_physical_recovery),
+            "p0_source_physical_no_candidate_rows": len(source_physical_no_candidate),
+            "canonical_physical_recovery_candidate_rows": len(canonical_physical_recovery),
         },
         "actionable_views": {
             "migration_primary_rows_after_oracle_and_mirror_suppression": len(primary_migration),
@@ -1006,6 +1162,9 @@ def audit_summit_asset_refinement(
             "canonical_pack_backed_paths_runtime_deployment_verified": _count(
                 pack_backed, "canonical_runtime_class", "SRES_PACK_DEPLOYED_VERIFIED"
             ),
+            "P0_SOURCE_ONLY_MISSING_physical_recovery_candidate_unique_paths": len({row.get("normalized_client_path", "") for row in source_physical_recovery}),
+            "P0_SOURCE_ONLY_MISSING_physical_no_candidate_unique_paths": len({row.get("normalized_client_path", "") for row in source_physical_no_candidate}),
+            "canonical_physical_recovery_candidate_unique_paths": len({row.get("normalized_client_path", "") for row in canonical_physical_recovery}),
         },
         "text_resource_pack_contract": pack_contract,
         "text_resource_pack_deployment": {
@@ -1013,6 +1172,10 @@ def audit_summit_asset_refinement(
             for role, info in pack_deployment.items()
             if isinstance(info, dict)
         } | {"all_runtime_deployments_match_source": bool(pack_deployment.get("all_runtime_deployments_match_source"))},
+        "runtime_asset_tree_scan": {
+            role: {"root": info.get("root", ""), "present": bool(info.get("present")), "file_count": int(info.get("file_count") or 0)}
+            for role, info in runtime_trees.items()
+        },
         "policy": {
             "raw_rows_preserved": True,
             "deletion_authorized": False,
@@ -1023,13 +1186,17 @@ def audit_summit_asset_refinement(
             "loader_aliases_require_physical_resolution_before_release_clearance": True,
             "oracle_duplicates_are_suppressed_only_when_exact_non_oracle_evidence_exists": True,
             "mirror_duplicates_are_suppressed_only_for_exact_client_server_evidence_pairs": True,
+            "runtime_basename_matches_are_recovery_candidates_not_automatic_resolution": True,
         },
         "outputs": {
             "migration_queue_refined": str(output / "migration_queue_refined.tsv"),
             "ui_text_candidates_refined": str(output / "ui_text_candidates_refined.tsv"),
             "canonical_missing_review": str(output / "canonical_missing_review.tsv"),
             "canonical_physical_missing": str(output / "canonical_physical_missing.tsv"),
+            "canonical_physical_recovery_candidates": str(output / "canonical_physical_recovery_candidates.tsv"),
             "p0_source_missing_unresolved": str(output / "p0_source_missing_unresolved.tsv"),
+            "p0_source_physical_recovery_candidates": str(output / "p0_source_physical_recovery_candidates.tsv"),
+            "p0_source_physical_no_candidate": str(output / "p0_source_physical_no_candidate.tsv"),
             "p0_source_missing_nonblocking_evidence": str(output / "p0_source_missing_nonblocking_evidence.tsv"),
             "canonical_sres_pack_review": str(output / "canonical_sres_pack_review.tsv"),
             "ui_review_primary": str(output / "ui_review_primary.tsv"),
