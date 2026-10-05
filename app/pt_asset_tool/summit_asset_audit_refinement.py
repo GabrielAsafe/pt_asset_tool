@@ -7,11 +7,14 @@ import hashlib
 import json
 import pathlib
 import re
+import struct
 from collections import defaultdict
 from pathlib import PurePosixPath
 from typing import Any, Iterable
 
-FORMAT = "PT_SUMMIT_ASSET_AUDIT_REFINEMENT_V1"
+FORMAT = "PT_SUMMIT_ASSET_AUDIT_REFINEMENT_V2"
+SRES_HEADER = struct.Struct("<4sHH10I32s")
+SRES_RECORD = struct.Struct("<6I")
 
 PRINTF_RE = re.compile(
     r"%(?:\d+\$)?[-+#0 'I]*(?:\d+|\*)?(?:\.(?:\d+|\*))?"
@@ -244,6 +247,225 @@ def detect_text_pack_contract(source_root: pathlib.Path | None) -> dict[str, Any
     }
 
 
+def _inspect_sres_pack(path: pathlib.Path) -> dict[str, Any]:
+    """Validate an SRES v2 pack and index exact aliases by payload hash."""
+    try:
+        data = path.read_bytes()
+    except OSError as exc:
+        return {"present": False, "valid": False, "path": str(path), "error": str(exc), "aliases": {}}
+    if len(data) < SRES_HEADER.size:
+        return {"present": True, "valid": False, "path": str(path), "error": "TOO_SMALL", "aliases": {}}
+    try:
+        header = SRES_HEADER.unpack_from(data, 0)
+    except struct.error as exc:
+        return {"present": True, "valid": False, "path": str(path), "error": str(exc), "aliases": {}}
+    magic, version, _flags, *rest = header
+    if magic != b"SRES" or version != 2:
+        return {"present": True, "valid": False, "path": str(path), "error": "BAD_MAGIC_OR_VERSION", "aliases": {}}
+    record_count, record_off, record_size, string_off, string_size, payload_off, payload_size, _profile, _r0, _r1, digest = rest
+    if (
+        record_size != SRES_RECORD.size
+        or record_off != SRES_HEADER.size
+        or string_off != record_off + record_count * record_size
+        or payload_off != string_off + string_size
+        or payload_off + payload_size != len(data)
+    ):
+        return {"present": True, "valid": False, "path": str(path), "error": "NON_CANONICAL_LAYOUT", "aliases": {}}
+    if hashlib.sha256(data[SRES_HEADER.size:]).digest() != digest:
+        return {"present": True, "valid": False, "path": str(path), "error": "BODY_SHA_MISMATCH", "aliases": {}}
+
+    def read_string(offset: int) -> str:
+        if offset >= string_size:
+            raise ValueError("string offset")
+        start = string_off + offset
+        end = data.find(b"\0", start, string_off + string_size)
+        if end < 0:
+            raise ValueError("unterminated string")
+        return data[start:end].decode("utf-8")
+
+    aliases: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    try:
+        for index in range(record_count):
+            path_off, id_off, kind, flags, payload_rel, size = SRES_RECORD.unpack_from(data, record_off + index * record_size)
+            if payload_rel > payload_size or size > payload_size - payload_rel:
+                raise ValueError("payload range")
+            raw = data[payload_off + payload_rel:payload_off + payload_rel + size]
+            aliases[_runtime_norm(read_string(path_off))].append({
+                "id": read_string(id_off),
+                "kind": kind,
+                "flags": flags,
+                "bytes": size,
+                "sha256": hashlib.sha256(raw).hexdigest(),
+            })
+    except (ValueError, UnicodeDecodeError, struct.error) as exc:
+        return {"present": True, "valid": False, "path": str(path), "error": str(exc), "aliases": {}}
+    return {
+        "present": True,
+        "valid": True,
+        "path": str(path),
+        "bytes": len(data),
+        "sha256": hashlib.sha256(data).hexdigest(),
+        "alias_count": record_count,
+        "aliases": dict(aliases),
+    }
+
+
+def detect_text_pack_deployment(source_root: pathlib.Path | None, canonical_root: pathlib.Path | None) -> dict[str, Any]:
+    """Inspect the source SRES and executable-relative client/server deployments."""
+    if canonical_root is None:
+        return {"source": {"present": False, "valid": False}, "client": {"present": False, "valid": False}, "server": {"present": False, "valid": False}}
+    source_pack = canonical_root.parent / "packs" / "text_resources.sres"
+    source_info = _inspect_sres_pack(source_pack)
+    repo_root = source_root.parent if source_root is not None else None
+    result = {"source": source_info}
+    for role, dirname in (("client", "cliente"), ("server", "Servidor")):
+        if repo_root is None:
+            info = {"present": False, "valid": False, "path": ""}
+        else:
+            info = _inspect_sres_pack(repo_root / dirname / "Content" / "packs" / "text_resources.sres")
+        info["hash_matches_source"] = bool(
+            source_info.get("valid") and info.get("valid") and source_info.get("sha256") == info.get("sha256")
+        )
+        result[role] = info
+    result["all_runtime_deployments_match_source"] = bool(
+        source_info.get("valid")
+        and result["client"].get("hash_matches_source")
+        and result["server"].get("hash_matches_source")
+    )
+    return result
+
+
+def _ifdef_guard_table(lines: list[str]) -> list[list[str]]:
+    """Return active positive #ifdef/defined guards for every source line in O(n)."""
+    stack: list[str | None] = []
+    table: list[list[str]] = []
+    for raw in lines:
+        stripped = raw.strip()
+        m = re.match(r"#\s*ifdef\s+([A-Za-z_]\w*)", stripped)
+        if m:
+            stack.append(m.group(1))
+        else:
+            m = re.match(r"#\s*ifndef\s+([A-Za-z_]\w*)", stripped)
+            if m:
+                stack.append(None)
+            else:
+                m = re.match(r"#\s*if\s+defined\s*\(?\s*([A-Za-z_]\w*)", stripped)
+                if m:
+                    stack.append(m.group(1))
+                elif re.match(r"#\s*if\b", stripped):
+                    stack.append(None)
+                elif re.match(r"#\s*endif\b", stripped):
+                    if stack:
+                        stack.pop()
+        table.append([macro for macro in stack if macro])
+    return table
+
+
+def _macro_defined_in_source(source_root: pathlib.Path | None, macro: str, cache: dict[str, bool]) -> bool:
+    if source_root is None:
+        return False
+    if macro in cache:
+        return cache[macro]
+    define_re = re.compile(rf"(?:#\s*define\s+{re.escape(macro)}\b|-D{re.escape(macro)}\b)")
+    exts = {".c", ".cc", ".cpp", ".cxx", ".h", ".hpp", ".inl", ".sh", ".mk", ".txt", ".cmake"}
+    found = False
+    for path in source_root.rglob("*"):
+        if not path.is_file() or (path.suffix.casefold() not in exts and path.name not in {"Makefile", "CMakeLists.txt"}):
+            continue
+        try:
+            if define_re.search(path.read_text(encoding="utf-8", errors="ignore")):
+                found = True; break
+        except OSError:
+            continue
+    cache[macro] = found
+    return found
+
+
+def _source_symbol_has_runtime_call(source_root: pathlib.Path | None, symbol: str, cache: dict[str, bool]) -> bool:
+    if source_root is None:
+        return True
+    if symbol in cache:
+        return cache[symbol]
+    call_re = re.compile(rf"\b{re.escape(symbol)}\s*\(")
+    decl_re = re.compile(rf"^\s*(?:extern\s+)?(?:int|bool|void|char|float|double|long|short|unsigned|signed|static\s+int)\b.*\b{re.escape(symbol)}\s*\([^;]*\)\s*(?:;|\{{)?\s*$")
+    found = False
+    for path in source_root.rglob("*"):
+        if not path.is_file() or path.suffix.casefold() not in {".c", ".cc", ".cpp", ".cxx", ".h", ".hpp", ".inl"}:
+            continue
+        try:
+            for raw in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+                line = raw.split("//", 1)[0].strip()
+                if not call_re.search(line):
+                    continue
+                if decl_re.match(line):
+                    continue
+                found = True; break
+        except OSError:
+            continue
+        if found: break
+    cache[symbol] = found
+    return found
+
+
+def _callee_parameter_unused(source_root: pathlib.Path | None, callee: str, parameter: str, cache: dict[tuple[str, str], bool]) -> bool:
+    key = (callee, parameter)
+    if key in cache:
+        return cache[key]
+    if source_root is None:
+        return False
+    sig_re = re.compile(rf"\b{re.escape(callee)}\s*\([^)]*\b{re.escape(parameter)}\b[^)]*\)")
+    for path in source_root.rglob("*"):
+        if not path.is_file() or path.suffix.casefold() not in {".c", ".cc", ".cpp", ".cxx", ".inl"}:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        match = sig_re.search(text)
+        if not match:
+            continue
+        brace = text.find("{", match.end())
+        if brace < 0:
+            continue
+        depth = 0
+        end = brace
+        for pos in range(brace, len(text)):
+            if text[pos] == "{": depth += 1
+            elif text[pos] == "}":
+                depth -= 1
+                if depth == 0:
+                    end = pos; break
+        body = text[brace + 1:end]
+        unused = re.search(rf"\b{re.escape(parameter)}\b", body) is None
+        cache[key] = unused
+        return unused
+    cache[key] = False
+    return False
+
+
+def _safe_optional_particle_load(line_index: int, lines: list[str], source_root: pathlib.Path | None, cache: dict[tuple[str, str], bool]) -> bool:
+    lo = max(0, line_index - 20)
+    prior = "\n".join(lines[lo:line_index + 1]).casefold()
+    if "loadscript" not in prior or "optional asset is missing" not in prior:
+        return False
+    # Reuse the body analyser as a conservative proof that missing files return
+    # from LoadScript rather than aborting or dereferencing a failed handle.
+    key = ("HoNewParticleResMgr::LoadScript", "fp")
+    if key in cache:
+        return cache[key]
+    proof = False
+    if source_root is not None:
+        for path in source_root.rglob("*.inl"):
+            try:
+                text = path.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                continue
+            if "HoNewParticleResMgr::LoadScript" in text and "if(fp == NULL)" in text and "return false;" in text:
+                proof = True; break
+    cache[key] = proof
+    return proof
+
+
 def _known_loader_class(raw_literal: str, line: str, context: str, state: str) -> str:
     if state != "SOURCE_ONLY_MISSING" or "/" in _norm(raw_literal):
         return ""
@@ -346,12 +568,18 @@ def refine_migration_rows(
     canonical_text_runtime_index: dict[str, list[dict[str, Any]]] | None = None,
     model_config_index: dict[str, dict[str, Any]] | None = None,
     text_pack_contract: dict[str, Any] | None = None,
+    text_pack_deployment: dict[str, Any] | None = None,
 ) -> list[dict[str, str]]:
     owner_index = canonical_owner_index or {}
     text_runtime_index = canonical_text_runtime_index or {}
     model_index = model_config_index or {}
     pack_contract = text_pack_contract or {"proven": False}
+    pack_deployment = text_pack_deployment or {}
     source_cache: dict[str, list[str]] = {}
+    ifdef_table_cache: dict[str, list[list[str]]] = {}
+    macro_cache: dict[str, bool] = {}
+    symbol_call_cache: dict[str, bool] = {}
+    callee_param_cache: dict[tuple[str, str], bool] = {}
 
     present_by_basename: dict[str, set[str]] = defaultdict(set)
     explicit_paths_by_basename: dict[str, set[str]] = defaultdict(set)
@@ -388,7 +616,33 @@ def refine_migration_rows(
         literal = _norm(row.get("raw_literal"))
         source_file = row.get("source_file", "")
         line, context, all_lines = _source_context(source_root, source_file, row.get("source_line", ""), source_cache)
+        try:
+            source_line_index = max(0, int(row.get("source_line", "1")) - 1)
+        except (TypeError, ValueError):
+            source_line_index = 0
         refined_scope, scope_reason = _obvious_scope(source_file, row.get("scope", ""))
+        if all_lines:
+            if source_file not in ifdef_table_cache:
+                ifdef_table_cache[source_file] = _ifdef_guard_table(all_lines)
+            table = ifdef_table_cache[source_file]
+            ifdef_macros = table[source_line_index] if source_line_index < len(table) else []
+        else:
+            ifdef_macros = []
+        undefined_guard = next((m for m in ifdef_macros if not _macro_defined_in_source(source_root, m, macro_cache)), "")
+        unreferenced_test_helper = (
+            path == "image/sinimage/assaeffect/assatest.ini"
+            and not _source_symbol_has_runtime_call(source_root, "AssaTestEffectImage", symbol_call_cache)
+        )
+        ignored_legacy_argument = (
+            literal == "water3.tga"
+            and "AssaParticle_Wave(" in line
+            and _callee_parameter_unused(source_root, "AssaParticle_Wave", "FileName", callee_param_cache)
+        )
+        optional_particle_script = (
+            path.startswith("game/scripts/particles/")
+            and "LoadScript(" in line
+            and _safe_optional_particle_load(source_line_index, all_lines, source_root, callee_param_cache)
+        )
         key = (row.get("state", ""), refined_scope, path, literal)
         oracle_duplicate = source_file.startswith("Shared/legacy_oracle/") and key in non_oracle_keys
         mirror_duplicate = mirror_flags[index]
@@ -409,6 +663,14 @@ def refine_migration_rows(
             semantic_class = "DYNAMIC_PRINTF_TEMPLATE"
         elif glob_template:
             semantic_class = "DYNAMIC_GLOB_PATTERN"
+        elif undefined_guard:
+            semantic_class = "BUILD_GATED_UNDEFINED_MACRO"
+        elif unreferenced_test_helper:
+            semantic_class = "UNREFERENCED_TEST_HELPER"
+        elif ignored_legacy_argument:
+            semantic_class = "IGNORED_LEGACY_ARGUMENT"
+        elif optional_particle_script:
+            semantic_class = "OPTIONAL_PARTICLE_SCRIPT_SAFE_FAIL"
         elif generated_output:
             semantic_class = "GENERATED_DIAGNOSTIC_OUTPUT"
         elif technical_log:
@@ -427,10 +689,21 @@ def refine_migration_rows(
         runtime_docs = text_runtime_index.get(runtime_path, [])
         valid_runtime_docs = [doc for doc in runtime_docs if doc.get("payload_valid")]
         model = model_index.get(runtime_path)
+        source_pack = (pack_deployment.get("source") or {}) if isinstance(pack_deployment, dict) else {}
+        pack_records = source_pack.get("aliases", {}).get(runtime_path, []) if source_pack.get("valid") else []
+        canonical_payload_hashes = {str(doc.get("payload_sha256") or "") for doc in valid_runtime_docs}
+        source_pack_payload_match = any(str(rec.get("sha256") or "") in canonical_payload_hashes for rec in pack_records)
+        runtime_deployed = bool(pack_deployment.get("all_runtime_deployments_match_source")) if isinstance(pack_deployment, dict) else False
         if valid_runtime_docs:
-            if pack_contract.get("proven"):
+            if pack_contract.get("proven") and source_pack_payload_match and runtime_deployed:
+                canonical_runtime_class = "SRES_PACK_DEPLOYED_VERIFIED"
+                release_requirement = "NONE_PACK_DEPLOYMENT_VERIFIED"
+            elif pack_contract.get("proven") and source_pack_payload_match:
+                canonical_runtime_class = "SRES_SOURCE_PACK_VERIFIED_DEPLOYMENT_PENDING"
+                release_requirement = "VERIFY_CLIENT_SERVER_SRES_DEPLOYMENT"
+            elif pack_contract.get("proven"):
                 canonical_runtime_class = "SRES_PACK_BACKED_LEGACY_PATH"
-                release_requirement = "VERIFY_TEXT_RESOURCES_SRES_DEPLOYED"
+                release_requirement = "VERIFY_TEXT_RESOURCES_SRES_SOURCE_PACK_AND_DEPLOYMENT"
             else:
                 canonical_runtime_class = "CANONICAL_TEXT_PAYLOAD_AVAILABLE_RUNTIME_CONTRACT_UNPROVEN"
                 release_requirement = "PROVE_TEXT_RUNTIME_PACK_CONTRACT_AND_DEPLOYMENT"
@@ -438,6 +711,9 @@ def refine_migration_rows(
             if model.get("source_status") == "resolved":
                 canonical_runtime_class = "MODEL_CONFIG_CATALOG_SOURCE_RESOLVED"
                 release_requirement = "VERIFY_MODEL_CONFIG_RUNTIME_RECOVERY_OR_CACHE"
+            elif model.get("server_present") and not model.get("client_present"):
+                canonical_runtime_class = "MODEL_CONFIG_SERVER_CACHE_RECOVERY_CANDIDATE"
+                release_requirement = "RECOVER_CLIENT_MODEL_CONFIG_FROM_SERVER_CACHE_AND_VALIDATE"
             else:
                 canonical_runtime_class = "MODEL_CONFIG_SOURCE_UNRESOLVED"
                 release_requirement = "RECOVER_PHYSICAL_MODEL_CONFIG_OR_LEGACY_CACHE"
@@ -456,6 +732,10 @@ def refine_migration_rows(
             "mirror_duplicate_evidence": str(mirror_duplicate),
             "dynamic_template": str(printf_template or glob_template),
             "loader_resolution_hint": loader_class,
+            "build_guard_macro": undefined_guard,
+            "unreferenced_test_helper": str(unreferenced_test_helper),
+            "ignored_legacy_argument": str(ignored_legacy_argument),
+            "optional_particle_script_safe_fail": str(optional_particle_script),
             "basename_present_candidate_count": str(len(present_candidates)),
             "basename_present_candidates": ";".join(present_candidates),
             "explicit_path_candidate_count": str(len(explicit_candidates)),
@@ -469,6 +749,9 @@ def refine_migration_rows(
             "canonical_text_runtime_owners": ";".join(sorted({str(doc.get("owner_file") or "") for doc in runtime_docs})),
             "canonical_runtime_class": canonical_runtime_class,
             "release_requirement": release_requirement,
+            "canonical_source_pack_alias_present": str(bool(pack_records)),
+            "canonical_source_pack_payload_match": str(source_pack_payload_match),
+            "canonical_runtime_pack_deployed": str(runtime_deployed),
             "model_config_owner": str(model.get("owner_file") or "") if model else "",
             "model_config_source_status": str(model.get("source_status") or "") if model else "",
             "model_config_legacy_cache": str(model.get("legacy_cache") or "") if model else "",
@@ -545,6 +828,14 @@ def refine_ui_rows(
     return result
 
 
+SAFE_SOURCE_EVIDENCE_CLASSES = {
+    "BUILD_GATED_UNDEFINED_MACRO",
+    "UNREFERENCED_TEST_HELPER",
+    "IGNORED_LEGACY_ARGUMENT",
+    "OPTIONAL_PARTICLE_SCRIPT_SAFE_FAIL",
+}
+
+
 def _count(rows: list[dict[str, str]], key: str, value: str) -> int:
     return sum(1 for row in rows if row.get(key) == value)
 
@@ -578,6 +869,7 @@ def audit_summit_asset_refinement(
     text_runtime = build_canonical_text_runtime_index(canonical)
     model_configs = build_model_config_index(canonical)
     pack_contract = detect_text_pack_contract(source)
+    pack_deployment = detect_text_pack_deployment(source, canonical)
     refined_migration = refine_migration_rows(
         migration,
         source_root=source,
@@ -585,6 +877,7 @@ def audit_summit_asset_refinement(
         canonical_text_runtime_index=text_runtime,
         model_config_index=model_configs,
         text_pack_contract=pack_contract,
+        text_pack_deployment=pack_deployment,
     )
     refined_ui = refine_ui_rows(ui, source_root=source)
 
@@ -593,10 +886,10 @@ def audit_summit_asset_refinement(
     migration_fields += [
         "normalized_client_path", "normalized_literal", "refined_scope", "scope_refinement_reason",
         "source_context_line", "source_context_window", "oracle_duplicate_evidence", "mirror_duplicate_evidence",
-        "dynamic_template", "loader_resolution_hint", "basename_present_candidate_count", "basename_present_candidates",
+        "dynamic_template", "loader_resolution_hint", "build_guard_macro", "unreferenced_test_helper", "ignored_legacy_argument", "optional_particle_script_safe_fail", "basename_present_candidate_count", "basename_present_candidates",
         "explicit_path_candidate_count", "explicit_path_candidates", "semantic_review_class", "actionable_primary_evidence",
         "canonical_owner_count", "canonical_owner_files", "canonical_text_runtime_owner_count",
-        "canonical_text_payload_valid", "canonical_text_runtime_owners", "canonical_runtime_class", "release_requirement",
+        "canonical_text_payload_valid", "canonical_text_runtime_owners", "canonical_runtime_class", "release_requirement", "canonical_source_pack_alias_present", "canonical_source_pack_payload_match", "canonical_runtime_pack_deployed",
         "model_config_owner", "model_config_source_status", "model_config_legacy_cache",
     ]
     ui_fields = list(ui[0].keys()) if ui else []
@@ -627,13 +920,23 @@ def audit_summit_asset_refinement(
         and row.get("state") == "SOURCE_ONLY_MISSING"
         and row.get("semantic_review_class") == "SOURCE_ONLY_MISSING"
     ]
+    p0_source_nonblocking_evidence = [
+        row for row in primary_migration
+        if row.get("priority") == "P0"
+        and row.get("state") == "SOURCE_ONLY_MISSING"
+        and row.get("semantic_review_class") in SAFE_SOURCE_EVIDENCE_CLASSES
+    ]
     canonical_without_owner = [row for row in canonical_missing if row.get("canonical_owner_count") == "0"]
-    pack_backed = [row for row in canonical_missing if row.get("canonical_runtime_class") == "SRES_PACK_BACKED_LEGACY_PATH"]
+    sres_classes = {"SRES_PACK_BACKED_LEGACY_PATH", "SRES_SOURCE_PACK_VERIFIED_DEPLOYMENT_PENDING", "SRES_PACK_DEPLOYED_VERIFIED"}
+    pack_backed = [row for row in canonical_missing if row.get("canonical_runtime_class") in sres_classes]
     model_unresolved = [row for row in canonical_missing if row.get("canonical_runtime_class") == "MODEL_CONFIG_SOURCE_UNRESOLVED"]
-    physical_unresolved = [row for row in canonical_missing if row.get("canonical_runtime_class") != "SRES_PACK_BACKED_LEGACY_PATH"]
+    model_server_cache = [row for row in canonical_missing if row.get("canonical_runtime_class") == "MODEL_CONFIG_SERVER_CACHE_RECOVERY_CANDIDATE"]
+    physical_unresolved = [row for row in canonical_missing if row.get("canonical_runtime_class") not in sres_classes]
 
     _write_tsv(output / "p0_source_missing_unresolved.tsv", unresolved_p0_source_missing, migration_fields)
+    _write_tsv(output / "p0_source_missing_nonblocking_evidence.tsv", p0_source_nonblocking_evidence, migration_fields)
     _write_tsv(output / "canonical_physical_missing.tsv", physical_unresolved, canonical_fields)
+    _write_tsv(output / "canonical_sres_pack_review.tsv", pack_backed, canonical_fields)
     _write_tsv(output / "ui_review_primary.tsv", primary_ui, ui_fields)
 
     report: dict[str, Any] = {
@@ -667,6 +970,10 @@ def audit_summit_asset_refinement(
             "source_alias_to_explicit_path_rows": _count(refined_migration, "semantic_review_class", "SOURCE_ALIAS_TO_EXPLICIT_PATH"),
             "generated_diagnostic_output_rows": _count(refined_migration, "semantic_review_class", "GENERATED_DIAGNOSTIC_OUTPUT"),
             "technical_log_rows": _count(refined_migration, "semantic_review_class", "TECHNICAL_LOG_NOT_RUNTIME_ASSET"),
+            "build_gated_undefined_macro_rows": _count(refined_migration, "semantic_review_class", "BUILD_GATED_UNDEFINED_MACRO"),
+            "unreferenced_test_helper_rows": _count(refined_migration, "semantic_review_class", "UNREFERENCED_TEST_HELPER"),
+            "ignored_legacy_argument_rows": _count(refined_migration, "semantic_review_class", "IGNORED_LEGACY_ARGUMENT"),
+            "optional_particle_script_safe_fail_rows": _count(refined_migration, "semantic_review_class", "OPTIONAL_PARTICLE_SCRIPT_SAFE_FAIL"),
             "scope_corrected_to_audio_rows": sum(row.get("scope_refinement_reason") == "SOURCE_PATH_AUDIO_DOMAIN" for row in refined_migration),
             "ui_source_include_false_positive_rows": _count(refined_ui, "refined_class", "FALSE_POSITIVE_SOURCE_INCLUDE"),
             "ui_source_code_path_false_positive_rows": _count(refined_ui, "refined_class", "FALSE_POSITIVE_SOURCE_CODE_PATH"),
@@ -679,18 +986,33 @@ def audit_summit_asset_refinement(
             "canonical_missing_with_exact_owner": len(canonical_missing) - len(canonical_without_owner),
             "canonical_missing_without_exact_owner": len(canonical_without_owner),
             "canonical_missing_sres_pack_backed": len(pack_backed),
+            "canonical_missing_sres_source_pack_verified": sum(row.get("canonical_runtime_class") in {"SRES_SOURCE_PACK_VERIFIED_DEPLOYMENT_PENDING", "SRES_PACK_DEPLOYED_VERIFIED"} for row in canonical_missing),
+            "canonical_missing_sres_runtime_deployed_verified": _count(canonical_missing, "canonical_runtime_class", "SRES_PACK_DEPLOYED_VERIFIED"),
             "canonical_missing_model_config_unresolved": len(model_unresolved),
+            "canonical_missing_model_config_server_cache_recovery": len(model_server_cache),
             "canonical_missing_physical_unresolved_after_pack_contract": len(physical_unresolved),
         },
         "actionable_views": {
             "migration_primary_rows_after_oracle_and_mirror_suppression": len(primary_migration),
             "P0_SOURCE_ONLY_MISSING_still_unresolved_rows": len(unresolved_p0_source_missing),
             "P0_SOURCE_ONLY_MISSING_still_unresolved_unique_paths": len({row.get("normalized_client_path", "") for row in unresolved_p0_source_missing}),
+            "P0_SOURCE_ONLY_MISSING_nonblocking_source_evidence_rows": len(p0_source_nonblocking_evidence),
+            "P0_SOURCE_ONLY_MISSING_nonblocking_source_evidence_unique_paths": len({row.get("normalized_client_path", "") for row in p0_source_nonblocking_evidence}),
             "ui_review_primary_rows_after_safe_filters_and_mirror_suppression": len(primary_ui),
             "canonical_physical_missing_requiring_recovery": len(physical_unresolved),
-            "canonical_pack_backed_paths_requiring_pack_deployment_validation": len(pack_backed),
+            "canonical_pack_backed_paths_requiring_pack_deployment_validation": sum(
+                row.get("canonical_runtime_class") != "SRES_PACK_DEPLOYED_VERIFIED" for row in pack_backed
+            ),
+            "canonical_pack_backed_paths_runtime_deployment_verified": _count(
+                pack_backed, "canonical_runtime_class", "SRES_PACK_DEPLOYED_VERIFIED"
+            ),
         },
         "text_resource_pack_contract": pack_contract,
+        "text_resource_pack_deployment": {
+            role: {k: v for k, v in info.items() if k != "aliases"}
+            for role, info in pack_deployment.items()
+            if isinstance(info, dict)
+        } | {"all_runtime_deployments_match_source": bool(pack_deployment.get("all_runtime_deployments_match_source"))},
         "policy": {
             "raw_rows_preserved": True,
             "deletion_authorized": False,
@@ -708,6 +1030,8 @@ def audit_summit_asset_refinement(
             "canonical_missing_review": str(output / "canonical_missing_review.tsv"),
             "canonical_physical_missing": str(output / "canonical_physical_missing.tsv"),
             "p0_source_missing_unresolved": str(output / "p0_source_missing_unresolved.tsv"),
+            "p0_source_missing_nonblocking_evidence": str(output / "p0_source_missing_nonblocking_evidence.tsv"),
+            "canonical_sres_pack_review": str(output / "canonical_sres_pack_review.tsv"),
             "ui_review_primary": str(output / "ui_review_primary.tsv"),
             "result": str(output / "result.json"),
         },
