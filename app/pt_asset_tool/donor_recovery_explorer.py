@@ -53,6 +53,80 @@ _SERVER_DOMAIN_ALLOWED_EXTENSIONS = {
 }
 
 
+def _field_entity_key_from_name(name: str) -> str:
+    value = pathlib.PurePosixPath(_norm(name)).name
+    low = value.casefold()
+    for suffix in (".spm", ".spp", ".spc"):
+        if low.endswith(suffix):
+            value = value[:-len(suffix)]
+            low = value.casefold()
+            break
+    for suffix in (".ase", ".smd", ".tga", ".bmp", ".dds", ".png", ".jpg", ".jpeg"):
+        if low.endswith(suffix):
+            value = value[:-len(suffix)]
+            break
+    return value.casefold()
+
+
+def _canonical_map_identity_index(source_root: pathlib.Path | None) -> dict[str, dict[str, Any]]:
+    """Index canonical maps by exact stage basename.
+
+    This is an identity/evidence index, not an alias table.  It deliberately
+    refuses fuzzy matching: e.g. lostisland (field 37) and lost_temple (38)
+    must never be treated as donor aliases for lost3 (51) merely because their
+    names are similar.
+    """
+    if source_root is None:
+        return {}
+    path = pathlib.Path(source_root).resolve() / "Content" / "canonical" / "maps" / "server.maps.json"
+    if not path.is_file():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    out: dict[str, dict[str, Any]] = {}
+    for row in payload.get("maps") or []:
+        if not isinstance(row, dict):
+            continue
+        stage = str(row.get("stage") or "").replace("\\", "/")
+        key = _field_entity_key_from_name(stage)
+        if not key:
+            continue
+        identity = {
+            "match_basis": "CANONICAL_STAGE_BASENAME_EXACT",
+            "entity_key": key,
+            "map_id": row.get("id"),
+            "legacy_field_code": row.get("legacy_field_code"),
+            "canonical_stage": stage,
+            "map_image_id": row.get("map_image_id"),
+        }
+        previous = out.get(key)
+        if previous is not None and previous != identity:
+            raise ValueError(f"CANONICAL_MAP_STAGE_BASENAME_COLLISION:{key}")
+        out[key] = identity
+    return out
+
+
+def _annotate_map_field_identity(row: dict[str, Any], index: dict[str, dict[str, Any]]) -> None:
+    if str(row.get("domain") or "").upper() != "MAP_FIELD":
+        return
+    key = str(row.get("entity_key") or "").casefold()
+    identity = index.get(key)
+    if identity is None:
+        row["canonical_field_identity"] = {
+            "match_basis": "NO_EXACT_CANONICAL_STAGE_IDENTITY",
+            "entity_key": key,
+        }
+        row["spawn_recovery_certified"] = False
+        return
+    row["canonical_field_identity"] = copy.deepcopy(identity)
+    row["spawn_recovery_certified"] = bool(
+        str(row.get("side") or "").upper() == "SERVER"
+        and str(row.get("field_kind") or "").upper() == "SPM"
+    )
+
+
 def _norm(value: str) -> str:
     text = str(value or "").replace("\\", "/").strip().lstrip("/")
     while "//" in text:
@@ -237,7 +311,7 @@ def _entity_identity(relative_path: str, domain: str) -> tuple[str, str]:
                 break
         if rel.parent.name.casefold() == "title" and name.casefold().endswith("t") and len(name) > 1:
             name = name[:-1]
-        return name.casefold(), name
+        return _field_entity_key_from_name(name), name
     if domain in {"MONSTER", "NPC", "ITEM"}:
         name = rel.stem
         return name.casefold(), name
@@ -448,6 +522,7 @@ def build_donor_explorer(
     client_root: pathlib.Path,
     server_root: pathlib.Path,
     *,
+    source_root: pathlib.Path | None = None,
     domain: str = "",
     query: str = "",
     donor: str = "",
@@ -456,6 +531,7 @@ def build_donor_explorer(
     project = pathlib.Path(project_root).resolve()
     domains = [domain.upper()] if domain else ["MAP_FIELD", "MONSTER", "NPC", "ITEM", "CHARACTER", "EFFECT"]
     recovery_map = _closed_recovery_map(project)
+    canonical_map_index = _canonical_map_identity_index(source_root)
     logical: list[dict[str, Any]] = [{
         "label": "SUMMIT",
         "client": {"root": str(pathlib.Path(client_root).resolve()), "present": pathlib.Path(client_root).is_dir()},
@@ -497,6 +573,8 @@ def build_donor_explorer(
                     else:
                         diag["state"] = "NO_DOMAIN_ROWS"
                 for row in rows:
+                    if dom == "MAP_FIELD":
+                        _annotate_map_field_identity(row, canonical_map_index)
                     key = (str(row["side"]).upper(), _norm(row["relative_path"]).casefold(), str(item["label"]).upper())
                     bundle = recovery_map.get(key)
                     if bundle is not None:
@@ -513,6 +591,8 @@ def build_donor_explorer(
         out_donors.append(out)
         if remaining <= 0:
             break
+    query_key = _field_entity_key_from_name(query) if domain.upper() == "MAP_FIELD" and query else ""
+    query_identity = copy.deepcopy(canonical_map_index.get(query_key)) if query_key else None
     return {
         "format": FORMAT,
         "status": "PASS",
@@ -521,11 +601,14 @@ def build_donor_explorer(
         "limit": int(limit),
         "donors": out_donors,
         "entity_tree": _comparison_tree(out_donors, domains),
+        "map_field_query_identity": query_identity,
         "policy": {
             "same_label_client_server_is_one_logical_donor": True,
             "read_only_tree": True,
             "recovery_requires_explicit_staging": True,
             "canonical_domains_use_semantic_import_not_blind_copy": True,
+            "map_field_spawn_recovery_requires_exact_canonical_stage_identity": True,
+            "fuzzy_map_name_similarity_never_certifies_spawn_recovery": True,
         },
     }
 
@@ -690,6 +773,11 @@ def stage_spawn_from_donor(
     logical = _server_logical_path(rel)
     if "field" not in [x.casefold() for x in logical.parts]:
         raise ValueError("DONOR_STAGE_SPAWN_OUTSIDE_GAMESERVER_FIELD")
+    identity_index = _canonical_map_identity_index(provider.source_root)
+    field_key = _field_entity_key_from_name(logical.name)
+    identity = identity_index.get(field_key)
+    if identity is None:
+        raise ValueError(f"DONOR_STAGE_SPAWN_IDENTITY_NOT_CERTIFIED:{logical.as_posix()}")
     tools = provider.source_root / "tools" / "content_port"
     required = [tools / "import_corpus.py", tools / "canonicalize_stage_spawns.py"]
     if any(not x.is_file() for x in required):
@@ -758,6 +846,7 @@ def stage_spawn_from_donor(
             "donor_label": donor_label.upper(),
             "donor_side": "SERVER",
             "donor_root": str(donor_root),
+            "canonical_map_identity": identity,
             "donor_relative_path": rel.as_posix(),
             "donor_sha256": sha256_file(source),
             "logical_path": logical.as_posix(),

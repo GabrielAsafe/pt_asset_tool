@@ -292,3 +292,80 @@ def test_map_field_deep_fallback_reports_signatures_but_no_query_match(monkeypat
     assert diag["state"] == "SIGNATURE_FILES_PRESENT_NO_QUERY_MATCH"
     assert diag["fallback_recursive_scan"]["signature_files_seen"] == 1
     assert diag["fallback_recursive_scan"]["query_matches"] == 0
+
+
+def _write_canonical_maps(source_root: Path):
+    path = source_root / "Content/canonical/maps/server.maps.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({
+        "schema":"summit.maps/v1","profile":"server","map_count":4,
+        "maps":[
+            {"id":"map.ruin_4","legacy_field_code":4,"stage":"Ruin//ruin-4.ase","map_image_id":"ruin-4"},
+            {"id":"map.lost","legacy_field_code":37,"stage":"lost//lostisland.ASE","map_image_id":"lost"},
+            {"id":"map.losttemple","legacy_field_code":38,"stage":"Losttemple//lost_temple.ASE","map_image_id":"Losttemple"},
+            {"id":"map.lost3","legacy_field_code":51,"stage":"lost//lost3.ASE","map_image_id":"lost3"},
+        ]
+    }), encoding="utf-8")
+
+
+def test_map_field_recovery_is_certified_only_by_exact_canonical_stage_identity(monkeypatch, tmp_path):
+    project=tmp_path/"project"; project.mkdir()
+    source=tmp_path/"source"; _write_canonical_maps(source)
+    target_c=tmp_path/"client"; target_s=tmp_path/"server"; donor_c=tmp_path/"dc"; donor_s=tmp_path/"ds"
+    for p in (target_c,target_s,donor_c,donor_s): p.mkdir()
+    (target_c/"Field/Lost").mkdir(parents=True); (target_c/"Field/Lost/lost3.smd").write_text("x")
+    (donor_s/"GameServer/Field").mkdir(parents=True)
+    (donor_s/"GameServer/Field/lost3.ASE.spm").write_text('*ACTOR "Foo" 100\n')
+    (donor_s/"GameServer/Field/lostisland.ASE.spm").write_text('*ACTOR "Bar" 100\n')
+    monkeypatch.setattr(dre,"configured_contract_donor_clients",lambda _p:[f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre,"configured_contract_donor_servers",lambda _p:[f"DONOR1={donor_s}"])
+    result=dre.build_donor_explorer(project,target_c,target_s,source_root=source,domain="MAP_FIELD",query="lost",limit=50)
+    rows=[x for x in result["donors"][1]["domains"]["MAP_FIELD"]["nodes"] if x["field_kind"]=="SPM"]
+    by_key={x["entity_key"]:x for x in rows}
+    assert by_key["lost3"]["spawn_recovery_certified"] is True
+    assert by_key["lost3"]["canonical_field_identity"]["legacy_field_code"]==51
+    assert by_key["lostisland"]["spawn_recovery_certified"] is True
+    assert by_key["lostisland"]["canonical_field_identity"]["legacy_field_code"]==37
+    # Similar names remain different certified identities, never aliases.
+    assert by_key["lost3"]["canonical_field_identity"]["map_id"] != by_key["lostisland"]["canonical_field_identity"]["map_id"]
+
+
+def test_map_field_query_identity_exposes_field_code_and_exact_stage(tmp_path):
+    source=tmp_path/"source"; _write_canonical_maps(source)
+    c=tmp_path/"client"; s=tmp_path/"server"; p=tmp_path/"project"
+    for x in (c,s,p): x.mkdir()
+    result=dre.build_donor_explorer(p,c,s,source_root=source,domain="MAP_FIELD",query="lost3",limit=10)
+    ident=result["map_field_query_identity"]
+    assert ident["legacy_field_code"]==51
+    assert ident["map_id"]=="map.lost3"
+    assert ident["canonical_stage"]=="lost//lost3.ASE"
+    assert result["policy"]["fuzzy_map_name_similarity_never_certifies_spawn_recovery"] is True
+
+
+def test_map_field_unknown_spawn_has_no_certified_action(monkeypatch,tmp_path):
+    project=tmp_path/"project"; project.mkdir(); source=tmp_path/"source"; _write_canonical_maps(source)
+    c=tmp_path/"client"; s=tmp_path/"server"; dc=tmp_path/"dc"; ds=tmp_path/"ds"
+    for x in (c,s,dc,ds): x.mkdir()
+    (ds/"GameServer/Field").mkdir(parents=True); (ds/"GameServer/Field/mystery.ASE.spm").write_text("x")
+    monkeypatch.setattr(dre,"configured_contract_donor_clients",lambda _p:[f"DONOR1={dc}"])
+    monkeypatch.setattr(dre,"configured_contract_donor_servers",lambda _p:[f"DONOR1={ds}"])
+    result=dre.build_donor_explorer(project,c,s,source_root=source,domain="MAP_FIELD",query="mystery",limit=10)
+    row=result["donors"][1]["domains"]["MAP_FIELD"]["nodes"][0]
+    assert row["spawn_recovery_certified"] is False
+    assert row["canonical_field_identity"]["match_basis"]=="NO_EXACT_CANONICAL_STAGE_IDENTITY"
+
+
+def test_stage_spawn_rejects_uncertified_field_identity_before_conversion(monkeypatch,tmp_path):
+    from types import SimpleNamespace
+    project=tmp_path/"project"; project.mkdir(); source=tmp_path/"source"; _write_canonical_maps(source)
+    canonical=source/"Content/canonical"; donor=tmp_path/"donor"; donor.mkdir()
+    (donor/"GameServer/Field").mkdir(parents=True); (donor/"GameServer/Field/mystery.ASE.spm").write_text("x")
+    monkeypatch.setattr(dre,"configured_contract_donor_clients",lambda _p:[])
+    monkeypatch.setattr(dre,"configured_contract_donor_servers",lambda _p:[f"DONOR1={donor}"])
+    provider=SimpleNamespace(source_root=source,canonical_root=canonical)
+    try:
+        dre.stage_spawn_from_donor(project,provider,donor_label="DONOR1",relative_path="GameServer/Field/mystery.ASE.spm")
+    except ValueError as exc:
+        assert "DONOR_STAGE_SPAWN_IDENTITY_NOT_CERTIFIED" in str(exc)
+    else:
+        raise AssertionError("uncertified donor SPM identity must fail before conversion")

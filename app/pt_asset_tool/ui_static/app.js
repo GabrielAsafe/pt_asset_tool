@@ -482,7 +482,7 @@ function bind(){$$('[data-client-workflow]').forEach(b=>b.onclick=()=>switchClie
 
 function donorRecoveryAction(row){
   if(row.donor==='SUMMIT')return '';
-  if(row.domain==='MAP_FIELD'&&row.side==='SERVER'&&String(row.relative_path||'').toLowerCase().endsWith('.spm'))return 'STAGE_SPAWN';
+  if(row.domain==='MAP_FIELD'&&row.side==='SERVER'&&String(row.relative_path||'').toLowerCase().endsWith('.spm')&&row.spawn_recovery_certified===true)return 'STAGE_SPAWN';
   if(['MONSTER','NPC','ITEM'].includes(row.domain)&&row.side==='SERVER')return row.domain;
   if(row.closed_recovery_bundle)return 'PHYSICAL_BUNDLE';
   return '';
@@ -491,8 +491,10 @@ function donorRecoveryActionLabel(action){return action==='STAGE_SPAWN'?'Stage S
 function donorRecoveryVariantHtml(row){
   const action=donorRecoveryAction(row),payload=encodeURIComponent(JSON.stringify({action,donor_label:row.donor,relative_path:row.relative_path,side:row.side,root_path:row.closed_recovery_bundle?.root_path||''}));
   const badge=row.donor==='SUMMIT'?'TARGET':row.donor;
+  const ident=row.canonical_field_identity||null;
+  const identityHtml=ident&&ident.match_basis==='CANONICAL_STAGE_BASENAME_EXACT'?`<div class="micro">field ${esc(ident.legacy_field_code??'—')} · ${esc(ident.map_id||'—')} · stage <code>${esc(ident.canonical_stage||'—')}</code> · exact identity</div>`:row.domain==='MAP_FIELD'?`<div class="micro">no exact canonical stage identity</div>`:'';
   const recovery=action?`<button class="btn small donor-recovery-action" data-payload="${payload}">${esc(donorRecoveryActionLabel(action))}</button>`:'<span class="micro">read-only / no certified action</span>';
-  return `<div class="donor-recovery-variant"><div><span class="badge">${esc(badge)}</span> <b>${esc(row.side)}</b> <code>${esc(row.relative_path)}</code></div><div>${recovery}</div></div>`;
+  return `<div class="donor-recovery-variant"><div><span class="badge">${esc(badge)}</span> <b>${esc(row.side)}</b> <code>${esc(row.relative_path)}</code>${identityHtml}</div><div>${recovery}</div></div>`;
 }
 function renderDonorRecovery(result){
   const tree=$('#donorRecoveryTree'),count=$('#donorRecoveryCount'),sel=$('#donorRecoveryDonor');if(!tree)return;
@@ -507,6 +509,7 @@ function renderDonorRecovery(result){
     sections.push(`<details class="donor-recovery-domain" open><summary><strong>${esc(domain)}</strong><span>${entities.length.toLocaleString()} entities</span></summary>${entityHtml}</details>`);
   }
   const diag=[];
+  const qid=result?.map_field_query_identity;if(qid)diag.push(`Certified field identity: ${qid.legacy_field_code??'—'} · ${qid.map_id||'—'} · ${qid.canonical_stage||'—'}; donor SPM recovery requires this exact stage basename`);
   for(const d of result?.donors||[]){
     for(const [dom,sides] of Object.entries(d.scan_diagnostics||{})){
       for(const [side,x] of Object.entries(sides||{})){

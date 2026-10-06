@@ -1197,6 +1197,7 @@ class UIHandler(BaseHTTPRequestHandler):
             try:
                 result = build_donor_explorer(
                     self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                    source_root=self.ctx.source_root,
                     domain=_one(q, "domain"), query=_one(q, "q"), donor=_one(q, "donor"),
                     limit=int(_one(q, "limit") or 1500),
                 )
