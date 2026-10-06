@@ -318,24 +318,110 @@ def _comparison_tree(donors: list[dict[str, Any]], domains: list[str]) -> dict[s
     return result
 
 
-def _scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool]:
+def _deep_signature_scan(
+    root: pathlib.Path,
+    side: str,
+    domain: str,
+    *,
+    donor: str,
+    query: str,
+    limit: int,
+) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]:
+    """Last-resort read-only scan of the configured donor root.
+
+    Root inference is intentionally an optimization, never an authority.  Real
+    Priston donor trees can contain arbitrary wrapper directories or be rooted
+    above/below the traditional GameServer directory.  If inferred roots yield
+    no rows, walk the configured root itself and select files by a strong domain
+    signature.  This is fail-closed: only extensions explicitly allowed for the
+    server domain are admitted, and symlinked files are not followed outside the
+    configured donor tree.
+    """
+    allowed = _SERVER_DOMAIN_ALLOWED_EXTENSIONS.get(domain) if side == "server" else None
+    meta = {
+        "used": bool(allowed),
+        "configured_root": str(root.resolve()),
+        "directories_scanned": 0,
+        "signature_files_seen": 0,
+        "query_matches": 0,
+        "truncated": False,
+    }
+    if not allowed or not root.is_dir():
+        return [], False, meta
+    q = query.casefold().strip()
+    root_resolved = root.resolve()
+    rows: list[dict[str, Any]] = []
+    skip_dirs = {".git", "__pycache__", ".cache", "node_modules"}
+    for dirpath, dirnames, filenames in os.walk(root_resolved, followlinks=False):
+        meta["directories_scanned"] += 1
+        dirnames[:] = [d for d in dirnames if d not in skip_dirs]
+        here = pathlib.Path(dirpath)
+        for name in filenames:
+            path = here / name
+            if path.suffix.casefold() not in allowed:
+                continue
+            meta["signature_files_seen"] += 1
+            if path.is_symlink():
+                continue
+            try:
+                rel_text = path.relative_to(root_resolved).as_posix()
+            except ValueError:
+                continue
+            if q and q not in rel_text.casefold():
+                continue
+            rows.append(_node(root_resolved, path, donor=donor, side=side, domain=domain))
+            meta["query_matches"] += 1
+            if len(rows) >= limit:
+                meta["truncated"] = True
+                return rows, True, meta
+    return rows, False, meta
+
+
+def _scan_domain(
+    root: pathlib.Path,
+    side: str,
+    domain: str,
+    *,
+    donor: str,
+    query: str,
+    limit: int,
+) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]:
     q = query.casefold().strip()
     rows: list[dict[str, Any]] = []
     truncated = False
+    seen: set[str] = set()
     for base in _domain_roots(root, side, domain):
         for path in base.rglob("*"):
             if not path.is_file():
                 continue
             if not _domain_file_allowed(side, domain, path):
                 continue
-            rel_text = path.resolve().relative_to(root.resolve()).as_posix()
+            resolved = path.resolve()
+            try:
+                rel_text = resolved.relative_to(root.resolve()).as_posix()
+            except ValueError:
+                continue
             if q and q not in rel_text.casefold():
                 continue
+            key = str(resolved).casefold()
+            if key in seen:
+                continue
+            seen.add(key)
             rows.append(_node(root, path, donor=donor, side=side, domain=domain))
             if len(rows) >= limit:
                 truncated = True
-                return rows, truncated
-    return rows, truncated
+                return rows, truncated, {"used": False}
+
+    # Inferred scan roots are only a fast path.  If they produced no matching
+    # rows, do one exhaustive signature scan of the configured server donor.
+    # This is what makes layouts such as wrapper/.../game-server/... recoverable
+    # without baking every historical directory convention into the Explorer.
+    if not rows and side == "server" and domain in _SERVER_DOMAIN_SIGNATURE_EXTENSIONS:
+        fallback_rows, fallback_truncated, meta = _deep_signature_scan(
+            root, side, domain, donor=donor, query=query, limit=limit
+        )
+        return fallback_rows, fallback_truncated, meta
+    return rows, truncated, {"used": False}
 
 
 def _closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]:
@@ -398,7 +484,18 @@ def build_donor_explorer(
                 out["scan_diagnostics"][dom][side.upper()] = _scan_diagnostic(root, side, dom)
                 if not info.get("present") or remaining <= 0:
                     continue
-                rows, hit_limit = _scan_domain(root, side, dom, donor=item["label"], query=query, limit=remaining)
+                rows, hit_limit, fallback_meta = _scan_domain(root, side, dom, donor=item["label"], query=query, limit=remaining)
+                if fallback_meta.get("used"):
+                    diag = out["scan_diagnostics"][dom][side.upper()]
+                    diag["fallback_recursive_scan"] = fallback_meta
+                    if rows:
+                        diag["state"] = "READY_FALLBACK_RECURSIVE"
+                    elif int(fallback_meta.get("signature_files_seen") or 0) == 0:
+                        diag["state"] = "NO_SIGNATURE_FILES_ANYWHERE"
+                    elif query:
+                        diag["state"] = "SIGNATURE_FILES_PRESENT_NO_QUERY_MATCH"
+                    else:
+                        diag["state"] = "NO_DOMAIN_ROWS"
                 for row in rows:
                     key = (str(row["side"]).upper(), _norm(row["relative_path"]).casefold(), str(item["label"]).upper())
                     bundle = recovery_map.get(key)

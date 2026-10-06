@@ -506,7 +506,24 @@ function renderDonorRecovery(result){
     const entityHtml=entities.map(entity=>`<details class="donor-recovery-entity"><summary><b>${esc(entity.label)}</b><span>${entity.variant_count||0} variant(s) · ${esc((entity.donor_labels||[]).join(', '))}${entity.has_target?' · target present':' · target missing'}</span></summary><div class="donor-recovery-variants">${(entity.variants||[]).map(donorRecoveryVariantHtml).join('')}</div></details>`).join('');
     sections.push(`<details class="donor-recovery-domain" open><summary><strong>${esc(domain)}</strong><span>${entities.length.toLocaleString()} entities</span></summary>${entityHtml}</details>`);
   }
-  const diag=[];for(const d of result?.donors||[]){for(const [dom,sides] of Object.entries(d.scan_diagnostics||{})){for(const [side,x] of Object.entries(sides||{})){if(x?.state==='NO_DOMAIN_ROOT')diag.push(`${d.label} ${side}: no ${dom} scan root under ${x.configured_root}`)}}}
+  const diag=[];
+  for(const d of result?.donors||[]){
+    for(const [dom,sides] of Object.entries(d.scan_diagnostics||{})){
+      for(const [side,x] of Object.entries(sides||{})){
+        if(x?.state==='NO_DOMAIN_ROOT'){
+          diag.push(`${d.label} ${side}: no ${dom} scan root under ${x.configured_root}`);
+        }else if(x?.state==='NO_SIGNATURE_FILES_ANYWHERE'){
+          diag.push(`${d.label} ${side}: recursive scan found 0 ${dom} signature files under ${x.configured_root}`);
+        }else if(x?.state==='SIGNATURE_FILES_PRESENT_NO_QUERY_MATCH'){
+          const f=x.fallback_recursive_scan||{};
+          diag.push(`${d.label} ${side}: ${Number(f.signature_files_seen||0)} ${dom} signature file(s) exist, but none match this search`);
+        }else if(x?.state==='READY_FALLBACK_RECURSIVE'){
+          const f=x.fallback_recursive_scan||{};
+          diag.push(`${d.label} ${side}: using recursive signature fallback (${Number(f.query_matches||0)} match(es), ${Number(f.signature_files_seen||0)} signature file(s) scanned)`);
+        }
+      }
+    }
+  }
   const diagHtml=diag.length?`<div class="donor-recovery-diagnostic"><b>Scan diagnostics</b><br>${diag.map(esc).join('<br>')}</div>`:'';
   tree.innerHTML=diagHtml+(sections.join('')||'<div class="empty">No matching donor entities.</div>');
 }

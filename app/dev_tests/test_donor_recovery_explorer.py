@@ -232,3 +232,63 @@ def test_map_field_server_scan_rejects_client_geometry_and_textures(monkeypatch,
     server_rows = [x for x in lost["variants"] if x["donor"] == "SUMMIT" and x["side"] == "SERVER"]
     assert [x["field_kind"] for x in server_rows] == ["SPP"]
     assert server_rows[0]["relative_path"].endswith("deep/GameServer/Field/lost3.ASE.spp")
+
+
+def test_map_field_deep_fallback_finds_signature_beyond_inference_depth(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    donor_c = tmp_path / "donor_client"; donor_c.mkdir()
+    donor_s = tmp_path / "game-server"; donor_s.mkdir()
+    deep = donor_s
+    # Deeper than _signature_domain_roots(max_depth=8), forcing the exhaustive
+    # configured-root fallback instead of inferred Field-root discovery.
+    for i in range(11):
+        deep = deep / f"wrapper{i}"
+    deep = deep / "Field"
+    deep.mkdir(parents=True)
+    (deep / "lost3.ASE.spm").write_text('*ACTOR "Foo" 100\n')
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR1={donor_s}"])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MAP_FIELD", query="lost3", limit=50)
+    lost = next(x for x in result["entity_tree"]["MAP_FIELD"]["entities"] if x["entity_key"] == "lost3")
+    row = next(x for x in lost["variants"] if x["donor"] == "DONOR1" and x["side"] == "SERVER")
+    assert row["field_kind"] == "SPM"
+    diag = result["donors"][1]["scan_diagnostics"]["MAP_FIELD"]["SERVER"]
+    assert diag["state"] == "READY_FALLBACK_RECURSIVE"
+    assert diag["fallback_recursive_scan"]["query_matches"] == 1
+    assert diag["fallback_recursive_scan"]["signature_files_seen"] == 1
+
+
+def test_map_field_deep_fallback_distinguishes_no_signature_files(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    donor_c = tmp_path / "donor_client"; donor_c.mkdir()
+    donor_s = tmp_path / "game-server"; donor_s.mkdir()
+    (donor_s / "misc").mkdir()
+    (donor_s / "misc/lost3.txt").write_text("not field metadata")
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR1={donor_s}"])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MAP_FIELD", query="lost3", limit=50)
+    diag = result["donors"][1]["scan_diagnostics"]["MAP_FIELD"]["SERVER"]
+    assert diag["state"] == "NO_SIGNATURE_FILES_ANYWHERE"
+    assert diag["fallback_recursive_scan"]["signature_files_seen"] == 0
+    assert diag["fallback_recursive_scan"]["directories_scanned"] >= 2
+
+
+def test_map_field_deep_fallback_reports_signatures_but_no_query_match(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    donor_c = tmp_path / "donor_client"; donor_c.mkdir()
+    donor_s = tmp_path / "game-server"; donor_s.mkdir()
+    deep = donor_s
+    for i in range(10):
+        deep = deep / f"wrap{i}"
+    deep.mkdir(parents=True)
+    (deep / "other.ASE.spm").write_text('*ACTOR "Foo" 100\n')
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR1={donor_s}"])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MAP_FIELD", query="lost3", limit=50)
+    diag = result["donors"][1]["scan_diagnostics"]["MAP_FIELD"]["SERVER"]
+    assert diag["state"] == "SIGNATURE_FILES_PRESENT_NO_QUERY_MATCH"
+    assert diag["fallback_recursive_scan"]["signature_files_seen"] == 1
+    assert diag["fallback_recursive_scan"]["query_matches"] == 0
