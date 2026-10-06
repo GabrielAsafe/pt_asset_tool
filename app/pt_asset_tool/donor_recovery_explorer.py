@@ -18,7 +18,7 @@ from typing import Any, Iterable
 from .app_config import configured_contract_donor_clients, configured_contract_donor_servers
 from .canonical_authoring import stage_canonical_document_set
 from .general_asset_recovery import recover_closed_general_asset_bundles
-from .summit_canonical import SummitCanonicalContentProvider, sha256_file
+from .summit_canonical import SummitCanonicalContentProvider, canonical_id_for_doc, sha256_file
 
 FORMAT = "PT_ASSET_DONOR_RECOVERY_EXPLORER_V1"
 
@@ -1117,7 +1117,7 @@ def _definition_ptbr_localization_delta(
 
     added: list[dict[str, Any]] = []
     for doc in documents:
-        content_id = str(doc.get("id") or "").strip()
+        content_id = canonical_id_for_doc(doc).strip()
         if not content_id:
             continue
         fields = ((doc.get("semantic") or {}).get("fields") or {}) if isinstance(doc.get("semantic"), dict) else {}
@@ -1181,8 +1181,9 @@ def stage_definition_from_donor(
     index_path = provider.canonical_root / "text" / "index.json"
     current_index = json.loads(index_path.read_text(encoding="utf-8"))
     merged_index = _merge_index(current_index, entry, path_key="legacy_path")
+    content_id = canonical_id_for_doc(doc).strip()
     fallback_name = _definition_primary_legacy_name(source, kind)
-    fallback_names = {str(doc.get("id") or ""): fallback_name} if fallback_name else {}
+    fallback_names = {content_id: fallback_name} if (content_id and fallback_name) else {}
     localization_doc, localization_added = _definition_ptbr_localization_delta(
         provider, [doc], fallback_names=fallback_names
     )
@@ -1196,17 +1197,18 @@ def stage_definition_from_donor(
         project_root, provider,
         changes,
         kind=kind,
-        canonical_id=str(doc.get("id") or ""),
+        canonical_id=content_id,
         provenance={
             "origin": "DONOR_DEFINITION",
             "donor_label": donor_label.upper(), "donor_side": "SERVER", "donor_root": str(donor_root),
             "donor_relative_path": rel.as_posix(), "donor_sha256": sha256_file(source), "logical_path": logical.as_posix(),
             "converter_logs": logs, "localization_bridge": {"locale": "pt-BR", "added_entries": localization_added},
         },
+        localization_fallback_names=fallback_names,
         run_validation=run_validation,
         run_build=run_build,
     )
-    result["canonical_id"] = str(doc.get("id") or "")
+    result["canonical_id"] = content_id
     result["canonical_path"] = target_rel.as_posix()
     return result
 
@@ -1316,10 +1318,11 @@ def stage_unique_spawn_dependencies_from_donor(
             continue
         changes.append({"relative_path": target_rel.as_posix(), "document": doc})
         imported_documents.append(doc)
+        doc_id = canonical_id_for_doc(doc).strip()
         fallback_name = _definition_primary_legacy_name(prepared["source"], "MONSTER")
-        if fallback_name and doc.get("id"):
-            imported_fallback_names[str(doc["id"])] = fallback_name
-        imported.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), **cand})
+        if fallback_name and doc_id:
+            imported_fallback_names[doc_id] = fallback_name
+        imported.append({"canonical_id": doc_id or None, "canonical_path": target_rel.as_posix(), **cand})
         converter_logs.extend(prepared["converter_logs"])
 
     if conflicts:
@@ -1355,6 +1358,7 @@ def stage_unique_spawn_dependencies_from_donor(
             "already_canonical": already, "ambiguous": ambiguous, "missing": missing, "converter_logs": converter_logs,
             "localization_bridge": {"locale": "pt-BR", "added_entries": localization_added},
         },
+        localization_fallback_names=imported_fallback_names,
         run_validation=run_validation, run_build=run_build,
     )
     result["dependency_batch"] = {

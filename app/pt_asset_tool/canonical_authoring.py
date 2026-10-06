@@ -462,6 +462,205 @@ def _copy_canonical_tree(provider: SummitCanonicalContentProvider, stage_root: p
     (stage_root / "packs").mkdir(parents=True, exist_ok=True)
 
 
+def _definition_family(doc: dict[str, Any]) -> str:
+    allowed = set(_DEFINITION_KINDS.values())
+    for key in ("family", "kind", "resource_family", "type"):
+        value = str(doc.get(key) or "").strip().casefold()
+        if value in allowed:
+            return value
+    return ""
+
+
+def _first_text(value: Any) -> str:
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, (list, tuple)):
+        for item in value:
+            text = _first_text(item)
+            if text:
+                return text
+    return ""
+
+
+def _definition_name_from_canonical(doc: dict[str, Any]) -> tuple[str, str]:
+    """Return a safe display-name fallback and its evidence class.
+
+    Canonical text shapes have changed over time.  Do not bind localization
+    completeness to one spelling/casing of ``semantic.fields``.  Prefer an
+    explicit legacy/J name, then the generic canonical name, then an English
+    name.  Directive values are accepted as canonical evidence when the fields
+    projection is absent.
+    """
+    semantic = doc.get("semantic") if isinstance(doc.get("semantic"), dict) else {}
+    fields = semantic.get("fields") if isinstance(semantic.get("fields"), dict) else {}
+    normalized_fields = {_norm(key): value for key, value in fields.items()}
+    for names, quality in (
+        (("j_name", "jname", "legacy_name"), "legacy_fallback"),
+        (("name", "display_name", "title"), "legacy_fallback"),
+        (("english_name", "e_name", "ename"), "untranslated_fallback"),
+    ):
+        for name in names:
+            text = _first_text(normalized_fields.get(_norm(name)))
+            if text:
+                return text, quality
+
+    directives = semantic.get("directives")
+    if isinstance(directives, list):
+        ranked: list[tuple[int, str, str]] = []
+        priorities = {
+            "jname": (0, "legacy_fallback"),
+            "legacyname": (0, "legacy_fallback"),
+            "name": (1, "legacy_fallback"),
+            "displayname": (1, "legacy_fallback"),
+            "ename": (2, "untranslated_fallback"),
+            "englishname": (2, "untranslated_fallback"),
+        }
+        for row in directives:
+            if not isinstance(row, dict):
+                continue
+            identities = _directive_identity(row)
+            match = min((priorities[key] for key in identities if key in priorities), default=None)
+            if match is None:
+                continue
+            text = _first_text(row.get("values")) or _first_text(row.get("value")) or _first_text(row.get("text"))
+            if text:
+                ranked.append((match[0], text, match[1]))
+        if ranked:
+            _priority, text, quality = sorted(ranked, key=lambda item: item[0])[0]
+            return text, quality
+    return "", ""
+
+
+def _definition_dialog_from_canonical(doc: dict[str, Any]) -> str:
+    semantic = doc.get("semantic") if isinstance(doc.get("semantic"), dict) else {}
+    fields = semantic.get("fields") if isinstance(semantic.get("fields"), dict) else {}
+    normalized_fields = {_norm(key): value for key, value in fields.items()}
+    for key in ("dialog", "dialogue", "chat"):
+        text = _first_text(normalized_fields.get(_norm(key)))
+        if text:
+            return text
+    return ""
+
+
+def _changed_staged_definition_documents(
+    provider: SummitCanonicalContentProvider,
+    stage_root: pathlib.Path,
+) -> list[tuple[pathlib.PurePosixPath, dict[str, Any], str, str]]:
+    """Discover the complete definition delta by comparing source vs stage.
+
+    This deliberately does not trust the caller's clicked/selected document.
+    Every changed/new canonical text definition in the transaction participates
+    in localization completeness before the materializer is allowed to run.
+    """
+    staged_text = stage_root / "canonical" / "text"
+    source_text = provider.canonical_root / "text"
+    if not staged_text.is_dir():
+        return []
+    rows: list[tuple[pathlib.PurePosixPath, dict[str, Any], str, str]] = []
+    for staged in sorted(staged_text.rglob("*.json"), key=lambda path: path.as_posix().casefold()):
+        rel_text = staged.relative_to(staged_text)
+        source = source_text / rel_text
+        if source.is_file() and sha256_file(source) == sha256_file(staged):
+            continue
+        try:
+            doc = _load_json(staged)
+        except (OSError, json.JSONDecodeError):
+            continue
+        if not isinstance(doc, dict):
+            continue
+        family = _definition_family(doc)
+        if not family:
+            continue
+        content_id = canonical_id_for_doc(doc, family).strip()
+        if not content_id:
+            raise ValueError(f"CANONICAL_LOCALIZATION_DEFINITION_ID_MISSING:{rel_text.as_posix()}")
+        rows.append((pathlib.PurePosixPath("canonical/text") / pathlib.PurePosixPath(rel_text.as_posix()), doc, family, content_id))
+    return rows
+
+
+def _bridge_staged_definition_localization(
+    provider: SummitCanonicalContentProvider,
+    stage_root: pathlib.Path,
+    *,
+    fallback_names: dict[str, str] | None = None,
+) -> dict[str, Any]:
+    """Make pt-BR exact coverage complete for the full staged definition delta.
+
+    Existing translations always win.  Missing runtime name keys are filled
+    only from canonical/donor evidence supplied to this transaction.  The
+    source tree is never modified here; only the isolated staged copy changes.
+    """
+    definitions = _changed_staged_definition_documents(provider, stage_root)
+    if not definitions:
+        return {"status": "NO_DEFINITION_DELTA", "changed": False, "added_entries": [], "definitions": []}
+
+    loc_path = stage_root / "canonical" / "text" / "localization" / "pt-BR.json"
+    if not loc_path.is_file():
+        raise FileNotFoundError("CANONICAL_LOCALIZATION_PTBR_OVERRIDE_NOT_FOUND")
+    catalog = _load_json(loc_path)
+    if not isinstance(catalog, dict) or catalog.get("schema") != "summit.localization-catalog/v1" or catalog.get("locale") != "pt-BR":
+        raise ValueError("CANONICAL_LOCALIZATION_PTBR_OVERRIDE_INVALID")
+    entries = catalog.get("entries")
+    if not isinstance(entries, list):
+        raise ValueError("CANONICAL_LOCALIZATION_PTBR_ENTRIES_INVALID")
+
+    existing: dict[str, dict[str, Any]] = {}
+    for row in entries:
+        if not isinstance(row, dict) or not isinstance(row.get("key"), str):
+            raise ValueError("CANONICAL_LOCALIZATION_PTBR_ENTRY_INVALID")
+        key = str(row["key"])
+        old = existing.get(key)
+        if old is not None and old != row:
+            raise ValueError(f"CANONICAL_LOCALIZATION_PTBR_DUPLICATE_CONFLICT:{key}")
+        existing[key] = row
+
+    supplied = {str(key): str(value).strip() for key, value in (fallback_names or {}).items() if str(value).strip()}
+    added: list[dict[str, Any]] = []
+    definition_rows: list[dict[str, Any]] = []
+    for rel, doc, family, content_id in definitions:
+        canonical_name, canonical_quality = _definition_name_from_canonical(doc)
+        donor_name = supplied.get(content_id, "")
+        name_key = f"{content_id}.name"
+        added_for_definition: list[str] = []
+        if name_key not in existing:
+            name_text = canonical_name or donor_name
+            if not name_text:
+                raise ValueError(f"CANONICAL_LOCALIZATION_FALLBACK_NAME_MISSING:{content_id}:{rel.as_posix()}")
+            quality = canonical_quality or "legacy_fallback"
+            row = {"key": name_key, "text": name_text, "quality": quality, "source": content_id}
+            entries.append(row)
+            existing[name_key] = row
+            added.append(copy.deepcopy(row))
+            added_for_definition.append(name_key)
+
+        dialog = _definition_dialog_from_canonical(doc)
+        chat_key = f"{content_id}.chat.1"
+        if dialog and chat_key not in existing:
+            row = {"key": chat_key, "text": dialog, "quality": "legacy_fallback", "source": content_id}
+            entries.append(row)
+            existing[chat_key] = row
+            added.append(copy.deepcopy(row))
+            added_for_definition.append(chat_key)
+
+        definition_rows.append({
+            "canonical_json_path": rel.as_posix(),
+            "family": family,
+            "canonical_id": content_id,
+            "added_keys": added_for_definition,
+            "name_evidence": "canonical" if canonical_name else ("donor_fallback" if donor_name else "existing_translation"),
+        })
+
+    if added:
+        catalog["entries"] = sorted(entries, key=lambda row: str(row.get("key") or ""))
+        _atomic_json(loc_path, catalog)
+    return {
+        "status": "UPDATED" if added else "ALREADY_COMPLETE",
+        "changed": bool(added),
+        "added_entries": added,
+        "definitions": definition_rows,
+    }
+
+
 def _run(cmd: list[str], *, cwd: pathlib.Path, log: list[dict[str, Any]]) -> dict[str, Any]:
     proc = subprocess.run(cmd, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=False)
     row = {"command": cmd, "returncode": proc.returncode, "output": proc.stdout[-20000:]}
@@ -707,6 +906,7 @@ def stage_canonical_document_set(
     kind: str,
     canonical_id: str = "",
     provenance: dict[str, Any] | None = None,
+    localization_fallback_names: dict[str, str] | None = None,
     run_validation: bool = True,
     run_build: bool = True,
 ) -> dict[str, Any]:
@@ -741,7 +941,7 @@ def stage_canonical_document_set(
         target = provider.content_root / pathlib.Path(*rel.parts)
         normalized.append((rel, copy.deepcopy(raw["document"]), target, target.is_file()))
 
-    requested_localization_edit = any(
+    explicit_localization_edit = any(
         rel.as_posix().casefold().startswith("canonical/text/localization/")
         for rel, _doc, _target, _existed in normalized
     )
@@ -766,6 +966,16 @@ def stage_canonical_document_set(
             "staged_json": str(staged),
         })
 
+    # Localization completeness is a property of the whole staged canonical
+    # delta, not of the UI row that initiated the transaction.  Bridge every
+    # changed/new definition before invoking the exact-coverage materializer.
+    localization_bridge = _bridge_staged_definition_localization(
+        provider,
+        stage_root,
+        fallback_names=localization_fallback_names,
+    )
+    requested_localization_edit = explicit_localization_edit or bool(localization_bridge.get("changed"))
+
     validation = {"status": "SKIPPED"}
     build = {"status": "SKIPPED", "pack_hashes": {}}
     build_manifest = {"status": "SKIPPED"}
@@ -779,7 +989,8 @@ def stage_canonical_document_set(
 
     # Validation/materialization is allowed to regenerate the localization
     # catalogue in the isolated stage.  When a transaction explicitly edits
-    # localization, publish must carry every generated JSON delta as part of
+    # localization, or the definition bridge adds exact-coverage keys, publish
+    # must carry every generated JSON delta as part of
     # the same source transaction; otherwise the post-write canonical family
     # fingerprint would differ from the validated stage.  Deletions remain
     # fail-closed because source publish currently supports create/replace only.
@@ -820,7 +1031,11 @@ def stage_canonical_document_set(
                 "source_pre_sha256": source_sha,
                 "staged_post_sha256": staged_sha,
                 "staged_json": str(staged),
-                "generated_by_stage": "materialize_localization_catalog.py",
+                "generated_by_stage": (
+                    "definition_localization_bridge"
+                    if sub == "pt-BR.json" and localization_bridge.get("changed")
+                    else "materialize_localization_catalog.py"
+                ),
             }
             source_changes.append(row)
             by_path[key] = row
@@ -875,6 +1090,7 @@ def stage_canonical_document_set(
         "staged_build_manifest": build_manifest,
         "pack_hashes": build.get("pack_hashes") or {},
         "localization_edit": localization_edit,
+        "localization_bridge": localization_bridge,
         "localization_publish_gate": provider.localization_publish_gate(run_validator=False) if localization_edit else None,
         "publish_phases": ["SOURCE_JSON_SET", "SOURCE_PACKS", "CLIENT_SERVER_RUNTIME_DEPLOY"],
         "legacy_direct_write_authorized": False,

@@ -487,3 +487,91 @@ def test_document_set_captures_materialized_localization_json_deltas(monkeypatch
     assert "canonical/text/localization/report.json" in rows
     assert rows["canonical/text/localization/en.json"]["source_existed"] is False
     assert rows["canonical/text/localization/report.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
+
+
+def test_document_set_bridges_all_five_slab_monsters_before_localization_materialize(monkeypatch, tmp_path):
+    import pt_asset_tool.canonical_authoring as ca
+
+    root = _source(tmp_path)
+    provider = SummitCanonicalContentProvider(root)
+    project = tmp_path / "project"; project.mkdir()
+
+    # Reproduce the live shape: imported canonical documents expose canonical_id
+    # but do not provide semantic.fields.name.  Donor CP949/J_NAME evidence is
+    # supplied once for the full transaction rather than one clicked row.
+    fallback_names = {
+        "monster.113_itechnician": "침략자 테크니션",
+        "monster.113_ltechnician": "연구소 테크니션",
+        "monster.114_lengineer": "연구소 엔지니어",
+        "monster.115_isoldier": "침략자 침투병",
+        "monster.117_ibomber": "침략자 폭파병",
+    }
+    changes = []
+    for content_id in fallback_names:
+        stem = content_id.split("monster.", 1)[1]
+        changes.append({
+            "relative_path": f"canonical/text/resources/Servidor/GameServer/Monster/{stem}.inf.json",
+            "document": {
+                "schema": "summit.canonical-text-resource/v1",
+                "family": "monster_definition",
+                "canonical_id": content_id,
+                "payload": {"directives": []},
+            },
+        })
+
+    expected_keys = {f"{content_id}.name" for content_id in fallback_names}
+
+    def fake_validate(_provider, stage_root):
+        # The exact-coverage materializer must see the complete five-definition
+        # localization delta before validation starts.
+        loc = stage_root / "canonical/text/localization"
+        pt = json.loads((loc / "pt-BR.json").read_text(encoding="utf-8"))
+        by_key = {row["key"]: row for row in pt["entries"]}
+        assert expected_keys <= set(by_key)
+        assert by_key["a"]["text"] == "Olá"
+        assert by_key["b"]["text"] == "Mundo"
+        for content_id, name in fallback_names.items():
+            row = by_key[f"{content_id}.name"]
+            assert row == {
+                "key": f"{content_id}.name",
+                "text": name,
+                "quality": "legacy_fallback",
+                "source": content_id,
+            }
+
+        # Simulate materializer output so the same transaction must capture all
+        # regenerated localization artifacts in source_changes.
+        _write_json(loc / "en.json", {
+            "schema": "summit.localization-catalog/v1", "schema_version": 1,
+            "locale": "en", "fallback_locale": None,
+            "entries": [{"key": key, "text": key, "quality": "untranslated_fallback", "source": key.rsplit(".name", 1)[0]} for key in sorted(expected_keys)],
+        })
+        report = json.loads((loc / "report.json").read_text(encoding="utf-8"))
+        report["keys"] = int(report.get("keys") or 0) + 5
+        _write_json(loc / "report.json", report)
+        return {"status": "PASS", "commands": [{"command": ["materialize_localization_catalog.py"], "returncode": 0, "output": "PASS"}]}
+
+    monkeypatch.setattr(ca, "validate_staged_canonical", fake_validate)
+    result = ca.stage_canonical_document_set(
+        project,
+        provider,
+        changes,
+        kind="MONSTER_DEPENDENCY_SET",
+        canonical_id="spawn.slab",
+        localization_fallback_names=fallback_names,
+        run_validation=True,
+        run_build=False,
+    )
+
+    manifest = result["manifest"]
+    assert manifest["validation"]["status"] == "PASS"
+    assert manifest["localization_edit"] is True
+    assert manifest["localization_bridge"]["status"] == "UPDATED"
+    assert {row["key"] for row in manifest["localization_bridge"]["added_entries"]} == expected_keys
+    rows = {row["canonical_json_path"]: row for row in manifest["source_changes"]}
+    assert "canonical/text/localization/pt-BR.json" in rows
+    assert "canonical/text/localization/en.json" in rows
+    assert "canonical/text/localization/report.json" in rows
+    assert rows["canonical/text/localization/pt-BR.json"]["generated_by_stage"] == "definition_localization_bridge"
+    assert rows["canonical/text/localization/en.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
+    assert len([path for path in rows if "/Monster/" in path]) == 5
