@@ -76,4 +76,4 @@ The localization production-publish gate remains **BLOCKED**. The supplied proje
 
 The supplied `Content(5)` archive contains the canonical content tree and packs but not `tools/content_port`. Consequently this environment can validate the live provider/catalog/census/current pack hashes and construct full-tree stages, but it cannot independently rerun the source validators/compilers after a mutation. Recompile/inspect of a modified stage remains a runtime gate against a configured Summit root that includes the canonical toolchain.
 
-Release packaging gates after the V2.11 integration: `EN_LOCALIZATION=PASS`, JavaScript syntax `PASS`, `SNAPSHOT_MANIFEST_CHECK=PASS` (764 static files), and `PACKAGE_VERIFY=PASS`.
+Release packaging gates after the V2.11 integration: `EN_LOCALIZATION=PASS`, JavaScript syntax `PASS`, `SNAPSHOT_MANIFEST_CHECK=PASS` (770 static files), and `PACKAGE_VERIFY=PASS`.
