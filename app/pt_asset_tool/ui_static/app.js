@@ -493,8 +493,9 @@ function donorRecoveryVariantHtml(row){
   const badge=row.donor==='SUMMIT'?'TARGET':row.donor;
   const ident=row.canonical_field_identity||null;
   const identityHtml=ident&&ident.match_basis==='CANONICAL_STAGE_BASENAME_EXACT'?`<div class="micro">field ${esc(ident.legacy_field_code??'—')} · ${esc(ident.map_id||'—')} · stage <code>${esc(ident.canonical_stage||'—')}</code> · exact identity</div>`:row.domain==='MAP_FIELD'?`<div class="micro">no exact canonical stage identity</div>`:'';
+  const names=(row.definition_name_evidence||[]).slice(0,4);const definitionHtml=names.length?`<div class="micro">definition name: ${names.map(esc).join(' · ')}${row.query_match?.match_basis?` · ${esc(row.query_match.match_basis)}`:''}</div>`:'';
   const recovery=action?`<button class="btn small donor-recovery-action" data-payload="${payload}">${esc(donorRecoveryActionLabel(action))}</button>`:'<span class="micro">read-only / no certified action</span>';
-  return `<div class="donor-recovery-variant"><div><span class="badge">${esc(badge)}</span> <b>${esc(row.side)}</b> <code>${esc(row.relative_path)}</code>${identityHtml}</div><div>${recovery}</div></div>`;
+  return `<div class="donor-recovery-variant"><div><span class="badge">${esc(badge)}</span> <b>${esc(row.side)}</b> <code>${esc(row.relative_path)}</code>${identityHtml}${definitionHtml}</div><div>${recovery}</div></div>`;
 }
 function renderDonorRecovery(result){
   const tree=$('#donorRecoveryTree'),count=$('#donorRecoveryCount'),sel=$('#donorRecoveryDonor');if(!tree)return;

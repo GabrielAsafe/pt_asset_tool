@@ -38,18 +38,22 @@ _DOMAIN_ROOTS = {
 }
 
 _SERVER_DOMAIN_SIGNATURE_EXTENSIONS = {
-    # SPM/SPP/SPC are strong enough signatures to locate a GameServer field
-    # tree even when the configured donor root points above/below the usual
-    # GameServer directory.  Keep discovery deliberately narrow for domains
-    # whose extensions are not unique enough.
+    # Strong server-side definition signatures. Root inference is only a fast
+    # path: recursive fallback still searches the configured donor root.
     "MAP_FIELD": {".spm", ".spp", ".spc"},
+    "MONSTER": {".inf"},
+    "NPC": {".npc"},
+    "ITEM": {".txt"},
 }
 
 _SERVER_DOMAIN_ALLOWED_EXTENSIONS = {
-    # Never let client map geometry/textures found under a server root become
-    # server-side field variants.  The semantic server authority for this
-    # Explorer is the legacy field metadata trio.
+    # Keep server semantic domains strict so client mirrors/geometry cannot be
+    # promoted into server authoring candidates merely because they live under
+    # the configured donor root.
     "MAP_FIELD": {".spm", ".spp", ".spc"},
+    "MONSTER": {".inf"},
+    "NPC": {".npc"},
+    "ITEM": {".txt"},
 }
 
 
@@ -276,6 +280,65 @@ def _domain_file_allowed(side: str, domain: str, path: pathlib.Path) -> bool:
     return True
 
 
+def _decode_legacy_definition(data: bytes) -> tuple[str, str]:
+    for enc in ("utf-8-sig", "utf-8", "cp949", "cp1252"):
+        try:
+            return data.decode(enc), enc
+        except UnicodeDecodeError:
+            continue
+    return data.decode("latin1", errors="replace"), "latin1"
+
+
+def _definition_query_evidence(path: pathlib.Path, query: str, domain: str) -> dict[str, Any] | None:
+    # Match semantic server definitions by path or legacy text payload.  Korean
+    # CP949 display names routinely differ from the definition filename.
+    q = str(query or "").strip()
+    if not q:
+        return {"match_basis": "NO_QUERY"}
+    if q.casefold() in path.as_posix().casefold():
+        return {"match_basis": "PATH_SUBSTRING"}
+    if domain not in {"MONSTER", "NPC", "ITEM"}:
+        return None
+    try:
+        data = path.read_bytes()[:2 * 1024 * 1024]
+    except OSError:
+        return None
+    try:
+        raw_q = q.encode("cp949")
+    except UnicodeEncodeError:
+        raw_q = b""
+    if raw_q and raw_q in data:
+        return {"match_basis": "LEGACY_CP949_BYTES_EXACT", "encoding": "cp949"}
+    text, encoding = _decode_legacy_definition(data)
+    if q.casefold() in text.casefold():
+        return {"match_basis": "DEFINITION_TEXT_EXACT", "encoding": encoding}
+    return None
+
+
+def _definition_name_evidence(path: pathlib.Path, domain: str) -> dict[str, Any]:
+    if domain not in {"MONSTER", "NPC", "ITEM"}:
+        return {}
+    try:
+        data = path.read_bytes()[:2 * 1024 * 1024]
+    except OSError:
+        return {}
+    text, encoding = _decode_legacy_definition(data)
+    names: list[str] = []
+    # Quoted name-like directives are display/search evidence only; canonical
+    # import remains the authority for identity and writer semantics.
+    for line in text.splitlines():
+        if "name" not in line.casefold():
+            continue
+        m = re.search(r"[\"']([^\"'\r\n]{1,160})[\"']", line)
+        if m:
+            value = m.group(1).strip()
+            if value and value not in names:
+                names.append(value)
+        if len(names) >= 8:
+            break
+    return {"definition_encoding": encoding, "definition_name_evidence": names}
+
+
 def _classify_field_file(path: pathlib.Path) -> str:
     low = path.name.casefold()
     if low.endswith(".spm"):
@@ -344,7 +407,7 @@ def _entity_identity(relative_path: str, domain: str) -> tuple[str, str]:
 def _node(root: pathlib.Path, path: pathlib.Path, *, donor: str, side: str, domain: str) -> dict[str, Any]:
     rel = path.resolve().relative_to(root.resolve()).as_posix()
     entity_key, entity_label = _entity_identity(rel, domain)
-    return {
+    row = {
         "donor": donor,
         "side": side.upper(),
         "domain": domain,
@@ -356,6 +419,9 @@ def _node(root: pathlib.Path, path: pathlib.Path, *, donor: str, side: str, doma
         "bytes": path.stat().st_size,
         "field_kind": _classify_field_file(path) if domain == "MAP_FIELD" else None,
     }
+    if side == "server" and domain in {"MONSTER", "NPC", "ITEM"}:
+        row.update(_definition_name_evidence(path, domain))
+    return row
 
 
 def _comparison_tree(donors: list[dict[str, Any]], domains: list[str]) -> dict[str, Any]:
@@ -441,9 +507,13 @@ def _deep_signature_scan(
                 rel_text = path.relative_to(root_resolved).as_posix()
             except ValueError:
                 continue
-            if q and q not in rel_text.casefold():
+            evidence = _definition_query_evidence(path, query, domain) if q else {"match_basis": "NO_QUERY"}
+            if q and evidence is None:
                 continue
-            rows.append(_node(root_resolved, path, donor=donor, side=side, domain=domain))
+            row = _node(root_resolved, path, donor=donor, side=side, domain=domain)
+            if evidence:
+                row["query_match"] = evidence
+            rows.append(row)
             meta["query_matches"] += 1
             if len(rows) >= limit:
                 meta["truncated"] = True
@@ -475,13 +545,17 @@ def _scan_domain(
                 rel_text = resolved.relative_to(root.resolve()).as_posix()
             except ValueError:
                 continue
-            if q and q not in rel_text.casefold():
+            evidence = _definition_query_evidence(path, query, domain) if q else {"match_basis": "NO_QUERY"}
+            if q and evidence is None:
                 continue
             key = str(resolved).casefold()
             if key in seen:
                 continue
             seen.add(key)
-            rows.append(_node(root, path, donor=donor, side=side, domain=domain))
+            row = _node(root, path, donor=donor, side=side, domain=domain)
+            if evidence:
+                row["query_match"] = evidence
+            rows.append(row)
             if len(rows) >= limit:
                 truncated = True
                 return rows, truncated, {"used": False}
@@ -620,47 +694,101 @@ def _fold_identity(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
 
+def _iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]:
+    """Yield unique server-domain files independent of historical layout."""
+    allowed = _SERVER_DOMAIN_ALLOWED_EXTENSIONS.get(domain, set())
+    if not allowed or not root.is_dir():
+        return
+    seen: set[str] = set()
+    for base in _domain_roots(root, "server", domain):
+        for path in base.rglob("*"):
+            if not path.is_file() or path.suffix.casefold() not in allowed:
+                continue
+            key = str(path.resolve()).casefold()
+            if key in seen:
+                continue
+            seen.add(key)
+            yield path.resolve()
+    # Complete the evidence search from the configured donor root. A direct
+    # root may exist while another wrapper subtree contains the needed entry.
+    for dirpath, dirnames, filenames in os.walk(root.resolve(), followlinks=False):
+        dirnames[:] = [d for d in dirnames if d not in {".git", "__pycache__", ".cache", "node_modules"}]
+        here = pathlib.Path(dirpath)
+        for name in filenames:
+            path = here / name
+            if path.suffix.casefold() not in allowed or path.is_symlink():
+                continue
+            key = str(path.resolve()).casefold()
+            if key in seen:
+                continue
+            seen.add(key)
+            yield path.resolve()
+
+
 def _monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]:
     pairs = donor_pairs(project_root)
     pref = preferred_donor.strip().upper()
     out: list[dict[str, Any]] = []
+    donor_files: dict[str, tuple[pathlib.Path, list[pathlib.Path]]] = {}
+    for donor in pairs:
+        info = donor.get("server")
+        if not info or not info.get("present"):
+            continue
+        root = pathlib.Path(str(info["root"])).resolve()
+        donor_files[donor["label"]] = (root, list(_iter_server_domain_files(root, "MONSTER")))
+
     for dep in unresolved:
         name = str(dep.get("name") or "").strip()
         folded = _fold_identity(name)
         tokens = [x for x in folded.split() if len(x) >= 3]
+        hex_value = str(dep.get("legacy_name_bytes_hex") or "").strip()
+        try:
+            legacy_bytes = bytes.fromhex(hex_value) if hex_value else name.encode("cp949")
+        except (ValueError, UnicodeEncodeError):
+            legacy_bytes = b""
         matches: list[dict[str, Any]] = []
-        for donor in pairs:
-            info = donor.get("server")
-            if not info or not info.get("present"):
-                continue
-            root = pathlib.Path(str(info["root"]))
-            base = _ci_child(root, pathlib.PurePosixPath("GameServer/Monster"))
-            if base is None:
-                base = _ci_child(root, pathlib.PurePosixPath("Monster"))
-            if base is None or not base.is_dir():
-                continue
-            for path in base.rglob("*"):
-                if not path.is_file() or path.suffix.casefold() != ".inf":
+        for label, (root, paths) in donor_files.items():
+            for path in paths:
+                try:
+                    data = path.read_bytes()[:2 * 1024 * 1024]
+                except OSError:
                     continue
-                rel = path.resolve().relative_to(root.resolve()).as_posix()
+                rel = path.relative_to(root).as_posix()
                 candidate = _fold_identity(path.stem)
-                if not folded:
+                basis = ""
+                score = 0
+                encoding = ""
+                if legacy_bytes and legacy_bytes in data:
+                    basis = "LEGACY_NAME_BYTES_EXACT"
+                    score = 300
+                    encoding = "cp949-bytes"
+                else:
+                    text, encoding = _decode_legacy_definition(data)
+                    if name and name.casefold() in text.casefold():
+                        basis = "DEFINITION_TEXT_EXACT"
+                        score = 240
+                    else:
+                        exactish = bool(folded) and (folded in candidate or candidate in folded)
+                        token_hit = bool(tokens) and all(t in candidate for t in tokens)
+                        if exactish or token_hit:
+                            basis = "FILENAME_HINT_ONLY"
+                            score = 80 + (40 if exactish else 0) + sum(len(t) for t in tokens if t in candidate)
+                if not basis:
                     continue
-                exactish = folded in candidate or candidate in folded
-                token_hit = bool(tokens) and all(t in candidate for t in tokens)
-                if not (exactish or token_hit):
-                    continue
-                score = (100 if donor["label"] == pref else 0) + (50 if exactish else 0) + sum(len(t) for t in tokens if t in candidate)
+                if label == pref:
+                    score += 100
                 matches.append({
-                    "donor_label": donor["label"],
+                    "donor_label": label,
                     "relative_path": rel,
                     "score": score,
-                    "match_basis": "FILENAME_HINT_ONLY",
+                    "match_basis": basis,
+                    "definition_encoding": encoding,
                     "action": "MONSTER",
                 })
         matches.sort(key=lambda x: (-int(x["score"]), str(x["donor_label"]), str(x["relative_path"]).casefold()))
         out.append({**dep, "candidates": matches[:max_per_name]})
     return out
+
 
 def _selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path:
     wanted = str(label or "").strip().upper()
@@ -803,12 +931,12 @@ def stage_spawn_from_donor(
     unresolved = []
     for actor in doc.get("actors") or []:
         if not actor.get("monster_id"):
-            unresolved.append({"role": "actor", "name": actor.get("legacy_name"), "resolution": actor.get("resolution")})
+            unresolved.append({"role": "actor", "name": actor.get("legacy_name"), "legacy_name_bytes_hex": actor.get("legacy_name_bytes_hex"), "resolution": actor.get("resolution")})
     for boss in doc.get("bosses") or []:
         if not boss.get("master_monster_id"):
-            unresolved.append({"role": "boss_master", "name": boss.get("master_legacy_name"), "resolution": boss.get("master_resolution")})
+            unresolved.append({"role": "boss_master", "name": boss.get("master_legacy_name"), "legacy_name_bytes_hex": boss.get("master_legacy_name_bytes_hex"), "resolution": boss.get("master_resolution")})
         if not boss.get("slave_monster_id"):
-            unresolved.append({"role": "boss_slave", "name": boss.get("slave_legacy_name"), "resolution": boss.get("slave_resolution")})
+            unresolved.append({"role": "boss_slave", "name": boss.get("slave_legacy_name"), "legacy_name_bytes_hex": boss.get("slave_legacy_name_bytes_hex"), "resolution": boss.get("slave_resolution")})
     if unresolved:
         return {
             "format": FORMAT,

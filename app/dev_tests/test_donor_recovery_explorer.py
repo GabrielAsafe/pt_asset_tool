@@ -369,3 +369,54 @@ def test_stage_spawn_rejects_uncertified_field_identity_before_conversion(monkey
         assert "DONOR_STAGE_SPAWN_IDENTITY_NOT_CERTIFIED" in str(exc)
     else:
         raise AssertionError("uncertified donor SPM identity must fail before conversion")
+
+
+def test_monster_explorer_deep_scans_cp949_definition_name_when_filename_differs(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    donor_c = tmp_path / "donor_client"; donor_c.mkdir()
+    donor_s = tmp_path / "donor_server"; donor_s.mkdir()
+    deep = donor_s / "wrapper" / "legacy" / "defs"
+    deep.mkdir(parents=True)
+    name = "연구소 엔지니어"
+    (deep / "Engineer42.inf").write_bytes(f'*J_NAME "{name}"\r\n*LEVEL 100\r\n'.encode("cp949"))
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR2={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR2={donor_s}"])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MONSTER", query=name, donor="DONOR2", limit=50)
+    entities = result["entity_tree"]["MONSTER"]["entities"]
+    assert len(entities) == 1
+    row = entities[0]["variants"][0]
+    assert row["relative_path"].endswith("Engineer42.inf")
+    assert row["query_match"]["match_basis"] == "LEGACY_CP949_BYTES_EXACT"
+    assert name in row["definition_name_evidence"]
+    diag = result["donors"][0]["scan_diagnostics"]["MONSTER"]["SERVER"]
+    assert diag["state"] in {"READY", "READY_FALLBACK_RECURSIVE"}
+    if diag["state"] == "READY_FALLBACK_RECURSIVE":
+        assert diag["fallback_recursive_scan"]["signature_files_seen"] == 1
+
+
+def test_monster_dependency_candidates_prefer_exact_legacy_name_bytes_over_filename(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    dc = tmp_path / "dc"; ds = tmp_path / "ds"; dc.mkdir(); ds.mkdir()
+    deep = ds / "odd" / "layout" / "defs"; deep.mkdir(parents=True)
+    name = "드락소스"
+    payload = f'*J_NAME "{name}"\r\n*LEVEL 120\r\n'.encode("cp949")
+    (deep / "Boss42.inf").write_bytes(payload)
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR2={dc}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR2={ds}"])
+    rows = dre._monster_dependency_candidates(
+        project,
+        [{"role": "boss_master", "name": name, "legacy_name_bytes_hex": name.encode("cp949").hex(), "resolution": "legacy_skip_if_missing"}],
+        preferred_donor="DONOR2",
+    )
+    assert rows[0]["candidates"]
+    cand = rows[0]["candidates"][0]
+    assert cand["relative_path"].endswith("Boss42.inf")
+    assert cand["match_basis"] == "LEGACY_NAME_BYTES_EXACT"
+    assert cand["donor_label"] == "DONOR2"
+
+
+def test_general_census_query_accepts_component_filter_even_before_report(tmp_path):
+    from pt_asset_tool.general_asset_census import query_general_asset_census
+    out = query_general_asset_census(tmp_path, component="cmp-123")
+    assert out["status"] == "NOT_RUN"

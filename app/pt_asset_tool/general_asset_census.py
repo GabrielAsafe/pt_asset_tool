@@ -2240,6 +2240,7 @@ def query_general_asset_census(
     side: str = "",
     decision: str = "",
     family: str = "",
+    component: str = "",
     offset: int = 0,
     limit: int = 200,
 ) -> dict[str, Any]:
@@ -2255,6 +2256,7 @@ def query_general_asset_census(
     side_u = side.upper().strip()
     decision_u = decision.upper().strip()
     family_u = family.upper().strip()
+    component_q = component.casefold().strip()
     filtered = []
     for row in rows:
         if side_u and str(row.get("side") or "").upper() != side_u:
@@ -2263,6 +2265,10 @@ def query_general_asset_census(
             continue
         if family_u and str(row.get("physical_family") or "").upper() != family_u:
             continue
+        if component_q:
+            component_value = str(row.get("component_id") or row.get("component") or "").casefold()
+            if component_q not in component_value:
+                continue
         if q:
             hay = " ".join(str(row.get(k) or "") for k in (
                 "path", "decision", "category", "physical_family", "reachability_evidence",
