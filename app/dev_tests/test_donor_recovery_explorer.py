@@ -562,3 +562,56 @@ def test_stage_definition_includes_ptbr_override_in_same_atomic_transaction(monk
     assert any(x["key"] == "monster.114_lengineer.name" for x in pt["entries"])
     bridge = captured["kwargs"]["provenance"]["localization_bridge"]
     assert bridge["added_entries"][0]["key"] == "monster.114_lengineer.name"
+
+
+def test_definition_primary_legacy_name_prefers_cp949_j_name(tmp_path):
+    source = tmp_path / "114_LEngineer.inf"
+    source.write_bytes(
+        '*E_NAME "Lab Engineer"\r\n*J_NAME "연구소 엔지니어"\r\n*LEVEL 100\r\n'.encode("cp949")
+    )
+    assert dre._definition_primary_legacy_name(source, "MONSTER") == "연구소 엔지니어"
+
+
+def test_stage_definition_ptbr_bridge_falls_back_to_donor_j_name_when_canonical_shape_has_no_semantic_fields(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+    source_root = tmp_path / "source"; content = source_root / "Content"; canonical = content / "canonical"
+    (canonical / "text/localization").mkdir(parents=True)
+    (canonical / "text/index.json").write_text(json.dumps({"documents": []}), encoding="utf-8")
+    (canonical / "text/localization/pt-BR.json").write_text(json.dumps({
+        "schema": "summit.localization-catalog/v1", "schema_version": 1,
+        "locale": "pt-BR", "fallback_locale": "en", "entries": [],
+    }), encoding="utf-8")
+    provider = SimpleNamespace(source_root=source_root, content_root=content, canonical_root=canonical)
+    donor_source = tmp_path / "114_LEngineer.inf"
+    donor_source.write_bytes('*J_NAME "연구소 엔지니어"\r\n*LEVEL 100\r\n'.encode("cp949"))
+    prepared = {
+        "kind": "MONSTER",
+        "entry": {"id": "monster.114_lengineer", "kind": "monster_definition", "legacy_path": "GameServer/Monster/114_LEngineer.inf", "json_path": "resources/Servidor/GameServer/Monster/114_LEngineer.inf.json"},
+        # Reproduce the live failure: canonicalizer output does not expose semantic.fields.name.
+        "document": {"id": "monster.114_lengineer", "kind": "monster_definition", "payload": {"directives": []}},
+        "target_rel": Path("canonical/text/resources/Servidor/GameServer/Monster/114_LEngineer.inf.json"),
+        "donor_root": tmp_path, "source": donor_source,
+        "relative_path": Path("GameServer/Monster/114_LEngineer.inf"),
+        "logical_path": Path("GameServer/Monster/114_LEngineer.inf"), "converter_logs": [],
+    }
+    monkeypatch.setattr(dre, "_prepare_definition_import", lambda *a, **k: prepared)
+    captured = {}
+    def stage(_project, _provider, changes, **kwargs):
+        captured["changes"] = changes; captured["kwargs"] = kwargs
+        return {"format": "X", "status": "STAGED"}
+    monkeypatch.setattr(dre, "stage_canonical_document_set", stage)
+
+    result = dre.stage_definition_from_donor(
+        tmp_path / "project", provider, donor_label="DONOR2",
+        relative_path="GameServer/Monster/114_LEngineer.inf", kind="MONSTER",
+        run_validation=False, run_build=False,
+    )
+    assert result["status"] == "STAGED"
+    pt = next(x["document"] for x in captured["changes"] if x["relative_path"] == "canonical/text/localization/pt-BR.json")
+    row = next(x for x in pt["entries"] if x["key"] == "monster.114_lengineer.name")
+    assert row == {
+        "key": "monster.114_lengineer.name",
+        "text": "연구소 엔지니어",
+        "quality": "legacy_fallback",
+        "source": "monster.114_lengineer",
+    }

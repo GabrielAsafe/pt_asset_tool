@@ -339,6 +339,33 @@ def _definition_name_evidence(path: pathlib.Path, domain: str) -> dict[str, Any]
     return {"definition_encoding": encoding, "definition_name_evidence": names}
 
 
+def _definition_primary_legacy_name(path: pathlib.Path, domain: str) -> str:
+    """Return the legacy display name from the donor definition itself.
+
+    Canonicalized definition JSON is allowed to evolve independently from the
+    Explorer.  Localization bridging must therefore not depend on one specific
+    semantic JSON shape.  Prefer the historical explicit name directives and
+    fall back to the read-only definition evidence parser.
+    """
+    if domain not in {"MONSTER", "NPC", "ITEM"}:
+        return ""
+    try:
+        data = path.read_bytes()[:2 * 1024 * 1024]
+    except OSError:
+        return ""
+    text, _encoding = _decode_legacy_definition(data)
+    for directive in ("J_NAME", "NAME", "E_NAME"):
+        pattern = rf"(?im)^\s*\*{re.escape(directive)}\s+[\"']([^\"'\r\n]{{1,160}})[\"']"
+        match = re.search(pattern, text)
+        if match:
+            value = match.group(1).strip()
+            if value:
+                return value
+    evidence = _definition_name_evidence(path, domain)
+    names = evidence.get("definition_name_evidence") or []
+    return str(names[0]).strip() if names else ""
+
+
 def _classify_field_file(path: pathlib.Path) -> str:
     low = path.name.casefold()
     if low.endswith(".spm"):
@@ -1055,6 +1082,8 @@ def _prepare_definition_import(
 def _definition_ptbr_localization_delta(
     provider: SummitCanonicalContentProvider,
     documents: Iterable[dict[str, Any]],
+    *,
+    fallback_names: dict[str, str] | None = None,
 ) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
     """Bridge newly imported definitions into the source-controlled pt-BR override.
 
@@ -1093,13 +1122,15 @@ def _definition_ptbr_localization_delta(
             continue
         fields = ((doc.get("semantic") or {}).get("fields") or {}) if isinstance(doc.get("semantic"), dict) else {}
         if not isinstance(fields, dict):
-            continue
+            fields = {}
         legacy_name = fields.get("name") if isinstance(fields.get("name"), str) else ""
         english_name = fields.get("english_name") if isinstance(fields.get("english_name"), str) else ""
-        name_text = legacy_name or english_name
+        donor_fallback = str((fallback_names or {}).get(content_id) or "").strip()
+        name_text = legacy_name or english_name or donor_fallback
         required: list[tuple[str, str, str]] = []
         if name_text:
-            required.append((f"{content_id}.name", name_text, "legacy_fallback" if legacy_name else "untranslated_fallback"))
+            quality = "legacy_fallback" if (legacy_name or donor_fallback) else "untranslated_fallback"
+            required.append((f"{content_id}.name", name_text, quality))
         direct_dialog = fields.get("dialog") if isinstance(fields.get("dialog"), str) else ""
         if direct_dialog:
             required.append((f"{content_id}.chat.1", direct_dialog, "legacy_fallback"))
@@ -1150,7 +1181,11 @@ def stage_definition_from_donor(
     index_path = provider.canonical_root / "text" / "index.json"
     current_index = json.loads(index_path.read_text(encoding="utf-8"))
     merged_index = _merge_index(current_index, entry, path_key="legacy_path")
-    localization_doc, localization_added = _definition_ptbr_localization_delta(provider, [doc])
+    fallback_name = _definition_primary_legacy_name(source, kind)
+    fallback_names = {str(doc.get("id") or ""): fallback_name} if fallback_name else {}
+    localization_doc, localization_added = _definition_ptbr_localization_delta(
+        provider, [doc], fallback_names=fallback_names
+    )
     changes = [
         {"relative_path": target_rel.as_posix(), "document": doc},
         {"relative_path": "canonical/text/index.json", "document": merged_index},
@@ -1257,6 +1292,7 @@ def stage_unique_spawn_dependencies_from_donor(
     changes: list[dict[str, Any]] = []
     imported: list[dict[str, Any]] = []
     imported_documents: list[dict[str, Any]] = []
+    imported_fallback_names: dict[str, str] = {}
     already: list[dict[str, Any]] = []
     conflicts: list[dict[str, Any]] = []
     converter_logs: list[dict[str, Any]] = []
@@ -1280,6 +1316,9 @@ def stage_unique_spawn_dependencies_from_donor(
             continue
         changes.append({"relative_path": target_rel.as_posix(), "document": doc})
         imported_documents.append(doc)
+        fallback_name = _definition_primary_legacy_name(prepared["source"], "MONSTER")
+        if fallback_name and doc.get("id"):
+            imported_fallback_names[str(doc["id"])] = fallback_name
         imported.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), **cand})
         converter_logs.extend(prepared["converter_logs"])
 
@@ -1301,7 +1340,7 @@ def stage_unique_spawn_dependencies_from_donor(
 
     changes.append({"relative_path": "canonical/text/index.json", "document": merged_index})
     localization_doc, localization_added = _definition_ptbr_localization_delta(
-        provider, imported_documents
+        provider, imported_documents, fallback_names=imported_fallback_names
     )
     if localization_doc is not None:
         changes.append({"relative_path": "canonical/text/localization/pt-BR.json", "document": localization_doc})
