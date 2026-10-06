@@ -191,3 +191,44 @@ def test_map_field_identity_merges_client_map_assets_with_server_spawn(monkeypat
     lost = entities[0]
     assert lost["variant_count"] == 4
     assert lost["donor_labels"] == ["DONOR1", "SUMMIT"]
+
+
+def test_map_field_server_signature_discovery_finds_nested_field_tree(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    donor_c = tmp_path / "donor_client"; donor_c.mkdir()
+    donor_s = tmp_path / "donor_server"; donor_s.mkdir()
+    nested = donor_s / "runtime/data/maps/Field"
+    nested.mkdir(parents=True)
+    (nested / "lost3.ASE.spm").write_text('*ACTOR "Foo" 100\n')
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR1={donor_s}"])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MAP_FIELD", query="lost3", limit=50)
+    lost = next(x for x in result["entity_tree"]["MAP_FIELD"]["entities"] if x["entity_key"] == "lost3")
+    row = next(x for x in lost["variants"] if x["donor"] == "DONOR1" and x["side"] == "SERVER")
+    assert row["field_kind"] == "SPM"
+    assert row["relative_path"].endswith("runtime/data/maps/Field/lost3.ASE.spm")
+    assert dre._server_logical_path(Path(row["relative_path"])).as_posix() == "GameServer/Field/lost3.ASE.spm"
+    diag = result["donors"][1]["scan_diagnostics"]["MAP_FIELD"]["SERVER"]
+    assert diag["state"] == "READY"
+    assert any(Path(x).name.casefold() == "field" for x in diag["signature_scan_roots"])
+
+
+def test_map_field_server_scan_rejects_client_geometry_and_textures(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    # A misleading server/Field mirror contains client assets; only SPM/SPP/SPC
+    # are legitimate SERVER MAP_FIELD variants.
+    (target_s / "Field/Lost").mkdir(parents=True)
+    (target_s / "Field/Lost/lost3.smd").write_text("x")
+    (target_s / "Field/map").mkdir(parents=True)
+    (target_s / "Field/map/lost3.tga").write_text("x")
+    (target_s / "deep/GameServer/Field").mkdir(parents=True)
+    (target_s / "deep/GameServer/Field/lost3.ASE.spp").write_text("server")
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MAP_FIELD", query="lost3", limit=50)
+    lost = next(x for x in result["entity_tree"]["MAP_FIELD"]["entities"] if x["entity_key"] == "lost3")
+    server_rows = [x for x in lost["variants"] if x["donor"] == "SUMMIT" and x["side"] == "SERVER"]
+    assert [x["field_kind"] for x in server_rows] == ["SPP"]
+    assert server_rows[0]["relative_path"].endswith("deep/GameServer/Field/lost3.ASE.spp")

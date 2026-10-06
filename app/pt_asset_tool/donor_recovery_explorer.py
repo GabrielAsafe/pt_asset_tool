@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 import pathlib
 import re
 import shutil
@@ -34,6 +35,21 @@ _DOMAIN_ROOTS = {
         "MAP_FIELD": ("Field", "field"),
         "ITEM": ("image/Sinimage/items", "image/SinImage/items"),
     },
+}
+
+_SERVER_DOMAIN_SIGNATURE_EXTENSIONS = {
+    # SPM/SPP/SPC are strong enough signatures to locate a GameServer field
+    # tree even when the configured donor root points above/below the usual
+    # GameServer directory.  Keep discovery deliberately narrow for domains
+    # whose extensions are not unique enough.
+    "MAP_FIELD": {".spm", ".spp", ".spc"},
+}
+
+_SERVER_DOMAIN_ALLOWED_EXTENSIONS = {
+    # Never let client map geometry/textures found under a server root become
+    # server-side field variants.  The semantic server authority for this
+    # Explorer is the legacy field metadata trio.
+    "MAP_FIELD": {".spm", ".spp", ".spc"},
 }
 
 
@@ -117,28 +133,73 @@ def _domain_root_candidates(root: pathlib.Path, side: str, domain: str) -> list[
     return out
 
 
+def _signature_domain_roots(root: pathlib.Path, side: str, domain: str, *, max_depth: int = 8) -> list[pathlib.Path]:
+    if side != "server" or not root.is_dir():
+        return []
+    extensions = _SERVER_DOMAIN_SIGNATURE_EXTENSIONS.get(domain, set())
+    if not extensions:
+        return []
+    found: list[pathlib.Path] = []
+    root = root.resolve()
+    for dirpath, dirnames, filenames in os.walk(root, followlinks=False):
+        here = pathlib.Path(dirpath)
+        try:
+            depth = len(here.relative_to(root).parts)
+        except ValueError:
+            continue
+        if depth >= max_depth:
+            dirnames[:] = []
+        # Avoid caches/VCS/build metadata while still accepting arbitrary donor
+        # layouts such as Files/Server/game-server/data/GameServer/Field.
+        dirnames[:] = [d for d in dirnames if d not in {".git", "__pycache__", ".cache"}]
+        if any(pathlib.Path(name).suffix.casefold() in extensions for name in filenames):
+            found.append(here.resolve())
+    # If both an ancestor and descendant contain signature files, scan both:
+    # each directory contributes its own field metadata and _scan_domain never
+    # recursively starts from the configured donor root itself.
+    return found
+
+
 def _domain_roots(root: pathlib.Path, side: str, domain: str) -> list[pathlib.Path]:
     out: list[pathlib.Path] = []
     seen: set[str] = set()
+    direct: list[pathlib.Path] = []
     for rel in _domain_root_candidates(root, side, domain):
         p = _ci_child(root, rel)
         if p is not None and p.is_dir():
-            key = str(p.resolve()).casefold()
-            if key not in seen:
-                seen.add(key)
-                out.append(p.resolve())
+            direct.append(p.resolve())
+    for p in [*direct, *_signature_domain_roots(root, side, domain)]:
+        key = str(p.resolve()).casefold()
+        if key not in seen:
+            seen.add(key)
+            out.append(p.resolve())
     return out
 
 
 def _scan_diagnostic(root: pathlib.Path, side: str, domain: str) -> dict[str, Any]:
+    direct = []
+    for rel in _domain_root_candidates(root, side, domain):
+        p = _ci_child(root, rel)
+        if p is not None and p.is_dir():
+            direct.append(p.resolve())
+    signature = _signature_domain_roots(root, side, domain)
     resolved = _domain_roots(root, side, domain)
     return {
         "configured_root": str(root.resolve()),
         "present": root.is_dir(),
         "candidate_layouts": [x.as_posix() for x in _domain_root_candidates(root, side, domain)],
+        "direct_scan_roots": [str(x) for x in direct],
+        "signature_scan_roots": [str(x) for x in signature],
         "resolved_scan_roots": [str(x) for x in resolved],
         "state": "READY" if resolved else "NO_DOMAIN_ROOT",
     }
+
+
+def _domain_file_allowed(side: str, domain: str, path: pathlib.Path) -> bool:
+    allowed = _SERVER_DOMAIN_ALLOWED_EXTENSIONS.get(domain) if side == "server" else None
+    if allowed is not None:
+        return path.suffix.casefold() in allowed
+    return True
 
 
 def _classify_field_file(path: pathlib.Path) -> str:
@@ -264,6 +325,8 @@ def _scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, quer
     for base in _domain_roots(root, side, domain):
         for path in base.rglob("*"):
             if not path.is_file():
+                continue
+            if not _domain_file_allowed(side, domain, path):
                 continue
             rel_text = path.resolve().relative_to(root.resolve()).as_posix()
             if q and q not in rel_text.casefold():
@@ -459,6 +522,10 @@ def _server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath:
             return pathlib.PurePosixPath("GameServer", *tail)
     if parts and parts[0].casefold() in {"field", "monster", "npc", "openitem"}:
         return pathlib.PurePosixPath("GameServer", *parts)
+    for marker in ("field", "monster", "npc", "openitem"):
+        if marker in lower:
+            idx = lower.index(marker)
+            return pathlib.PurePosixPath("GameServer", *parts[idx:])
     raise ValueError(f"DONOR_SERVER_LOGICAL_PATH_UNRECOGNIZED:{rel.as_posix()}")
 
 
