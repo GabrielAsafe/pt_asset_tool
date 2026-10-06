@@ -497,3 +497,68 @@ def test_spawn_dependency_batch_ui_and_route_are_exposed():
     assert "Stage unique exact monster dependencies" in html
     assert "STAGE_SPAWN_DEPENDENCIES" in js
     assert "stage_unique_spawn_dependencies_from_donor" in py
+
+
+def test_definition_ptbr_bridge_adds_missing_runtime_name_without_overwriting_translation(tmp_path):
+    from types import SimpleNamespace
+    canonical = tmp_path / "Content/canonical"
+    loc = canonical / "text/localization/pt-BR.json"
+    loc.parent.mkdir(parents=True)
+    loc.write_text(json.dumps({
+        "schema": "summit.localization-catalog/v1", "schema_version": 1,
+        "locale": "pt-BR", "fallback_locale": "en", "entries": [
+            {"key": "monster.existing.name", "text": "Tradução aprovada", "quality": "translated", "source": "monster.existing"}
+        ],
+    }, ensure_ascii=False), encoding="utf-8")
+    provider = SimpleNamespace(canonical_root=canonical)
+    new_doc = {"id": "monster.114_lengineer", "semantic": {"fields": {"name": "연구소 엔지니어"}}}
+    existing_doc = {"id": "monster.existing", "semantic": {"fields": {"name": "Legacy Existing"}}}
+    catalog, added = dre._definition_ptbr_localization_delta(provider, [new_doc, existing_doc])
+    assert [x["key"] for x in added] == ["monster.114_lengineer.name"]
+    row = next(x for x in catalog["entries"] if x["key"] == "monster.114_lengineer.name")
+    assert row == {
+        "key": "monster.114_lengineer.name", "text": "연구소 엔지니어",
+        "quality": "legacy_fallback", "source": "monster.114_lengineer",
+    }
+    preserved = next(x for x in catalog["entries"] if x["key"] == "monster.existing.name")
+    assert preserved["text"] == "Tradução aprovada"
+
+
+def test_stage_definition_includes_ptbr_override_in_same_atomic_transaction(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+    source = tmp_path / "source"; content = source / "Content"; canonical = content / "canonical"
+    (canonical / "text/localization").mkdir(parents=True)
+    (canonical / "text/index.json").write_text(json.dumps({"documents": []}), encoding="utf-8")
+    (canonical / "text/localization/pt-BR.json").write_text(json.dumps({
+        "schema": "summit.localization-catalog/v1", "schema_version": 1,
+        "locale": "pt-BR", "fallback_locale": "en", "entries": [],
+    }), encoding="utf-8")
+    provider = SimpleNamespace(source_root=source, content_root=content, canonical_root=canonical)
+    donor_source = tmp_path / "114_LEngineer.inf"; donor_source.write_bytes(b"monster")
+    prepared = {
+        "kind": "MONSTER",
+        "entry": {"id": "monster.114_lengineer", "kind": "monster_definition", "legacy_path": "GameServer/Monster/114_LEngineer.inf", "json_path": "resources/Servidor/GameServer/Monster/114_LEngineer.inf.json"},
+        "document": {"id": "monster.114_lengineer", "kind": "monster_definition", "semantic": {"fields": {"name": "연구소 엔지니어"}}},
+        "target_rel": Path("canonical/text/resources/Servidor/GameServer/Monster/114_LEngineer.inf.json"),
+        "donor_root": tmp_path, "source": donor_source,
+        "relative_path": Path("GameServer/Monster/114_LEngineer.inf"),
+        "logical_path": Path("GameServer/Monster/114_LEngineer.inf"), "converter_logs": [],
+    }
+    monkeypatch.setattr(dre, "_prepare_definition_import", lambda *a, **k: prepared)
+    captured = {}
+    def stage(_project, _provider, changes, **kwargs):
+        captured["changes"] = changes; captured["kwargs"] = kwargs
+        return {"format": "X", "status": "STAGED"}
+    monkeypatch.setattr(dre, "stage_canonical_document_set", stage)
+    result = dre.stage_definition_from_donor(tmp_path / "project", provider, donor_label="DONOR2", relative_path="GameServer/Monster/114_LEngineer.inf", kind="MONSTER", run_validation=False, run_build=False)
+    assert result["status"] == "STAGED"
+    paths = [x["relative_path"] for x in captured["changes"]]
+    assert paths == [
+        "canonical/text/resources/Servidor/GameServer/Monster/114_LEngineer.inf.json",
+        "canonical/text/index.json",
+        "canonical/text/localization/pt-BR.json",
+    ]
+    pt = captured["changes"][-1]["document"]
+    assert any(x["key"] == "monster.114_lengineer.name" for x in pt["entries"])
+    bridge = captured["kwargs"]["provenance"]["localization_bridge"]
+    assert bridge["added_entries"][0]["key"] == "monster.114_lengineer.name"

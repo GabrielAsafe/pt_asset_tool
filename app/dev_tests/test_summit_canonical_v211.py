@@ -426,3 +426,64 @@ def test_runtime_deploy_is_role_aware_and_transactionally_restorable(tmp_path):
     restored = restore_canonical_transaction(project, m, confirm="RESTORE CANONICAL TRANSACTION")
     assert restored["deploy_phase"] == "RESTORED"
     assert stale.read_bytes() == b"old-server-pack"
+
+
+def test_canonical_tool_failure_surfaces_tool_output(tmp_path):
+    import sys
+    import pt_asset_tool.canonical_authoring as ca
+    script = tmp_path / "fail_tool.py"
+    script.write_text("import sys\nprint('precise validator failure')\nsys.exit(7)\n", encoding="utf-8")
+    log = []
+    with pytest.raises(RuntimeError) as exc:
+        ca._run([sys.executable, str(script)], cwd=tmp_path, log=log)
+    assert "CANONICAL_TOOL_FAILED:fail_tool.py:7" in str(exc.value)
+    assert "precise validator failure" in str(exc.value)
+    assert log[0]["returncode"] == 7
+
+
+def test_document_set_marks_localization_change_for_publish_gate(tmp_path):
+    root = _source(tmp_path)
+    provider = SummitCanonicalContentProvider(root)
+    project = tmp_path / "project"; project.mkdir()
+    source_doc = json.loads((root / "Content/canonical/text/localization/pt-BR.json").read_text(encoding="utf-8"))
+    source_doc["entries"].append({"key": "monster.new.name", "text": "Novo", "quality": "translated", "source": "monster.new"})
+    result = stage_canonical_document_set(
+        project, provider,
+        [{"relative_path": "canonical/text/localization/pt-BR.json", "document": source_doc}],
+        kind="MONSTER_DEPENDENCY_SET", run_validation=False, run_build=False,
+    )
+    assert result["manifest"]["localization_edit"] is True
+
+
+def test_document_set_captures_materialized_localization_json_deltas(monkeypatch, tmp_path):
+    import pt_asset_tool.canonical_authoring as ca
+    root = _source(tmp_path)
+    provider = SummitCanonicalContentProvider(root)
+    project = tmp_path / "project"; project.mkdir()
+    pt = json.loads((root / "Content/canonical/text/localization/pt-BR.json").read_text(encoding="utf-8"))
+    pt["entries"].append({"key": "monster.new.name", "text": "Novo", "quality": "translated", "source": "monster.new"})
+
+    def fake_validate(_provider, stage_root):
+        loc = stage_root / "canonical/text/localization"
+        _write_json(loc / "en.json", {
+            "schema": "summit.localization-catalog/v1", "schema_version": 1,
+            "locale": "en", "fallback_locale": None,
+            "entries": [{"key": "monster.new.name", "text": "New", "quality": "translated", "source": "monster.new"}],
+        })
+        report = json.loads((loc / "report.json").read_text(encoding="utf-8"))
+        report["keys"] = 3
+        _write_json(loc / "report.json", report)
+        return {"status": "PASS", "commands": []}
+
+    monkeypatch.setattr(ca, "validate_staged_canonical", fake_validate)
+    result = ca.stage_canonical_document_set(
+        project, provider,
+        [{"relative_path": "canonical/text/localization/pt-BR.json", "document": pt}],
+        kind="MONSTER_DEPENDENCY_SET", run_validation=True, run_build=False,
+    )
+    rows = {x["canonical_json_path"]: x for x in result["manifest"]["source_changes"]}
+    assert "canonical/text/localization/pt-BR.json" in rows
+    assert "canonical/text/localization/en.json" in rows
+    assert "canonical/text/localization/report.json" in rows
+    assert rows["canonical/text/localization/en.json"]["source_existed"] is False
+    assert rows["canonical/text/localization/report.json"]["generated_by_stage"] == "materialize_localization_catalog.py"

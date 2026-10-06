@@ -467,7 +467,10 @@ def _run(cmd: list[str], *, cwd: pathlib.Path, log: list[dict[str, Any]]) -> dic
     row = {"command": cmd, "returncode": proc.returncode, "output": proc.stdout[-20000:]}
     log.append(row)
     if proc.returncode != 0:
-        raise RuntimeError(f"CANONICAL_TOOL_FAILED:{pathlib.Path(cmd[1]).name if len(cmd)>1 else cmd[0]}:{proc.returncode}")
+        tool = pathlib.Path(cmd[1]).name if len(cmd) > 1 else cmd[0]
+        detail = (proc.stdout or "").strip()[-6000:]
+        suffix = f"\n{detail}" if detail else ""
+        raise RuntimeError(f"CANONICAL_TOOL_FAILED:{tool}:{proc.returncode}{suffix}")
     return row
 
 
@@ -738,6 +741,11 @@ def stage_canonical_document_set(
         target = provider.content_root / pathlib.Path(*rel.parts)
         normalized.append((rel, copy.deepcopy(raw["document"]), target, target.is_file()))
 
+    requested_localization_edit = any(
+        rel.as_posix().casefold().startswith("canonical/text/localization/")
+        for rel, _doc, _target, _existed in normalized
+    )
+
     tx = _now_id()
     stage_root = project_root / "pt_build" / "source_content_stage" / tx
     stage_root.parent.mkdir(parents=True, exist_ok=True)
@@ -769,12 +777,69 @@ def stage_canonical_document_set(
         build = build_staged_packs(provider, stage_root)
         build_manifest = materialize_staged_build_manifest(stage_root, build["pack_hashes"])
 
+    # Validation/materialization is allowed to regenerate the localization
+    # catalogue in the isolated stage.  When a transaction explicitly edits
+    # localization, publish must carry every generated JSON delta as part of
+    # the same source transaction; otherwise the post-write canonical family
+    # fingerprint would differ from the validated stage.  Deletions remain
+    # fail-closed because source publish currently supports create/replace only.
+    if requested_localization_edit:
+        loc_rel = pathlib.PurePosixPath("canonical/text/localization")
+        staged_loc = stage_root / pathlib.Path(*loc_rel.parts)
+        source_loc = provider.content_root / pathlib.Path(*loc_rel.parts)
+        staged_files = {
+            p.relative_to(staged_loc).as_posix(): p
+            for p in staged_loc.rglob("*.json") if p.is_file()
+        } if staged_loc.is_dir() else {}
+        source_files = {
+            p.relative_to(source_loc).as_posix(): p
+            for p in source_loc.rglob("*.json") if p.is_file()
+        } if source_loc.is_dir() else {}
+        missing_after_materialize = sorted(set(source_files) - set(staged_files))
+        if missing_after_materialize:
+            raise ValueError(
+                "CANONICAL_LOCALIZATION_STAGE_DELETION_UNSUPPORTED:" + ",".join(missing_after_materialize[:20])
+            )
+        by_path = {str(row["canonical_json_path"]).casefold(): row for row in source_changes}
+        for sub, staged in sorted(staged_files.items()):
+            rel = loc_rel / pathlib.PurePosixPath(sub)
+            key = rel.as_posix().casefold()
+            source = source_files.get(sub)
+            source_sha = sha256_file(source) if source is not None else None
+            staged_sha = sha256_file(staged)
+            row = by_path.get(key)
+            if row is not None:
+                row["staged_post_sha256"] = staged_sha
+                row["staged_json"] = str(staged)
+                continue
+            if source_sha == staged_sha:
+                continue
+            row = {
+                "canonical_json_path": rel.as_posix(),
+                "source_existed": source is not None,
+                "source_pre_sha256": source_sha,
+                "staged_post_sha256": staged_sha,
+                "staged_json": str(staged),
+                "generated_by_stage": "materialize_localization_catalog.py",
+            }
+            source_changes.append(row)
+            by_path[key] = row
+
+    # Any stage tool may rewrite an explicitly changed document.  The manifest
+    # must describe the final validated bytes, not the pre-validation draft.
+    for row in source_changes:
+        staged = pathlib.Path(str(row["staged_json"]))
+        if not staged.is_file():
+            raise FileNotFoundError(f"CANONICAL_STAGED_SOURCE_CHANGE_MISSING:{row['canonical_json_path']}")
+        row["staged_post_sha256"] = sha256_file(staged)
+
     staged_file_inventory = canonical_file_hash_inventory_at(stage_root / "canonical")
     source_hash_manifest = stage_root / "source_canonical_file_hashes.json"
     staged_hash_manifest = stage_root / "staged_canonical_file_hashes.json"
     _atomic_json(source_hash_manifest, source_file_inventory)
     _atomic_json(staged_hash_manifest, staged_file_inventory)
     primary = source_changes[0]
+    localization_edit = requested_localization_edit
     manifest = {
         "format": MANIFEST_FORMAT,
         "status": "STAGED",
@@ -809,8 +874,8 @@ def stage_canonical_document_set(
         "build": build,
         "staged_build_manifest": build_manifest,
         "pack_hashes": build.get("pack_hashes") or {},
-        "localization_edit": False,
-        "localization_publish_gate": None,
+        "localization_edit": localization_edit,
+        "localization_publish_gate": provider.localization_publish_gate(run_validator=False) if localization_edit else None,
         "publish_phases": ["SOURCE_JSON_SET", "SOURCE_PACKS", "CLIENT_SERVER_RUNTIME_DEPLOY"],
         "legacy_direct_write_authorized": False,
         "provenance": copy.deepcopy(provenance or {}),

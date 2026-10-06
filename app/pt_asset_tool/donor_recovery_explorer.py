@@ -1052,6 +1052,71 @@ def _prepare_definition_import(
     }
 
 
+def _definition_ptbr_localization_delta(
+    provider: SummitCanonicalContentProvider,
+    documents: Iterable[dict[str, Any]],
+) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
+    """Bridge newly imported definitions into the source-controlled pt-BR override.
+
+    The current SUMMIT materializer treats ``canonical/text/localization/pt-BR.json``
+    as an exact-coverage canonical override.  Adding a Monster/NPC/Item therefore
+    introduces runtime keys (at minimum ``<content-id>.name``) that must exist in
+    that override before the materializer may rebuild the catalog.
+
+    This bridge is deliberately conservative: it only adds missing keys, never
+    replaces an existing translation.  Legacy definition text is preserved as a
+    ``legacy_fallback`` until a reviewed pt-BR translation is authored.
+    """
+    path = provider.canonical_root / "text" / "localization" / "pt-BR.json"
+    if not path.is_file():
+        return None, []
+    catalog = json.loads(path.read_text(encoding="utf-8"))
+    if catalog.get("schema") != "summit.localization-catalog/v1" or catalog.get("locale") != "pt-BR":
+        raise ValueError("DONOR_LOCALIZATION_PTBR_CATALOG_INVALID")
+    entries = catalog.get("entries")
+    if not isinstance(entries, list):
+        raise ValueError("DONOR_LOCALIZATION_PTBR_ENTRIES_INVALID")
+    existing: dict[str, dict[str, Any]] = {}
+    for row in entries:
+        if not isinstance(row, dict) or not isinstance(row.get("key"), str):
+            raise ValueError("DONOR_LOCALIZATION_PTBR_ENTRY_INVALID")
+        key = str(row["key"])
+        old = existing.get(key)
+        if old is not None and old != row:
+            raise ValueError(f"DONOR_LOCALIZATION_PTBR_DUPLICATE_CONFLICT:{key}")
+        existing[key] = row
+
+    added: list[dict[str, Any]] = []
+    for doc in documents:
+        content_id = str(doc.get("id") or "").strip()
+        if not content_id:
+            continue
+        fields = ((doc.get("semantic") or {}).get("fields") or {}) if isinstance(doc.get("semantic"), dict) else {}
+        if not isinstance(fields, dict):
+            continue
+        legacy_name = fields.get("name") if isinstance(fields.get("name"), str) else ""
+        english_name = fields.get("english_name") if isinstance(fields.get("english_name"), str) else ""
+        name_text = legacy_name or english_name
+        required: list[tuple[str, str, str]] = []
+        if name_text:
+            required.append((f"{content_id}.name", name_text, "legacy_fallback" if legacy_name else "untranslated_fallback"))
+        direct_dialog = fields.get("dialog") if isinstance(fields.get("dialog"), str) else ""
+        if direct_dialog:
+            required.append((f"{content_id}.chat.1", direct_dialog, "legacy_fallback"))
+        for key, text, quality in required:
+            if key in existing:
+                continue
+            row = {"key": key, "text": text, "quality": quality, "source": content_id}
+            entries.append(row)
+            existing[key] = row
+            added.append(copy.deepcopy(row))
+
+    if not added:
+        return None, []
+    catalog["entries"] = sorted(entries, key=lambda row: str(row.get("key") or ""))
+    return catalog, added
+
+
 def stage_definition_from_donor(
     project_root: pathlib.Path,
     provider: SummitCanonicalContentProvider,
@@ -1085,19 +1150,23 @@ def stage_definition_from_donor(
     index_path = provider.canonical_root / "text" / "index.json"
     current_index = json.loads(index_path.read_text(encoding="utf-8"))
     merged_index = _merge_index(current_index, entry, path_key="legacy_path")
+    localization_doc, localization_added = _definition_ptbr_localization_delta(provider, [doc])
+    changes = [
+        {"relative_path": target_rel.as_posix(), "document": doc},
+        {"relative_path": "canonical/text/index.json", "document": merged_index},
+    ]
+    if localization_doc is not None:
+        changes.append({"relative_path": "canonical/text/localization/pt-BR.json", "document": localization_doc})
     result = stage_canonical_document_set(
         project_root, provider,
-        [
-            {"relative_path": target_rel.as_posix(), "document": doc},
-            {"relative_path": "canonical/text/index.json", "document": merged_index},
-        ],
+        changes,
         kind=kind,
         canonical_id=str(doc.get("id") or ""),
         provenance={
             "origin": "DONOR_DEFINITION",
             "donor_label": donor_label.upper(), "donor_side": "SERVER", "donor_root": str(donor_root),
             "donor_relative_path": rel.as_posix(), "donor_sha256": sha256_file(source), "logical_path": logical.as_posix(),
-            "converter_logs": logs,
+            "converter_logs": logs, "localization_bridge": {"locale": "pt-BR", "added_entries": localization_added},
         },
         run_validation=run_validation,
         run_build=run_build,
@@ -1187,6 +1256,7 @@ def stage_unique_spawn_dependencies_from_donor(
     merged_index = json.loads(current_index_path.read_text(encoding="utf-8"))
     changes: list[dict[str, Any]] = []
     imported: list[dict[str, Any]] = []
+    imported_documents: list[dict[str, Any]] = []
     already: list[dict[str, Any]] = []
     conflicts: list[dict[str, Any]] = []
     converter_logs: list[dict[str, Any]] = []
@@ -1209,6 +1279,7 @@ def stage_unique_spawn_dependencies_from_donor(
             conflicts.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), "error": str(exc), **cand})
             continue
         changes.append({"relative_path": target_rel.as_posix(), "document": doc})
+        imported_documents.append(doc)
         imported.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), **cand})
         converter_logs.extend(prepared["converter_logs"])
 
@@ -1229,6 +1300,11 @@ def stage_unique_spawn_dependencies_from_donor(
         }
 
     changes.append({"relative_path": "canonical/text/index.json", "document": merged_index})
+    localization_doc, localization_added = _definition_ptbr_localization_delta(
+        provider, imported_documents
+    )
+    if localization_doc is not None:
+        changes.append({"relative_path": "canonical/text/localization/pt-BR.json", "document": localization_doc})
     result = stage_canonical_document_set(
         project_root, provider, changes, kind="MONSTER_DEPENDENCY_SET",
         canonical_id=str(preview.get("converted_preview", {}).get("id") or ""),
@@ -1238,6 +1314,7 @@ def stage_unique_spawn_dependencies_from_donor(
             "spawn_donor_sha256": preview.get("donor_sha256"), "logical_path": preview.get("logical_path"),
             "auto_selected_basis": "LEGACY_NAME_BYTES_EXACT_UNIQUE", "imported": imported,
             "already_canonical": already, "ambiguous": ambiguous, "missing": missing, "converter_logs": converter_logs,
+            "localization_bridge": {"locale": "pt-BR", "added_entries": localization_added},
         },
         run_validation=run_validation, run_build=run_build,
     )
