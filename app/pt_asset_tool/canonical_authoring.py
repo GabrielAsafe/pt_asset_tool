@@ -30,6 +30,7 @@ TRANSACTION_FORMAT = "PT_ASSET_CANONICAL_PUBLISH_TRANSACTION_V1"
 PUBLISH_SOURCE_CONFIRM = "PUBLISH CANONICAL SOURCE"
 PUBLISH_PACKS_CONFIRM = "PUBLISH CANONICAL PACKS"
 RESTORE_CONFIRM = "RESTORE CANONICAL TRANSACTION"
+PUBLISH_RUNTIME_CONFIRM = "DEPLOY CANONICAL RUNTIME"
 
 _DEFINITION_KINDS = {"ITEM": "open_item_definition", "MONSTER": "monster_definition", "NPC": "npc_definition"}
 _OTHER_KINDS = {
@@ -685,7 +686,7 @@ def stage_canonical_authoring(
         "pack_hashes": build.get("pack_hashes") or {},
         "localization_edit": localization_edit,
         "localization_publish_gate": provider.localization_publish_gate(run_validator=False) if localization_edit else None,
-        "publish_phases": ["SOURCE_JSON", "SOURCE_PACKS", "CLIENT_SERVER_DEPLOY_SEPARATE"],
+        "publish_phases": ["SOURCE_JSON", "SOURCE_PACKS", "CLIENT_SERVER_RUNTIME_DEPLOY"],
         "legacy_direct_write_authorized": False,
     }
     manifest_path = stage_root / "manifest.json"
@@ -693,6 +694,131 @@ def stage_canonical_authoring(
     manifest["manifest"] = str(manifest_path)
     return {"format": FORMAT, "status": "STAGED", "manifest": manifest, "spec": copy.deepcopy(spec)}
 
+
+
+def stage_canonical_document_set(
+    project_root: pathlib.Path,
+    provider: SummitCanonicalContentProvider,
+    changes: list[dict[str, Any]],
+    *,
+    kind: str,
+    canonical_id: str = "",
+    provenance: dict[str, Any] | None = None,
+    run_validation: bool = True,
+    run_build: bool = True,
+) -> dict[str, Any]:
+    """Stage an atomic set of canonical JSON documents, including new files.
+
+    This is the bridge used by donor recovery.  It keeps the original canonical
+    tree immutable, writes only into pt_build, validates/compiles the complete
+    staged tree, and records enough pre/post evidence for transactional publish
+    and restore.  ``changes`` entries are ``relative_path`` (relative to
+    Content/) plus a JSON-object ``document``.  Existing files may be replaced;
+    absent files may be created.  Multiple files (for example a new spawn and
+    stage_spawns/index.json) are one transaction.
+    """
+    project_root = pathlib.Path(project_root).resolve()
+    if not changes:
+        raise ValueError("CANONICAL_DOCUMENT_SET_REQUIRED")
+    normalized: list[tuple[pathlib.PurePosixPath, dict[str, Any], pathlib.Path, bool]] = []
+    seen: set[str] = set()
+    for raw in changes:
+        if not isinstance(raw, dict) or not isinstance(raw.get("document"), dict):
+            raise ValueError("CANONICAL_DOCUMENT_SET_ENTRY_INVALID")
+        text = str(raw.get("relative_path") or "").replace("\\", "/").strip().lstrip("/")
+        rel = pathlib.PurePosixPath(text)
+        if not rel.parts or rel.is_absolute() or ".." in rel.parts or rel.suffix.casefold() != ".json":
+            raise ValueError(f"CANONICAL_DOCUMENT_SET_PATH_INVALID:{text}")
+        if not rel.as_posix().casefold().startswith("canonical/"):
+            raise ValueError(f"CANONICAL_DOCUMENT_SET_PATH_OUTSIDE_CANONICAL:{text}")
+        key = rel.as_posix().casefold()
+        if key in seen:
+            raise ValueError(f"CANONICAL_DOCUMENT_SET_DUPLICATE:{text}")
+        seen.add(key)
+        target = provider.content_root / pathlib.Path(*rel.parts)
+        normalized.append((rel, copy.deepcopy(raw["document"]), target, target.is_file()))
+
+    tx = _now_id()
+    stage_root = project_root / "pt_build" / "source_content_stage" / tx
+    stage_root.parent.mkdir(parents=True, exist_ok=True)
+    _copy_canonical_tree(provider, stage_root)
+    source_status = provider.status()
+    source_file_inventory = canonical_file_hash_inventory_at(provider.canonical_root)
+    source_changes: list[dict[str, Any]] = []
+    for rel, doc, target, existed in normalized:
+        staged = stage_root / pathlib.Path(*rel.parts)
+        staged.parent.mkdir(parents=True, exist_ok=True)
+        pre_sha = sha256_file(target) if existed else None
+        _atomic_json(staged, doc)
+        source_changes.append({
+            "canonical_json_path": rel.as_posix(),
+            "source_existed": bool(existed),
+            "source_pre_sha256": pre_sha,
+            "staged_post_sha256": sha256_file(staged),
+            "staged_json": str(staged),
+        })
+
+    validation = {"status": "SKIPPED"}
+    build = {"status": "SKIPPED", "pack_hashes": {}}
+    build_manifest = {"status": "SKIPPED"}
+    if run_validation:
+        validation = validate_staged_canonical(provider, stage_root)
+    if run_build:
+        if not run_validation:
+            raise ValueError("CANONICAL_BUILD_REQUIRES_VALIDATION")
+        build = build_staged_packs(provider, stage_root)
+        build_manifest = materialize_staged_build_manifest(stage_root, build["pack_hashes"])
+
+    staged_file_inventory = canonical_file_hash_inventory_at(stage_root / "canonical")
+    source_hash_manifest = stage_root / "source_canonical_file_hashes.json"
+    staged_hash_manifest = stage_root / "staged_canonical_file_hashes.json"
+    _atomic_json(source_hash_manifest, source_file_inventory)
+    _atomic_json(staged_hash_manifest, staged_file_inventory)
+    primary = source_changes[0]
+    manifest = {
+        "format": MANIFEST_FORMAT,
+        "status": "STAGED",
+        "tx": tx,
+        "kind": str(kind or "CANONICAL_DOCUMENT_SET").upper(),
+        "family": None,
+        "canonical_id": canonical_id or None,
+        "profile": None,
+        "source_root": str(provider.source_root),
+        "source_root_authority": "SUMMIT_CANONICAL_SOURCE",
+        "canonical_source_schema": CANONICAL_SOURCE_SCHEMA,
+        "build_schema": BUILD_SCHEMA,
+        "canonical_source_sha256": source_status["canonical_source_sha256"],
+        "source_build_manifest_sha256": source_status["build_manifest_sha256"],
+        "source_family_fingerprints": source_status["family_fingerprints"],
+        "source_declared_family_fingerprints": source_status.get("declared_family_fingerprints", {}),
+        "staged_family_fingerprints": canonical_family_fingerprints_at(stage_root / "canonical"),
+        "source_canonical_file_inventory": {k: source_file_inventory[k] for k in ("sha256", "files", "bytes")},
+        "staged_canonical_file_inventory": {k: staged_file_inventory[k] for k in ("sha256", "files", "bytes")},
+        "source_canonical_file_hash_manifest": str(source_hash_manifest),
+        "source_canonical_file_hash_manifest_sha256": sha256_file(source_hash_manifest),
+        "staged_canonical_file_hash_manifest": str(staged_hash_manifest),
+        "staged_canonical_file_hash_manifest_sha256": sha256_file(staged_hash_manifest),
+        # Compatibility fields for existing UI / publish surfaces.
+        "canonical_json_path": primary["canonical_json_path"],
+        "source_pre_sha256": primary["source_pre_sha256"],
+        "staged_post_sha256": primary["staged_post_sha256"],
+        "staged_json": primary["staged_json"],
+        "source_changes": source_changes,
+        "stage_root": str(stage_root),
+        "validation": validation,
+        "build": build,
+        "staged_build_manifest": build_manifest,
+        "pack_hashes": build.get("pack_hashes") or {},
+        "localization_edit": False,
+        "localization_publish_gate": None,
+        "publish_phases": ["SOURCE_JSON_SET", "SOURCE_PACKS", "CLIENT_SERVER_RUNTIME_DEPLOY"],
+        "legacy_direct_write_authorized": False,
+        "provenance": copy.deepcopy(provenance or {}),
+    }
+    manifest_path = stage_root / "manifest.json"
+    _atomic_json(manifest_path, manifest)
+    manifest["manifest"] = str(manifest_path)
+    return {"format": FORMAT, "status": "STAGED", "manifest": manifest, "changes": copy.deepcopy(source_changes)}
 
 def _manifest_path(manifest: pathlib.Path | str | dict[str, Any]) -> tuple[pathlib.Path | None, dict[str, Any]]:
     if isinstance(manifest, dict):
@@ -723,13 +849,48 @@ def _load_or_init_transaction(project_root: pathlib.Path, manifest: dict[str, An
         "state": "STAGED",
         "source_phase": "PENDING",
         "pack_phase": "PENDING",
-        "deploy_phase": "SEPARATE_NOT_RUN",
+        "deploy_phase": "PENDING",
         "backup_root": str(path.parent / "backup"),
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     _atomic_json(path, data)
     return path, data
 
+
+
+def _source_change_rows(m: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = m.get("source_changes")
+    if isinstance(rows, list) and rows:
+        out = []
+        for row in rows:
+            if not isinstance(row, dict):
+                raise ValueError("CANONICAL_SOURCE_CHANGE_INVALID")
+            required = ("canonical_json_path", "staged_post_sha256", "staged_json")
+            if any(not row.get(k) for k in required):
+                raise ValueError("CANONICAL_SOURCE_CHANGE_INVALID")
+            out.append(copy.deepcopy(row))
+        return out
+    return [{
+        "canonical_json_path": m["canonical_json_path"],
+        "source_existed": True,
+        "source_pre_sha256": m["source_pre_sha256"],
+        "staged_post_sha256": m["staged_post_sha256"],
+        "staged_json": m["staged_json"],
+    }]
+
+
+def _verify_source_change_preconditions(provider: SummitCanonicalContentProvider, rows: list[dict[str, Any]]) -> None:
+    for row in rows:
+        target = provider.content_root / pathlib.PurePosixPath(str(row["canonical_json_path"]))
+        existed = bool(row.get("source_existed", True))
+        if existed:
+            if not target.is_file() or sha256_file(target) != row.get("source_pre_sha256"):
+                raise ValueError(f"CANONICAL_SOURCE_JSON_DRIFT:{row['canonical_json_path']}")
+        elif target.exists():
+            raise ValueError(f"CANONICAL_SOURCE_CREATE_TARGET_APPEARED:{row['canonical_json_path']}")
+        staged = pathlib.Path(str(row["staged_json"]))
+        if not staged.is_file() or sha256_file(staged) != row.get("staged_post_sha256"):
+            raise ValueError(f"CANONICAL_STAGED_JSON_DRIFT:{row['canonical_json_path']}")
 
 def publish_canonical_source(project_root: pathlib.Path, manifest: pathlib.Path | str | dict[str, Any], *, confirm: str) -> dict[str, Any]:
     if confirm != PUBLISH_SOURCE_CONFIRM:
@@ -749,12 +910,8 @@ def publish_canonical_source(project_root: pathlib.Path, manifest: pathlib.Path 
         raise ValueError("CANONICAL_SOURCE_AUTHORITY_DRIFT")
     if current_status.get("family_fingerprints") != m.get("source_family_fingerprints"):
         raise ValueError("CANONICAL_SOURCE_TREE_DRIFT")
-    target = provider.content_root / pathlib.PurePosixPath(m["canonical_json_path"])
-    if not target.is_file() or sha256_file(target) != m["source_pre_sha256"]:
-        raise ValueError("CANONICAL_SOURCE_JSON_DRIFT")
-    staged = pathlib.Path(m["staged_json"])
-    if not staged.is_file() or sha256_file(staged) != m["staged_post_sha256"]:
-        raise ValueError("CANONICAL_STAGED_JSON_DRIFT")
+    rows = _source_change_rows(m)
+    _verify_source_change_preconditions(provider, rows)
     if m.get("localization_edit"):
         gate = provider.localization_publish_gate(run_validator=True)
         if gate.get("production_publish") != "ENABLED":
@@ -764,18 +921,48 @@ def publish_canonical_source(project_root: pathlib.Path, manifest: pathlib.Path 
     if tx.get("source_phase") == "APPLIED":
         return tx
     backup_root = pathlib.Path(tx["backup_root"])
-    backup_target = backup_root / "Content" / pathlib.PurePosixPath(m["canonical_json_path"])
-    backup_target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(target, backup_target)
-    tmp = target.with_suffix(target.suffix + ".ptasset.tmp")
-    shutil.copy2(staged, tmp)
-    os.replace(tmp, target)
-    if sha256_file(target) != m["staged_post_sha256"]:
-        raise RuntimeError("CANONICAL_SOURCE_JSON_VERIFY_FAILED")
-    tx.update({"source_phase": "APPLIED", "state": "SOURCE_APPLIED_PACKS_PENDING", "source_applied_sha256": sha256_file(target)})
+    applied: list[dict[str, Any]] = []
+    try:
+        for row in rows:
+            rel = pathlib.PurePosixPath(str(row["canonical_json_path"]))
+            target = provider.content_root / rel
+            staged = pathlib.Path(str(row["staged_json"]))
+            backup_target = backup_root / "Content" / rel
+            if bool(row.get("source_existed", True)):
+                backup_target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(target, backup_target)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            tmp = target.with_suffix(target.suffix + ".ptasset.tmp")
+            shutil.copy2(staged, tmp)
+            os.replace(tmp, target)
+            if sha256_file(target) != row["staged_post_sha256"]:
+                raise RuntimeError(f"CANONICAL_SOURCE_JSON_VERIFY_FAILED:{rel.as_posix()}")
+            applied.append(row)
+        refreshed = SummitCanonicalContentProvider(m["source_root"])
+        if refreshed.canonical_family_fingerprints() != m.get("staged_family_fingerprints"):
+            raise RuntimeError("CANONICAL_SOURCE_TREE_POSTWRITE_VERIFY_FAILED")
+    except Exception:
+        for row in reversed(applied):
+            rel = pathlib.PurePosixPath(str(row["canonical_json_path"]))
+            target = provider.content_root / rel
+            backup_target = backup_root / "Content" / rel
+            if bool(row.get("source_existed", True)) and backup_target.is_file():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(backup_target, target)
+            elif not bool(row.get("source_existed", True)) and target.exists():
+                target.unlink()
+        raise
+    tx.update({
+        "source_phase": "APPLIED",
+        "state": "SOURCE_APPLIED_PACKS_PENDING",
+        "source_applied_changes": [
+            {"canonical_json_path": x["canonical_json_path"], "sha256": x["staged_post_sha256"], "created": not bool(x.get("source_existed", True))}
+            for x in rows
+        ],
+        "source_applied_sha256": rows[0]["staged_post_sha256"],
+    })
     _atomic_json(tx_path, tx)
     return tx
-
 
 def publish_canonical_packs(project_root: pathlib.Path, manifest: pathlib.Path | str | dict[str, Any], *, confirm: str) -> dict[str, Any]:
     if confirm != PUBLISH_PACKS_CONFIRM:
@@ -790,9 +977,10 @@ def publish_canonical_packs(project_root: pathlib.Path, manifest: pathlib.Path |
     provider = SummitCanonicalContentProvider(m["source_root"])
     if provider.canonical_family_fingerprints() != m.get("staged_family_fingerprints"):
         raise ValueError("CANONICAL_SOURCE_TREE_DRIFT_AFTER_SOURCE_PHASE")
-    target_json = provider.content_root / pathlib.PurePosixPath(m["canonical_json_path"])
-    if sha256_file(target_json) != m["staged_post_sha256"]:
-        raise ValueError("CANONICAL_SOURCE_PHASE_NOT_APPLIED_OR_DRIFTED")
+    for row in _source_change_rows(m):
+        target_json = provider.content_root / pathlib.PurePosixPath(str(row["canonical_json_path"]))
+        if not target_json.is_file() or sha256_file(target_json) != row["staged_post_sha256"]:
+            raise ValueError(f"CANONICAL_SOURCE_PHASE_NOT_APPLIED_OR_DRIFTED:{row['canonical_json_path']}")
     tx_path, tx = _load_or_init_transaction(project_root, m)
     if tx.get("source_phase") != "APPLIED":
         raise ValueError("CANONICAL_SOURCE_PHASE_REQUIRED_BEFORE_PACKS")
@@ -838,9 +1026,144 @@ def publish_canonical_packs(project_root: pathlib.Path, manifest: pathlib.Path |
     if freshness.get("status") != "FRESH":
         raise RuntimeError("CANONICAL_PACK_FRESHNESS_VERIFY_FAILED")
     tx.update({
-        "pack_phase": "APPLIED", "state": "SOURCE_AND_PACKS_APPLIED_DEPLOY_SEPARATE",
+        "pack_phase": "APPLIED", "state": "SOURCE_AND_PACKS_APPLIED_RUNTIME_PENDING",
         "pack_hashes": copy.deepcopy(m["pack_hashes"]), "build_manifest_sha256": sha256_file(refreshed.build_path),
         "build_freshness": freshness,
+    })
+    _atomic_json(tx_path, tx)
+    return tx
+
+
+_RUNTIME_COMMON_PACKS = (
+    "field_runtime.sfld", "text_resources.sres", "localization.sloc",
+    "gameplay_config.sgcf", "gameplay_reference.sgrf",
+)
+_RUNTIME_ROLE_PACKS = {
+    "client": ("definitions_client.scfg", "maps_client.smap") + _RUNTIME_COMMON_PACKS,
+    "server": ("definitions_server.scfg", "maps_server.smap", "coin_shop.scsp") + _RUNTIME_COMMON_PACKS,
+}
+_RUNTIME_REMOVE = {
+    "client": ("definitions_server.scfg", "maps_server.smap", "stage_spawns.sspb"),
+    "server": ("definitions_client.scfg", "maps_client.smap", "stage_spawns.sspb"),
+}
+
+
+def _runtime_default_roots(provider: SummitCanonicalContentProvider) -> tuple[pathlib.Path, pathlib.Path]:
+    repo = provider.source_root.parent
+    return repo / "cliente", repo / "Servidor"
+
+
+def _runtime_manifest_data(role: str, root: pathlib.Path, pack_hashes: dict[str, str]) -> dict[str, Any]:
+    rows = []
+    packs = root / "Content" / "packs"
+    for name in _RUNTIME_ROLE_PACKS[role]:
+        path = packs / name
+        rows.append({"name": name, "bytes": path.stat().st_size, "sha256": sha256_file(path)})
+    return {"schema": "summit.runtime-content-deploy/v1", "role": role, "layout": "standalone-executable-content", "files": rows}
+
+
+def deploy_canonical_runtime(
+    project_root: pathlib.Path,
+    manifest: pathlib.Path | str | dict[str, Any],
+    *,
+    confirm: str,
+    client_root: pathlib.Path | str | None = None,
+    server_root: pathlib.Path | str | None = None,
+) -> dict[str, Any]:
+    if confirm != PUBLISH_RUNTIME_CONFIRM:
+        raise PermissionError("CANONICAL_RUNTIME_DEPLOY_CONFIRMATION_REQUIRED")
+    _, m = _manifest_path(manifest)
+    if m.get("format") != MANIFEST_FORMAT or m.get("status") != "STAGED":
+        raise ValueError("CANONICAL_STAGE_MANIFEST_INVALID")
+    provider = SummitCanonicalContentProvider(m["source_root"])
+    tx_path, tx = _load_or_init_transaction(project_root, m)
+    if tx.get("source_phase") != "APPLIED" or tx.get("pack_phase") != "APPLIED":
+        raise ValueError("CANONICAL_RUNTIME_DEPLOY_REQUIRES_SOURCE_AND_PACKS")
+    if tx.get("deploy_phase") == "APPLIED":
+        return tx
+    for name, expected in (m.get("pack_hashes") or {}).items():
+        path = provider.packs_root / name
+        if not path.is_file() or sha256_file(path) != expected:
+            raise ValueError(f"CANONICAL_RUNTIME_DEPLOY_SOURCE_PACK_DRIFT:{name}")
+    default_client, default_server = _runtime_default_roots(provider)
+    roots = {
+        "client": pathlib.Path(client_root).expanduser().resolve() if client_root else default_client.resolve(),
+        "server": pathlib.Path(server_root).expanduser().resolve() if server_root else default_server.resolve(),
+    }
+    for role, root in roots.items():
+        if not root.is_dir():
+            raise FileNotFoundError(f"CANONICAL_RUNTIME_ROOT_NOT_FOUND:{role}:{root}")
+
+    backup_root = pathlib.Path(tx["backup_root"]) / "runtime"
+    runtime_rows: dict[str, Any] = {}
+    touched: list[tuple[pathlib.Path, pathlib.Path | None]] = []
+    try:
+        for role, root in roots.items():
+            dest = root / "Content" / "packs"
+            dest.mkdir(parents=True, exist_ok=True)
+            role_backup = backup_root / role
+            role_backup.mkdir(parents=True, exist_ok=True)
+            before: dict[str, Any] = {}
+            names = set(_RUNTIME_ROLE_PACKS[role]) | set(_RUNTIME_REMOVE[role])
+            for name in sorted(names):
+                target = dest / name
+                backup = role_backup / "packs" / name
+                existed = target.is_file()
+                before[name] = {"existed": existed, "sha256": sha256_file(target) if existed else None}
+                if existed:
+                    backup.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(target, backup)
+                touched.append((target, backup if existed else None))
+            runtime_manifest = root / "Content" / "RUNTIME_CONTENT.json"
+            runtime_manifest_backup = role_backup / "RUNTIME_CONTENT.json"
+            manifest_existed = runtime_manifest.is_file()
+            before_manifest_sha = sha256_file(runtime_manifest) if manifest_existed else None
+            if manifest_existed:
+                shutil.copy2(runtime_manifest, runtime_manifest_backup)
+            touched.append((runtime_manifest, runtime_manifest_backup if manifest_existed else None))
+
+            for name in _RUNTIME_REMOVE[role]:
+                stale = dest / name
+                if stale.exists():
+                    stale.unlink()
+            deployed = []
+            for name in _RUNTIME_ROLE_PACKS[role]:
+                source = provider.packs_root / name
+                target = dest / name
+                tmp = target.with_suffix(target.suffix + ".ptasset.runtime.tmp")
+                shutil.copy2(source, tmp)
+                os.replace(tmp, target)
+                expected = (m.get("pack_hashes") or {}).get(name)
+                actual = sha256_file(target)
+                if expected != actual:
+                    raise RuntimeError(f"CANONICAL_RUNTIME_PACK_VERIFY_FAILED:{role}:{name}")
+                deployed.append({"name": name, "sha256": actual, "bytes": target.stat().st_size})
+            runtime_data = _runtime_manifest_data(role, root, m.get("pack_hashes") or {})
+            _atomic_json(runtime_manifest, runtime_data)
+            runtime_rows[role] = {
+                "root": str(root), "packs": deployed,
+                "runtime_manifest": str(runtime_manifest),
+                "runtime_manifest_sha256": sha256_file(runtime_manifest),
+                "before": before,
+                "before_runtime_manifest_existed": manifest_existed,
+                "before_runtime_manifest_sha256": before_manifest_sha,
+                "removed_incompatible": list(_RUNTIME_REMOVE[role]),
+            }
+    except Exception:
+        for target, backup in reversed(touched):
+            try:
+                if backup is not None and backup.is_file():
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(backup, target)
+                elif target.exists():
+                    target.unlink()
+            except OSError:
+                pass
+        raise
+    tx.update({
+        "deploy_phase": "APPLIED",
+        "state": "SOURCE_PACKS_AND_RUNTIME_APPLIED",
+        "runtime_deploy": runtime_rows,
     })
     _atomic_json(tx_path, tx)
     return tx
@@ -858,16 +1181,44 @@ def restore_canonical_transaction(project_root: pathlib.Path, manifest: pathlib.
     if not isinstance(tx, dict):
         raise ValueError("CANONICAL_TRANSACTION_INVALID")
     backup_root = pathlib.Path(tx["backup_root"])
-    target_json = provider.content_root / pathlib.PurePosixPath(m["canonical_json_path"])
-    backup_json = backup_root / "Content" / pathlib.PurePosixPath(m["canonical_json_path"])
-    if tx.get("source_phase") == "APPLIED" and backup_json.is_file():
-        # Refuse to overwrite unrelated post-transaction edits.
-        if target_json.is_file() and sha256_file(target_json) != m["staged_post_sha256"]:
-            raise ValueError("CANONICAL_RESTORE_SOURCE_DRIFT")
-        target_json.parent.mkdir(parents=True, exist_ok=True)
-        tmp = target_json.with_suffix(target_json.suffix + ".ptasset.restore.tmp")
-        shutil.copy2(backup_json, tmp)
-        os.replace(tmp, target_json)
+
+    # Runtime first: refuse to overwrite post-deploy changes.
+    if tx.get("deploy_phase") == "APPLIED":
+        runtime = tx.get("runtime_deploy") or {}
+        for role in ("client", "server"):
+            info = runtime.get(role) or {}
+            root = pathlib.Path(str(info.get("root") or ""))
+            if not root.is_dir():
+                raise FileNotFoundError(f"CANONICAL_RESTORE_RUNTIME_ROOT_NOT_FOUND:{role}:{root}")
+            packs = root / "Content" / "packs"
+            for item in info.get("packs") or []:
+                target = packs / str(item["name"])
+                if not target.is_file() or sha256_file(target) != item.get("sha256"):
+                    raise ValueError(f"CANONICAL_RESTORE_RUNTIME_DRIFT:{role}:{item.get('name')}")
+            runtime_manifest = root / "Content" / "RUNTIME_CONTENT.json"
+            if not runtime_manifest.is_file() or sha256_file(runtime_manifest) != info.get("runtime_manifest_sha256"):
+                raise ValueError(f"CANONICAL_RESTORE_RUNTIME_MANIFEST_DRIFT:{role}")
+        for role in ("client", "server"):
+            info = runtime.get(role) or {}
+            root = pathlib.Path(str(info["root"]))
+            packs = root / "Content" / "packs"
+            role_backup = backup_root / "runtime" / role
+            before = info.get("before") or {}
+            for name, state in before.items():
+                target = packs / name
+                backup = role_backup / "packs" / name
+                if bool((state or {}).get("existed")) and backup.is_file():
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(backup, target)
+                elif target.exists():
+                    target.unlink()
+            target_manifest = root / "Content" / "RUNTIME_CONTENT.json"
+            backup_manifest = role_backup / "RUNTIME_CONTENT.json"
+            if info.get("before_runtime_manifest_existed") and backup_manifest.is_file():
+                shutil.copy2(backup_manifest, target_manifest)
+            elif target_manifest.exists():
+                target_manifest.unlink()
+
     if tx.get("pack_phase") == "APPLIED":
         backup_packs = backup_root / "Content" / "packs"
         for name in PACK_FILENAMES:
@@ -885,10 +1236,36 @@ def restore_canonical_transaction(project_root: pathlib.Path, manifest: pathlib.
             tmp = provider.build_path.with_suffix(provider.build_path.suffix + ".ptasset.restore.tmp")
             shutil.copy2(backup_build, tmp)
             os.replace(tmp, provider.build_path)
-    tx.update({"state": "RESTORED", "source_phase": "RESTORED", "pack_phase": "RESTORED" if tx.get("pack_phase") == "APPLIED" else tx.get("pack_phase")})
+
+    if tx.get("source_phase") == "APPLIED":
+        rows = _source_change_rows(m)
+        for row in rows:
+            rel = pathlib.PurePosixPath(str(row["canonical_json_path"]))
+            target = provider.content_root / rel
+            if not target.is_file() or sha256_file(target) != row["staged_post_sha256"]:
+                raise ValueError(f"CANONICAL_RESTORE_SOURCE_DRIFT:{rel.as_posix()}")
+        for row in rows:
+            rel = pathlib.PurePosixPath(str(row["canonical_json_path"]))
+            target = provider.content_root / rel
+            backup_json = backup_root / "Content" / rel
+            if bool(row.get("source_existed", True)):
+                if not backup_json.is_file():
+                    raise FileNotFoundError(f"CANONICAL_RESTORE_BACKUP_MISSING:{rel.as_posix()}")
+                target.parent.mkdir(parents=True, exist_ok=True)
+                tmp = target.with_suffix(target.suffix + ".ptasset.restore.tmp")
+                shutil.copy2(backup_json, tmp)
+                os.replace(tmp, target)
+            elif target.exists():
+                target.unlink()
+
+    tx.update({
+        "state": "RESTORED",
+        "source_phase": "RESTORED" if tx.get("source_phase") == "APPLIED" else tx.get("source_phase"),
+        "pack_phase": "RESTORED" if tx.get("pack_phase") == "APPLIED" else tx.get("pack_phase"),
+        "deploy_phase": "RESTORED" if tx.get("deploy_phase") == "APPLIED" else tx.get("deploy_phase"),
+    })
     _atomic_json(tx_path, tx)
     return tx
-
 
 def canonical_authoring_capabilities(provider: SummitCanonicalContentProvider | None = None) -> dict[str, Any]:
     status = provider.status() if provider is not None else None
@@ -922,9 +1299,10 @@ def canonical_authoring_capabilities(provider: SummitCanonicalContentProvider | 
         "publish": {
             "phase_1": "EXPLICIT_SOURCE_JSON",
             "phase_2": "EXPLICIT_SOURCE_PACKS",
-            "phase_3": "CLIENT_SERVER_DEPLOY_SEPARATE",
+            "phase_3": "EXPLICIT_CLIENT_SERVER_RUNTIME_DEPLOY",
             "source_confirm": PUBLISH_SOURCE_CONFIRM,
             "packs_confirm": PUBLISH_PACKS_CONFIRM,
+            "runtime_confirm": PUBLISH_RUNTIME_CONFIRM,
             "restore_confirm": RESTORE_CONFIRM,
         },
         "source_status": status,

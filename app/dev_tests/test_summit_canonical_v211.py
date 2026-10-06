@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from pt_asset_tool.canonical_authoring import atomic_update_definition, stage_canonical_authoring, typed_patch_document, resolve_authoring_document
+from pt_asset_tool.canonical_authoring import atomic_update_definition, stage_canonical_authoring, stage_canonical_document_set, publish_canonical_source, publish_canonical_packs, deploy_canonical_runtime, restore_canonical_transaction, typed_patch_document, resolve_authoring_document
 from pt_asset_tool.legacy_authoring import stage_authoring
 from pt_asset_tool.summit_canonical import PACK_FILENAMES, SummitCanonicalContentProvider, build_semantic_catalog_v2, gameplay_config_browser, gameplay_reference_browser, localization_browser, query_canonical_resources, extended_content_browser
 
@@ -265,7 +265,7 @@ def test_stage_copies_complete_canonical_tree_and_records_provenance_without_run
     assert (stage_root / "canonical/maps/client.maps.json").is_file()
     assert manifest["source_pre_sha256"] != manifest["staged_post_sha256"]
     assert manifest["canonical_source_sha256"] == provider.status()["canonical_source_sha256"]
-    assert manifest["publish_phases"] == ["SOURCE_JSON", "SOURCE_PACKS", "CLIENT_SERVER_DEPLOY_SEPARATE"]
+    assert manifest["publish_phases"] == ["SOURCE_JSON", "SOURCE_PACKS", "CLIENT_SERVER_RUNTIME_DEPLOY"]
     assert Path(manifest["source_canonical_file_hash_manifest"]).is_file()
     assert Path(manifest["staged_canonical_file_hash_manifest"]).is_file()
     assert manifest["source_canonical_file_inventory"]["files"] == manifest["staged_canonical_file_inventory"]["files"]
@@ -372,3 +372,57 @@ def test_v211_ui_and_api_surfaces_are_wired():
     assert 'path == "/api/canonical/domains"' in py
     assert 'path == "/api/canonical/gameplay-config"' in py
     assert 'path == "/api/canonical/localization"' in py
+
+
+def test_atomic_document_set_can_create_spawn_and_update_index_without_touching_source(tmp_path):
+    provider = SummitCanonicalContentProvider(_source(tmp_path))
+    project = tmp_path / "project"; project.mkdir()
+    index_path = provider.canonical_root / "stage_spawns/index.json"
+    _write_json(index_path, {"schema": "summit.stage-spawn-index/v1", "documents": []})
+    doc = {"schema": "summit.stage-spawn/v1", "schema_version": 1, "id": "spawn.lost3", "logical_path": "GameServer/Field/lost3.ASE.spm", "legacy_source": {"path": "Servidor/GameServer/Field/lost3.ASE.spm", "sha256": "1" * 64}, "limit_max": 300, "delay": {"shift": 1, "milliseconds": 2000}, "open_limit": 1, "actors": [], "bosses": []}
+    idx = {"schema": "summit.stage-spawn-index/v1", "documents": [{"id": "spawn.lost3", "logical_path": "GameServer/Field/lost3.ASE.spm", "json_path": "spawns/GameServer/Field/lost3.ASE.spm.json"}]}
+    result = stage_canonical_document_set(project, provider, [
+        {"relative_path": "canonical/stage_spawns/spawns/GameServer/Field/lost3.ASE.spm.json", "document": doc},
+        {"relative_path": "canonical/stage_spawns/index.json", "document": idx},
+    ], kind="STAGE_SPAWN", canonical_id="spawn.lost3", run_validation=False, run_build=False)
+    m = result["manifest"]
+    assert len(m["source_changes"]) == 2
+    assert m["source_changes"][0]["source_existed"] is False
+    assert not (provider.canonical_root / "stage_spawns/spawns/GameServer/Field/lost3.ASE.spm.json").exists()
+    assert Path(m["source_changes"][0]["staged_json"]).is_file()
+    assert json.loads(index_path.read_text(encoding="utf-8"))["documents"] == []
+
+
+def test_runtime_deploy_is_role_aware_and_transactionally_restorable(tmp_path):
+    provider = SummitCanonicalContentProvider(_source(tmp_path))
+    project = tmp_path / "project"; project.mkdir()
+    staged = stage_canonical_authoring(project, provider, {
+        "kind": "ITEM", "canonical_id": "item.2_wa108", "patch": {"fields": {"Price": 101}},
+    }, run_validation=False, run_build=False)
+    m = staged["manifest"]
+    stage_root = Path(m["stage_root"])
+    # Build-independent test fixture: use the current verified packs as the staged pack set.
+    stage_packs = stage_root / "packs"; stage_packs.mkdir(exist_ok=True)
+    m["pack_hashes"] = {}
+    for name in PACK_FILENAMES:
+        data = (provider.packs_root / name).read_bytes()
+        (stage_packs / name).write_bytes(data)
+        m["pack_hashes"][name] = hashlib.sha256(data).hexdigest()
+    (stage_root / "BUILD.json").write_bytes(provider.build_path.read_bytes())
+    m["validation"] = {"status": "PASS"}
+    m["build"] = {"status": "PASS", "pack_hashes": dict(m["pack_hashes"])}
+    m["staged_build_manifest"] = {"status": "PASS"}
+    publish_canonical_source(project, m, confirm="PUBLISH CANONICAL SOURCE")
+    publish_canonical_packs(project, m, confirm="PUBLISH CANONICAL PACKS")
+
+    client = tmp_path / "cliente"; server = tmp_path / "Servidor"; client.mkdir(); server.mkdir()
+    stale = client / "Content/packs/definitions_server.scfg"; stale.parent.mkdir(parents=True); stale.write_bytes(b"old-server-pack")
+    result = deploy_canonical_runtime(project, m, confirm="DEPLOY CANONICAL RUNTIME", client_root=client, server_root=server)
+    assert result["deploy_phase"] == "APPLIED"
+    assert (client / "Content/packs/definitions_client.scfg").is_file()
+    assert not (client / "Content/packs/definitions_server.scfg").exists()
+    assert (server / "Content/packs/definitions_server.scfg").is_file()
+    assert json.loads((client / "Content/RUNTIME_CONTENT.json").read_text())["role"] == "client"
+    restored = restore_canonical_transaction(project, m, confirm="RESTORE CANONICAL TRANSACTION")
+    assert restored["deploy_phase"] == "RESTORED"
+    assert stale.read_bytes() == b"old-server-pack"
