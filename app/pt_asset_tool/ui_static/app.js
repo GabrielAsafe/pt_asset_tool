@@ -506,7 +506,9 @@ function renderDonorRecovery(result){
     const entityHtml=entities.map(entity=>`<details class="donor-recovery-entity"><summary><b>${esc(entity.label)}</b><span>${entity.variant_count||0} variant(s) · ${esc((entity.donor_labels||[]).join(', '))}${entity.has_target?' · target present':' · target missing'}</span></summary><div class="donor-recovery-variants">${(entity.variants||[]).map(donorRecoveryVariantHtml).join('')}</div></details>`).join('');
     sections.push(`<details class="donor-recovery-domain" open><summary><strong>${esc(domain)}</strong><span>${entities.length.toLocaleString()} entities</span></summary>${entityHtml}</details>`);
   }
-  tree.innerHTML=sections.join('')||'<div class="empty">No matching donor entities.</div>';
+  const diag=[];for(const d of result?.donors||[]){for(const [dom,sides] of Object.entries(d.scan_diagnostics||{})){for(const [side,x] of Object.entries(sides||{})){if(x?.state==='NO_DOMAIN_ROOT')diag.push(`${d.label} ${side}: no ${dom} scan root under ${x.configured_root}`)}}}
+  const diagHtml=diag.length?`<div class="donor-recovery-diagnostic"><b>Scan diagnostics</b><br>${diag.map(esc).join('<br>')}</div>`:'';
+  tree.innerHTML=diagHtml+(sections.join('')||'<div class="empty">No matching donor entities.</div>');
 }
 async function loadDonorRecovery(){
   try{const domain=$('#donorRecoveryDomain')?.value||'',q=$('#donorRecoverySearch')?.value.trim()||'',donor=$('#donorRecoveryDonor')?.value||'';const d=await api('/api/donor-recovery/explorer?domain='+encodeURIComponent(domain)+'&q='+encodeURIComponent(q)+'&donor='+encodeURIComponent(donor)+'&limit=1500');renderDonorRecovery(d.result)}catch(e){if($('#donorRecoveryResult'))$('#donorRecoveryResult').textContent=e.message;toast(e.message)}

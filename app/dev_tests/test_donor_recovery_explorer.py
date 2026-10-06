@@ -155,3 +155,39 @@ def test_physical_restore_refuses_drift_before_deleting_anything(monkeypatch, tm
     else:
         raise AssertionError("drift must block restore")
     assert target.read_bytes()==b"changed"
+
+
+def test_explorer_accepts_configured_server_root_that_is_already_game_server(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    donor_c = tmp_path / "donor_client"; donor_c.mkdir()
+    donor_s = tmp_path / "game-server"; (donor_s / "Field").mkdir(parents=True)
+    (donor_s / "Field/lost3.ASE.spm").write_text('*ACTOR "Foo" 100\n')
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR1={donor_s}"])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MAP_FIELD", query="lost3", limit=50)
+    entities = result["entity_tree"]["MAP_FIELD"]["entities"]
+    lost = next(x for x in entities if x["entity_key"] == "lost3")
+    assert any(x["donor"] == "DONOR1" and x["field_kind"] == "SPM" for x in lost["variants"])
+    diag = result["donors"][1]["scan_diagnostics"]["MAP_FIELD"]["SERVER"]
+    assert diag["state"] == "READY"
+    assert any(Path(x).name.casefold() == "field" for x in diag["resolved_scan_roots"])
+
+
+def test_map_field_identity_merges_client_map_assets_with_server_spawn(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"
+    donor_c = tmp_path / "donor_client"; donor_s = tmp_path / "donor_server"
+    for pth in (target_c, target_s, donor_c, donor_s): pth.mkdir()
+    (target_c / "Field/Lost").mkdir(parents=True); (target_c / "Field/Lost/lost3.smd").write_text("x")
+    (target_c / "Field/map").mkdir(parents=True); (target_c / "Field/map/lost3.tga").write_text("x")
+    (target_c / "Field/Title").mkdir(parents=True); (target_c / "Field/Title/lost3t.tga").write_text("x")
+    (donor_s / "GameServer/Field").mkdir(parents=True); (donor_s / "GameServer/Field/lost3.ASE.spm").write_text('*ACTOR "Foo" 100\n')
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR1={donor_s}"])
+    result = dre.build_donor_explorer(project, target_c, target_s, domain="MAP_FIELD", query="lost3", limit=50)
+    entities = result["entity_tree"]["MAP_FIELD"]["entities"]
+    assert [x["entity_key"] for x in entities] == ["lost3"]
+    lost = entities[0]
+    assert lost["variant_count"] == 4
+    assert lost["donor_labels"] == ["DONOR1", "SUMMIT"]

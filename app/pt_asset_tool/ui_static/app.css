@@ -87,3 +87,4 @@ main{min-width:0;padding:22px 26px 38px}header{display:flex;justify-content:spac
 
 .donor-recovery-deploy{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(280px,1.3fr) auto;gap:8px;align-items:center;padding:10px 12px;border-top:1px solid var(--line)}
 @media(max-width:1000px){.donor-recovery-deploy{grid-template-columns:1fr}}
+.donor-recovery-diagnostic{margin:8px 0;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:12px;opacity:.9}

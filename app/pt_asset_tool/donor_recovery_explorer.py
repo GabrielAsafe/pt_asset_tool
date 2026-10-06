@@ -92,17 +92,53 @@ def _ci_child(root: pathlib.Path, rel: pathlib.PurePosixPath) -> pathlib.Path | 
     return cur
 
 
+def _domain_root_candidates(root: pathlib.Path, side: str, domain: str) -> list[pathlib.PurePosixPath]:
+    """Return layout candidates relative to a configured donor root.
+
+    Donor server roots are heterogeneous in the real corpus: some point to the
+    server root (containing GameServer/), while others already point to a
+    game-server/GameServer directory (containing Field/, Monster/, ...).  The
+    Explorer must accept both without changing the configured donor identity.
+    """
+    out: list[pathlib.PurePosixPath] = []
+    seen: set[str] = set()
+    for raw in _DOMAIN_ROOTS.get(side, {}).get(domain, ()):
+        rel = pathlib.PurePosixPath(raw)
+        candidates = [rel]
+        if side == "server":
+            parts = list(rel.parts)
+            tail = pathlib.PurePosixPath(*parts[1:]) if parts and parts[0].casefold() == "gameserver" else rel
+            candidates.extend([tail, pathlib.PurePosixPath("game-server") / rel, pathlib.PurePosixPath("game-server") / tail])
+        for cand in candidates:
+            key = cand.as_posix().casefold()
+            if key not in seen:
+                seen.add(key)
+                out.append(cand)
+    return out
+
+
 def _domain_roots(root: pathlib.Path, side: str, domain: str) -> list[pathlib.Path]:
     out: list[pathlib.Path] = []
     seen: set[str] = set()
-    for raw in _DOMAIN_ROOTS.get(side, {}).get(domain, ()):
-        p = _ci_child(root, pathlib.PurePosixPath(raw))
+    for rel in _domain_root_candidates(root, side, domain):
+        p = _ci_child(root, rel)
         if p is not None and p.is_dir():
             key = str(p.resolve()).casefold()
             if key not in seen:
                 seen.add(key)
                 out.append(p.resolve())
     return out
+
+
+def _scan_diagnostic(root: pathlib.Path, side: str, domain: str) -> dict[str, Any]:
+    resolved = _domain_roots(root, side, domain)
+    return {
+        "configured_root": str(root.resolve()),
+        "present": root.is_dir(),
+        "candidate_layouts": [x.as_posix() for x in _domain_root_candidates(root, side, domain)],
+        "resolved_scan_roots": [str(x) for x in resolved],
+        "state": "READY" if resolved else "NO_DOMAIN_ROOT",
+    }
 
 
 def _classify_field_file(path: pathlib.Path) -> str:
@@ -124,16 +160,23 @@ def _entity_identity(relative_path: str, domain: str) -> tuple[str, str]:
     low = [x.casefold() for x in parts]
     domain = domain.upper()
     if domain == "MAP_FIELD":
+        # A field is one logical entity across client stage/model/map/title assets
+        # and server SPM/SPP/SPC companions.  Prefer the filename identity so
+        # Field/Lost/lost3.smd and GameServer/Field/lost3.ASE.spm converge.
         name = rel.name
+        low_name = name.casefold()
         for suffix in (".spm", ".spp", ".spc"):
-            if name.casefold().endswith(suffix):
+            if low_name.endswith(suffix):
+                name = name[:-len(suffix)]
+                low_name = name.casefold()
+                break
+        for suffix in (".ase", ".smd", ".tga", ".bmp", ".dds", ".png", ".jpg", ".jpeg"):
+            if low_name.endswith(suffix):
                 name = name[:-len(suffix)]
                 break
-        if name.casefold().endswith(".ase"):
-            name = name[:-4]
-        parent = rel.parent.name if rel.parent.name.casefold() not in {"field", "gameserver"} else ""
-        key = f"{parent}/{name}" if parent else name
-        return key.casefold(), key
+        if rel.parent.name.casefold() == "title" and name.casefold().endswith("t") and len(name) > 1:
+            name = name[:-1]
+        return name.casefold(), name
     if domain in {"MONSTER", "NPC", "ITEM"}:
         name = rel.stem
         return name.casefold(), name
@@ -278,14 +321,20 @@ def build_donor_explorer(
     remaining = max(1, int(limit))
     for item in logical:
         out = {"label": item["label"], "target": bool(item.get("target")), "client": item.get("client"), "server": item.get("server"), "domains": {}}
+        out["scan_diagnostics"] = {}
         for dom in domains:
             dom_rows: list[dict[str, Any]] = []
             truncated = False
+            out["scan_diagnostics"][dom] = {}
             for side in ("client", "server"):
                 info = item.get(side)
-                if not info or not info.get("present") or remaining <= 0:
+                if not info:
+                    out["scan_diagnostics"][dom][side.upper()] = {"state": "UNCONFIGURED"}
                     continue
                 root = pathlib.Path(str(info["root"]))
+                out["scan_diagnostics"][dom][side.upper()] = _scan_diagnostic(root, side, dom)
+                if not info.get("present") or remaining <= 0:
+                    continue
                 rows, hit_limit = _scan_domain(root, side, dom, donor=item["label"], query=query, limit=remaining)
                 for row in rows:
                     key = (str(row["side"]).upper(), _norm(row["relative_path"]).casefold(), str(item["label"]).upper())
@@ -401,6 +450,13 @@ def _server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath:
     if "gameserver" in lower:
         idx = lower.index("gameserver")
         return pathlib.PurePosixPath(*parts[idx:])
+    if "game-server" in lower:
+        idx = lower.index("game-server") + 1
+        tail = parts[idx:]
+        if tail and tail[0].casefold() == "gameserver":
+            return pathlib.PurePosixPath(*tail)
+        if tail and tail[0].casefold() in {"field", "monster", "npc", "openitem"}:
+            return pathlib.PurePosixPath("GameServer", *tail)
     if parts and parts[0].casefold() in {"field", "monster", "npc", "openitem"}:
         return pathlib.PurePosixPath("GameServer", *parts)
     raise ValueError(f"DONOR_SERVER_LOGICAL_PATH_UNRECOGNIZED:{rel.as_posix()}")
