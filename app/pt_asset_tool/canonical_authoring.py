@@ -594,7 +594,7 @@ def _bridge_staged_definition_localization(
     if not definitions:
         return {"status": "NO_DEFINITION_DELTA", "changed": False, "added_entries": [], "definitions": []}
 
-    loc_path = stage_root / "canonical" / "text" / "localization" / "pt-BR.json"
+    loc_path = stage_root / "canonical" / "text" / "localization_overrides" / "pt-BR.json"
     if not loc_path.is_file():
         raise FileNotFoundError("CANONICAL_LOCALIZATION_PTBR_OVERRIDE_NOT_FOUND")
     catalog = _load_json(loc_path)
@@ -942,7 +942,10 @@ def stage_canonical_document_set(
         normalized.append((rel, copy.deepcopy(raw["document"]), target, target.is_file()))
 
     explicit_localization_edit = any(
-        rel.as_posix().casefold().startswith("canonical/text/localization/")
+        rel.as_posix().casefold().startswith((
+            "canonical/text/localization/",
+            "canonical/text/localization_overrides/",
+        ))
         for rel, _doc, _target, _existed in normalized
     )
 
@@ -995,6 +998,36 @@ def stage_canonical_document_set(
     # fingerprint would differ from the validated stage.  Deletions remain
     # fail-closed because source publish currently supports create/replace only.
     if requested_localization_edit:
+        # The pt-BR override is canonical input to the materializer, while
+        # canonical/text/localization/** is generated output.  When the bridge
+        # filled missing exact-coverage keys, both sides belong to this atomic
+        # source transaction: publish the override first-class and capture all
+        # materialized catalogue deltas below.
+        if localization_bridge.get("changed"):
+            override_rel = pathlib.PurePosixPath("canonical/text/localization_overrides/pt-BR.json")
+            staged_override = stage_root / pathlib.Path(*override_rel.parts)
+            source_override = provider.content_root / pathlib.Path(*override_rel.parts)
+            if not staged_override.is_file():
+                raise FileNotFoundError("CANONICAL_LOCALIZATION_PTBR_OVERRIDE_STAGE_MISSING")
+            override_key = override_rel.as_posix().casefold()
+            by_path = {str(row["canonical_json_path"]).casefold(): row for row in source_changes}
+            override_row = by_path.get(override_key)
+            source_sha = sha256_file(source_override) if source_override.is_file() else None
+            staged_sha = sha256_file(staged_override)
+            if override_row is not None:
+                override_row["staged_post_sha256"] = staged_sha
+                override_row["staged_json"] = str(staged_override)
+                override_row.setdefault("generated_by_stage", "definition_localization_bridge")
+            elif source_sha != staged_sha:
+                source_changes.append({
+                    "canonical_json_path": override_rel.as_posix(),
+                    "source_existed": source_override.is_file(),
+                    "source_pre_sha256": source_sha,
+                    "staged_post_sha256": staged_sha,
+                    "staged_json": str(staged_override),
+                    "generated_by_stage": "definition_localization_bridge",
+                })
+
         loc_rel = pathlib.PurePosixPath("canonical/text/localization")
         staged_loc = stage_root / pathlib.Path(*loc_rel.parts)
         source_loc = provider.content_root / pathlib.Path(*loc_rel.parts)
@@ -1031,11 +1064,7 @@ def stage_canonical_document_set(
                 "source_pre_sha256": source_sha,
                 "staged_post_sha256": staged_sha,
                 "staged_json": str(staged),
-                "generated_by_stage": (
-                    "definition_localization_bridge"
-                    if sub == "pt-BR.json" and localization_bridge.get("changed")
-                    else "materialize_localization_catalog.py"
-                ),
+                "generated_by_stage": "materialize_localization_catalog.py",
             }
             source_changes.append(row)
             by_path[key] = row

@@ -93,6 +93,10 @@ def _source(tmp_path: Path) -> Path:
         "schema": "summit.localization-catalog/v1", "locale": "pt-BR",
         "entries": [{"key": "a", "text": "Olá", "quality": "translated", "source": "text.a"}, {"key": "b", "text": "Mundo", "quality": "translated", "source": "text.b"}],
     })
+    _write_json(content / "canonical/text/localization_overrides/pt-BR.json", {
+        "schema": "summit.localization-catalog/v1", "locale": "pt-BR",
+        "entries": [{"key": "a", "text": "Olá", "quality": "translated", "source": "text.a"}, {"key": "b", "text": "Mundo", "quality": "translated", "source": "text.b"}],
+    })
     for folder in ("stage_spawns", "stage_start_points", "fixed_npcs", "gameplay_reference"):
         (content / "canonical" / folder).mkdir(parents=True, exist_ok=True)
     _write_json(content / "canonical/gameplay_reference/quests/priston_tale_quests.pt-BR.json", {
@@ -525,8 +529,9 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
         # The exact-coverage materializer must see the complete five-definition
         # localization delta before validation starts.
         loc = stage_root / "canonical/text/localization"
-        pt = json.loads((loc / "pt-BR.json").read_text(encoding="utf-8"))
-        by_key = {row["key"]: row for row in pt["entries"]}
+        overrides = stage_root / "canonical/text/localization_overrides"
+        pt_override = json.loads((overrides / "pt-BR.json").read_text(encoding="utf-8"))
+        by_key = {row["key"]: row for row in pt_override["entries"]}
         assert expected_keys <= set(by_key)
         assert by_key["a"]["text"] == "Olá"
         assert by_key["b"]["text"] == "Mundo"
@@ -541,6 +546,10 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
 
         # Simulate materializer output so the same transaction must capture all
         # regenerated localization artifacts in source_changes.
+
+        # Simulate the real materializer: pt-BR materialized output is derived
+        # from the canonical override, not edited directly by the bridge.
+        _write_json(loc / "pt-BR.json", pt_override)
         _write_json(loc / "en.json", {
             "schema": "summit.localization-catalog/v1", "schema_version": 1,
             "locale": "en", "fallback_locale": None,
@@ -569,9 +578,11 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
     assert manifest["localization_bridge"]["status"] == "UPDATED"
     assert {row["key"] for row in manifest["localization_bridge"]["added_entries"]} == expected_keys
     rows = {row["canonical_json_path"]: row for row in manifest["source_changes"]}
+    assert "canonical/text/localization_overrides/pt-BR.json" in rows
     assert "canonical/text/localization/pt-BR.json" in rows
     assert "canonical/text/localization/en.json" in rows
     assert "canonical/text/localization/report.json" in rows
-    assert rows["canonical/text/localization/pt-BR.json"]["generated_by_stage"] == "definition_localization_bridge"
+    assert rows["canonical/text/localization_overrides/pt-BR.json"]["generated_by_stage"] == "definition_localization_bridge"
+    assert rows["canonical/text/localization/pt-BR.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
     assert rows["canonical/text/localization/en.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
     assert len([path for path in rows if "/Monster/" in path]) == 5
