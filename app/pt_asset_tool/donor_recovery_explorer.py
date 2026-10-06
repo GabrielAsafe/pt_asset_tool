@@ -893,6 +893,7 @@ def stage_spawn_from_donor(
     relative_path: str,
     run_validation: bool = True,
     run_build: bool = True,
+    preview_only: bool = False,
 ) -> dict[str, Any]:
     donor_root = _selected_donor_root(project_root, donor_label, "server")
     source, rel = _resolve_donor_file(donor_root, relative_path)
@@ -957,6 +958,25 @@ def stage_spawn_from_donor(
             "converter_logs": logs,
         }
 
+    if preview_only:
+        return {
+            "format": FORMAT,
+            "status": "READY_FOR_STAGE",
+            "action": "STAGE_SPAWN",
+            "donor_label": donor_label.upper(),
+            "donor_relative_path": rel.as_posix(),
+            "donor_sha256": sha256_file(source),
+            "logical_path": logical.as_posix(),
+            "canonical_map_identity": identity,
+            "dependency_gate": {
+                "status": "PASS", "unresolved": [],
+                "actor_count": len(doc.get("actors") or []),
+                "boss_count": len(doc.get("bosses") or []),
+            },
+            "converted_preview": doc,
+            "converter_logs": logs,
+        }
+
     target_rel = pathlib.PurePosixPath("canonical/stage_spawns") / pathlib.PurePosixPath(str(entry["json_path"]))
     index_path = provider.canonical_root / "stage_spawns" / "index.json"
     current_index = json.loads(index_path.read_text(encoding="utf-8"))
@@ -989,16 +1009,13 @@ def stage_spawn_from_donor(
     return result
 
 
-def stage_definition_from_donor(
+def _prepare_definition_import(
     project_root: pathlib.Path,
     provider: SummitCanonicalContentProvider,
     *,
     donor_label: str,
     relative_path: str,
     kind: str,
-    replace_existing: bool = False,
-    run_validation: bool = True,
-    run_build: bool = True,
 ) -> dict[str, Any]:
     kind = kind.upper()
     expected_kind = {"MONSTER": "monster_definition", "NPC": "npc_definition", "ITEM": "open_item_definition"}.get(kind)
@@ -1029,6 +1046,35 @@ def stage_definition_from_donor(
     entry = entries[0]
     doc = json.loads((canonical_out / pathlib.PurePosixPath(str(entry["json_path"]))).read_text(encoding="utf-8"))
     target_rel = pathlib.PurePosixPath("canonical/text") / pathlib.PurePosixPath(str(entry["json_path"]))
+    return {
+        "kind": kind, "entry": entry, "document": doc, "target_rel": target_rel,
+        "donor_root": donor_root, "source": source, "relative_path": rel, "logical_path": logical, "converter_logs": logs,
+    }
+
+
+def stage_definition_from_donor(
+    project_root: pathlib.Path,
+    provider: SummitCanonicalContentProvider,
+    *,
+    donor_label: str,
+    relative_path: str,
+    kind: str,
+    replace_existing: bool = False,
+    run_validation: bool = True,
+    run_build: bool = True,
+) -> dict[str, Any]:
+    prepared = _prepare_definition_import(
+        project_root, provider, donor_label=donor_label, relative_path=relative_path, kind=kind
+    )
+    kind = prepared["kind"]
+    entry = prepared["entry"]
+    doc = prepared["document"]
+    target_rel = prepared["target_rel"]
+    donor_root = prepared["donor_root"]
+    source = prepared["source"]
+    rel = prepared["relative_path"]
+    logical = prepared["logical_path"]
+    logs = prepared["converter_logs"]
     target = provider.content_root / pathlib.Path(*target_rel.parts)
     if target.is_file():
         current = json.loads(target.read_text(encoding="utf-8"))
@@ -1058,6 +1104,148 @@ def stage_definition_from_donor(
     )
     result["canonical_id"] = str(doc.get("id") or "")
     result["canonical_path"] = target_rel.as_posix()
+    return result
+
+
+def stage_unique_spawn_dependencies_from_donor(
+    project_root: pathlib.Path,
+    provider: SummitCanonicalContentProvider,
+    *,
+    donor_label: str,
+    relative_path: str,
+    run_validation: bool = True,
+    run_build: bool = True,
+) -> dict[str, Any]:
+    preview = stage_spawn_from_donor(
+        project_root, provider, donor_label=donor_label, relative_path=relative_path,
+        run_validation=False, run_build=False, preview_only=True,
+    )
+    gate = preview.get("dependency_gate") or {}
+    unresolved = gate.get("unresolved") or []
+    if not unresolved:
+        return {
+            "format": FORMAT, "status": "NO_DEPENDENCIES_TO_IMPORT",
+            "spawn": {k: preview.get(k) for k in ("donor_label", "donor_relative_path", "logical_path")},
+            "requirement": "RETRY_STAGE_SPAWN",
+        }
+
+    auto: dict[tuple[str, str], dict[str, Any]] = {}
+    ambiguous: list[dict[str, Any]] = []
+    missing: list[dict[str, Any]] = []
+    ambiguous_keys: set[tuple[str, str]] = set()
+    unique_dependencies: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    preferred = donor_label.strip().upper()
+    for dep in unresolved:
+        all_exact = [c for c in (dep.get("candidates") or []) if c.get("match_basis") == "LEGACY_NAME_BYTES_EXACT"]
+        # Preserve lineage: automatic recovery may only pull definitions from the same
+        # logical donor as the selected SPM. Other donors remain review evidence.
+        exact = [c for c in all_exact if str(c.get("donor_label") or "").upper() == preferred]
+        uniq = {(preferred, str(c.get("relative_path") or "")): c for c in exact}
+        exact = list(uniq.values())
+        if len(exact) == 1:
+            cand = exact[0]
+            key = (preferred, str(cand["relative_path"]))
+            auto[key] = cand
+            unique_dependencies[key].append({
+                "role": dep.get("role"), "name": dep.get("name"),
+                "legacy_name_bytes_hex": dep.get("legacy_name_bytes_hex"), "candidate": cand,
+            })
+        elif len(exact) > 1:
+            for cand in exact:
+                ambiguous_keys.add((preferred, str(cand["relative_path"])))
+            ambiguous.append({
+                "role": dep.get("role"), "name": dep.get("name"),
+                "legacy_name_bytes_hex": dep.get("legacy_name_bytes_hex"), "candidates": exact,
+                "other_donor_exact_candidates": [c for c in all_exact if c not in exact],
+                "requirement": "SELECT_ONE_EXACT_DEFINITION_EXPLICITLY",
+            })
+        else:
+            missing.append({
+                "role": dep.get("role"), "name": dep.get("name"),
+                "legacy_name_bytes_hex": dep.get("legacy_name_bytes_hex"),
+                "candidates": dep.get("candidates") or [],
+                "requirement": "NO_UNIQUE_EXACT_DEFINITION_IN_SELECTED_DONOR",
+            })
+
+    # If a physical definition participates in any ambiguous dependency, do not
+    # auto-stage it merely because another role happened to make it unique.
+    withheld: list[dict[str, Any]] = []
+    for key in ambiguous_keys:
+        auto.pop(key, None)
+        for dep in unique_dependencies.get(key, []):
+            withheld.append({**dep, "requirement": "CANDIDATE_ALSO_PARTICIPATES_IN_AMBIGUOUS_DEPENDENCY"})
+    selected = sorted(auto.values(), key=lambda c: (str(c["donor_label"]), str(c["relative_path"]).casefold()))
+    if not selected:
+        return {
+            "format": FORMAT, "status": "REVIEW_REQUIRED", "action": "STAGE_SPAWN_DEPENDENCIES",
+            "spawn": {k: preview.get(k) for k in ("donor_label", "donor_relative_path", "logical_path")},
+            "auto_stageable": [], "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing,
+            "policy": {"auto_requires_unique_legacy_name_bytes_exact": True, "fuzzy_candidates_never_auto_staged": True},
+        }
+
+    current_index_path = provider.canonical_root / "text" / "index.json"
+    merged_index = json.loads(current_index_path.read_text(encoding="utf-8"))
+    changes: list[dict[str, Any]] = []
+    imported: list[dict[str, Any]] = []
+    already: list[dict[str, Any]] = []
+    conflicts: list[dict[str, Any]] = []
+    converter_logs: list[dict[str, Any]] = []
+    for cand in selected:
+        prepared = _prepare_definition_import(
+            project_root, provider, donor_label=str(cand["donor_label"]), relative_path=str(cand["relative_path"]), kind="MONSTER"
+        )
+        entry = prepared["entry"]; doc = prepared["document"]; target_rel = prepared["target_rel"]
+        target = provider.content_root / pathlib.Path(*target_rel.parts)
+        if target.is_file():
+            current = json.loads(target.read_text(encoding="utf-8"))
+            if current == doc:
+                already.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), **cand})
+                continue
+            conflicts.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), **cand})
+            continue
+        try:
+            merged_index = _merge_index(merged_index, entry, path_key="legacy_path")
+        except (ValueError, KeyError) as exc:
+            conflicts.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), "error": str(exc), **cand})
+            continue
+        changes.append({"relative_path": target_rel.as_posix(), "document": doc})
+        imported.append({"canonical_id": doc.get("id"), "canonical_path": target_rel.as_posix(), **cand})
+        converter_logs.extend(prepared["converter_logs"])
+
+    if conflicts:
+        return {
+            "format": FORMAT, "status": "BLOCKED_CANONICAL_CONFLICTS", "action": "STAGE_SPAWN_DEPENDENCIES",
+            "spawn": {k: preview.get(k) for k in ("donor_label", "donor_relative_path", "logical_path")},
+            "auto_stageable": selected, "imported_preview": imported, "already_canonical": already,
+            "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing, "conflicts": conflicts,
+            "policy": {"partial_stage_on_conflict": False},
+        }
+    if not changes:
+        return {
+            "format": FORMAT, "status": "REVIEW_REQUIRED" if (ambiguous or missing) else "ALREADY_CANONICAL",
+            "action": "STAGE_SPAWN_DEPENDENCIES",
+            "spawn": {k: preview.get(k) for k in ("donor_label", "donor_relative_path", "logical_path")},
+            "auto_stageable": selected, "already_canonical": already, "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing,
+        }
+
+    changes.append({"relative_path": "canonical/text/index.json", "document": merged_index})
+    result = stage_canonical_document_set(
+        project_root, provider, changes, kind="MONSTER_DEPENDENCY_SET",
+        canonical_id=str(preview.get("converted_preview", {}).get("id") or ""),
+        provenance={
+            "origin": "DONOR_SPAWN_DEPENDENCY_BATCH", "spawn_donor_label": donor_label.upper(),
+            "spawn_donor_relative_path": preview.get("donor_relative_path"),
+            "spawn_donor_sha256": preview.get("donor_sha256"), "logical_path": preview.get("logical_path"),
+            "auto_selected_basis": "LEGACY_NAME_BYTES_EXACT_UNIQUE", "imported": imported,
+            "already_canonical": already, "ambiguous": ambiguous, "missing": missing, "converter_logs": converter_logs,
+        },
+        run_validation=run_validation, run_build=run_build,
+    )
+    result["dependency_batch"] = {
+        "auto_staged": imported, "already_canonical": already, "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing,
+        "remaining_review_count": len(ambiguous) + len(withheld) + len(missing),
+        "requirement": "PUBLISH_THIS_CANONICAL_TRANSACTION_THEN_REVIEW_AMBIGUITIES_AND_RETRY_SPAWN",
+    }
     return result
 
 

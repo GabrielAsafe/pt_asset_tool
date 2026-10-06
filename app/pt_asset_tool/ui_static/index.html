@@ -325,6 +325,10 @@
             <div id="donorRecoveryTree" class="donor-recovery-tree"><div class="empty">Load the donor tree after saving Source & evidence donors.</div></div>
             <pre id="donorRecoveryResult" class="legacy-authoring-result">Select an action to stage. Staging never writes directly to client/server.</pre>
             <div class="donor-recovery-deploy">
+              <button id="donorRecoveryStageUniqueDeps" class="btn" disabled>Stage unique exact monster dependencies</button>
+              <span id="donorRecoveryDependencyHint" class="micro">Available after a spawn is blocked by unresolved monsters.</span>
+            </div>
+            <div class="donor-recovery-deploy">
               <input id="donorRecoveryPhysicalConfirm" type="text" placeholder="APPLY CLOSED DONOR BUNDLE" />
               <button id="donorRecoveryPhysicalApply" class="btn" disabled>Apply staged physical bundle</button>
               <input id="donorRecoveryPhysicalTransaction" type="text" placeholder="physical transaction.json for restore" />

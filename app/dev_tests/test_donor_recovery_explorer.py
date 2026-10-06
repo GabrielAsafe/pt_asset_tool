@@ -420,3 +420,80 @@ def test_general_census_query_accepts_component_filter_even_before_report(tmp_pa
     from pt_asset_tool.general_asset_census import query_general_asset_census
     out = query_general_asset_census(tmp_path, component="cmp-123")
     assert out["status"] == "NOT_RUN"
+
+
+def test_spawn_dependency_batch_autostages_only_unique_exact_same_donor_and_preserves_ambiguity(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+    source = tmp_path / "source"
+    canonical = source / "Content/canonical"
+    text_root = canonical / "text"
+    text_root.mkdir(parents=True)
+    (text_root / "index.json").write_text(json.dumps({"documents": []}), encoding="utf-8")
+    provider = SimpleNamespace(source_root=source, canonical_root=canonical, content_root=source / "Content")
+    project = tmp_path / "project"; project.mkdir()
+
+    blocked = {
+        "format": dre.FORMAT,
+        "status": "BLOCKED_DEPENDENCIES",
+        "donor_label": "DONOR2",
+        "donor_relative_path": "GameServer/Field/Slab.ASE.spm",
+        "donor_sha256": "abc",
+        "logical_path": "GameServer/Field/Slab.ASE.spm",
+        "converted_preview": {"id": "spawn.slab"},
+        "dependency_gate": {"status": "BLOCKED", "unresolved": [
+            {"role": "actor", "name": "Unique", "candidates": [
+                {"donor_label": "DONOR2", "relative_path": "GameServer/Monster/A.inf", "match_basis": "LEGACY_NAME_BYTES_EXACT"}
+            ]},
+            {"role": "actor", "name": "Ambiguous", "candidates": [
+                {"donor_label": "DONOR2", "relative_path": "GameServer/Monster/B.inf", "match_basis": "LEGACY_NAME_BYTES_EXACT"},
+                {"donor_label": "DONOR2", "relative_path": "GameServer/Monster/B2.inf", "match_basis": "LEGACY_NAME_BYTES_EXACT"},
+            ]},
+            # B.inf must not be auto-staged here merely because another role is unique.
+            {"role": "boss_slave", "name": "SharesAmbiguousFile", "candidates": [
+                {"donor_label": "DONOR2", "relative_path": "GameServer/Monster/B.inf", "match_basis": "LEGACY_NAME_BYTES_EXACT"}
+            ]},
+            # Cross-donor evidence is review-only for a DONOR2 SPM.
+            {"role": "actor", "name": "OtherDonor", "candidates": [
+                {"donor_label": "DONOR3", "relative_path": "GameServer/Monster/C.inf", "match_basis": "LEGACY_NAME_BYTES_EXACT"}
+            ]},
+        ]},
+    }
+    monkeypatch.setattr(dre, "stage_spawn_from_donor", lambda *a, **k: blocked)
+
+    def prepare(_project, _provider, *, donor_label, relative_path, kind):
+        assert donor_label == "DONOR2" and relative_path.endswith("A.inf") and kind == "MONSTER"
+        entry = {"id": "monster.unique", "kind": "monster_definition", "legacy_path": "GameServer/Monster/A.inf", "json_path": "resources/server/GameServer/Monster/A.inf.json"}
+        return {
+            "kind": "MONSTER", "entry": entry, "document": {"schema": "summit.canonical-text-resource/v1", "id": "monster.unique"},
+            "target_rel": Path("canonical/text/resources/server/GameServer/Monster/A.inf.json"),
+            "donor_root": tmp_path, "source": tmp_path / "A.inf", "relative_path": Path("GameServer/Monster/A.inf"),
+            "logical_path": Path("GameServer/Monster/A.inf"), "converter_logs": [],
+        }
+    monkeypatch.setattr(dre, "_prepare_definition_import", prepare)
+    captured = {}
+    def stage(_project, _provider, changes, **kwargs):
+        captured["changes"] = changes; captured["kwargs"] = kwargs
+        return {"format": "X", "status": "STAGED", "manifest": {"manifest": "/tmp/manifest.json"}}
+    monkeypatch.setattr(dre, "stage_canonical_document_set", stage)
+
+    result = dre.stage_unique_spawn_dependencies_from_donor(
+        project, provider, donor_label="DONOR2", relative_path="GameServer/Field/Slab.ASE.spm",
+        run_validation=False, run_build=False,
+    )
+    assert result["status"] == "STAGED"
+    assert [x["relative_path"] for x in result["dependency_batch"]["auto_staged"]] == ["GameServer/Monster/A.inf"]
+    assert {x["name"] for x in result["dependency_batch"]["ambiguous"]} == {"Ambiguous"}
+    assert {x["name"] for x in result["dependency_batch"]["withheld_due_to_ambiguity"]} == {"SharesAmbiguousFile"}
+    assert {x["name"] for x in result["dependency_batch"]["missing"]} == {"OtherDonor"}
+    assert len(captured["changes"]) == 2  # one monster document + canonical/text/index.json
+    assert captured["kwargs"]["kind"] == "MONSTER_DEPENDENCY_SET"
+
+
+def test_spawn_dependency_batch_ui_and_route_are_exposed():
+    root = Path(__file__).resolve().parents[1]
+    js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")
+    html = (root / "pt_asset_tool/ui_static/index.html").read_text(encoding="utf-8")
+    py = (root / "pt_asset_tool/ui_app.py").read_text(encoding="utf-8")
+    assert "Stage unique exact monster dependencies" in html
+    assert "STAGE_SPAWN_DEPENDENCIES" in js
+    assert "stage_unique_spawn_dependencies_from_donor" in py

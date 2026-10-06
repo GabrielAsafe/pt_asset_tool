@@ -68,7 +68,7 @@ from .validation import rigid_model_info_options
 from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_spp_records, stage_spc_native
 from .general_asset_census import query_general_asset_census
 from .donor_recovery_explorer import (
-    build_donor_explorer, stage_spawn_from_donor, stage_definition_from_donor, stage_physical_closed_bundle,
+    build_donor_explorer, stage_spawn_from_donor, stage_definition_from_donor, stage_unique_spawn_dependencies_from_donor, stage_physical_closed_bundle,
     apply_physical_closed_bundle, restore_physical_recovery,
 )
 from .asset_retention import query_asset_retention
@@ -1971,6 +1971,15 @@ class UIHandler(BaseHTTPRequestHandler):
                 if action == "STAGE_SPAWN":
                     provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
                     result = stage_spawn_from_donor(
+                        self.ctx.project_root, provider,
+                        donor_label=str(body.get("donor_label") or ""),
+                        relative_path=str(body.get("relative_path") or ""),
+                        run_validation=bool(body.get("run_validation", True)),
+                        run_build=bool(body.get("run_build", True)),
+                    )
+                elif action == "STAGE_SPAWN_DEPENDENCIES":
+                    provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                    result = stage_unique_spawn_dependencies_from_donor(
                         self.ctx.project_root, provider,
                         donor_label=str(body.get("donor_label") or ""),
                         relative_path=str(body.get("relative_path") or ""),
