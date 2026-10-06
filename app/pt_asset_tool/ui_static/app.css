@@ -72,3 +72,18 @@ main{min-width:0;padding:22px 26px 38px}header{display:flex;justify-content:spac
 .server-console-panel pre{max-height:360px}
 @media(max-width:900px){.server-workflow-tab.subtle{margin-left:0}.server-handoff-grid{grid-template-columns:1fr}.contract-root-form .contract-donors{grid-column:1/-1}.server-job{grid-template-columns:1fr}.server-job-actions{justify-content:flex-start}}
 .contract-feedback-row strong{white-space:nowrap}.contract-feedback-row code{grid-column:1/-1;overflow-wrap:anywhere;white-space:pre-wrap}.contract-feedback>p{margin:0;color:var(--muted);font-size:11px}.server-job.selected{border-color:var(--accent);background:rgba(92,148,255,.08)}
+
+/* Multi-donor semantic recovery tree. */
+.donor-recovery-tree{display:grid;gap:8px;max-height:58vh;overflow:auto;padding:10px 12px;border-top:1px solid var(--line)}
+.donor-recovery-domain,.donor-recovery-entity{border:1px solid var(--line);border-radius:8px;background:var(--panel2);overflow:hidden}
+.donor-recovery-domain>summary,.donor-recovery-entity>summary{display:flex;justify-content:space-between;gap:10px;align-items:center;cursor:pointer;padding:9px 10px}
+.donor-recovery-domain>summary span,.donor-recovery-entity>summary span{color:var(--muted);font-size:10px;text-align:right}
+.donor-recovery-domain>.donor-recovery-entity{margin:0 8px 8px}
+.donor-recovery-variants{display:grid;gap:6px;padding:0 8px 8px}
+.donor-recovery-variant{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+.donor-recovery-variant code{display:inline-block;max-width:100%;overflow-wrap:anywhere;white-space:normal;color:#cbd5e1}
+.donor-recovery-variant .badge{display:inline-block;margin-right:6px;padding:2px 5px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:9px}
+@media(max-width:900px){.donor-recovery-variant{grid-template-columns:1fr}.donor-recovery-domain>summary,.donor-recovery-entity>summary{align-items:flex-start;flex-direction:column}.donor-recovery-domain>summary span,.donor-recovery-entity>summary span{text-align:left}}
+
+.donor-recovery-deploy{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(280px,1.3fr) auto;gap:8px;align-items:center;padding:10px 12px;border-top:1px solid var(--line)}
+@media(max-width:1000px){.donor-recovery-deploy{grid-template-columns:1fr}}

@@ -44,7 +44,7 @@ from .summit_canonical import (
 )
 from .canonical_authoring import (
     canonical_authoring_capabilities, stage_canonical_authoring, publish_canonical_source,
-    publish_canonical_packs, restore_canonical_transaction, PUBLISH_SOURCE_CONFIRM,
+    publish_canonical_packs, deploy_canonical_runtime, restore_canonical_transaction, PUBLISH_SOURCE_CONFIRM,
     PUBLISH_PACKS_CONFIRM, RESTORE_CONFIRM,
 )
 from .entity_catalog import (
@@ -67,6 +67,10 @@ from .app_config import (
 from .validation import rigid_model_info_options
 from .server_field_editor import inspect_field_metadata, stage_spm_text, stage_spp_records, stage_spc_native
 from .general_asset_census import query_general_asset_census
+from .donor_recovery_explorer import (
+    build_donor_explorer, stage_spawn_from_donor, stage_definition_from_donor, stage_physical_closed_bundle,
+    apply_physical_closed_bundle, restore_physical_recovery,
+)
 from .asset_retention import query_asset_retention
 from .server_enrichment_readiness import build_general_census_readiness
 from .source_catalog import configured_source_roots
@@ -1189,6 +1193,16 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._json(200, {"ok": True, "result": result})
             except Exception as exc:
                 return self._error(400, "LEGACY_AUTHORING_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
+        if path == "/api/donor-recovery/explorer":
+            try:
+                result = build_donor_explorer(
+                    self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                    domain=_one(q, "domain"), query=_one(q, "q"), donor=_one(q, "donor"),
+                    limit=int(_one(q, "limit") or 1500),
+                )
+                return self._json(200, {"ok": True, "result": result})
+            except Exception as exc:
+                return self._error(400, "DONOR_RECOVERY_EXPLORER_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/general-census":
             try:
                 report = query_general_asset_census(
@@ -1920,6 +1934,75 @@ class UIHandler(BaseHTTPRequestHandler):
             if census_preflight is not None:
                 payload["preflight"] = census_preflight
             return self._json(202, payload)
+        if u.path in {"/api/donor-recovery/apply-physical", "/api/donor-recovery/restore-physical"}:
+            if not self.ctx.server_deploy_armed:
+                return self._error(409, "ASSET_DEPLOY_NOT_ARMED", "Arm Asset Bundle deployment before physical donor apply/restore.")
+            try:
+                if u.path.endswith("/apply-physical"):
+                    result = apply_physical_closed_bundle(
+                        self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                        source_root=self.ctx.source_root, reference_source_root=self.ctx.reference_source_root,
+                        donor_label=str(body.get("donor_label") or ""),
+                        expected_side=str(body.get("side") or ""), expected_root=str(body.get("root_path") or ""),
+                        confirm=str(body.get("confirm") or ""),
+                    )
+                else:
+                    result = restore_physical_recovery(
+                        self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                        transaction=str(body.get("transaction") or ""), confirm=str(body.get("confirm") or ""),
+                    )
+                self.ctx.disarm_server_deploy()
+                return self._json(200, {"ok": True, "result": result, "server_deploy_armed": False})
+            except PermissionError as exc:
+                self.ctx.disarm_server_deploy()
+                return self._error(403, "DONOR_PHYSICAL_CONFIRMATION_REQUIRED", str(exc))
+            except (FileNotFoundError, ValueError, RuntimeError) as exc:
+                self.ctx.disarm_server_deploy()
+                return self._error(422, "DONOR_PHYSICAL_DEPLOY_REJECTED", str(exc))
+            except Exception as exc:
+                self.ctx.disarm_server_deploy()
+                return self._error(500, "DONOR_PHYSICAL_DEPLOY_FAILED", f"{type(exc).__name__}:{exc}")
+        if u.path == "/api/donor-recovery/stage":
+            if not self.ctx.write_armed:
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build before donor recovery staging.")
+            try:
+                action = str(body.get("action") or "").strip().upper()
+                if action == "STAGE_SPAWN":
+                    provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                    result = stage_spawn_from_donor(
+                        self.ctx.project_root, provider,
+                        donor_label=str(body.get("donor_label") or ""),
+                        relative_path=str(body.get("relative_path") or ""),
+                        run_validation=bool(body.get("run_validation", True)),
+                        run_build=bool(body.get("run_build", True)),
+                    )
+                elif action in {"MONSTER", "NPC", "ITEM"}:
+                    provider = SummitCanonicalContentProvider.from_project(self.ctx.project_root, self.ctx.source_root)
+                    result = stage_definition_from_donor(
+                        self.ctx.project_root, provider,
+                        donor_label=str(body.get("donor_label") or ""),
+                        relative_path=str(body.get("relative_path") or ""),
+                        kind=action,
+                        replace_existing=bool(body.get("replace_existing", False)),
+                        run_validation=bool(body.get("run_validation", True)),
+                        run_build=bool(body.get("run_build", True)),
+                    )
+                elif action == "PHYSICAL_BUNDLE":
+                    result = stage_physical_closed_bundle(
+                        self.ctx.project_root, self.ctx.client_root, self.ctx.server_root,
+                        source_root=self.ctx.source_root, reference_source_root=self.ctx.reference_source_root,
+                        donor_label=str(body.get("donor_label") or ""),
+                        expected_side=str(body.get("side") or ""), expected_root=str(body.get("root_path") or ""),
+                    )
+                else:
+                    return self._error(400, "DONOR_RECOVERY_ACTION_INVALID")
+                return self._json(200, {"ok": True, "result": result})
+            except FileNotFoundError as exc:
+                return self._error(404, "DONOR_RECOVERY_SOURCE_NOT_FOUND", str(exc))
+            except (ValueError, KeyError, RuntimeError) as exc:
+                return self._error(422, "DONOR_RECOVERY_STAGE_REJECTED", str(exc))
+            except Exception as exc:
+                return self._error(500, "DONOR_RECOVERY_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
         if u.path == "/api/canonical/stage":
             if not self.ctx.write_armed:
                 return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build before staging canonical authoring.")
@@ -1938,7 +2021,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(422, "CANONICAL_STAGE_REJECTED", str(exc))
             except Exception as exc:
                 return self._error(500, "CANONICAL_STAGE_FAILED", f"{type(exc).__name__}:{exc}")
-        if u.path in {"/api/canonical/publish-source", "/api/canonical/publish-packs", "/api/canonical/restore"}:
+        if u.path in {"/api/canonical/publish-source", "/api/canonical/publish-packs", "/api/canonical/deploy-runtime", "/api/canonical/restore"}:
             if not self.ctx.server_deploy_armed:
                 return self._error(409, "ASSET_DEPLOY_NOT_ARMED", "Arm Asset Bundle deployment before each canonical publish/restore phase.")
             manifest = body.get("manifest")
@@ -1949,6 +2032,11 @@ class UIHandler(BaseHTTPRequestHandler):
                     result = publish_canonical_source(self.ctx.project_root, manifest, confirm=str(body.get("confirm") or ""))
                 elif u.path.endswith("/publish-packs"):
                     result = publish_canonical_packs(self.ctx.project_root, manifest, confirm=str(body.get("confirm") or ""))
+                elif u.path.endswith("/deploy-runtime"):
+                    result = deploy_canonical_runtime(
+                        self.ctx.project_root, manifest, confirm=str(body.get("confirm") or ""),
+                        client_root=self.ctx.client_root, server_root=self.ctx.server_root,
+                    )
                 else:
                     result = restore_canonical_transaction(self.ctx.project_root, manifest, confirm=str(body.get("confirm") or ""))
                 self.ctx.disarm_server_deploy()
