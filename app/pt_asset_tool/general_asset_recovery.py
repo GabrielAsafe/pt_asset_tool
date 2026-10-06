@@ -418,7 +418,7 @@ def recover_closed_general_asset_bundles(
         "expected_roots": [f"{s}:{p}" for s, p in sorted(expected)],
         "policy": {
             "fresh_census_required": True,
-            "scope_must_equal_expected_roots": True,
+            "scope_limited_to_explicit_expected_roots_when_provided": True,
             "closed_bundles_only": True,
             "create_only_no_overwrite": True,
             "same_selected_donor_lineage_only": True,
@@ -451,19 +451,24 @@ def recover_closed_general_asset_bundles(
         if int(pre.get("reachable_donor_conflict_count") or 0) or int(pre.get("reachable_hard_conflict_count") or 0):
             raise RuntimeError("RECOVERY_PREFLIGHT_REACHABLE_CONFLICT")
         bundle_report = _load_json(project / "pt_build" / "general_asset_census" / "recovery_bundles.json")
-        actual_scope, bundle_rows = _closed_scope(bundle_report)
-        if not actual_scope:
+        all_scope, all_bundle_rows = _closed_scope(bundle_report)
+        if not all_scope:
             raise RuntimeError("RECOVERY_PREFLIGHT_NO_CLOSED_BUNDLES")
-        if expected and actual_scope != expected:
-            expected_text = sorted(f"{s}:{p}" for s, p in expected)
-            actual_text = sorted(f"{s}:{p}" for s, p in actual_scope)
-            raise RuntimeError(f"RECOVERY_SCOPE_CHANGED:expected={expected_text}:actual={actual_text}")
-        if int(pre.get("recoverable_reachable_candidate_count") or 0) != len(actual_scope):
+        if expected:
+            missing_expected = expected - all_scope
+            if missing_expected:
+                missing_text = sorted(f"{s}:{p}" for s, p in missing_expected)
+                raise RuntimeError(f"RECOVERY_SCOPE_CHANGED:expected_not_closed={missing_text}")
+            bundle_rows = [
+                row for row in all_bundle_rows
+                if (str(row.get("side") or "").upper(), _norm(row.get("root_path") or "").casefold()) in expected
+            ]
+            actual_scope = set(expected)
+        else:
+            bundle_rows = all_bundle_rows
+            actual_scope = all_scope
+        if len(bundle_rows) != len(actual_scope):
             raise RuntimeError("RECOVERY_SCOPE_COUNT_MISMATCH")
-        if int(pre.get("recovery_bundle_closed_root_count") or 0) != len(actual_scope):
-            raise RuntimeError("RECOVERY_CLOSED_COUNT_MISMATCH")
-        if int(pre.get("recovery_bundle_review_root_count") or 0) or int(pre.get("recovery_bundle_incomplete_root_count") or 0):
-            raise RuntimeError("RECOVERY_NON_CLOSED_BUNDLE_PRESENT")
 
         if progress:
             progress(f"scope locked: {len(actual_scope)} closed bundles")
