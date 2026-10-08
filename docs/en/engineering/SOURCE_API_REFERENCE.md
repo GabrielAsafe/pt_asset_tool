@@ -6,7 +6,7 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `c8402fe87656aafd2f101cb03a1dbc1474c30f4232318ef043d45730cf034796`
+- Source SHA-256: `c64673929abdd4fd3c1be5eb612fa08b90c5a7b4740c0904cfd6af9f6e16bf8e`
 - Maintained Python modules/scripts: **301**
 - Classes: **66**
 - Class methods: **291**
@@ -70,7 +70,7 @@ _No top-level functions or classes._
 |---|---|---|---:|---|
 | class | `IncrementalCacheError` | `class IncrementalCacheError(RuntimeError)` | 18 | — |
 | class | `CachePolicy` | `@dataclasses.dataclass(frozen=True) class CachePolicy` | 23 | — |
-| method | `CachePolicy.from_env` | `@classmethod from_env(cls) -> 'CachePolicy'` | 28 | — |
+| method | `CachePolicy.from_env` | `@classmethod from_env(cls) -> "CachePolicy"` | 28 | — |
 | function | `_sha256_file` | `_sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str` | 37 | — |
 | function | `code_fingerprint` | `code_fingerprint(app_dir: os.PathLike[str] \| str) -> str` | 48 | Hash Python validator code only; never hashes game assets. |
 | function | `_stat_identity` | `_stat_identity(path: Path) -> Dict[str, Any]` | 63 | — |
@@ -86,7 +86,7 @@ _No top-level functions or classes._
 | method | `GateCache.cache_key` | `cache_key(self, gate_name: str, args: Sequence[Any], kwargs: Mapping[str, Any], roots: Mapping[str, os.PathLike[str] \| str]) -> Tuple[str, Dict[str, Any]]` | 208 | — |
 | method | `GateCache._paths` | `_paths(self, key: str) -> Tuple[Path, Path]` | 219 | — |
 | method | `GateCache.load` | `load(self, gate_name: str, args: Sequence[Any], kwargs: Mapping[str, Any], roots: Mapping[str, os.PathLike[str] \| str]) -> Optional[Any]` | 222 | — |
-| method | `GateCache.store` | `store(self, gate_name: str, value: Any, args: Sequence[Any], kwargs: Mapping[str, Any], roots: Mapping[str, os.PathLike[str] \| str], *, source: str = 'executed') -> bool` | 244 | — |
+| method | `GateCache.store` | `store(self, gate_name: str, value: Any, args: Sequence[Any], kwargs: Mapping[str, Any], roots: Mapping[str, os.PathLike[str] \| str], *, source: str = "executed") -> bool` | 244 | — |
 | method | `GateCache.warm_from_json_report` | `warm_from_json_report(self, gate_name: str, report_path: os.PathLike[str] \| str, args: Sequence[Any], kwargs: Mapping[str, Any], roots: Mapping[str, os.PathLike[str] \| str]) -> Optional[Any]` | 283 | — |
 | method | `GateCache.call` | `call(self, gate_name: str, func: Callable[..., Any], args: Sequence[Any], kwargs: Mapping[str, Any], roots: Mapping[str, os.PathLike[str] \| str], *, warm_reports: Sequence[os.PathLike[str] \| str] = ()) -> Any` | 303 | — |
 | function | `infer_root_from_call` | `infer_root_from_call(func: Callable[..., Any], args: Sequence[Any], kwargs: Mapping[str, Any], fallback: Optional[str] = None) -> Optional[str]` | 329 | — |
@@ -235,7 +235,7 @@ PT SMD MODEL 0.62 — FREE MESH WRITER V3
 | function | `verify_output` | `verify_output(data, target, nv, nf, object_index = None)` | 951 | — |
 | function | `sync_mesh_from_edit_mode` | `sync_mesh_from_edit_mode(obj)` | 981 | Commit the active Edit BMesh into the Mesh RNA datablock in memory. |
 | function | `require_uv_storage` | `require_uv_storage(mesh)` | 1014 | — |
-| function | `object_matrix_is_identity` | `object_matrix_is_identity(obj, eps = 1e-07)` | 1043 | — |
+| function | `object_matrix_is_identity` | `object_matrix_is_identity(obj, eps = 1e-7)` | 1043 | — |
 | function | `parse_args` | `parse_args(argv)` | 1052 | — |
 | function | `main` | `main(argv)` | 1073 | — |
 
@@ -313,7 +313,7 @@ PT Character Texture Core V1.2
 | function | `mid` | `mid(spec, default = 0.0)` | 21 | — |
 | function | `sample` | `sample(spec, rng, default = 0.0)` | 28 | — |
 | function | `xyz_sample` | `xyz_sample(spec, rng)` | 35 | — |
-| function | `rgba` | `rgba(spec, default = (1, 1, 1, 1))` | 40 | — |
+| function | `rgba` | `rgba(spec, default = (1,1,1,1))` | 40 | — |
 | function | `make_plane_mesh` | `make_plane_mesh(bpy, name)` | 45 | — |
 | function | `make_material` | `make_material(bpy, name, event, warnings)` | 51 | — |
 | function | `orient_camera` | `orient_camera(cam, target)` | 80 | — |
@@ -332,7 +332,7 @@ PT Character Texture Core V1.2
 | function | `_sha` | `_sha(data: bytes) -> str` | 29 | — |
 | function | `_json_sha` | `_json_sha(obj: dict) -> str` | 33 | — |
 | function | `_strip_comment` | `_strip_comment(body: str) -> str` | 38 | — |
-| function | `_brace_delta` | `_brace_delta(code: str) -> Tuple[int, int]` | 56 | — |
+| function | `_brace_delta` | `_brace_delta(code: str) -> Tuple[int,int]` | 56 | — |
 | function | `_number_spec` | `_number_spec(raw: str) -> Optional[dict]` | 70 | — |
 | function | `_xyz_spec` | `_xyz_spec(raw: str) -> Optional[dict]` | 85 | — |
 | function | `_rgba_spec` | `_rgba_spec(raw: str) -> Optional[dict]` | 96 | — |
@@ -354,8 +354,8 @@ PT Character Texture Core V1.2
 | function | `verify_plan` | `verify_plan(client_root: Path, build_root: Path, plan: dict) -> dict` | 368 | — |
 | function | `_safe_under_pt_build` | `_safe_under_pt_build(app_root: Path, p: Path) -> Path` | 386 | — |
 | function | `_blender_prefix` | `_blender_prefix(blender: str \| Sequence[str]) -> list[str]` | 394 | — |
-| function | `blender_command` | `blender_command(app_root: Path, plan_path: Path, *, out_blend: Optional[Path] = None, report: Optional[Path] = None, render_dir: Optional[Path] = None, blender: str \| Sequence[str] = 'blender', max_events: int = 64, max_particles_per_event: int = 32, max_total_particles: int = 256, frames: int = 120, render_frames: Tuple[int, ...] = (1, 30, 60, 90), render_size: int = 512)` | 404 | — |
-| function | `run_blender_preview` | `run_blender_preview(app_root: Path, plan_path: Path, *, timeout_seconds: float = 120.0, blender: str \| Sequence[str] = 'blender', render_frames: Tuple[int, ...] = (1, 30, 60, 90), render_size: int = 512) -> dict` | 440 | — |
+| function | `blender_command` | `blender_command(app_root: Path, plan_path: Path, *, out_blend: Optional[Path] = None, report: Optional[Path] = None, render_dir: Optional[Path] = None, blender: str \| Sequence[str] = "blender", max_events: int = 64, max_particles_per_event: int = 32, max_total_particles: int = 256, frames: int = 120, render_frames: Tuple[int,...] = (1, 30, 60, 90), render_size: int = 512)` | 404 | — |
+| function | `run_blender_preview` | `run_blender_preview(app_root: Path, plan_path: Path, *, timeout_seconds: float = 120.0, blender: str \| Sequence[str] = "blender", render_frames: Tuple[int,...] = (1,30,60,90), render_size: int = 512) -> dict` | 440 | — |
 | function | `main` | `main()` | 499 | — |
 
 ## `app/pt_effect_preview_verify.py`
@@ -365,7 +365,7 @@ PT Character Texture Core V1.2
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_under` | `_under(root: Path, p: Path)` | 9 | — |
-| function | `verify` | `verify(client_root: Path, build_root: Path, plan_path: Path, report_path: Path \| None = None)` | 13 | — |
+| function | `verify` | `verify(client_root: Path, build_root: Path, plan_path: Path, report_path: Path\|None = None)` | 13 | — |
 | function | `main` | `main()` | 39 | — |
 
 ## `app/pt_inx_motion_core_v2.py`
@@ -548,7 +548,7 @@ Summit/Priston protected TGA header adapter V2.
 | function | `_gate` | `_gate(data, name)` | 15 | — |
 | function | `_errkey` | `_errkey(e)` | 21 | — |
 | function | `_motion_rows` | `_motion_rows(data)` | 23 | — |
-| function | `summarize` | `summarize(data: dict, log_text: str = '', baseline_triage: dict \| None = None)` | 26 | — |
+| function | `summarize` | `summarize(data: dict, log_text: str = "", baseline_triage: dict\|None = None)` | 26 | — |
 | function | `main` | `main()` | 80 | — |
 
 ## `app/pt_release_triage_v3.py`
@@ -730,7 +730,7 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `audit_animation_corpus` | `audit_animation_corpus(project_root: pathlib.Path, registry, resolver, *, category: str \| None = None, mode: str = 'core', pair_limit: int = 0, sample_limit: int = 50) -> dict[str, Any]` | 14 | Audit unique registry-proven INX/SMB animation contexts source-side. |
+| function | `audit_animation_corpus` | `audit_animation_corpus(project_root: pathlib.Path, registry, resolver, *, category: str \| None = None, mode: str = "core", pair_limit: int = 0, sample_limit: int = 50) -> dict[str, Any]` | 14 | Audit unique registry-proven INX/SMB animation contexts source-side. |
 
 ## `app/pt_asset_tool/animation_pose_devtest.py`
 
@@ -755,7 +755,7 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_finite_motion` | `_finite_motion(report: dict[str, Any]) -> bool` | 16 | — |
-| function | `audit_animation_source_regression` | `audit_animation_source_regression(project_root: pathlib.Path, inx: pathlib.Path, smb: pathlib.Path, *, mode: str = 'core') -> dict[str, Any]` | 28 | Run source-side motion sanity across a real INX/SMB pair. |
+| function | `audit_animation_source_regression` | `audit_animation_source_regression(project_root: pathlib.Path, inx: pathlib.Path, smb: pathlib.Path, *, mode: str = "core") -> dict[str, Any]` | 28 | Run source-side motion sanity across a real INX/SMB pair. |
 
 ## `app/pt_asset_tool/app_config.py`
 
@@ -850,7 +850,7 @@ _No top-level functions or classes._
 | function | `_source_token` | `_source_token(registry_name: str, name: str) -> str` | 599 | — |
 | function | `_quote_legacy_value` | `_quote_legacy_value(value: Any) -> str` | 608 | — |
 | function | `_legacy_line` | `_legacy_line(token: str, values: list[Any] \| tuple[Any, ...] \| Any = ()) -> str` | 617 | — |
-| function | `_validate_legacy_lines` | `_validate_legacy_lines(lines: list[str], *, encoding: str = 'cp949', buffer_bytes: int = 256) -> None` | 625 | — |
+| function | `_validate_legacy_lines` | `_validate_legacy_lines(lines: list[str], *, encoding: str = "cp949", buffer_bytes: int = 256) -> None` | 625 | — |
 | function | `_typed_values` | `_typed_values(kind: str, value: Any) -> list[Any] \| None` | 729 | — |
 | function | `_compile_character_definition` | `_compile_character_definition(contract_id: str, payload: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 771 | — |
 | function | `_item_values` | `_item_values(kind: str, value: Any) -> list[Any] \| None` | 857 | — |
@@ -861,7 +861,7 @@ _No top-level functions or classes._
 | function | `_compile_spp` | `_compile_spp(payload: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 1012 | — |
 | function | `_cstr` | `_cstr(value: Any, size: int, encoding: str, field: str) -> bytes` | 1039 | — |
 | function | `_pack_spc_char_info` | `_pack_spc_char_info(record: bytearray, base: int, row: dict[str, Any], encoding: str) -> None` | 1052 | — |
-| function | `build_spc_record` | `build_spc_record(row: dict[str, Any], *, record_encoding: str = 'cp949') -> bytes` | 1101 | Build one source-derived Win32 smTRNAS_PLAYERINFO disk record. |
+| function | `build_spc_record` | `build_spc_record(row: dict[str, Any], *, record_encoding: str = "cp949") -> bytes` | 1101 | Build one source-derived Win32 smTRNAS_PLAYERINFO disk record. |
 | function | `_compile_spc` | `_compile_spc(payload: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 1137 | — |
 | function | `_pad_list` | `_pad_list(values: Any, count: int, default: Any, label: str) -> list[Any]` | 1174 | — |
 | function | `_compile_font_image_pos` | `_compile_font_image_pos(payload: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 1181 | — |
@@ -881,7 +881,7 @@ _No top-level functions or classes._
 | function | `_resolve_root_file` | `_resolve_root_file(root: pathlib.Path \| str \| None, logical: str) -> pathlib.Path \| None` | 1531 | — |
 | function | `_decode_legacy_text` | `_decode_legacy_text(data: bytes) -> tuple[str, str]` | 1555 | — |
 | function | `_patch_existing_spm` | `_patch_existing_spm(server_root: pathlib.Path \| str \| None, logical: str, *, actor_name: str, weight: int) -> tuple[bytes, dict[str, Any]]` | 1564 | — |
-| function | `_patch_existing_spc` | `_patch_existing_spc(server_root: pathlib.Path \| str \| None, logical: str, row: dict[str, Any], *, slot_index: int \| None = None, record_encoding: str = 'cp949') -> tuple[bytes, dict[str, Any]]` | 1619 | — |
+| function | `_patch_existing_spc` | `_patch_existing_spc(server_root: pathlib.Path \| str \| None, logical: str, row: dict[str, Any], *, slot_index: int \| None = None, record_encoding: str = "cp949") -> tuple[bytes, dict[str, Any]]` | 1619 | — |
 | function | `_bundle_asset_recipe` | `_bundle_asset_recipe(bundle_id: str, ordinal: int, contract_id: str, side: str, output: str, payload: dict[str, Any]) -> dict[str, Any]` | 1651 | — |
 | function | `_bundle_children` | `_bundle_children(obj: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[str], list[str]]` | 1658 | — |
 | function | `_bundle_client_generated` | `_bundle_client_generated(children: list[dict[str, Any]]) -> dict[str, tuple[bytes, dict[str, Any], dict[str, Any]]]` | 1893 | — |
@@ -916,7 +916,7 @@ _No top-level functions or classes._
 | function | `iter_contracts` | `iter_contracts() -> Iterable[AssetContract]` | 116 | — |
 | function | `get_contract` | `get_contract(contract_id: str) -> AssetContract` | 121 | — |
 | function | `schema_for_contract` | `schema_for_contract(contract_id: str) -> dict[str, Any] \| None` | 129 | — |
-| function | `registry_summary` | `registry_summary(*, query: str = '', capability: str = '', implementation: str = '') -> dict[str, Any]` | 144 | — |
+| function | `registry_summary` | `registry_summary(*, query: str = "", capability: str = "", implementation: str = "") -> dict[str, Any]` | 144 | — |
 | function | `source_registry` | `source_registry(name: str) -> dict[str, Any]` | 202 | — |
 | function | `match_contracts_for_path` | `match_contracts_for_path(path: str) -> list[dict[str, Any]]` | 220 | Return source-contract candidates for a logical asset path. |
 
@@ -934,14 +934,14 @@ _No top-level functions or classes._
 | function | `_load_json` | `_load_json(path: pathlib.Path) -> dict[str, Any]` | 58 | — |
 | function | `_q0_reason` | `_q0_reason(row: dict[str, str]) -> str \| None` | 68 | — |
 | function | `_q1_review_score` | `_q1_review_score(members: list[dict[str, str]], meta: dict[str, Any]) -> dict[str, Any]` | 90 | Deterministic review priority only. Never authorizes quarantine/delete. |
-| function | `quarantine_review_queue` | `quarantine_review_queue(project_root: str \| pathlib.Path, *, band: str = '', component: str = '', offset: int = 0, limit: int = 50) -> dict[str, Any]` | 166 | Read-only query over persisted Q1 review rankings. |
+| function | `quarantine_review_queue` | `quarantine_review_queue(project_root: str \| pathlib.Path, *, band: str = "", component: str = "", offset: int = 0, limit: int = 50) -> dict[str, Any]` | 166 | Read-only query over persisted Q1 review rankings. |
 | function | `_q1_manual_quarantine_assessment` | `_q1_manual_quarantine_assessment(client: pathlib.Path, members: list[dict[str, str]], meta: dict[str, Any], review: dict[str, Any]) -> tuple[bool, list[str], list[dict[str, Any]]]` | 218 | Strict manual-only gate. Ranking never grants move authority by itself. |
 | function | `build_quarantine_plan` | `build_quarantine_plan(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path) -> dict[str, Any]` | 293 | — |
 | function | `_default_plan` | `_default_plan(project: pathlib.Path) -> pathlib.Path` | 455 | — |
 | function | `_latest_transaction_path` | `_latest_transaction_path(project: pathlib.Path) -> pathlib.Path \| None` | 459 | — |
-| function | `apply_quarantine_plan` | `apply_quarantine_plan(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, plan_path: str \| pathlib.Path \| None = None, confirm: str = '') -> dict[str, Any]` | 472 | — |
-| function | `apply_q1_component_quarantine` | `apply_q1_component_quarantine(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, component_id: str, plan_path: str \| pathlib.Path \| None = None, confirm: str = '') -> dict[str, Any]` | 572 | — |
-| function | `restore_quarantine_transaction` | `restore_quarantine_transaction(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, transaction_path: str \| pathlib.Path \| None = None, confirm: str = '') -> dict[str, Any]` | 695 | — |
+| function | `apply_quarantine_plan` | `apply_quarantine_plan(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, plan_path: str \| pathlib.Path \| None = None, confirm: str = "") -> dict[str, Any]` | 472 | — |
+| function | `apply_q1_component_quarantine` | `apply_q1_component_quarantine(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, component_id: str, plan_path: str \| pathlib.Path \| None = None, confirm: str = "") -> dict[str, Any]` | 572 | — |
+| function | `restore_quarantine_transaction` | `restore_quarantine_transaction(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, transaction_path: str \| pathlib.Path \| None = None, confirm: str = "") -> dict[str, Any]` | 695 | — |
 | function | `quarantine_status` | `quarantine_status(project_root: str \| pathlib.Path) -> dict[str, Any]` | 759 | — |
 
 ## `app/pt_asset_tool/asset_retention.py`
@@ -961,7 +961,7 @@ _No top-level functions or classes._
 | function | `_integrity_action` | `_integrity_action(retention_state: str, cook: dict[str, Any], *, root_reachable: bool = False) -> str` | 98 | Combine retention and cooker evidence without changing retention authority. |
 | function | `_root_unreachable_components` | `_root_unreachable_components(edges: list[dict[str, Any]], reachable_nodes: set[str]) -> tuple[dict[str, dict[str, Any]], list[dict[str, Any]]]` | 131 | Weak client-client components for graph-linked nodes not reached by roots. |
 | function | `audit_asset_retention` | `audit_asset_retention(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, strong_paths: dict[str, Iterable[str]], review_paths: dict[str, Iterable[str]], manifest_exact: dict[str, Iterable[str]], source_literal_paths: Iterable[str], cooked_by_source: dict[str, dict[str, Any]] \| None = None, graph_path: str \| pathlib.Path \| None = None) -> dict[str, Any]` | 197 | Classify physical client files for retention without authorizing deletion. |
-| function | `query_asset_retention` | `query_asset_retention(project_root: str \| pathlib.Path, *, path: str = '', query: str = '', state: str = '', family: str = '', component: str = '', offset: int = 0, limit: int = 200) -> dict[str, Any]` | 534 | Read/filter the persisted retention audit for CLI/UI exploration. |
+| function | `query_asset_retention` | `query_asset_retention(project_root: str \| pathlib.Path, *, path: str = "", query: str = "", state: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 534 | Read/filter the persisted retention audit for CLI/UI exploration. |
 
 ## `app/pt_asset_tool/authoring.py`
 
@@ -973,7 +973,7 @@ _No top-level functions or classes._
 | function | `_norm_logical` | `_norm_logical(path: str \| pathlib.PurePath) -> str` | 27 | — |
 | function | `normalize_lod_groups` | `normalize_lod_groups(groups: dict[str, Any] \| None) -> dict[str, list[str]]` | 31 | — |
 | function | `lod_groups_signature` | `lod_groups_signature(groups: dict[str, Any] \| None) -> str` | 36 | — |
-| function | `build_selected_authoring_context` | `build_selected_authoring_context(*, model_info_logical: str, model_info_path: pathlib.Path, skeleton_logical: str, skeleton_path: pathlib.Path, lod: str, lod_groups: dict[str, Any] \| None, selection_basis: dict[str, Any] \| None = None, selected_lod_nodes: list[str] \| tuple[str, ...] \| None = None, lod_selection_mode: str = 'MODEL_GROUP_KEYS') -> dict[str, Any]` | 42 | — |
+| function | `build_selected_authoring_context` | `build_selected_authoring_context(*, model_info_logical: str, model_info_path: pathlib.Path, skeleton_logical: str, skeleton_path: pathlib.Path, lod: str, lod_groups: dict[str, Any] \| None, selection_basis: dict[str, Any] \| None = None, selected_lod_nodes: list[str] \| tuple[str, ...] \| None = None, lod_selection_mode: str = "MODEL_GROUP_KEYS") -> dict[str, Any]` | 42 | — |
 | function | `build_standalone_rigid_authoring_context` | `build_standalone_rigid_authoring_context(*, asset_logical: str, source_path: pathlib.Path, skeleton_logical: str, skeleton_path: pathlib.Path, selected_nodes: list[str] \| tuple[str, ...], structural_gate_report: pathlib.Path \| None = None, selection_basis: dict[str, Any] \| None = None) -> dict[str, Any]` | 93 | Build a durable authoring identity for rigid Physique without model-info INX. |
 | function | `_verify_file_identity` | `_verify_file_identity(row: dict[str, Any] \| None, label: str) -> tuple[list[str], dict[str, Any]]` | 154 | — |
 | function | `verify_selected_authoring_context` | `verify_selected_authoring_context(context: dict[str, Any] \| None) -> dict[str, Any]` | 173 | — |
@@ -990,7 +990,7 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `_semantic_group` | `_semantic_group(path: str, fallback: str = '') -> str` | 12 | — |
+| function | `_semantic_group` | `_semantic_group(path: str, fallback: str = "") -> str` | 12 | — |
 | function | `_entity_folder` | `_entity_folder(path: str) -> str` | 16 | — |
 | function | `_note_key` | `_note_key(note: str) -> str` | 19 | — |
 | function | `audit_binding_coverage` | `audit_binding_coverage(registry, *, category: str \| None = None, sample_limit: int = 50) -> dict[str, Any]` | 26 | Summarize rigid Model0.62 binding readiness without changing evidence. |
@@ -1062,7 +1062,7 @@ _No top-level functions or classes._
 | function | `_map_objects` | `_map_objects(report: dict) -> list[tuple[dict, bpy.types.Object]]` | 70 | — |
 | function | `_ensure_uv_layer` | `_ensure_uv_layer(mesh, name: str)` | 97 | — |
 | function | `_assign_uvs` | `_assign_uvs(src_obj: dict, obj: bpy.types.Object)` | 106 | — |
-| function | `_verify_uv_assignment` | `_verify_uv_assignment(src_obj: dict, obj: bpy.types.Object, tolerance: float = 1e-06)` | 155 | Read Blender UV storage back and compare every source face/corner exactly. |
+| function | `_verify_uv_assignment` | `_verify_uv_assignment(src_obj: dict, obj: bpy.types.Object, tolerance: float = 1e-6)` | 155 | Read Blender UV storage back and compare every source face/corner exactly. |
 | function | `_uv_vector` | `_uv_vector(nodes, links, stage: int, form_code: int)` | 208 | — |
 | function | `_texture_node` | `_texture_node(nodes, links, image, vector_socket, *, environment: bool)` | 221 | — |
 | function | `_combine` | `_combine(nodes, links, c0, c1, op_code: int)` | 233 | — |
@@ -1634,7 +1634,7 @@ _No top-level functions or classes._
 |---|---|---|---:|---|
 | function | `_args` | `_args()` | 21 | — |
 | function | `_source_corner_for_loop` | `_source_corner_for_loop(face: dict, mesh, loop_idx: int) -> int` | 32 | — |
-| function | `_scan_blender_uv_changes` | `_scan_blender_uv_changes(parsed: dict, tolerance: float = 1e-06) -> list[dict]` | 41 | — |
+| function | `_scan_blender_uv_changes` | `_scan_blender_uv_changes(parsed: dict, tolerance: float = 1e-6) -> list[dict]` | 41 | — |
 | function | `_key` | `_key(row: dict)` | 82 | — |
 | function | `main` | `main()` | 89 | — |
 
@@ -1645,7 +1645,7 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_args` | `_args()` | 21 | — |
-| function | `_scan` | `_scan(parsed: dict, tolerance: float = 2e-06)` | 32 | — |
+| function | `_scan` | `_scan(parsed: dict, tolerance: float = 2e-6)` | 32 | — |
 | function | `main` | `main()` | 144 | — |
 
 ## `app/pt_asset_tool/blender/write_stage072_uv.py`
@@ -1656,7 +1656,7 @@ _No top-level functions or classes._
 |---|---|---|---:|---|
 | function | `_args` | `_args()` | 21 | — |
 | function | `_key` | `_key(x: dict)` | 32 | — |
-| function | `_scan` | `_scan(parsed: dict, tolerance: float = 2e-06) -> tuple[list[dict], list[str]]` | 36 | — |
+| function | `_scan` | `_scan(parsed: dict, tolerance: float = 2e-6) -> tuple[list[dict], list[str]]` | 36 | — |
 | function | `main` | `main()` | 141 | — |
 
 ## `app/pt_asset_tool/blender/write_static_witness.py`
@@ -1671,7 +1671,7 @@ Strict static Model0.62 witness writer.
 | function | `_sha` | `_sha(b)` | 27 | — |
 | function | `_args` | `_args(argv)` | 30 | — |
 | function | `_find_object` | `_find_object(data: bytes, name: str)` | 41 | — |
-| function | `_matrix_identity` | `_matrix_identity(obj, eps = 1e-07)` | 63 | — |
+| function | `_matrix_identity` | `_matrix_identity(obj, eps = 1e-7)` | 63 | — |
 | function | `_sync` | `_sync(obj)` | 68 | — |
 | function | `main` | `main(argv)` | 78 | — |
 
@@ -1681,7 +1681,7 @@ Strict static Model0.62 witness writer.
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `_safe_component` | `_safe_component(value: str, *, fallback: str = 'item', max_len: int = 64) -> str` | 13 | — |
+| function | `_safe_component` | `_safe_component(value: str, *, fallback: str = "item", max_len: int = 64) -> str` | 13 | — |
 | function | `asset_workspace_name` | `asset_workspace_name(logical: str) -> str` | 21 | Stable, readable directory name derived from a client-relative asset path. |
 | function | `blender_edit_root` | `blender_edit_root(project_root: pathlib.Path, workflow: str, logical: str, *segments: str) -> pathlib.Path` | 36 | — |
 | function | `write_workspace_info` | `write_workspace_info(workspace: pathlib.Path, *, workflow: str, logical: str, editable: bool = True, extra: dict[str, Any] \| None = None) -> pathlib.Path` | 44 | — |
@@ -1713,14 +1713,14 @@ Strict static Model0.62 witness writer.
 | function | `_find_directive` | `_find_directive(directives: Any, field: str) -> tuple[Any, Any]` | 102 | — |
 | function | `_flatten_scalars` | `_flatten_scalars(value: Any) -> list[Any]` | 126 | — |
 | function | `_encode_legacy_value` | `_encode_legacy_value(value: Any, encoding: str) -> bytes` | 134 | — |
-| function | `_capacity_candidates` | `_capacity_candidates(obj: Any, field: str, prefix: str = '') -> list[int]` | 147 | — |
+| function | `_capacity_candidates` | `_capacity_candidates(obj: Any, field: str, prefix: str = "") -> list[int]` | 147 | — |
 | function | `_enforce_capacity` | `_enforce_capacity(doc: dict[str, Any], field: str, values: list[Any], encoding: str) -> None` | 165 | — |
 | function | `_replace_directive_payload` | `_replace_directive_payload(directive: dict[str, Any], value: Any, encoding: str) -> None` | 180 | — |
-| function | `atomic_update_definition` | `atomic_update_definition(doc: dict[str, Any], changes: dict[str, Any], *, encoding: str = 'cp1252') -> dict[str, Any]` | 212 | Update semantic.fields and compiler-consumed directive payload atomically. |
+| function | `atomic_update_definition` | `atomic_update_definition(doc: dict[str, Any], changes: dict[str, Any], *, encoding: str = "cp1252") -> dict[str, Any]` | 212 | Update semantic.fields and compiler-consumed directive payload atomically. |
 | function | `_set_path` | `_set_path(root: Any, dotted: str, value: Any) -> None` | 268 | — |
 | function | `_map_entry_id` | `_map_entry_id(row: dict[str, Any]) -> str` | 299 | — |
 | function | `_update_map_entry` | `_update_map_entry(doc: dict[str, Any], canonical_id: str, fields: dict[str, Any]) -> dict[str, Any]` | 303 | — |
-| function | `typed_patch_document` | `typed_patch_document(kind: str, doc: dict[str, Any], patch: dict[str, Any], *, canonical_id: str = '') -> dict[str, Any]` | 333 | — |
+| function | `typed_patch_document` | `typed_patch_document(kind: str, doc: dict[str, Any], patch: dict[str, Any], *, canonical_id: str = "") -> dict[str, Any]` | 333 | — |
 | function | `_resolve_explicit_path` | `_resolve_explicit_path(provider: SummitCanonicalContentProvider, value: str) -> pathlib.Path` | 385 | — |
 | function | `_find_json_by_id` | `_find_json_by_id(root: pathlib.Path, canonical_id: str) -> pathlib.Path` | 403 | — |
 | function | `resolve_authoring_document` | `resolve_authoring_document(provider: SummitCanonicalContentProvider, spec: dict[str, Any]) -> tuple[str, pathlib.Path, dict[str, Any]]` | 429 | — |
@@ -1736,10 +1736,10 @@ Strict static Model0.62 witness writer.
 | function | `_run` | `_run(cmd: list[str], *, cwd: pathlib.Path, log: list[dict[str, Any]]) -> dict[str, Any]` | 714 | — |
 | function | `validate_staged_canonical` | `validate_staged_canonical(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 726 | — |
 | function | `build_staged_packs` | `build_staged_packs(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 758 | — |
-| function | `_patch_build_hashes` | `_patch_build_hashes(value: Any, pack_hashes: dict[str, str], *, context: str = '') -> set[str]` | 819 | — |
+| function | `_patch_build_hashes` | `_patch_build_hashes(value: Any, pack_hashes: dict[str, str], *, context: str = "") -> set[str]` | 819 | — |
 | function | `materialize_staged_build_manifest` | `materialize_staged_build_manifest(stage_root: pathlib.Path, pack_hashes: dict[str, str]) -> dict[str, Any]` | 841 | — |
 | function | `stage_canonical_authoring` | `stage_canonical_authoring(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, spec: dict[str, Any], *, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 854 | — |
-| function | `stage_canonical_document_set` | `stage_canonical_document_set(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, changes: list[dict[str, Any]], *, kind: str, canonical_id: str = '', provenance: dict[str, Any] \| None = None, localization_fallback_names: dict[str, str] \| None = None, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 951 | Stage an atomic set of canonical JSON documents, including new files. |
+| function | `stage_canonical_document_set` | `stage_canonical_document_set(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, changes: list[dict[str, Any]], *, kind: str, canonical_id: str = "", provenance: dict[str, Any] \| None = None, localization_fallback_names: dict[str, str] \| None = None, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 951 | Stage an atomic set of canonical JSON documents, including new files. |
 | function | `_manifest_path` | `_manifest_path(manifest: pathlib.Path \| str \| dict[str, Any]) -> tuple[pathlib.Path \| None, dict[str, Any]]` | 1187 | — |
 | function | `_transaction_path` | `_transaction_path(project_root: pathlib.Path, tx: str) -> pathlib.Path` | 1197 | — |
 | function | `_load_or_init_transaction` | `_load_or_init_transaction(project_root: pathlib.Path, manifest: dict[str, Any]) -> tuple[pathlib.Path, dict[str, Any]]` | 1201 | — |
@@ -1778,7 +1778,7 @@ Strict static Model0.62 witness writer.
 | class | `CertificationRegistry` | `class CertificationRegistry` | 9 | — |
 | method | `CertificationRegistry.__init__` | `__init__(self, directory: pathlib.Path)` | 10 | — |
 | method | `CertificationRegistry.records` | `records(self) -> list[dict]` | 14 | — |
-| method | `CertificationRegistry.add` | `add(self, *, asset_id: str, asset_path: str, family: str, test: str, layer: str, result: str, source_sha256: str \| None = None, artifact_sha256: str \| None = None, notes: str = '', metadata: dict \| None = None) -> dict` | 28 | — |
+| method | `CertificationRegistry.add` | `add(self, *, asset_id: str, asset_path: str, family: str, test: str, layer: str, result: str, source_sha256: str \| None = None, artifact_sha256: str \| None = None, notes: str = "", metadata: dict \| None = None) -> dict` | 28 | — |
 | method | `CertificationRegistry.latest` | `latest(self, asset_id: str \| None = None) -> dict[tuple[str, str, str], dict]` | 49 | — |
 | method | `CertificationRegistry.latest_result` | `latest_result(self, asset_id: str, test: str, layer: str, *, source_sha256: str \| None = None) -> str \| None` | 58 | — |
 
@@ -1898,7 +1898,7 @@ _No top-level functions or classes._
 | function | `_normalize_head_tier` | `_normalize_head_tier(value: str) -> tuple[str, int \| None]` | 1526 | — |
 | function | `cmd_asset_heads` | `cmd_asset_heads(a)` | 1542 | — |
 | function | `cmd_asset_head_tiers` | `cmd_asset_head_tiers(a)` | 1554 | — |
-| function | `_resolve_head_option` | `_resolve_head_option(reg, asset, value: str, tier_value: str = 'auto')` | 1566 | — |
+| function | `_resolve_head_option` | `_resolve_head_option(reg, asset, value: str, tier_value: str = "auto")` | 1566 | — |
 | function | `_resolved_motion_context` | `_resolved_motion_context(asset, resolver)` | 1620 | — |
 | function | `cmd_asset_motions` | `cmd_asset_motions(a)` | 1626 | — |
 | function | `_resolve_inx_source` | `_resolve_inx_source(a, s, resolver)` | 1641 | — |
@@ -2027,7 +2027,7 @@ _No top-level functions or classes._
 | function | `_availability_rows` | `_availability_rows(project: pathlib.Path) -> tuple[str, list[dict[str, Any]]]` | 259 | — |
 | function | `_availability_issue` | `_availability_issue(row: dict[str, Any]) -> dict[str, Any]` | 286 | — |
 | function | `audit_client_enrichment` | `audit_client_enrichment(project_root: pathlib.Path, client_root: pathlib.Path, catalog, entity_seed: dict[str, Any] \| None, *, registry = None, settings = None, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 314 | Build the client-side enrichment report from physical evidence already available locally. |
-| function | `query_client_enrichment_report` | `query_client_enrichment_report(project_root: pathlib.Path, *, query: str = '', state: str = '', group: str = '', kind: str = '', offset: int = 0, limit: int = 250) -> dict[str, Any]` | 572 | — |
+| function | `query_client_enrichment_report` | `query_client_enrichment_report(project_root: pathlib.Path, *, query: str = "", state: str = "", group: str = "", kind: str = "", offset: int = 0, limit: int = 250) -> dict[str, Any]` | 572 | — |
 | function | `build_client_enrichment_summary` | `build_client_enrichment_summary(project_root: pathlib.Path, client_root: pathlib.Path, catalog, entity_seed: dict[str, Any] \| None, *, registry = None, settings = None) -> dict[str, Any]` | 642 | — |
 
 ## `app/pt_asset_tool/client_manifest_evidence.py`
@@ -2040,7 +2040,7 @@ _No top-level functions or classes._
 | function | `_decode_path` | `_decode_path(raw: bytes) -> str` | 26 | — |
 | function | `_filetime_iso` | `_filetime_iso(value: int) -> str \| None` | 35 | — |
 | function | `parse_fixed_manifest` | `parse_fixed_manifest(path: str \| pathlib.Path) -> dict[str, Any]` | 50 | — |
-| function | `audit_client_manifests` | `audit_client_manifests(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, filenames: Iterable[str] = ('setfile.lst', '_update.inf')) -> dict[str, Any]` | 139 | — |
+| function | `audit_client_manifests` | `audit_client_manifests(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, *, filenames: Iterable[str] = ("setfile.lst", "_update.inf")) -> dict[str, Any]` | 139 | — |
 
 ## `app/pt_asset_tool/config.py`
 
@@ -2131,7 +2131,7 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_stage` | `_stage(maturity: str, summary: str, *, evidence: dict[str, Any] \| None = None, blockers: Iterable[str] = (), production_authorized: bool \| None = None) -> dict[str, Any]` | 26 | — |
-| function | `audit_development_readiness` | `audit_development_readiness(project_root, client_root, registry, resolver, profile_registry, *, deep: bool = False, prefixes: Iterable[str] = ('char/npc', 'char/monster'), animation_pair_limit: int = 0, sample_limit: int = 25) -> dict[str, Any]` | 45 | Build a machine-readable view of current product/reverse-engineering maturity. |
+| function | `audit_development_readiness` | `audit_development_readiness(project_root, client_root, registry, resolver, profile_registry, *, deep: bool = False, prefixes: Iterable[str] = ("char/npc", "char/monster"), animation_pair_limit: int = 0, sample_limit: int = 25) -> dict[str, Any]` | 45 | Build a machine-readable view of current product/reverse-engineering maturity. |
 
 ## `app/pt_asset_tool/donor_recovery_explorer.py`
 
@@ -2165,10 +2165,10 @@ _No top-level functions or classes._
 | function | `_deep_signature_scan` | `_deep_signature_scan(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 531 | Last-resort read-only scan of the configured donor root. |
 | function | `_scan_domain` | `_scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 594 | — |
 | function | `_closed_recovery_map` | `_closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]` | 645 | — |
-| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = '', query: str = '', donor: str = '', limit: int = 1500) -> dict[str, Any]` | 664 | — |
+| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = "", query: str = "", donor: str = "", limit: int = 1500) -> dict[str, Any]` | 664 | — |
 | function | `_fold_identity` | `_fold_identity(value: str) -> str` | 762 | — |
 | function | `_iter_server_domain_files` | `_iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]` | 767 | Yield unique server-domain files independent of historical layout. |
-| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = '', max_per_name: int = 12) -> list[dict[str, Any]]` | 798 | — |
+| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]` | 798 | — |
 | function | `_definition_model_file` | `_definition_model_file(doc: dict[str, Any]) -> str` | 864 | — |
 | function | `_existing_monster_semantic_alias` | `_existing_monster_semantic_alias(provider: SummitCanonicalContentProvider, donor_doc: dict[str, Any]) -> dict[str, Any] \| None` | 870 | Resolve a donor Monster onto an already-authoritative canonical entity. |
 | function | `_spawn_unresolved_slots` | `_spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]` | 913 | — |
@@ -2178,7 +2178,7 @@ _No top-level functions or classes._
 | function | `_server_logical_path` | `_server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath` | 1034 | — |
 | function | `_run_tool` | `_run_tool(cmd: list[str], cwd: pathlib.Path) -> dict[str, Any]` | 1056 | — |
 | function | `_import_workspace` | `_import_workspace(project_root: pathlib.Path, donor_label: str, source: pathlib.Path) -> pathlib.Path` | 1063 | — |
-| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = 'logical_path') -> dict[str, Any]` | 1072 | — |
+| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = "logical_path") -> dict[str, Any]` | 1072 | — |
 | function | `stage_spawn_from_donor` | `stage_spawn_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True, preview_only: bool = False) -> dict[str, Any]` | 1104 | — |
 | function | `_prepare_definition_import` | `_prepare_definition_import(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str) -> dict[str, Any]` | 1229 | — |
 | function | `_definition_ptbr_localization_delta` | `_definition_ptbr_localization_delta(provider: SummitCanonicalContentProvider, documents: Iterable[dict[str, Any]], *, fallback_names: dict[str, str] \| None = None) -> tuple[dict[str, Any] \| None, list[dict[str, Any]]]` | 1272 | Bridge newly imported definitions into the source-controlled pt-BR override. |
@@ -2252,7 +2252,7 @@ _No top-level functions or classes._
 | function | `_pt_rr_registry_match` | `_pt_rr_registry_match(entity, asset)` | 1036 | — |
 | function | `_pt_rr_enrich_entity` | `_pt_rr_enrich_entity(entity, rows, registry = None, *, include_assets = False, include_physical = False)` | 1050 | — |
 | function | `_pt_rr_apply_reverse_pair_links` | `_pt_rr_apply_reverse_pair_links(items)` | 1159 | — |
-| function | `query_entities` | `query_entities(rows, seed = None, *, group = '', q = '', limit = 500, registry = None)` | 1167 | — |
+| function | `query_entities` | `query_entities(rows, seed = None, *, group = "", q = "", limit = 500, registry = None)` | 1167 | — |
 | function | `entity_detail` | `entity_detail(rows, seed, entity_key, *, registry = None)` | 1175 | — |
 
 ## `app/pt_asset_tool/environment_validation.py`
@@ -2292,7 +2292,7 @@ _No top-level functions or classes._
 | function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 766 | Diagnostic-only T5 reference parity matrix. |
 | function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 946 | Separate physical particle preload from proven T5 effect activation. |
 | function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1074 | Build a plan-only, fail-closed client/server reachability census. |
-| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = '', side: str = '', decision: str = '', family: str = '', component: str = '', offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2214 | — |
+| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2214 | — |
 
 ## `app/pt_asset_tool/general_asset_recovery.py`
 
@@ -2384,8 +2384,8 @@ _No top-level functions or classes._
 | function | `_same_stem_companions` | `_same_stem_companions(path: str, records: dict[str, dict[str, Any]], exts: Iterable[str]) -> list[str]` | 142 | — |
 | function | `_default_role` | `_default_role(path: str, *, inventory_icons: set[str], ground_models: set[str], ground_textures: set[str], equipped_models: set[str], equipped_configs: set[str], equipped_textures: set[str]) -> str` | 153 | — |
 | function | `build_item_visual_index` | `build_item_visual_index(inventory: dict[str, Any], graph: dict[str, Any] \| None, catalog_rows: Iterable[dict[str, Any]], *, runtime_entries: list[dict[str, Any]] \| None = None) -> dict[str, Any]` | 170 | Build item visual bundles from persisted census + enrichment graph. |
-| function | `cache_key` | `cache_key(inventory_path: pathlib.Path, graph_path: pathlib.Path \| None, *, state_revision: int, client_signature: str = '') -> dict[str, Any]` | 374 | — |
-| function | `load_or_build_item_visual_index` | `load_or_build_item_visual_index(*, inventory_path: pathlib.Path, graph_path: pathlib.Path \| None, cache_path: pathlib.Path, catalog_rows: Iterable[dict[str, Any]], state_revision: int, client_signature: str = '', runtime_entries: list[dict[str, Any]] \| None = None) -> tuple[dict[str, Any], bool]` | 389 | — |
+| function | `cache_key` | `cache_key(inventory_path: pathlib.Path, graph_path: pathlib.Path \| None, *, state_revision: int, client_signature: str = "") -> dict[str, Any]` | 374 | — |
+| function | `load_or_build_item_visual_index` | `load_or_build_item_visual_index(*, inventory_path: pathlib.Path, graph_path: pathlib.Path \| None, cache_path: pathlib.Path, catalog_rows: Iterable[dict[str, Any]], state_revision: int, client_signature: str = "", runtime_entries: list[dict[str, Any]] \| None = None) -> tuple[dict[str, Any], bool]` | 389 | — |
 
 ## `app/pt_asset_tool/legacy_apps/__init__.py`
 
@@ -2416,7 +2416,7 @@ _No top-level functions or classes._
 | function | `find_casefold_child` | `find_casefold_child(parent: Path, name: str) -> Path \| None` | 74 | — |
 | function | `backup_file` | `backup_file(path: Path, backup_root: Path, *, label: str) -> Path \| None` | 90 | — |
 | function | `atomic_write_bytes` | `atomic_write_bytes(path: Path, data: bytes) -> None` | 106 | — |
-| function | `atomic_write_text` | `atomic_write_text(path: Path, text: str, *, encoding: str = 'utf-8', newline: str \| None = None) -> None` | 123 | — |
+| function | `atomic_write_text` | `atomic_write_text(path: Path, text: str, *, encoding: str = "utf-8", newline: str \| None = None) -> None` | 123 | — |
 | function | `write_json` | `write_json(path: Path, data: Any) -> None` | 129 | — |
 
 ## `app/pt_asset_tool/legacy_apps/controller_inventory.py`
@@ -2459,7 +2459,7 @@ _No top-level functions or classes._
 | function | `_character_path` | `_character_path(server_root: Path, character: str) -> Path` | 43 | — |
 | function | `parse_queue_text` | `parse_queue_text(text: str) -> list[QueueEntry]` | 47 | — |
 | function | `read_queue` | `read_queue(server_root: Path, account: str) -> dict[str, Any]` | 59 | — |
-| function | `plan_distribution` | `plan_distribution(server_root: Path, *, account: str, character: str, item_code: str, spec_index: int = 0, message: str = '', quantity: int = 1, mode: str = 'append') -> dict[str, Any]` | 78 | — |
+| function | `plan_distribution` | `plan_distribution(server_root: Path, *, account: str, character: str, item_code: str, spec_index: int = 0, message: str = "", quantity: int = 1, mode: str = "append") -> dict[str, Any]` | 78 | — |
 | function | `apply_distribution` | `apply_distribution(plan: dict[str, Any], *, confirmation: str, backup_root: Path) -> dict[str, Any]` | 135 | — |
 | function | `plan_queue_edit` | `plan_queue_edit(server_root: Path, account: str, text: str) -> dict[str, Any]` | 159 | — |
 | function | `apply_queue_edit` | `apply_queue_edit(plan: dict[str, Any], *, confirmation: str, backup_root: Path) -> dict[str, Any]` | 174 | — |
@@ -2474,15 +2474,15 @@ _No top-level functions or classes._
 | function | `_u8` | `_u8(data: bytes, pos: int) -> int` | 17 | — |
 | function | `_u32` | `_u32(data: bytes, pos: int) -> int` | 23 | — |
 | function | `_ascii` | `_ascii(data: bytes) -> str` | 29 | — |
-| function | `_excluded` | `_excluded(name: str, exclusive: str = '') -> bool` | 39 | — |
+| function | `_excluded` | `_excluded(name: str, exclusive: str = "") -> bool` | 39 | — |
 | function | `serial_key` | `serial_key(item_name: str, serial_a: int, serial_b: int) -> str` | 47 | — |
 | class | `FoundItem` | `@dataclasses.dataclass(frozen=True) class FoundItem` | 53 | — |
 | method | `FoundItem.key` | `@property key(self) -> str` | 60 | — |
-| function | `parse_inventory_bytes` | `parse_inventory_bytes(source_name: str, raw: bytes, *, exclusive: str = '') -> list[FoundItem]` | 64 | Faithful port of Gregoo.Inventory.Parse from Procura item pelo nome.exe. |
+| function | `parse_inventory_bytes` | `parse_inventory_bytes(source_name: str, raw: bytes, *, exclusive: str = "") -> list[FoundItem]` | 64 | Faithful port of Gregoo.Inventory.Parse from Procura item pelo nome.exe. |
 | function | `_warehouse_parse_one` | `_warehouse_parse_one(payload: bytes, p: int) -> tuple[int, str, int, int]` | 202 | Translate the successful branch of Gregoo.Warehouse.Parse. |
-| function | `parse_warehouse_bytes` | `parse_warehouse_bytes(source_name: str, raw: bytes, *, exclusive: str = '') -> list[FoundItem]` | 306 | — |
+| function | `parse_warehouse_bytes` | `parse_warehouse_bytes(source_name: str, raw: bytes, *, exclusive: str = "") -> list[FoundItem]` | 306 | — |
 | function | `group_items` | `group_items(items: Iterable[FoundItem]) -> dict[str, dict[str, Any]]` | 350 | — |
-| function | `scan_dataserver` | `scan_dataserver(server_root: Path, *, query: str = '', exclusive: str = '', include_warehouse: bool = True) -> dict[str, Any]` | 367 | — |
+| function | `scan_dataserver` | `scan_dataserver(server_root: Path, *, query: str = "", exclusive: str = "", include_warehouse: bool = True) -> dict[str, Any]` | 367 | — |
 | function | `inspect_file` | `inspect_file(path: Path, *, kind: str) -> dict[str, Any]` | 413 | — |
 
 ## `app/pt_asset_tool/legacy_apps/plan_store.py`
@@ -2511,10 +2511,10 @@ _No top-level functions or classes._
 | method | `_Arithmetic.visit_UnaryOp` | `visit_UnaryOp(self, node: ast.UnaryOp) -> float` | 49 | — |
 | method | `_Arithmetic.generic_visit` | `generic_visit(self, node: ast.AST)` | 54 | — |
 | function | `evaluate_formula` | `evaluate_formula(formula: str, *, exp: int, level: int) -> dict[str, Any]` | 58 | — |
-| function | `_scalar` | `_scalar(detail: dict[str, Any], field: str, default: int = 0) -> int` | 76 | — |
+| function | `_scalar` | `_scalar(detail: dict[str,Any], field: str, default: int = 0) -> int` | 76 | — |
 | function | `inspect_monster_bulk` | `inspect_monster_bulk(server_root: Path, logical_path: str) -> dict[str, Any]` | 82 | — |
-| function | `plan_bulk_experience` | `plan_bulk_experience(server_root: Path, logical_paths: Iterable[str], formula: str, *, max_exp: int \| None = None) -> dict[str, Any]` | 98 | — |
-| function | `stage_bulk_experience` | `stage_bulk_experience(project_root: Path, server_root: Path, client_root: Path \| None, plan: dict[str, Any]) -> dict[str, Any]` | 125 | — |
+| function | `plan_bulk_experience` | `plan_bulk_experience(server_root: Path, logical_paths: Iterable[str], formula: str, *, max_exp: int \| None = None) -> dict[str,Any]` | 98 | — |
+| function | `stage_bulk_experience` | `stage_bulk_experience(project_root: Path, server_root: Path, client_root: Path \| None, plan: dict[str,Any]) -> dict[str,Any]` | 125 | — |
 | function | `evaluate_gold_formula` | `evaluate_gold_formula(formula: str, *, gold: int, level: int) -> dict[str, Any]` | 145 | Evaluate the exact PriTaTor Gold/LVL arithmetic surface safely. |
 | function | `_monster_drop_spec` | `_monster_drop_spec(detail: dict[str, Any]) -> tuple[list[dict[str, Any]], int \| None]` | 173 | Convert parsed FallItem rows to the structured authoring representation. |
 | function | `inspect_monster_gold` | `inspect_monster_gold(server_root: Path, logical_path: str) -> dict[str, Any]` | 210 | — |
@@ -2528,17 +2528,17 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `read_line_set` | `read_line_set(path: Path) -> list[str]` | 21 | — |
-| function | `load_rule_directory` | `load_rule_directory(root: Path) -> dict[str, Any]` | 31 | — |
-| function | `parse_alias_lines` | `parse_alias_lines(lines: Iterable[str]) -> list[tuple[str, str]]` | 43 | — |
+| function | `load_rule_directory` | `load_rule_directory(root: Path) -> dict[str,Any]` | 31 | — |
+| function | `parse_alias_lines` | `parse_alias_lines(lines: Iterable[str]) -> list[tuple[str,str]]` | 43 | — |
 | function | `parse_error_rule` | `parse_error_rule(line: str) -> dict[str, Any]` | 59 | Parse the PTprotector action prefix proven by native string evidence. |
 | function | `_extract_identity` | `_extract_identity(line: str, account_regex: str, ip_regex: str) -> tuple[str \| None, str \| None]` | 93 | — |
 | function | `_rule_matches` | `_rule_matches(rule: dict[str, Any], line: str) -> bool` | 101 | — |
 | function | `protector_capabilities` | `protector_capabilities() -> dict[str, Any]` | 109 | — |
-| function | `analyze_log_lines` | `analyze_log_lines(lines: Iterable[str], *, rule_root: Path \| None = None, account_regex: str = '(?i)account\\s*[:=]\\s*([A-Za-z0-9_.-]+)', ip_regex: str = '\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b') -> dict[str, Any]` | 133 | — |
-| function | `plan_account_block_sqlite` | `plan_account_block_sqlite(*, table: str, account_column: str, account: str, block_column: str = 'BlockChk', block_value: int = 1, reason_column: str \| None = None, reason: str \| None = None, ip_column: str \| None = None, ip: str \| None = None, date_column: str \| None = None, date_value: str \| None = None) -> dict[str, Any]` | 186 | — |
+| function | `analyze_log_lines` | `analyze_log_lines(lines: Iterable[str], *, rule_root: Path \| None = None, account_regex: str = r"(?i)account\s*[:=]\s*([A-Za-z0-9_.-]+)", ip_regex: str = r"\b(?:\d{1,3}\.){3}\d{1,3}\b") -> dict[str,Any]` | 133 | — |
+| function | `plan_account_block_sqlite` | `plan_account_block_sqlite(*, table: str, account_column: str, account: str, block_column: str = "BlockChk", block_value: int = 1, reason_column: str\|None = None, reason: str\|None = None, ip_column: str\|None = None, ip: str\|None = None, date_column: str\|None = None, date_value: str\|None = None) -> dict[str,Any]` | 186 | — |
 | function | `plan_account_block` | `plan_account_block(**kwargs: Any) -> dict[str, Any]` | 200 | Backward-compatible name; active database backend is local SQLite. |
-| function | `apply_account_block` | `apply_account_block(plan: dict[str, Any], *, connection: Any, confirmation: str) -> dict[str, Any]` | 205 | — |
-| function | `apply_account_block_sqlite` | `apply_account_block_sqlite(plan: dict[str, Any], *, db_path: Path, confirmation: str) -> dict[str, Any]` | 212 | — |
+| function | `apply_account_block` | `apply_account_block(plan: dict[str,Any], *, connection: Any, confirmation: str) -> dict[str,Any]` | 205 | — |
+| function | `apply_account_block_sqlite` | `apply_account_block_sqlite(plan: dict[str,Any], *, db_path: Path, confirmation: str) -> dict[str,Any]` | 212 | — |
 
 ## `app/pt_asset_tool/legacy_apps/reverse_manifest.py`
 
@@ -2575,12 +2575,12 @@ _No top-level functions or classes._
 | function | `plan_restarter_config` | `plan_restarter_config(path: Path, *, executable: str, startup_message: str) -> dict[str, Any]` | 70 | — |
 | function | `apply_restarter_config` | `apply_restarter_config(plan: dict[str, Any], *, confirmation: str, backup_root: Path) -> dict[str, Any]` | 78 | — |
 | function | `inspect_hotuk` | `inspect_hotuk(path: Path) -> dict[str, Any]` | 95 | — |
-| function | `plan_hotuk_updates` | `plan_hotuk_updates(path: Path, updates: dict[str, str]) -> dict[str, Any]` | 105 | — |
+| function | `plan_hotuk_updates` | `plan_hotuk_updates(path: Path, updates: dict[str,str]) -> dict[str, Any]` | 105 | — |
 | function | `apply_hotuk_updates` | `apply_hotuk_updates(plan: dict[str, Any], *, confirmation: str, backup_root: Path) -> dict[str, Any]` | 122 | — |
-| function | `bprank_sqlite_plan` | `bprank_sqlite_plan(*, table: str = 'GameRecordBPRank') -> dict[str, Any]` | 131 | — |
-| function | `bprank_sql_plan` | `bprank_sql_plan(*, table: str = 'GameRecordBPRank') -> dict[str, Any]` | 145 | Backward-compatible name; now returns the SQLite-local plan. |
-| function | `fetch_next_bprank` | `fetch_next_bprank(db_path: Path, *, table: str = 'GameRecordBPRank') -> dict[str, Any]` | 150 | — |
-| function | `mark_bprank_processed` | `mark_bprank_processed(db_path: Path, char_name: str, *, table: str = 'GameRecordBPRank') -> dict[str, Any]` | 157 | — |
+| function | `bprank_sqlite_plan` | `bprank_sqlite_plan(*, table: str = "GameRecordBPRank") -> dict[str, Any]` | 131 | — |
+| function | `bprank_sql_plan` | `bprank_sql_plan(*, table: str = "GameRecordBPRank") -> dict[str, Any]` | 145 | Backward-compatible name; now returns the SQLite-local plan. |
+| function | `fetch_next_bprank` | `fetch_next_bprank(db_path: Path, *, table: str = "GameRecordBPRank") -> dict[str, Any]` | 150 | — |
+| function | `mark_bprank_processed` | `mark_bprank_processed(db_path: Path, char_name: str, *, table: str = "GameRecordBPRank") -> dict[str, Any]` | 157 | — |
 | function | `restarter_launch_plan` | `restarter_launch_plan(config_path: Path, *, server_root: Path, wine_command: str \| None = None) -> dict[str, Any]` | 168 | Build the Linux/Wine launch plan for ConfigRestarter.ini. |
 | function | `run_server_once` | `run_server_once(plan: dict[str, Any], *, confirmation: str, env: dict[str, str] \| None = None) -> dict[str, Any]` | 222 | Run one server process synchronously and report its exit code. |
 | function | `bounded_restart_policy` | `bounded_restart_policy(*, max_restarts: int = 5, delay_seconds: float = 5.0) -> dict[str, Any]` | 258 | Describe the safer replacement for an unconditional historical restarter loop. |
@@ -2608,7 +2608,7 @@ _No top-level functions or classes._
 | class | `SQLiteSodDataSource` | `class SQLiteSodDataSource` | 129 | Local SQLite adapter for the recovered SoD workflow. |
 | method | `SQLiteSodDataSource.__init__` | `__init__(self, game_db: str \| Path, clan_db: str \| Path \| None = None)` | 138 | — |
 | method | `SQLiteSodDataSource.close` | `close(self) -> None` | 151 | — |
-| method | `SQLiteSodDataSource.__enter__` | `__enter__(self) -> 'SQLiteSodDataSource'` | 156 | — |
+| method | `SQLiteSodDataSource.__enter__` | `__enter__(self) -> "SQLiteSodDataSource"` | 156 | — |
 | method | `SQLiteSodDataSource.__exit__` | `__exit__(self, exc_type, exc, tb) -> None` | 159 | — |
 | method | `SQLiteSodDataSource.runs` | `runs(self, table: str) -> Iterable[SodRow]` | 162 | — |
 | method | `SQLiteSodDataSource.run_members` | `run_members(self, table: str, server_time: int, total_point: int, success_user: int) -> Iterable[SodRow]` | 168 | — |
@@ -2688,7 +2688,7 @@ _No top-level functions or classes._
 | function | `inspect_character` | `inspect_character(server_root: Path, character: str) -> dict[str, Any]` | 228 | — |
 | function | `inspect_account_task` | `inspect_account_task(server_root: Path, account: str) -> dict[str, Any]` | 234 | — |
 | function | `queue_status` | `queue_status(server_root: Path, account: str) -> dict[str, Any]` | 238 | — |
-| function | `item_scan` | `item_scan(server_root: Path, *, query: str = '', include_warehouse: bool = True) -> dict[str, Any]` | 242 | — |
+| function | `item_scan` | `item_scan(server_root: Path, *, query: str = "", include_warehouse: bool = True) -> dict[str, Any]` | 242 | — |
 | function | `inventory_status` | `inventory_status(server_root: Path, *, store: str, key: str) -> dict[str, Any]` | 246 | — |
 | function | `admin_status` | `admin_status(server_root: Path) -> dict[str, Any]` | 258 | — |
 | function | `plan_operation` | `plan_operation(server_root: Path, operation: str, payload: dict[str, Any]) -> dict[str, Any]` | 279 | — |
@@ -2781,7 +2781,7 @@ _No top-level functions or classes._
 | function | `_decorate_item_review` | `_decorate_item_review(row: dict[str, Any]) -> None` | 203 | — |
 | function | `_decorate_map_review` | `_decorate_map_review(row: dict[str, Any]) -> None` | 239 | — |
 | function | `_decorate_definition_review` | `_decorate_definition_review(row: dict[str, Any]) -> None` | 266 | — |
-| function | `query_legacy_management_report` | `query_legacy_management_report(project_root: pathlib.Path, *, section: str = 'items', query: str = '', status: str = '', offset: int = 0, limit: int = 100) -> dict[str, Any]` | 320 | — |
+| function | `query_legacy_management_report` | `query_legacy_management_report(project_root: pathlib.Path, *, section: str = "items", query: str = "", status: str = "", offset: int = 0, limit: int = 100) -> dict[str, Any]` | 320 | — |
 
 ## `app/pt_asset_tool/legacy_name_catalog.py`
 
@@ -2936,7 +2936,7 @@ _No top-level functions or classes._
 | function | `_inside` | `_inside(root: pathlib.Path, path: pathlib.Path) -> bool` | 28 | — |
 | function | `analyze_mixed_source` | `analyze_mixed_source(source: pathlib.Path \| str) -> dict[str, Any]` | 33 | — |
 | function | `plan_mixed_saved_blender_candidate` | `plan_mixed_saved_blender_candidate(project_root: pathlib.Path \| str, resolver, asset, *, skeleton: pathlib.Path \| str \| None = None, output: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 69 | — |
-| function | `validate_mixed_candidate_output` | `validate_mixed_candidate_output(source: pathlib.Path \| str, output: pathlib.Path \| str, *, target_objects: list[str] \| tuple[str, ...], project_root: pathlib.Path \| str \| None = None, skeleton: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 130 | — |
+| function | `validate_mixed_candidate_output` | `validate_mixed_candidate_output(source: pathlib.Path \| str, output: pathlib.Path \| str, *, target_objects: list[str] \| tuple[str,...], project_root: pathlib.Path \| str \| None = None, skeleton: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 130 | — |
 | function | `build_mixed_candidate_step_command` | `build_mixed_candidate_step_command(settings, candidate: dict[str, Any], *, object_name: str, source: pathlib.Path, output: pathlib.Path, report: pathlib.Path) -> list[str]` | 189 | — |
 
 ## `app/pt_asset_tool/mixed_real_devtest.py`
@@ -3027,7 +3027,7 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_sha` | `_sha(data: bytes) -> str` | 30 | — |
-| function | `_fixed_name` | `_fixed_name(value: str, capacity: int, encoding: str = 'cp949') -> bytes` | 34 | — |
+| function | `_fixed_name` | `_fixed_name(value: str, capacity: int, encoding: str = "cp949") -> bytes` | 34 | — |
 | function | `_float3` | `_float3(value: Any, label: str) -> tuple[float, float, float]` | 41 | — |
 | function | `_uv3` | `_uv3(value: Any) -> tuple[tuple[float, float], tuple[float, float], tuple[float, float]]` | 50 | — |
 | function | `_identity_i32` | `_identity_i32() -> bytes` | 64 | — |
@@ -3055,11 +3055,11 @@ _No top-level functions or classes._
 | function | `_u32` | `_u32(value: int) -> int` | 150 | — |
 | function | `_sha` | `_sha(data: bytes) -> str` | 154 | — |
 | function | `_tokenize` | `_tokenize(line: str) -> list[str]` | 158 | — |
-| function | `_put_cstr` | `_put_cstr(buf: bytearray, offset: int, capacity: int, text: str, *, encoding: str = 'cp949') -> None` | 162 | — |
+| function | `_put_cstr` | `_put_cstr(buf: bytearray, offset: int, capacity: int, text: str, *, encoding: str = "cp949") -> None` | 162 | — |
 | function | `_logical_join` | `_logical_join(config_logical: str, value: str) -> str` | 170 | — |
 | function | `_replace_ext` | `_replace_ext(path: str, ext: str) -> str` | 182 | — |
 | function | `canonicalize_runtime_path` | `canonicalize_runtime_path(text: str, policy: str = CHECKSUM_PATH_POLICY_WIN32) -> str` | 187 | Return the path spelling used for INX keyword checksums. |
-| function | `_cstr` | `_cstr(buf: bytes, offset: int, capacity: int, *, encoding: str = 'cp949') -> str` | 216 | — |
+| function | `_cstr` | `_cstr(buf: bytes, offset: int, capacity: int, *, encoding: str = "cp949") -> str` | 216 | — |
 | function | `_decode_model_keywords` | `_decode_model_keywords(file_kw: int, link_kw: int, has_link: bool) -> tuple[int, int \| None]` | 220 | Inverse of ModelKeyWordEncode, matching ModelKeyWordDecode. |
 | function | `_decode_motion_start` | `_decode_motion_start(raw_kw: int, raw_frame: int, code: int) -> tuple[int, bool, int]` | 245 | — |
 | function | `_decode_motion_end` | `_decode_motion_end(raw_kw: int, raw_frame: int, code: int) -> tuple[int, bool, int]` | 263 | — |
@@ -3125,12 +3125,12 @@ _No top-level functions or classes._
 | function | `load_motion_system` | `load_motion_system(root: pathlib.Path)` | 228 | — |
 | function | `enrich_motions` | `enrich_motions(inx_parsed: dict, smb: dict) -> list[dict]` | 235 | — |
 | function | `action_name` | `action_name(m: dict) -> str` | 264 | — |
-| function | `select_motion` | `select_motion(motions: list[dict], selector: str = 'auto') -> dict` | 268 | — |
+| function | `select_motion` | `select_motion(motions: list[dict], selector: str = "auto") -> dict` | 268 | — |
 | function | `core_motion_subset` | `core_motion_subset(motions: list[dict]) -> list[dict]` | 290 | — |
 | function | `_flatten4` | `_flatten4(m)` | 300 | — |
 | function | `_apply_monbagon_stand_bind_local_guard` | `_apply_monbagon_stand_bind_local_guard(results, smb, smb_path: pathlib.Path, motion: dict)` | 307 | Stabilize only the previously observed bad STAND neck/head chain. |
 | function | `_smb_track_key_counts` | `_smb_track_key_counts(smb: dict) -> dict[str, int]` | 344 | — |
-| function | `build_bake_payload` | `build_bake_payload(root: pathlib.Path, inx: pathlib.Path, smb_path: pathlib.Path, *, selector = 'auto', load_actions = 'core', fps = 30) -> dict` | 352 | — |
+| function | `build_bake_payload` | `build_bake_payload(root: pathlib.Path, inx: pathlib.Path, smb_path: pathlib.Path, *, selector = "auto", load_actions = "core", fps = 30) -> dict` | 352 | — |
 | function | `build_standalone_smb_bake_payload` | `build_standalone_smb_bake_payload(root: pathlib.Path, smb_path: pathlib.Path, *, fps: int = 30, max_actions: int = 4, max_frames_per_action: int = 120) -> dict` | 403 | Build a Blender pose payload directly from existing SMB containers. |
 | function | `write_payload` | `write_payload(path: pathlib.Path, data: dict)` | 475 | — |
 | function | `_mat4` | `_mat4(values)` | 480 | — |
@@ -3139,11 +3139,11 @@ _No top-level functions or classes._
 | function | `_rigid_quality` | `_rigid_quality(m)` | 508 | — |
 | function | `prepare_motion_source_audit` | `prepare_motion_source_audit(root: pathlib.Path, inx: pathlib.Path, smb_path: pathlib.Path) -> dict` | 526 | Parse one INX/SMB context and precompute invariants exactly once. |
 | function | `analyze_prepared_motion` | `analyze_prepared_motion(prepared: dict, motion: dict) -> dict` | 554 | Analyze one motion using a context returned by prepare_motion_source_audit. |
-| function | `audit_motion_source` | `audit_motion_source(root: pathlib.Path, inx: pathlib.Path, smb_path: pathlib.Path, selector = 'STAND', *, include_reference_states: bool = True) -> dict` | 610 | — |
+| function | `audit_motion_source` | `audit_motion_source(root: pathlib.Path, inx: pathlib.Path, smb_path: pathlib.Path, selector = "STAND", *, include_reference_states: bool = True) -> dict` | 610 | — |
 | function | `_pose_diff` | `_pose_diff(a, b)` | 640 | Matrix-space delta metric; intentionally layout-agnostic. |
 | function | `_frame_like_value` | `_frame_like_value(obj)` | 653 | — |
-| function | `_key_sequences` | `_key_sequences(obj, path = '', depth = 0)` | 662 | Find likely keyframe arrays without relying on a specific legacy parser schema. |
-| function | `audit_motion_segments` | `audit_motion_segments(root: pathlib.Path, inx: pathlib.Path, smb_path: pathlib.Path, selector = 'STAND') -> dict` | 692 | — |
+| function | `_key_sequences` | `_key_sequences(obj, path = "", depth = 0)` | 662 | Find likely keyframe arrays without relying on a specific legacy parser schema. |
+| function | `audit_motion_segments` | `audit_motion_segments(root: pathlib.Path, inx: pathlib.Path, smb_path: pathlib.Path, selector = "STAND") -> dict` | 692 | — |
 | function | `smb_physique_closure_signature` | `smb_physique_closure_signature(smb: dict, used_indices: list[int], precision: int = 6) -> dict` | 784 | Signature only the bone closure that can deform a rigid-Physique mesh. |
 | function | `resolve_asset_motion_context` | `resolve_asset_motion_context(asset, resolver, *, require_physical: bool = True) -> dict` | 883 | Resolve one asset's authoritative motion INX/SMB pair. |
 
@@ -3296,10 +3296,10 @@ _No top-level functions or classes._
 | function | `_skeleton_matches` | `_skeleton_matches(model: dict[str, Any], skeletons: list[dict[str, Any]]) -> list[dict[str, Any]]` | 197 | — |
 | function | `_compat_score` | `_compat_score(d: dict[str, Any], s: dict[str, Any]) -> tuple[float, list[str]]` | 212 | — |
 | function | `_map_donor` | `_map_donor(donor_name: str, models: list[dict[str, Any]], skeletons: list[dict[str, Any]], summit_models: list[dict[str, Any]], summit_skeletons: list[dict[str, Any]]) -> dict[str, Any]` | 241 | — |
-| function | `_dedupe_cross_donor` | `_dedupe_cross_donor(rows_by_donor: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]` | 303 | — |
-| function | `_write_csv` | `_write_csv(path: pathlib.Path, mappings: list[dict[str, Any]]) -> None` | 316 | — |
-| function | `run` | `run(root: pathlib.Path, output: pathlib.Path, donor_specs: list[str]) -> dict[str, Any]` | 325 | — |
-| function | `main` | `main(argv: list[str] \| None = None) -> int` | 388 | — |
+| function | `_dedupe_cross_donor` | `_dedupe_cross_donor(rows_by_donor: dict[str,list[dict[str,Any]]]) -> list[dict[str,Any]]` | 303 | — |
+| function | `_write_csv` | `_write_csv(path: pathlib.Path, mappings: list[dict[str,Any]]) -> None` | 316 | — |
+| function | `run` | `run(root: pathlib.Path, output: pathlib.Path, donor_specs: list[str]) -> dict[str,Any]` | 325 | — |
+| function | `main` | `main(argv: list[str]\|None = None) -> int` | 388 | — |
 
 ## `app/pt_asset_tool/official_container_character_atlas.py`
 
@@ -3318,12 +3318,12 @@ _No top-level functions or classes._
 | function | `_path_variants` | `_path_variants(ref: str) -> list[str]` | 119 | — |
 | function | `_strong_character_ref` | `_strong_character_ref(ref: str) -> bool` | 135 | — |
 | function | `_build_summit_index` | `_build_summit_index(client: pathlib.Path) -> dict[str, Any]` | 141 | — |
-| function | `_ref_record` | `_ref_record(refrow: dict[str, Any], summit: dict[str, Any]) -> dict[str, Any]` | 150 | — |
-| function | `_scan_donor` | `_scan_donor(name: str, root: pathlib.Path, summit_idx: dict[str, Any]) -> dict[str, Any]` | 165 | — |
-| function | `_compare` | `_compare(a: dict[str, Any], b: dict[str, Any]) -> dict[str, Any]` | 194 | — |
-| function | `_write_csv` | `_write_csv(path: pathlib.Path, donors: list[dict[str, Any]])` | 200 | — |
-| function | `run` | `run(root: pathlib.Path, output: pathlib.Path, donor_specs: list[str]) -> dict[str, Any]` | 209 | — |
-| function | `main` | `main(argv: list[str] \| None = None) -> int` | 237 | — |
+| function | `_ref_record` | `_ref_record(refrow: dict[str,Any], summit: dict[str,Any]) -> dict[str,Any]` | 150 | — |
+| function | `_scan_donor` | `_scan_donor(name: str, root: pathlib.Path, summit_idx: dict[str,Any]) -> dict[str,Any]` | 165 | — |
+| function | `_compare` | `_compare(a: dict[str,Any], b: dict[str,Any]) -> dict[str,Any]` | 194 | — |
+| function | `_write_csv` | `_write_csv(path: pathlib.Path, donors: list[dict[str,Any]])` | 200 | — |
+| function | `run` | `run(root: pathlib.Path, output: pathlib.Path, donor_specs: list[str]) -> dict[str,Any]` | 209 | — |
+| function | `main` | `main(argv: list[str]\|None = None) -> int` | 237 | — |
 
 ## `app/pt_asset_tool/official_container_entry_recovery.py`
 
@@ -3384,20 +3384,20 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_sha` | `_sha(p: pathlib.Path) -> str` | 33 | — |
-| function | `_snapshot` | `_snapshot(root: pathlib.Path) -> dict[str, tuple[int, int]]` | 41 | — |
+| function | `_snapshot` | `_snapshot(root: pathlib.Path) -> dict[str, tuple[int,int]]` | 41 | — |
 | function | `_is_within` | `_is_within(p: pathlib.Path, root: pathlib.Path) -> bool` | 52 | — |
-| function | `_strict_prior` | `_strict_prior(root: pathlib.Path) -> tuple[dict[str, Any], dict[str, Any]]` | 57 | — |
+| function | `_strict_prior` | `_strict_prior(root: pathlib.Path) -> tuple[dict[str,Any],dict[str,Any]]` | 57 | — |
 | function | `_is_target` | `_is_target(name: str) -> bool` | 74 | — |
 | function | `_safe_member_name` | `_safe_member_name(name: str) -> str` | 78 | — |
-| function | `_validate_smd_bytes` | `_validate_smd_bytes(data: bytes, temp_dir: pathlib.Path, name: str) -> dict[str, Any]` | 82 | — |
-| function | `_write_recovered` | `_write_recovered(staging: pathlib.Path, source_tag: str, name: str, data: bytes, validation: dict[str, Any], source: pathlib.Path, kind: str) -> dict[str, Any]` | 108 | — |
-| function | `_extract_zip` | `_extract_zip(path: pathlib.Path, staging: pathlib.Path, tag: str, tmp: pathlib.Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]` | 120 | — |
-| function | `_extract_tar` | `_extract_tar(path: pathlib.Path, staging: pathlib.Path, tag: str, tmp: pathlib.Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]` | 138 | — |
-| function | `_scan_raw` | `_scan_raw(path: pathlib.Path, staging: pathlib.Path, tag: str, tmp: pathlib.Path) -> tuple[list[dict[str, Any]], dict[str, Any]]` | 156 | — |
+| function | `_validate_smd_bytes` | `_validate_smd_bytes(data: bytes, temp_dir: pathlib.Path, name: str) -> dict[str,Any]` | 82 | — |
+| function | `_write_recovered` | `_write_recovered(staging: pathlib.Path, source_tag: str, name: str, data: bytes, validation: dict[str,Any], source: pathlib.Path, kind: str) -> dict[str,Any]` | 108 | — |
+| function | `_extract_zip` | `_extract_zip(path: pathlib.Path, staging: pathlib.Path, tag: str, tmp: pathlib.Path) -> tuple[list[dict[str,Any]],list[dict[str,Any]]]` | 120 | — |
+| function | `_extract_tar` | `_extract_tar(path: pathlib.Path, staging: pathlib.Path, tag: str, tmp: pathlib.Path) -> tuple[list[dict[str,Any]],list[dict[str,Any]]]` | 138 | — |
+| function | `_scan_raw` | `_scan_raw(path: pathlib.Path, staging: pathlib.Path, tag: str, tmp: pathlib.Path) -> tuple[list[dict[str,Any]],dict[str,Any]]` | 156 | — |
 | function | `_candidate_files` | `_candidate_files(root: pathlib.Path)` | 212 | — |
-| function | `_prior_contamination` | `_prior_contamination(prior: dict[str, Any], project_root: pathlib.Path) -> dict[str, Any]` | 222 | — |
-| function | `run` | `run(root: pathlib.Path, output: pathlib.Path, donor_specs: list[str], external_roots: list[pathlib.Path]) -> dict[str, Any]` | 234 | — |
-| function | `main` | `main(argv: list[str] \| None = None) -> int` | 323 | — |
+| function | `_prior_contamination` | `_prior_contamination(prior: dict[str,Any], project_root: pathlib.Path) -> dict[str,Any]` | 222 | — |
+| function | `run` | `run(root: pathlib.Path, output: pathlib.Path, donor_specs: list[str], external_roots: list[pathlib.Path]) -> dict[str,Any]` | 234 | — |
+| function | `main` | `main(argv: list[str]\|None = None) -> int` | 323 | — |
 
 ## `app/pt_asset_tool/official_payload_source_locator.py`
 
@@ -3459,7 +3459,7 @@ _No top-level functions or classes._
 |---|---|---|---:|---|
 | function | `safe_asset_path` | `safe_asset_path(client_root: Path, asset: str) -> tuple[Path, Path]` | 16 | — |
 | function | `safe_preview_image` | `safe_preview_image(project_root: Path, raw_path: str) -> Path` | 32 | — |
-| function | `asset_index` | `asset_index(client_root: Path, query: str = '') -> list[dict[str, Any]]` | 48 | — |
+| function | `asset_index` | `asset_index(client_root: Path, query: str = "") -> list[dict[str, Any]]` | 48 | — |
 | function | `inspect_asset` | `inspect_asset(client_root: Path, build_root: Path, asset: str) -> dict[str, Any]` | 60 | — |
 | function | `apply_stage_edit` | `apply_stage_edit(client_root: Path, build_root: Path, payload: dict[str, Any]) -> dict[str, Any]` | 83 | — |
 | function | `verify_asset_draft` | `verify_asset_draft(client_root: Path, build_root: Path, asset: str) -> dict[str, Any]` | 96 | — |
@@ -3503,7 +3503,7 @@ _No top-level functions or classes._
 | function | `_logical_inx` | `_logical_inx(value: str) -> str` | 48 | — |
 | function | `_line_number` | `_line_number(text: str, offset: int) -> int` | 55 | — |
 | function | `_config_kind` | `_config_kind(class_name: str, source_literal: str) -> str` | 59 | — |
-| function | `parse_reference_class_configs` | `parse_reference_class_configs(tree: SourceTree, classes: Iterable[str] = ('Mechanician', 'Fighter', 'Pikeman', 'Archer', 'Knight', 'Atalanta', 'Priestess', 'Magician', 'Assassin', 'Shaman')) -> list[dict[str, Any]]` | 72 | Extract source-proven class config paths for playable classes. |
+| function | `parse_reference_class_configs` | `parse_reference_class_configs(tree: SourceTree, classes: Iterable[str] = ('Mechanician','Fighter','Pikeman','Archer','Knight','Atalanta','Priestess','Magician','Assassin','Shaman')) -> list[dict[str, Any]]` | 72 | Extract source-proven class config paths for playable classes. |
 | function | `_resolve_exact` | `_resolve_exact(logical: str, target, donors: list) -> dict[str, Any]` | 171 | — |
 | function | `_load_pairing` | `_load_pairing(project_root: pathlib.Path) -> dict[str, dict[str, str]]` | 206 | — |
 | function | `_asset_id` | `_asset_id(logical: str) -> str` | 223 | — |
@@ -3521,7 +3521,7 @@ _No top-level functions or classes._
 | function | `_sample_logical_frames` | `_sample_logical_frames(start: int, end: int, *, limit: int = MAX_FRAMES_PER_CONTAINER) -> tuple[int, int, list[int]]` | 31 | — |
 | function | `scan_scale_containers` | `scan_scale_containers(root: pathlib.Path, smb_path: pathlib.Path, *, max_frames_per_container: int = MAX_FRAMES_PER_CONTAINER) -> tuple[dict[str, Any], list[dict[str, Any]]]` | 45 | Audit every active TmFrame container without suppressing evaluator failures. |
 | function | `build_scale_container_bake_payload` | `build_scale_container_bake_payload(root: pathlib.Path, smb_path: pathlib.Path, *, container: dict[str, Any], fps: int = 30, max_frames_per_container: int = MAX_FRAMES_PER_CONTAINER) -> dict[str, Any]` | 107 | Build one complete sampled scale-bearing TmFrame action for Blender. |
-| function | `_candidate_rows` | `_candidate_rows(registry, resolver, *, domain: str = 'PLAYER') -> list[dict[str, Any]]` | 196 | — |
+| function | `_candidate_rows` | `_candidate_rows(registry, resolver, *, domain: str = "PLAYER") -> list[dict[str, Any]]` | 196 | — |
 | function | `choose_player_scale_witness` | `choose_player_scale_witness(registry, resolver) -> dict[str, Any]` | 236 | Select a deterministic PLAYER scale witness without hiding bad containers. |
 | function | `_work` | `_work(root: pathlib.Path, asset_path: str) -> pathlib.Path` | 276 | — |
 | function | `_run_player_scale_witness_impl` | `_run_player_scale_witness_impl(settings, registry, resolver, certifications, *, fps: int = 30) -> dict[str, Any]` | 281 | Run one physical Blender PLAYER scale witness at existing pose tolerances. |
@@ -3535,7 +3535,7 @@ _No top-level functions or classes._
 |---|---|---|---:|---|
 | function | `_norm` | `_norm(path: str \| None) -> str` | 10 | — |
 | function | `_component_path` | `_component_path(verification: dict[str, Any], role: str) -> tuple[str \| None, list[str]]` | 14 | — |
-| function | `plan_profile_authoring_context` | `plan_profile_authoring_context(profile_registry, profile_id: str, resolver, asset_registry, *, lod: str = 'auto') -> dict[str, Any]` | 27 | Resolve one canonical profile into an exact rigid import context. |
+| function | `plan_profile_authoring_context` | `plan_profile_authoring_context(profile_registry, profile_id: str, resolver, asset_registry, *, lod: str = "auto") -> dict[str, Any]` | 27 | Resolve one canonical profile into an exact rigid import context. |
 
 ## `app/pt_asset_tool/profile_candidates.py`
 
@@ -3634,18 +3634,18 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_sha256` | `_sha256(p: pathlib.Path) -> str` | 33 | — |
-| function | `_json` | `_json(p: pathlib.Path) -> dict[str, Any]` | 39 | — |
-| function | `_prior` | `_prior(root: pathlib.Path) -> dict[str, Any]` | 41 | — |
-| function | `_prior_v0827_failure` | `_prior_v0827_failure(root: pathlib.Path) -> dict[str, Any]` | 68 | — |
-| function | `_prior_two_object_shape` | `_prior_two_object_shape(prior: dict[str, Any]) -> tuple[list[int], dict[int, list[int]]]` | 85 | — |
-| function | `_plan_uniform_pair` | `_plan_uniform_pair(prepared: pathlib.Path, skeleton: pathlib.Path, oi: int, by_vi: dict[int, dict[str, Any]], pair: tuple[int, int], axis: int, delta: int)` | 94 | — |
-| function | `_row_motion_key` | `_row_motion_key(row: dict[str, Any]) -> tuple[int, int] \| None` | 104 | — |
-| function | `discover_manual_uniform_transaction` | `discover_manual_uniform_transaction(prepared: pathlib.Path, skeleton: pathlib.Path, prior: dict[str, Any]) -> dict[str, Any]` | 111 | — |
-| function | `_selection` | `_selection(settings: Settings, root: pathlib.Path, blend: pathlib.Path, tx: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 164 | — |
-| function | `_expected_map` | `_expected_map(tx: dict[str, Any]) -> dict[tuple[int, int], list[int]]` | 175 | — |
-| function | `_preflight` | `_preflight(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, tx: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 184 | — |
-| function | `run` | `run(root: pathlib.Path, logical: str) -> dict[str, Any]` | 195 | — |
-| function | `main` | `main(argv: list[str] \| None = None) -> int` | 243 | — |
+| function | `_json` | `_json(p: pathlib.Path) -> dict[str,Any]` | 39 | — |
+| function | `_prior` | `_prior(root: pathlib.Path) -> dict[str,Any]` | 41 | — |
+| function | `_prior_v0827_failure` | `_prior_v0827_failure(root: pathlib.Path) -> dict[str,Any]` | 68 | — |
+| function | `_prior_two_object_shape` | `_prior_two_object_shape(prior: dict[str,Any]) -> tuple[list[int],dict[int,list[int]]]` | 85 | — |
+| function | `_plan_uniform_pair` | `_plan_uniform_pair(prepared: pathlib.Path, skeleton: pathlib.Path, oi: int, by_vi: dict[int,dict[str,Any]], pair: tuple[int,int], axis: int, delta: int)` | 94 | — |
+| function | `_row_motion_key` | `_row_motion_key(row: dict[str,Any]) -> tuple[int,int]\|None` | 104 | — |
+| function | `discover_manual_uniform_transaction` | `discover_manual_uniform_transaction(prepared: pathlib.Path, skeleton: pathlib.Path, prior: dict[str,Any]) -> dict[str,Any]` | 111 | — |
+| function | `_selection` | `_selection(settings: Settings, root: pathlib.Path, blend: pathlib.Path, tx: dict[str,Any], work: pathlib.Path) -> dict[str,Any]` | 164 | — |
+| function | `_expected_map` | `_expected_map(tx: dict[str,Any]) -> dict[tuple[int,int],list[int]]` | 175 | — |
+| function | `_preflight` | `_preflight(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, tx: dict[str,Any], work: pathlib.Path) -> dict[str,Any]` | 184 | — |
+| function | `run` | `run(root: pathlib.Path, logical: str) -> dict[str,Any]` | 195 | — |
+| function | `main` | `main(argv: list[str]\|None = None) -> int` | 243 | — |
 
 ## `app/pt_asset_tool/rare_rigid_cross_object_live_writer_candidate.py`
 
@@ -3757,7 +3757,7 @@ _No top-level functions or classes._
 | function | `_world_positions_for_object` | `_world_positions_for_object(obj: dict[str, Any], bone_tms: dict[str, list[int]]) -> list[tuple[int, int, int]]` | 49 | — |
 | function | `plan_requested_at_dragon_edit` | `plan_requested_at_dragon_edit(prepared: pathlib.Path, skeleton: pathlib.Path, *, object_index: int, vertex_index: int, requested_world_fixed: tuple[int, int, int]) -> dict[str, Any]` | 60 | Recompute the V0.8.4 guard for one exact artist-requested at_dragon vertex move. |
 | function | `_workspace_root` | `_workspace_root(project_root: pathlib.Path) -> pathlib.Path` | 224 | — |
-| function | `prepare_at_dragon_edit_workspace` | `prepare_at_dragon_edit_workspace(reg, resolver, certifications, settings, *, project_root: pathlib.Path, open_gui: bool, reset: bool = False, workspace_root: pathlib.Path \| None = None, workspace_origin: str = 'USER') -> dict[str, Any]` | 228 | — |
+| function | `prepare_at_dragon_edit_workspace` | `prepare_at_dragon_edit_workspace(reg, resolver, certifications, settings, *, project_root: pathlib.Path, open_gui: bool, reset: bool = False, workspace_root: pathlib.Path \| None = None, workspace_origin: str = "USER") -> dict[str, Any]` | 228 | — |
 | function | `_reimport_and_check` | `_reimport_and_check(*, reg, resolver, certifications, settings, project_root: pathlib.Path, preview: dict[str, Any], skeleton: pathlib.Path, prepared_output: pathlib.Path, plan: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 427 | — |
 | function | `_reimport_and_check_transaction` | `_reimport_and_check_transaction(*, reg, resolver, certifications, settings, project_root: pathlib.Path, preview: dict[str, Any], skeleton: pathlib.Path, prepared_output: pathlib.Path, plan: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 483 | — |
 | function | `write_at_dragon_edit_workspace` | `write_at_dragon_edit_workspace(reg, resolver, certifications, settings, *, project_root: pathlib.Path, output: pathlib.Path \| None = None, workspace_root: pathlib.Path \| None = None) -> dict[str, Any]` | 537 | — |
@@ -3797,8 +3797,8 @@ _No top-level functions or classes._
 | function | `_object_layout` | `_object_layout(start: int, nv: int, nf: int, nt: int, nr: int, np: int, ns: int, physique: bool)` | 94 | — |
 | function | `_parse_rigid_model` | `_parse_rigid_model(path: pathlib.Path) -> dict[str, Any]` | 107 | — |
 | function | `_parse_skeleton_tms` | `_parse_skeleton_tms(path: pathlib.Path) -> dict[str, list[int]]` | 156 | — |
-| function | `_error_stats` | `_error_stats(errors: list[tuple[int, int, int]]) -> dict[str, int]` | 177 | — |
-| function | `_source_bounds` | `_source_bounds(points: list[tuple[int, int, int]]) -> dict[str, int]` | 191 | — |
+| function | `_error_stats` | `_error_stats(errors: list[tuple[int,int,int]]) -> dict[str, int]` | 177 | — |
+| function | `_source_bounds` | `_source_bounds(points: list[tuple[int,int,int]]) -> dict[str,int]` | 191 | — |
 | function | `audit_rare_rigid_geometry_preflight` | `audit_rare_rigid_geometry_preflight(reg, resolver, *, project_root: pathlib.Path, work: pathlib.Path) -> dict[str, Any]` | 204 | Audit the lossy Physique coordinate bridge before any Model0.62 geometry writer. |
 
 ## `app/pt_asset_tool/rare_rigid_large_interactive_candidate.py`
@@ -3808,19 +3808,19 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_sha256` | `_sha256(path: pathlib.Path) -> str` | 25 | — |
-| function | `_json` | `_json(p: pathlib.Path) -> dict[str, Any]` | 31 | — |
-| function | `_writer_hashes` | `_writer_hashes(root: pathlib.Path) -> dict[str, str]` | 32 | — |
-| function | `_cert_sha` | `_cert_sha(c: CertificationRegistry) -> str \| None` | 33 | — |
-| function | `_prior` | `_prior(root: pathlib.Path) -> dict[str, Any]` | 35 | — |
+| function | `_json` | `_json(p: pathlib.Path) -> dict[str,Any]` | 31 | — |
+| function | `_writer_hashes` | `_writer_hashes(root: pathlib.Path) -> dict[str,str]` | 32 | — |
+| function | `_cert_sha` | `_cert_sha(c: CertificationRegistry) -> str\|None` | 33 | — |
+| function | `_prior` | `_prior(root: pathlib.Path) -> dict[str,Any]` | 35 | — |
 | function | `_widen` | `@contextlib.contextmanager _widen()` | 50 | — |
-| function | `_plan_uniform` | `_plan_uniform(prepared: pathlib.Path, skeleton: pathlib.Path) -> dict[str, Any]` | 57 | — |
-| function | `_failed_v0818` | `_failed_v0818(root: pathlib.Path) -> dict[str, Any]` | 94 | — |
-| function | `_baseline_name` | `_baseline_name(path: pathlib.Path, oi: int) -> str \| None` | 112 | — |
-| function | `_selection` | `_selection(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, plan: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 129 | — |
-| function | `_expected_map` | `_expected_map(plan: dict[str, Any]) -> dict[tuple[int, int], list[int]]` | 143 | — |
-| function | `_preflight` | `_preflight(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, plan: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 146 | — |
-| function | `run` | `run(root: pathlib.Path, logical: str) -> dict[str, Any]` | 153 | — |
-| function | `main` | `main(argv: list[str] \| None = None) -> int` | 193 | — |
+| function | `_plan_uniform` | `_plan_uniform(prepared: pathlib.Path, skeleton: pathlib.Path) -> dict[str,Any]` | 57 | — |
+| function | `_failed_v0818` | `_failed_v0818(root: pathlib.Path) -> dict[str,Any]` | 94 | — |
+| function | `_baseline_name` | `_baseline_name(path: pathlib.Path, oi: int) -> str\|None` | 112 | — |
+| function | `_selection` | `_selection(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, plan: dict[str,Any], work: pathlib.Path) -> dict[str,Any]` | 129 | — |
+| function | `_expected_map` | `_expected_map(plan: dict[str,Any]) -> dict[tuple[int,int],list[int]]` | 143 | — |
+| function | `_preflight` | `_preflight(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, plan: dict[str,Any], work: pathlib.Path) -> dict[str,Any]` | 146 | — |
+| function | `run` | `run(root: pathlib.Path, logical: str) -> dict[str,Any]` | 153 | — |
+| function | `main` | `main(argv: list[str]\|None = None) -> int` | 193 | — |
 
 ## `app/pt_asset_tool/rare_rigid_large_live_writer_candidate.py`
 
@@ -3937,16 +3937,16 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_sha256` | `_sha256(path: pathlib.Path) -> str` | 35 | — |
-| function | `_json` | `_json(path: pathlib.Path) -> dict[str, Any]` | 41 | — |
-| function | `_writer_hashes` | `_writer_hashes(root: pathlib.Path) -> dict[str, str]` | 42 | — |
+| function | `_json` | `_json(path: pathlib.Path) -> dict[str,Any]` | 41 | — |
+| function | `_writer_hashes` | `_writer_hashes(root: pathlib.Path) -> dict[str,str]` | 42 | — |
 | function | `_cert_sha` | `_cert_sha(c: CertificationRegistry) -> str` | 43 | — |
-| function | `_strict_prior_v0833` | `_strict_prior_v0833(root: pathlib.Path) -> dict[str, Any]` | 45 | — |
-| function | `_strict_prior_v0834_failure` | `_strict_prior_v0834_failure(root: pathlib.Path) -> dict[str, Any]` | 71 | — |
-| function | `_manual_plan` | `_manual_plan(prepared: pathlib.Path, skeleton: pathlib.Path, prior: dict[str, Any]) -> dict[str, Any]` | 84 | — |
-| function | `_selection` | `_selection(settings: Settings, root: pathlib.Path, blend: pathlib.Path, plan: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 115 | — |
-| function | `_preflight` | `_preflight(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, plan: dict[str, Any], work: pathlib.Path) -> dict[str, Any]` | 125 | — |
-| function | `run` | `run(root: pathlib.Path, logical: str) -> dict[str, Any]` | 136 | — |
-| function | `main` | `main(argv: list[str] \| None = None) -> int` | 189 | — |
+| function | `_strict_prior_v0833` | `_strict_prior_v0833(root: pathlib.Path) -> dict[str,Any]` | 45 | — |
+| function | `_strict_prior_v0834_failure` | `_strict_prior_v0834_failure(root: pathlib.Path) -> dict[str,Any]` | 71 | — |
+| function | `_manual_plan` | `_manual_plan(prepared: pathlib.Path, skeleton: pathlib.Path, prior: dict[str,Any]) -> dict[str,Any]` | 84 | — |
+| function | `_selection` | `_selection(settings: Settings, root: pathlib.Path, blend: pathlib.Path, plan: dict[str,Any], work: pathlib.Path) -> dict[str,Any]` | 115 | — |
+| function | `_preflight` | `_preflight(settings: Settings, root: pathlib.Path, blend: pathlib.Path, baseline: pathlib.Path, plan: dict[str,Any], work: pathlib.Path) -> dict[str,Any]` | 125 | — |
+| function | `run` | `run(root: pathlib.Path, logical: str) -> dict[str,Any]` | 136 | — |
+| function | `main` | `main(argv: list[str]\|None = None) -> int` | 189 | — |
 
 ## `app/pt_asset_tool/rare_rigid_multibone_extent_live_writer_candidate.py`
 
@@ -4183,7 +4183,7 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_sha256_bytes` | `_sha256_bytes(data: bytes) -> str` | 37 | — |
-| function | `_signature_update` | `_signature_update(h: 'hashlib._Hash', rel: str, size: int, mtime_ns: int) -> None` | 41 | — |
+| function | `_signature_update` | `_signature_update(h: "hashlib._Hash", rel: str, size: int, mtime_ns: int) -> None` | 41 | — |
 | function | `_records_signature` | `_records_signature(records: list[dict[str, Any]]) -> dict[str, Any]` | 50 | — |
 | function | `_client_stat_signature` | `_client_stat_signature(client_root: pathlib.Path) -> dict[str, Any]` | 70 | — |
 | function | `_name_shape` | `_name_shape(names: list[str]) -> str` | 105 | Return a conservative object-name family shape used by rigid discovery. |
@@ -4236,7 +4236,7 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `content_domain_from_values` | `content_domain_from_values(relative_path: str, category: str = '') -> str` | 38 | Classify a physical/catalog path into the Release 1.0 content contract. |
+| function | `content_domain_from_values` | `content_domain_from_values(relative_path: str, category: str = "") -> str` | 38 | Classify a physical/catalog path into the Release 1.0 content contract. |
 | function | `content_domain` | `content_domain(asset) -> str` | 88 | — |
 | function | `_cell` | `_cell(count: int, state: str, *, next_gate: str \| None = None, evidence: dict[str, Any] \| None = None) -> dict[str, Any]` | 95 | — |
 | function | `_counts` | `_counts(registry) -> dict[str, Any]` | 104 | — |
@@ -4279,7 +4279,7 @@ _No top-level functions or classes._
 | function | `_restrict_to_selected_lod` | `_restrict_to_selected_lod(eligible: list[str], selected_context: dict[str, Any] \| None) -> tuple[list[str], list[str], list[str]]` | 34 | Restrict candidate targets to the exact LOD nodes saved at import time. |
 | function | `_restrict_to_all_lods` | `_restrict_to_all_lods(eligible: list[str], selected_context: dict[str, Any] \| None) -> tuple[list[str], dict[str, str]]` | 63 | Return writer-eligible nodes referenced by any saved HIGH/DEFAULT/LOW group. |
 | function | `inspect_rigid_candidate_scope` | `inspect_rigid_candidate_scope(plan: dict[str, Any], selected_context: dict[str, Any] \| None) -> dict[str, Any]` | 83 | — |
-| function | `plan_rigid_saved_blender_candidate` | `plan_rigid_saved_blender_candidate(project_root, resolver, asset, *, object_name: str \| None = None, output: pathlib.Path \| str \| None = None, lod_scope: str = 'selected') -> dict[str, Any]` | 99 | — |
+| function | `plan_rigid_saved_blender_candidate` | `plan_rigid_saved_blender_candidate(project_root, resolver, asset, *, object_name: str \| None = None, output: pathlib.Path \| str \| None = None, lod_scope: str = "selected") -> dict[str, Any]` | 99 | — |
 | function | `build_rigid_candidate_blender_command` | `build_rigid_candidate_blender_command(settings, candidate: dict[str, Any], *, report: pathlib.Path) -> list[str]` | 214 | — |
 | function | `_physique_names` | `_physique_names(obj: dict[str, Any]) -> list[str]` | 245 | — |
 | function | `_rigid_semantic_payload` | `_rigid_semantic_payload(obj: dict[str, Any]) -> dict[str, Any]` | 257 | Return the game-relevant rigid mesh payload used to detect real artist edits. |
@@ -4429,7 +4429,7 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `semantic_group_for_path` | `semantic_group_for_path(path: str, fallback: str = '') -> str` | 6 | Return conservative semantic group from proven top-level physical trees. |
+| function | `semantic_group_for_path` | `semantic_group_for_path(path: str, fallback: str = "") -> str` | 6 | Return conservative semantic group from proven top-level physical trees. |
 | function | `entity_folder_for_path` | `entity_folder_for_path(path: str) -> str` | 26 | — |
 
 ## `app/pt_asset_tool/server_bundle_census.py`
@@ -4518,8 +4518,8 @@ _No top-level functions or classes._
 | function | `_write_draft` | `_write_draft(project_root: pathlib.Path, relp: pathlib.PurePosixPath, source: pathlib.Path, source_sha: str, data: bytes, operation: str, detail: dict[str, Any]) -> dict[str, Any]` | 270 | — |
 | function | `stage_spm_text` | `stage_spm_text(project_root: pathlib.Path, server_root: pathlib.Path, rel: str, text: str, *, expected_sha256: str \| None = None) -> dict[str, Any]` | 306 | — |
 | function | `stage_spp_records` | `stage_spp_records(project_root: pathlib.Path, server_root: pathlib.Path, rel: str, edits: list[dict[str, Any]], *, expected_sha256: str \| None = None) -> dict[str, Any]` | 334 | — |
-| function | `stage_spc_clone` | `stage_spc_clone(project_root: pathlib.Path, server_root: pathlib.Path, rel: str, *, template_index: int \| None = None, slot_index: int \| None = None, record_name: str, model_ini: str, server_npc: str, x: int, y: int = 0, z: int = 0, ax: int = 0, ay: int = 0, az: int = 0, state: int = 0, expected_sha256: str \| None = None, record_encoding: str = 'cp949') -> dict[str, Any]` | 372 | — |
-| function | `stage_spc_native` | `stage_spc_native(project_root: pathlib.Path, server_root: pathlib.Path, rel: str, *, slot_index: int \| None = None, record_name: str, model_ini: str, server_npc: str, x: int, y: int = 0, z: int = 0, ax: int = 0, ay: int = 0, az: int = 0, state: int = 0, expected_sha256: str \| None = None, record_encoding: str = 'cp949', code: str \| int = 'CURRENT') -> dict[str, Any]` | 439 | Insert one from-zero source-derived smTRNAS_PLAYERINFO into a fixed SPC. |
+| function | `stage_spc_clone` | `stage_spc_clone(project_root: pathlib.Path, server_root: pathlib.Path, rel: str, *, template_index: int \| None = None, slot_index: int \| None = None, record_name: str, model_ini: str, server_npc: str, x: int, y: int = 0, z: int = 0, ax: int = 0, ay: int = 0, az: int = 0, state: int = 0, expected_sha256: str \| None = None, record_encoding: str = "cp949") -> dict[str, Any]` | 372 | — |
+| function | `stage_spc_native` | `stage_spc_native(project_root: pathlib.Path, server_root: pathlib.Path, rel: str, *, slot_index: int \| None = None, record_name: str, model_ini: str, server_npc: str, x: int, y: int = 0, z: int = 0, ax: int = 0, ay: int = 0, az: int = 0, state: int = 0, expected_sha256: str \| None = None, record_encoding: str = "cp949", code: str \| int = "CURRENT") -> dict[str, Any]` | 439 | Insert one from-zero source-derived smTRNAS_PLAYERINFO into a fixed SPC. |
 
 ## `app/pt_asset_tool/server_inventory.py`
 
@@ -4562,7 +4562,7 @@ _No top-level functions or classes._
 | function | `_read_report` | `_read_report(project_root: pathlib.Path, rel: str) -> dict[str, Any] \| None` | 38 | — |
 | function | `_summaries` | `_summaries(project_root: pathlib.Path) -> dict[str, Any]` | 54 | — |
 | function | `_review_guidance` | `_review_guidance(kind: str, row: dict[str, Any]) -> dict[str, Any]` | 213 | — |
-| function | `server_report_rows` | `server_report_rows(project_root: pathlib.Path, kind: str, *, query: str = '', status: str = '', reason: str = '', offset: int = 0, limit: int = 200) -> dict[str, Any]` | 264 | Return a filtered, read-only view of one Asset Enrichment report. |
+| function | `server_report_rows` | `server_report_rows(project_root: pathlib.Path, kind: str, *, query: str = "", status: str = "", reason: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 264 | Return a filtered, read-only view of one Asset Enrichment report. |
 | function | `build_server_ui_summary` | `build_server_ui_summary(project_root: pathlib.Path, server_root: pathlib.Path \| None, client_root: pathlib.Path) -> dict[str, Any]` | 345 | — |
 
 ## `app/pt_asset_tool/skill_contract_census.py`
@@ -4625,7 +4625,7 @@ _No top-level functions or classes._
 | method | `SmdPreviewManager._write_index` | `_write_index(self, data: dict[str, Any] \| None = None) -> None` | 225 | — |
 | method | `SmdPreviewManager._index_update` | `_index_update(self, logical: str, **fields: Any) -> None` | 235 | — |
 | method | `SmdPreviewManager.status_index` | `status_index(self) -> dict[str, dict[str, Any]]` | 243 | — |
-| method | `SmdPreviewManager.mark_all_stale` | `mark_all_stale(self, detail: str = 'REGISTRY_REINDEXED') -> int` | 247 | — |
+| method | `SmdPreviewManager.mark_all_stale` | `mark_all_stale(self, detail: str = "REGISTRY_REINDEXED") -> int` | 247 | — |
 | method | `SmdPreviewManager.workspace` | `workspace(self, logical: str) -> pathlib.Path` | 258 | — |
 | method | `SmdPreviewManager._blender_runtime` | `_blender_runtime(self, *, max_age: float = 30.0) -> dict[str, Any]` | 261 | — |
 | method | `SmdPreviewManager._cache_key` | `_cache_key(self, plan: dict[str, Any], blender_runtime: dict[str, Any]) -> str` | 272 | — |
@@ -4636,7 +4636,7 @@ _No top-level functions or classes._
 | method | `SmdPreviewManager.image_path` | `image_path(self, logical: str) -> pathlib.Path` | 354 | — |
 | method | `SmdPreviewManager._run` | `_run(self) -> None` | 360 | — |
 | method | `SmdPreviewManager._render` | `_render(self, key: str, plan: dict[str, Any], cache_key: str, *, cancel_event: threading.Event \| None = None) -> None` | 373 | — |
-| method | `SmdPreviewManager._cancel` | `_cancel(self, key: str, meta: pathlib.Path, cache_key: str, detail: str = 'SMD_PREVIEW_CANCELED') -> None` | 462 | — |
+| method | `SmdPreviewManager._cancel` | `_cancel(self, key: str, meta: pathlib.Path, cache_key: str, detail: str = "SMD_PREVIEW_CANCELED") -> None` | 462 | — |
 | method | `SmdPreviewManager._fail` | `_fail(self, key: str, meta: pathlib.Path, cache_key: str, detail: str) -> None` | 473 | — |
 
 ## `app/pt_asset_tool/smd_preview_batch.py`
@@ -4649,7 +4649,7 @@ _No top-level functions or classes._
 | function | `_candidate_paths` | `_candidate_paths(registry: AssetRegistry) -> list[str]` | 28 | — |
 | function | `batch_state_path` | `batch_state_path(project_root: pathlib.Path) -> pathlib.Path` | 36 | — |
 | function | `read_batch_state` | `read_batch_state(project_root: pathlib.Path) -> dict[str, Any]` | 40 | — |
-| function | `run_batch` | `run_batch(project_root: pathlib.Path, client_root: pathlib.Path \| None = None, *, mode: str = 'warmup', workers: int = 1, limit: int = 0, force: bool = False, cancel_event: threading.Event \| None = None) -> dict[str, Any]` | 49 | — |
+| function | `run_batch` | `run_batch(project_root: pathlib.Path, client_root: pathlib.Path \| None = None, *, mode: str = "warmup", workers: int = 1, limit: int = 0, force: bool = False, cancel_event: threading.Event \| None = None) -> dict[str, Any]` | 49 | — |
 | function | `cli_main` | `cli_main(argv: list[str] \| None = None, *, project_root: pathlib.Path \| None = None) -> int` | 251 | — |
 
 ## `app/pt_asset_tool/source_catalog.py`
@@ -4695,7 +4695,7 @@ _No top-level functions or classes._
 | function | `_infer_catalog_case` | `_infer_catalog_case(match: re.Match[str], *, file_class: str \| None, by_skill: dict[str, set[str]], valid: dict[tuple[str, str], str], enum_to_class: dict[str, str]) -> tuple[str, str, str] \| None` | 200 | — |
 | function | `_case_block` | `_case_block(text: str, match: re.Match[str], *, max_chars: int = 5000) -> str` | 231 | — |
 | function | `_case_context_at_offset` | `_case_context_at_offset(block: str, offset: int) -> tuple[str, int]` | 239 | Return the nearest lexical case label before *offset* in a function block. |
-| function | `_brace_block` | `_brace_block(text: str, open_brace: int, *, max_chars: int = 8000000) -> str` | 256 | Return one C/C++ brace-delimited block, fail-closed on imbalance. |
+| function | `_brace_block` | `_brace_block(text: str, open_brace: int, *, max_chars: int = 8_000_000) -> str` | 256 | Return one C/C++ brace-delimited block, fail-closed on imbalance. |
 | function | `_skill_alias_key` | `_skill_alias_key(value: str) -> str` | 278 | — |
 | function | `_catalog_aliases` | `_catalog_aliases(skill_catalog: Iterable[dict[str, Any]] \| None) -> dict[str, list[tuple[str, str]]]` | 282 | Map normalized skill aliases to canonical (class, skill) pairs. |
 | function | `_handler_class_from_path` | `_handler_class_from_path(rel: str) -> str \| None` | 302 | — |
@@ -4806,7 +4806,7 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `run_stage072_material_automated_devtest` | `run_stage072_material_automated_devtest(settings, registry, resolver, row: dict[str, Any]) -> dict[str, Any]` | 10 | — |
+| function | `run_stage072_material_automated_devtest` | `run_stage072_material_automated_devtest(settings, registry, resolver, row: dict[str,Any]) -> dict[str,Any]` | 10 | — |
 | function | `run_stage072_material_automated_devtest_batch` | `run_stage072_material_automated_devtest_batch(settings, registry, resolver, rows)` | 24 | — |
 | function | `audit_stage072_material_physical_corpus` | `audit_stage072_material_physical_corpus(registry, resolver)` | 39 | Parse the material layout of every physical Stage0.72 map read-only. |
 
@@ -4889,7 +4889,7 @@ _No top-level functions or classes._
 | function | `audit_smb_animation_corpus` | `audit_smb_animation_corpus(registry, resolver, *, sample_limit: int = 25) -> dict[str, Any]` | 38 | Parse every physical SMB and census existing TmFrame/key animation by domain. |
 | function | `choose_standalone_animation_representatives` | `choose_standalone_animation_representatives(registry, resolver, *, per_domain: int = 2) -> dict[str, list[dict[str, Any]]]` | 137 | — |
 | function | `run_standalone_animation_pose_devtest` | `run_standalone_animation_pose_devtest(settings, registry, resolver, certifications, *, row: dict[str, Any], fps: int = 30) -> dict[str, Any]` | 168 | — |
-| function | `run_standalone_animation_pose_devtest_batch` | `run_standalone_animation_pose_devtest_batch(settings, registry, resolver, certifications, rows: list[dict[str, Any]], *, fps: int = 30) -> dict[str, Any]` | 217 | — |
+| function | `run_standalone_animation_pose_devtest_batch` | `run_standalone_animation_pose_devtest_batch(settings, registry, resolver, certifications, rows: list[dict[str,Any]], *, fps: int = 30) -> dict[str,Any]` | 217 | — |
 
 ## `app/pt_asset_tool/standalone_rigid_devtest.py`
 
@@ -4945,7 +4945,7 @@ _No top-level functions or classes._
 | function | `_sha` | `_sha(b)` | 16 | — |
 | function | `_parse` | `_parse(data: bytes)` | 19 | — |
 | function | `_face_signature` | `_face_signature(obj)` | 89 | — |
-| function | `compare_static_roundtrip` | `compare_static_roundtrip(source: Path, output: Path, target: str, witness_report: Path, report_path: Path \| None = None)` | 98 | — |
+| function | `compare_static_roundtrip` | `compare_static_roundtrip(source: Path, output: Path, target: str, witness_report: Path, report_path: Path\|None = None)` | 98 | — |
 
 ## `app/pt_asset_tool/static_semantic_devtest.py`
 
@@ -4954,11 +4954,11 @@ _No top-level functions or classes._
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
 | function | `_work_root` | `_work_root(project_root: pathlib.Path, domain: str, asset_path: str) -> pathlib.Path` | 20 | — |
-| function | `validate_static_stress_output` | `validate_static_stress_output(source: pathlib.Path, output: pathlib.Path, target_objects: list[str]) -> dict[str, Any]` | 24 | — |
+| function | `validate_static_stress_output` | `validate_static_stress_output(source: pathlib.Path, output: pathlib.Path, target_objects: list[str]) -> dict[str,Any]` | 24 | — |
 | function | `choose_static_semantic_representatives` | `choose_static_semantic_representatives(registry, resolver, domain: str, *, limit: int = 3) -> list[dict[str, Any]]` | 59 | Choose physically authorable static witnesses with deterministic backfill. |
-| function | `run_static_semantic_automated_devtest` | `run_static_semantic_automated_devtest(settings, asset_registry, resolver, certifications, *, asset_path: str, domain: str, amplitude: float = 0.08, require_topology: bool = True) -> dict[str, Any]` | 115 | — |
-| function | `run_static_semantic_automated_devtest_batch` | `run_static_semantic_automated_devtest_batch(settings, asset_registry, resolver, certifications, rows: list[dict[str, Any]], *, amplitude: float = 0.08, require_topology: bool = True) -> dict[str, Any]` | 166 | — |
-| function | `audit_model062_static_physical_corpus` | `audit_model062_static_physical_corpus(registry, resolver, *, sample_limit: int = 100) -> dict[str, Any]` | 177 | Physically reparse every canonical static Model0.62 asset. |
+| function | `run_static_semantic_automated_devtest` | `run_static_semantic_automated_devtest(settings, asset_registry, resolver, certifications, *, asset_path: str, domain: str, amplitude: float = 0.08, require_topology: bool = True) -> dict[str,Any]` | 115 | — |
+| function | `run_static_semantic_automated_devtest_batch` | `run_static_semantic_automated_devtest_batch(settings, asset_registry, resolver, certifications, rows: list[dict[str,Any]], *, amplitude: float = 0.08, require_topology: bool = True) -> dict[str,Any]` | 166 | — |
+| function | `audit_model062_static_physical_corpus` | `audit_model062_static_physical_corpus(registry, resolver, *, sample_limit: int = 100) -> dict[str,Any]` | 177 | Physically reparse every canonical static Model0.62 asset. |
 
 ## `app/pt_asset_tool/summit_asset_audit_refinement.py`
 
@@ -5029,8 +5029,8 @@ _No top-level functions or classes._
 | class | `CanonicalDocument` | `@dataclass(frozen=True) class CanonicalDocument` | 301 | — |
 | class | `SummitCanonicalContentProvider` | `class SummitCanonicalContentProvider` | 310 | Read-only authority adapter for Summit Content/canonical. |
 | method | `SummitCanonicalContentProvider.__init__` | `__init__(self, source_root: pathlib.Path \| str)` | 318 | — |
-| method | `SummitCanonicalContentProvider.from_project` | `@classmethod from_project(cls, project_root: pathlib.Path, source_root: pathlib.Path \| str \| None = None) -> 'SummitCanonicalContentProvider'` | 347 | — |
-| method | `SummitCanonicalContentProvider.try_from_project` | `@classmethod try_from_project(cls, project_root: pathlib.Path, source_root: pathlib.Path \| str \| None = None) -> 'SummitCanonicalContentProvider \| None'` | 357 | — |
+| method | `SummitCanonicalContentProvider.from_project` | `@classmethod from_project(cls, project_root: pathlib.Path, source_root: pathlib.Path \| str \| None = None) -> "SummitCanonicalContentProvider"` | 347 | — |
+| method | `SummitCanonicalContentProvider.try_from_project` | `@classmethod try_from_project(cls, project_root: pathlib.Path, source_root: pathlib.Path \| str \| None = None) -> "SummitCanonicalContentProvider \| None"` | 357 | — |
 | method | `SummitCanonicalContentProvider.canonical_mode` | `@property canonical_mode(self) -> bool` | 375 | — |
 | method | `SummitCanonicalContentProvider.relative_to_source` | `relative_to_source(self, path: pathlib.Path) -> str` | 378 | — |
 | method | `SummitCanonicalContentProvider.iter_text_documents` | `iter_text_documents(self) -> Iterator[CanonicalDocument]` | 381 | — |
@@ -5048,16 +5048,16 @@ _No top-level functions or classes._
 | method | `SummitCanonicalContentProvider.localization_publish_gate` | `localization_publish_gate(self, *, run_validator: bool = False) -> dict[str, Any]` | 513 | — |
 | method | `SummitCanonicalContentProvider.status` | `status(self) -> dict[str, Any]` | 536 | — |
 | function | `_extended_domain_entry_count` | `_extended_domain_entry_count(doc: Any) -> int \| None` | 578 | — |
-| function | `extended_content_browser` | `extended_content_browser(provider: SummitCanonicalContentProvider, *, q: str = '') -> dict[str, Any]` | 594 | — |
+| function | `extended_content_browser` | `extended_content_browser(provider: SummitCanonicalContentProvider, *, q: str = "") -> dict[str, Any]` | 594 | — |
 | function | `canonical_mode_status` | `canonical_mode_status(project_root: pathlib.Path, source_root: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 608 | — |
 | function | `_overlay_index` | `_overlay_index() -> tuple[dict[str, dict[str, Any]], set[tuple[str, str]]]` | 618 | — |
 | function | `_profile_memberships` | `_profile_memberships(provider: SummitCanonicalContentProvider) -> dict[str, tuple[set[str], set[str]]]` | 632 | — |
 | function | `_definition_row` | `_definition_row(doc: CanonicalDocument, overlay: dict[str, Any] \| None, memberships: dict[str, tuple[set[str], set[str]]]) -> dict[str, Any]` | 639 | — |
 | function | `_map_rows` | `_map_rows(provider: SummitCanonicalContentProvider, overlay_by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]` | 683 | — |
-| function | `query_canonical_resources` | `query_canonical_resources(provider: SummitCanonicalContentProvider, *, q: str = '', family: str = '', limit: int = 200, offset: int = 0) -> dict[str, Any]` | 720 | — |
-| function | `gameplay_config_browser` | `gameplay_config_browser(provider: SummitCanonicalContentProvider, *, q: str = '', limit: int = 100) -> dict[str, Any]` | 750 | — |
-| function | `localization_browser` | `localization_browser(provider: SummitCanonicalContentProvider, *, locale: str = 'pt-BR', q: str = '', limit: int = 200, offset: int = 0) -> dict[str, Any]` | 776 | — |
-| function | `gameplay_reference_browser` | `gameplay_reference_browser(provider: SummitCanonicalContentProvider, *, q: str = '', limit: int = 500) -> dict[str, Any]` | 817 | — |
+| function | `query_canonical_resources` | `query_canonical_resources(provider: SummitCanonicalContentProvider, *, q: str = "", family: str = "", limit: int = 200, offset: int = 0) -> dict[str, Any]` | 720 | — |
+| function | `gameplay_config_browser` | `gameplay_config_browser(provider: SummitCanonicalContentProvider, *, q: str = "", limit: int = 100) -> dict[str, Any]` | 750 | — |
+| function | `localization_browser` | `localization_browser(provider: SummitCanonicalContentProvider, *, locale: str = "pt-BR", q: str = "", limit: int = 200, offset: int = 0) -> dict[str, Any]` | 776 | — |
+| function | `gameplay_reference_browser` | `gameplay_reference_browser(provider: SummitCanonicalContentProvider, *, q: str = "", limit: int = 500) -> dict[str, Any]` | 817 | — |
 | function | `compare_map_profiles` | `compare_map_profiles(provider: SummitCanonicalContentProvider, canonical_id: str) -> dict[str, Any]` | 891 | — |
 | function | `build_canonical_contract_graph` | `build_canonical_contract_graph(provider: SummitCanonicalContentProvider, *, include_documents: bool = True) -> dict[str, Any]` | 916 | Build authority/compile/profile edges for the canonical content pipeline. |
 | function | `build_semantic_catalog_v2` | `build_semantic_catalog_v2(provider: SummitCanonicalContentProvider) -> dict[str, Any]` | 1045 | — |
@@ -5119,7 +5119,7 @@ _No top-level functions or classes._
 |---|---|---|---:|---|
 | function | `_sha` | `_sha(data: bytes) -> str` | 13 | — |
 | function | `_f32` | `_f32(value: float) -> float` | 17 | — |
-| function | `_close` | `_close(a: float, b: float, tol: float = 1e-06) -> bool` | 21 | — |
+| function | `_close` | `_close(a: float, b: float, tol: float = 1e-6) -> bool` | 21 | — |
 | function | `_load_witness` | `_load_witness(path: pathlib.Path \| str) -> dict` | 25 | — |
 | function | `_object_by_index` | `_object_by_index(report: dict, index: int) -> dict` | 29 | — |
 | function | `_chain_target` | `_chain_target(report: dict, edit: dict) -> tuple[dict, dict, dict]` | 39 | — |
@@ -5185,10 +5185,10 @@ _No top-level functions or classes._
 | function | `_alpha_channel` | `_alpha_channel(image, size: tuple[int, int])` | 453 | — |
 | function | `_detail_metric` | `_detail_metric(image) -> float` | 460 | Small deterministic edge-energy witness; informative, never a quality gate. |
 | function | `_apply_quality_profile` | `_apply_quality_profile(image, profile: str, *, ai_backend: bool = False)` | 469 | — |
-| function | `upscale_lanczos` | `upscale_lanczos(image, scale: int, *, profile: str = 'balanced')` | 492 | — |
+| function | `upscale_lanczos` | `upscale_lanczos(image, scale: int, *, profile: str = "balanced")` | 492 | — |
 | function | `_resolve_realesrgan` | `_resolve_realesrgan(executable: str \| None) -> str` | 500 | — |
 | function | `capability_status` | `capability_status(executable: str \| None = None) -> dict` | 515 | — |
-| function | `upscale_realesrgan` | `upscale_realesrgan(image, *, scale: int, executable: str \| None, model: str, tile: int, gpu: int, profile: str = 'balanced') -> tuple[object, list[str]]` | 542 | — |
+| function | `upscale_realesrgan` | `upscale_realesrgan(image, *, scale: int, executable: str \| None, model: str, tile: int, gpu: int, profile: str = "balanced") -> tuple[object, list[str]]` | 542 | — |
 | function | `_matches_any` | `_matches_any(rel: str, patterns: Iterable[str]) -> bool` | 585 | — |
 | function | `_risk_class` | `_risk_class(rel: str) -> str` | 596 | — |
 | function | `iter_textures` | `iter_textures(root: Path) -> Iterable[Path]` | 604 | — |
@@ -5198,7 +5198,7 @@ _No top-level functions or classes._
 | function | `_json_dump` | `_json_dump(path: Path, payload: dict, *, overwrite: bool) -> None` | 629 | — |
 | function | `_atomic_publish` | `_atomic_publish(path: Path, data: bytes, *, overwrite: bool) -> None` | 635 | Publish complete bytes atomically; do not overwrite unless explicitly allowed. |
 | function | `scan_tree` | `scan_tree(root: Path, *, include_ui: bool, extra_excludes: list[str], include_patterns: list[str] \| None = None, include_exact: list[str] \| None = None) -> dict` | 658 | — |
-| function | `upscale_tree` | `upscale_tree(root: Path, output_root: Path, *, scale: int, backend: str, profile: str = 'balanced', include_ui: bool, extra_excludes: list[str], max_dimension: int, executable: str \| None, model: str, tile: int, gpu: int, fail_fast: bool, include_patterns: list[str] \| None = None, include_exact: list[str] \| None = None, overwrite: bool = False, checkpoint_manifest: Path \| None = None, checkpoint_every: int = 25, resume_records: list[dict] \| None = None) -> dict` | 712 | — |
+| function | `upscale_tree` | `upscale_tree(root: Path, output_root: Path, *, scale: int, backend: str, profile: str = "balanced", include_ui: bool, extra_excludes: list[str], max_dimension: int, executable: str \| None, model: str, tile: int, gpu: int, fail_fast: bool, include_patterns: list[str] \| None = None, include_exact: list[str] \| None = None, overwrite: bool = False, checkpoint_manifest: Path \| None = None, checkpoint_every: int = 25, resume_records: list[dict] \| None = None) -> dict` | 712 | — |
 | class | `_Skip` | `class _Skip(Exception)` | 963 | — |
 | function | `_resolve_client_root` | `_resolve_client_root(value: Path \| None) -> Path` | 967 | — |
 | function | `_run_stamp` | `_run_stamp() -> str` | 979 | — |
@@ -5241,7 +5241,7 @@ _No top-level functions or classes._
 | function | `_matches_filters` | `_matches_filters(rel: str, *, extensions: set[str], category: str, path_contains: str, include_globs: tuple[str, ...], exclude_globs: tuple[str, ...]) -> tuple[bool, str, str]` | 50 | — |
 | function | `_iter_files` | `_iter_files(root: pathlib.Path, include_hidden: bool, *, extensions: set[str], category: str, path_contains: str, include_globs: tuple[str, ...], exclude_globs: tuple[str, ...]) -> list[FileInfo]` | 75 | — |
 | function | `_index` | `_index(files: list[FileInfo], case_sensitive: bool) -> tuple[dict[str, FileInfo], dict[str, list[str]]]` | 116 | — |
-| function | `compare_trees` | `compare_trees(left: pathlib.Path, right: pathlib.Path, *, content_hash: bool = False, case_sensitive: bool = False, include_hidden: bool = False, extensions: Iterable[str] \| None = None, category: str = '', path_contains: str = '', include_globs: Iterable[str] \| None = None, exclude_globs: Iterable[str] \| None = None, differences_only: bool = False) -> dict[str, Any]` | 128 | — |
+| function | `compare_trees` | `compare_trees(left: pathlib.Path, right: pathlib.Path, *, content_hash: bool = False, case_sensitive: bool = False, include_hidden: bool = False, extensions: Iterable[str] \| None = None, category: str = "", path_contains: str = "", include_globs: Iterable[str] \| None = None, exclude_globs: Iterable[str] \| None = None, differences_only: bool = False) -> dict[str, Any]` | 128 | — |
 | function | `write_outputs` | `write_outputs(report: dict[str, Any], output: pathlib.Path) -> dict[str, str]` | 276 | — |
 | function | `cli_main` | `cli_main(argv: list[str] \| None = None, *, project_root: pathlib.Path \| None = None) -> int` | 313 | — |
 
@@ -5336,10 +5336,10 @@ _No top-level functions or classes._
 | function | `_role_for_entity_file` | `_role_for_entity_file(ext: str) -> str` | 121 | — |
 | function | `infer_physical_family` | `infer_physical_family(rel: str, ext: str) -> str` | 138 | Physical/runtime family, independent from the functional path category. |
 | function | `infer_folder_bucket` | `infer_folder_bucket(rel: str, category: str) -> tuple[str, str]` | 172 | Return a useful folder facet label + root path for catalog navigation. |
-| function | `infer_visibility_tier` | `infer_visibility_tier(rel: str, ext: str, category: str = '', role: str = '') -> str` | 241 | Classify catalog visibility without deleting or mutating client files. |
+| function | `infer_visibility_tier` | `infer_visibility_tier(rel: str, ext: str, category: str = "", role: str = "") -> str` | 241 | Classify catalog visibility without deleting or mutating client files. |
 | function | `infer_semantics` | `infer_semantics(rel: str, ext: str) -> tuple[str, str]` | 272 | Return broad category + role. These are UI hints, never format authority. |
 | function | `sniff_physical_hint` | `sniff_physical_hint(path: pathlib.Path, ext: str) -> str` | 407 | — |
-| function | `infer_capabilities` | `infer_capabilities(rel: str, ext: str, category: str, role: str, physical_hint: str = '') -> list[str]` | 426 | Return only capabilities provable from the catalog scan itself. |
+| function | `infer_capabilities` | `infer_capabilities(rel: str, ext: str, category: str, role: str, physical_hint: str = "") -> list[str]` | 426 | Return only capabilities provable from the catalog scan itself. |
 | class | `CatalogStats` | `@dataclass class CatalogStats` | 443 | — |
 | class | `UIStateStore` | `class UIStateStore` | 449 | — |
 | method | `UIStateStore.__init__` | `__init__(self, path: pathlib.Path)` | 450 | — |
@@ -5357,7 +5357,7 @@ _No top-level functions or classes._
 | method | `CatalogIndex.apply_character_index` | `apply_character_index(self, index: dict[str, Any]) -> None` | 716 | — |
 | method | `CatalogIndex.annotation_options` | `annotation_options(self) -> dict[str, list[str]]` | 738 | — |
 | method | `CatalogIndex.apply_smd_preview_index` | `apply_smd_preview_index(self, preview_index: dict[str, dict[str, Any]]) -> None` | 746 | Attach persistent SMD thumbnail state without invoking Blender. |
-| method | `CatalogIndex.query` | `query(self, q: str = '', category: str = '', folder: str = '', role: str = '', character: str = '', ext: str = '', preview_status: str = '', favorites: bool = False, show_system: bool = False, allowed_paths: set[str] \| None = None, page: int = 1, page_size: int = 100) -> dict[str, Any]` | 759 | — |
+| method | `CatalogIndex.query` | `query(self, q: str = "", category: str = "", folder: str = "", role: str = "", character: str = "", ext: str = "", preview_status: str = "", favorites: bool = False, show_system: bool = False, allowed_paths: set[str] \| None = None, page: int = 1, page_size: int = 100) -> dict[str, Any]` | 759 | — |
 | function | `collections_count` | `collections_count(rows: list[dict[str, Any]], key: str, *, label_key: str \| None = None, description: bool = False) -> list[dict[str, Any]]` | 846 | — |
 
 ## `app/pt_asset_tool/ui_image.py`
@@ -5369,8 +5369,8 @@ _No top-level functions or classes._
 | class | `PreviewDecodeError` | `class PreviewDecodeError(ValueError)` | 15 | A physical asset exists, but the application cannot render it safely. |
 | function | `_chunk` | `_chunk(kind: bytes, data: bytes) -> bytes` | 19 | — |
 | function | `_png_rgba` | `_png_rgba(width: int, height: int, rgba: bytes) -> bytes` | 23 | — |
-| function | `tga_bytes_to_png_bytes` | `tga_bytes_to_png_bytes(data: bytes, max_pixels: int = 20000000) -> bytes` | 35 | Decode a *standard-equivalent* TGA byte stream to a browser PNG. |
-| function | `tga_to_png_bytes` | `tga_to_png_bytes(path: pathlib.Path, max_pixels: int = 20000000) -> bytes` | 120 | Legacy standard-TGA wrapper retained for callers outside the GUI. |
+| function | `tga_bytes_to_png_bytes` | `tga_bytes_to_png_bytes(data: bytes, max_pixels: int = 20_000_000) -> bytes` | 35 | Decode a *standard-equivalent* TGA byte stream to a browser PNG. |
+| function | `tga_to_png_bytes` | `tga_to_png_bytes(path: pathlib.Path, max_pixels: int = 20_000_000) -> bytes` | 120 | Legacy standard-TGA wrapper retained for callers outside the GUI. |
 | function | `_load_root_module` | `@lru_cache(maxsize=8) _load_root_module(project_root: str, filename: str, module_tag: str) -> ModuleType` | 126 | — |
 | function | `_decode_tga_for_preview` | `_decode_tga_for_preview(path: pathlib.Path, project_root: pathlib.Path) -> bytes` | 138 | — |
 | function | `_decode_bmp_for_preview` | `_decode_bmp_for_preview(path: pathlib.Path, project_root: pathlib.Path) -> bytes` | 163 | — |
@@ -5472,20 +5472,20 @@ _No top-level functions or classes._
 | method | `ValidationRunner._texture_overlay` | `_texture_overlay(self, asset: Asset, work: pathlib.Path) -> tuple[pathlib.Path, dict]` | 335 | — |
 | method | `ValidationRunner._prepare_rigid_blend` | `_prepare_rigid_blend(self, asset: Asset, lod: str, work: pathlib.Path, client_root: pathlib.Path, *, model_info: str \| None = None, require_unambiguous: bool = False, preselected: tuple[str, dict, dict] \| None = None) -> tuple[pathlib.Path, pathlib.Path, str, dict]` | 348 | — |
 | method | `ValidationRunner._prepare_static_blend` | `_prepare_static_blend(self, asset: Asset, work: pathlib.Path, client_root: pathlib.Path) -> tuple[pathlib.Path, pathlib.Path, str]` | 380 | — |
-| method | `ValidationRunner.blender_import_workspace` | `blender_import_workspace(self, asset: Asset, lod: str = 'auto', reset: bool = False, model_info: str \| None = None, selection_basis: dict \| None = None, skeleton: str \| None = None, motion: str = 'STAND', load_actions: str = 'all', fps: int = 30) -> dict` | 392 | Prepare a reusable Blender workspace for a supported asset. |
+| method | `ValidationRunner.blender_import_workspace` | `blender_import_workspace(self, asset: Asset, lod: str = "auto", reset: bool = False, model_info: str \| None = None, selection_basis: dict \| None = None, skeleton: str \| None = None, motion: str = "STAND", load_actions: str = "all", fps: int = 30) -> dict` | 392 | Prepare a reusable Blender workspace for a supported asset. |
 | method | `ValidationRunner._ask` | `@staticmethod _ask(label: str) -> str` | 880 | — |
 | method | `ValidationRunner._overall` | `@staticmethod _overall(geometry: str, texture: str, has_textures: bool) -> str` | 888 | — |
-| method | `ValidationRunner.visual_geometry` | `visual_geometry(self, asset: Asset, lod: str = 'auto', non_interactive_result: str \| None = None) -> dict` | 896 | — |
+| method | `ValidationRunner.visual_geometry` | `visual_geometry(self, asset: Asset, lod: str = "auto", non_interactive_result: str \| None = None) -> dict` | 896 | — |
 | method | `ValidationRunner.stage072_preview` | `stage072_preview(self, asset: Asset) -> dict` | 975 | — |
 | method | `ValidationRunner.stage072_uv_roundtrip` | `stage072_uv_roundtrip(self, asset: Asset, uv_delta: float = 0.03125) -> dict` | 1153 | — |
 | method | `ValidationRunner.stage072_geometry_roundtrip` | `stage072_geometry_roundtrip(self, asset: Asset, delta_world: float = 64.0) -> dict` | 1332 | — |
 | method | `ValidationRunner.stage072_geometry_roundtrip_current` | `stage072_geometry_roundtrip_current(self, asset: Asset, delta_world: float = 64.0) -> dict` | 1518 | — |
-| method | `ValidationRunner.multilayer_texlink` | `multilayer_texlink(self, asset: Asset, lod: str = 'auto', non_interactive_result: str \| None = None) -> dict` | 1521 | — |
-| method | `ValidationRunner.multilayer_texlink_roundtrip` | `multilayer_texlink_roundtrip(self, asset: Asset, lod: str = 'auto', uv_delta: float = 0.03125) -> dict` | 1695 | — |
+| method | `ValidationRunner.multilayer_texlink` | `multilayer_texlink(self, asset: Asset, lod: str = "auto", non_interactive_result: str \| None = None) -> dict` | 1521 | — |
+| method | `ValidationRunner.multilayer_texlink_roundtrip` | `multilayer_texlink_roundtrip(self, asset: Asset, lod: str = "auto", uv_delta: float = 0.03125) -> dict` | 1695 | — |
 | method | `ValidationRunner.static_roundtrip` | `static_roundtrip(self, asset: Asset, witness_strength: float = 0.08, non_interactive_result: str \| None = None) -> dict` | 1904 | — |
 | method | `ValidationRunner.object_local_animation` | `object_local_animation(self, asset: Asset, fps: int = 30, non_interactive_result: str \| None = None) -> dict` | 2057 | — |
-| method | `ValidationRunner.visual_animation` | `visual_animation(self, asset: Asset, lod: str = 'auto', motion: str = 'auto', load_actions: str = 'all', fps: int = 30, non_interactive_result: str \| None = None, head_asset: Asset \| None = None, head_variant: dict \| None = None) -> dict` | 2189 | — |
-| method | `ValidationRunner.animation_diagnostic` | `animation_diagnostic(self, asset: Asset, lod: str = 'auto', motion: str = 'ATTACK', load_actions: str = 'selected', fps: int = 30, non_interactive: bool = False) -> dict` | 2518 | — |
+| method | `ValidationRunner.visual_animation` | `visual_animation(self, asset: Asset, lod: str = "auto", motion: str = "auto", load_actions: str = "all", fps: int = 30, non_interactive_result: str \| None = None, head_asset: Asset \| None = None, head_variant: dict \| None = None) -> dict` | 2189 | — |
+| method | `ValidationRunner.animation_diagnostic` | `animation_diagnostic(self, asset: Asset, lod: str = "auto", motion: str = "ATTACK", load_actions: str = "selected", fps: int = 30, non_interactive: bool = False) -> dict` | 2518 | — |
 
 ## `app/pt_asset_tool/workflow_dispatch.py`
 
@@ -5516,7 +5516,7 @@ _No top-level functions or classes._
 | function | `_load_workspace` | `_load_workspace(project_root: pathlib.Path, asset) -> tuple[pathlib.Path, dict[str, Any], dict[str, Any], dict[str, Any]]` | 342 | — |
 | function | `_build_model_candidate` | `_build_model_candidate(settings, resolver, asset, txroot: pathlib.Path, *, auto_rigid_weight_repair: bool = True) -> dict[str, Any]` | 362 | — |
 | function | `_copy_verified` | `_copy_verified(source: pathlib.Path, destination: pathlib.Path) -> dict[str, Any]` | 731 | — |
-| function | `_entry_for_source` | `_entry_for_source(client_root: pathlib.Path, source: pathlib.Path, *, role: str, state: str = 'PRESERVE_ONLY') -> dict[str, Any]` | 743 | — |
+| function | `_entry_for_source` | `_entry_for_source(client_root: pathlib.Path, source: pathlib.Path, *, role: str, state: str = "PRESERVE_ONLY") -> dict[str, Any]` | 743 | — |
 | function | `prepare_workspace_bundle` | `prepare_workspace_bundle(settings, resolver, registry, target: str, *, include_model: bool = True, auto_rigid_weight_repair: bool = True) -> dict[str, Any]` | 756 | Build a fail-closed deploy bundle from one verified generic Blender workspace. |
 | function | `_load_transaction` | `_load_transaction(manifest_path: str \| pathlib.Path) -> tuple[pathlib.Path, dict[str, Any]]` | 973 | — |
 | function | `verify_workspace_bundle_transaction` | `verify_workspace_bundle_transaction(manifest_path: str \| pathlib.Path, *, allow_managed: bool = False) -> dict[str, Any]` | 985 | — |
@@ -5524,7 +5524,7 @@ _No top-level functions or classes._
 | function | `_rollback_entries` | `_rollback_entries(entries: list[dict[str, Any]], written: list[dict[str, Any]]) -> tuple[bool, list[str]]` | 1074 | — |
 | function | `apply_workspace_bundle_transaction` | `apply_workspace_bundle_transaction(manifest_path: str \| pathlib.Path, *, confirm: str) -> dict[str, Any]` | 1090 | — |
 | function | `workspace_bundle_status` | `workspace_bundle_status(manifest_path: str \| pathlib.Path) -> dict[str, Any]` | 1173 | — |
-| function | `_restore_workspace_bundle_entries` | `_restore_workspace_bundle_entries(manifest_path: str \| pathlib.Path, *, confirm: str, roles: set[str] \| None = None, operation: str = 'BUNDLE') -> dict[str, Any]` | 1200 | — |
+| function | `_restore_workspace_bundle_entries` | `_restore_workspace_bundle_entries(manifest_path: str \| pathlib.Path, *, confirm: str, roles: set[str] \| None = None, operation: str = "BUNDLE") -> dict[str, Any]` | 1200 | — |
 | function | `restore_workspace_bundle_transaction` | `restore_workspace_bundle_transaction(manifest_path: str \| pathlib.Path, *, confirm: str) -> dict[str, Any]` | 1338 | Restore all still-deployed entries from one verified workspace bundle. |
 | function | `restore_workspace_bundle_model_transaction` | `restore_workspace_bundle_model_transaction(manifest_path: str \| pathlib.Path, *, confirm: str) -> dict[str, Any]` | 1350 | Restore only MODEL entries from an active verified bundle. |
 | function | `bundle_history` | `bundle_history(project_root: pathlib.Path, target: str) -> dict[str, Any]` | 1362 | — |
@@ -5586,16 +5586,16 @@ _No top-level functions or classes._
 | function | `documented_python_files` | `documented_python_files(root: Path = ROOT) -> list[Path]` | 30 | Return every maintained first-party Python implementation file covered here. |
 | function | `runtime_python_files` | `runtime_python_files(root: Path = ROOT) -> list[Path]` | 46 | — |
 | function | `_summary` | `_summary(node: ast.AST) -> str` | 50 | — |
-| function | `_expr` | `_expr(node: ast.AST \| None) -> str` | 57 | — |
-| function | `_arg` | `_arg(a: ast.arg, default: ast.AST \| None = None) -> str` | 66 | — |
-| function | `_signature` | `_signature(node: ast.FunctionDef \| ast.AsyncFunctionDef) -> str` | 75 | — |
-| function | `_decorators` | `_decorators(node: ast.FunctionDef \| ast.AsyncFunctionDef \| ast.ClassDef) -> tuple[str, ...]` | 100 | — |
-| function | `_class_signature` | `_class_signature(node: ast.ClassDef) -> str` | 104 | — |
-| function | `_class_symbols` | `_class_symbols(node: ast.ClassDef, prefix: str = '') -> list[Symbol]` | 110 | — |
-| function | `inventory_module` | `inventory_module(path: Path) -> ModuleInventory` | 121 | — |
-| function | `inventory` | `inventory(root: Path = ROOT) -> list[ModuleInventory]` | 132 | — |
-| function | `source_digest` | `source_digest(root: Path = ROOT) -> str` | 136 | — |
-| function | `render_reference` | `render_reference(root: Path = ROOT) -> str` | 146 | — |
+| function | `_expr` | `_expr(source: str, node: ast.AST \| None) -> str` | 57 | Render an expression from its original source bytes. |
+| function | `_arg` | `_arg(source: str, a: ast.arg, default: ast.AST \| None = None) -> str` | 72 | — |
+| function | `_signature` | `_signature(source: str, node: ast.FunctionDef \| ast.AsyncFunctionDef) -> str` | 81 | — |
+| function | `_decorators` | `_decorators(source: str, node: ast.FunctionDef \| ast.AsyncFunctionDef \| ast.ClassDef) -> tuple[str, ...]` | 106 | — |
+| function | `_class_signature` | `_class_signature(source: str, node: ast.ClassDef) -> str` | 110 | — |
+| function | `_class_symbols` | `_class_symbols(source: str, node: ast.ClassDef, prefix: str = "") -> list[Symbol]` | 116 | — |
+| function | `inventory_module` | `inventory_module(path: Path) -> ModuleInventory` | 127 | — |
+| function | `inventory` | `inventory(root: Path = ROOT) -> list[ModuleInventory]` | 139 | — |
+| function | `source_digest` | `source_digest(root: Path = ROOT) -> str` | 143 | — |
+| function | `render_reference` | `render_reference(root: Path = ROOT) -> str` | 153 | — |
 
 ## `docs/validation/validate_documentation.py`
 

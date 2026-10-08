@@ -30,21 +30,30 @@ node --check app/pt_asset_tool/ui_static/app.js
 The exhaustive runtime Python symbol reference is generated from the AST and must match the source. Regenerate it after intentional runtime Python changes, then validate:
 
 ```bash
-python3 docs/validation/generate_source_api_reference.py
-python3 docs/validation/generate_source_api_reference.py --check
-python3 docs/validation/validate_documentation.py
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py --check
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/validate_documentation.py
 ```
 
 ## Release hygiene
 
-Before snapshot generation remove only reproducible caches such as `__pycache__`, `.pytest_cache`, `.pyc`, and `.pyo`. Do not delete `app/pt_build` or user enhancement/quarantine data as part of development hygiene.
+Before snapshot generation remove only reproducible caches such as `__pycache__`, `.pytest_cache`, `.pyc`, and `.pyo`. Do not delete `app/pt_build` or user enhancement/quarantine data as part of development hygiene. A reproducible cleanup from the repository root is:
+
+```bash
+find app docs vendor -type d -name __pycache__ -prune -exec rm -rf {} +
+find app docs vendor -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+rm -rf .pytest_cache app/.pytest_cache
+```
 
 ## Snapshot and package verification
 
-Regenerate the static snapshot with the project snapshot tool, then run:
+Generate the source API reference first, clean reproducible caches, then regenerate the static snapshot. The snapshot must be the final derived file before package verification:
 
 ```bash
-./VERIFY_PACKAGE.sh
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py --check
+PYTHONDONTWRITEBYTECODE=1 python3 app/update_snapshot_manifest.py --current-root .
+PYTHONDONTWRITEBYTECODE=1 ./VERIFY_PACKAGE.sh
 ```
 
 ## Ready-to-deploy gate

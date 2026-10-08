@@ -122,14 +122,24 @@ node --check pt_asset_tool/ui_static/app.js
 
 ## 5. Package verification
 
-Da raiz:
+Da raiz, a ordem canónica é: atualizar a referência API, limpar somente caches reprodutíveis, gerar o snapshot por último e então verificar o pacote:
 
 ```bash
 cd ~/Transferências/pt_asset_tool
+
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py --check
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/validate_documentation.py
+
+find app docs vendor -type d -name __pycache__ -prune -exec rm -rf {} +
+find app docs vendor -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+rm -rf .pytest_cache app/.pytest_cache
+
+python3 app/update_snapshot_manifest.py --current-root .
 ./VERIFY_PACKAGE.sh
 ```
 
-Se código/documentação mudou intencionalmente, não regenere `SNAPSHOT_SHA256SUMS.txt` para esconder um diff: revise primeiro a alteração e siga `SNAPSHOT_MANIFEST_POLICY.md`.
+Se código/documentação mudou intencionalmente, não regenere `SNAPSHOT_SHA256SUMS.txt` para esconder um diff: revise primeiro a alteração e siga `SNAPSHOT_MANIFEST_POLICY.md`. O snapshot é derivado da árvore já revisada; não deve ser gerado antes da documentação ou antes da limpeza de caches.
 
 ## 6. Ordem recomendada
 
@@ -197,9 +207,9 @@ A referência de módulos/classes/métodos/funções da implementação first-pa
 
 ```bash
 cd ~/Transferências/pt_asset_tool
-python3 docs/validation/generate_source_api_reference.py
-python3 docs/validation/generate_source_api_reference.py --check
-python3 docs/validation/validate_documentation.py
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/generate_source_api_reference.py --check
+PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/validate_documentation.py
 ```
 
 O `--check` deve falhar quando a referência estiver stale. Testes (`dev_tests`/`tests`) não entram nessa API runtime, mas continuam cobertos por pytest/AST/compileall.

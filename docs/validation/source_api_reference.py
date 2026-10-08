@@ -54,78 +54,85 @@ def _summary(node: ast.AST) -> str:
     return " ".join(text.strip().splitlines()[0].split())
 
 
-def _expr(node: ast.AST | None) -> str:
+def _expr(source: str, node: ast.AST | None) -> str:
+    """Render an expression from its original source bytes.
+
+    Do not use ``ast.unparse`` here.  Its pretty-printing can change across
+    Python releases, which would make the generated documentation appear stale
+    solely because validation ran under a different interpreter version.
+    """
     if node is None:
         return ""
-    try:
-        return ast.unparse(node)
-    except Exception:
+    segment = ast.get_source_segment(source, node)
+    if segment is None:
         return "?"
+    return " ".join(segment.strip().split())
 
 
-def _arg(a: ast.arg, default: ast.AST | None = None) -> str:
+def _arg(source: str, a: ast.arg, default: ast.AST | None = None) -> str:
     text = a.arg
     if a.annotation is not None:
-        text += f": {_expr(a.annotation)}"
+        text += f": {_expr(source, a.annotation)}"
     if default is not None:
-        text += f" = {_expr(default)}"
+        text += f" = {_expr(source, default)}"
     return text
 
 
-def _signature(node: ast.FunctionDef | ast.AsyncFunctionDef) -> str:
+def _signature(source: str, node: ast.FunctionDef | ast.AsyncFunctionDef) -> str:
     args = node.args
     pieces: list[str] = []
     positional = [*args.posonlyargs, *args.args]
     defaults = [None] * (len(positional) - len(args.defaults)) + list(args.defaults)
     posonly_count = len(args.posonlyargs)
     for i, (arg, default) in enumerate(zip(positional, defaults)):
-        pieces.append(_arg(arg, default))
+        pieces.append(_arg(source, arg, default))
         if posonly_count and i + 1 == posonly_count:
             pieces.append("/")
     if args.vararg is not None:
-        pieces.append("*" + _arg(args.vararg))
+        pieces.append("*" + _arg(source, args.vararg))
     elif args.kwonlyargs:
         pieces.append("*")
     for arg, default in zip(args.kwonlyargs, args.kw_defaults):
-        pieces.append(_arg(arg, default))
+        pieces.append(_arg(source, arg, default))
     if args.kwarg is not None:
-        pieces.append("**" + _arg(args.kwarg))
+        pieces.append("**" + _arg(source, args.kwarg))
     prefix = "async " if isinstance(node, ast.AsyncFunctionDef) else ""
     sig = f"{prefix}{node.name}({', '.join(pieces)})"
     if node.returns is not None:
-        sig += f" -> {_expr(node.returns)}"
+        sig += f" -> {_expr(source, node.returns)}"
     return sig
 
 
-def _decorators(node: ast.FunctionDef | ast.AsyncFunctionDef | ast.ClassDef) -> tuple[str, ...]:
-    return tuple(_expr(x) for x in node.decorator_list)
+def _decorators(source: str, node: ast.FunctionDef | ast.AsyncFunctionDef | ast.ClassDef) -> tuple[str, ...]:
+    return tuple(_expr(source, x) for x in node.decorator_list)
 
 
-def _class_signature(node: ast.ClassDef) -> str:
-    bases = [_expr(x) for x in node.bases]
-    bases.extend(f"{kw.arg}={_expr(kw.value)}" for kw in node.keywords)
+def _class_signature(source: str, node: ast.ClassDef) -> str:
+    bases = [_expr(source, x) for x in node.bases]
+    bases.extend(f"{kw.arg}={_expr(source, kw.value)}" for kw in node.keywords)
     return f"class {node.name}" + (f"({', '.join(bases)})" if bases else "")
 
 
-def _class_symbols(node: ast.ClassDef, prefix: str = "") -> list[Symbol]:
+def _class_symbols(source: str, node: ast.ClassDef, prefix: str = "") -> list[Symbol]:
     qname = f"{prefix}.{node.name}" if prefix else node.name
-    out = [Symbol("class", qname, _class_signature(node), node.lineno, _summary(node), _decorators(node))]
+    out = [Symbol("class", qname, _class_signature(source, node), node.lineno, _summary(node), _decorators(source, node))]
     for child in node.body:
         if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef)):
-            out.append(Symbol("method", f"{qname}.{child.name}", _signature(child), child.lineno, _summary(child), _decorators(child)))
+            out.append(Symbol("method", f"{qname}.{child.name}", _signature(source, child), child.lineno, _summary(child), _decorators(source, child)))
         elif isinstance(child, ast.ClassDef):
-            out.extend(_class_symbols(child, qname))
+            out.extend(_class_symbols(source, child, qname))
     return out
 
 
 def inventory_module(path: Path) -> ModuleInventory:
-    tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    source = path.read_text(encoding="utf-8")
+    tree = ast.parse(source, filename=str(path))
     symbols: list[Symbol] = []
     for node in tree.body:
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-            symbols.append(Symbol("function", node.name, _signature(node), node.lineno, _summary(node), _decorators(node)))
+            symbols.append(Symbol("function", node.name, _signature(source, node), node.lineno, _summary(node), _decorators(source, node)))
         elif isinstance(node, ast.ClassDef):
-            symbols.extend(_class_symbols(node))
+            symbols.extend(_class_symbols(source, node))
     return ModuleInventory(path=path, module_summary=_summary(tree), symbols=tuple(symbols))
 
 

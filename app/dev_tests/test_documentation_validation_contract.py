@@ -73,3 +73,28 @@ def test_release_documents_are_explicitly_historical():
         text = _text(rel)
         assert "PT_HISTORICAL_RELEASE_CONTEXT_2026-09-25" in text, rel
         assert "VALIDACAO_TESTES_DESENVOLVIMENTO.md" in text, rel
+
+
+def test_source_api_reference_generation_is_not_ast_unparse_version_dependent(monkeypatch):
+    import ast
+    import importlib.util
+    import sys
+
+    module_path = DOCS / "validation" / "source_api_reference.py"
+    name = "source_api_reference_version_gate"
+    spec = importlib.util.spec_from_file_location(name, module_path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    sys.modules[name] = module
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        sys.modules.pop(name, None)
+
+    def fail_unparse(*_args, **_kwargs):
+        raise AssertionError("source API reference must not depend on ast.unparse")
+
+    monkeypatch.setattr(ast, "unparse", fail_unparse)
+    rendered = module.render_reference(ROOT.parent)
+    assert rendered.startswith("# Source API Reference\n")
+    assert "Source SHA-256" in rendered
