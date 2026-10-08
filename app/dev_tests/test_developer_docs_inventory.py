@@ -5,6 +5,7 @@ DOCS = ROOT.parent / "docs"
 MAP = DOCS / "engenharia" / "MAPA_MODULOS_SCRIPTS.md"
 MANUAL = DOCS / "engenharia" / "MANUAL_DESENVOLVEDOR.md"
 FORMATS = DOCS / "engenharia" / "REVERSE_ENGINEERING_FORMATOS.md"
+SOURCE_API = DOCS / "en" / "engineering" / "SOURCE_API_REFERENCE.md"
 
 
 def _text(path: Path) -> str:
@@ -13,12 +14,16 @@ def _text(path: Path) -> str:
 
 
 def test_runtime_modules_are_documented():
-    text = _text(MAP)
+    # SOURCE_API_REFERENCE is the exhaustive generated inventory.
+    # MAPA_MODULOS_SCRIPTS remains the curated architectural map and is not
+    # required to duplicate every implementation module basename.
+    text = _text(SOURCE_API)
     missing = []
     for path in sorted((ROOT / "pt_asset_tool").glob("*.py")):
         if path.name in {"__init__.py", "__main__.py"}:
             continue
-        if f"`{path.name}`" not in text:
+        rel = path.relative_to(ROOT.parent).as_posix()
+        if f"## `{rel}`" not in text:
             missing.append(path.name)
     assert missing == []
 

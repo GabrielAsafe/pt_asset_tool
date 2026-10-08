@@ -9,6 +9,8 @@ import pt_asset_tool.standalone_rigid_devtest as standalone
 import pt_asset_tool.writer_corpus_audit as writer
 import pt_asset_tool.static_semantic_devtest as staticdev
 
+APP_ROOT = pathlib.Path(__file__).resolve().parents[1]
+
 
 def _asset(path, *, skeleton='', records=None, family='SMD_MODEL_062_RIGID_PHYSIQUE', category='EFFECT'):
     rec = records or {
@@ -115,7 +117,7 @@ def test_static_corpus_uses_physical_object_list(monkeypatch, tmp_path):
 
 
 def test_blender_importer_preserves_external_parent_metadata_source_contract():
-    text=pathlib.Path('pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
+    text=(APP_ROOT / 'pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
     assert 'parent and parent in edit_bones' in text
     assert 'pt_external_parent_count' in text
     assert 'pt_animation_pose_certified' in text
@@ -124,7 +126,7 @@ def test_blender_importer_preserves_external_parent_metadata_source_contract():
 
 def test_material_declared_strings_allow_only_nul_padding(tmp_path):
     import importlib.util
-    path=pathlib.Path('pt_pikeman_smd_material_audit_v1.py')
+    path=APP_ROOT / 'pt_pikeman_smd_material_audit_v1.py'
     spec=importlib.util.spec_from_file_location('material_audit_rc611',path)
     mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     strings,pad=mod.decode_expected_cstrings(b'tex.tga\0\0\0\0\0',2)
@@ -150,8 +152,8 @@ def test_material_declared_strings_allow_only_nul_padding(tmp_path):
 
 
 def test_conflicting_duplicate_skeleton_support_remains_rigid_only_contract():
-    importer=pathlib.Path('pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
-    writer=pathlib.Path('pt_blender_to_smd_free_mesh_v3.py').read_text(encoding='utf-8')
+    importer=(APP_ROOT / 'pt_asset_tool/legacy_runtime/pt_smd_blender_import_v3_static_armature.py').read_text(encoding='utf-8')
+    writer=(APP_ROOT / 'pt_blender_to_smd_free_mesh_v3.py').read_text(encoding='utf-8')
     assert 'duplicate_conflict_direct_physique_refs' in importer
     assert 'pt_duplicate_skeleton_conflict_count' in importer
     assert 'external_parents or duplicate_conflicts' in importer
@@ -208,7 +210,7 @@ def test_name_shape_consensus_does_not_guess_with_one_peer():
 
 def test_structural_gate_smb_physique_tail_is_counted(tmp_path):
     import importlib.util, struct
-    path = pathlib.Path('pt_character_structural_gate_v2.py')
+    path = APP_ROOT / 'pt_character_structural_gate_v2.py'
     spec = importlib.util.spec_from_file_location('gate_rc611', path)
     gate = importlib.util.module_from_spec(spec); spec.loader.exec_module(gate)
     # One minimal SMB block.  Physique pointer is only a presence flag in the
@@ -236,7 +238,7 @@ def test_structural_gate_smb_physique_tail_is_counted(tmp_path):
 
 def test_fit_local_prepared_is_exactly_legacy_equivalent():
     import importlib.util, math, random, sys, types
-    path = pathlib.Path('pt_blender_to_smd_free_mesh_v3.py')
+    path = APP_ROOT / 'pt_blender_to_smd_free_mesh_v3.py'
     # Import the pure math helpers outside Blender with minimal module stubs.
     sys.modules.setdefault('bpy', types.ModuleType('bpy'))
     sys.modules.setdefault('bmesh', types.ModuleType('bmesh'))
@@ -349,7 +351,7 @@ def test_motion_source_wrapper_prepares_once_and_preserves_reference_selection(m
     assert calls==[0,1,2]
 
 def test_bake_actions_uses_represented_parent_without_tolerance_relaxation():
-    text=pathlib.Path('pt_asset_tool/blender/bake_actions.py').read_text(encoding='utf-8')
+    text=(APP_ROOT / 'pt_asset_tool/blender/bake_actions.py').read_text(encoding='utf-8')
     assert 'parent_target = represented_pose[parent_pb.name]' in text
     assert "represented_pose[name]=residual['represented_pose']" in text
     assert '_represented_pose_from_trs_basis' in text
