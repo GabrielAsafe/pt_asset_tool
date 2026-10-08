@@ -496,6 +496,81 @@ def test_spawn_dependency_batch_autostages_only_unique_exact_same_donor_and_pres
     assert captured["kwargs"]["localization_fallback_names"] == {"monster.unique": "Unique Monster"}
 
 
+
+
+def test_existing_monster_semantic_alias_reuses_reverse_engineered_ptbr_overlay():
+    from types import SimpleNamespace
+
+    expected_id = "monster.slab_114_engenheiro_do_laborat_u00f3rio"
+    model = r"char\monster\LEngineer\LEngineer.ini"
+    canonical_doc = SimpleNamespace(
+        data={"semantic": {"fields": {"model_file": model, "name": "Engenheiro do Laboratório"}}},
+        relative_path="canonical/text/resources/Servidor/GameServer/Monster/Slab_114_Engenheiro.inf.json",
+        sha256="abc123",
+    )
+
+    class Provider:
+        def find_definition(self, canonical_id):
+            assert canonical_id == expected_id
+            return canonical_doc
+
+    donor_doc = {
+        "id": "monster.114_lengineer",
+        "kind": "monster_definition",
+        "semantic": {"fields": {"model_file": model, "name": "연구소 엔지니어"}},
+    }
+    match = dre._existing_monster_semantic_alias(Provider(), donor_doc)
+    assert match is not None
+    assert match["canonical_id"] == expected_id
+    assert match["display_name"] == "Engenheiro do Laboratório"
+    assert match["match_basis"] == "LEGACY_PT_BR_ALIAS_MODEL_EXACT_UNIQUE"
+
+
+def test_spawn_semantic_reconciliation_maps_unique_exact_donor_name_to_existing_canonical(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+
+    model = r"char\monster\LEngineer\LEngineer.ini"
+    canonical_id = "monster.slab_114_engenheiro_do_laborat_u00f3rio"
+    provider = SimpleNamespace(
+        find_definition=lambda cid: SimpleNamespace(
+            data={"semantic": {"fields": {"model_file": model, "name": "Engenheiro do Laboratório"}}},
+            relative_path="canonical/text/resources/Servidor/GameServer/Monster/Slab_114_Engenheiro.inf.json",
+            sha256="abc123",
+        ) if cid == canonical_id else (_ for _ in ()).throw(KeyError(cid))
+    )
+    name = "연구소 엔지니어"
+    doc = {
+        "actors": [{
+            "monster_id": None, "legacy_name": name,
+            "legacy_name_bytes_hex": name.encode("cp949").hex(),
+            "resolution": "legacy_skip_if_missing", "weight": 15,
+        }],
+        "bosses": [],
+    }
+    monkeypatch.setattr(dre, "_monster_dependency_candidates", lambda *a, **k: [{
+        "role": "actor", "name": name, "legacy_name_bytes_hex": name.encode("cp949").hex(),
+        "_slot_index": 0, "candidates": [{
+            "donor_label": "DONOR2",
+            "relative_path": "GameServer/Monster/114_LEngineer.inf",
+            "match_basis": "LEGACY_NAME_BYTES_EXACT",
+        }],
+    }])
+    monkeypatch.setattr(dre, "_prepare_definition_import", lambda *a, **k: {
+        "document": {
+            "id": "monster.114_lengineer", "kind": "monster_definition",
+            "semantic": {"fields": {"model_file": model, "name": name}},
+        }
+    })
+
+    rows = dre._apply_spawn_semantic_reconciliation(
+        tmp_path, provider, doc, preferred_donor="DONOR2",
+    )
+    assert len(rows) == 1
+    assert rows[0]["canonical_id"] == canonical_id
+    assert doc["actors"][0]["monster_id"] == canonical_id
+    assert doc["actors"][0]["resolution"] == "asset_tool_semantic_alias_model_exact"
+    assert dre._spawn_unresolved_slots(doc) == []
+
 def test_spawn_dependency_batch_ui_and_route_are_exposed():
     root = Path(__file__).resolve().parents[1]
     js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")

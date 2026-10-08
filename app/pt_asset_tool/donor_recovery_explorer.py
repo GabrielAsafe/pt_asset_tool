@@ -18,6 +18,7 @@ from typing import Any, Iterable
 from .app_config import configured_contract_donor_clients, configured_contract_donor_servers
 from .canonical_authoring import stage_canonical_document_set
 from .general_asset_recovery import recover_closed_general_asset_bundles
+from .legacy_name_catalog import semantic_monster_matches_for_model
 from .summit_canonical import SummitCanonicalContentProvider, canonical_id_for_doc, sha256_file
 
 FORMAT = "PT_ASSET_DONOR_RECOVERY_EXPLORER_V1"
@@ -859,6 +860,152 @@ def _monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[
     return out
 
 
+
+def _definition_model_file(doc: dict[str, Any]) -> str:
+    semantic = doc.get("semantic") if isinstance(doc.get("semantic"), dict) else {}
+    fields = semantic.get("fields") if isinstance(semantic.get("fields"), dict) else {}
+    return str(fields.get("model_file") or "").replace("/", "\\").strip()
+
+
+def _existing_monster_semantic_alias(
+    provider: SummitCanonicalContentProvider,
+    donor_doc: dict[str, Any],
+) -> dict[str, Any] | None:
+    """Resolve a donor Monster onto an already-authoritative canonical entity.
+
+    The packaged semantic name map is explicitly retained as pt-BR friendly-name
+    and migration evidence.  If the donor definition points at a model that maps
+    to exactly one semantic Monster row, confirm that row still exists in the
+    live canonical source and still uses the same model before accepting it.
+    This avoids creating a second canonical entity merely because the donor uses
+    a CP949/Korean display name or a different legacy filename.
+    """
+    model_file = _definition_model_file(donor_doc)
+    if not model_file:
+        return None
+    rows = semantic_monster_matches_for_model(model_file)
+    if len(rows) != 1:
+        return None
+    row = rows[0]
+    canonical_id = str(row.get("canonical_id") or "").strip()
+    if not canonical_id:
+        return None
+    try:
+        current = provider.find_definition(canonical_id)
+    except (KeyError, ValueError):
+        return None
+    current_model = _definition_model_file(current.data)
+    if current_model.casefold() != model_file.casefold():
+        return None
+    return {
+        "canonical_id": canonical_id,
+        "display_name": str(row.get("display_name") or "").strip() or None,
+        "model_file": model_file,
+        "catalog_format": "PT_LEGACY_AUTHORING_NAME_CATALOG_V1",
+        "match_basis": "LEGACY_PT_BR_ALIAS_MODEL_EXACT_UNIQUE",
+        "catalog_confidence": row.get("confidence"),
+        "catalog_method": row.get("method"),
+        "canonical_path": current.relative_path,
+        "canonical_sha256": current.sha256,
+    }
+
+
+def _spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]:
+    unresolved: list[dict[str, Any]] = []
+    for index, actor in enumerate(doc.get("actors") or []):
+        if not actor.get("monster_id"):
+            unresolved.append({
+                "role": "actor", "name": actor.get("legacy_name"),
+                "legacy_name_bytes_hex": actor.get("legacy_name_bytes_hex"),
+                "resolution": actor.get("resolution"), "_slot_index": index,
+            })
+    for index, boss in enumerate(doc.get("bosses") or []):
+        if not boss.get("master_monster_id"):
+            unresolved.append({
+                "role": "boss_master", "name": boss.get("master_legacy_name"),
+                "legacy_name_bytes_hex": boss.get("master_legacy_name_bytes_hex"),
+                "resolution": boss.get("master_resolution"), "_slot_index": index,
+            })
+        if not boss.get("slave_monster_id"):
+            unresolved.append({
+                "role": "boss_slave", "name": boss.get("slave_legacy_name"),
+                "legacy_name_bytes_hex": boss.get("slave_legacy_name_bytes_hex"),
+                "resolution": boss.get("slave_resolution"), "_slot_index": index,
+            })
+    return unresolved
+
+
+def _apply_spawn_semantic_reconciliation(
+    project_root: pathlib.Path,
+    provider: SummitCanonicalContentProvider,
+    doc: dict[str, Any],
+    *,
+    preferred_donor: str,
+) -> list[dict[str, Any]]:
+    """Resolve donor-only legacy names onto existing canonical Monster IDs.
+
+    Only one exact CP949/legacy-name definition from the selected donor may be
+    considered.  That definition must then map through the existing semantic
+    migration overlay to exactly one live canonical Monster by exact model path.
+    Any ambiguity remains unresolved for explicit review.
+    """
+    slots = _spawn_unresolved_slots(doc)
+    if not slots:
+        return []
+    rows = _monster_dependency_candidates(
+        project_root, slots, preferred_donor=preferred_donor, max_per_name=12,
+    )
+    preferred = preferred_donor.strip().upper()
+    prepared_cache: dict[tuple[str, str], dict[str, Any]] = {}
+    reconciled: list[dict[str, Any]] = []
+    for dep in rows:
+        exact = [
+            cand for cand in (dep.get("candidates") or [])
+            if cand.get("match_basis") == "LEGACY_NAME_BYTES_EXACT"
+            and str(cand.get("donor_label") or "").strip().upper() == preferred
+        ]
+        unique = {(preferred, str(cand.get("relative_path") or "")): cand for cand in exact}
+        if len(unique) != 1:
+            continue
+        key, cand = next(iter(unique.items()))
+        prepared = prepared_cache.get(key)
+        if prepared is None:
+            prepared = _prepare_definition_import(
+                project_root, provider,
+                donor_label=preferred, relative_path=str(cand["relative_path"]), kind="MONSTER",
+            )
+            prepared_cache[key] = prepared
+        match = _existing_monster_semantic_alias(provider, prepared["document"])
+        if match is None:
+            continue
+        slot_index = int(dep.get("_slot_index") or 0)
+        role = str(dep.get("role") or "")
+        if role == "actor":
+            target = (doc.get("actors") or [])[slot_index]
+            target["monster_id"] = match["canonical_id"]
+            target["resolution"] = "asset_tool_semantic_alias_model_exact"
+        elif role == "boss_master":
+            target = (doc.get("bosses") or [])[slot_index]
+            target["master_monster_id"] = match["canonical_id"]
+            target["master_resolution"] = "asset_tool_semantic_alias_model_exact"
+        elif role == "boss_slave":
+            target = (doc.get("bosses") or [])[slot_index]
+            target["slave_monster_id"] = match["canonical_id"]
+            target["slave_resolution"] = "asset_tool_semantic_alias_model_exact"
+        else:
+            continue
+        reconciled.append({
+            "role": role,
+            "legacy_name": dep.get("name"),
+            "legacy_name_bytes_hex": dep.get("legacy_name_bytes_hex"),
+            "donor_label": preferred,
+            "donor_relative_path": cand.get("relative_path"),
+            "donor_match_basis": cand.get("match_basis"),
+            **match,
+        })
+    return reconciled
+
+
 def _selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path:
     wanted = str(label or "").strip().upper()
     side = side.lower()
@@ -998,15 +1145,10 @@ def stage_spawn_from_donor(
     entry = docs[0]
     doc_path = canonical_out / pathlib.PurePosixPath(str(entry["json_path"]))
     doc = json.loads(doc_path.read_text(encoding="utf-8"))
-    unresolved = []
-    for actor in doc.get("actors") or []:
-        if not actor.get("monster_id"):
-            unresolved.append({"role": "actor", "name": actor.get("legacy_name"), "legacy_name_bytes_hex": actor.get("legacy_name_bytes_hex"), "resolution": actor.get("resolution")})
-    for boss in doc.get("bosses") or []:
-        if not boss.get("master_monster_id"):
-            unresolved.append({"role": "boss_master", "name": boss.get("master_legacy_name"), "legacy_name_bytes_hex": boss.get("master_legacy_name_bytes_hex"), "resolution": boss.get("master_resolution")})
-        if not boss.get("slave_monster_id"):
-            unresolved.append({"role": "boss_slave", "name": boss.get("slave_legacy_name"), "legacy_name_bytes_hex": boss.get("slave_legacy_name_bytes_hex"), "resolution": boss.get("slave_resolution")})
+    semantic_reconciliation = _apply_spawn_semantic_reconciliation(
+        project_root, provider, doc, preferred_donor=donor_label,
+    )
+    unresolved = _spawn_unresolved_slots(doc)
     if unresolved:
         return {
             "format": FORMAT,
@@ -1022,6 +1164,7 @@ def stage_spawn_from_donor(
                 "actor_count": len(doc.get("actors") or []),
                 "boss_count": len(doc.get("bosses") or []),
                 "requirement": "IMPORT_OR_RECONCILE_EVERY_MONSTER_DEPENDENCY_THEN_RETRY_SPAWN",
+                "reconciled_existing": semantic_reconciliation,
             },
             "converted_preview": doc,
             "converter_logs": logs,
@@ -1041,6 +1184,7 @@ def stage_spawn_from_donor(
                 "status": "PASS", "unresolved": [],
                 "actor_count": len(doc.get("actors") or []),
                 "boss_count": len(doc.get("bosses") or []),
+                "reconciled_existing": semantic_reconciliation,
             },
             "converted_preview": doc,
             "converter_logs": logs,
@@ -1074,7 +1218,11 @@ def stage_spawn_from_donor(
     )
     result["canonical_id"] = str(doc.get("id") or "")
     result["canonical_path"] = target_rel.as_posix()
-    result["dependency_gate"] = {"status": "PASS", "unresolved": [], "actor_count": len(doc.get("actors") or []), "boss_count": len(doc.get("bosses") or [])}
+    result["dependency_gate"] = {
+        "status": "PASS", "unresolved": [],
+        "actor_count": len(doc.get("actors") or []), "boss_count": len(doc.get("bosses") or []),
+        "reconciled_existing": semantic_reconciliation,
+    }
     return result
 
 
@@ -1272,11 +1420,13 @@ def stage_unique_spawn_dependencies_from_donor(
     )
     gate = preview.get("dependency_gate") or {}
     unresolved = gate.get("unresolved") or []
+    reconciled_existing = gate.get("reconciled_existing") or []
     if not unresolved:
         return {
             "format": FORMAT, "status": "NO_DEPENDENCIES_TO_IMPORT",
             "spawn": {k: preview.get(k) for k in ("donor_label", "donor_relative_path", "logical_path")},
             "requirement": "RETRY_STAGE_SPAWN",
+            "reconciled_existing": reconciled_existing,
         }
 
     auto: dict[tuple[str, str], dict[str, Any]] = {}
@@ -1330,6 +1480,7 @@ def stage_unique_spawn_dependencies_from_donor(
             "format": FORMAT, "status": "REVIEW_REQUIRED", "action": "STAGE_SPAWN_DEPENDENCIES",
             "spawn": {k: preview.get(k) for k in ("donor_label", "donor_relative_path", "logical_path")},
             "auto_stageable": [], "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing,
+            "reconciled_existing": reconciled_existing,
             "policy": {"auto_requires_unique_legacy_name_bytes_exact": True, "fuzzy_candidates_never_auto_staged": True},
         }
 
@@ -1383,6 +1534,7 @@ def stage_unique_spawn_dependencies_from_donor(
             "action": "STAGE_SPAWN_DEPENDENCIES",
             "spawn": {k: preview.get(k) for k in ("donor_label", "donor_relative_path", "logical_path")},
             "auto_stageable": selected, "already_canonical": already, "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing,
+            "reconciled_existing": reconciled_existing,
         }
 
     changes.append({"relative_path": "canonical/text/index.json", "document": merged_index})
@@ -1401,7 +1553,8 @@ def stage_unique_spawn_dependencies_from_donor(
         run_validation=run_validation, run_build=run_build,
     )
     result["dependency_batch"] = {
-        "auto_staged": imported, "already_canonical": already, "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing,
+        "auto_staged": imported, "already_canonical": already, "reconciled_existing": reconciled_existing,
+        "ambiguous": ambiguous, "withheld_due_to_ambiguity": withheld, "missing": missing,
         "remaining_review_count": len(ambiguous) + len(withheld) + len(missing),
         "requirement": "PUBLISH_THIS_CANONICAL_TRANSACTION_THEN_REVIEW_AMBIGUITIES_AND_RETRY_SPAWN",
     }

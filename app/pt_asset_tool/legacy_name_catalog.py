@@ -301,6 +301,24 @@ def semantic_matches_for_path(logical_path: str | None) -> list[dict[str, Any]]:
     return [dict(x) for x in authoring_name_catalog()["_by_path"].get(key, [])]
 
 
+def semantic_monster_matches_for_model(model_file: str | None) -> list[dict[str, Any]]:
+    """Return reverse-engineered Monster semantic rows for an exact model path.
+
+    This is migration/alias evidence only; callers must still confirm that the
+    referenced canonical entity exists in the live canonical source.  Exact
+    model matching is intentionally fail-closed when multiple semantic rows
+    share the same model.
+    """
+    key = str(model_file or "").replace("/", "\\").strip().casefold()
+    if not key:
+        return []
+    return [
+        dict(row)
+        for row in authoring_name_catalog()["mobs"]
+        if str(row.get("model_file") or "").replace("/", "\\").strip().casefold() == key
+    ]
+
+
 def semantic_binding_for_spec(kind: str, spec: dict[str, Any]) -> dict[str, Any] | None:
     ref = spec.get("semantic_ref")
     if not isinstance(ref, dict):

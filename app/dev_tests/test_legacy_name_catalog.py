@@ -12,6 +12,7 @@ from pt_asset_tool.legacy_name_catalog import (
     lookup_semantic_ref,
     semantic_binding_for_spec,
     semantic_matches_for_path,
+    semantic_monster_matches_for_model,
     semantic_related_bindings_for_spec,
 )
 
@@ -43,6 +44,20 @@ def test_semantic_catalog_contract_counts_match_uploaded_map():
     assert len(c["spawn_stages"]) == 54
     assert len(c["ambiguous"]) == 230
 
+
+
+
+def test_slab_reverse_catalog_has_unique_ptbr_aliases_for_exact_monster_models():
+    expected = {
+        r"char\monster\LEngineer\LEngineer.ini": ("monster.slab_114_engenheiro_do_laborat_u00f3rio", "Engenheiro do Laboratório"),
+        r"char\monster\ITechnician\ITechnician.ini": ("monster.slab_114_t_u00e9cnico_do_laborat_u00f3rio", "Técnico do Laboratório"),
+        r"char\monster\LTechnician\LTechnician.ini": ("monster.slab_114_t_u00e9cnico_invasor", "Técnico Invasor"),
+        r"char\monster\IBomber\IBomber.ini": ("monster.slab_115_bombardeiro_invasor", "Bombardeiro Invasor"),
+        r"char\monster\ISoldier\ISoldier.ini": ("monster.slab_115_soldado_invasor", "Soldado Invasor"),
+    }
+    for model_file, (canonical_id, display_name) in expected.items():
+        rows = semantic_monster_matches_for_model(model_file)
+        assert [(row["canonical_id"], row["display_name"]) for row in rows] == [(canonical_id, display_name)]
 
 def test_ricarten_resolves_to_village2_field_files():
     row = lookup_semantic_ref("map.village_2")
