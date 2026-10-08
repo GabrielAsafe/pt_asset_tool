@@ -1232,15 +1232,10 @@ def stage_definition_from_donor(
     content_id = canonical_id_for_doc(doc).strip()
     fallback_name = _definition_ptbr_fallback_name(source, kind)
     fallback_names = {content_id: fallback_name} if (content_id and fallback_name) else {}
-    localization_doc, localization_added = _definition_ptbr_localization_delta(
-        provider, [doc], fallback_names=fallback_names
-    )
     changes = [
         {"relative_path": target_rel.as_posix(), "document": doc},
         {"relative_path": "canonical/text/index.json", "document": merged_index},
     ]
-    if localization_doc is not None:
-        changes.append({"relative_path": "canonical/text/localization/pt-BR.json", "document": localization_doc})
     result = stage_canonical_document_set(
         project_root, provider,
         changes,
@@ -1250,7 +1245,8 @@ def stage_definition_from_donor(
             "origin": "DONOR_DEFINITION",
             "donor_label": donor_label.upper(), "donor_side": "SERVER", "donor_root": str(donor_root),
             "donor_relative_path": rel.as_posix(), "donor_sha256": sha256_file(source), "logical_path": logical.as_posix(),
-            "converter_logs": logs, "localization_bridge": {"locale": "pt-BR", "added_entries": localization_added},
+            "converter_logs": logs,
+            "localization_bridge": {"locale": "pt-BR", "mode": "STAGED_DELTA_OVERRIDE_BRIDGE"},
         },
         localization_fallback_names=fallback_names,
         run_validation=run_validation,
@@ -1390,11 +1386,6 @@ def stage_unique_spawn_dependencies_from_donor(
         }
 
     changes.append({"relative_path": "canonical/text/index.json", "document": merged_index})
-    localization_doc, localization_added = _definition_ptbr_localization_delta(
-        provider, imported_documents, fallback_names=imported_fallback_names
-    )
-    if localization_doc is not None:
-        changes.append({"relative_path": "canonical/text/localization/pt-BR.json", "document": localization_doc})
     result = stage_canonical_document_set(
         project_root, provider, changes, kind="MONSTER_DEPENDENCY_SET",
         canonical_id=str(preview.get("converted_preview", {}).get("id") or ""),
@@ -1404,7 +1395,7 @@ def stage_unique_spawn_dependencies_from_donor(
             "spawn_donor_sha256": preview.get("donor_sha256"), "logical_path": preview.get("logical_path"),
             "auto_selected_basis": "LEGACY_NAME_BYTES_EXACT_UNIQUE", "imported": imported,
             "already_canonical": already, "ambiguous": ambiguous, "missing": missing, "converter_logs": converter_logs,
-            "localization_bridge": {"locale": "pt-BR", "added_entries": localization_added},
+            "localization_bridge": {"locale": "pt-BR", "mode": "STAGED_DELTA_OVERRIDE_BRIDGE"},
         },
         localization_fallback_names=imported_fallback_names,
         run_validation=run_validation, run_build=run_build,

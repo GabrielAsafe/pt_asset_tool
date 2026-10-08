@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -541,6 +543,17 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
         pt_override = json.loads((overrides / "pt-BR.json").read_text(encoding="utf-8"))
         by_key = {row["key"]: row for row in pt_override["entries"]}
         assert expected_keys <= set(by_key)
+
+        # The stage must materialize the runtime-facing pt-BR catalog before
+        # validators/build tools run; the external materializer is not relied
+        # upon to mutate this file as a side effect.
+        prebuilt_pt = json.loads((loc / "pt-BR.json").read_text(encoding="utf-8"))
+        prebuilt_by_key = {row["key"]: row for row in prebuilt_pt["entries"]}
+        assert expected_keys <= set(prebuilt_by_key)
+        for key in expected_keys:
+            assert prebuilt_by_key[key] == by_key[key]
+            assert prebuilt_by_key[key]["text"].encode("cp1252")
+
         assert by_key["a"]["text"] == "Olá"
         assert by_key["b"]["text"] == "Mundo"
         for content_id, name in fallback_names.items():
@@ -585,6 +598,8 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
     assert manifest["validation"]["status"] == "PASS"
     assert manifest["localization_edit"] is True
     assert manifest["localization_bridge"]["status"] == "UPDATED"
+    assert manifest["localization_materialization"]["status"] == "UPDATED"
+    assert manifest["localization_materialization"]["override_sha256"] == manifest["localization_materialization"]["materialized_sha256"]
     assert {row["key"] for row in manifest["localization_bridge"]["added_entries"]} == expected_keys
     rows = {row["canonical_json_path"]: row for row in manifest["source_changes"]}
     assert "canonical/text/localization_overrides/pt-BR.json" in rows
@@ -595,6 +610,22 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
     assert rows["canonical/text/localization/pt-BR.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
     assert rows["canonical/text/localization/en.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
     assert len([path for path in rows if "/Monster/" in path]) == 5
+
+    # Reproduce the encoding contract enforced by compile_stage_spawns_canonical.py
+    # in a separate Python process, so this regression crosses the same process
+    # boundary as the live content toolchain instead of only calling .encode() in-process.
+    staged_pt = Path(manifest["stage_root"]) / "canonical/text/localization/pt-BR.json"
+    probe = subprocess.run(
+        [
+            sys.executable, "-c",
+            "import json,sys; d=json.load(open(sys.argv[1],encoding='utf-8')); "
+            "wanted=set(sys.argv[2:]); rows={r['key']:r['text'] for r in d['entries'] if r.get('key') in wanted}; "
+            "assert set(rows)==wanted; [v.encode('cp1252') for v in rows.values()]",
+            str(staged_pt), *sorted(expected_keys),
+        ],
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=False,
+    )
+    assert probe.returncode == 0, probe.stdout
 
 
 

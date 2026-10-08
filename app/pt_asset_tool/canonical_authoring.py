@@ -678,6 +678,39 @@ def _bridge_staged_definition_localization(
     }
 
 
+def _materialize_staged_ptbr_override(
+    provider: SummitCanonicalContentProvider,
+    stage_root: pathlib.Path,
+) -> dict[str, Any]:
+    """Mirror the staged pt-BR override into the generated runtime catalog.
+
+    The current SUMMIT source keeps ``localization/pt-BR.json`` and
+    ``localization_overrides/pt-BR.json`` semantically identical. Donor
+    recovery edits only the override; this materializes the runtime-facing copy
+    inside the isolated stage before validators and compilers run. If that
+    source invariant changes, fail closed instead of guessing a new topology.
+    """
+    source_materialized = provider.canonical_root / "text" / "localization" / "pt-BR.json"
+    source_override = provider.canonical_root / "text" / "localization_overrides" / "pt-BR.json"
+    if not source_materialized.is_file() or not source_override.is_file():
+        raise FileNotFoundError("CANONICAL_LOCALIZATION_PTBR_SOURCE_PAIR_MISSING")
+    if _load_json(source_materialized) != _load_json(source_override):
+        raise ValueError("CANONICAL_LOCALIZATION_PTBR_SOURCE_PAIR_DIVERGED")
+
+    staged_override = stage_root / "canonical" / "text" / "localization_overrides" / "pt-BR.json"
+    staged_materialized = stage_root / "canonical" / "text" / "localization" / "pt-BR.json"
+    doc = _load_json(staged_override)
+    if not isinstance(doc, dict) or doc.get("schema") != "summit.localization-catalog/v1" or doc.get("locale") != "pt-BR":
+        raise ValueError("CANONICAL_LOCALIZATION_PTBR_STAGED_OVERRIDE_INVALID")
+    _atomic_json(staged_materialized, doc)
+    return {
+        "status": "UPDATED",
+        "source_pair_equal": True,
+        "override_sha256": sha256_file(staged_override),
+        "materialized_sha256": sha256_file(staged_materialized),
+    }
+
+
 def _run(cmd: list[str], *, cwd: pathlib.Path, log: list[dict[str, Any]]) -> dict[str, Any]:
     proc = subprocess.run(cmd, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=False)
     row = {"command": cmd, "returncode": proc.returncode, "output": proc.stdout[-20000:]}
@@ -994,6 +1027,9 @@ def stage_canonical_document_set(
         stage_root,
         fallback_names=localization_fallback_names,
     )
+    localization_materialization = {"status": "SKIPPED"}
+    if localization_bridge.get("changed"):
+        localization_materialization = _materialize_staged_ptbr_override(provider, stage_root)
     requested_localization_edit = explicit_localization_edit or bool(localization_bridge.get("changed"))
 
     validation = {"status": "SKIPPED"}
@@ -1137,6 +1173,7 @@ def stage_canonical_document_set(
         "pack_hashes": build.get("pack_hashes") or {},
         "localization_edit": localization_edit,
         "localization_bridge": localization_bridge,
+        "localization_materialization": localization_materialization,
         "localization_publish_gate": provider.localization_publish_gate(run_validator=False) if localization_edit else None,
         "publish_phases": ["SOURCE_JSON_SET", "SOURCE_PACKS", "CLIENT_SERVER_RUNTIME_DEPLOY"],
         "legacy_direct_write_authorized": False,

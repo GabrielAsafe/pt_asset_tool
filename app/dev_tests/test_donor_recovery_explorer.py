@@ -469,7 +469,12 @@ def test_spawn_dependency_batch_autostages_only_unique_exact_same_donor_and_pres
             "donor_root": tmp_path, "source": tmp_path / "A.inf", "relative_path": Path("GameServer/Monster/A.inf"),
             "logical_path": Path("GameServer/Monster/A.inf"), "converter_logs": [],
         }
+    (tmp_path / "A.inf").write_bytes('*E_NAME "Unique Monster"\r\n*J_NAME "연구소 엔지니어"\r\n'.encode("cp949"))
     monkeypatch.setattr(dre, "_prepare_definition_import", prepare)
+    monkeypatch.setattr(
+        dre, "_definition_ptbr_localization_delta",
+        lambda *a, **k: (_ for _ in ()).throw(AssertionError("batch must not edit materialized localization directly")),
+    )
     captured = {}
     def stage(_project, _provider, changes, **kwargs):
         captured["changes"] = changes; captured["kwargs"] = kwargs
@@ -486,7 +491,9 @@ def test_spawn_dependency_batch_autostages_only_unique_exact_same_donor_and_pres
     assert {x["name"] for x in result["dependency_batch"]["withheld_due_to_ambiguity"]} == {"SharesAmbiguousFile"}
     assert {x["name"] for x in result["dependency_batch"]["missing"]} == {"OtherDonor"}
     assert len(captured["changes"]) == 2  # one monster document + canonical/text/index.json
+    assert all(x["relative_path"] != "canonical/text/localization/pt-BR.json" for x in captured["changes"])
     assert captured["kwargs"]["kind"] == "MONSTER_DEPENDENCY_SET"
+    assert captured["kwargs"]["localization_fallback_names"] == {"monster.unique": "Unique Monster"}
 
 
 def test_spawn_dependency_batch_ui_and_route_are_exposed():
@@ -551,6 +558,10 @@ def test_stage_definition_includes_ptbr_override_in_same_atomic_transaction(monk
         "logical_path": Path("GameServer/Monster/114_LEngineer.inf"), "converter_logs": [],
     }
     monkeypatch.setattr(dre, "_prepare_definition_import", lambda *a, **k: prepared)
+    monkeypatch.setattr(
+        dre, "_definition_ptbr_localization_delta",
+        lambda *a, **k: (_ for _ in ()).throw(AssertionError("must not edit materialized localization directly")),
+    )
     captured = {}
     def stage(_project, _provider, changes, **kwargs):
         captured["changes"] = changes; captured["kwargs"] = kwargs
@@ -562,14 +573,10 @@ def test_stage_definition_includes_ptbr_override_in_same_atomic_transaction(monk
     assert paths == [
         "canonical/text/resources/Servidor/GameServer/Monster/114_LEngineer.inf.json",
         "canonical/text/index.json",
-        "canonical/text/localization/pt-BR.json",
     ]
-    pt = captured["changes"][-1]["document"]
-    row = next(x for x in pt["entries"] if x["key"] == "monster.114_lengineer.name")
-    assert row["text"] == "Lab Engineer"
-    assert row["text"].encode("cp1252")
+    assert captured["kwargs"]["localization_fallback_names"] == {"monster.114_lengineer": "Lab Engineer"}
     bridge = captured["kwargs"]["provenance"]["localization_bridge"]
-    assert bridge["added_entries"][0]["key"] == "monster.114_lengineer.name"
+    assert bridge == {"locale": "pt-BR", "mode": "STAGED_DELTA_OVERRIDE_BRIDGE"}
 
 
 def test_definition_primary_legacy_name_prefers_cp949_j_name(tmp_path):
@@ -616,12 +623,8 @@ def test_stage_definition_ptbr_bridge_uses_cp1252_safe_donor_name_when_j_name_is
         run_validation=False, run_build=False,
     )
     assert result["status"] == "STAGED"
-    pt = next(x["document"] for x in captured["changes"] if x["relative_path"] == "canonical/text/localization/pt-BR.json")
-    row = next(x for x in pt["entries"] if x["key"] == "monster.114_lengineer.name")
-    assert row == {
-        "key": "monster.114_lengineer.name",
-        "text": "Lab Engineer",
-        "quality": "legacy_fallback",
-        "source": "monster.114_lengineer",
-    }
-    assert row["text"].encode("cp1252")
+    assert [x["relative_path"] for x in captured["changes"]] == [
+        "canonical/text/resources/Servidor/GameServer/Monster/114_LEngineer.inf.json",
+        "canonical/text/index.json",
+    ]
+    assert captured["kwargs"]["localization_fallback_names"] == {"monster.114_lengineer": "Lab Engineer"}
