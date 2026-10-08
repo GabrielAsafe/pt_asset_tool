@@ -339,6 +339,48 @@ def _definition_name_evidence(path: pathlib.Path, domain: str) -> dict[str, Any]
     return {"definition_encoding": encoding, "definition_name_evidence": names}
 
 
+def _cp1252_safe_text(value: Any) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    try:
+        text.encode("cp1252")
+    except UnicodeEncodeError:
+        return ""
+    return text
+
+
+def _definition_ptbr_fallback_name(path: pathlib.Path, domain: str) -> str:
+    """Return donor-backed display evidence safe for the pt-BR runtime pack.
+
+    J_NAME/CP949 remains authoritative legacy identity evidence, but the field
+    runtime compiler requires Monster display names to fit CP1252.  Preserve
+    directive precedence among encodable candidates and skip only candidates
+    that cannot satisfy that runtime contract.
+    """
+    if domain not in {"MONSTER", "NPC", "ITEM"}:
+        return ""
+    try:
+        data = path.read_bytes()[:2 * 1024 * 1024]
+    except OSError:
+        return ""
+    text, _encoding = _decode_legacy_definition(data)
+    for directive in ("J_NAME", "NAME", "E_NAME"):
+        pattern = rf"(?im)^\s*\*{re.escape(directive)}\s+[\"']([^\"'\r\n]{{1,160}})[\"']"
+        match = re.search(pattern, text)
+        if not match:
+            continue
+        value = _cp1252_safe_text(match.group(1))
+        if value:
+            return value
+    evidence = _definition_name_evidence(path, domain)
+    for value in evidence.get("definition_name_evidence") or []:
+        safe = _cp1252_safe_text(value)
+        if safe:
+            return safe
+    return ""
+
+
 def _definition_primary_legacy_name(path: pathlib.Path, domain: str) -> str:
     """Return the legacy display name from the donor definition itself.
 
@@ -1126,11 +1168,17 @@ def _definition_ptbr_localization_delta(
         legacy_name = fields.get("name") if isinstance(fields.get("name"), str) else ""
         english_name = fields.get("english_name") if isinstance(fields.get("english_name"), str) else ""
         donor_fallback = str((fallback_names or {}).get(content_id) or "").strip()
-        name_text = legacy_name or english_name or donor_fallback
+        candidates = (
+            (_cp1252_safe_text(legacy_name), "legacy_fallback"),
+            (_cp1252_safe_text(english_name), "untranslated_fallback"),
+            (_cp1252_safe_text(donor_fallback), "legacy_fallback"),
+        )
+        name_text, quality = next(((text, quality) for text, quality in candidates if text), ("", ""))
         required: list[tuple[str, str, str]] = []
         if name_text:
-            quality = "legacy_fallback" if (legacy_name or donor_fallback) else "untranslated_fallback"
             required.append((f"{content_id}.name", name_text, quality))
+        elif any((legacy_name, english_name, donor_fallback)) and f"{content_id}.name" not in existing:
+            raise ValueError(f"DONOR_LOCALIZATION_PTBR_NAME_NOT_CP1252:{content_id}")
         direct_dialog = fields.get("dialog") if isinstance(fields.get("dialog"), str) else ""
         if direct_dialog:
             required.append((f"{content_id}.chat.1", direct_dialog, "legacy_fallback"))
@@ -1182,7 +1230,7 @@ def stage_definition_from_donor(
     current_index = json.loads(index_path.read_text(encoding="utf-8"))
     merged_index = _merge_index(current_index, entry, path_key="legacy_path")
     content_id = canonical_id_for_doc(doc).strip()
-    fallback_name = _definition_primary_legacy_name(source, kind)
+    fallback_name = _definition_ptbr_fallback_name(source, kind)
     fallback_names = {content_id: fallback_name} if (content_id and fallback_name) else {}
     localization_doc, localization_added = _definition_ptbr_localization_delta(
         provider, [doc], fallback_names=fallback_names
@@ -1319,7 +1367,7 @@ def stage_unique_spawn_dependencies_from_donor(
         changes.append({"relative_path": target_rel.as_posix(), "document": doc})
         imported_documents.append(doc)
         doc_id = canonical_id_for_doc(doc).strip()
-        fallback_name = _definition_primary_legacy_name(prepared["source"], "MONSTER")
+        fallback_name = _definition_ptbr_fallback_name(prepared["source"], "MONSTER")
         if fallback_name and doc_id:
             imported_fallback_names[doc_id] = fallback_name
         imported.append({"canonical_id": doc_id or None, "canonical_path": target_rel.as_posix(), **cand})

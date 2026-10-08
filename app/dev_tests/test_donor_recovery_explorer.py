@@ -513,11 +513,14 @@ def test_definition_ptbr_bridge_adds_missing_runtime_name_without_overwriting_tr
     provider = SimpleNamespace(canonical_root=canonical)
     new_doc = {"id": "monster.114_lengineer", "semantic": {"fields": {"name": "연구소 엔지니어"}}}
     existing_doc = {"id": "monster.existing", "semantic": {"fields": {"name": "Legacy Existing"}}}
-    catalog, added = dre._definition_ptbr_localization_delta(provider, [new_doc, existing_doc])
+    catalog, added = dre._definition_ptbr_localization_delta(
+        provider, [new_doc, existing_doc],
+        fallback_names={"monster.114_lengineer": "Lab Engineer"},
+    )
     assert [x["key"] for x in added] == ["monster.114_lengineer.name"]
     row = next(x for x in catalog["entries"] if x["key"] == "monster.114_lengineer.name")
     assert row == {
-        "key": "monster.114_lengineer.name", "text": "연구소 엔지니어",
+        "key": "monster.114_lengineer.name", "text": "Lab Engineer",
         "quality": "legacy_fallback", "source": "monster.114_lengineer",
     }
     preserved = next(x for x in catalog["entries"] if x["key"] == "monster.existing.name")
@@ -534,7 +537,10 @@ def test_stage_definition_includes_ptbr_override_in_same_atomic_transaction(monk
         "locale": "pt-BR", "fallback_locale": "en", "entries": [],
     }), encoding="utf-8")
     provider = SimpleNamespace(source_root=source, content_root=content, canonical_root=canonical)
-    donor_source = tmp_path / "114_LEngineer.inf"; donor_source.write_bytes(b"monster")
+    donor_source = tmp_path / "114_LEngineer.inf"
+    donor_source.write_bytes(
+        '*E_NAME "Lab Engineer"\r\n*J_NAME "연구소 엔지니어"\r\n'.encode("cp949")
+    )
     prepared = {
         "kind": "MONSTER",
         "entry": {"id": "monster.114_lengineer", "kind": "monster_definition", "legacy_path": "GameServer/Monster/114_LEngineer.inf", "json_path": "resources/Servidor/GameServer/Monster/114_LEngineer.inf.json"},
@@ -559,7 +565,9 @@ def test_stage_definition_includes_ptbr_override_in_same_atomic_transaction(monk
         "canonical/text/localization/pt-BR.json",
     ]
     pt = captured["changes"][-1]["document"]
-    assert any(x["key"] == "monster.114_lengineer.name" for x in pt["entries"])
+    row = next(x for x in pt["entries"] if x["key"] == "monster.114_lengineer.name")
+    assert row["text"] == "Lab Engineer"
+    assert row["text"].encode("cp1252")
     bridge = captured["kwargs"]["provenance"]["localization_bridge"]
     assert bridge["added_entries"][0]["key"] == "monster.114_lengineer.name"
 
@@ -570,9 +578,10 @@ def test_definition_primary_legacy_name_prefers_cp949_j_name(tmp_path):
         '*E_NAME "Lab Engineer"\r\n*J_NAME "연구소 엔지니어"\r\n*LEVEL 100\r\n'.encode("cp949")
     )
     assert dre._definition_primary_legacy_name(source, "MONSTER") == "연구소 엔지니어"
+    assert dre._definition_ptbr_fallback_name(source, "MONSTER") == "Lab Engineer"
 
 
-def test_stage_definition_ptbr_bridge_falls_back_to_donor_j_name_when_canonical_shape_has_no_semantic_fields(monkeypatch, tmp_path):
+def test_stage_definition_ptbr_bridge_uses_cp1252_safe_donor_name_when_j_name_is_korean(monkeypatch, tmp_path):
     from types import SimpleNamespace
     source_root = tmp_path / "source"; content = source_root / "Content"; canonical = content / "canonical"
     (canonical / "text/localization").mkdir(parents=True)
@@ -583,7 +592,7 @@ def test_stage_definition_ptbr_bridge_falls_back_to_donor_j_name_when_canonical_
     }), encoding="utf-8")
     provider = SimpleNamespace(source_root=source_root, content_root=content, canonical_root=canonical)
     donor_source = tmp_path / "114_LEngineer.inf"
-    donor_source.write_bytes('*J_NAME "연구소 엔지니어"\r\n*LEVEL 100\r\n'.encode("cp949"))
+    donor_source.write_bytes('*E_NAME "Lab Engineer"\r\n*J_NAME "연구소 엔지니어"\r\n*LEVEL 100\r\n'.encode("cp949"))
     prepared = {
         "kind": "MONSTER",
         "entry": {"id": "monster.114_lengineer", "kind": "monster_definition", "legacy_path": "GameServer/Monster/114_LEngineer.inf", "json_path": "resources/Servidor/GameServer/Monster/114_LEngineer.inf.json"},
@@ -611,7 +620,8 @@ def test_stage_definition_ptbr_bridge_falls_back_to_donor_j_name_when_canonical_
     row = next(x for x in pt["entries"] if x["key"] == "monster.114_lengineer.name")
     assert row == {
         "key": "monster.114_lengineer.name",
-        "text": "연구소 엔지니어",
+        "text": "Lab Engineer",
         "quality": "legacy_fallback",
         "source": "monster.114_lengineer",
     }
+    assert row["text"].encode("cp1252")

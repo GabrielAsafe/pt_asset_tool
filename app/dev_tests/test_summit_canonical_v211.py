@@ -500,18 +500,25 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
     provider = SummitCanonicalContentProvider(root)
     project = tmp_path / "project"; project.mkdir()
 
-    # Reproduce the live shape: imported canonical documents expose canonical_id
-    # but do not provide semantic.fields.name.  Donor CP949/J_NAME evidence is
-    # supplied once for the full transaction rather than one clicked row.
-    fallback_names = {
+    # Reproduce the live Slab shape: canonical/J_NAME display evidence is CP949
+    # Korean, while the donor also supplies a CP1252-safe runtime fallback.  The
+    # pt-BR bridge must not promote the Korean identity text into field_runtime.
+    legacy_names = {
         "monster.113_itechnician": "침략자 테크니션",
         "monster.113_ltechnician": "연구소 테크니션",
         "monster.114_lengineer": "연구소 엔지니어",
         "monster.115_isoldier": "침략자 침투병",
         "monster.117_ibomber": "침략자 폭파병",
     }
+    fallback_names = {
+        "monster.113_itechnician": "ITechnician",
+        "monster.113_ltechnician": "LTechnician",
+        "monster.114_lengineer": "LEngineer",
+        "monster.115_isoldier": "ISoldier",
+        "monster.117_ibomber": "IBomber",
+    }
     changes = []
-    for content_id in fallback_names:
+    for content_id, legacy_name in legacy_names.items():
         stem = content_id.split("monster.", 1)[1]
         changes.append({
             "relative_path": f"canonical/text/resources/Servidor/GameServer/Monster/{stem}.inf.json",
@@ -519,6 +526,7 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
                 "schema": "summit.canonical-text-resource/v1",
                 "family": "monster_definition",
                 "canonical_id": content_id,
+                "semantic": {"fields": {"name": legacy_name}},
                 "payload": {"directives": []},
             },
         })
@@ -543,6 +551,7 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
                 "quality": "legacy_fallback",
                 "source": content_id,
             }
+            assert row["text"].encode("cp1252")
 
         # Simulate materializer output so the same transaction must capture all
         # regenerated localization artifacts in source_changes.
@@ -586,3 +595,36 @@ def test_document_set_bridges_all_five_slab_monsters_before_localization_materia
     assert rows["canonical/text/localization/pt-BR.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
     assert rows["canonical/text/localization/en.json"]["generated_by_stage"] == "materialize_localization_catalog.py"
     assert len([path for path in rows if "/Monster/" in path]) == 5
+
+
+
+def test_document_set_rejects_non_cp1252_only_ptbr_definition_name(tmp_path):
+    import pt_asset_tool.canonical_authoring as ca
+
+    root = _source(tmp_path)
+    provider = SummitCanonicalContentProvider(root)
+    project = tmp_path / "project"; project.mkdir()
+    changes = [{
+        "relative_path": "canonical/text/resources/Servidor/GameServer/Monster/only_j.inf.json",
+        "document": {
+            "schema": "summit.canonical-text-resource/v1",
+            "family": "monster_definition",
+            "canonical_id": "monster.only_j",
+            "semantic": {"fields": {"name": "연구소 엔지니어"}},
+            "payload": {"directives": []},
+        },
+    }]
+
+    try:
+        ca.stage_canonical_document_set(
+            project, provider, changes,
+            kind="MONSTER_DEPENDENCY_SET",
+            canonical_id="spawn.test",
+            localization_fallback_names={"monster.only_j": "침략자 테크니션"},
+            run_validation=False,
+            run_build=False,
+        )
+    except ValueError as exc:
+        assert "CANONICAL_LOCALIZATION_FALLBACK_NAME_MISSING:monster.only_j" in str(exc)
+    else:
+        raise AssertionError("non-CP1252 pt-BR fallback must fail closed")

@@ -482,14 +482,27 @@ def _first_text(value: Any) -> str:
     return ""
 
 
+def _cp1252_safe_text(value: Any) -> str:
+    text = _first_text(value)
+    if not text:
+        return ""
+    try:
+        text.encode("cp1252")
+    except UnicodeEncodeError:
+        return ""
+    return text
+
+
 def _definition_name_from_canonical(doc: dict[str, Any]) -> tuple[str, str]:
-    """Return a safe display-name fallback and its evidence class.
+    """Return a runtime-safe pt-BR name fallback and its evidence class.
 
     Canonical text shapes have changed over time.  Do not bind localization
-    completeness to one spelling/casing of ``semantic.fields``.  Prefer an
-    explicit legacy/J name, then the generic canonical name, then an English
-    name.  Directive values are accepted as canonical evidence when the fields
-    projection is absent.
+    completeness to one spelling/casing of ``semantic.fields``.  Candidate
+    names retain the historical J/name/English precedence, but a pt-BR runtime
+    fallback must also be CP1252 encodable because the field runtime compiler
+    serializes Monster display names using that contract.  CP949/J_NAME text
+    remains valid identity/provenance evidence; it is simply not promoted into
+    pt-BR when it cannot satisfy the runtime encoding contract.
     """
     semantic = doc.get("semantic") if isinstance(doc.get("semantic"), dict) else {}
     fields = semantic.get("fields") if isinstance(semantic.get("fields"), dict) else {}
@@ -500,7 +513,7 @@ def _definition_name_from_canonical(doc: dict[str, Any]) -> tuple[str, str]:
         (("english_name", "e_name", "ename"), "untranslated_fallback"),
     ):
         for name in names:
-            text = _first_text(normalized_fields.get(_norm(name)))
+            text = _cp1252_safe_text(normalized_fields.get(_norm(name)))
             if text:
                 return text, quality
 
@@ -522,7 +535,11 @@ def _definition_name_from_canonical(doc: dict[str, Any]) -> tuple[str, str]:
             match = min((priorities[key] for key in identities if key in priorities), default=None)
             if match is None:
                 continue
-            text = _first_text(row.get("values")) or _first_text(row.get("value")) or _first_text(row.get("text"))
+            text = (
+                _cp1252_safe_text(row.get("values"))
+                or _cp1252_safe_text(row.get("value"))
+                or _cp1252_safe_text(row.get("text"))
+            )
             if text:
                 ranked.append((match[0], text, match[1]))
         if ranked:
@@ -619,7 +636,7 @@ def _bridge_staged_definition_localization(
     definition_rows: list[dict[str, Any]] = []
     for rel, doc, family, content_id in definitions:
         canonical_name, canonical_quality = _definition_name_from_canonical(doc)
-        donor_name = supplied.get(content_id, "")
+        donor_name = _cp1252_safe_text(supplied.get(content_id, ""))
         name_key = f"{content_id}.name"
         added_for_definition: list[str] = []
         if name_key not in existing:
