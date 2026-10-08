@@ -1,5 +1,7 @@
 # Integration Validation — Summit Canonical Source V2.11
 
+> **Historical validation note:** this records the V2.11 state on 2026-10-01. Dynamic-field behavior was later superseded by V2.12 (`append_after_static`); do not treat the V2.11 field-53 exception as the current rule.
+
 **Date:** 2026-10-01  
 **Scope:** canonical provider, Semantic Catalog V2, typed writers, full-tree staging/provenance, pack freshness, canonical ContractGraph, specialized browsers, and legacy-authority guards.
 

@@ -27,8 +27,8 @@ def test_validation_runbook_is_canonical_and_complete():
 
 
 def test_operational_docs_reference_canonical_runbook():
+    assert "en/engineering/VALIDATION_RUNBOOK.md" in _text("README.md")
     refs = [
-        "README.md",
         "engenharia/MANUAL_DESENVOLVEDOR.md",
         "comece_aqui/INSTALLATION_QUICKSTART_1_0.md",
         "comece_aqui/CLI_REFERENCE_1_0.md",

@@ -181,6 +181,6 @@ def test_frontend_reuses_entity_results_when_reentering_page_and_exposes_item_ro
     assert "entityListCache" in js
     assert "if(!force&&S.entityListCache[cacheKey])" in js
     assert "async function refreshEntities()" in js
-    assert "Papel visual do item" in js
+    assert "Item visual role" in js
     assert "itemVisualBundleHtml" in js
-    assert "Relação item" in html
+    assert "Item relationship" in html

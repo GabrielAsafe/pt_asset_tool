@@ -27,7 +27,11 @@ node --check app/pt_asset_tool/ui_static/app.js
 
 ## Documentation validation
 
+The exhaustive runtime Python symbol reference is generated from the AST and must match the source. Regenerate it after intentional runtime Python changes, then validate:
+
 ```bash
+python3 docs/validation/generate_source_api_reference.py
+python3 docs/validation/generate_source_api_reference.py --check
 python3 docs/validation/validate_documentation.py
 ```
 

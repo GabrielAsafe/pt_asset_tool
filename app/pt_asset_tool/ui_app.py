@@ -2215,9 +2215,9 @@ class UIHandler(BaseHTTPRequestHandler):
             category = str(body.get("category") or "").strip().upper()
             if category:
                 cmd.extend(["--category", category])
-            path_accountins = str(body.get("path_accountins") or "").strip()
-            if path_accountins:
-                cmd.extend(["--path-accountins", path_accountins])
+            path_contains = str(body.get("path_contains") or "").strip()
+            if path_contains:
+                cmd.extend(["--path-contains", path_contains])
             job = self.ctx.jobs.submit("tree_compare", None, cmd)
             return self._json(202, {"ok": True, "job": job.public(), "output": str(output)})
         if u.path == "/api/monster-npc-census":

@@ -139,7 +139,7 @@ def test_server_review_rows_include_explanation_and_safe_actions(tmp_path: pathl
         _, d = request(url + '/api/server/report?kind=entities')
         row = d['rows'][0]
         assert row['review_required'] is True
-        assert 'visual principal' in row['review_summary'].lower()
+        assert 'primary visual' in row['review_summary'].lower()
         assert row['review_reasons'][0]['code'] == 'ZHOON_SHARED_DEFAULT_REVIEW'
         kinds = {x['kind'] for x in row['review_actions']}
         assert {'catalog', 'general_census'} <= kinds
@@ -158,7 +158,7 @@ def test_server_enrichment_guidance_is_exposed_in_static_ui():
         'generalCensusNotices', 'generalCensusCommand', 'copyGeneralCensusCommandBtn',
     ]:
         assert token in html
-    for token in ['renderGeneralCensusReadiness', 'handleServerReviewAction', 'Próximas ações seguras', 'Sem relatório final']:
+    for token in ['renderGeneralCensusReadiness', 'handleServerReviewAction', 'Next safe actions', 'No final report']:
         assert token in js
     for token in ['review_summary', 'review_reasons', 'review_actions', 'ZHOON_SHARED_DEFAULT_REVIEW']:
         assert token in server_ui

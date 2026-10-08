@@ -757,6 +757,17 @@ Entradas de inventário de módulos runtime:
 - `particle_service.py` — serviço first-party de partículas `.part`, compartilhado pela aba **Partículas** da UI principal e pelo launcher standalone de compatibilidade; staging/preview ficam em `pt_build` e nunca escrevem o client fonte.
 - `READY_TO_DEPLOY.py` (raiz do repositório) — gate de preparação de commit: regressão, limpeza apenas de caches reproduzíveis, preservação explícita de runtime/user data (`pt_build`, enhancement), regeneração do snapshot, `VERIFY_PACKAGE.sh`, stage e commit Git.
 
+
+<!-- PT_CANONICAL_RECOVERY_RUNTIME_INVENTORY_2026-10-08 -->
+## Runtime modules added after canonical/recovery integration
+
+- `asset_quarantine.py` — retention/quarantine planning, transaction apply and restore.
+- `canonical_authoring.py` — staged Summit canonical authoring, validation/build, publish and restore transaction boundary.
+- `donor_recovery_explorer.py` — paired donor discovery and fail-closed semantic/physical recovery staging.
+- `legacy_name_catalog.py` — semantic/migration name catalog lookup and model/path alias resolution.
+- `summit_asset_audit_refinement.py` — Summit asset audit refinement, runtime/source evidence and recovery classification.
+- `summit_canonical.py` — canonical provider, browsers, hashes/fingerprints and semantic catalog graph.
+
 <!-- PT_POST_CONSOLIDATION_RUNTIME_INVENTORY_2026-09-25 -->
 ## Runtime modules discovered after consolidation
 

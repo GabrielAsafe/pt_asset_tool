@@ -171,7 +171,7 @@ def test_inventory_delete_is_wired_to_workspace_plan_store_and_ui():
     assert "INVENTORY_ITEM_DELETE" in workspace
     assert '"INVENTORY_ITEM_DELETE": {"required_confirmation": "DELETE INVENTORY ITEM"' in store
     assert 'elif op == "INVENTORY_ITEM_DELETE"' in apply_py
-    assert "não editar Code/Head/CheckSum arbitrariamente" in html
+    assert "do not arbitrarily edit Code/Head/CheckSum" in html
 
 
 def test_userdata_batch_delete_is_explicit_guarded_and_single_rewrite(tmp_path):
@@ -348,8 +348,8 @@ def test_inventory_scope_clear_is_wired_and_explicitly_labeled_destructive():
     workspace = (root / "pt_asset_tool/legacy_apps/workspace.py").read_text(encoding="utf-8")
     store = (root / "pt_asset_tool/legacy_apps/plan_store.py").read_text(encoding="utf-8")
     apply_py = (root / "pt_asset_tool/legacy_apps/apply.py").read_text(encoding="utf-8")
-    assert "Operações destrutivas globais" in html
-    assert "não são limpeza de cache" in html.lower()
+    assert "Global destructive operations" in html
+    assert "they are not cache cleanup" in html.lower()
     for element_id in ("legacyInventoryClearUserdataPlanBtn", "legacyInventoryClearWarehousePlanBtn"):
         assert f'id="{element_id}"' in html
         assert f"$('#{element_id}')" in js

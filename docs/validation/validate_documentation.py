@@ -12,6 +12,20 @@ for path in CURRENT:
     if r"\\n##" in text:
         errors.append(f"literal escaped newline before heading: {path.relative_to(ROOT)}")
 
+
+# The exhaustive maintained first-party Python symbol reference is generated from the source AST.
+# This turns documentation drift into a validation failure instead of relying on
+# a hand-maintained list of selected public symbols.
+try:
+    from source_api_reference import REFERENCE as SOURCE_API_REFERENCE, render_reference
+    expected_reference = render_reference(ROOT)
+    if not SOURCE_API_REFERENCE.is_file():
+        errors.append(f"missing source API reference: {SOURCE_API_REFERENCE.relative_to(ROOT)}")
+    elif SOURCE_API_REFERENCE.read_text(encoding="utf-8") != expected_reference:
+        errors.append(f"stale source API reference: {SOURCE_API_REFERENCE.relative_to(ROOT)}")
+except Exception as exc:
+    errors.append(f"source API reference validation failed: {type(exc).__name__}:{exc}")
+
 for rel in ["comece_aqui/CLI_REFERENCE_1_0.md", "tematicos/TEXTURE_UPSCALE_PIPELINE.md"]:
     path = DOCS / rel
     if not path.is_file():

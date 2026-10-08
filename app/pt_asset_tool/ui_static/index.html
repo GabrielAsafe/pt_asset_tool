@@ -353,9 +353,7 @@
         <section class="server-workflow-pane" data-server-workflow-pane="validation">
           <section class="panel">
             <div class="panel-title"><strong>Integration Validation</strong><span>gates, not authoring</span></div>
-            <div class="server-workflow-actions"><button id="serverDesignBtn" class="btn primary">Analyze Asset Enrichment</button><button id="serverIntegrationBtn" class="btn primary">Validate Client + Server</button>
-            <button id="serverVendorPlanBtn" class="btn">Generate v9 plan</button>
-            <button id="serverVendorGraphBtn" class="btn">Dependency Graph v9</button></div>
+            <div class="server-workflow-actions"><button id="serverDesignBtn" class="btn primary">Analyze Asset Enrichment</button><button id="serverIntegrationBtn" class="btn primary">Validate Client + Server</button></div>
           </section>
           <div id="serverMetrics" class="metrics server-metrics"></div>
           <div class="server-grid server-grid-reports">
@@ -397,22 +395,6 @@
           </section>
         </section>
       
-<section class="panel server-explorer-panel pt-post-consolidation-server-compat">
-  <div class="panel-title"><strong>Bundle Explorer</strong><span id="serverExplorerCount">Use the filters to inspect bundles.</span></div>
-  <div class="server-explorer-toolbar">
-    <select id="serverExplorerKind"><option value="entities">Monster / NPC</option><option value="fields">Fields</option><option value="spawns">Spawnpoints</option><option value="items">OpenItem</option></select>
-    <input id="serverExplorerSearch" type="search" placeholder="Search definition, code, stage, INX, or reason…" />
-    <select id="serverExplorerStatus"><option value="">All states</option></select>
-    <select id="serverExplorerReason"><option value="">All reasons</option></select>
-    <button id="serverExplorerRefresh" class="btn">Refresh list</button>
-  </div>
-  <div class="server-explorer-layout">
-    <div class="server-explorer-table"><table><thead><tr><th>Status</th><th>Type</th><th>Definition / Bundle</th><th>Primary link</th><th>Motivo</th></tr></thead><tbody id="serverExplorerRows"><tr><td colspan="5" class="empty">Load an existing report.</td></tr></tbody></table></div>
-    <aside id="serverExplorerDetail" class="server-explorer-detail"><div class="empty">Select a row to view the dependency chain.</div></aside>
-  </div>
-</section>
-
-       <section class="panel field-editor-panel">         <div class="panel-title"><strong>Field metadata staging — SPM / SPP / SPC</strong><span id="fieldEditorState">Select a Field in the explorer.</span></div>         <p class="micro field-editor-note">SPM = spawns/actors; SPP = 200 start points; SPC = fixed NPCs/merchants. DRAFTS are created only in <code>pt_build/server_field_editor</code>. No button publishes to the server.</p>         <div class="field-editor-toolbar">           <button id="fieldOpenSpm" class="btn" disabled>Open SPM</button>           <button id="fieldOpenSpp" class="btn" disabled>Open SPP</button>           <button id="fieldOpenSpc" class="btn" disabled>Open SPC</button>           <code id="fieldEditorPath">—</code>         </div>         <div id="fieldEditorSummary" class="server-summary"><div class="empty">Choose <strong>Fields</strong> in the explorer and select a bundle.</div></div>         <div id="fieldEditorForm" class="field-editor-form hidden"></div>       </section>
 </section>
 
       <section id="tab-legacy" class="tab">
@@ -460,6 +442,8 @@
             <p class="micro"><strong>Localization:</strong> edit/preview are enabled; production publish remains fail-closed until the legacy localization bridge validator passes. Client/server deployment remains a separate third phase.</p>
           </details>
         </section>
+
+        <p class="micro"><strong>Legacy executables are evidence only.</strong> The operator workspace uses the audited Python-native flows below; historical binaries are retained for provenance and reverse-engineering evidence.</p>
 
         <div class="legacy-task-tabs" role="tablist" aria-label="Jobs Legacy">
           <button class="legacy-task-tab active" data-legacy-task="item">Item · create/edit</button>
@@ -566,7 +550,7 @@
               <div class="legacy-ops-buttons"><button id="legacyAccountInspectBtn" class="btn">Inspect account</button></div>
               <label>Rename account to<input id="legacyAccountNewName" type="text" placeholder="nova_account" /></label>
               <div class="legacy-ops-buttons"><button id="legacyAccountRenamePlanBtn" class="btn">Plan account rename</button></div>
-              <div class="legacy-ops-wide legacy-subsection"><strong>Migrate / restore account between servers</strong><p class="micro">Choose an existing account and a source server root. The plan copies userinfo, warehouse when present, and up to six referenced userdata files to the configured server. Collisions are blocked by default and any authorized replacement creates a backup.</p></div>
+              <div class="legacy-ops-wide legacy-subsection"><strong>Migrate / restore account between servers</strong><p class="micro">Replaces the button <code>Copy</code> with an explicit account-graph migration plan. Choose an existing account and a source server root. The plan copies userinfo, warehouse when present, and up to six referenced userdata files to the configured server. Collisions are blocked by default and any authorized replacement creates a backup.</p></div>
               <label class="legacy-ops-wide">Source Server<input id="legacyAccountCopySourceRoot" type="text" placeholder="/path/ServidorAntigo" /></label>
               <label class="legacy-checkbox"><input id="legacyAccountCopyAllowReplace" type="checkbox" /> Allow replacing identities that already exist at the destination (with backup)</label>
               <div class="legacy-ops-buttons"><button id="legacyAccountCopyPlanBtn" class="btn">Plan account migration</button></div>
@@ -589,7 +573,7 @@
               <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyPostboxReadBtn" class="btn">Ler fila</button><button id="legacyPostboxPlanBtn" class="btn primary">Plan distribution</button></div>
               <label class="legacy-ops-wide">Buscar item/serial<input id="legacyItemScanQuery" type="search" placeholder="item name, character, or account" /></label>
               <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyItemScanBtn" class="btn">Escanear userdata + warehouse</button></div>
-              <div class="legacy-ops-wide legacy-subsection"><strong>Local Inventory · Proven Delete</strong><p class="micro">Inspect the inventory first. Delete removes only the selected record and the plan pins the slot identity/hash before allowing the write; arbitrary item-identifier editing is not offered.</p></div>
+              <div class="legacy-ops-wide legacy-subsection"><strong>Local Inventory · Proven Delete</strong><p class="micro">Inspect the inventory first. Delete removes only the selected record and the plan pins the slot identity/hash before allowing the write. We do not arbitrarily edit Code/Head/CheckSum or other item identifiers.</p></div>
               <label>Origem<select id="legacyInventoryStore"><option value="userdata">Character / userdata</option><option value="warehouse">Account / warehouse</option></select></label>
               <label>Character or account<select id="legacyInventoryKey"><option value="">Select an identity</option></select></label>
               <label>Slot Index<input id="legacyInventoryRecordIndex" type="number" min="0" value="0" /></label>
@@ -668,19 +652,6 @@
         </section>
         <div id="legacyAuthoringParking" class="hidden"></div>
       
-<section class="panel pt-post-consolidation-legacy-compat">
-  <div class="panel-title"><strong>Legacy operations · restored compatibility</strong><span>Native Python</span></div>
-  <p class="micro"><strong>Legacy executables are evidence only</strong>; supported operations use the Asset Tool Python modules.</p>
-  <p class="micro">Account migration: <strong>Replaces the button <code>Copy</code></strong> with an explicit account-graph copy plan.</p>
-  <div class="legacy-inventory-compat-grid">
-    <label>Store<select id="legacyInventoryStore"><option value="">Select</option></select></label>
-    <label>Key<input id="legacyInventoryKey" type="text" placeholder="account / character / warehouse" /></label>
-    <label>Record index<input id="legacyInventoryRecordIndex" type="number" min="0" value="0" /></label>
-    <button id="legacyInventoryInspectBtn" class="btn">Inspect inventory</button>
-    <button id="legacyInventoryDeletePlanBtn" class="btn danger-outline">Plan deletion</button>
-  </div>
-  <p class="micro"><strong>Safety:</strong> do not arbitrarily edit Code/Head/CheckSum; use inspect/plan/apply with recovered contracts.</p>
-</section>
 </section>
 
       <section id="tab-particles" class="tab">
@@ -739,7 +710,7 @@
           <section class="panel guide-card"><h3>1. Design Tool / PT Asset Tool</h3><p><strong>Purpose:</strong> discover assets, understand bindings, validate SMD/SMB/INX/textures, and generate candidates in <code>pt_build</code> and track gates.</p><ol><li>Configure the <code>client_root</code>.</li><li>Run <strong>Doctor</strong> or <code>validate environment-auto</code>.</li><li>Use Catalog/Entities to find the asset.</li><li>Treat Structural, Binding, Visual, and Roundtrip as different levels of evidence.</li><li>Before any release, run the automatic gates indicated by readiness.</li></ol><p class="micro">Full manual: <code>docs/en/topics/DESIGN_TOOL.md</code></p></section>
           <section class="panel guide-card"><h3>2. Asset Enrichment</h3><p><strong>Purpose:</strong> understand what a Monster, NPC, Field, or Item needs on the server side and how it connects to the client.</p><ol><li>Configure the <code>server_root</code>.</li><li>Run <strong>Analyze Asset Enrichment</strong>.</li><li>Use Census/Validation to measure gaps; content in REVIEW goes to <strong>Management Legacy · World Closure</strong>.</li><li>Do not treat <code>DataServer</code>, <code>LogItemData</code>, <code>PostBox</code>, WAR, or safety state as assets.</li><li>When a bundle requires SMD/SMB/INX, return to the certified Design Tool pipeline.</li></ol><p class="micro">Full manual: <code>docs/en/topics/ASSET_ENRICHMENT.md</code></p></section>
           <section class="panel guide-card"><h3>3. Combined workflow</h3><p><strong>Monster/NPC:</strong> server definition → ZHOON → INI/INX → SMD/SMB → textures → spawn/placement.</p><p><strong>Field:</strong> stage → SPP/SPC/SPM → referenced entities.</p><p><strong>Item:</strong> OpenItem → code map → client catalog → model/icon → drops/shops.</p><p class="micro">End-to-end guide: <code>docs/en/topics/CLIENT_SERVER_WORKFLOW.md</code></p></section>
-          <section class="panel guide-card" data-manual-legacy-authoring="2026-09-23"><h3>4. Management Legacy</h3><p><strong>Purpose:</strong> manage server-side content and local persistence by workflow without mixing authoring, account/character, and administration.</p><ol><li><strong>Item / Monster / NPC / Map:</strong> choose the task; the editor appears inside that task and uses only the corresponding writers.</li><li><strong>Character / Account:</strong> choose an existing identity; inspect is read-only and changes become backed-up plans.</li><li><strong>Items / Postbox:</strong> choose <code>code — name</code> in the runtime/OpenItem catalog; distribution and deletes require a plan.</li><li><strong>Admin local:</strong> the database is SQLite detected by schema; SoD/BPRank/blocks do not use ODBC/SQL Server.</li><li><strong>World Closure:</strong> finds relationships/targets and routes to the correct task; REVIEW explains what is missing.</li><li><strong>Authoring:</strong> Stage writes only to <code>pt_build</code>; Publish requires the current stage manifest, arming, backup, and verification.</li></ol><p class="micro">Manual: <code>docs/en/topics/LEGACY_MANAGEMENT_AUTHORING.md</code></p></section>
+          <section class="panel guide-card" data-manual-legacy-authoring="2026-09-23"><h3>4. Management Legacy</h3><p><strong>Purpose:</strong> manage server-side content and local persistence by workflow without mixing authoring, account/character, and administration.</p><ol><li><strong>Item / Monster / NPC / Map:</strong> choose the task; the editor appears inside that task and uses only the corresponding writers.</li><li><strong>Character / Account:</strong> choose an existing identity; inspect is read-only and changes become backed-up plans.</li><li><strong>Items / Postbox:</strong> choose <code>code — name</code> in the runtime/OpenItem catalog; distribution and deletes require a plan.</li><li><strong>Local admin:</strong> the database is SQLite detected by schema; SoD/BPRank/blocks do not use ODBC/SQL Server.</li><li><strong>World Closure:</strong> finds relationships/targets and routes to the correct task; REVIEW explains what is missing.</li><li><strong>Authoring:</strong> Stage writes only to <code>pt_build</code>; Publish requires the current stage manifest, arming, backup, and verification.</li></ol><p class="micro">Manual: <code>docs/en/topics/LEGACY_MANAGEMENT_AUTHORING.md</code></p></section>
           <section class="panel guide-card" data-manual-aux-tools="2026-09-23"><h3>5. Particles, Compare, Jobs, and Reports</h3><p><strong>Particles:</strong> inspects <code>.part</code>, generates a preview plan without Blender, and uses configured Blender when visual rendering is requested.</p><p><strong>Compare:</strong> compares two trees by path/hash without modifying either one.</p><p><strong>Jobs:</strong> shows only jobs that do not have a dedicated surface; Client and Server keep activity/results on their corresponding pages.</p><p><strong>Reports:</strong> opens artifacts already produced in <code>pt_build</code>; it does not automatically rerun the census.</p><p><strong>Settings:</strong> mostra roots and dependencies efetivamente resolvidos pelo backend, incluindo Blender.</p></section>
           <section class="panel guide-card"><h3>State glossary</h3><dl><dt>PASS</dt><dd>The executed gate passed.</dd><dt>REVIEW</dt><dd>There is enough data to investigate, but a decision/proof is still missing for automation.</dd><dt>BLOCKED</dt><dd>A required dependency or contract has not been proven.</dd><dt>PENDING</dt><dd>That gate has not been run yet.</dd><dt>Runtime review</dt><dd>Automated tests passed, but the result still needs to be observed in-game.</dd></dl></section>
         </div>

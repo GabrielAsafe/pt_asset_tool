@@ -74,3 +74,22 @@ def test_certified_writer_hashes_are_preserved_in_manual():
     for name, digest in expected.items():
         assert name in text
         assert digest in text
+
+
+def test_exhaustive_source_api_reference_is_current():
+    import runpy
+
+    helper = DOCS / "validation" / "source_api_reference.py"
+    api = runpy.run_path(str(helper))
+    reference = DOCS / "en" / "engineering" / "SOURCE_API_REFERENCE.md"
+    assert reference.read_text(encoding="utf-8") == api["render_reference"](ROOT.parent)
+
+
+def test_exhaustive_reference_covers_all_maintained_python_implementation_files():
+    text = (DOCS / "en" / "engineering" / "SOURCE_API_REFERENCE.md").read_text(encoding="utf-8")
+    maintained = [p for p in sorted(ROOT.glob("*.py")) if p.name != "conftest.py"]
+    maintained += sorted((ROOT / "pt_asset_tool").rglob("*.py"))
+    maintained += sorted((DOCS / "validation").glob("*.py"))
+    for path in maintained:
+        rel = path.relative_to(ROOT.parent).as_posix()
+        assert f"## `{rel}`" in text, rel

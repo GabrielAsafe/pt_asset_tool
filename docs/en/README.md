@@ -25,6 +25,7 @@ This directory is the default English documentation surface for PT Asset Tool.
 - `engineering/ARCHITECTURE.md`
 - `engineering/DEVELOPER_MANUAL.md`
 - `engineering/MODULE_REFERENCE.md`
+- `engineering/SOURCE_API_REFERENCE.md` — exhaustive AST-generated runtime Python symbol reference
 - `engineering/VALIDATION_RUNBOOK.md`
 - `engineering/SUMMIT_GAME_ASSET_ENRICHMENT.md`
 

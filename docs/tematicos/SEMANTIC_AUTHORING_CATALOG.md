@@ -1,4 +1,4 @@
-> **V2.11 authority notice (2026-10-01):** This V2.9 catalog is retained as historical/display-alias evidence. In canonical mode, entity existence and authoring authority come from `Summit Content/canonical/**`; see `SUMMIT_CANONICAL_SOURCE_V211.md`.
+> **V2.11 authority notice (2026-10-01):** This V2.9 catalog is retained as historical/display-alias evidence. In canonical mode, entity existence and authoring authority come from `Summit Content/canonical/**`; see `SUMMIT_CANONICAL_SOURCE_V211.md` for the historical authority transition and `../en/topics/SUMMIT_CANONICAL_EXTENDED_DOMAINS_V212.md` for the current map/dynamic-field contract.
 
 # Catálogo semântico de authoring — V2.9
 

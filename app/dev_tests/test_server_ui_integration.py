@@ -53,9 +53,9 @@ def test_server_tab_and_endpoints_are_present_in_ui_source():
     py = (root / "pt_asset_tool" / "ui_app.py").read_text(encoding="utf-8")
     assert 'data-tab="server"' in html
     assert 'Summit Server / Asset Enrichment' in html
-    assert 'Validar Client + Server' in html
-    assert 'Gerar plano v9' in html
-    assert 'Grafo de dependências v9' in html
+    assert 'Validate Client + Server' in html
+    assert 'Recovery Plan v9' in html
+    assert 'Dependency Graph' in html
     assert "runServerAnalysis('integration')" in js
     assert '/api/server' in js
     assert '/api/server/analyze' in js
@@ -72,11 +72,11 @@ def test_server_tab_and_endpoints_are_present_in_ui_source():
     assert 'u.path == "/api/contracts/analyze"' in py
     assert '"audit", "general-asset-census"' in py
 
-    assert 'id="fieldOpenSpm"' in html
-    assert 'id="fieldOpenSpp"' in html
-    assert 'id="fieldOpenSpc"' in html
-    assert '/api/server/field-editor?' in js
-    assert '/api/server/field-editor/stage' in js
+    # Field authoring is not duplicated on Server / Enrichment. The backend
+    # compatibility endpoints remain available for callers that still need them.
+    assert 'id="fieldOpenSpm"' not in html
+    assert 'id="fieldOpenSpp"' not in html
+    assert 'id="fieldOpenSpc"' not in html
     assert 'path == "/api/server/field-editor"' in py
     assert 'u.path == "/api/server/field-editor/stage"' in py
 
@@ -108,9 +108,9 @@ def test_server_ui_contains_bundle_explorer_and_beginner_guides():
     html = (root / "pt_asset_tool" / "ui_static" / "index.html").read_text(encoding="utf-8")
     js = (root / "pt_asset_tool" / "ui_static" / "app.js").read_text(encoding="utf-8")
     py = (root / "pt_asset_tool" / "ui_app.py").read_text(encoding="utf-8")
-    assert 'id="serverExplorerKind"' in html
+    assert 'id="serverExplorerKind"' not in html
     assert 'data-tab="docs"' in html
-    assert 'Runbook recomendado' in html
+    assert 'Recommended runbook' in html
     assert '/api/server/report?' in js
     assert 'renderServerRowDetail' in js
     assert 'path == "/api/server/report"' in py

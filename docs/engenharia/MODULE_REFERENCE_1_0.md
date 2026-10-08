@@ -1,6 +1,6 @@
 # PT Asset Tool R14 1.0.0 — Referência de Módulos
 
-Inventário dos módulos Python distribuídos diretamente em `app/pt_asset_tool/`. O mapa conceitual detalhado continua em `MAPA_MODULOS_SCRIPTS.md`.
+Inventário histórico/compacto dos módulos Python. A referência **exaustiva e atual** de toda a source Python runtime — módulos, classes, métodos e funções de módulo, incluindo helpers privados — é gerada por AST em [`../en/engineering/SOURCE_API_REFERENCE.md`](../en/engineering/SOURCE_API_REFERENCE.md). `docs/validation/validate_documentation.py` falha se essa referência ficar desatualizada. O mapa conceitual detalhado continua em `MAPA_MODULOS_SCRIPTS.md`.
 
 | Módulo | Família | Símbolos públicos principais |
 |---|---|---|
@@ -33,6 +33,12 @@ Inventário dos módulos Python distribuídos diretamente em `app/pt_asset_tool/
 | `enrichment_vendor_adapter.py` | Core / misc | `generate_migration_plan()`, `build_dependency_graph()` |
 | `entity_catalog.py` | Core / misc | `load_entity_seed()`, `enrich_entities_with_registry()`, `build_live_entities()`, `query_entities()`, `entity_detail()` |
 | `environment_validation.py` | Core / misc | `run_environment_validation()` |
+| `asset_quarantine.py` | Retention / quarantine | `quarantine_review_queue()`, `build_quarantine_plan()`, `apply_quarantine_plan()`, `restore_quarantine_transaction()` |
+| `canonical_authoring.py` | Summit canonical authoring | `stage_canonical_document_set()`, `validate_staged_canonical()`, `build_staged_packs()`, `publish_canonical_source()`, `restore_canonical_transaction()` |
+| `donor_recovery_explorer.py` | Donor / recovery | `build_donor_explorer()`, `stage_spawn_from_donor()`, `stage_definition_from_donor()`, `stage_unique_spawn_dependencies_from_donor()` |
+| `legacy_name_catalog.py` | Semantic name catalog | `load_name_catalog()`, `lookup_semantic_ref()`, `semantic_monster_matches_for_model()`, `semantic_binding_for_spec()` |
+| `summit_asset_audit_refinement.py` | Summit audit refinement | `build_canonical_owner_index()`, `refine_migration_rows()`, `refine_ui_rows()`, `audit_summit_asset_refinement()` |
+| `summit_canonical.py` | Summit canonical provider | `SummitCanonicalContentProvider`, `canonical_mode_status()`, `query_canonical_resources()`, `build_canonical_contract_graph()` |
 | `general_asset_census.py` | Core / misc | `audit_general_asset_census()`, `query_general_asset_census()` |
 | `general_asset_recovery.py` | Core / misc | `RecoveryApplyRolledBackError`, `recover_closed_general_asset_bundles()` |
 | `integration_regression_auto.py` | Core / misc | `run_integration_regression_auto()` |

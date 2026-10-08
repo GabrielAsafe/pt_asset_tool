@@ -14,10 +14,10 @@ def test_entity_roles_are_granular():
 
 
 def test_extension_descriptions_are_human_readable():
-    assert 'Modelo' in extension_description('.smd')
+    assert extension_description('.smd') == '3D model / Stage SMD'
     assert 'anima' in extension_description('.smb').lower()
     assert 'binding' in extension_description('.inx').lower()
-    assert extension_description('') == 'Arquivo sem extensão'
+    assert extension_description('') == 'File without extension'
 
 
 def test_folder_filter_uses_entity_directory(tmp_path: pathlib.Path):

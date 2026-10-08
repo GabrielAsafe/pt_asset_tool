@@ -1,5 +1,7 @@
 # PT Asset Tool V2.11 — Summit Canonical Source Integration
 
+> **Contrato histórico V2.11.** O modelo de autoridade/staging continua útil como histórico, mas a regra de dynamic field foi substituída em V2.12. A regra vigente está em `../en/topics/SUMMIT_CANONICAL_EXTENDED_DOMAINS_V212.md`: field 53 pode ser mapa estático normal e o dynamic field segue `append_after_static`.
+
 **Status:** implemented foundation / fail-closed canonical authoring.  
 **Date:** 2026-10-01.
 
@@ -19,7 +21,7 @@ When `Content/CANONICAL_SOURCE.json` exists, an unknown or malformed canonical s
 
 Items that exist in the canonical source but have no trusted friendly alias are shown as `<CODE> — <canonical_id>` with `MISSING_DISPLAY_NAME`. No friendly name is invented.
 
-CLIENT and SERVER maps are separate profile rows. Field 53 is explicitly marked as a legacy dynamic-field exception and is never collapsed into a normal static-map contract.
+CLIENT and SERVER maps are separate profile rows. Em V2.11, field 53 era tratado como legacy dynamic-field exception; V2.12 substituiu essa regra por `append_after_static`, permitindo field 53 como mapa estático normal.
 
 ## Definition writers
 
@@ -75,6 +77,6 @@ Canonical graph edges explicitly model:
 - definition document -> profile-scoped definitions packs;
 - CLIENT map profile -> `maps_client.smap`;
 - SERVER map profile -> `maps_server.smap`;
-- field 53 -> explicit legacy exception.
+- V2.11 historical: field 53 -> explicit legacy exception. Current V2.12: dynamic field -> `append_after_static`.
 
 These are source/build authority edges, not inferred legacy runtime authority.

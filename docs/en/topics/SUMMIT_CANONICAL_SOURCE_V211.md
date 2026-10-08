@@ -1,5 +1,7 @@
 # Summit Canonical Source Integration — V2.11
 
+> **Historical V2.11 contract.** The authority/staging model remains useful background, but map dynamic-field behavior was superseded by V2.12. For the current rule, see `SUMMIT_CANONICAL_EXTENDED_DOMAINS_V212.md`: field 53 may be a normal static map and the dynamic field uses `append_after_static`.
+
 ## Authority
 
 The authoring chain is now:
@@ -16,7 +18,7 @@ SPM/SPP/SPC become legacy import-only surfaces in canonical mode. Persistent fie
 
 ## Maps and profiles
 
-`client.maps.json` and `server.maps.json` are separate authorities and are never collapsed. The UI/API can compare a canonical map across profiles. Dynamic field 53 remains an explicit legacy read-only exception. Item client/server profile membership is exposed independently as well.
+`client.maps.json` and `server.maps.json` are separate authorities and are never collapsed. The UI/API can compare a canonical map across profiles. At V2.11, field 53 was treated as an explicit legacy read-only exception; V2.12 superseded this rule with `append_after_static`. Item client/server profile membership is exposed independently as well.
 
 ## Browsers and reference content
 
@@ -37,7 +39,7 @@ Client/server deployment remains a separate third phase. Tree-wide drift gates r
 
 ## ContractGraph
 
-The canonical graph emits positive evidence for source authority, canonical family/profile membership, runtime paths/linked files, map/stage references, item-profile membership and pack/BUILD relationships. CLIENT/SERVER map edges are distinct and field 53 is marked `LEGACY_EXCEPTION`. Graph evidence never converts legacy inputs into authoring authority.
+The canonical graph emits positive evidence for source authority, canonical family/profile membership, runtime paths/linked files, map/stage references, item-profile membership and pack/BUILD relationships. In the V2.11 graph contract, CLIENT/SERVER map edges were distinct and field 53 was marked `LEGACY_EXCEPTION`; current V2.12 behavior uses the catalog-level `append_after_static` dynamic-field policy instead. Graph evidence never converts legacy inputs into authoring authority.
 
 ## CLI
 

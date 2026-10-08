@@ -17,8 +17,13 @@ required=(
   "docs/en/getting_started/GUI_MANUAL.md"
   "docs/en/getting_started/CLI_REFERENCE.md"
   "docs/en/engineering/ARCHITECTURE.md"
+  "docs/en/engineering/SOURCE_API_REFERENCE.md"
+  "docs/validation/generate_source_api_reference.py"
+  "docs/validation/source_api_reference.py"
+  "docs/validation/validate_documentation.py"
   "docs/en/topics/SEMANTIC_AUTHORING_CATALOG.md"
   "docs/en/topics/SUMMIT_CANONICAL_SOURCE_V211.md"
+  "docs/en/topics/SUMMIT_CANONICAL_EXTENDED_DOMAINS_V212.md"
   "docs/en/topics/ASSET_QUARANTINE_WORKFLOW.md"
   "docs/en/validation/LOCALIZATION_EN_V210.md"
   "docs/validation/validate_english_localization.py"
@@ -256,16 +261,35 @@ if config_path(Path.cwd()) != expected:
 PY
 
 
-# English UI/documentation localization contract.
+# English UI/documentation localization contract and generated source API drift gate.
 python3 "$ROOT/docs/validation/validate_english_localization.py"
+python3 "$ROOT/docs/validation/generate_source_api_reference.py" --check
+python3 "$ROOT/docs/validation/validate_documentation.py"
 
 # Static UI/contracts.
+python3 - "$ROOT/app/pt_asset_tool/ui_static/index.html" <<'PY'
+from collections import Counter
+from html.parser import HTMLParser
+from pathlib import Path
+import sys
+class IdParser(HTMLParser):
+    def __init__(self):
+        super().__init__(); self.ids=[]
+    def handle_starttag(self, tag, attrs):
+        value=dict(attrs).get('id')
+        if value: self.ids.append(value)
+p=IdParser(); p.feed(Path(sys.argv[1]).read_text(encoding='utf-8'))
+dup={k:v for k,v in Counter(p.ids).items() if v>1}
+if dup: raise SystemExit(f'PACKAGE_VERIFY=FAIL duplicate_html_ids={dup}')
+PY
 grep -q 'Asset Enrichment' pt_asset_tool/ui_static/index.html
-grep -q 'id="fieldOpenSpm"' pt_asset_tool/ui_static/index.html
-grep -q 'id="fieldOpenSpp"' pt_asset_tool/ui_static/index.html
-grep -q 'id="fieldOpenSpc"' pt_asset_tool/ui_static/index.html
+grep -q 'data-legacy-task="map"' pt_asset_tool/ui_static/index.html
 grep -q '/api/server/field-editor/stage' pt_asset_tool/ui_static/app.js
 grep -q 'u.path == "/api/server/field-editor/stage"' pt_asset_tool/ui_app.py
+if grep -q 'id="serverExplorerKind"' pt_asset_tool/ui_static/index.html; then
+  echo "PACKAGE_VERIFY=FAIL duplicate_server_authoring_cockpit" >&2
+  exit 6
+fi
 grep -q 'id="generalCensusBtn"' pt_asset_tool/ui_static/index.html
 grep -q '/api/general-census' pt_asset_tool/ui_static/app.js
 grep -q 'path == "/api/general-census"' pt_asset_tool/ui_app.py
@@ -325,7 +349,7 @@ grep -q 'def atomic_update_definition' pt_asset_tool/canonical_authoring.py
 grep -q 'PUBLISH CANONICAL SOURCE' pt_asset_tool/canonical_authoring.py
 grep -q 'PUBLISH CANONICAL PACKS' pt_asset_tool/canonical_authoring.py
 grep -q 'RESTORE CANONICAL TRANSACTION' pt_asset_tool/canonical_authoring.py
-grep -q 'CANONICAL_DYNAMIC_FIELD_53_LEGACY_READ_ONLY' pt_asset_tool/canonical_authoring.py
+grep -q 'APPEND_AFTER_STATIC_CATALOG' pt_asset_tool/summit_canonical.py
 
 VERIFY_TMP="$(mktemp -d)"
 trap 'rm -rf "$VERIFY_TMP"' EXIT

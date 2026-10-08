@@ -175,9 +175,9 @@ def test_server_page_is_workflow_oriented_and_authoring_is_not_duplicated():
 
     server_text = server.get_text(" ", strip=True)
     assert "Management Legacy" in server_text
-    assert "Atividade do Servidor / Enrichment" in server_text
-    assert "linha copiada do CLI" in server_text
-    assert "nada é salvo parcialmente" in server_text
+    assert "Server / Enrichment Activity" in server_text
+    assert "line copied from the CLI" in server_text
+    assert "nothing is partially saved" in server_text
 
     assert "switchServerWorkflow" in js
     assert "loadServerActivity" in js

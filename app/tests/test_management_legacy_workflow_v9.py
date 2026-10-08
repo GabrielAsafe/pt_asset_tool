@@ -131,12 +131,12 @@ def test_management_page_is_task_local_and_help_matches_runtime():
     assert soup.select_one("#legacyCharacterName").name == "select"
     assert soup.select_one("#legacyPostboxItem").name == "select"
     assert soup.select_one("#legacyDatabasePath").name == "select"
-    assert "Admin local:</strong> a base é SQLite detectada por schema" in html
+    assert "Local admin:</strong> the database is SQLite detected by schema" in html
     assert "Substitui as capacidades comprovadas de Level Editor" not in html
     assert "Substitui o botão <code>Copy</code>" not in html
     assert "function mountLegacyEditor(task)" in js
     assert "/api/legacy-ops/selections" in js
-    assert "Faça Stage nesta tarefa antes de publicar" in js
+    assert "Run Stage for this task before publishing" in js
     assert "legacyDatabaseFor('sod')" in js
     assert "legacyDatabaseFor('bprank')" in js
     assert "legacyDatabaseFor('account_block')" in js
@@ -160,6 +160,8 @@ def test_all_static_ui_api_calls_have_backend_routes():
     }
     routes = set(re.findall(r"(?:path|u\.path)\s*==\s*['\"](/api/[^'\"]+)", backend))
     routes |= set(re.findall(r"(?:path|u\.path)\.startswith\(['\"](/api/[^'\"]+)", backend))
+    for group in re.findall(r"(?:path|u\.path)\s+in\s+\{([^}]+)\}", backend):
+        routes |= set(re.findall(r"['\"](/api/[^'\"]+)['\"]", group))
     missing = [
         call for call in sorted(calls)
         if not (call in routes or any(call.startswith(r.rstrip('/')) or r.startswith(call.rstrip('/')) for r in routes))
@@ -172,5 +174,5 @@ def test_active_management_runtime_is_sqlite_first():
     ui = (APP / "pt_asset_tool" / "ui_static" / "index.html").read_text(encoding="utf-8")
     assert "SQLiteSodDataSource" in workspace
     assert "PyodbcSodDataSource" not in workspace
-    assert "Base SQLite" in ui
+    assert "SQLite database" in ui
     assert "SQL Server" not in ui[ui.index('id="tab-legacy"'):ui.index('id="tab-particles"')]

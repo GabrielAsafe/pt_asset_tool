@@ -191,7 +191,20 @@ Se runtime state contém transações, manifests ou dados necessários para roll
 
 Sempre registre a contagem real da execução usada como evidência. Depois de qualquer correção, **rerode** a suíte aplicável antes de atualizar a evidência.
 
-## 9. Contrato documental
+## 9. Referência exaustiva da source Python
+
+A referência de módulos/classes/métodos/funções da implementação first-party mantida é derivada por AST e versionada em `docs/en/engineering/SOURCE_API_REFERENCE.md`. Depois de alteração intencional em Python first-party mantido:
+
+```bash
+cd ~/Transferências/pt_asset_tool
+python3 docs/validation/generate_source_api_reference.py
+python3 docs/validation/generate_source_api_reference.py --check
+python3 docs/validation/validate_documentation.py
+```
+
+O `--check` deve falhar quando a referência estiver stale. Testes (`dev_tests`/`tests`) não entram nessa API runtime, mas continuam cobertos por pytest/AST/compileall.
+
+## 10. Contrato documental
 
 - este runbook é a referência canónica de testes/release;
 - exemplos de pytest usam `"$PY" -m pytest` ou deixam explícito qual Python está sendo usado;

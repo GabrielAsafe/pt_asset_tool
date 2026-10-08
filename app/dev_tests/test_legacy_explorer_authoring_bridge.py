@@ -49,6 +49,6 @@ def test_world_closure_selection_is_wired_to_authoring_ui():
     js = (root / "pt_asset_tool/ui_static/app.js").read_text(encoding="utf-8")
     assert "runLegacyReviewAction" in js
     assert "legacyAuthoringOpenReviewTarget" in js
-    assert "carregado explicitamente do REVIEW" in js
+    assert "loaded explicitly from REVIEW" in js
     assert "switchLegacyTask(legacyTaskForKind(kind))" in js
     assert "await legacyAuthoringLoadExplorerSelection(section,row)" not in js

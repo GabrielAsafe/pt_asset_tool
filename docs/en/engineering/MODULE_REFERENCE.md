@@ -1,6 +1,6 @@
 # Module Reference
 
-This is a compact map of first-party modules relevant to current operation.
+This is a compact map of first-party modules relevant to current operation. The exhaustive, source-synchronized inventory of every runtime Python module, class, method, and module-level function is [`SOURCE_API_REFERENCE.md`](SOURCE_API_REFERENCE.md). That reference is generated from the AST and is checked by `docs/validation/validate_documentation.py`.
 
 ## UI and API
 

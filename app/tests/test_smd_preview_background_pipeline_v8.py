@@ -98,7 +98,7 @@ def test_v8_ui_exposes_batch_thumbnail_and_filters():
     assert "/api/smd-preview?path=" in js
     assert "smd_preview_status" in js
     assert "runSmdPreviewBatch('warmup')" in js
-    assert "smd_preview_batch:'Gerar previews SMD'" in js
+    assert "smd_preview_batch:'Generate SMD previews'" in js
 
 
 def test_cli_exposes_render_all_smd_command():

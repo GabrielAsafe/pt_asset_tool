@@ -20,8 +20,14 @@ Raw evidence, source excerpts, runtime identifiers, file paths, hashes, codes, a
 
 ## Documentation validation
 
+Current validation runbook: [`en/engineering/VALIDATION_RUNBOOK.md`](en/engineering/VALIDATION_RUNBOOK.md).
+
 ```bash
 python3 docs/validation/validate_documentation.py
 ```
 
 The package also includes localization-focused tests for the English UI/documentation surface.
+
+## Source API inventory
+
+The current exhaustive maintained first-party Python symbol reference is generated from the implementation at [`en/engineering/SOURCE_API_REFERENCE.md`](en/engineering/SOURCE_API_REFERENCE.md). Documentation validation fails when source and reference diverge.
