@@ -350,6 +350,7 @@ def _face_texture_references_smd(path: pathlib.Path, project: pathlib.Path) -> d
             used_set = set(used_ids)
             required: list[str] = []
             seen: set[str] = set()
+            runtime_texture_exts = {".bmp", ".tga", ".jpg", ".jpeg", ".png", ".stg", ".sta"}
             for material in parsed.get("materials") or []:
                 mid = int(material.get("id") or 0)
                 if mid not in used_set:
@@ -357,6 +358,14 @@ def _face_texture_references_smd(path: pathlib.Path, project: pathlib.Path) -> d
                 for row in list(material.get("textures") or []) + list(material.get("anim_textures") or []):
                     logical = _norm(row.get("Name") or "")
                     if not logical:
+                        continue
+                    # Stage material records can contain short non-file tokens in
+                    # serialized texture slots. The client texture loader only
+                    # recognizes the standard raster extensions plus .stg/.sta
+                    # aliases, so an extensionless token such as StarArena's
+                    # literal ``w`` is not a physical runtime dependency. Keep
+                    # supported file references fail-closed as before.
+                    if pathlib.PurePosixPath(logical).suffix.casefold() not in runtime_texture_exts:
                         continue
                     key = logical.casefold()
                     if key in seen:

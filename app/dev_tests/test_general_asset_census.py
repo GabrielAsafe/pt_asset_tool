@@ -491,7 +491,7 @@ def test_client_recovery_bundle_supports_stage072_face_texture_scope(monkeypatch
         "full_parse": "PASS",
         "material_face_counts": {"0": 4, "1": 0},
         "materials": [
-            {"id": 0, "textures": [{"Name": "lava.tga"}], "anim_textures": []},
+            {"id": 0, "textures": [{"Name": "lava.tga"}, {"Name": "w"}], "anim_textures": []},
             {"id": 1, "textures": [{"Name": "unused.tga"}], "anim_textures": []},
         ],
     })
@@ -518,6 +518,7 @@ def test_client_recovery_bundle_supports_stage072_face_texture_scope(monkeypatch
         "field/heartoffire/heartoffire.smd", "field/heartoffire/lava.tga",
     }
     assert not any("unused.tga" in x["logical_path"].casefold() for x in result["members"])
+    assert not any(x["logical_path"].casefold().endswith("/w") for x in result["members"])
 
 
 def test_stage072_face_scope_parse_failure_stays_review(monkeypatch, tmp_path):
