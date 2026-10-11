@@ -693,6 +693,7 @@ def build_donor_explorer(
     query: str = "",
     donor: str = "",
     limit: int = 1500,
+    compare_target: bool = False,
 ) -> dict[str, Any]:
     project = pathlib.Path(project_root).resolve()
     domains = [domain.upper()] if domain else ["MAP_FIELD", "MONSTER", "NPC", "ITEM", "CHARACTER", "EFFECT"]
@@ -706,11 +707,19 @@ def build_donor_explorer(
     }]
     logical.extend({**x, "target": False} for x in donor_pairs(project))
     wanted = donor.strip().upper()
-    if wanted:
-        logical = [x for x in logical if x["label"] == wanted]
-    out_donors = []
+    requested_logical = [x for x in logical if not wanted or x["label"] == wanted]
+    scan_logical = list(requested_logical)
+    hidden_target_labels: set[str] = set()
+    if wanted and compare_target and wanted != "SUMMIT":
+        target_rows = [x for x in logical if x["label"] == "SUMMIT"]
+        if target_rows:
+            scan_logical.extend(target_rows)
+            hidden_target_labels.add("SUMMIT")
+    scanned_donors = []
     remaining = max(1, int(limit))
-    for item in logical:
+    for item in scan_logical:
+        hidden_target = item["label"] in hidden_target_labels
+        scan_remaining = max(1, int(limit)) if hidden_target else remaining
         out = {"label": item["label"], "target": bool(item.get("target")), "client": item.get("client"), "server": item.get("server"), "domains": {}}
         out["scan_diagnostics"] = {}
         for dom in domains:
@@ -724,9 +733,9 @@ def build_donor_explorer(
                     continue
                 root = pathlib.Path(str(info["root"]))
                 out["scan_diagnostics"][dom][side.upper()] = _scan_diagnostic(root, side, dom)
-                if not info.get("present") or remaining <= 0:
+                if not info.get("present") or scan_remaining <= 0:
                     continue
-                rows, hit_limit, fallback_meta = _scan_domain(root, side, dom, donor=item["label"], query=query, limit=remaining)
+                rows, hit_limit, fallback_meta = _scan_domain(root, side, dom, donor=item["label"], query=query, limit=scan_remaining)
                 if fallback_meta.get("used"):
                     diag = out["scan_diagnostics"][dom][side.upper()]
                     diag["fallback_recursive_scan"] = fallback_meta
@@ -750,13 +759,16 @@ def build_donor_explorer(
                             "member_count": len(bundle.get("members") or []),
                         }
                 dom_rows.extend(rows)
-                remaining -= len(rows)
-                truncated = truncated or hit_limit or remaining <= 0
+                scan_remaining -= len(rows)
+                truncated = truncated or hit_limit or scan_remaining <= 0
             if dom_rows or not query:
                 out["domains"][dom] = {"count": len(dom_rows), "truncated": truncated, "nodes": dom_rows}
-        out_donors.append(out)
-        if remaining <= 0:
+        scanned_donors.append(out)
+        if not hidden_target:
+            remaining = scan_remaining
+        if remaining <= 0 and not hidden_target_labels:
             break
+    out_donors = [x for x in scanned_donors if x["label"] not in hidden_target_labels]
     query_key = _field_entity_key_from_name(query) if domain.upper() == "MAP_FIELD" and query else ""
     query_identity = copy.deepcopy(canonical_map_index.get(query_key)) if query_key else None
     return {
@@ -766,7 +778,7 @@ def build_donor_explorer(
         "domain": domain.upper() or None,
         "limit": int(limit),
         "donors": out_donors,
-        "entity_tree": _comparison_tree(out_donors, domains),
+        "entity_tree": _comparison_tree(scanned_donors, domains),
         "map_field_query_identity": query_identity,
         "policy": {
             "same_label_client_server_is_one_logical_donor": True,

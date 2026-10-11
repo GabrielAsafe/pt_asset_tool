@@ -6,7 +6,7 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `1e914ad2ecb31ac1a3dd26c7174598b0f1b4acfa00cb59afe5e41117963a671f`
+- Source SHA-256: `8c8a8487df0edc6ee5e0ea24cc44c8ae1980fdbbe28e3112cde90f6cf5d9e3b8`
 - Maintained Python modules/scripts: **302**
 - Classes: **68**
 - Class methods: **297**
@@ -1988,38 +1988,38 @@ _No top-level functions or classes._
 | function | `cmd_audit_t5_assets` | `cmd_audit_t5_assets(a)` | 3555 | — |
 | function | `_require_server_root` | `_require_server_root(settings)` | 3559 | — |
 | function | `cmd_donor_explore` | `cmd_donor_explore(a)` | 3565 | — |
-| function | `cmd_donor_certify_physical` | `cmd_donor_certify_physical(a)` | 3586 | — |
-| function | `cmd_donor_stage_physical` | `cmd_donor_stage_physical(a)` | 3597 | — |
-| function | `cmd_donor_apply_physical` | `cmd_donor_apply_physical(a)` | 3610 | — |
-| function | `cmd_donor_restore_physical` | `cmd_donor_restore_physical(a)` | 3624 | — |
-| function | `cmd_donor_stage_definition` | `cmd_donor_stage_definition(a)` | 3635 | — |
-| function | `cmd_donor_stage_spawn` | `cmd_donor_stage_spawn(a)` | 3649 | — |
-| function | `cmd_donor_stage_spawn_dependencies` | `cmd_donor_stage_spawn_dependencies(a)` | 3662 | — |
-| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3675 | — |
-| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3695 | — |
-| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3712 | — |
-| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3731 | — |
-| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3743 | — |
-| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3757 | — |
-| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3775 | — |
-| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3788 | — |
-| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3802 | — |
-| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3812 | — |
-| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3825 | — |
-| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3862 | — |
-| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3964 | — |
-| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 4004 | — |
-| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 4028 | — |
-| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 4056 | — |
-| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 4078 | Fail closed when a candidate workflow explicitly requires an observed edit. |
-| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 4099 | — |
-| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 4121 | — |
-| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4168 | Prepare/open a reusable Blender workspace for a supported asset. |
-| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4257 | — |
-| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4540 | — |
-| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4547 | — |
-| function | `build_parser` | `build_parser()` | 4570 | — |
-| function | `main` | `main(argv = None)` | 5130 | — |
+| function | `cmd_donor_certify_physical` | `cmd_donor_certify_physical(a)` | 3587 | — |
+| function | `cmd_donor_stage_physical` | `cmd_donor_stage_physical(a)` | 3598 | — |
+| function | `cmd_donor_apply_physical` | `cmd_donor_apply_physical(a)` | 3611 | — |
+| function | `cmd_donor_restore_physical` | `cmd_donor_restore_physical(a)` | 3625 | — |
+| function | `cmd_donor_stage_definition` | `cmd_donor_stage_definition(a)` | 3636 | — |
+| function | `cmd_donor_stage_spawn` | `cmd_donor_stage_spawn(a)` | 3650 | — |
+| function | `cmd_donor_stage_spawn_dependencies` | `cmd_donor_stage_spawn_dependencies(a)` | 3663 | — |
+| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3676 | — |
+| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3696 | — |
+| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3713 | — |
+| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3732 | — |
+| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3744 | — |
+| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3758 | — |
+| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3776 | — |
+| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3789 | — |
+| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3803 | — |
+| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3813 | — |
+| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3826 | — |
+| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3863 | — |
+| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3965 | — |
+| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 4005 | — |
+| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 4029 | — |
+| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 4057 | — |
+| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 4079 | Fail closed when a candidate workflow explicitly requires an observed edit. |
+| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 4100 | — |
+| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 4122 | — |
+| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4169 | Prepare/open a reusable Blender workspace for a supported asset. |
+| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4258 | — |
+| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4541 | — |
+| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4548 | — |
+| function | `build_parser` | `build_parser()` | 4571 | — |
+| function | `main` | `main(argv = None)` | 5131 | — |
 
 ## `app/pt_asset_tool/client_enrichment.py`
 
@@ -2176,40 +2176,40 @@ _No top-level functions or classes._
 | function | `_deep_signature_scan` | `_deep_signature_scan(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 538 | Last-resort read-only scan of the configured donor root. |
 | function | `_scan_domain` | `_scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 601 | — |
 | function | `_closed_recovery_map` | `_closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]` | 652 | — |
-| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = "", query: str = "", donor: str = "", limit: int = 1500) -> dict[str, Any]` | 686 | — |
-| function | `_fold_identity` | `_fold_identity(value: str) -> str` | 784 | — |
-| function | `_iter_server_domain_files` | `_iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]` | 789 | Yield unique server-domain files independent of historical layout. |
-| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]` | 820 | — |
-| function | `_definition_model_file` | `_definition_model_file(doc: dict[str, Any]) -> str` | 886 | — |
-| function | `_existing_monster_semantic_alias` | `_existing_monster_semantic_alias(provider: SummitCanonicalContentProvider, donor_doc: dict[str, Any]) -> dict[str, Any] \| None` | 892 | Resolve a donor Monster onto an already-authoritative canonical entity. |
-| function | `_spawn_unresolved_slots` | `_spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]` | 935 | — |
-| function | `_apply_spawn_semantic_reconciliation` | `_apply_spawn_semantic_reconciliation(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, doc: dict[str, Any], *, preferred_donor: str) -> list[dict[str, Any]]` | 960 | Resolve donor-only legacy names onto existing canonical Monster IDs. |
-| function | `_selected_donor_root` | `_selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path` | 1031 | — |
-| function | `_resolve_donor_file` | `_resolve_donor_file(root: pathlib.Path, relative_path: str) -> tuple[pathlib.Path, pathlib.PurePosixPath]` | 1045 | — |
-| function | `_server_logical_path` | `_server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath` | 1056 | — |
-| function | `_run_tool` | `_run_tool(cmd: list[str], cwd: pathlib.Path) -> dict[str, Any]` | 1078 | — |
-| function | `_import_workspace` | `_import_workspace(project_root: pathlib.Path, donor_label: str, source: pathlib.Path) -> pathlib.Path` | 1085 | — |
-| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = "logical_path") -> dict[str, Any]` | 1094 | — |
-| function | `stage_spawn_from_donor` | `stage_spawn_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True, preview_only: bool = False) -> dict[str, Any]` | 1126 | — |
-| function | `_prepare_definition_import` | `_prepare_definition_import(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str) -> dict[str, Any]` | 1251 | — |
-| function | `_definition_ptbr_localization_delta` | `_definition_ptbr_localization_delta(provider: SummitCanonicalContentProvider, documents: Iterable[dict[str, Any]], *, fallback_names: dict[str, str] \| None = None) -> tuple[dict[str, Any] \| None, list[dict[str, Any]]]` | 1294 | Bridge newly imported definitions into the source-controlled pt-BR override. |
-| function | `stage_definition_from_donor` | `stage_definition_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str, replace_existing: bool = False, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1369 | — |
-| function | `stage_unique_spawn_dependencies_from_donor` | `stage_unique_spawn_dependencies_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1430 | — |
-| class | `_LazyCasefoldPathIndex` | `class _LazyCasefoldPathIndex` | 1586 | Resolve exact logical paths under one root without walking the whole tree. |
-| method | `_LazyCasefoldPathIndex.__init__` | `__init__(self, root: pathlib.Path) -> None` | 1589 | — |
-| method | `_LazyCasefoldPathIndex._resolve` | `_resolve(self, key: str) -> pathlib.Path \| None` | 1593 | — |
-| method | `_LazyCasefoldPathIndex.__contains__` | `__contains__(self, key: object) -> bool` | 1630 | — |
-| method | `_LazyCasefoldPathIndex.__getitem__` | `__getitem__(self, key: str) -> pathlib.Path` | 1633 | — |
-| method | `_LazyCasefoldPathIndex.get` | `get(self, key: str, default: Any = None) -> Any` | 1639 | — |
-| class | `_DirectedRecoveryPlan` | `class _DirectedRecoveryPlan` | 1644 | Minimal same-lineage plan used only after a dependency resolved in that donor. |
-| method | `_DirectedRecoveryPlan.get` | `get(self, key: str, default: Any = None) -> dict[str, str]` | 1647 | — |
-| function | `_configured_donor_side_root` | `_configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path` | 1657 | — |
-| function | `certify_targeted_physical_bundle` | `certify_targeted_physical_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1675 | Certify one explicit physical root without general census or full-tree walk. |
-| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1746 | — |
-| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1755 | — |
-| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str) -> dict[str, Any]` | 1795 | — |
-| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1834 | — |
-| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1893 | — |
+| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = "", query: str = "", donor: str = "", limit: int = 1500, compare_target: bool = False) -> dict[str, Any]` | 686 | — |
+| function | `_fold_identity` | `_fold_identity(value: str) -> str` | 796 | — |
+| function | `_iter_server_domain_files` | `_iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]` | 801 | Yield unique server-domain files independent of historical layout. |
+| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]` | 832 | — |
+| function | `_definition_model_file` | `_definition_model_file(doc: dict[str, Any]) -> str` | 898 | — |
+| function | `_existing_monster_semantic_alias` | `_existing_monster_semantic_alias(provider: SummitCanonicalContentProvider, donor_doc: dict[str, Any]) -> dict[str, Any] \| None` | 904 | Resolve a donor Monster onto an already-authoritative canonical entity. |
+| function | `_spawn_unresolved_slots` | `_spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]` | 947 | — |
+| function | `_apply_spawn_semantic_reconciliation` | `_apply_spawn_semantic_reconciliation(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, doc: dict[str, Any], *, preferred_donor: str) -> list[dict[str, Any]]` | 972 | Resolve donor-only legacy names onto existing canonical Monster IDs. |
+| function | `_selected_donor_root` | `_selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path` | 1043 | — |
+| function | `_resolve_donor_file` | `_resolve_donor_file(root: pathlib.Path, relative_path: str) -> tuple[pathlib.Path, pathlib.PurePosixPath]` | 1057 | — |
+| function | `_server_logical_path` | `_server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath` | 1068 | — |
+| function | `_run_tool` | `_run_tool(cmd: list[str], cwd: pathlib.Path) -> dict[str, Any]` | 1090 | — |
+| function | `_import_workspace` | `_import_workspace(project_root: pathlib.Path, donor_label: str, source: pathlib.Path) -> pathlib.Path` | 1097 | — |
+| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = "logical_path") -> dict[str, Any]` | 1106 | — |
+| function | `stage_spawn_from_donor` | `stage_spawn_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True, preview_only: bool = False) -> dict[str, Any]` | 1138 | — |
+| function | `_prepare_definition_import` | `_prepare_definition_import(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str) -> dict[str, Any]` | 1263 | — |
+| function | `_definition_ptbr_localization_delta` | `_definition_ptbr_localization_delta(provider: SummitCanonicalContentProvider, documents: Iterable[dict[str, Any]], *, fallback_names: dict[str, str] \| None = None) -> tuple[dict[str, Any] \| None, list[dict[str, Any]]]` | 1306 | Bridge newly imported definitions into the source-controlled pt-BR override. |
+| function | `stage_definition_from_donor` | `stage_definition_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str, replace_existing: bool = False, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1381 | — |
+| function | `stage_unique_spawn_dependencies_from_donor` | `stage_unique_spawn_dependencies_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1442 | — |
+| class | `_LazyCasefoldPathIndex` | `class _LazyCasefoldPathIndex` | 1598 | Resolve exact logical paths under one root without walking the whole tree. |
+| method | `_LazyCasefoldPathIndex.__init__` | `__init__(self, root: pathlib.Path) -> None` | 1601 | — |
+| method | `_LazyCasefoldPathIndex._resolve` | `_resolve(self, key: str) -> pathlib.Path \| None` | 1605 | — |
+| method | `_LazyCasefoldPathIndex.__contains__` | `__contains__(self, key: object) -> bool` | 1642 | — |
+| method | `_LazyCasefoldPathIndex.__getitem__` | `__getitem__(self, key: str) -> pathlib.Path` | 1645 | — |
+| method | `_LazyCasefoldPathIndex.get` | `get(self, key: str, default: Any = None) -> Any` | 1651 | — |
+| class | `_DirectedRecoveryPlan` | `class _DirectedRecoveryPlan` | 1656 | Minimal same-lineage plan used only after a dependency resolved in that donor. |
+| method | `_DirectedRecoveryPlan.get` | `get(self, key: str, default: Any = None) -> dict[str, str]` | 1659 | — |
+| function | `_configured_donor_side_root` | `_configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path` | 1669 | — |
+| function | `certify_targeted_physical_bundle` | `certify_targeted_physical_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1687 | Certify one explicit physical root without general census or full-tree walk. |
+| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1758 | — |
+| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1767 | — |
+| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str) -> dict[str, Any]` | 1807 | — |
+| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1846 | — |
+| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1905 | — |
 
 ## `app/pt_asset_tool/effect_runtime_coverage.py`
 

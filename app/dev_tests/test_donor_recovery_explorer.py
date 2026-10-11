@@ -777,3 +777,27 @@ def test_donor_physical_cli_root_does_not_override_project_root():
     ])
     assert stage.root is None
     assert stage.asset_root == "Field/StarArena/StarArena.smd"
+
+
+def test_filtered_explorer_can_compare_hidden_summit_target_for_missing_only(monkeypatch, tmp_path):
+    project = tmp_path / "project"; project.mkdir()
+    target_c = tmp_path / "client"; target_s = tmp_path / "server"; target_c.mkdir(); target_s.mkdir()
+    donor_c = tmp_path / "donor_client"; donor_s = tmp_path / "donor_server"; donor_c.mkdir(); donor_s.mkdir()
+    (target_s / "GameServer/Field").mkdir(parents=True)
+    (target_s / "GameServer/Field/lost3.ASE.spp").write_text("target")
+    (donor_s / "GameServer/Field").mkdir(parents=True)
+    (donor_s / "GameServer/Field/lost3.ASE.spm").write_text("*ACTOR Foo 1")
+    (donor_s / "GameServer/Field/donoronly.ASE.spm").write_text("*ACTOR Bar 1")
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR1={donor_c}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [f"DONOR1={donor_s}"])
+
+    result = dre.build_donor_explorer(
+        project, target_c, target_s,
+        domain="MAP_FIELD", donor="DONOR1", limit=50, compare_target=True,
+    )
+
+    assert [x["label"] for x in result["donors"]] == ["DONOR1"]
+    entities = {x["entity_key"]: x for x in result["entity_tree"]["MAP_FIELD"]["entities"]}
+    assert entities["lost3"]["has_target"] is True
+    assert entities["lost3"]["donor_labels"] == ["DONOR1", "SUMMIT"]
+    assert entities["donoronly"]["has_target"] is False

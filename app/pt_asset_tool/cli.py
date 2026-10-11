@@ -3572,6 +3572,7 @@ def cmd_donor_explore(a):
         query=getattr(a, "query", "") or "",
         donor=getattr(a, "donor", "") or "",
         limit=int(getattr(a, "limit", 1500) or 1500),
+        compare_target=bool(getattr(a, "missing_target_only", False)),
     )
     if bool(getattr(a, "missing_target_only", False)):
         missing = {}
