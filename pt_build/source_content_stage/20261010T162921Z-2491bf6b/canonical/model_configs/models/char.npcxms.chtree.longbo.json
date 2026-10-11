@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npcxms.chtree.longbo",
+  "logical_config": "char/npcXms/ChTree_Longbo.ini",
+  "legacy_cache": "char/npcXms/ChTree_Longbo.inx",
+  "consumers": [
+    {
+      "id": "npc.xmasguy",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Xmasguy.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": false,
+      "path": ""
+    },
+    "client": {
+      "present": false,
+      "path": ""
+    }
+  }
+}

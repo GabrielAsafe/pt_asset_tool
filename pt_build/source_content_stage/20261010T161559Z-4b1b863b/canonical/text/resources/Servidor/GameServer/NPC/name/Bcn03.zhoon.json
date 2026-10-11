@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bcn03",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Bcn03.zhoon",
+    "GameServer/NPC/name/Bcn03.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Bcn03.zhoon",
+    "legacy_sha256": "7b87596ea5f5b7e39f95382519f289abcba22a6feafaa11bc54a6ae18ef0cd62",
+    "legacy_size": 396
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Vendedora Sosarine"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu sou a irmã do meio das vendedoras do local."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Selbi, Rosa e eu gostaríamos de abrir uma grande loja em Ricarten."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se você chegou aqui pelo portal, você deverá usar um Core para sair."
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Às vezes, você poderá ver o brilho da Torre de Valhalla, daqui."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9CY24wMy5ucGMNCg0KKkpfTkFNRQkJCSJWZW5kZWRvcmEgU29zYXJpbmUiDQoNCipKX0NIQVQJCQkiRXUgc291IGEgaXJt4yBkbyBtZWlvIGRhcyB2ZW5kZWRvcmFzIGRvIGxvY2FsLiINCipKX0NIQVQgICAgICAgICAgICAgICAgICAgIlNlbGJpLCBSb3NhIGUgZXUgZ29zdGFy7WFtb3MgZGUgYWJyaXIgdW1hIGdyYW5kZSBsb2phIGVtIFJpY2FydGVuLiINCipKX0NIQVQgICAgICAgICAgICAgICAgICAgIlNlIHZvY+ogY2hlZ291IGFxdWkgcGVsbyBwb3J0YWwsIHZvY+ogZGV2ZXLhIHVzYXIgdW0gQ29yZSBwYXJhIHNhaXIuIg0KKkpfQ0hBVCAgICAgICAgICAgICAgICAgICAiwHMgdmV6ZXMsIHZvY+ogcG9kZXLhIHZlciBvIGJyaWxobyBkYSBUb3JyZSBkZSBWYWxoYWxsYSwgZGFxdWkuIg0K"
+  }
+}

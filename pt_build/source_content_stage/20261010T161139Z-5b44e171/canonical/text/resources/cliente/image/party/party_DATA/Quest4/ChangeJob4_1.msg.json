@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest4/ChangeJob4_1.msg",
+    "image/party/party_DATA/Quest4/ChangeJob4_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest4/ChangeJob4_1.msg",
+    "legacy_sha256": "0cfe85b40617c696a0f2025cb14dc81f292ab5942001b263c67b4d246e3a58d4",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt first step monster",
+      "appointed by master,",
+      "and go back to him",
+      "within the period."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IGZpcnN0IHN0ZXAgbW9uc3Rlcg0KYXBwb2ludGVkIGJ5IG1hc3RlciwNCmFuZCBnbyBiYWNrIHRvIGhpbQ0Kd2l0aGluIHRoZSBwZXJpb2Qu"
+  }
+}

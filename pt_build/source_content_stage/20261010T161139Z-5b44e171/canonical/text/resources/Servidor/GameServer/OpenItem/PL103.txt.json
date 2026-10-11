@@ -1,0 +1,142 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.pl103",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PL103.txt",
+    "GameServer/OpenItem/PL103.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PL103.txt",
+    "legacy_sha256": "d0fc6756b22b71d458138a04f937e8adeb3408b9e9725bcd13aff85610c46b7d",
+    "legacy_size": 235
+  },
+  "semantic": {
+    "fields": {
+      "code": "PL103",
+      "name": "Poção Grande de HP",
+      "english_name": "Poção Grande de HP",
+      "life_alt": [
+        800,
+        900
+      ],
+      "weight": 1,
+      "price": 250,
+      "linked_file": "Name\\PL103.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PL103"
+        ],
+        "raw_values_hex": [
+          "504c313033"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Grande de HP"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204772616e6465206465204850"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Grande de HP"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204772616e6465206465204850"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "life_alt",
+        "legacy_token": "*생명력상승",
+        "legacy_token_hex": "2abbfdb8edb7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [
+          800,
+          900
+        ],
+        "raw_values_hex": [
+          "383030",
+          "393030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          250
+        ],
+        "raw_values_hex": [
+          "323530"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PL103.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c504c3130332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBMMTAzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gR3JhbmRlIGRlIEhQIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIlBv5+NvIEdyYW5kZSBkZSBIUCINCg0KLy9IUFJlY292ZXJ5DQoqu/247bfCu/O9wiA4MDAgOTAwDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDI1MA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFBMMTAzLnpob29uIg=="
+  }
+}

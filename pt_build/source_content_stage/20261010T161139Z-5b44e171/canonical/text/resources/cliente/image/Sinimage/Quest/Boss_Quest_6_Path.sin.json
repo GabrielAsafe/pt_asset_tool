@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_6_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_6_Path.sin",
+    "image/Sinimage/Quest/Boss_Quest_6_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_6_Path.sin",
+    "legacy_sha256": "95d116c5b2eef7c66514e2c9499f59ba5c3d1c3ed4a7369e0211001c60690e0a",
+    "legacy_size": 47
+  },
+  "semantic": {
+    "lines": [
+      "Derrote Omicronos no Templo Maldito (2º Andar)."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBPbWljcm9ub3Mgbm8gVGVtcGxvIE1hbGRpdG8gKDK6IEFuZGFyKS4="
+  }
+}

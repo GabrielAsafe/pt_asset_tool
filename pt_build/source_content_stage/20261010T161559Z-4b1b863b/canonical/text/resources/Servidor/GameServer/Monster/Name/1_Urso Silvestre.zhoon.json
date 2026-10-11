@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_urso_silvestre",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Urso Silvestre.zhoon",
+    "GameServer/Monster/Name/1_Urso Silvestre.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Urso Silvestre.zhoon",
+    "legacy_sha256": "ef921ceb12c4f8b0de48977d4950ba8a521664df19c2e7814745ad1822f31484",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Urso Silvestre"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVXJzbyBTaWx2ZXN0cmUi"
+  }
+}

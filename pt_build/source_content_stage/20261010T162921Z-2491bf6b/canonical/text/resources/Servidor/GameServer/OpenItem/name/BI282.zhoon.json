@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi282",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI282.zhoon",
+    "GameServer/OpenItem/name/BI282.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI282.zhoon",
+    "legacy_sha256": "9d8ecb2be656698b470cb20afcef7d9dd758c0ab6a0118e7bbf1c44f8daa60fb",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Aging Direto +26"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQWdpbmcgRGlyZXRvICsyNiI="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or107",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR107.zhoon",
+    "GameServer/OpenItem/name/OR107.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR107.zhoon",
+    "legacy_sha256": "7fe7e77075f85cc98f3bc14a24303ad7dc102e39379c16bd10046c91b62b2a59",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Anel Precioso +2"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQW5lbCBQcmVjaW9zbyArMiI="
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.chaoticpost",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/chaoticpost.sin",
+    "image/Sinimage/WarpGateDoc/chaoticpost.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/chaoticpost.sin",
+    "legacy_sha256": "71705d0566b0d015b45061c283e3eb55c73863abe8da3f67c9c9e76dfa1b4f32",
+    "legacy_size": 230
+  },
+  "semantic": {
+    "lines": [
+      "Land of Chaos is the island that Midranda's corps ",
+      "had been stationed before discovered as a sealed ",
+      "island. The monsters are stationing in the Land of ",
+      "Chaos, are full of high-powered monsters and make",
+      "people' blood run cold."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGFuZCBvZiBDaGFvcyBpcyB0aGUgaXNsYW5kIHRoYXQgTWlkcmFuZGEncyBjb3JwcyANCmhhZCBiZWVuIHN0YXRpb25lZCBiZWZvcmUgZGlzY292ZXJlZCBhcyBhIHNlYWxlZCANCmlzbGFuZC4gVGhlIG1vbnN0ZXJzIGFyZSBzdGF0aW9uaW5nIGluIHRoZSBMYW5kIG9mIA0KQ2hhb3MsIGFyZSBmdWxsIG9mIGhpZ2gtcG93ZXJlZCBtb25zdGVycyBhbmQgbWFrZQ0KcGVvcGxlJyBibG9vZCBydW4gY29sZC4="
+  }
+}

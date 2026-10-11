@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.m_wing_a",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/M_Wing_a.sin",
+    "image/Sinimage/Quest/M_Wing_a.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/M_Wing_a.sin",
+    "legacy_sha256": "4d36732c57fca15d8132467b388df1757e802ea4122b9233e3e07c6b0688c9fc",
+    "legacy_size": 586
+  },
+  "semantic": {
+    "lines": [
+      "Hm...you don't have wing items.",
+      "Then you cannot use the power of teleport.",
+      "Well...you have no idea what teleport and ",
+      "wing items are?",
+      "You will be able to find a teleport spot ",
+      "in every area in Priston land.",
+      "You may teleport yourself to another place ",
+      "through the warp gate. However, you must have ",
+      "a wing item to use this convenient feature.",
+      "A wing item is made of combining monster ",
+      "crystals. I can make you one if you bring me ",
+      "those crystals.",
+      "Bring me a hoppie crystal, hob goblin crystal, ",
+      "and 3000 gold, then I will give you a metal ",
+      "wing. What do you say? Wanna try?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SG0uLi55b3UgZG9uJ3QgaGF2ZSB3aW5nIGl0ZW1zLg0KVGhlbiB5b3UgY2Fubm90IHVzZSB0aGUgcG93ZXIgb2YgdGVsZXBvcnQuDQpXZWxsLi4ueW91IGhhdmUgbm8gaWRlYSB3aGF0IHRlbGVwb3J0IGFuZCANCndpbmcgaXRlbXMgYXJlPw0KWW91IHdpbGwgYmUgYWJsZSB0byBmaW5kIGEgdGVsZXBvcnQgc3BvdCANCmluIGV2ZXJ5IGFyZWEgaW4gUHJpc3RvbiBsYW5kLg0KWW91IG1heSB0ZWxlcG9ydCB5b3Vyc2VsZiB0byBhbm90aGVyIHBsYWNlIA0KdGhyb3VnaCB0aGUgd2FycCBnYXRlLiBIb3dldmVyLCB5b3UgbXVzdCBoYXZlIA0KYSB3aW5nIGl0ZW0gdG8gdXNlIHRoaXMgY29udmVuaWVudCBmZWF0dXJlLg0KQSB3aW5nIGl0ZW0gaXMgbWFkZSBvZiBjb21iaW5pbmcgbW9uc3RlciANCmNyeXN0YWxzLiBJIGNhbiBtYWtlIHlvdSBvbmUgaWYgeW91IGJyaW5nIG1lIA0KdGhvc2UgY3J5c3RhbHMuDQpCcmluZyBtZSBhIGhvcHBpZSBjcnlzdGFsLCBob2IgZ29ibGluIGNyeXN0YWwsIA0KYW5kIDMwMDAgZ29sZCwgdGhlbiBJIHdpbGwgZ2l2ZSB5b3UgYSBtZXRhbCANCndpbmcuIFdoYXQgZG8geW91IHNheT8gV2FubmEgdHJ5Pw=="
+  }
+}

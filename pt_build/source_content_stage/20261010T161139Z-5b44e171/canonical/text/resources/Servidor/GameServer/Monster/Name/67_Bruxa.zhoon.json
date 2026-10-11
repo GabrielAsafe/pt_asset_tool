@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.67_bruxa",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/67_Bruxa.zhoon",
+    "GameServer/Monster/Name/67_Bruxa.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/67_Bruxa.zhoon",
+    "legacy_sha256": "c369fc46883c6fc1333aafe5cecb388084a4f48c180b168dbd4fafd0d7a2d185",
+    "legacy_size": 15
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Bruxa"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQnJ1eGEi"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monstonegolem.monstonegolem",
+  "logical_config": "char/monster/monstonegolem/monstonegolem.ini",
+  "legacy_cache": "char/monster/monstonegolem/monstonegolem.inx",
+  "consumers": [
+    {
+      "id": "monster.69_golem_de_pedra",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/69_Golem de Pedra.inf.json"
+    },
+    {
+      "id": "monster.r3_golem_de_pedra",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R3 Golem de Pedra.inf.json"
+    },
+    {
+      "id": "monster.sod_stone_golem",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_stone_golem.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monstonegolem/Monstonegolem.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monstonegolem/Monstonegolem.inx"
+    }
+  }
+}

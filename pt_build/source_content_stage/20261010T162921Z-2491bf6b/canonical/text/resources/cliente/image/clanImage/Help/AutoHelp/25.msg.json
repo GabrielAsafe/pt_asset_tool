@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.25",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/25.msg",
+    "image/clanImage/Help/AutoHelp/25.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/25.msg",
+    "legacy_sha256": "180dffe37d5820c0db2bb26fd0b2a05ef5e87e6030527c5b2ca1b86ed7432b1a",
+    "legacy_size": 281
+  },
+  "semantic": {
+    "lines": [
+      "You can use Automatic attack funtion with shift key pressed ",
+      "till the battle ends. You can attack the counterparty or",
+      "drink the potion during the match while not pressing mouse button.",
+      "It's automatically canceled when you move to other places ",
+      "or attack different monsters.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91IGNhbiB1c2UgQXV0b21hdGljIGF0dGFjayBmdW50aW9uIHdpdGggc2hpZnQga2V5IHByZXNzZWQgDQp0aWxsIHRoZSBiYXR0bGUgZW5kcy4gWW91IGNhbiBhdHRhY2sgdGhlIGNvdW50ZXJwYXJ0eSBvcg0KZHJpbmsgdGhlIHBvdGlvbiBkdXJpbmcgdGhlIG1hdGNoIHdoaWxlIG5vdCBwcmVzc2luZyBtb3VzZSBidXR0b24uDQpJdCdzIGF1dG9tYXRpY2FsbHkgY2FuY2VsZWQgd2hlbiB5b3UgbW92ZSB0byBvdGhlciBwbGFjZXMgDQpvciBhdHRhY2sgZGlmZmVyZW50IG1vbnN0ZXJzLg0KDQo="
+  }
+}

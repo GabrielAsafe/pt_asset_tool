@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_slaughter",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_slaughter.zhoon",
+    "GameServer/Monster/Name/new_sod_slaughter.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_slaughter.zhoon",
+    "legacy_sha256": "ebf952694965c5b679ad8e46b8bfc51d5e96e8502791bc53dac4b52018a04fe1",
+    "legacy_size": 31
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Carniceiro do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJDYXJuaWNlaXJvIGRvIFNvRCINCg=="
+  }
+}

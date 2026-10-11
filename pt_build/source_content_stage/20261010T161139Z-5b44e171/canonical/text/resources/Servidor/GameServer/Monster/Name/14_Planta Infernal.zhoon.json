@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.14_planta_infernal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/14_Planta Infernal.zhoon",
+    "GameServer/Monster/Name/14_Planta Infernal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/14_Planta Infernal.zhoon",
+    "legacy_sha256": "a34dfcac9898d61f6816f522b46acb6a3b0c9dfc3e26a1d2303865e9081e22cf",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Planta Infernal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGxhbnRhIEluZmVybmFsIg=="
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ds102",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DS102.txt",
+    "GameServer/OpenItem/DS102.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DS102.txt",
+    "legacy_sha256": "e951b4b51deae5084e3fae278e84490ef62a5094a7d03e172a2cd49a45d4538f",
+    "legacy_size": 640
+  },
+  "semantic": {
+    "fields": {
+      "code": "DS102",
+      "name": "Escudo Tampa",
+      "english_name": "Escudo Tampa",
+      "defence": [
+        6,
+        13
+      ],
+      "absorb": [
+        1.0,
+        1.4
+      ],
+      "block": [
+        8.0,
+        11.0
+      ],
+      "bionic": [
+        1,
+        3
+      ],
+      "fire": [
+        1,
+        3
+      ],
+      "ice": [
+        1,
+        3
+      ],
+      "lightning": [
+        -2,
+        -1
+      ],
+      "poison": [
+        1,
+        3
+      ],
+      "durability": [
+        20,
+        40
+      ],
+      "strength": 36,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta"
+      ],
+      "special_absorb": [
+        0.2,
+        0.4
+      ],
+      "special_block": 3.0,
+      "weight": 4,
+      "price": 420,
+      "linked_file": "Name\\DS102.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DS102"
+        ],
+        "raw_values_hex": [
+          "4453313032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Escudo Tampa"
+        ],
+        "raw_values_hex": [
+          "45736375646f2054616d7061"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Escudo Tampa"
+        ],
+        "raw_values_hex": [
+          "45736375646f2054616d7061"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          13
+        ],
+        "raw_values_hex": [
+          "36",
+          "3133"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0,
+          1.4
+        ],
+        "raw_values_hex": [
+          "312e30",
+          "312e34"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          8.0,
+          11.0
+        ],
+        "raw_values_hex": [
+          "382e30",
+          "31312e30"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          -2,
+          -1
+        ],
+        "raw_values_hex": [
+          "2d32",
+          "2d31"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          20,
+          40
+        ],
+        "raw_values_hex": [
+          "3230",
+          "3430"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          36
+        ],
+        "raw_values_hex": [
+          "3336"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.2,
+          0.4
+        ],
+        "raw_values_hex": [
+          "302e32",
+          "302e34"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_block",
+        "legacy_token": "**블럭율",
+        "legacy_token_hex": "2a2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0
+        ],
+        "raw_values_hex": [
+          "332e30"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          420
+        ],
+        "raw_values_hex": [
+          "343230"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DS102.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44533130322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRTMTAyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiRXNjdWRvIFRhbXBhIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkVzY3VkbyBUYW1wYSINCg0KLy9EZWZlbnNlDQoquea+7rfCIDYgMTMNCg0KLy9BYnNvcnB0aW9uDQoqyO289rfCIDEuMCAxLjQNCg0KLy9CbG9jaw0KKrrtt7DAsiA4LjAgMTEuMA0KDQovL09yZ2FuaWNSZXNpc3RhbmNlDQoqu/3DvCAxIDMNCg0KLy9GaXJlUmVzaXN0YW5jZQ0KKrrSIDEgMw0KDQovL0Zyb3N0UmVzaXN0YW5jZQ0KKrPDseIgMSAzDQoNCi8vTGlnaHRuaW5nUmVzaXN0YW5jZQ0KKrn4sLMgLTIgLTENCg0KLy9Qb2lzb25SZXNpc3RhbmNlDQoqtbYgMSAzDQoNCi8vSW50ZWdyaXR5DQoqs7uxuLfCIDIwIDQwDQoNCi8vU3RyZW5ndGgNCirI+yAzNg0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gTWVjaGFuaWNpYW4gRmlnaHRlciBQaWtlbWFuIEFyY2hlciBLbmlnaHQgQXRhbGFudGENCg0KLy9TcGVjQWJzb3JwdGlvbg0KKirI7bz2t8IgMC4yIDAuNA0KDQovL1NwZWNCbG9jaw0KKiq67bewwLIgMy4wDQoNCi8vV2VpZ2h0DQoquauw1CA0DQoNCi8vUHJpY2UNCiqwobDdIDQyMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXERTMTAyLnpob29uIg=="
+  }
+}

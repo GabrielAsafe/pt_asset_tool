@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wc101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WC101.zhoon",
+    "GameServer/OpenItem/name/WC101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WC101.zhoon",
+    "legacy_sha256": "ac6f277600f835b37e06f19b9b249b8c1fc9c0b2b61385c1abb82f699e77a2df",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Garra de Águia"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR2FycmEgZGUgwWd1aWEi"
+  }
+}

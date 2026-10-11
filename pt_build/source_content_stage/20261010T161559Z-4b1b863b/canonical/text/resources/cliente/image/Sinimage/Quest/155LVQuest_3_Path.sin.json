@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_3_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_3_Path.sin",
+    "image/Sinimage/Quest/155LVQuest_3_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_3_Path.sin",
+    "legacy_sha256": "81348fd3f85ecef5ce99db697c2496415d61584332de237b6375cf14491e7e7b",
+    "legacy_size": 520
+  },
+  "semantic": {
+    "lines": [
+      "A temperatura no fundo do mar também está caindo muito",
+      "rápido. Precisamos ativar a Esfera do Fogo no Abismo do",
+      "Mar Congelado. Não perca tempo, o povo do mar está em",
+      "perigo. O fluxo do rio glacial tem que ser interrompido.",
+      " ",
+      "Por favor, vá até o Abismo do Mar Congelado, invoque a",
+      "Esfera do Fogo e derrote 100 monstros.",
+      "",
+      "Uma luz no chão indicará o lugar correto para invocar a",
+      "Esfera do Fogo. Ela se encontra no seu inventário de",
+      "Quests. ",
+      "",
+      "Tenha cuidado com os monstros ao redor.",
+      "",
+      "Volte aqui quando terminar."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSB0ZW1wZXJhdHVyYSBubyBmdW5kbyBkbyBtYXIgdGFtYultIGVzdOEgY2FpbmRvIG11aXRvDQpy4XBpZG8uIFByZWNpc2Ftb3MgYXRpdmFyIGEgRXNmZXJhIGRvIEZvZ28gbm8gQWJpc21vIGRvDQpNYXIgQ29uZ2VsYWRvLiBO428gcGVyY2EgdGVtcG8sIG8gcG92byBkbyBtYXIgZXN04SBlbQ0KcGVyaWdvLiBPIGZsdXhvIGRvIHJpbyBnbGFjaWFsIHRlbSBxdWUgc2VyIGludGVycm9tcGlkby4NCiANClBvciBmYXZvciwgduEgYXTpIG8gQWJpc21vIGRvIE1hciBDb25nZWxhZG8sIGludm9xdWUgYQ0KRXNmZXJhIGRvIEZvZ28gZSBkZXJyb3RlIDEwMCBtb25zdHJvcy4NCg0KVW1hIGx1eiBubyBjaONvIGluZGljYXLhIG8gbHVnYXIgY29ycmV0byBwYXJhIGludm9jYXIgYQ0KRXNmZXJhIGRvIEZvZ28uIEVsYSBzZSBlbmNvbnRyYSBubyBzZXUgaW52ZW504XJpbyBkZQ0KUXVlc3RzLiANCg0KVGVuaGEgY3VpZGFkbyBjb20gb3MgbW9uc3Ryb3MgYW8gcmVkb3IuDQoNClZvbHRlIGFxdWkgcXVhbmRvIHRlcm1pbmFyLg=="
+  }
+}

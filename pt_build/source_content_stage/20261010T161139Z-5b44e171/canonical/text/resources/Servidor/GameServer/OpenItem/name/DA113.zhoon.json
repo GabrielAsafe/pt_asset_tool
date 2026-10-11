@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da113",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA113.zhoon",
+    "GameServer/OpenItem/name/DA113.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA113.zhoon",
+    "legacy_sha256": "2c72c0f6589316f50b326960e06954fc926c544a78e47a45e8863f1cd83a1554",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Armadura Suprema"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJtYWR1cmEgU3VwcmVtYSI="
+  }
+}

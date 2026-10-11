@@ -1,0 +1,166 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ca647",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CA647.txt",
+    "GameServer/OpenItem/CA647.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CA647.txt",
+    "legacy_sha256": "8978b3e847fa73163e4f08b9e24eef0bfef302b6652a0db0fb91a7f958fd8014",
+    "legacy_size": 278
+  },
+  "semantic": {
+    "fields": {
+      "code": "CA647",
+      "name": "Traje Mágico Hopi 2d",
+      "english_name": "Traje Mágico Hopi 2d",
+      "weight": 1,
+      "absorb": [
+        15.0,
+        15.0
+      ],
+      "life_add_alt": [
+        250,
+        250
+      ],
+      "life_regen_alt": [
+        5.0,
+        5.0
+      ],
+      "linked_file": "Name\\CA647.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CA647"
+        ],
+        "raw_values_hex": [
+          "4341363437"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Mágico Hopi 2d"
+        ],
+        "raw_values_hex": [
+          "5472616a65204de16769636f20486f7069203264"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Mágico Hopi 2d"
+        ],
+        "raw_values_hex": [
+          "5472616a65204de16769636f20486f7069203264"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          15.0,
+          15.0
+        ],
+        "raw_values_hex": [
+          "31352e30",
+          "31352e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          250,
+          250
+        ],
+        "raw_values_hex": [
+          "323530",
+          "323530"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "life_regen_alt",
+        "legacy_token": "*생명력재생",
+        "legacy_token_hex": "2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          5.0,
+          5.0
+        ],
+        "raw_values_hex": [
+          "352e30",
+          "352e30"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\CA647.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c43413634372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkNBNjQ3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiVHJhamUgTeFnaWNvIEhvcGkgMmQiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiVHJhamUgTeFnaWNvIEhvcGkgMmQiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiAxNS4wIDE1LjANCg0KLy9IUA0KKrv9uO23wsPfsKEgMjUwIDI1MA0KDQovL0hQUmVnZW4NCiq7/bjtt8LA57v9IDUuMCA1LjANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxDQTY0Ny56aG9vbiI="
+  }
+}

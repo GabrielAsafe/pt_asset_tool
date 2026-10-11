@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.blesscatle_guard",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/blesscatle-guard.npc",
+    "GameServer/NPC/blesscatle-guard.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/blesscatle-guard.npc",
+    "legacy_sha256": "80fea515b8c55083e62ddc6ddadfc0a0feb28a4e85da0c219d5c730180c45255",
+    "legacy_size": 616
+  },
+  "semantic": {
+    "fields": {
+      "name": "블레스캐슬 가드",
+      "model_file": "char\\npc\\TN-001\\TN-001.INI",
+      "level": 100,
+      "linked_file": "name\\blesscatle-guard.zhoon",
+      "model_config_id": "model.char.npc.tn.001.tn.001"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "블레스캐슬 가드"
+        ],
+        "raw_values_hex": [
+          "baedb7b9bdbac4b3bdbd20b0a1b5e5"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-001\\TN-001.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030315c544e2d3030312e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\blesscatle-guard.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c626c6573736361746c652d67756172642e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK67be5vbrEs729ILChteUiDQoNCiq48L7nxsTAzwkiY2hhclxucGNcVE4tMDAxXFROLTAwMS5JTkkiDQoNCiq3ubqnCQkxMDANCg0KLy8qtOvIrQkJIr7zuLbA/L+hILnOurS067fOIMH2v/jH37TCtaUgvLq5rr7VILq4w8q4piC8rbbztM8hILPKuavH0bDFIL7GtKIhIg0KLy8qtOvIrQkJIrD4vLrA/MDMIL+tuLG2p7jpIMDMsPfAuiC89iC4ucC6IMD8u+e16cDHIMD8xfW3ziC537XwtfQgxrTAzCC++L7uwfi02b/ALiINCi8vKrTryK0gICAgICAgICAgICLB9rHdwLogvLq+yMC4t84gwMy1v8fSILz2IL74vNIhIg0KLy8qtOvIrSAgICAgICAgICAgIry6IL7IwMcgv+y4riC6tLfCwLsgs+vD4iC9w8WzILz2IL74tNm/wC4gwPy757XpwLogx9G538KmtbUgtenAzMH2ILi7tvO0wiC+9rjtwMy/5CINCi8vKrTryK0gICAgICAgICAgICLAzLrBILTnvcUhILHXILmrseK0wiC+87i2wPyx7sH2ILO7sKEgsK6w7SDA1rT4ILmrseIgsLDAurWlLi4uLi4iDQovLyq068itICAgICAgICAgICAis7sgtf4gvLy9x7iuvsa4piC6uLDFtecgvsa59sH2tMIgwN8gwNa02bDtIL7Ius4gwbsgwPzH2MHWvcO/wD8iIA0KDQoqv6yw4cbEwM8JIm5hbWVcYmxlc3NjYXRsZS1ndWFyZC56aG9vbiINCg=="
+  }
+}

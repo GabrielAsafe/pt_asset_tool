@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_5_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_5_Start.sin",
+    "image/Sinimage/Quest/Boss_Quest_5_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_5_Start.sin",
+    "legacy_sha256": "8387caf2dffbd25ec8054e95eab96f49f12511b03cdd855528301e522c384076",
+    "legacy_size": 507
+  },
+  "semantic": {
+    "lines": [
+      "Ei, você já foi ao Santuário Sombrio antes?",
+      "É um lugar imundo cheio de monstros cobra muito ferozes, ",
+      "chamados de Guardião de Lama.",
+      "",
+      "Quando era mais novo, fui lá em muitas ocasiões...",
+      "Lá também existe um monstro extremamente ágil, e mesmo um",
+      "grande guerreiro como eu experimentou um grande problema.",
+      "Ele é chamado de Perseguidor Sombrio.",
+      "Você não quer provar sua habilidade derrotando ele?",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Derrote o Perseguidor Sombrio no Santuário Sombrio e fale",
+      "com Proud em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RWksIHZvY+ogauEgZm9pIGFvIFNhbnR14XJpbyBTb21icmlvIGFudGVzPw0KySB1bSBsdWdhciBpbXVuZG8gY2hlaW8gZGUgbW9uc3Ryb3MgY29icmEgbXVpdG8gZmVyb3plcywgDQpjaGFtYWRvcyBkZSBHdWFyZGnjbyBkZSBMYW1hLg0KDQpRdWFuZG8gZXJhIG1haXMgbm92bywgZnVpIGzhIGVtIG11aXRhcyBvY2FzafVlcy4uLg0KTOEgdGFtYultIGV4aXN0ZSB1bSBtb25zdHJvIGV4dHJlbWFtZW50ZSDhZ2lsLCBlIG1lc21vIHVtDQpncmFuZGUgZ3VlcnJlaXJvIGNvbW8gZXUgZXhwZXJpbWVudG91IHVtIGdyYW5kZSBwcm9ibGVtYS4NCkVsZSDpIGNoYW1hZG8gZGUgUGVyc2VndWlkb3IgU29tYnJpby4NClZvY+ogbuNvIHF1ZXIgcHJvdmFyIHN1YSBoYWJpbGlkYWRlIGRlcnJvdGFuZG8gZWxlPw0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KRGVycm90ZSBvIFBlcnNlZ3VpZG9yIFNvbWJyaW8gbm8gU2FudHXhcmlvIFNvbWJyaW8gZSBmYWxlDQpjb20gUHJvdWQgZW0gUmljYXJ0ZW4u"
+  }
+}

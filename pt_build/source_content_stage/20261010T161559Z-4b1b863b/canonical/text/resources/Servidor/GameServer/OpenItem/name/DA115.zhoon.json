@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da115",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA115.zhoon",
+    "GameServer/OpenItem/name/DA115.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA115.zhoon",
+    "legacy_sha256": "6601c17b9a848cdd4cac6b3d001d7af11fd519cedfa1b6ae358e3142a55afbb7",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Armadura Titã"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJtYWR1cmEgVGl04yI="
+  }
+}

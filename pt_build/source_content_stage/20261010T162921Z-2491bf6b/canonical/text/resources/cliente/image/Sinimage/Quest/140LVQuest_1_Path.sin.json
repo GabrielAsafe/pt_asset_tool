@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_1_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_1_Path.sin",
+    "image/Sinimage/Quest/140LVQuest_1_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_1_Path.sin",
+    "legacy_sha256": "4b8c729fb7f12a9ad3a33dfe9c3c8b4a6e798250bacbbaf1aa903ba0f1b45a1d",
+    "legacy_size": 666
+  },
+  "semantic": {
+    "lines": [
+      "Quando fomos atacados pelos mensageiros de Yagditha, ",
+      "realizei várias varreduras psíquicas junto com as",
+      "Sacerdotisas Elementais, buscando rastros de Midranda, mas",
+      "não tivemos sucesso. Porém, durante o ataque dos lagartos, ",
+      "infectados por Yagditha, senti a aura de Midranda. ",
+      "",
+      "Foi rápido, mas tenho certeza que ele está escondido no",
+      "Abismo do Mar. Precisamos descobrir sua localização exata.",
+      "E sua participação será fundamental para nossos planos.",
+      "",
+      "Por favor, fale com a sereia Marina no Abismo do Mar, ela",
+      "é nosso contato dentro do povo das águas e lhe atualizará ",
+      "sobre a situação. Mas tenha paciência, ela pode ser um ",
+      "pouco ríspida com desconhecidos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UXVhbmRvIGZvbW9zIGF0YWNhZG9zIHBlbG9zIG1lbnNhZ2Vpcm9zIGRlIFlhZ2RpdGhhLCANCnJlYWxpemVpIHbhcmlhcyB2YXJyZWR1cmFzIHBz7XF1aWNhcyBqdW50byBjb20gYXMNClNhY2VyZG90aXNhcyBFbGVtZW50YWlzLCBidXNjYW5kbyByYXN0cm9zIGRlIE1pZHJhbmRhLCBtYXMNCm7jbyB0aXZlbW9zIHN1Y2Vzc28uIFBvcultLCBkdXJhbnRlIG8gYXRhcXVlIGRvcyBsYWdhcnRvcywgDQppbmZlY3RhZG9zIHBvciBZYWdkaXRoYSwgc2VudGkgYSBhdXJhIGRlIE1pZHJhbmRhLiANCg0KRm9pIHLhcGlkbywgbWFzIHRlbmhvIGNlcnRlemEgcXVlIGVsZSBlc3ThIGVzY29uZGlkbyBubw0KQWJpc21vIGRvIE1hci4gUHJlY2lzYW1vcyBkZXNjb2JyaXIgc3VhIGxvY2FsaXph5+NvIGV4YXRhLg0KRSBzdWEgcGFydGljaXBh5+NvIHNlcuEgZnVuZGFtZW50YWwgcGFyYSBub3Nzb3MgcGxhbm9zLg0KDQpQb3IgZmF2b3IsIGZhbGUgY29tIGEgc2VyZWlhIE1hcmluYSBubyBBYmlzbW8gZG8gTWFyLCBlbGENCukgbm9zc28gY29udGF0byBkZW50cm8gZG8gcG92byBkYXMg4Wd1YXMgZSBsaGUgYXR1YWxpemFy4SANCnNvYnJlIGEgc2l0dWHn428uIE1hcyB0ZW5oYSBwYWNp6m5jaWEsIGVsYSBwb2RlIHNlciB1bSANCnBvdWNvIHLtc3BpZGEgY29tIGRlc2NvbmhlY2lkb3Mu"
+  }
+}

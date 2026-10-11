@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv112",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV112.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV112.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV112.zhoon",
+    "legacy_sha256": "3854a4817145dcc3100cb5fc0bf7cc288440de7d8bdb2d381a37e84a8ab0aa88",
+    "legacy_size": 45
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pedon Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjExMi50eHQNCg0KKkpfTkFNRQkJIlBlZG9uIFNuYWtlIEJyYWNlIg0K"
+  }
+}

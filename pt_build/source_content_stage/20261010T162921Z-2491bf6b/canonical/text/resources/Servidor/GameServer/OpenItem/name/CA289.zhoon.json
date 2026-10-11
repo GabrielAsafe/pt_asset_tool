@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca289",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/CA289.zhoon",
+    "GameServer/OpenItem/name/CA289.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/CA289.zhoon",
+    "legacy_sha256": "694090d52d080f6fb8ed46c87a226c34f18e6aab6c3789729baaaf4c3e9fdf16",
+    "legacy_size": 31
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Traje Mágico Corvo 1d"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVHJhamUgTeFnaWNvIENvcnZvIDFkIg=="
+  }
+}

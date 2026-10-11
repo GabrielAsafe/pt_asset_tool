@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sp111",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/sp111.zhoon",
+    "GameServer/OpenItem/name/sp111.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/sp111.zhoon",
+    "legacy_sha256": "4e0759a2c740603d846c4e6018af156f72eb2f6d79f627c1c98102d8f28acbd0",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 2,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Caixa da Sorte"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqSl9OYW1lCQkiQ2FpeGEgZGEgU29ydGUiDQo="
+  }
+}

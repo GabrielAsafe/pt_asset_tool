@@ -1,0 +1,11 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.pilai",
+  "logical_path": "GameServer/Field/pilai.ASE.spp",
+  "points": [],
+  "provenance": {
+    "source": "GameServer/Field/pilai.ASE.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "35a0b154f73783257e04394d685008df724f23d4af1ad5ee7e136abfc680b9fe"
+  }
+}

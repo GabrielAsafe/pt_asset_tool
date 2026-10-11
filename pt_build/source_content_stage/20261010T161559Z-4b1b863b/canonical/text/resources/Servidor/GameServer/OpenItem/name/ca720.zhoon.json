@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca720",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ca720.zhoon",
+    "GameServer/OpenItem/name/ca720.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ca720.zhoon",
+    "legacy_sha256": "c72eebffb196e4819bafc0f20af24ad1aa34c07c36a74772f377ad996ce9c5d3",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Traje Combatente"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIlRyYWplIENvbWJhdGVudGUiDQo="
+  }
+}

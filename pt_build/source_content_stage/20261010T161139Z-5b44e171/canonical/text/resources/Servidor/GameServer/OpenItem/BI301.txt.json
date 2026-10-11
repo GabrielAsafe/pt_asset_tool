@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi301",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI301.txt",
+    "GameServer/OpenItem/BI301.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI301.txt",
+    "legacy_sha256": "2dba5480264f65ca2e19e13cf24586b6a92d62e463ddab58bbe4e746fa813fdf",
+    "legacy_size": 166
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI301",
+      "name": "Caixa EndGame",
+      "english_name": "Caixa EndGame",
+      "weight": 1,
+      "linked_file": "Name\\BI301.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI301"
+        ],
+        "raw_values_hex": [
+          "4249333031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Caixa EndGame"
+        ],
+        "raw_values_hex": [
+          "436169786120456e6447616d65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Caixa EndGame"
+        ],
+        "raw_values_hex": [
+          "436169786120456e6447616d65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI301.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493330312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMzAxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ2FpeGEgRW5kR2FtZSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJDYWl4YSBFbmRHYW1lIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJJMzAxLnpob29uIg=="
+  }
+}

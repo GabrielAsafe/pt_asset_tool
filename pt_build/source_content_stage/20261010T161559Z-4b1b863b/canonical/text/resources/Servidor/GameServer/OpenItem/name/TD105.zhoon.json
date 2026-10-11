@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.td105",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/TD105.zhoon",
+    "GameServer/OpenItem/name/TD105.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/TD105.zhoon",
+    "legacy_sha256": "db67d347372b69489bcec70583c9bb2ea26566cfbef1ea66f757497782d7c842",
+    "legacy_size": 43
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Add Event Boots"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwMS50eHQNCg0KKkpfTmFtZQkJIkFkZCBFdmVudCBCb290cyINCg=="
+  }
+}

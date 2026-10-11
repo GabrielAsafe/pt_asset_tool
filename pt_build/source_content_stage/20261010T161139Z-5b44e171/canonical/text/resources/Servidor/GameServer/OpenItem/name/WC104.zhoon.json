@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wc104",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WC104.zhoon",
+    "GameServer/OpenItem/name/WC104.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WC104.zhoon",
+    "legacy_sha256": "d7eeeba40e0651a829ed6e230a68a805918e980fa8582f6b3deb199e4f2ac264",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Garra de Cobra"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR2FycmEgZGUgQ29icmEi"
+  }
+}

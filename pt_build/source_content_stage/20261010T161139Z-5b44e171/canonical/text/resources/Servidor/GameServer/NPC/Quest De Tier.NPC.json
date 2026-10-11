@@ -1,0 +1,167 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.quest_de_tier",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Quest De Tier.NPC",
+    "GameServer/NPC/Quest De Tier.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Quest De Tier.NPC",
+    "legacy_sha256": "ffeaa569e90000bce45caa4bbfc28919cfbfb50b9365a93f9b53cbaf9a581aef",
+    "legacy_size": 278
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\M_Messenger\\M_Messenger.ini",
+      "name": "퀘스트 담당자",
+      "sell_weapon": "없음",
+      "sell_defence": {
+        "$repeated": [
+          "없음",
+          "없음"
+        ]
+      },
+      "sell_etc": [
+        "QT101",
+        "QT102",
+        "QT103",
+        "qt106",
+        "qt113"
+      ],
+      "linked_file": "name\\Quest De Tier.zhoon",
+      "model_config_id": "model.char.npc.m.messenger.m.messenger"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 4,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\M_Messenger\\M_Messenger.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d5f4d657373656e6765725c4d5f4d657373656e6765722e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "퀘스트 담당자"
+        ],
+        "raw_values_hex": [
+          "c4f9bdbac6ae20b4e3b4e7c0da"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 13,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "QT101",
+          "QT102",
+          "QT103",
+          "qt106",
+          "qt113"
+        ],
+        "raw_values_hex": [
+          "5154313031",
+          "5154313032",
+          "5154313033",
+          "7174313036",
+          "7174313133"
+        ]
+      },
+      {
+        "line": 19,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Quest De Tier.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c517565737420446520546965722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KDQoquPC+58bEwM8JCSJjaGFyXG5wY1xNX01lc3NlbmdlclxNX01lc3Nlbmdlci5pbmkiDQoNCirAzLinCQkJIsT5vbrGriC047TnwNoiDQoNCi8vKrTryK0JCQkiubqwoSDE+b26xq64piDB4LnZIMG7Li4uIg0KDQoNCiq5q7Hixse4xQm++MC9DQoNCiq55r7usbjGx7jFCb74wL0NCiq55r7usbjGx7jFCb74wL0NCg0KKsDiyK3Gx7jFIFFUMTAxIFFUMTAyIFFUMTAzIHF0MTA2IHF0MTEzDQoNCg0KKr+ssOHGxMDPCSJuYW1lXFF1ZXN0IERlIFRpZXIuemhvb24iDQo="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.4_wolverine_de_bronze",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/4_Wolverine de Bronze.zhoon",
+    "GameServer/Monster/Name/4_Wolverine de Bronze.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/4_Wolverine de Bronze.zhoon",
+    "legacy_sha256": "caa99767af815cccefb969f1e10c7a99228b9d50a037e9ed5804e3df8f3b97ec",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Wolverine de Bronze"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiV29sdmVyaW5lIGRlIEJyb256ZSI="
+  }
+}

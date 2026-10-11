@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_7",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/130LVQuest_7.msg",
+    "image/party/party_DATA/HaQuest/130LVQuest_7.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/130LVQuest_7.msg",
+    "legacy_sha256": "d37b096273cc8d6bb7df0aa146f20a3db8b5f539a20479678e9c1f6ff47742d5",
+    "legacy_size": 64
+  },
+  "semantic": {
+    "lines": [
+      "Entregue o Relatório de",
+      "Exploração ao Mago Real",
+      "Ray em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RW50cmVndWUgbyBSZWxhdPNyaW8gZGUNCkV4cGxvcmHn428gYW8gTWFnbyBSZWFsDQpSYXkgZW0gUGlsbGFpLg=="
+  }
+}

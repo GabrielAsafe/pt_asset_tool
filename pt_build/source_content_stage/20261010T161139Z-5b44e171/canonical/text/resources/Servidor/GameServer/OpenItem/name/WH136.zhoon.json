@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wh136",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WH136.zhoon",
+    "GameServer/OpenItem/name/WH136.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WH136.zhoon",
+    "legacy_sha256": "6bda9d1d28258a61e206db368a7666a839eea4bf9585ee4c95b563318bb1eb74",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Martelo Drax"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTWFydGVsbyBEcmF4Ig=="
+  }
+}

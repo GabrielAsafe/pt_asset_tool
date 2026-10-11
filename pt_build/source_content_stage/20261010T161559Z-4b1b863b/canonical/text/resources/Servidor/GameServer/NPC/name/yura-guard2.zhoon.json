@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.yura_guard2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/yura-guard2.zhoon",
+    "GameServer/NPC/name/yura-guard2.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/yura-guard2.zhoon",
+    "legacy_sha256": "48602574fd36b27ba2c771f46c9bfba934e03ba9831df16c657ab932640b5f53",
+    "legacy_size": 370
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda de Eura"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu só deixo passar guerreiros acima do Nível 85..."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ei... sua armadura parece perfeita! Posso experimentá-la?"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Por favor, diga ao pessoal de Ricarten que eu sinto muita falta deles."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Existem muitos monstros fortes aqui. Mas, não se preocupe, outros guerreiros irão ajudá-lo."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkYSBkZSBFdXJhIg0KDQoqSl9DSEFUCQkiRXUgc/MgZGVpeG8gcGFzc2FyIGd1ZXJyZWlyb3MgYWNpbWEgZG8gTu12ZWwgODUuLi4iDQoqSl9DSEFUICAgICAgICAgIkVpLi4uIHN1YSBhcm1hZHVyYSBwYXJlY2UgcGVyZmVpdGEhIFBvc3NvIGV4cGVyaW1lbnThLWxhPyINCipKX0NIQVQgICAgICAgICAiUG9yIGZhdm9yLCBkaWdhIGFvIHBlc3NvYWwgZGUgUmljYXJ0ZW4gcXVlIGV1IHNpbnRvIG11aXRhIGZhbHRhIGRlbGVzLiINCipKX0NIQVQgICAgICAgICAiRXhpc3RlbSBtdWl0b3MgbW9uc3Ryb3MgZm9ydGVzIGFxdWkuIE1hcywgbuNvIHNlIHByZW9jdXBlLCBvdXRyb3MgZ3VlcnJlaXJvcyBpcuNvIGFqdWThLWxvLiINCg=="
+  }
+}

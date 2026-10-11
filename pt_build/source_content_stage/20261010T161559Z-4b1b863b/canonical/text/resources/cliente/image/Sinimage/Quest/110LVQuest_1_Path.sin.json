@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_1_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_1_Path.sin",
+    "image/Sinimage/Quest/110LVQuest_1_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_1_Path.sin",
+    "legacy_sha256": "e577884990b4d8d788177f7067f7567739e251e7358ff6a6f805098437545199",
+    "legacy_size": 66
+  },
+  "semantic": {
+    "lines": [
+      "Derrote o Engenheiro do Laboratório e traga o Documento",
+      "Suspeito."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBvIEVuZ2VuaGVpcm8gZG8gTGFib3JhdPNyaW8gZSB0cmFnYSBvIERvY3VtZW50bw0KU3VzcGVpdG8u"
+  }
+}

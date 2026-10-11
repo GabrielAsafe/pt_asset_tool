@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_duende_martelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Duende Martelo.zhoon",
+    "GameServer/Monster/Name/1_Duende Martelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Duende Martelo.zhoon",
+    "legacy_sha256": "91bf2e512b7e4096d94c5989a273541566c4e5a8b4d8c15a76c091f3f043a334",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Duende Martelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRHVlbmRlIE1hcnRlbG8i"
+  }
+}

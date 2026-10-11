@@ -1,0 +1,40 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.research1",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/Research1.sin",
+    "image/Sinimage/help/Research1.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/Research1.sin",
+    "legacy_sha256": "6382fd6097ef3720a8c1a6e26b58b3ec380455f8b2533a999acad929275bbafa",
+    "legacy_size": 538
+  },
+  "semantic": {
+    "lines": [
+      "※설문 조사는 계정당 한번만 가능합니다.",
+      "  신중하게 선택해주세요.",
+      "1>다른 서버와의 통합에 대해 어떻게 생각 하십니까? ",
+      "  1) 찬성 ",
+      "  2) 반대 ",
+      "---------1번설문에 찬성일경우 선택---------------",
+      "2>서버 통합에 찬성하는 가장 큰 이유는 무엇입니까?",
+      "  1) 공성전 진행의 어려움 ",
+      "  2) 아이템 거래의 어려움 ",
+      "  3) 커뮤니티 약화",
+      "---------1번설문에 반대일경우 선택---------------",
+      "3>서버 통합에 반대하는 가장 큰 이유는 무엇입니까?",
+      "  1) 서버 불안정                 ",
+      "  2) 하위 서버가 없는 것(A,B서버)",
+      "  3) 사냥터 부족",
+      "  4) 유저간 시비 증가      "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "odi8s7muIMG2u+e0wiCw6MGktOcgx9G5+Li4ILChtMnH1bTPtNkuDQogIL3Fwd/Hz7DUILyxxcPH2MHWvLy/5C4NCjE+tNm4pSC8rbn2v83AxyDF68fVv6EgtOvH2CC+7ra7sNQgu/2woiDHz73KtM+x7j8gDQogIDEpIML5vLogDQogIDIpILndtOsgDQotLS0tLS0tLS0xufi8s7muv6Egwvm8usDPsOa/7CC8scXDLS0tLS0tLS0tLS0tLS0tDQoyPrytufYgxevH1b+hIML5vLrHz7TCILChwOUgxasgwMzAr7TCILmrvvnA1LTPse4/DQogIDEpILD4vLrA/CDB+MfgwMcgvu63wb/yIA0KICAyKSC+xsDMxdsgsMW3ocDHIL7ut8G/8iANCiAgMykgxL+5wrTPxrwgvuDIrQ0KLS0tLS0tLS0tMbn4vLO5rr+hILndtOvAz7Dmv+wgvLHFwy0tLS0tLS0tLS0tLS0tLQ0KMz68rbn2IMXrx9W/oSC53bTrx8+0wiCwocDlIMWrIMDMwK+0wiC5q775wNS0z7HuPw0KICAxKSC8rbn2ILrSvsjBpCAgICAgICAgICAgICAgICAgDQogIDIpIMfPwKcgvK259rChIL74tMIgsM0oQSxCvK259ikNCiAgMykgu+ezycXNILrOwbcNCiAgNCkgwK/A+rCjIL3DuvEgwfWwoSAgICAgIA=="
+  }
+}

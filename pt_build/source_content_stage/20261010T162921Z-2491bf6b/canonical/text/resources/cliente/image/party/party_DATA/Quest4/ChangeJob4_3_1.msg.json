@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_3_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_1.msg",
+    "image/party/party_DATA/Quest4/ChangeJob4_3_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_1.msg",
+    "legacy_sha256": "9d1da99009ae15f7194966ed91d3069a5f260d1d0570c8b82d833121c260fb46",
+    "legacy_size": 88
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt Solid Snail",
+      "appointed by master",
+      "to get royal amulet,",
+      "and go back to him.",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IFNvbGlkIFNuYWlsDQphcHBvaW50ZWQgYnkgbWFzdGVyDQp0byBnZXQgcm95YWwgYW11bGV0LA0KYW5kIGdvIGJhY2sgdG8gaGltLg0KDQoNCg=="
+  }
+}

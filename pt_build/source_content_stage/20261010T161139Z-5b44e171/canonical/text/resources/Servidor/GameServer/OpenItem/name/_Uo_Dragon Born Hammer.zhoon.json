@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uo_dragon_born_hammer",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uo_Dragon Born Hammer.zhoon",
+    "GameServer/OpenItem/name/_Uo_Dragon Born Hammer.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uo_Dragon Born Hammer.zhoon",
+    "legacy_sha256": "2dde8321b2ecba02f69f8ab702fb1189b7844b70dc2a353940b53aea6825570f",
+    "legacy_size": 73
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Martelo de Osso de Dragão"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9VV0gxMjFfRHJhZ29uIEJvbmUgSGFtbWVyLnR4dA0KDQoqSl9OYW1lCQkiTWFydGVsbyBkZSBPc3NvIGRlIERyYWfjbyINCg=="
+  }
+}

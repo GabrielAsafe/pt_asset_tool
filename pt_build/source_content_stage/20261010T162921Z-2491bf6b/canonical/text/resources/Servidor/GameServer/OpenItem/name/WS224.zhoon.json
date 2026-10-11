@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ws224",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WS224.zhoon",
+    "GameServer/OpenItem/name/WS224.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WS224.zhoon",
+    "legacy_sha256": "c132c492b0338f00733b8ae7f67e8d18d3a178b8825ce075e86b482d38720a03",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Espada da Justiça"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRXNwYWRhIGRhIEp1c3Rp52Ei"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca515",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/CA515.zhoon",
+    "GameServer/OpenItem/name/CA515.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/CA515.zhoon",
+    "legacy_sha256": "3bfd3eb074d22feb327cce69e771ea7e4933fde675fb4b2b768474e2ff493c02",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Traje Natal 1d"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVHJhamUgTmF0YWwgMWQi"
+  }
+}

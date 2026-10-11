@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da206",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA206.zhoon",
+    "GameServer/OpenItem/name/DA206.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA206.zhoon",
+    "legacy_sha256": "8b53ab2fce69e5a6848e2522f970062ce9051a04086d0f1328f94e3525733c5e",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Roupão Druída"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUm91cONvIERyde1kYSI="
+  }
+}

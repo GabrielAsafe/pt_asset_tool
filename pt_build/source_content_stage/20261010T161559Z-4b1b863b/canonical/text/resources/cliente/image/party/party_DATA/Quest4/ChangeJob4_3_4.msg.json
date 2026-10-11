@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_3_4",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_4.msg",
+    "image/party/party_DATA/Quest4/ChangeJob4_3_4.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_4.msg",
+    "legacy_sha256": "45f919e23cd17357e967afd6a9b78a2cfbeb9215bcdbea88306ff98158f0a9ff",
+    "legacy_size": 80
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt Dusk appointed by ",
+      "Master to get royal amulet,",
+      " and go back to him.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IER1c2sgYXBwb2ludGVkIGJ5IA0KTWFzdGVyIHRvIGdldCByb3lhbCBhbXVsZXQsDQogYW5kIGdvIGJhY2sgdG8gaGltLg0KDQo="
+  }
+}

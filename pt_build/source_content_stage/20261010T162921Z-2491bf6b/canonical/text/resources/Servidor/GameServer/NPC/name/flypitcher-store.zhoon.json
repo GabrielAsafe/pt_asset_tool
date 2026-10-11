@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.flypitcher_store",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/flypitcher-store.zhoon",
+    "GameServer/NPC/name/flypitcher-store.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/flypitcher-store.zhoon",
+    "legacy_sha256": "d25b002102fc6c96f7d0d3eef66cb7d6339df9b4e6934d75cc86655f4bbd8b11",
+    "legacy_size": 398
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Vendedora Della"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Os Cães-abelha e as Árvores Demoníacas produzem mel e um óleo misterioso... pra que eles servem?"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Nem todos os guerreiros podem encararar os monstros mais fortes..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Estas poções são 100% naturais. O efeito é muito poderoso e eficiente!"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "O líquido mágico que cura está à venda! Se tiver itens sobrando, visite-me também."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIlZlbmRlZG9yYSBEZWxsYSINCg0KKkpfQ0hBVAkJIk9zIEPjZXMtYWJlbGhhIGUgYXMgwXJ2b3JlcyBEZW1vbu1hY2FzIHByb2R1emVtIG1lbCBlIHVtIPNsZW8gbWlzdGVyaW9zby4uLiBwcmEgcXVlIGVsZXMgc2VydmVtPyINCipKX0NIQVQJCSJOZW0gdG9kb3Mgb3MgZ3VlcnJlaXJvcyBwb2RlbSBlbmNhcmFyYXIgb3MgbW9uc3Ryb3MgbWFpcyBmb3J0ZXMuLi4iDQoqSl9DSEFUCQkiRXN0YXMgcG/n9WVzIHPjbyAxMDAlIG5hdHVyYWlzLiBPIGVmZWl0byDpIG11aXRvIHBvZGVyb3NvIGUgZWZpY2llbnRlISINCipKX0NIQVQJCSJPIGztcXVpZG8gbeFnaWNvIHF1ZSBjdXJhIGVzdOEg4CB2ZW5kYSEgU2UgdGl2ZXIgaXRlbnMgc29icmFuZG8sIHZpc2l0ZS1tZSB0YW1i6W0uIg0KDQo="
+  }
+}

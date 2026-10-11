@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_5_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_5_End.sin",
+    "image/Sinimage/Quest/155LVQuest_5_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_5_End.sin",
+    "legacy_sha256": "08b8761f263a181dac92df55271a2201be6e20630cf2883c4ffb91716bb442a6",
+    "legacy_size": 724
+  },
+  "semantic": {
+    "lines": [
+      "Durante a 2ª Guerra dos Deuses, o Dragão de Snowstorm e",
+      "Kelvezu se enfrentaram pela 1ª vez. Ele foi derrotado e ",
+      "caiu no fundo mar, onde encontrou uma caverna de Cristais",
+      "Mágicos para ser o seu túmulo. Nos dias atuais, ele reviveu",
+      "pelo poder da Dama da Neve que reavivou a Chama de Gelo em",
+      "seu coração. Desde o passado, o dragão do gelo manteve sua ",
+      "raiva contra Kelvezu acesa. E isso foi sua ruína novamente.",
+      "Graças a isso conseguimos usar Kelvezu para derrotá-lo.",
+      "",
+      "Com sua ajuda, Zarad e Marina entraram na caverna e",
+      "destruíram a nascente do rio glacial no fundo do mar.",
+      "Agora, falta a Dama da Neve. Vá falar com a Sábia Celina.",
+      "",
+      "Receba 419.424.529.687 pontos de experiência, como",
+      "recompensa por seu esforço."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RHVyYW50ZSBhIDKqIEd1ZXJyYSBkb3MgRGV1c2VzLCBvIERyYWfjbyBkZSBTbm93c3Rvcm0gZQ0KS2VsdmV6dSBzZSBlbmZyZW50YXJhbSBwZWxhIDGqIHZlei4gRWxlIGZvaSBkZXJyb3RhZG8gZSANCmNhaXUgbm8gZnVuZG8gbWFyLCBvbmRlIGVuY29udHJvdSB1bWEgY2F2ZXJuYSBkZSBDcmlzdGFpcw0KTeFnaWNvcyBwYXJhIHNlciBvIHNldSB0+m11bG8uIE5vcyBkaWFzIGF0dWFpcywgZWxlIHJldml2ZXUNCnBlbG8gcG9kZXIgZGEgRGFtYSBkYSBOZXZlIHF1ZSByZWF2aXZvdSBhIENoYW1hIGRlIEdlbG8gZW0NCnNldSBjb3Jh5+NvLiBEZXNkZSBvIHBhc3NhZG8sIG8gZHJhZ+NvIGRvIGdlbG8gbWFudGV2ZSBzdWEgDQpyYWl2YSBjb250cmEgS2VsdmV6dSBhY2VzYS4gRSBpc3NvIGZvaSBzdWEgcnXtbmEgbm92YW1lbnRlLg0KR3Jh52FzIGEgaXNzbyBjb25zZWd1aW1vcyB1c2FyIEtlbHZlenUgcGFyYSBkZXJyb3ThLWxvLg0KDQpDb20gc3VhIGFqdWRhLCBaYXJhZCBlIE1hcmluYSBlbnRyYXJhbSBuYSBjYXZlcm5hIGUNCmRlc3Ryde1yYW0gYSBuYXNjZW50ZSBkbyByaW8gZ2xhY2lhbCBubyBmdW5kbyBkbyBtYXIuDQpBZ29yYSwgZmFsdGEgYSBEYW1hIGRhIE5ldmUuIFbhIGZhbGFyIGNvbSBhIFPhYmlhIENlbGluYS4NCg0KUmVjZWJhIDQxOS40MjQuNTI5LjY4NyBwb250b3MgZGUgZXhwZXJp6m5jaWEsIGNvbW8NCnJlY29tcGVuc2EgcG9yIHNldSBlc2ZvcudvLg=="
+  }
+}

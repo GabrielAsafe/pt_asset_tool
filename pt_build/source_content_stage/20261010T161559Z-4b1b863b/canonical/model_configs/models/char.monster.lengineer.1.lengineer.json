@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.lengineer.1.lengineer",
+  "logical_config": "char/monster/LEngineer_1/LEngineer.ini",
+  "legacy_cache": "char/monster/LEngineer_1/LEngineer.inx",
+  "consumers": [
+    {
+      "id": "npc.dos",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Dos.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/LEngineer_1/LEngineer.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/LEngineer_1/LEngineer.inx"
+    }
+  }
+}

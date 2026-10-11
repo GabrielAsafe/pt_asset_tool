@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca702",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ca702.zhoon",
+    "GameServer/OpenItem/name/ca702.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ca702.zhoon",
+    "legacy_sha256": "6f155148215066e5cbf13aad8b0caed4109ec2066d8e67fe7f244fbaa8302627",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Roupão de Noiva"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIlJvdXDjbyBkZSBOb2l2YSINCg=="
+  }
+}

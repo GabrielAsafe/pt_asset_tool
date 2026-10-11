@@ -1,0 +1,403 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.or201",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OR201.txt",
+    "GameServer/OpenItem/OR201.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OR201.txt",
+    "legacy_sha256": "2751c6f26bb5ec44ff5244a20f2c0286de59f6bb7a0a1d3fb4702416a538c80f",
+    "legacy_size": 719
+  },
+  "semantic": {
+    "fields": {
+      "code": "OR201",
+      "name": "Anel Summit",
+      "english_name": "Anel Summit",
+      "attack_damage": [
+        4,
+        7,
+        9,
+        12
+      ],
+      "critical": 5,
+      "attack_rating": [
+        60,
+        80
+      ],
+      "attack_speed": 1,
+      "defence": [
+        60,
+        80
+      ],
+      "absorb": [
+        3.0,
+        4.5
+      ],
+      "life_add_alt": [
+        80,
+        80
+      ],
+      "mana_add_alt": [
+        80,
+        80
+      ],
+      "stamina_add_alt": [
+        60,
+        60
+      ],
+      "life_regen_alt": [
+        3.0,
+        4.0
+      ],
+      "mana_regen_alt": [
+        2.5,
+        3.5
+      ],
+      "stamina_regen_alt": [
+        2.0,
+        3.0
+      ],
+      "level": 100,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_life_regen_alt": [
+        3.0,
+        4.0
+      ],
+      "weight": 5,
+      "linked_file": "Name\\OR201.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OR201"
+        ],
+        "raw_values_hex": [
+          "4f52323031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel Summit"
+        ],
+        "raw_values_hex": [
+          "416e656c2053756d6d6974"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel Summit"
+        ],
+        "raw_values_hex": [
+          "416e656c2053756d6d6974"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4,
+          7,
+          9,
+          12
+        ],
+        "raw_values_hex": [
+          "34",
+          "37",
+          "39",
+          "3132"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          60,
+          80
+        ],
+        "raw_values_hex": [
+          "3630",
+          "3830"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          60,
+          80
+        ],
+        "raw_values_hex": [
+          "3630",
+          "3830"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          4.5
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "342e35"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          80,
+          80
+        ],
+        "raw_values_hex": [
+          "3830",
+          "3830"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          80,
+          80
+        ],
+        "raw_values_hex": [
+          "3830",
+          "3830"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          60,
+          60
+        ],
+        "raw_values_hex": [
+          "3630",
+          "3630"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "life_regen_alt",
+        "legacy_token": "*생명력재생",
+        "legacy_token_hex": "2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          4.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "342e30"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "mana_regen_alt",
+        "legacy_token": "*기력재생",
+        "legacy_token_hex": "2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.5,
+          3.5
+        ],
+        "raw_values_hex": [
+          "322e35",
+          "332e35"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "stamina_regen_alt",
+        "legacy_token": "*근력재생",
+        "legacy_token_hex": "2ab1d9b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.0,
+          3.0
+        ],
+        "raw_values_hex": [
+          "322e30",
+          "332e30"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "special_life_regen_alt",
+        "legacy_token": "**생명력재생",
+        "legacy_token_hex": "2a2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          4.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "342e30"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OR201.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f523230312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9SMjAxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQW5lbCBTdW1taXQiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQW5lbCBTdW1taXQiDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgNCA3IDkgMTINCg0KLy9BdHRhY2tDcml0aWNhbA0KKsWpuK7GvMTDIDUNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgNjAgODANCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDENCg0KLy9EZWZlbnNlDQoquea+7rfCIDYwIDgwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiAzLjAgNC41DQoNCi8vSFANCiq7/bjtt8LD37ChIDgwIDgwDQoNCi8vTVANCiqx4rfCw9+woSA4MCA4MA0KDQovL1NUTQ0KKrHZt8LD37ChIDYwIDYwDQoNCi8vSFBSZWdlbg0KKrv9uO23wsDnu/0gMy4wIDQuMA0KDQovL01QUmVnZW4NCiqx4rfCwOe7/SAyLjUgMy41DQoNCi8vU1RNUmVnZW4NCiqx2bfCwOe7/SAyLjAgMy4wDQoNCi8vTGV2ZWwNCiq3ubqnIDEwMA0KDQovL1NwaXJpdA0KLy8qwaS9xbfCIDc1DQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBGaWdodGVyIFBpa2VtYW4gQXJjaGVyIEtuaWdodCBBdGFsYW50YSBQcmllc3Rlc3MgTWFnaWNpYW4NCg0KLy9TcGVjSFBSZWdlbg0KKiq7/bjtt8LA57v9IDMuMCA0LjANCg0KLy9XZWlnaHQNCiq5q7DUIDUNCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxPUjIwMS56aG9vbiI="
+  }
+}

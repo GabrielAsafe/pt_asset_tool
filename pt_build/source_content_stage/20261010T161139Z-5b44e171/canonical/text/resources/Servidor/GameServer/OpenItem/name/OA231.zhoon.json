@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.oa231",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OA231.zhoon",
+    "GameServer/OpenItem/name/OA231.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OA231.zhoon",
+    "legacy_sha256": "294757c0d3d629b83650b530149ffc13bfa132a4832c829ba3f7fb8d0b6ff566",
+    "legacy_size": 31
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Bracelete Especial 7d"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQnJhY2VsZXRlIEVzcGVjaWFsIDdkIg=="
+  }
+}

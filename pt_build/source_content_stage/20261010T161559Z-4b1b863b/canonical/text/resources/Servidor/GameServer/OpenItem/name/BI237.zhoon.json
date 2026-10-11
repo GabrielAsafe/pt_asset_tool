@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi237",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI237.zhoon",
+    "GameServer/OpenItem/name/BI237.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI237.zhoon",
+    "legacy_sha256": "061222cdf357982b249a7a7ddd531e6f1d6e98969f3f6cd16eaca79aa24672d7",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Baú Superior Aprimorado 24h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQmH6IFN1cGVyaW9yIEFwcmltb3JhZG8gMjRoIg=="
+  }
+}

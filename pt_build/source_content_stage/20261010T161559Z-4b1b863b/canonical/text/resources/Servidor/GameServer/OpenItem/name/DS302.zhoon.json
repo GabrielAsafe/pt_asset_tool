@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ds302",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DS302.zhoon",
+    "GameServer/OpenItem/name/DS302.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DS302.zhoon",
+    "legacy_sha256": "d141a80c1e91bdf17539203848221ba5d4a362b1a980ea664aa7106eb203224d",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Dark Shield"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIkRhcmsgU2hpZWxkIg0K"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_cyclops_knight",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_cyclops_knight.zhoon",
+    "GameServer/Monster/Name/new_sod_cyclops_knight.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_cyclops_knight.zhoon",
+    "legacy_sha256": "e4b4cf2a7be3e2d77519c3d21b4b65d7333473527ce2743e4e2f3d877b9ced6f",
+    "legacy_size": 38
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cavaleiro Cíclope do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJDYXZhbGVpcm8gQ+1jbG9wZSBkbyBTb0QiDQo="
+  }
+}

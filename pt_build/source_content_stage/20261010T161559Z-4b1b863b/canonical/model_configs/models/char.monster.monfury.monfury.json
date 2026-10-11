@@ -1,0 +1,48 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monfury.monfury",
+  "logical_config": "char/monster/monfury/monfury.ini",
+  "legacy_cache": "char/monster/monfury/monfury.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_83_f_u00faria",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_83_F#U00faria.inf.json"
+    },
+    {
+      "id": "monster.desafio_118_f_u00faria",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Desafio_118_ F#U00faria .inf.json"
+    },
+    {
+      "id": "monster.desafio_119_f_u00faria",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Desafio_119_  F#U00faria  .inf.json"
+    },
+    {
+      "id": "monster.desafio_120_f_u00faria",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Desafio_120_   F#U00faria   .inf.json"
+    },
+    {
+      "id": "npc.fury",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/fury.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monfury/MonFury.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monfury/Monfury.inx"
+    }
+  }
+}

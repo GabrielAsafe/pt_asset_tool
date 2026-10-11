@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.kingbat.kingbat",
+  "logical_config": "char/monster/kingbat/kingbat.ini",
+  "legacy_cache": "char/monster/kingbat/kingbat.inx",
+  "consumers": [
+    {
+      "id": "monster.81_morcego_mutante",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/81_Morcego Mutante.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/KingBat/KingBat.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/KingBat/KingBat.inx"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "summit.compiled-map-report/v1",
+  "format": "SMAP",
+  "version": 1,
+  "profile": "server",
+  "sha256_body": "90e03abdb3fc25575f21cfdf131b9c2b2df79cc22dd770f054b4f82daa11a352",
+  "maps": 53,
+  "stage_objects": 374,
+  "start_points": 58,
+  "gates": 26,
+  "warp_gates": 54,
+  "warp_out_gates": 61,
+  "ambient": 72,
+  "strings_bytes": 11077,
+  "bytes": 28365,
+  "features": {
+    "worldcup_field": 1
+  },
+  "dynamic_field_code": 53,
+  "static_field_count": 53
+}

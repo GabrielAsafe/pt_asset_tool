@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.lim",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/lim.zhoon",
+    "GameServer/NPC/name/lim.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/lim.zhoon",
+    "legacy_sha256": "4292aa6ce9c4e70bb2872756cdfaeb5d101364a4b4a55ce0b812be2bb4556324",
+    "legacy_size": 16
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lim"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkxpbSINCg=="
+  }
+}

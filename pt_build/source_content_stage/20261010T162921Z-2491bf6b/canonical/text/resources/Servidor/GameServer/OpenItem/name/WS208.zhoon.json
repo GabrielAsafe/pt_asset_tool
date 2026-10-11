@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ws208",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WS208.zhoon",
+    "GameServer/OpenItem/name/WS208.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WS208.zhoon",
+    "legacy_sha256": "5c43273747caf3aa6ef10ce3beb202aa16e1e61c3363e0f2bdcb886e6644d891",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Espada do Templo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRXNwYWRhIGRvIFRlbXBsbyI="
+  }
+}

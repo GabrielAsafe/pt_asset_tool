@@ -1,0 +1,292 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.oa224",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OA224.txt",
+    "GameServer/OpenItem/OA224.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OA224.txt",
+    "legacy_sha256": "17b91d2520e5230fc2770ad3e8b68f1c2a3735d02d7bfe16cea36838825d8ac9",
+    "legacy_size": 534
+  },
+  "semantic": {
+    "fields": {
+      "code": "OA224",
+      "name": "Bracelete Cronus",
+      "english_name": "Bracelete Cronus",
+      "attack_rating": [
+        146,
+        160
+      ],
+      "defence": [
+        150,
+        160
+      ],
+      "potion_space": 95,
+      "durability": [
+        163,
+        175
+      ],
+      "level": 108,
+      "strength": 90,
+      "dexterity": 88,
+      "special_attack_rating": [
+        1,
+        3
+      ],
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "weight": 63,
+      "price": 990000,
+      "linked_file": "Name\\OA224.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OA224"
+        ],
+        "raw_values_hex": [
+          "4f41323234"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Bracelete Cronus"
+        ],
+        "raw_values_hex": [
+          "42726163656c6574652043726f6e7573"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Bracelete Cronus"
+        ],
+        "raw_values_hex": [
+          "42726163656c6574652043726f6e7573"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          146,
+          160
+        ],
+        "raw_values_hex": [
+          "313436",
+          "313630"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          150,
+          160
+        ],
+        "raw_values_hex": [
+          "313530",
+          "313630"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "potion_space",
+        "legacy_token": "*보유공간",
+        "legacy_token_hex": "2abab8c0afb0f8b0a3",
+        "loader_status": "supported_mapped",
+        "values": [
+          95
+        ],
+        "raw_values_hex": [
+          "3935"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          163,
+          175
+        ],
+        "raw_values_hex": [
+          "313633",
+          "313735"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          108
+        ],
+        "raw_values_hex": [
+          "313038"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          90
+        ],
+        "raw_values_hex": [
+          "3930"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "dexterity",
+        "legacy_token": "*민첩성",
+        "legacy_token_hex": "2ab9cec3b8bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          88
+        ],
+        "raw_values_hex": [
+          "3838"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "special_attack_rating",
+        "legacy_token": "**명중력",
+        "legacy_token_hex": "2a2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          63
+        ],
+        "raw_values_hex": [
+          "3633"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          990000
+        ],
+        "raw_values_hex": [
+          "393930303030"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OA224.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f413232342e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9BMjI0Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQnJhY2VsZXRlIENyb251cyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJCcmFjZWxldGUgQ3JvbnVzIg0KDQovL0F0dGFja1JhdGluZw0KKrjtwd+3wiAxNDYgMTYwDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiAxNTAgMTYwDQoNCi8vUG90aW9uU3RvcmFnZQ0KKrq4wK+w+LCjIDk1DQoNCi8vSW50ZWdyaXR5DQoqs7uxuLfCIDE2MyAxNzUNCg0KLy9MZXZlbA0KKre5uqcgMTA4DQoNCi8vU3RyZW5ndGgNCirI+yA5MA0KDQovL0FnaWxpdHkNCiq5zsO4vLogODgNCg0KLy9TcGVjQXR0YWNrUmF0aW5nDQoqKrjtwd+3wiAxIDMNCg0KLy9TZWNvbmRhcnlTcGVjDQoqKsavyK23o7T9IE1lY2hhbmljaWFuIEZpZ2h0ZXIgUGlrZW1hbiBBcmNoZXIgS25pZ2h0IEF0YWxhbnRhIFByaWVzdGVzcyBNYWdpY2lhbg0KDQovL1dlaWdodA0KKrmrsNQgNjMNCg0KLy9QcmljZQ0KKrChsN0gOTkwMDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcT0EyMjQuemhvb24i"
+  }
+}

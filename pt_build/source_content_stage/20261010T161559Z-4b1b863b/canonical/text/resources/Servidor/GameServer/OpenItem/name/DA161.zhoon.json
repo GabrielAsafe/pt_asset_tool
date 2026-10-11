@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da161",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA161.zhoon",
+    "GameServer/OpenItem/name/DA161.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA161.zhoon",
+    "legacy_sha256": "2a6a7d55c214ac659eaccf286f60c4794e6d13469d75032168aa452b1a2043bb",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Armadura Kimono"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJtYWR1cmEgS2ltb25vIg=="
+  }
+}

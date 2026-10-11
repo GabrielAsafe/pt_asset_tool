@@ -1,0 +1,275 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da235",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA235.txt",
+    "GameServer/OpenItem/DA235.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA235.txt",
+    "legacy_sha256": "8f2eea8b07db2a42f7f172406cb600188cbd85369c786af7d40fff40510f478d",
+    "legacy_size": 469
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA235",
+      "name": "Roupão de Mardanos M (1d)",
+      "english_name": "Roupão de Mardanos M (1d)",
+      "defence": [
+        280,
+        280
+      ],
+      "absorb": [
+        6.5,
+        6.5
+      ],
+      "block": [
+        1.0,
+        1.0
+      ],
+      "bionic": [
+        5,
+        5
+      ],
+      "fire": [
+        5,
+        5
+      ],
+      "ice": [
+        5,
+        5
+      ],
+      "lightning": [
+        5,
+        5
+      ],
+      "poison": [
+        5,
+        5
+      ],
+      "weight": 70,
+      "price": 500000,
+      "linked_file": "Name\\DA235.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA235"
+        ],
+        "raw_values_hex": [
+          "4441323335"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Roupão de Mardanos M (1d)"
+        ],
+        "raw_values_hex": [
+          "526f7570e36f206465204d617264616e6f73204d2028316429"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Roupão de Mardanos M (1d)"
+        ],
+        "raw_values_hex": [
+          "526f7570e36f206465204d617264616e6f73204d2028316429"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          280,
+          280
+        ],
+        "raw_values_hex": [
+          "323830",
+          "323830"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6.5,
+          6.5
+        ],
+        "raw_values_hex": [
+          "362e35",
+          "362e35"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0,
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30",
+          "312e30"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          500000
+        ],
+        "raw_values_hex": [
+          "353030303030"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA235.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413233352e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMjM1Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUm91cONvIGRlIE1hcmRhbm9zIE0gKDFkKSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJSb3Vw428gZGUgTWFyZGFub3MgTSAoMWQpIg0KDQovL0RlZmVuc2UNCiq55r7ut8IgMjgwIDI4MA0KDQovL0Fic29ycHRpb24NCirI7bz2t8IgNi41IDYuNQ0KDQovL0Jsb2NrDQoquu23sMCyIDEuMCAxLjANCg0KLy9PcmdhbmljUmVzaXN0YW5jZQ0KKrv9w7wgNSA1DQoNCi8vRmlyZVJlc2lzdGFuY2UNCiq60iA1IDUNCg0KLy9Gcm9zdFJlc2lzdGFuY2UNCiqzw7HiIDUgNQ0KDQovL0xpZ2h0bmluZ1Jlc2lzdGFuY2UNCiq5+LCzIDUgNQ0KDQovL1BvaXNvblJlc2lzdGFuY2UNCiq1tiA1IDUNCg0KLy9XZWlnaHQNCiq5q7DUIDcwDQoNCi8vUHJpY2UNCiqwobDdIDUwMDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXERBMjM1Lnpob29uIg=="
+  }
+}

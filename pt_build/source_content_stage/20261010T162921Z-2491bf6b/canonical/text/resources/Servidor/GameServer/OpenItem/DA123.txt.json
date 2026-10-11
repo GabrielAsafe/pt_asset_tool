@@ -1,0 +1,386 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da123",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA123.txt",
+    "GameServer/OpenItem/DA123.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA123.txt",
+    "legacy_sha256": "d3cb16166c211ca37628e10f7ea0313c427f40a026d1b743d4aa3f199617d35a",
+    "legacy_size": 685
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA123",
+      "name": "Armadura Fênix",
+      "english_name": "Armadura Fênix",
+      "defence": [
+        410,
+        430
+      ],
+      "absorb": [
+        23.5,
+        23.8
+      ],
+      "bionic": [
+        10,
+        16
+      ],
+      "fire": [
+        10,
+        16
+      ],
+      "ice": [
+        10,
+        16
+      ],
+      "lightning": [
+        10,
+        16
+      ],
+      "poison": [
+        10,
+        16
+      ],
+      "durability": [
+        190,
+        220
+      ],
+      "level": 100,
+      "strength": 208,
+      "talent": 90,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta"
+      ],
+      "special_defence": [
+        50,
+        62
+      ],
+      "special_absorb": [
+        1.4,
+        1.6
+      ],
+      "weight": 138,
+      "price": 1150000,
+      "linked_file": "Name\\DA123.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA123"
+        ],
+        "raw_values_hex": [
+          "4441313233"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Fênix"
+        ],
+        "raw_values_hex": [
+          "41726d61647572612046ea6e6978"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Fênix"
+        ],
+        "raw_values_hex": [
+          "41726d61647572612046ea6e6978"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          410,
+          430
+        ],
+        "raw_values_hex": [
+          "343130",
+          "343330"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          23.5,
+          23.8
+        ],
+        "raw_values_hex": [
+          "32332e35",
+          "32332e38"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          10,
+          16
+        ],
+        "raw_values_hex": [
+          "3130",
+          "3136"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          10,
+          16
+        ],
+        "raw_values_hex": [
+          "3130",
+          "3136"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          10,
+          16
+        ],
+        "raw_values_hex": [
+          "3130",
+          "3136"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          10,
+          16
+        ],
+        "raw_values_hex": [
+          "3130",
+          "3136"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          10,
+          16
+        ],
+        "raw_values_hex": [
+          "3130",
+          "3136"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          190,
+          220
+        ],
+        "raw_values_hex": [
+          "313930",
+          "323230"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          208
+        ],
+        "raw_values_hex": [
+          "323038"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          90
+        ],
+        "raw_values_hex": [
+          "3930"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_defence",
+        "legacy_token": "**방어력",
+        "legacy_token_hex": "2a2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          62
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3632"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.4,
+          1.6
+        ],
+        "raw_values_hex": [
+          "312e34",
+          "312e36"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          138
+        ],
+        "raw_values_hex": [
+          "313338"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1150000
+        ],
+        "raw_values_hex": [
+          "31313530303030"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA123.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413132332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMTIzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQXJtYWR1cmEgRupuaXgiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQXJtYWR1cmEgRupuaXgiDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA0MTAgNDMwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiAyMy41IDIzLjgNCg0KLy9PcmdhbmljUmVzaXN0YW5jZQ0KKrv9w7wgMTAgMTYNCg0KLy9GaXJlUmVzaXN0YW5jZQ0KKrrSIDEwIDE2DQoNCi8vRnJvc3RSZXNpc3RhbmNlDQoqs8Ox4iAxMCAxNg0KDQovL0xpZ2h0bmluZ1Jlc2lzdGFuY2UNCiq5+LCzIDEwIDE2DQoNCi8vUG9pc29uUmVzaXN0YW5jZQ0KKrW2IDEwIDE2DQoNCi8vSW50ZWdyaXR5DQoqs7uxuLfCIDE5MCAyMjANCg0KLy9MZXZlbA0KKre5uqcgMTAwDQoNCi8vU3RyZW5ndGgNCirI+yAyMDgNCg0KLy9UYWxlbnQNCirA57TJIDkwDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBGaWdodGVyIFBpa2VtYW4gQXJjaGVyIEtuaWdodCBBdGFsYW50YQ0KDQovL1NwZWNEZWZlbnNlDQoqKrnmvu63wiA1MCA2Mg0KDQovL1NwZWNBYnNvcnB0aW9uDQoqKsjtvPa3wiAxLjQgMS42DQoNCi8vV2VpZ2h0DQoquauw1CAxMzgNCg0KLy9QcmljZQ0KKrChsN0gMTE1MDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXERBMTIzLnpob29uIg=="
+  }
+}

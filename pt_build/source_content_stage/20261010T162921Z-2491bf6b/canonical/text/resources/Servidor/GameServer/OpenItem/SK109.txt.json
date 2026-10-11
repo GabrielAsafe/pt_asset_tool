@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sk109",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SK109.txt",
+    "GameServer/OpenItem/SK109.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SK109.txt",
+    "legacy_sha256": "2bf58fe3b170b0ff7cc3774398b07474dca5c63899d4c2fda47dd632a2ddc509",
+    "legacy_size": 60
+  },
+  "semantic": {
+    "fields": {
+      "name": "Skin Espada 1H",
+      "code": "SK109"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Skin Espada 1H"
+        ],
+        "raw_values_hex": [
+          "536b696e20457370616461203148"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SK109"
+        ],
+        "raw_values_hex": [
+          "534b313039"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiU2tpbiBFc3BhZGEgMUgiDQoqxNq15QkiU0sxMDki"
+  }
+}

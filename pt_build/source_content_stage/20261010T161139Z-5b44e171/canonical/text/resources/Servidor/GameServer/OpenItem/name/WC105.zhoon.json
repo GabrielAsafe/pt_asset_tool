@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wc105",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WC105.zhoon",
+    "GameServer/OpenItem/name/WC105.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WC105.zhoon",
+    "legacy_sha256": "d2fc0be1a353e4d684a766f254f559f7ace9ea4b3ad18a77c7661c745eff8ecb",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Garra de Mão"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR2FycmEgZGUgTeNvIg=="
+  }
+}

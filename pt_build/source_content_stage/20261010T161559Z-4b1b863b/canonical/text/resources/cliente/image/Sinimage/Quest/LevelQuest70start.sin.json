@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest70start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest70start.sin",
+    "image/Sinimage/Quest/LevelQuest70start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest70start.sin",
+    "legacy_sha256": "856eb035bdff792654a7a508c891db1938ea0c0e5b19c155d3610f40b81aa896",
+    "legacy_size": 429
+  },
+  "semantic": {
+    "lines": [
+      "A few days ago, the young man, Michelle ",
+      "of Nevisco town who¡¯s exploring the ",
+      "Cursed Temple lost his life by Typhoon.",
+      "",
+      "The Nevisco dwellers intend to give a big",
+      "prize to anyone who hunts Typhoons.",
+      "",
+      "The Nevisco dwellers under a curse of being",
+      "monsters at nights delegated a power to me",
+      "to give the prize. ",
+      "",
+      "If you hunt 10 Typhoon, I¡¯ll give you a big",
+      "prize on behalf of the Nevisco.",
+      "",
+      "Please revenge of the Nevisco."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSBmZXcgZGF5cyBhZ28sIHRoZSB5b3VuZyBtYW4sIE1pY2hlbGxlIA0Kb2YgTmV2aXNjbyB0b3duIHdob6GvcyBleHBsb3JpbmcgdGhlIA0KQ3Vyc2VkIFRlbXBsZSBsb3N0IGhpcyBsaWZlIGJ5IFR5cGhvb24uDQoNClRoZSBOZXZpc2NvIGR3ZWxsZXJzIGludGVuZCB0byBnaXZlIGEgYmlnDQpwcml6ZSB0byBhbnlvbmUgd2hvIGh1bnRzIFR5cGhvb25zLg0KDQpUaGUgTmV2aXNjbyBkd2VsbGVycyB1bmRlciBhIGN1cnNlIG9mIGJlaW5nDQptb25zdGVycyBhdCBuaWdodHMgZGVsZWdhdGVkIGEgcG93ZXIgdG8gbWUNCnRvIGdpdmUgdGhlIHByaXplLiANCg0KSWYgeW91IGh1bnQgMTAgVHlwaG9vbiwgSaGvbGwgZ2l2ZSB5b3UgYSBiaWcNCnByaXplIG9uIGJlaGFsZiBvZiB0aGUgTmV2aXNjby4NCg0KUGxlYXNlIHJldmVuZ2Ugb2YgdGhlIE5ldmlzY28u"
+  }
+}

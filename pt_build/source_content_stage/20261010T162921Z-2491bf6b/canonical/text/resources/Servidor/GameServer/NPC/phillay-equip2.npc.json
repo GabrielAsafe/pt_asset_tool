@@ -1,0 +1,195 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.phillay_equip2",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/phillay-equip2.npc",
+    "GameServer/NPC/phillay-equip2.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/phillay-equip2.npc",
+    "legacy_sha256": "98ff0608b73dd08d25e4670fb61f7be339814c84f55013533147d82b5106b613",
+    "legacy_size": 711
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-004\\MN-004.INI",
+      "name": "대장장이 드프레인",
+      "quest_code": [
+        3,
+        1
+      ],
+      "sell_weapon": [
+        "wc102",
+        "wc103",
+        "wc104"
+      ],
+      "sell_defence": [
+        "da102",
+        "da103",
+        "da104",
+        "da105",
+        "db101",
+        "db102",
+        "db103",
+        "db104",
+        "dg101",
+        "dg102",
+        "dg103",
+        "dg104",
+        "ds101",
+        "ds102",
+        "ds103",
+        "ds104"
+      ],
+      "linked_file": "name\\phillay-equip2.zhoon",
+      "model_config_id": "model.char.npc.mn.004.mn.004"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-004\\MN-004.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030345c4d4e2d3030342e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "대장장이 드프레인"
+        ],
+        "raw_values_hex": [
+          "b4ebc0e5c0e5c0cc20b5e5c7c1b7b9c0ce"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 14,
+        "key": "quest_code",
+        "legacy_token": "*퀘스트코드",
+        "legacy_token_hex": "2ac4f9bdbac6aec4dab5e5",
+        "loader_status": "supported_mapped",
+        "values": [
+          3,
+          1
+        ],
+        "raw_values_hex": [
+          "33",
+          "31"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "wc102",
+          "wc103",
+          "wc104"
+        ],
+        "raw_values_hex": [
+          "7763313032",
+          "7763313033",
+          "7763313034"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "da102",
+          "da103",
+          "da104",
+          "da105",
+          "db101",
+          "db102",
+          "db103",
+          "db104",
+          "dg101",
+          "dg102",
+          "dg103",
+          "dg104",
+          "ds101",
+          "ds102",
+          "ds103",
+          "ds104"
+        ],
+        "raw_values_hex": [
+          "6461313032",
+          "6461313033",
+          "6461313034",
+          "6461313035",
+          "6462313031",
+          "6462313032",
+          "6462313033",
+          "6462313034",
+          "6467313031",
+          "6467313032",
+          "6467313033",
+          "6467313034",
+          "6473313031",
+          "6473313032",
+          "6473313033",
+          "6473313034"
+        ]
+      },
+      {
+        "line": 24,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\phillay-equip2.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c7068696c6c61792d6571756970322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDA0XE1OLTAwNC5JTkkNCg0KKsDMuKcJCQkitOvA5cDlwMwgteXHwbe5wM4iDQoNCi8vKrTryK0JCQkiwN8gusEgs7uwoSC4uLXnIMW4v/a9x7XltvOw7SDAzLexILDFIL7GuauzqiC4uLXltMIgsNQgvsa0z77fLiINCi8vKrTryK0JCQkiubkgwMywzbq4tNkgtPUgwcHAuiC55r7usbi+3yC+87i2tefB9iC4uLXpILz2IMDWwfa4uCC75yDB2SC757b3wMwgwNa+7r7fILi4tenB9i4uIg0KLy8qtOvIrQkJCSK5ub7fILO7sKEgvce3wiC++LTCILTrwOXA5cDMtvOw7SCzu7ChILi4tecgxbi/9r3HteW4piC6uLDtILi7x8+29SC4u8DMvt8iDQovLyq068itCQkJIr+pseIgv828rSC5q7HiuKYgw6PAuLjpIL7ItcfB9iwguaux4rTCIL+3ILChsNQgudnD97imIMOjvsawoSC6uLbzsO0gsc3C+rDULi4uIg0KDQoNCg0KKsT5vbrGrsTateUJCTMJMQ0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCiq5q7Hixse4xQkgIHdjMTAyIHdjMTAzIHdjMTA0IA0KDQoquea+7rG4xse4xQlkYTEwMiBkYTEwMyBkYTEwNCBkYTEwNQkJZGIxMDEgZGIxMDIgZGIxMDMgZGIxMDQJCWRnMTAxIGRnMTAyIGRnMTAzIGRnMTA0CQlkczEwMSBkczEwMiBkczEwMyBkczEwNCANCg0KDQoNCiq/rLDhxsTAzyAibmFtZVxwaGlsbGF5LWVxdWlwMi56aG9vbiINCg0KDQovL7nmvu6xuA0K"
+  }
+}

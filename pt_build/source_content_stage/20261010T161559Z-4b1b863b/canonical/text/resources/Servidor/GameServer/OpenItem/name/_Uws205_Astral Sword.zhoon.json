@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uws205_astral_sword",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uws205_Astral Sword.zhoon",
+    "GameServer/OpenItem/name/_Uws205_Astral Sword.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uws205_Astral Sword.zhoon",
+    "legacy_sha256": "feaa4b998d955bce2fd9186dfcd4a09553cbba2a18b2f41725f5117487b10c13",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "AXg\\[h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIoNBg1iDZ4OJg4uDXIFbg2gi"
+  }
+}

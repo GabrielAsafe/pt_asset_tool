@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi117",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI117.zhoon",
+    "GameServer/OpenItem/name/BI117.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI117.zhoon",
+    "legacy_sha256": "52f28f3d48c79bab2e86a9bcff4fee4a4a3c628671d9ff331d9d343ceaa0c2e5",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Poção de Cabelo B"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUG/n428gZGUgQ2FiZWxvIEIi"
+  }
+}

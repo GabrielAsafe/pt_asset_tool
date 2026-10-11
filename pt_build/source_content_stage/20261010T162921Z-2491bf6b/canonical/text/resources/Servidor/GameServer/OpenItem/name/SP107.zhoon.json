@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sp107",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SP107.zhoon",
+    "GameServer/OpenItem/name/SP107.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SP107.zhoon",
+    "legacy_sha256": "79b3cd74530dba92cd2e49fa86652dac2fc016092c1a87b7e3b4e5831e1e5df5",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Ovo de Páscoa (C)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiT3ZvIGRlIFDhc2NvYSAoQyki"
+  }
+}

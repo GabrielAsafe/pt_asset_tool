@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.49_centauro_s",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/49_Centauro-S.zhoon",
+    "GameServer/Monster/Name/49_Centauro-S.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/49_Centauro-S.zhoon",
+    "legacy_sha256": "97c6c7ed884cf6d20d985fb0ae29fddaf3a29e35e1ea32403461b0d44b936cd2",
+    "legacy_size": 20
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Centauro-S"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2VudGF1cm8tUyI="
+  }
+}

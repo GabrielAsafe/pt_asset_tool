@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.db301",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DB301.zhoon",
+    "GameServer/OpenItem/name/DB301.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DB301.zhoon",
+    "legacy_sha256": "6706351e8e093bd600aa0dd3f761ff882c3273405b3cd380d4dca56c9f3ddd36",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Golden Boots"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIkdvbGRlbiBCb290cyI="
+  }
+}

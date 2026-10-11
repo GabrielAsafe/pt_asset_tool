@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.34_bauton",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/34_Bauton.zhoon",
+    "GameServer/Monster/Name/34_Bauton.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/34_Bauton.zhoon",
+    "legacy_sha256": "b8a66488b7c94980e5c51b7abfc376d8e54de92a7d142509041afd4e23635178",
+    "legacy_size": 16
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Bauton"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQmF1dG9uIg=="
+  }
+}

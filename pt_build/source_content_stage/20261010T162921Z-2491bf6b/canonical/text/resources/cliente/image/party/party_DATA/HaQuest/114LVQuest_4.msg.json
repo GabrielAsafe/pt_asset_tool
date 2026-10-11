@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_4",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/114LVQuest_4.msg",
+    "image/party/party_DATA/HaQuest/114LVQuest_4.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/114LVQuest_4.msg",
+    "legacy_sha256": "44befeb555cff0623b6763dc0aa37eea9ec804619fa27e993547e7615c2ac437",
+    "legacy_size": 115
+  },
+  "semantic": {
+    "lines": [
+      "Use o Concentrado de Alma",
+      "Maligna no centro da Arma",
+      "Antiga.",
+      "Destrua-a e, em seguida,",
+      "fale com a Alma Flutuante."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VXNlIG8gQ29uY2VudHJhZG8gZGUgQWxtYQ0KTWFsaWduYSBubyBjZW50cm8gZGEgQXJtYQ0KQW50aWdhLg0KRGVzdHJ1YS1hIGUsIGVtIHNlZ3VpZGEsDQpmYWxlIGNvbSBhIEFsbWEgRmx1dHVhbnRlLg=="
+  }
+}

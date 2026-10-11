@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ch102",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CH102.txt",
+    "GameServer/OpenItem/CH102.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CH102.txt",
+    "legacy_sha256": "1cc21168fd75bfe4add40eb30d8d52c81dfd8c1478a42975248ab55071dea972",
+    "legacy_size": 196
+  },
+  "semantic": {
+    "fields": {
+      "code": "CH102",
+      "name": "Chocolate Branco",
+      "english_name": "Chocolate Branco",
+      "weight": 1,
+      "price": 50000,
+      "linked_file": "Name\\CH102.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CH102"
+        ],
+        "raw_values_hex": [
+          "4348313032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Chocolate Branco"
+        ],
+        "raw_values_hex": [
+          "43686f636f6c617465204272616e636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Chocolate Branco"
+        ],
+        "raw_values_hex": [
+          "43686f636f6c617465204272616e636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50000
+        ],
+        "raw_values_hex": [
+          "3530303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\CH102.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c43483130322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkNIMTAyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ2hvY29sYXRlIEJyYW5jbyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJDaG9jb2xhdGUgQnJhbmNvIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SA1MDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXENIMTAyLnpob29uIg=="
+  }
+}

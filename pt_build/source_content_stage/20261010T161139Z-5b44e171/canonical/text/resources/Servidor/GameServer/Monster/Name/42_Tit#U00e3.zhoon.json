@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.42_tit_u00e3",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/42_Tit#U00e3.zhoon",
+    "GameServer/Monster/Name/42_Tit#U00e3.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/42_Tit#U00e3.zhoon",
+    "legacy_sha256": "e9e96a8285fdccda613ebbdeae9ccab80d7beb8f75ecfdd67c31d006ca2d260f",
+    "legacy_size": 14
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Titã"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVGl04yI="
+  }
+}

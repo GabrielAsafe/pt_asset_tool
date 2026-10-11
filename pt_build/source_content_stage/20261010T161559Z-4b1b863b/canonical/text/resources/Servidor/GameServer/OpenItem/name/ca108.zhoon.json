@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ca108.zhoon",
+    "GameServer/OpenItem/name/ca108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ca108.zhoon",
+    "legacy_sha256": "30025e47348a82ca554ac6ee43292d922387cd66fead5da4c865adce8f46c5c8",
+    "legacy_size": 35
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Armadura Noel Vermelha"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkFybWFkdXJhIE5vZWwgVmVybWVsaGEiDQo="
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/130LVQuest_1.msg",
+    "image/party/party_DATA/HaQuest/130LVQuest_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/130LVQuest_1.msg",
+    "legacy_sha256": "6fb47e41f6299d3e01bfbbe46008bcbc65768b276e05dcb457d78aff676a349a",
+    "legacy_size": 67
+  },
+  "semantic": {
+    "lines": [
+      "Fale com o Xamã Real na",
+      "área da Depressão, em",
+      "Estrada dos Ventos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmFsZSBjb20gbyBYYW3jIFJlYWwgbmENCuFyZWEgZGEgRGVwcmVzc+NvLCBlbQ0KRXN0cmFkYSBkb3MgVmVudG9zLg=="
+  }
+}

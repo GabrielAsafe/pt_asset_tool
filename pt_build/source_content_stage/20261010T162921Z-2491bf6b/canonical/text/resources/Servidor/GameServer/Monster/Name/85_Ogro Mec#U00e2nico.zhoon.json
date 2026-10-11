@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.85_ogro_mec_u00e2nico",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/85_Ogro Mec#U00e2nico.zhoon",
+    "GameServer/Monster/Name/85_Ogro Mec#U00e2nico.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/85_Ogro Mec#U00e2nico.zhoon",
+    "legacy_sha256": "f5f66e1dbacbdb10ac7041d54bb7edc0a3d164c5dfd8aac2090c273bb4f28f7b",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Ogro Mecânico"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiT2dybyBNZWPibmljbyI="
+  }
+}

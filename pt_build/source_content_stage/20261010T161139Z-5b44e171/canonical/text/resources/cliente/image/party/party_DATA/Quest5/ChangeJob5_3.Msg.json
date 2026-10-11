@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_3",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest5/ChangeJob5_3.Msg",
+    "image/party/party_DATA/Quest5/ChangeJob5_3.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest5/ChangeJob5_3.Msg",
+    "legacy_sha256": "9447de0d09b281947239a04cafd7b5b8c3540f5a014fd278cf6ff576d7f88cbd",
+    "legacy_size": 94
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "O Desafio de Classe é lutar",
+      "com Hestian. Volte para o",
+      "Ancião Hosean após você vencer.",
+      "",
+      " "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpPIERlc2FmaW8gZGUgQ2xhc3NlIOkgbHV0YXINCmNvbSBIZXN0aWFuLiBWb2x0ZSBwYXJhIG8NCkFuY2njbyBIb3NlYW4gYXDzcyB2b2PqIHZlbmNlci4NCg0KIA=="
+  }
+}

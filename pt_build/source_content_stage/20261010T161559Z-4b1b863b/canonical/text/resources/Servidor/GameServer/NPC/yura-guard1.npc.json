@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.yura_guard1",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/yura-guard1.npc",
+    "GameServer/NPC/yura-guard1.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/yura-guard1.npc",
+    "legacy_sha256": "7ae9fb473653b0d746b38f576b4700a2cf91cf1efb38916cfe8f53332f40b02a",
+    "legacy_size": 469
+  },
+  "semantic": {
+    "fields": {
+      "name": "유라 경비병",
+      "model_file": "char\\npc\\TN-002\\TN-002.INI",
+      "level": 100,
+      "linked_file": "name\\yura-guard1.zhoon",
+      "model_config_id": "model.char.npc.tn.002.tn.002"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "유라 경비병"
+        ],
+        "raw_values_hex": [
+          "c0afb6f320b0e6baf1bab4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-002\\TN-002.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030325c544e2d3030322e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\yura-guard1.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c797572612d6775617264312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSLAr7bzILDmuvG6tCINCiq48L7nxsTAzwkiY2hhclxucGNcVE4tMDAyXFROLTAwMi5JTkkiDQoqt7m6pwkJMTAwDQoNCi8vKrTryK0JCSK+88C9wfbH/L+hIMb4vLPAzCCzu7fBIMCvtvO4tsC7se7B9iDAp8fox9ggwfaw2rTCsMkuIg0KLy8qtOvIrQkJIsb4vLMgtPbFw7+hIL7zwL3B9sf8ILjzvbrFzbXpwMcgvcCw3cDMILjYw9+x5CDH38H2uLggv6nA/Mj3IMCvtvO4tsC7wLogv9Wxub+hvK0gwM7BpMfRIMD8u+e16SDAzL/cv6G0wiDD4sDUxevBprbzv8AiDQovLyq068itCQkitOe9xbW1ILLPILCtx9ggurjAzLTCtaUgvvDBpiDH0bn4ILDct++6vr3DtNkuIg0KLy8qtOvIrQkJIsfBuK69usXmILTrt/q/oSDBocGhILT1ILvnvsfH0SCx4r/uwMwgsK3H2MH2sO0gwNa+7i4gwMy3obyttMIgvvDBqLChIMWrIMDPwMwgs6+wxbCwvsYuIg0KDQoJDQoNCiq/rLDhxsTAzwkibmFtZVx5dXJhLWd1YXJkMS56aG9vbiINCg=="
+  }
+}

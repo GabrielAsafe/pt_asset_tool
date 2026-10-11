@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.undeadmanager.undeadmanager",
+  "logical_config": "char/monster/undeadmanager/undeadmanager.ini",
+  "legacy_cache": "char/monster/undeadmanager/undeadmanager.inx",
+  "consumers": [
+    {
+      "id": "monster.112_capataz_das_cinzas",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/112_Capataz das Cinzas.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/UndeadManager/undeadmanager.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/UndeadManager/undeadmanager.inx"
+    }
+  }
+}

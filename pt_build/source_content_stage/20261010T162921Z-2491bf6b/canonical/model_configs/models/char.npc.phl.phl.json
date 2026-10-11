@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.phl.phl",
+  "logical_config": "char/npc/phl/phl.INI",
+  "legacy_cache": "char/npc/phl/phl.inx",
+  "consumers": [
+    {
+      "id": "npc.lucy",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Lucy.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/phl/phl.inx"
+    },
+    "client": {
+      "present": false,
+      "path": ""
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dg140",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DG140.zhoon",
+    "GameServer/OpenItem/name/DG140.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DG140.zhoon",
+    "legacy_sha256": "0221535fcfc7fb9a7d5c0c0de4bb7b168f421cd56d6573cf237cd2e18b7c5027",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Luvas Infernais"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTHV2YXMgSW5mZXJuYWlzIg=="
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wt131",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WT131.txt",
+    "GameServer/OpenItem/WT131.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WT131.txt",
+    "legacy_sha256": "d50c35539971fa422869493b2d94b3112e8682458a69ce9884edbf934a24991d",
+    "legacy_size": 721
+  },
+  "semantic": {
+    "fields": {
+      "code": "WT131",
+      "name": "Lança Infernal",
+      "english_name": "Lança Infernal",
+      "attack_damage": [
+        123,
+        126,
+        143,
+        146
+      ],
+      "shooting_range": 255,
+      "attack_speed": 8,
+      "attack_rating": [
+        212,
+        232
+      ],
+      "critical": 17,
+      "durability": [
+        207,
+        231
+      ],
+      "level": 130,
+      "strength": 82,
+      "talent": 100,
+      "dexterity": 195,
+      "job": "Atalanta",
+      "job_random": [
+        "Mechanician",
+        "Archer"
+      ],
+      "special_damage": [
+        6,
+        6
+      ],
+      "special_attack_speed": 1,
+      "special_critical": 6,
+      "special_range": 25,
+      "weight": 73,
+      "price": 1780000,
+      "linked_file": "Name\\WT131.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WT131"
+        ],
+        "raw_values_hex": [
+          "5754313331"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Lança Infernal"
+        ],
+        "raw_values_hex": [
+          "4c616ee76120496e6665726e616c"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Lança Infernal"
+        ],
+        "raw_values_hex": [
+          "4c616ee76120496e6665726e616c"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          123,
+          126,
+          143,
+          146
+        ],
+        "raw_values_hex": [
+          "313233",
+          "313236",
+          "313433",
+          "313436"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "shooting_range",
+        "legacy_token": "*사정거리",
+        "legacy_token_hex": "2abbe7c1a4b0c5b8ae",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          255
+        ],
+        "raw_values_hex": [
+          "323535"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          212,
+          232
+        ],
+        "raw_values_hex": [
+          "323132",
+          "323332"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          17
+        ],
+        "raw_values_hex": [
+          "3137"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          207,
+          231
+        ],
+        "raw_values_hex": [
+          "323037",
+          "323331"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          130
+        ],
+        "raw_values_hex": [
+          "313330"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          82
+        ],
+        "raw_values_hex": [
+          "3832"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "dexterity",
+        "legacy_token": "*민첩성",
+        "legacy_token_hex": "2ab9cec3b8bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          195
+        ],
+        "raw_values_hex": [
+          "313935"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "job",
+        "legacy_token": "**Ưȭ",
+        "legacy_token_hex": "2a2ac6afc8ad",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Archer"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "417263686572"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          6
+        ],
+        "raw_values_hex": [
+          "36",
+          "36"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_critical",
+        "legacy_token": "**크리티컬",
+        "legacy_token_hex": "2a2ac5a9b8aec6bcc4c3",
+        "loader_status": "supported_mapped",
+        "values": [
+          6
+        ],
+        "raw_values_hex": [
+          "36"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "special_range",
+        "legacy_token": "**사정거리",
+        "legacy_token_hex": "2a2abbe7c1a4b0c5b8ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          25
+        ],
+        "raw_values_hex": [
+          "3235"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          73
+        ],
+        "raw_values_hex": [
+          "3733"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1780000
+        ],
+        "raw_values_hex": [
+          "31373830303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WT131.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c57543133312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldUMTMxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiTGFu52EgSW5mZXJuYWwiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiTGFu52EgSW5mZXJuYWwiDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgMTIzIDEyNiAxNDMgMTQ2DQoNCi8vQXR0YWNrUmFuZ2UNCiq758GksMW4riAyNTUNCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDgNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgMjEyIDIzMg0KDQovL0F0dGFja0NyaXRpY2FsDQoqxam4rsa8xMMgMTcNCg0KLy9JbnRlZ3JpdHkNCiqzu7G4t8IgMjA3IDIzMQ0KDQovL0xldmVsDQoqt7m6pyAxMzANCg0KLy9TdHJlbmd0aA0KKsj7IDgyDQoNCi8vVGFsZW50DQoqwOe0ySAxMDANCg0KLy9BZ2lsaXR5DQoquc7DuLy6IDE5NQ0KDQovL1ByaW1hcnlTcGVjDQoqKsavyK0gQXRhbGFudGENCg0KLy9TZWNvbmRhcnlTcGVjDQoqKsavyK23o7T9IE1lY2hhbmljaWFuIEFyY2hlcg0KDQovL1NwZWNBdHRhY2tQb3dlcg0KKiqw+LDdt8IgNiA2DQoNCi8vU3BlY0F0dGFja1NwZWVkDQoqKrD4sN2807W1IDENCg0KLy9TcGVjQXR0YWNrQ3JpdGljYWwNCioqxam4rsa8xMMgNg0KDQovL1NwZWNBdHRhY2tSYW5nZQ0KKiq758GksMW4riAyNQ0KDQovL1dlaWdodA0KKrmrsNQgNzMNCg0KLy9QcmljZQ0KKrChsN0gMTc4MDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFdUMTMxLnpob29uIg=="
+  }
+}

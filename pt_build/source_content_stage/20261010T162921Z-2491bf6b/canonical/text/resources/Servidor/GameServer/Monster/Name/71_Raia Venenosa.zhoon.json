@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.71_raia_venenosa",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/71_Raia Venenosa.zhoon",
+    "GameServer/Monster/Name/71_Raia Venenosa.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/71_Raia Venenosa.zhoon",
+    "legacy_sha256": "34d4451edb2f60e57a716a7c617fe440706bd9c57712dc7f838cff6d0d5a8a0a",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Raia Venenosa"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUmFpYSBWZW5lbm9zYSI="
+  }
+}

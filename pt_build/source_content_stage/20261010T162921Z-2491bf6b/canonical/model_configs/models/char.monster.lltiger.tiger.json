@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.lltiger.tiger",
+  "logical_config": "char/monster/LLTiger/tiger.ini",
+  "legacy_cache": "char/monster/LLTiger/tiger.inx",
+  "consumers": [
+    {
+      "id": "monster.t5_summontiger",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/T5_SummonTiger.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/LLTiger/tiger.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/LLTiger/tiger.inx"
+    }
+  }
+}

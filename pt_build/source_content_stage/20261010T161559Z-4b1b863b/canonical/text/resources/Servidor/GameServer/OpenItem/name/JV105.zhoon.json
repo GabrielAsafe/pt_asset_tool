@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.jv105",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/JV105.zhoon",
+    "GameServer/OpenItem/name/JV105.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/JV105.zhoon",
+    "legacy_sha256": "a7ddde09b9218864019eb62d0569a6a0e5c1211529fdc23643bbb5cc6dbd8f45",
+    "legacy_size": 54
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Especialização de Atalanta"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwMS50eHQNCg0KKkpfTmFtZQkJIkVzcGVjaWFsaXph5+NvIGRlIEF0YWxhbnRhIg0K"
+  }
+}

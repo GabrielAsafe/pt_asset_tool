@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv122",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV122.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV122.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV122.zhoon",
+    "legacy_sha256": "79dc874fd480d61de5a0494c7eaaf526b32e3deb876a0703146309cc417d2fbc",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Deimos Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjEyMi50eHQNCg0KKkpfTkFNRQkJIkRlaW1vcyBTbmFrZSBCcmFjZSINCg=="
+  }
+}

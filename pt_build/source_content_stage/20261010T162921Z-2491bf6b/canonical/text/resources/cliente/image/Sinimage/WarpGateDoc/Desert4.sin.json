@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.desert4",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Desert4.sin",
+    "image/Sinimage/WarpGateDoc/Desert4.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Desert4.sin",
+    "legacy_sha256": "f6ca21d3df3f89bbf394bb224bb5abd0d67226256b435d2d5860b0d85303aeeb",
+    "legacy_size": 223
+  },
+  "semantic": {
+    "lines": [
+      "This area is extremely dangerous and restricted",
+      "to civilians.",
+      "Fatal monsters rover about in the desert where",
+      "no water to drink can be found.",
+      "Only a few trained warriors are allowed to pass",
+      "here to test their ability."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhpcyBhcmVhIGlzIGV4dHJlbWVseSBkYW5nZXJvdXMgYW5kIHJlc3RyaWN0ZWQNCnRvIGNpdmlsaWFucy4NCkZhdGFsIG1vbnN0ZXJzIHJvdmVyIGFib3V0IGluIHRoZSBkZXNlcnQgd2hlcmUNCm5vIHdhdGVyIHRvIGRyaW5rIGNhbiBiZSBmb3VuZC4NCk9ubHkgYSBmZXcgdHJhaW5lZCB3YXJyaW9ycyBhcmUgYWxsb3dlZCB0byBwYXNzDQpoZXJlIHRvIHRlc3QgdGhlaXIgYWJpbGl0eS4NCg=="
+  }
+}

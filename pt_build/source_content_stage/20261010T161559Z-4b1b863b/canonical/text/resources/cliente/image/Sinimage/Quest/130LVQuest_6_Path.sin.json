@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_6_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/130LVQuest_6_Path.sin",
+    "image/Sinimage/Quest/130LVQuest_6_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/130LVQuest_6_Path.sin",
+    "legacy_sha256": "f7f97b8794571b4b11ebcf843a92c0287de862ea943840cfb7c7fc0457fb6ab9",
+    "legacy_size": 538
+  },
+  "semantic": {
+    "lines": [
+      "Midranda preparou um ótimo plano. Quem imaginaria que",
+      "ele projetaria parte da sua alma para a Dimensão Sombria",
+      "e a usaria para resgatar seu exército?",
+      "",
+      "Os Igolanos, Asmodianos e Sophetios estão atendendo ao",
+      "chamado de Midranda e atacando o continente. Temos que ",
+      "que interromper o chamado de Midranda e impedir que mais",
+      "monstros sejam enviados para o Abismo do Mar.",
+      "",
+      "Nossos companheiros precisam de ajuda .",
+      "",
+      "Por favor, volte para a Estrada Sombria e derrote o",
+      "Espectro do Midranda.",
+      "",
+      "Ao terminar, venha falar comigo novamente."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TWlkcmFuZGEgcHJlcGFyb3UgdW0g83RpbW8gcGxhbm8uIFF1ZW0gaW1hZ2luYXJpYSBxdWUNCmVsZSBwcm9qZXRhcmlhIHBhcnRlIGRhIHN1YSBhbG1hIHBhcmEgYSBEaW1lbnPjbyBTb21icmlhDQplIGEgdXNhcmlhIHBhcmEgcmVzZ2F0YXIgc2V1IGV46XJjaXRvPw0KDQpPcyBJZ29sYW5vcywgQXNtb2RpYW5vcyBlIFNvcGhldGlvcyBlc3TjbyBhdGVuZGVuZG8gYW8NCmNoYW1hZG8gZGUgTWlkcmFuZGEgZSBhdGFjYW5kbyBvIGNvbnRpbmVudGUuIFRlbW9zIHF1ZSANCnF1ZSBpbnRlcnJvbXBlciBvIGNoYW1hZG8gZGUgTWlkcmFuZGEgZSBpbXBlZGlyIHF1ZSBtYWlzDQptb25zdHJvcyBzZWphbSBlbnZpYWRvcyBwYXJhIG8gQWJpc21vIGRvIE1hci4NCg0KTm9zc29zIGNvbXBhbmhlaXJvcyBwcmVjaXNhbSBkZSBhanVkYSAuDQoNClBvciBmYXZvciwgdm9sdGUgcGFyYSBhIEVzdHJhZGEgU29tYnJpYSBlIGRlcnJvdGUgbw0KRXNwZWN0cm8gZG8gTWlkcmFuZGEuDQoNCkFvIHRlcm1pbmFyLCB2ZW5oYSBmYWxhciBjb21pZ28gbm92YW1lbnRlLg=="
+  }
+}

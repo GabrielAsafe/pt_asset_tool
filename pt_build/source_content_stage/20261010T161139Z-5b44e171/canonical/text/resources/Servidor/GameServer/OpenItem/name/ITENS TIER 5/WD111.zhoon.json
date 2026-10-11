@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd111",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD111.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD111.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD111.zhoon",
+    "legacy_sha256": "056f7c0f9994c5cfeb57324a6dda3443f18f1bb0528782c71279d6674a46803e",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Abyss Dagger"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDExMS50eHQNCg0KKkpfTkFNRQkJIkFieXNzIERhZ2dlciINCg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dr109",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DR109.zhoon",
+    "GameServer/OpenItem/name/DR109.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DR109.zhoon",
+    "legacy_sha256": "fb8c1fd49cad1cb7b8efade1a5540aa0d10dde14434808df4139f91713f39b68",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Receita de Defesa Nível 105"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUmVjZWl0YSBkZSBEZWZlc2EgTu12ZWwgMTA1Ig=="
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/155LVQuest_5.msg",
+    "image/party/party_DATA/HaQuest/155LVQuest_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/155LVQuest_5.msg",
+    "legacy_sha256": "f85cd4fe558d004a0a0871d28be4a98fe1e64eb9220247eca7f58556f339eca0",
+    "legacy_size": 219
+  },
+  "semantic": {
+    "lines": [
+      "Ative o Ovo de Kelvezu, na",
+      "área determinada, no Abismo",
+      "do Mar Congelado e derrote",
+      "o Dragão de Snowstorm.",
+      "Após, fale com o Derik.",
+      "OBS: Se for derrotado pelo",
+      "Dragão de Snowstorm ou sair ",
+      "do jogo, o desafio falhará."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QXRpdmUgbyBPdm8gZGUgS2VsdmV6dSwgbmENCuFyZWEgZGV0ZXJtaW5hZGEsIG5vIEFiaXNtbw0KZG8gTWFyIENvbmdlbGFkbyBlIGRlcnJvdGUNCm8gRHJhZ+NvIGRlIFNub3dzdG9ybS4NCkFw83MsIGZhbGUgY29tIG8gRGVyaWsuDQpPQlM6IFNlIGZvciBkZXJyb3RhZG8gcGVsbw0KRHJhZ+NvIGRlIFNub3dzdG9ybSBvdSBzYWlyIA0KZG8gam9nbywgbyBkZXNhZmlvIGZhbGhhcuEu"
+  }
+}

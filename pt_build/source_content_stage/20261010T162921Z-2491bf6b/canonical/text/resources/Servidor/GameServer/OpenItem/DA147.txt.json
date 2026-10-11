@@ -1,0 +1,194 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da147",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA147.txt",
+    "GameServer/OpenItem/DA147.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA147.txt",
+    "legacy_sha256": "c32961b97b2beed68ecd99d6df19c40711f5bcd062d1cf6ee09aae0823cc35f9",
+    "legacy_size": 295
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA147",
+      "name": "Uniforme",
+      "english_name": "Uniforme",
+      "defence": [
+        100,
+        100
+      ],
+      "absorb": [
+        4.0,
+        4.0
+      ],
+      "block": [
+        3.0,
+        3.0
+      ],
+      "level": 20,
+      "weight": 100,
+      "price": 150000,
+      "linked_file": "Name\\DA147.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA147"
+        ],
+        "raw_values_hex": [
+          "4441313437"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Uniforme"
+        ],
+        "raw_values_hex": [
+          "556e69666f726d65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Uniforme"
+        ],
+        "raw_values_hex": [
+          "556e69666f726d65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          4.0,
+          4.0
+        ],
+        "raw_values_hex": [
+          "342e30",
+          "342e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          3.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "332e30"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          150000
+        ],
+        "raw_values_hex": [
+          "313530303030"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA147.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413134372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMTQ3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiVW5pZm9ybWUiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiVW5pZm9ybWUiDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiAxMDAgMTAwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiA0LjAgNC4wDQoNCi8vQmxvY2sNCiq67bewwLIgMy4wIDMuMA0KDQovL0xldmVsDQoqt7m6pyAyMA0KDQovL1dlaWdodA0KKrmrsNQgMTAwDQoNCi8vUHJpY2UNCiqwobDdIDE1MDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXERBMTQ3Lnpob29uIg=="
+  }
+}

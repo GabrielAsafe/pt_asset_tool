@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.gp138",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/GP138.zhoon",
+    "GameServer/OpenItem/name/GP138.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/GP138.zhoon",
+    "legacy_sha256": "86f5085cc70d71300fd176e86dcc2316f0ee42adbbf0478b0e2d8840f846c7eb",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cristal do Kelvezu"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ3Jpc3RhbCBkbyBLZWx2ZXp1Ig=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.pm101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/PM101.zhoon",
+    "GameServer/OpenItem/name/PM101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/PM101.zhoon",
+    "legacy_sha256": "1265f71e3965e3dcc7a43fa2679f2f9b5f0963a9231e6806279b9702db3d09f8",
+    "legacy_size": 31
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Poção Pequena de Mana"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUG/n428gUGVxdWVuYSBkZSBNYW5hIg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn107",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN107.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN107.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN107.zhoon",
+    "legacy_sha256": "13f7f37d7440f74771fff4a7758ac8cf39a8b30c5cfb1c96e48abb5b73c5cf65",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Paha Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjEwNy50eHQNCg0KKkpfTkFNRQkJIlBhaGEgUGhhbnRvbSINCg=="
+  }
+}

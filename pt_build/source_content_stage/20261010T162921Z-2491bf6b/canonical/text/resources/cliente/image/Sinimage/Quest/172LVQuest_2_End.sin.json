@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_2_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_2_End.sin",
+    "image/Sinimage/Quest/172LVQuest_2_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_2_End.sin",
+    "legacy_sha256": "f9ab1007f3cf162dd97b6ba7275e9cffe9d56a2862ec2f2ba19813cdc94d5c5b",
+    "legacy_size": 356
+  },
+  "semantic": {
+    "lines": [
+      "Você trouxe várias amostras.",
+      "Foram de um único monstro?",
+      "Ah, esses Fragmentos de Fogo foram obtidos de vários",
+      "tipos de monstros.",
+      "",
+      "Esses fragmentos são similares à rochas vulcânicas. ",
+      "Sinto algo diferente vindo desses fragmentos.",
+      "",
+      "Vou analisá-los melhor, junto com os pesquisadores do",
+      "Conselho. Vai levar algum tempo.",
+      "",
+      "Por favor, volte mais tarde."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iB0cm91eGUgduFyaWFzIGFtb3N0cmFzLg0KRm9yYW0gZGUgdW0g+m5pY28gbW9uc3Rybz8NCkFoLCBlc3NlcyBGcmFnbWVudG9zIGRlIEZvZ28gZm9yYW0gb2J0aWRvcyBkZSB24XJpb3MNCnRpcG9zIGRlIG1vbnN0cm9zLg0KDQpFc3NlcyBmcmFnbWVudG9zIHPjbyBzaW1pbGFyZXMg4CByb2NoYXMgdnVsY+JuaWNhcy4gDQpTaW50byBhbGdvIGRpZmVyZW50ZSB2aW5kbyBkZXNzZXMgZnJhZ21lbnRvcy4NCg0KVm91IGFuYWxpc+EtbG9zIG1lbGhvciwganVudG8gY29tIG9zIHBlc3F1aXNhZG9yZXMgZG8NCkNvbnNlbGhvLiBWYWkgbGV2YXIgYWxndW0gdGVtcG8uDQoNClBvciBmYXZvciwgdm9sdGUgbWFpcyB0YXJkZS4="
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.royale",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/royale.sin",
+    "image/Sinimage/help/royale.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/royale.sin",
+    "legacy_sha256": "d593234456927b7e7ffdbcad2dccb3cd647c0419761dabe55c76013d68d4f926",
+    "legacy_size": 2453
+  },
+  "semantic": {
+    "lines": [
+      "Olá, {0}! ",
+      "",
+      "Sou o Conselheiro Armeon.",
+      "",
+      "O Battle Royale é um desafio em que você deve ser o último sobrevivente em uma arena PvP (Player versus Player) mortal para tornar-se o grande vencedor dos deuses, iniciando sem os seus equipamentos e podendo contar apenas com a sua habilidade para lidar com o que conseguir coletar entre uma luta e outra.",
+      "A sua tática de sobrevivencia consiste na correta escolha entre lutar ou fugir do embate com o seu oponente, dependendo dos Itens Especiais que conseguir coletar na arena.",
+      "A Barreira Mágica (Magic Barrier) é dinâmica e, dependendo da quantidade de personagens participantes e da sua localização, fecha-se mais rápido ou mais lentamente, direcionando-se para forçar o seu combate com os demais guerreiros e restringindo, gradativamente, a área da Zona Segura.",
+      "",
+      "Com todos os ataques recentes contra o continente pristoniano, desde a aliança de Yagditha e Midranda, o Comandante Derik e o Mestre Verkan, auxiliados pela deusa Idhas e a Aliança dos Deuses, desenvolveram um novo método de treinamento secreto para revelar novos Guerreiros Celestiais.",
+      "Agora, a Arena Sagrada Battle Royale é a melhor chance de formar um novo exército e tornou-se um treinamento intensivo e permanente por determinação do Conselho Real.",
+      "",
+      "Para fortalecer o trabalho em equipe dos guerreiros pristonianos, uma nova modalidade foi criada. O Team Deathmatch, chegou para trazer mais dinamismo e desafio às disputas. Nesse novo modo, os aspirantes a Guerreiros Celestiais são divididos, aleatoriamente, em dois times que se enfrentam na Arena Sagrada enquanto a Barreira Mágica se fecha sobre eles. O time que alcançar 100 pontos será o vencedor.",
+      "",
+      "As disputas do Battle Royale acontecem todos os sábados, em 3 (três) rodadas consecutivas, de acordo com a faixa de nível e os subservidores determinados abaixo.",
+      "",
+      "Servidores Awell, Migal e Midranda:",
+      "18h00 - Zeta: Lvl 118~139",
+      "19h30 - Zeta: Lvl 140~164",
+      "21h00 - Zeta: Lvl 165+",
+      "",
+      "Servidor Cronus:",
+      "18h00 - Gama: Lvl 80~117",
+      "19h30 - Beta: Lvl 118~129",
+      "21h00 - Alfa: Lvl 130+",
+      "",
+      "Servidor Idhas:",
+      "19h30 - Gama: Lvl 80~139",
+      "21h00 - Beta: Lvl 140+",
+      "",
+      "Acompanhe as conquistas do seu Guerreiro Celestial favorito no ranking e saiba quem são os maiores Guerreiros Celestiais da Arena Sagrada do Battle Royale.",
+      "Acumule pontos a cada disputa e troque-os por itens do Priston Shop ou, até mesmo, experiência para o seu personagem, na Roleta Royale!",
+      "",
+      "Engaje-se!",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhLCB7MH0hIA0KDQpTb3UgbyBDb25zZWxoZWlybyBBcm1lb24uDQoNCk8gQmF0dGxlIFJveWFsZSDpIHVtIGRlc2FmaW8gZW0gcXVlIHZvY+ogZGV2ZSBzZXIgbyD6bHRpbW8gc29icmV2aXZlbnRlIGVtIHVtYSBhcmVuYSBQdlAgKFBsYXllciB2ZXJzdXMgUGxheWVyKSBtb3J0YWwgcGFyYSB0b3JuYXItc2UgbyBncmFuZGUgdmVuY2Vkb3IgZG9zIGRldXNlcywgaW5pY2lhbmRvIHNlbSBvcyBzZXVzIGVxdWlwYW1lbnRvcyBlIHBvZGVuZG8gY29udGFyIGFwZW5hcyBjb20gYSBzdWEgaGFiaWxpZGFkZSBwYXJhIGxpZGFyIGNvbSBvIHF1ZSBjb25zZWd1aXIgY29sZXRhciBlbnRyZSB1bWEgbHV0YSBlIG91dHJhLg0KQSBzdWEgdOF0aWNhIGRlIHNvYnJldml2ZW5jaWEgY29uc2lzdGUgbmEgY29ycmV0YSBlc2NvbGhhIGVudHJlIGx1dGFyIG91IGZ1Z2lyIGRvIGVtYmF0ZSBjb20gbyBzZXUgb3BvbmVudGUsIGRlcGVuZGVuZG8gZG9zIEl0ZW5zIEVzcGVjaWFpcyBxdWUgY29uc2VndWlyIGNvbGV0YXIgbmEgYXJlbmEuDQpBIEJhcnJlaXJhIE3hZ2ljYSAoTWFnaWMgQmFycmllcikg6SBkaW7ibWljYSBlLCBkZXBlbmRlbmRvIGRhIHF1YW50aWRhZGUgZGUgcGVyc29uYWdlbnMgcGFydGljaXBhbnRlcyBlIGRhIHN1YSBsb2NhbGl6YefjbywgZmVjaGEtc2UgbWFpcyBy4XBpZG8gb3UgbWFpcyBsZW50YW1lbnRlLCBkaXJlY2lvbmFuZG8tc2UgcGFyYSBmb3LnYXIgbyBzZXUgY29tYmF0ZSBjb20gb3MgZGVtYWlzIGd1ZXJyZWlyb3MgZSByZXN0cmluZ2luZG8sIGdyYWRhdGl2YW1lbnRlLCBhIOFyZWEgZGEgWm9uYSBTZWd1cmEuDQoNCkNvbSB0b2RvcyBvcyBhdGFxdWVzIHJlY2VudGVzIGNvbnRyYSBvIGNvbnRpbmVudGUgcHJpc3Rvbmlhbm8sIGRlc2RlIGEgYWxpYW7nYSBkZSBZYWdkaXRoYSBlIE1pZHJhbmRhLCBvIENvbWFuZGFudGUgRGVyaWsgZSBvIE1lc3RyZSBWZXJrYW4sIGF1eGlsaWFkb3MgcGVsYSBkZXVzYSBJZGhhcyBlIGEgQWxpYW7nYSBkb3MgRGV1c2VzLCBkZXNlbnZvbHZlcmFtIHVtIG5vdm8gbel0b2RvIGRlIHRyZWluYW1lbnRvIHNlY3JldG8gcGFyYSByZXZlbGFyIG5vdm9zIEd1ZXJyZWlyb3MgQ2VsZXN0aWFpcy4NCkFnb3JhLCBhIEFyZW5hIFNhZ3JhZGEgQmF0dGxlIFJveWFsZSDpIGEgbWVsaG9yIGNoYW5jZSBkZSBmb3JtYXIgdW0gbm92byBleOlyY2l0byBlIHRvcm5vdS1zZSB1bSB0cmVpbmFtZW50byBpbnRlbnNpdm8gZSBwZXJtYW5lbnRlIHBvciBkZXRlcm1pbmHn428gZG8gQ29uc2VsaG8gUmVhbC4NCg0KUGFyYSBmb3J0YWxlY2VyIG8gdHJhYmFsaG8gZW0gZXF1aXBlIGRvcyBndWVycmVpcm9zIHByaXN0b25pYW5vcywgdW1hIG5vdmEgbW9kYWxpZGFkZSBmb2kgY3JpYWRhLiBPIFRlYW0gRGVhdGhtYXRjaCwgY2hlZ291IHBhcmEgdHJhemVyIG1haXMgZGluYW1pc21vIGUgZGVzYWZpbyDgcyBkaXNwdXRhcy4gTmVzc2Ugbm92byBtb2RvLCBvcyBhc3BpcmFudGVzIGEgR3VlcnJlaXJvcyBDZWxlc3RpYWlzIHPjbyBkaXZpZGlkb3MsIGFsZWF0b3JpYW1lbnRlLCBlbSBkb2lzIHRpbWVzIHF1ZSBzZSBlbmZyZW50YW0gbmEgQXJlbmEgU2FncmFkYSBlbnF1YW50byBhIEJhcnJlaXJhIE3hZ2ljYSBzZSBmZWNoYSBzb2JyZSBlbGVzLiBPIHRpbWUgcXVlIGFsY2Fu52FyIDEwMCBwb250b3Mgc2Vy4SBvIHZlbmNlZG9yLg0KDQpBcyBkaXNwdXRhcyBkbyBCYXR0bGUgUm95YWxlIGFjb250ZWNlbSB0b2RvcyBvcyBz4WJhZG9zLCBlbSAzICh0cupzKSByb2RhZGFzIGNvbnNlY3V0aXZhcywgZGUgYWNvcmRvIGNvbSBhIGZhaXhhIGRlIG7tdmVsIGUgb3Mgc3Vic2Vydmlkb3JlcyBkZXRlcm1pbmFkb3MgYWJhaXhvLg0KDQpTZXJ2aWRvcmVzIEF3ZWxsLCBNaWdhbCBlIE1pZHJhbmRhOg0KMThoMDAgLSBaZXRhOiBMdmwgMTE4fjEzOQ0KMTloMzAgLSBaZXRhOiBMdmwgMTQwfjE2NA0KMjFoMDAgLSBaZXRhOiBMdmwgMTY1Kw0KDQpTZXJ2aWRvciBDcm9udXM6DQoxOGgwMCAtIEdhbWE6IEx2bCA4MH4xMTcNCjE5aDMwIC0gQmV0YTogTHZsIDExOH4xMjkNCjIxaDAwIC0gQWxmYTogTHZsIDEzMCsNCg0KU2Vydmlkb3IgSWRoYXM6DQoxOWgzMCAtIEdhbWE6IEx2bCA4MH4xMzkNCjIxaDAwIC0gQmV0YTogTHZsIDE0MCsNCg0KQWNvbXBhbmhlIGFzIGNvbnF1aXN0YXMgZG8gc2V1IEd1ZXJyZWlybyBDZWxlc3RpYWwgZmF2b3JpdG8gbm8gcmFua2luZyBlIHNhaWJhIHF1ZW0gc+NvIG9zIG1haW9yZXMgR3VlcnJlaXJvcyBDZWxlc3RpYWlzIGRhIEFyZW5hIFNhZ3JhZGEgZG8gQmF0dGxlIFJveWFsZS4NCkFjdW11bGUgcG9udG9zIGEgY2FkYSBkaXNwdXRhIGUgdHJvcXVlLW9zIHBvciBpdGVucyBkbyBQcmlzdG9uIFNob3Agb3UsIGF06SBtZXNtbywgZXhwZXJp6m5jaWEgcGFyYSBvIHNldSBwZXJzb25hZ2VtLCBuYSBSb2xldGEgUm95YWxlIQ0KDQpFbmdhamUtc2UhDQoNCg0KDQoNCg0KDQoNCg0KDQo="
+  }
+}

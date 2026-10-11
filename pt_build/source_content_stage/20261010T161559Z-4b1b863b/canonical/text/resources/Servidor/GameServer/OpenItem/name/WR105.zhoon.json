@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wr105",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WR105.zhoon",
+    "GameServer/OpenItem/name/WR105.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WR105.zhoon",
+    "legacy_sha256": "54b2dcb5c2f213bd88256f4b4a536c80219c4ee0d65fd2c77ee27fbd32441681",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Receita de Ataque Nível 80C"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUmVjZWl0YSBkZSBBdGFxdWUgTu12ZWwgODBDIg=="
+  }
+}

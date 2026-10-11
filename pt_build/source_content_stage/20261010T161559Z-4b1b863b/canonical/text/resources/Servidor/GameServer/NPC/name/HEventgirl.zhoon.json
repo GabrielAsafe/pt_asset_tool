@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.heventgirl",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/HEventgirl.zhoon",
+    "GameServer/NPC/name/HEventgirl.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/HEventgirl.zhoon",
+    "legacy_sha256": "ced56aec172e2521c21f815a8feea1eace876c8155bfab3ad3c3443ef9971b30",
+    "legacy_size": 80
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Vendedora de Ingressos"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Bem-vindo ao Covil dos Monstros!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIlZlbmRlZG9yYSBkZSBJbmdyZXNzb3MiDQoNCipKX0NIQVQJCSJCZW0tdmluZG8gYW8gQ292aWwgZG9zIE1vbnN0cm9zISI="
+  }
+}

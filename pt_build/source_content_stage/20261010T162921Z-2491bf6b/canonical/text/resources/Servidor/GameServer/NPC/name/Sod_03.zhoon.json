@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sod_03",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Sod_03.zhoon",
+    "GameServer/NPC/name/Sod_03.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Sod_03.zhoon",
+    "legacy_sha256": "4d02d1357fc6ba2398ffdbd804576e462ce100b280ca6b46ce7531151c4f2f5b",
+    "legacy_size": 204
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Sylpi"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Está preparado para a competição?"
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Eu levarei você ao Sobreviver ou Morrer (SoD)!"
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Boa sorte para sobreviver, vai precisar!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Tb2RfMDMuTlBDDQoNCg0KKkpfTmFtZQkiU3lscGkiDQoNCg0KKkpfQ2hhdAkiRXUgbGV2YXJlaSB2b2PqIGFvIFNvYnJldml2ZXIgb3UgTW9ycmVyIChTb0QpISINCg0KKkpfQ2hhdAkiRXUgdGUgbGV2YXJlaSBwYXJhIG8gU3Vydml2YWwgb3IgRGllISINCg0KKkpfQ2hhdAkiQm9hIHNvcnRlIHBhcmEgc29icmV2aXZlciwgdmFpIHByZWNpc2FyISINCg0K"
+  }
+}

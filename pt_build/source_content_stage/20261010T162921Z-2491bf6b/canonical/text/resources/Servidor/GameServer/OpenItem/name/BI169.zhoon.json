@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi169",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI169.zhoon",
+    "GameServer/OpenItem/name/BI169.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI169.zhoon",
+    "legacy_sha256": "811139dfd65e8bf56ebefd2c3c66d0459c493b28ef7407da6906d49da5615d46",
+    "legacy_size": 19
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Terry 12h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVGVycnkgMTJoIg=="
+  }
+}

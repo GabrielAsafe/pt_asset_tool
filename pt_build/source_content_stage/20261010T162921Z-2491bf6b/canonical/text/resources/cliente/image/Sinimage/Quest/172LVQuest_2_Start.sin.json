@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_2_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_2_Start.sin",
+    "image/Sinimage/Quest/172LVQuest_2_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_2_Start.sin",
+    "legacy_sha256": "7f689dde0eee137d4b3a3765936b0d5626e50eee610b3a713fcab004e8d60fbc",
+    "legacy_size": 563
+  },
+  "semantic": {
+    "lines": [
+      "A terra é quente. Tem lava e monstros por toda parte, e uma",
+      "fortaleza. Um ecossistema diferente. Isso é interessante.",
+      "Vivemos em paz desde a derrota de Midranda. Achei que isso",
+      "continuaria...",
+      "",
+      "Eles não invadiram nosso mundo, mas não sabemos o que estão",
+      "planejando. Precisamos nos precaver. Preciso de mais dados.",
+      "",
+      "Por favor, traga algumas amostras desses monstros. Cuidado!",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Cace Igniculus, Guardião de Lava ou Arqueiro de Lava e",
+      "colete 5 Fragmentos de Fogo, em Coração de Fogo.",
+      "Ao terminar, fale com a Sábia Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSB0ZXJyYSDpIHF1ZW50ZS4gVGVtIGxhdmEgZSBtb25zdHJvcyBwb3IgdG9kYSBwYXJ0ZSwgZSB1bWENCmZvcnRhbGV6YS4gVW0gZWNvc3Npc3RlbWEgZGlmZXJlbnRlLiBJc3NvIOkgaW50ZXJlc3NhbnRlLg0KVml2ZW1vcyBlbSBwYXogZGVzZGUgYSBkZXJyb3RhIGRlIE1pZHJhbmRhLiBBY2hlaSBxdWUgaXNzbw0KY29udGludWFyaWEuLi4NCg0KRWxlcyBu428gaW52YWRpcmFtIG5vc3NvIG11bmRvLCBtYXMgbuNvIHNhYmVtb3MgbyBxdWUgZXN0428NCnBsYW5lamFuZG8uIFByZWNpc2Ftb3Mgbm9zIHByZWNhdmVyLiBQcmVjaXNvIGRlIG1haXMgZGFkb3MuDQoNClBvciBmYXZvciwgdHJhZ2EgYWxndW1hcyBhbW9zdHJhcyBkZXNzZXMgbW9uc3Ryb3MuIEN1aWRhZG8hDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpDYWNlIElnbmljdWx1cywgR3VhcmRp428gZGUgTGF2YSBvdSBBcnF1ZWlybyBkZSBMYXZhIGUNCmNvbGV0ZSA1IEZyYWdtZW50b3MgZGUgRm9nbywgZW0gQ29yYefjbyBkZSBGb2dvLg0KQW8gdGVybWluYXIsIGZhbGUgY29tIGEgU+FiaWEgQ2VsaW5hIGVtIFBpbGxhaS4="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.oa125",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OA125.zhoon",
+    "GameServer/OpenItem/name/OA125.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OA125.zhoon",
+    "legacy_sha256": "6a25666af3b2371fe74e8109e31101281639ca6a9e59045ca662780dfaf077f4",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Colar do Kelvezu"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ29sYXIgZG8gS2VsdmV6dSI="
+  }
+}

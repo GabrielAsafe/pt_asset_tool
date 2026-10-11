@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.enzo.enzo",
+  "logical_config": "char/npc/Enzo/Enzo.ini",
+  "legacy_cache": "char/npc/Enzo/Enzo.inx",
+  "consumers": [
+    {
+      "id": "npc.enzo_o_restaure",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Enzo, o Restaure.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Enzo/enzo.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Enzo/enzo.inx"
+    }
+  }
+}

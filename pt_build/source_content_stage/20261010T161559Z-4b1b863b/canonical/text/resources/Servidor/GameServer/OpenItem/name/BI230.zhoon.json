@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi230",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI230.zhoon",
+    "GameServer/OpenItem/name/BI230.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI230.zhoon",
+    "legacy_sha256": "5ef3f00d770baf7747d2853ad91d186e5b3261e5953c34f1bdb364e2fa35b53d",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Baú de Prata Aprimorado 12h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQmH6IGRlIFByYXRhIEFwcmltb3JhZG8gMTJoIg=="
+  }
+}

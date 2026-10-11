@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest30end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest30end.sin",
+    "image/Sinimage/Quest/LevelQuest30end.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest30end.sin",
+    "legacy_sha256": "a8a7cd5b5f429433870a7d88a4368e13fd5035c13df5b001e0f4526ae7efef7c",
+    "legacy_size": 161
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Thank you so much! You've made the way to Nevisko ",
+      "much safer and easier.",
+      "",
+      "Take it, this is reward for your help.",
+      "Make sure you use it at the time of need."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpUaGFuayB5b3Ugc28gbXVjaCEgWW91J3ZlIG1hZGUgdGhlIHdheSB0byBOZXZpc2tvIA0KbXVjaCBzYWZlciBhbmQgZWFzaWVyLg0KDQpUYWtlIGl0LCB0aGlzIGlzIHJld2FyZCBmb3IgeW91ciBoZWxwLg0KTWFrZSBzdXJlIHlvdSB1c2UgaXQgYXQgdGhlIHRpbWUgb2YgbmVlZC4="
+  }
+}

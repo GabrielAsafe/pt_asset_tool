@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.distribuidor.path_10800a6889",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Distribuidor!.Zhoon",
+    "GameServer/NPC/name/Distribuidor!.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Distribuidor!.Zhoon",
+    "legacy_sha256": "2a7c8f5aecaa7c56675a74c9e1b167b587c2df66eb633fb96e58e2c222244f3d",
+    "legacy_size": 59
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Distribuidor!"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "What im talking?!?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkiRGlzdHJpYnVpZG9yISINCg0KDQoqSl9DaGF0CSJXaGF0IGltIHRhbGtpbmc/IT8iDQo="
+  }
+}

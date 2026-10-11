@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.om103",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OM103.zhoon",
+    "GameServer/OpenItem/name/OM103.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OM103.zhoon",
+    "legacy_sha256": "4f6059f43741eb4667b92250ab7a2262149ad605d261db25d6922f23306e8422",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Orbital Prismático"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiT3JiaXRhbCBQcmlzbeF0aWNvIg=="
+  }
+}

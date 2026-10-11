@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dg145",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DG145.zhoon",
+    "GameServer/OpenItem/name/DG145.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DG145.zhoon",
+    "legacy_sha256": "4a0da3d920eb5fd996258f43c9acc049925ae5d636fafeaebf17ad3001522ad2",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Luvas Anúbis"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTHV2YXMgQW76YmlzIg=="
+  }
+}

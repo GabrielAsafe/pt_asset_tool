@@ -1,0 +1,226 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.oa110",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OA110.txt",
+    "GameServer/OpenItem/OA110.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OA110.txt",
+    "legacy_sha256": "7f0c2c4601a3c57f7dd800849e29320918876fe522ddf6f8130a338f4e958ed2",
+    "legacy_size": 400
+  },
+  "semantic": {
+    "fields": {
+      "code": "OA110",
+      "name": "Colar Mágico +1",
+      "english_name": "Colar Mágico +1",
+      "mana_add_alt": [
+        9,
+        19
+      ],
+      "level": 30,
+      "spirit": 40,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_mana_regen_alt": [
+        0.2,
+        0.4
+      ],
+      "weight": 3,
+      "price": 6000,
+      "linked_file": "Name\\OA110.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OA110"
+        ],
+        "raw_values_hex": [
+          "4f41313130"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Colar Mágico +1"
+        ],
+        "raw_values_hex": [
+          "436f6c6172204de16769636f202b31"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Colar Mágico +1"
+        ],
+        "raw_values_hex": [
+          "436f6c6172204de16769636f202b31"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          9,
+          19
+        ],
+        "raw_values_hex": [
+          "39",
+          "3139"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          30
+        ],
+        "raw_values_hex": [
+          "3330"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          40
+        ],
+        "raw_values_hex": [
+          "3430"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "special_mana_regen_alt",
+        "legacy_token": "**기력재생",
+        "legacy_token_hex": "2a2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.2,
+          0.4
+        ],
+        "raw_values_hex": [
+          "302e32",
+          "302e34"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          6000
+        ],
+        "raw_values_hex": [
+          "36303030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OA110.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f413131302e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9BMTEwIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ29sYXIgTeFnaWNvICsxIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkNvbGFyIE3hZ2ljbyArMSINCg0KLy9NUA0KKrHit8LD37ChIDkgMTkNCg0KLy9MZXZlbA0KKre5uqcgMzANCg0KLy9TcGlyaXQNCirBpL3Ft8IgNDANCg0KLy9TZWNvbmRhcnlTcGVjDQoqKsavyK23o7T9IE1lY2hhbmljaWFuIEZpZ2h0ZXIgUGlrZW1hbiBBcmNoZXIgS25pZ2h0IEF0YWxhbnRhIFByaWVzdGVzcyBNYWdpY2lhbg0KDQovL1NwZWNNUFJlZ2VuDQoqKrHit8LA57v9IDAuMiAwLjQNCg0KLy9XZWlnaHQNCiq5q7DUIDMNCg0KLy9QcmljZQ0KKrChsN0gNjAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE9BMTEwLnpob29uIg=="
+  }
+}

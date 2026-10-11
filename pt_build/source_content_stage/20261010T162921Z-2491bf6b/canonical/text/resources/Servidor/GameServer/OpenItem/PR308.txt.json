@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.pr308",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PR308.txt",
+    "GameServer/OpenItem/PR308.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PR308.txt",
+    "legacy_sha256": "292d87cef08a8e38dfbf837207063c6ffb99b0b86f3e714463a9024385292fde",
+    "legacy_size": 178
+  },
+  "semantic": {
+    "fields": {
+      "code": "PR308",
+      "name": "Runa de Esmeralda A",
+      "english_name": "Runa de Esmeralda A",
+      "weight": 1,
+      "linked_file": "Name\\PR308.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PR308"
+        ],
+        "raw_values_hex": [
+          "5052333038"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Runa de Esmeralda A"
+        ],
+        "raw_values_hex": [
+          "52756e612064652045736d6572616c64612041"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Runa de Esmeralda A"
+        ],
+        "raw_values_hex": [
+          "52756e612064652045736d6572616c64612041"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PR308.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c50523330382e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBSMzA4Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUnVuYSBkZSBFc21lcmFsZGEgQSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJSdW5hIGRlIEVzbWVyYWxkYSBBIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFBSMzA4Lnpob29uIg=="
+  }
+}

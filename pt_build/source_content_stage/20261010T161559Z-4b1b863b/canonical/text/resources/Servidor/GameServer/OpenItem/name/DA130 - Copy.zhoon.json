@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da130_copy",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA130 - Copy.zhoon",
+    "GameServer/OpenItem/name/DA130 - Copy.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA130 - Copy.zhoon",
+    "legacy_sha256": "3f2eb020ab930e503b22aa2b341efc04c8965f024dac639e0c3da94ef80df360",
+    "legacy_size": 43
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Mythology Armor"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9EQTMwNS50eHQNCg0KKkpfTmFtZQkJIk15dGhvbG9neSBBcm1vciINCg=="
+  }
+}

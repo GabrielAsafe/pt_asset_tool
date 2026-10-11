@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wm108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WM108.zhoon",
+    "GameServer/OpenItem/name/WM108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WM108.zhoon",
+    "legacy_sha256": "aea7b9718749173a12461b3f72b8229f37594bd4d0fb5619f2e6573780c6fc8a",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cajado da Meditação"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2FqYWRvIGRhIE1lZGl0YefjbyI="
+  }
+}

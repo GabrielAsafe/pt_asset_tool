@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.12",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/12.msg",
+    "image/clanImage/Help/AutoHelp/12.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/12.msg",
+    "legacy_sha256": "b2b4a527a659b5aaabc8cd983a09d7034e81b1f910a63bf69c622b8714f37a7a",
+    "legacy_size": 387
+  },
+  "semantic": {
+    "lines": [
+      "Priston Tale provides Clan System. You can join a clan",
+      "regardless of the character¡¯s level. ",
+      "However, your level should be 40 or higher to form a clan. ",
+      "Once you become a member of a clan ",
+      "you will find the symbol of the clan attached",
+      "in front of the name of your character ",
+      "and you can chat with your clan members ",
+      "and use Union Core to move freely to your clan members.",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UHJpc3RvbiBUYWxlIHByb3ZpZGVzIENsYW4gU3lzdGVtLiBZb3UgY2FuIGpvaW4gYSBjbGFuDQpyZWdhcmRsZXNzIG9mIHRoZSBjaGFyYWN0ZXKhr3MgbGV2ZWwuIA0KSG93ZXZlciwgeW91ciBsZXZlbCBzaG91bGQgYmUgNDAgb3IgaGlnaGVyIHRvIGZvcm0gYSBjbGFuLiANCk9uY2UgeW91IGJlY29tZSBhIG1lbWJlciBvZiBhIGNsYW4gDQp5b3Ugd2lsbCBmaW5kIHRoZSBzeW1ib2wgb2YgdGhlIGNsYW4gYXR0YWNoZWQNCmluIGZyb250IG9mIHRoZSBuYW1lIG9mIHlvdXIgY2hhcmFjdGVyIA0KYW5kIHlvdSBjYW4gY2hhdCB3aXRoIHlvdXIgY2xhbiBtZW1iZXJzIA0KYW5kIHVzZSBVbmlvbiBDb3JlIHRvIG1vdmUgZnJlZWx5IHRvIHlvdXIgY2xhbiBtZW1iZXJzLg0KDQoNCg0K"
+  }
+}

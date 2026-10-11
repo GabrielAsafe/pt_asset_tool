@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.ssnail.ssnail",
+  "logical_config": "char/monster/ssnail/ssnail.INI",
+  "legacy_cache": "char/monster/ssnail/ssnail.inx",
+  "consumers": [
+    {
+      "id": "monster.57_caramujo_rijo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/57_Caramujo Rijo.inf.json"
+    },
+    {
+      "id": "monster.r1_caramujo_rijo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R1 Caramujo Rijo.inf.json"
+    },
+    {
+      "id": "monster.sod_solid_snail",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_solid_snail.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/ssnail/ssnail.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/ssnail/ssnail.inx"
+    }
+  }
+}

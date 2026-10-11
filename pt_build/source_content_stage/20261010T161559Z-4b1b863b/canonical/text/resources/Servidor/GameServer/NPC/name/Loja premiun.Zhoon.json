@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.loja_premiun",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Loja premiun.Zhoon",
+    "GameServer/NPC/name/Loja premiun.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Loja premiun.Zhoon",
+    "legacy_sha256": "38b8571f7fe59ff0cca4b18145538237c4a0433828fc9a4b21007b78f12a1ca7",
+    "legacy_size": 115
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Loja Especial"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Aproveite, não vou ficar aqui por muito tempo..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Mb2phIHByZW1pdW4uTlBDDQoNCg0KKkpfTmFtZQkiTG9qYSBFc3BlY2lhbCINCg0KDQoqSl9DaGF0CSJBcHJvdmVpdGUsIG7jbyB2b3UgZmljYXIgYXF1aSBwb3IgbXVpdG8gdGVtcG8uLi4iDQoNCg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_lobo_procurado",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Lobo Procurado.zhoon",
+    "GameServer/Monster/Name/1_Lobo Procurado.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Lobo Procurado.zhoon",
+    "legacy_sha256": "88bd514c8f6ca5ea54bdb4b1c45a8afd6dc3171c08f7794b26a34f90772eed97",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lobo Procurado"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTG9ibyBQcm9jdXJhZG8i"
+  }
+}

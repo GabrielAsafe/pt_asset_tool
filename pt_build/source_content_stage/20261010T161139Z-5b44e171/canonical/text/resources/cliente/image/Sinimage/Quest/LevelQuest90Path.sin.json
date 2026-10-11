@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest90path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest90Path.sin",
+    "image/Sinimage/Quest/LevelQuest90Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest90Path.sin",
+    "legacy_sha256": "ac6f28bb754e9b4335ecede91c7739c1767f288a95f9df713294c9c0c3205813",
+    "legacy_size": 168
+  },
+  "semantic": {
+    "lines": [
+      "There is a legend that the sheltom \"Loytra\" ",
+      "enhance your life. ",
+      "",
+      "You are qualified to have a \"Loytra\"",
+      "if you can conquer the IronFist.",
+      "",
+      "Please show your bravery."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhlcmUgaXMgYSBsZWdlbmQgdGhhdCB0aGUgc2hlbHRvbSAiTG95dHJhIiANCmVuaGFuY2UgeW91ciBsaWZlLiANCg0KWW91IGFyZSBxdWFsaWZpZWQgdG8gaGF2ZSBhICJMb3l0cmEiDQppZiB5b3UgY2FuIGNvbnF1ZXIgdGhlIElyb25GaXN0Lg0KDQpQbGVhc2Ugc2hvdyB5b3VyIGJyYXZlcnku"
+  }
+}

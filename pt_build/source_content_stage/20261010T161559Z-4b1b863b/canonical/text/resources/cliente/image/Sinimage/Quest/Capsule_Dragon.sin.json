@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.capsule_dragon",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Capsule_Dragon.sin",
+    "image/Sinimage/Quest/Capsule_Dragon.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Capsule_Dragon.sin",
+    "legacy_sha256": "f307108db59ee90af4bcdbb797a7692776d60d3ef0d46bd6aadf9f9d1e46fcf7",
+    "legacy_size": 632
+  },
+  "semantic": {
+    "lines": [
+      "Essa é a Idrasilia, o espelho da 햞vore da Vida!",
+      "",
+      "A 햞vore da Vida está secando. Após florescer com o ritual",
+      "das fadas da Primavera, ela começou a definhar.",
+      "Suas pétalas sagradas haviam se espalhado pelo continente,",
+      "gerando inúmeras Idraseras, que deram vida à Primavera ",
+      "pristoniana.",
+      "As Rakoo, guardiãs da 햞vore da Vida, estão confusas e ",
+      "se espalharam pelo continente em busca da Seiva da Vida.",
+      "",
+      "Colete as Pétalas das Idraseras espalhadas pelas florestas",
+      "e leve-as até Branwen, para que ela crie a Seiva da Vida.",
+      "",
+      "Traga a Seiva da Vida e salve a da 햞vore da Vida. ",
+      "A cada seiva que trouxer, você será recompensado."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RXNzYSDpIGEgSWRyYXNpbGlhLCBvIGVzcGVsaG8gZGEgwXJ2b3JlIGRhIFZpZGEhDQoNCkEgwXJ2b3JlIGRhIFZpZGEgZXN04SBzZWNhbmRvLiBBcPNzIGZsb3Jlc2NlciBjb20gbyByaXR1YWwNCmRhcyBmYWRhcyBkYSBQcmltYXZlcmEsIGVsYSBjb21l5291IGEgZGVmaW5oYXIuDQpTdWFzIHDpdGFsYXMgc2FncmFkYXMgaGF2aWFtIHNlIGVzcGFsaGFkbyBwZWxvIGNvbnRpbmVudGUsDQpnZXJhbmRvIGlu+m1lcmFzIElkcmFzZXJhcywgcXVlIGRlcmFtIHZpZGEg4CBQcmltYXZlcmEgDQpwcmlzdG9uaWFuYS4NCkFzIFJha29vLCBndWFyZGnjcyBkYSDBcnZvcmUgZGEgVmlkYSwgZXN0428gY29uZnVzYXMgZSANCnNlIGVzcGFsaGFyYW0gcGVsbyBjb250aW5lbnRlIGVtIGJ1c2NhIGRhIFNlaXZhIGRhIFZpZGEuDQoNCkNvbGV0ZSBhcyBQ6XRhbGFzIGRhcyBJZHJhc2VyYXMgZXNwYWxoYWRhcyBwZWxhcyBmbG9yZXN0YXMNCmUgbGV2ZS1hcyBhdOkgQnJhbndlbiwgcGFyYSBxdWUgZWxhIGNyaWUgYSBTZWl2YSBkYSBWaWRhLg0KDQpUcmFnYSBhIFNlaXZhIGRhIFZpZGEgZSBzYWx2ZSBhIGRhIMFydm9yZSBkYSBWaWRhLiANCkEgY2FkYSBzZWl2YSBxdWUgdHJvdXhlciwgdm9j6iBzZXLhIHJlY29tcGVuc2Fkby4="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da143",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA143.zhoon",
+    "GameServer/OpenItem/name/DA143.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA143.zhoon",
+    "legacy_sha256": "f94dcb5948a925d7d59509b4f8ab443a481766c832fd07388499cbfdf13478f2",
+    "legacy_size": 32
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Armadura Taless M (1d)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJtYWR1cmEgVGFsZXNzIE0gKDFkKSI="
+  }
+}

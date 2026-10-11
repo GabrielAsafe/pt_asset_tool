@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.coin_shop",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Coin shop.NPC",
+    "GameServer/NPC/Coin shop.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Coin shop.NPC",
+    "legacy_sha256": "5a6fa3f233d26e9bd1d9388f33af25a7c46a0db40c1c5b79beea51195273653a",
+    "legacy_size": 507
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\cashshop\\cash.INI",
+      "english_name": "Abaranbo",
+      "shop": true,
+      "linked_file": "name\\Coin shop.zhoon",
+      "model_config_id": "model.char.npc.cashshop.cash"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\cashshop\\cash.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c6361736873686f705c636173682e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Abaranbo"
+        ],
+        "raw_values_hex": [
+          "41626172616e626f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 13,
+        "key": "shop",
+        "legacy_token": "*Shop",
+        "legacy_token_hex": "2a53686f70",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 16,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Coin shop.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c436f696e2073686f702e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcY2FzaHNob3BcY2FzaC5JTkkiDQovLyrAzLinCQkJIrTrwOXA5cDMILDttaciDQoqTmFtZQkJCSJBYmFyYW5ibyINCg0KLy8qtOvIrQkJCSLAzLn4v6Egu/W3ziCws773x9EgsO21pyDA1LTPtNkuIMD6yPEgsKGw1L+hvLEgw8qx3sDluvG4piDD67Hex8+w7SDA1sC4tM8gvtXAuLfOIMDfILrOxbkgteW4rrDavcC0z7TZLiINCi8vKrTryK0JCQkiwNogw8qx3iDA/Lvntem/obDUILLAIMfKv+TH0SDA5brxtenAzCDB2Lrxtce+7iDA1r3AtM+02S4iDQovLyq068itCQkJIrCzvvfH0cH2IL7zuLYgtcfB9iC+yr7Swfa4uCDHsMH6wLogyK69x8fVtM+02S4gwNrA2iC10bevILq4vLy/5CINCi8vKrTryK0JCQkitOe9xcDMIL/4x8+0wiDA5brxsKEgvvi02bjpILTZuK4gsMezysbtv6EgwNa0wiC068DlwOXAzCCwxb26uKYgw6O+xrChILq4vLy/5C4iDQoNCg0KKlNob3ANCg0KDQoqv6yw4cbEwM8JIm5hbWVcQ29pbiBzaG9wLnpob29uIg0K"
+  }
+}

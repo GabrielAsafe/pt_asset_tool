@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or253",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR253.zhoon",
+    "GameServer/OpenItem/name/OR253.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR253.zhoon",
+    "legacy_sha256": "d1a05a88dd907db6ae013fa26edb5d129da7424730b4604447ae578f00c1d32a",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Anel Silrape 1d"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQW5lbCBTaWxyYXBlIDFkIg=="
+  }
+}

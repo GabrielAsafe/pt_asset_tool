@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestterrified_bpass_m.path_c00e5acf33",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/haQuestterrified_Bpass_M.sin",
+    "image/party/party_DATA/HaQuest/haQuestterrified_Bpass_M.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/haQuestterrified_Bpass_M.sin",
+    "legacy_sha256": "add91d20a1dd3f83e79d6b28a28a85e8b6f6223c5ba921f11f204ee52d67c64f",
+    "legacy_size": 170
+  },
+  "semantic": {
+    "lines": [
+      "Você ainda não caçou todos os Coelhos.",
+      "Compre poções na cidade e prepare-se antes de voltar",
+      "para a caçada.",
+      "",
+      "Abra o minimapa para localizar a loja de itens variados."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBhaW5kYSBu428gY2Hnb3UgdG9kb3Mgb3MgQ29lbGhvcy4NCkNvbXByZSBwb+f1ZXMgbmEgY2lkYWRlIGUgcHJlcGFyZS1zZSBhbnRlcyBkZSB2b2x0YXINCnBhcmEgYSBjYedhZGEuDQoNCkFicmEgbyBtaW5pbWFwYSBwYXJhIGxvY2FsaXphciBhIGxvamEgZGUgaXRlbnMgdmFyaWFkb3MuDQo="
+  }
+}

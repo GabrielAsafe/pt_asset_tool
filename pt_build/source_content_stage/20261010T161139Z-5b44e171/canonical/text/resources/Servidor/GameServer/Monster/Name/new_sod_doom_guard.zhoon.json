@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_doom_guard",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_doom_guard.zhoon",
+    "GameServer/Monster/Name/new_sod_doom_guard.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_doom_guard.zhoon",
+    "legacy_sha256": "63dd1158a1c773ab92635c3682a1bf9a86e240779b82df545e48d3f367fa41a6",
+    "legacy_size": 39
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda da Perdição do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJHdWFyZGEgZGEgUGVyZGnn428gZG8gU29EIg0K"
+  }
+}

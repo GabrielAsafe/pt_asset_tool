@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest80_2path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest80_2Path.sin",
+    "image/Sinimage/Quest/LevelQuest80_2Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest80_2Path.sin",
+    "legacy_sha256": "815afc61920827164c79122db2b5fb99b92f898b27fdf8253058ec2847fd9955",
+    "legacy_size": 202
+  },
+  "semantic": {
+    "lines": [
+      "Any clan chief monster has a Sheltom 'Vamp'. ",
+      "But they can¡¯t be seen often. Please look ",
+      "through your surroundings with patience.",
+      "",
+      "Please bring me a Golden Vamp, a Silver Vamp, ",
+      "and a Bronze Vamp."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QW55IGNsYW4gY2hpZWYgbW9uc3RlciBoYXMgYSBTaGVsdG9tICdWYW1wJy4gDQpCdXQgdGhleSBjYW6hr3QgYmUgc2VlbiBvZnRlbi4gUGxlYXNlIGxvb2sgDQp0aHJvdWdoIHlvdXIgc3Vycm91bmRpbmdzIHdpdGggcGF0aWVuY2UuDQoNClBsZWFzZSBicmluZyBtZSBhIEdvbGRlbiBWYW1wLCBhIFNpbHZlciBWYW1wLCANCmFuZCBhIEJyb256ZSBWYW1wLg=="
+  }
+}

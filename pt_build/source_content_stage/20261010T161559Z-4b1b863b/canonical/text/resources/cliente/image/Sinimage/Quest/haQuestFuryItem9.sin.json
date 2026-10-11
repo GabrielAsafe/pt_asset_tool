@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestfuryitem9",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestFuryItem9.sin",
+    "image/Sinimage/Quest/haQuestFuryItem9.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestFuryItem9.sin",
+    "legacy_sha256": "f3535fc2a4a0c9a817ba319c9abd1c0b64a4ce42f5fa639a90e45b407a417f44",
+    "legacy_size": 304
+  },
+  "semantic": {
+    "lines": [
+      "[Adaga Enigma]",
+      "                               ",
+      "                                 ",
+      "                             ",
+      "",
+      "",
+      "",
+      "",
+      "[Opção]",
+      "",
+      "Poder Adicional : 70-85     Add. HP : 50",
+      "Vel. da arma    : 8         Add. MP : 50",
+      "Taxa de ataque  : 285       Add.STM : 50",
+      "Critico         : 24%",
+      "Bloqueio        : 10%"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "W0FkYWdhIEVuaWdtYV0NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCg0KDQoNCg0KW09w5+NvXQ0KDQpQb2RlciBBZGljaW9uYWwgOiA3MC04NSAgICAgQWRkLiBIUCA6IDUwDQpWZWwuIGRhIGFybWEgICAgOiA4ICAgICAgICAgQWRkLiBNUCA6IDUwDQpUYXhhIGRlIGF0YXF1ZSAgOiAyODUgICAgICAgQWRkLlNUTSA6IDUwDQpDcml0aWNvICAgICAgICAgOiAyNCUNCkJsb3F1ZWlvICAgICAgICA6IDEwJQ=="
+  }
+}

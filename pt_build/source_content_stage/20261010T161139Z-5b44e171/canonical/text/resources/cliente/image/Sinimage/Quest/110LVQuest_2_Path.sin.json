@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_2_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_2_Path.sin",
+    "image/Sinimage/Quest/110LVQuest_2_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_2_Path.sin",
+    "legacy_sha256": "03e0b922c4a08dd60c5753b1250f6258ea0768e3583c5452ea258480462d2402",
+    "legacy_size": 79
+  },
+  "semantic": {
+    "lines": [
+      "Leve o Documento Suspeito para Salon, a Artesã, e peça para",
+      "que ela examine-o."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV2ZSBvIERvY3VtZW50byBTdXNwZWl0byBwYXJhIFNhbG9uLCBhIEFydGVz4ywgZSBwZedhIHBhcmENCnF1ZSBlbGEgZXhhbWluZS1vLg=="
+  }
+}

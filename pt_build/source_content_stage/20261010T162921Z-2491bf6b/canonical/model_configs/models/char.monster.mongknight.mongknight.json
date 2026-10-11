@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.mongknight.mongknight",
+  "logical_config": "char/monster/mongknight/mongknight.ini",
+  "legacy_cache": "char/monster/mongknight/mongknight.inx",
+  "consumers": [
+    {
+      "id": "monster.60_cavaleiro_fantasma",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/60_Cavaleiro Fantasma.inf.json"
+    },
+    {
+      "id": "monster.r2_cavaleiro_fantasma",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R2 Cavaleiro Fantasma.inf.json"
+    },
+    {
+      "id": "monster.sod_illusion_knight",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_illusion_knight.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/MonGknight/MonGknight.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/MonGknight/MonGknight.inx"
+    }
+  }
+}

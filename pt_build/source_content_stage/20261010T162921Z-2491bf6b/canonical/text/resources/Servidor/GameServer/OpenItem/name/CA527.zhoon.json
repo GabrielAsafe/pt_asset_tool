@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca527",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/CA527.zhoon",
+    "GameServer/OpenItem/name/CA527.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/CA527.zhoon",
+    "legacy_sha256": "30e8aba8ba894675390d4194966336549246a52c08842a3c8d70dc94e953c73a",
+    "legacy_size": 30
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Traje de Esportes 1d"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVHJhamUgZGUgRXNwb3J0ZXMgMWQi"
+  }
+}

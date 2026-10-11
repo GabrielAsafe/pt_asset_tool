@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.darkmage.skullma",
+  "logical_config": "char/monster/darkmage/skullma.ini",
+  "legacy_cache": "char/monster/darkmage/skullma.inx",
+  "consumers": [
+    {
+      "id": "monster.94_mago_negro",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/94_Mago Negro.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Darkmage/skullma.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Darkmage/skullma.inx"
+    }
+  }
+}

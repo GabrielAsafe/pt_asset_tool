@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.se108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SE108.zhoon",
+    "GameServer/OpenItem/name/SE108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SE108.zhoon",
+    "legacy_sha256": "67bfdb63473a0faff0cd62fec7c8800a2efc3b8e1cda8247cf9758737b2510db",
+    "legacy_size": 54
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Especialização de Arqueira"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwNC50eHQNCg0KKkpfTmFtZQkJIkVzcGVjaWFsaXph5+NvIGRlIEFycXVlaXJhIg0K"
+  }
+}

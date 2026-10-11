@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sal_u00e3o_de_beleza",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Sal#U00e3o de Beleza.Zhoon",
+    "GameServer/NPC/name/Sal#U00e3o de Beleza.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Sal#U00e3o de Beleza.Zhoon",
+    "legacy_sha256": "128094d789bb3665509560be2da63eee231342702315708d887c0d3a2074d23c",
+    "legacy_size": 97
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Salão de Beleza"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Vamos mudar o seu visual?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TYWzjbyBkZSBCZWxlemEuTlBDDQoNCg0KKkpfTmFtZQkiU2Fs428gZGUgQmVsZXphIg0KDQoNCipKX0NoYXQJIlZhbW9zIG11ZGFyIG8gc2V1IHZpc3VhbD8iDQoNCg=="
+  }
+}

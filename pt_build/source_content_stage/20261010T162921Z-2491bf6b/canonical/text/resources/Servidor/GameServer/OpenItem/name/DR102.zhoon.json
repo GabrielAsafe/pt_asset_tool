@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dr102",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DR102.zhoon",
+    "GameServer/OpenItem/name/DR102.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DR102.zhoon",
+    "legacy_sha256": "05d08d673079e7b7553fcdac12382a6158bf8af37dab6e80c4230ba470d6e180",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Receita de Defesa Nível 75"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUmVjZWl0YSBkZSBEZWZlc2EgTu12ZWwgNzUi"
+  }
+}

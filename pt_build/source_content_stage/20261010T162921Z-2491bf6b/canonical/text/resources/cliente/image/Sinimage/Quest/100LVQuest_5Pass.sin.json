@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100lvquest_5pass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/100LVQuest_5Pass.sin",
+    "image/Sinimage/Quest/100LVQuest_5Pass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/100LVQuest_5Pass.sin",
+    "legacy_sha256": "5c235eb92f24aafce2dd4ae45c3bbe8856cc61aeef107cec4c35878ec9eb2769",
+    "legacy_size": 281
+  },
+  "semantic": {
+    "lines": [
+      "I know you are a very strong warrior, but also ",
+      "keep in mind that Fury is a strong monster too.",
+      "Danger comes when you least expect it. So Look ",
+      "sharp! Focus on the quest.",
+      "",
+      "Hopely you can accomplish the quest and return",
+      "safely.",
+      "",
+      "I'll move you back to the training stage.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SSBrbm93IHlvdSBhcmUgYSB2ZXJ5IHN0cm9uZyB3YXJyaW9yLCBidXQgYWxzbyANCmtlZXAgaW4gbWluZCB0aGF0IEZ1cnkgaXMgYSBzdHJvbmcgbW9uc3RlciB0b28uDQpEYW5nZXIgY29tZXMgd2hlbiB5b3UgbGVhc3QgZXhwZWN0IGl0LiBTbyBMb29rIA0Kc2hhcnAhIEZvY3VzIG9uIHRoZSBxdWVzdC4NCg0KSG9wZWx5IHlvdSBjYW4gYWNjb21wbGlzaCB0aGUgcXVlc3QgYW5kIHJldHVybg0Kc2FmZWx5Lg0KDQpJJ2xsIG1vdmUgeW91IGJhY2sgdG8gdGhlIHRyYWluaW5nIHN0YWdlLg0KDQo="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.57_cavaleiro_negro",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/57_Cavaleiro Negro.zhoon",
+    "GameServer/Monster/Name/57_Cavaleiro Negro.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/57_Cavaleiro Negro.zhoon",
+    "legacy_sha256": "c8114d5be37c5b19a935b899e49c2beb578bd1e60e3d325a615e6a92108ddf45",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cavaleiro Negro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2F2YWxlaXJvIE5lZ3JvIg=="
+  }
+}

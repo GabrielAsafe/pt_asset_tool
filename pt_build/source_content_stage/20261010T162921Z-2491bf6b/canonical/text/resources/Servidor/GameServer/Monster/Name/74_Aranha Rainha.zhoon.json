@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.74_aranha_rainha",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/74_Aranha Rainha.zhoon",
+    "GameServer/Monster/Name/74_Aranha Rainha.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/74_Aranha Rainha.zhoon",
+    "legacy_sha256": "9a91c7e441652c2bdf1ab5d1c17e7bc2152dcbdc0e1b85d306f356488dfce204",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Aranha Rainha"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJhbmhhIFJhaW5oYSI="
+  }
+}

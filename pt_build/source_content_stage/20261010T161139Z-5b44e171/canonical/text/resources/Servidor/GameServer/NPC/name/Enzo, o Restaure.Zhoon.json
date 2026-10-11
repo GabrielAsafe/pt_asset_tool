@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.enzo_o_restaure",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Enzo, o Restaure.Zhoon",
+    "GameServer/NPC/name/Enzo, o Restaure.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Enzo, o Restaure.Zhoon",
+    "legacy_sha256": "840f2d18c2862e5e7241aa313ab75818e58bdb39ae5f78e49718e5147d441782",
+    "legacy_size": 160
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Enzo, o Restaurador de Itens"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Seu item quebrou durante o aprimoramento? Não se preocupe, eu ajudarei você!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9FbnpvLCBvIFJlc3RhdXJlLk5QQw0KDQoNCipKX05hbWUJIkVuem8sIG8gUmVzdGF1cmFkb3IgZGUgSXRlbnMiDQoNCipKX0NoYXQJIlNldSBpdGVtIHF1ZWJyb3UgZHVyYW50ZSBvIGFwcmltb3JhbWVudG8/IE7jbyBzZSBwcmVvY3VwZSwgZXUgYWp1ZGFyZWkgdm9j6iEiDQoNCg=="
+  }
+}

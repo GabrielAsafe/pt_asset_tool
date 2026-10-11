@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.39_grave_shakins",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/39_Grave Shakins.zhoon",
+    "GameServer/Monster/Name/39_Grave Shakins.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/39_Grave Shakins.zhoon",
+    "legacy_sha256": "93f20ad50865ec9d5492a5403184b2a17a91be0b8ea40f6a789731057aa47f14",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Grave Shakins"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR3JhdmUgU2hha2lucyI="
+  }
+}

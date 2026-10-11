@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or226",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR226.zhoon",
+    "GameServer/OpenItem/name/OR226.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR226.zhoon",
+    "legacy_sha256": "21d814006116c34eb94608a6ea5ee6dac275e9e2baab3991c10d7d40ab2702f0",
+    "legacy_size": 49
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 2,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel Songpyon"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9DbGFyaW5oYSBTZXJ2ZXIgRmlsZXMNCipKX05hbWUJCSJBbmVsIFNvbmdweW9uIg=="
+  }
+}

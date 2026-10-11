@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_7_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_7_Path.sin",
+    "image/Sinimage/Quest/155LVQuest_7_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_7_Path.sin",
+    "legacy_sha256": "32492a4199a00aaaade60e9bd1dab796f14393020e39ac96bf6a4746bfabb073",
+    "legacy_size": 320
+  },
+  "semantic": {
+    "lines": [
+      "O passado da Dama da Neve foi muito triste. Compreendo",
+      "toda a raiva que ela guardou por todo esse tempo. Mas ",
+      "Diana conseguiu acalmá-la e convencê-la de que o mundo",
+      "atual não é culpado das tragédias que o povo antigo",
+      "cometeu contra ela.",
+      "",
+      "Por favor, entregue o Relatório de Batalha ao Comandante",
+      "Derik em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TyBwYXNzYWRvIGRhIERhbWEgZGEgTmV2ZSBmb2kgbXVpdG8gdHJpc3RlLiBDb21wcmVlbmRvDQp0b2RhIGEgcmFpdmEgcXVlIGVsYSBndWFyZG91IHBvciB0b2RvIGVzc2UgdGVtcG8uIE1hcyANCkRpYW5hIGNvbnNlZ3VpdSBhY2FsbeEtbGEgZSBjb252ZW5j6i1sYSBkZSBxdWUgbyBtdW5kbw0KYXR1YWwgbuNvIOkgY3VscGFkbyBkYXMgdHJhZ+lkaWFzIHF1ZSBvIHBvdm8gYW50aWdvDQpjb21ldGV1IGNvbnRyYSBlbGEuDQoNClBvciBmYXZvciwgZW50cmVndWUgbyBSZWxhdPNyaW8gZGUgQmF0YWxoYSBhbyBDb21hbmRhbnRlDQpEZXJpayBlbSBSaWNhcnRlbi4="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.10_planta_mutante",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/10_Planta Mutante.zhoon",
+    "GameServer/Monster/Name/10_Planta Mutante.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/10_Planta Mutante.zhoon",
+    "legacy_sha256": "5e4bdfaf446ccf92bf0bf1a4bc384c0b4fa5c8d5b489b95b6fa5d9a4d6f7b81c",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Planta Mutante"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGxhbnRhIE11dGFudGUi"
+  }
+}

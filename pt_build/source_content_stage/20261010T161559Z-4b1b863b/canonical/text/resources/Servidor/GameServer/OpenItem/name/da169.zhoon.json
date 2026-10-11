@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da169",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/da169.zhoon",
+    "GameServer/OpenItem/name/da169.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/da169.zhoon",
+    "legacy_sha256": "257afdbb1d0a4402a5105674539c8a3f0b74cda40aaad50df39f39b713c53894",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Uniforme Coreano M (30d)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIlVuaWZvcm1lIENvcmVhbm8gTSAoMzBkKSINCg=="
+  }
+}

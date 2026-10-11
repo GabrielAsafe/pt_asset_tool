@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "en",
+  "fallback_locale": null,
+  "entries": [
+    {
+      "key": "monster.102_i_hound.name",
+      "text": "V-Hound",
+      "quality": "translated",
+      "source": "monster.102_i_hound"
+    }
+  ]
+}

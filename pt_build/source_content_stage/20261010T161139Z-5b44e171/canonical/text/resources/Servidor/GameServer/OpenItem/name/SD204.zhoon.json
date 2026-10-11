@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sd204",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SD204.zhoon",
+    "GameServer/OpenItem/name/SD204.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SD204.zhoon",
+    "legacy_sha256": "316cd250694dcc0b4d302d6a574a783b57becd912fad8f4276f39b7b84a84910",
+    "legacy_size": 47
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Rabie Seal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRDIwNC50eHQNCg0KKkpfTmFtZSAgICAgICAgICAgIlJhYmllIFNlYWwiDQo="
+  }
+}

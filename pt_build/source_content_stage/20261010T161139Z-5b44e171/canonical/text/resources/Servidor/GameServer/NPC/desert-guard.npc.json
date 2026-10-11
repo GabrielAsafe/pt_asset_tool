@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.desert_guard",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/desert-guard.npc",
+    "GameServer/NPC/desert-guard.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/desert-guard.npc",
+    "legacy_sha256": "4ab342437208c03663eaebaa4059c944dd5ccedb962dfc5807fcefb2b57ce818",
+    "legacy_size": 526
+  },
+  "semantic": {
+    "fields": {
+      "name": "사막 경비병",
+      "model_file": "char\\npc\\TN-002\\TN-002.INI",
+      "level": 100,
+      "linked_file": "name\\desert-guard.zhoon",
+      "model_config_id": "model.char.npc.tn.002.tn.002"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "사막 경비병"
+        ],
+        "raw_values_hex": [
+          "bbe7b8b720b0e6baf1bab4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-002\\TN-002.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030325c544e2d3030322e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 9,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\desert-guard.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6465736572742d67756172642e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK757i3ILDmuvG6tCINCiq48L7nxsTAzwkiY2hhclxucGNcVE4tMDAyXFROLTAwMi5JTkkiDQoqt7m6pwkJMTAwDQovLyq068itCQkiwMyw98C6ILG5sKG/obytIMDOwaTHz7TCILCtx9EgwPy757XpIL/cv6G0wiDD4sDUwLsgxevBpsfPsO0gwNa0wiCw98DUtM+02S4gwKfH6MfRILD3wMy0zyC5sLevs6ogwda9yr3Dv8AiDQovLyq068itCQkiwMyw98C7IMH2s6qx4iDAp8fYvLEgwPu+7rW1ILe5uqcgNTUgwMy788C6ILXHvu6+3yDH1bTPtNkuIg0KLy8qtOvIrQkJIrHtwLogu+e4t7+htMIgyOTG98fRILjzvbrFzbXpwMwguLnAzCDD4sf2x8+x4iC2p7muv6Egxq+6sMj3IMPiwNTAuyDF68Gmx8+w7SDA1r3AtM+02S4iDQovLyq068itCQkiwMwgtdq3ziC6uMDMtMIgsO2068DOwMcgwPzA5SC1v8LKv6EgwPrB1iC53sC6IL3FwPzAzCDA1sHSLCDHz8H2uLggvsbB1iDAp8fox9EgsPfAzLTPILHXILHZw7O0wiC+877AtbUgx8/B9iC4tr3KvcO/wCINCg0KKr+ssOHGxMDPCSJuYW1lXGRlc2VydC1ndWFyZC56aG9vbiINCg=="
+  }
+}

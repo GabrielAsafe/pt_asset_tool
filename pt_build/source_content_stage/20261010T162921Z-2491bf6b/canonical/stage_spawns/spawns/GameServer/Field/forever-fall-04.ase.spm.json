@@ -1,0 +1,67 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.forever_fall_04",
+  "logical_path": "GameServer/Field/forever-fall-04.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/forever-fall-04.ase.spm",
+    "sha256": "75f0075df7e8c25f77e110292db3ccc76a051a87b4ed3652f27cc4574ec9747c"
+  },
+  "limit_max": 100,
+  "delay": {
+    "shift": 5,
+    "milliseconds": 14000
+  },
+  "open_limit": 2,
+  "actors": [
+    {
+      "monster_id": "monster.19_esqueleto_do_mal",
+      "legacy_name": "커럽트",
+      "legacy_name_bytes_hex": "c4bfb7b4c6ae",
+      "weight": 20,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Esqueleto do Mal"
+    },
+    {
+      "monster_id": "monster.chefe_14_u00c1rvore_maldita",
+      "legacy_name": "데벌리쉬 트리",
+      "legacy_name_bytes_hex": "b5a5b9fab8aebdac20c6aeb8ae",
+      "weight": 23,
+      "resolution": "source_monster_signature",
+      "canonical_name": "햞vore Maldita"
+    },
+    {
+      "monster_id": "monster.15_c_u00e3o_abelha",
+      "legacy_name": "비독",
+      "legacy_name_bytes_hex": "baf1b5b6",
+      "weight": 10,
+      "resolution": "source_monster_signature",
+      "canonical_name": "C? Abelha"
+    },
+    {
+      "monster_id": "monster.12_u00c1rvore_mutante",
+      "legacy_name": "뮤턴트 트리",
+      "legacy_name_bytes_hex": "b9c2c5cfc6ae20c6aeb8ae",
+      "weight": 15,
+      "resolution": "source_monster_signature",
+      "canonical_name": "?vore Mutante"
+    },
+    {
+      "monster_id": "monster.8_coelho_mutante",
+      "legacy_name": "뮤턴트 래비",
+      "legacy_name_bytes_hex": "b9c2c5cfc6ae20b7a1baf1",
+      "weight": 22,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Coelho Mutante"
+    },
+    {
+      "monster_id": "monster.4_duende_selvagem",
+      "legacy_name": "노쓰고블린",
+      "legacy_name_bytes_hex": "b3ebbeb2b0edbaedb8b0",
+      "weight": 10,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Duende Selvagem"
+    }
+  ],
+  "bosses": []
+}

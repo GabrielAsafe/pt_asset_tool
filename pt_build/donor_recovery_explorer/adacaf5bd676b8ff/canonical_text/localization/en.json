@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "en",
+  "fallback_locale": null,
+  "entries": [
+    {
+      "key": "monster.31_h_decoy.name",
+      "text": "Hammer Decoy",
+      "quality": "translated",
+      "source": "monster.31_h_decoy"
+    }
+  ]
+}

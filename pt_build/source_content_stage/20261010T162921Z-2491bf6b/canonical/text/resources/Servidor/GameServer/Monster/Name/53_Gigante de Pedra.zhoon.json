@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.53_gigante_de_pedra",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/53_Gigante de Pedra.zhoon",
+    "GameServer/Monster/Name/53_Gigante de Pedra.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/53_Gigante de Pedra.zhoon",
+    "legacy_sha256": "414438cd7415ba4acb78f8b7d06b4215265454f59947b2f0f69600039ea1e2db",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Gigante de Pedra"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR2lnYW50ZSBkZSBQZWRyYSI="
+  }
+}

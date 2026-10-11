@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi207",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI207.txt",
+    "GameServer/OpenItem/BI207.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI207.txt",
+    "legacy_sha256": "3478a19e03335c5c9abec3e8155d2da478e63728b082c64ed1fdad191a04a115",
+    "legacy_size": 172
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI207",
+      "name": "Baú de Prata 12h",
+      "english_name": "Baú de Prata 12h",
+      "weight": 1,
+      "linked_file": "Name\\BI207.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI207"
+        ],
+        "raw_values_hex": [
+          "4249323037"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Baú de Prata 12h"
+        ],
+        "raw_values_hex": [
+          "4261fa20646520507261746120313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Baú de Prata 12h"
+        ],
+        "raw_values_hex": [
+          "4261fa20646520507261746120313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI207.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493230372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMjA3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQmH6IGRlIFByYXRhIDEyaCINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJCYfogZGUgUHJhdGEgMTJoIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJJMjA3Lnpob29uIg=="
+  }
+}

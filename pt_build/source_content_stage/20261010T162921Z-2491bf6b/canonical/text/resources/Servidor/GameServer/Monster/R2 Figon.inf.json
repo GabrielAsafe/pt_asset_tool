@@ -1,0 +1,341 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.r2_figon",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/R2 Figon.inf",
+    "GameServer/Monster/R2 Figon.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/R2 Figon.inf",
+    "legacy_sha256": "c5453251f08160546a41e8843d5ecaab263dc786b6c7c96a2618614aa2e94dfd",
+    "legacy_size": 617
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\figon\\figon.ini",
+      "name": "R2 Figon",
+      "level": 62,
+      "model_scale": 1.0,
+      "class_code": 21,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 410,
+      "life": 900,
+      "attack_damage": [
+        62,
+        77
+      ],
+      "attack_rating": 1200,
+      "attack_speed": 8,
+      "attack_range": 230,
+      "defence": 350,
+      "absorption": 9,
+      "move_speed": 3,
+      "monster_race": "디먼",
+      "size": "대형",
+      "experience": 36200,
+      "effect_sound": "FIGON",
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.figon.figon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\figon\\figon.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c6669676f6e5c6669676f6e2e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "R2 Figon"
+        ],
+        "raw_values_hex": [
+          "5232204669676f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          62
+        ],
+        "raw_values_hex": [
+          "3632"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "class_code",
+        "legacy_token": "*구별코드",
+        "legacy_token_hex": "2ab1b8bab0c4dab5e5",
+        "loader_status": "supported_mapped",
+        "values": [
+          21
+        ],
+        "raw_values_hex": [
+          "3231"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          410
+        ],
+        "raw_values_hex": [
+          "343130"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          900
+        ],
+        "raw_values_hex": [
+          "393030"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          62,
+          77
+        ],
+        "raw_values_hex": [
+          "3632",
+          "3737"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1200
+        ],
+        "raw_values_hex": [
+          "31323030"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          230
+        ],
+        "raw_values_hex": [
+          "323330"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          350
+        ],
+        "raw_values_hex": [
+          "333530"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "디먼"
+        ],
+        "raw_values_hex": [
+          "b5f0b8d5"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "대형"
+        ],
+        "raw_values_hex": [
+          "b4ebc7fc"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          36200
+        ],
+        "raw_values_hex": [
+          "3336323030"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "FIGON"
+        ],
+        "raw_values_hex": [
+          "4649474f4e"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcZmlnb25cZmlnb24uaW5pIg0KDQovL05hbWUNCirAzLinICJSMiBGaWdvbiINCg0KLy9MZXZlbA0KKre5uqcgNjINCg0KLy9TaXplDQoquPC1qMWpseIgMS4wDQoNCi8vUXVlc3RDb2RlDQoqsbi6sMTateUgMjENCg0KLy9TcGF3blF1YW50aXR5DQoqwbbB9yAxIDENCg0KLy9WaWV3UmFuZ2UNCiq9w77fIDQxMA0KDQovL0hQDQoqu/247bfCIDkwMA0KDQovL0F0dGFja1Bvd2VyDQoqsPiw3bfCIDYyIDc3DQoNCi8vQXR0YWNrUmF0aW5nDQoquO3B37fCIDEyMDANCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDgNCg0KLy9BdHRhY2tSYW5nZQ0KKrD4sN25/MCnIDIzMA0KDQovL0RlZmVuc2UNCiq55r7ut8IgMzUwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPbAsiA5DQoNCi8vTW92ZVNwZWVkDQoqwMy1v7fCIDMNCg0KLy9SYWNlDQoquPO9usXNwb7BtyC18LjVDQoNCi8vU2hhZG93U2l6ZQ0KKsWpseIgtOvH/A0KDQovL0V4cGVyaWVuY2UNCiqw5sfoxKEgMzYyMDANCg0KLy9Tb3VuZA0KKsi/sPrAvSBGSUdPTg0KDQovL0V4dGVybiBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcTmFtZS56aG9vbiI="
+  }
+}

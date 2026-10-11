@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da307",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA307.zhoon",
+    "GameServer/OpenItem/name/DA307.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA307.zhoon",
+    "legacy_sha256": "c47dd6ffb4109878f23f6c846a7c36efb5f82b561b9f8dae2e3266dbd9be6515",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Armadura Imperial"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJtYWR1cmEgSW1wZXJpYWwi"
+  }
+}

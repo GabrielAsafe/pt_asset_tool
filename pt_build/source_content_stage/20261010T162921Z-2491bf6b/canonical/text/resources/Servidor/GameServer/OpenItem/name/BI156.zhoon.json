@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi156",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI156.zhoon",
+    "GameServer/OpenItem/name/BI156.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI156.zhoon",
+    "legacy_sha256": "0550dace778c167e9d86a83da98c1cf6c7975137c9b7f455ad7f5491d4bb64ed",
+    "legacy_size": 31
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "HP Recharche (30d)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIkhQIFJlY2hhcmNoZSAoMzBkKSINCg=="
+  }
+}

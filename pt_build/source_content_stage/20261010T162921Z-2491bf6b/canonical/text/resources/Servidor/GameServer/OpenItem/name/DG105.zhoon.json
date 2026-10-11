@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dg105",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DG105.zhoon",
+    "GameServer/OpenItem/name/DG105.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DG105.zhoon",
+    "legacy_sha256": "d107e62deb189fa2a4067cd56ad0378d0f98a0889f30eb4d44c679db6c316b97",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Luvas de Aço"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTHV2YXMgZGUgQedvIg=="
+  }
+}

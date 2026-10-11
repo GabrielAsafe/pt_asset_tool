@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ruinen",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Ruinen.sin",
+    "image/Sinimage/WarpGateDoc/Ruinen.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Ruinen.sin",
+    "legacy_sha256": "2f3c203402e920407ea48a45ca1adedf9fd8691b8ee30da840bfd068843c03af",
+    "legacy_size": 202
+  },
+  "semantic": {
+    "lines": [
+      "Ruinen was founded in the wilderness by nomads ",
+      "and became a small casern village ",
+      "where warriors rest in during their training session.",
+      "Ruinen is located in the border between",
+      "Tempskron and Morion."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UnVpbmVuIHdhcyBmb3VuZGVkIGluIHRoZSB3aWxkZXJuZXNzIGJ5IG5vbWFkcyANCmFuZCBiZWNhbWUgYSBzbWFsbCBjYXNlcm4gdmlsbGFnZSANCndoZXJlIHdhcnJpb3JzIHJlc3QgaW4gZHVyaW5nIHRoZWlyIHRyYWluaW5nIHNlc3Npb24uDQpSdWluZW4gaXMgbG9jYXRlZCBpbiB0aGUgYm9yZGVyIGJldHdlZW4NClRlbXBza3JvbiBhbmQgTW9yaW9uLg=="
+  }
+}

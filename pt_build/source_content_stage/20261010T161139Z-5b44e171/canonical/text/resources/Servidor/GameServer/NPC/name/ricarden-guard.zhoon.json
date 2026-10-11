@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_guard",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ricarden-guard.zhoon",
+    "GameServer/NPC/name/ricarden-guard.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ricarden-guard.zhoon",
+    "legacy_sha256": "480d45bfea63a03a5bf5fc32f1c1f0658439a05d5ba6c6dfc9acfb850428e006",
+    "legacy_size": 435
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Guarda de Ricarten"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Estes camaradas desaparecem durante a noite... Estranho, não acha? Eles são 'especiais'..."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "O Primeiro Desafio de Classe dos Temskrons é vencer 3 dessas criaturas..."
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Não alimente estas criaturas. Nós não as conhecemos muito bem... Tenha cuidado!"
+      },
+      {
+        "line": 13,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Algumas pessoas se atrevem a entrar na jaula... mais, é loucura. Fique longe!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9yaWNhcmRlbi1ndWFyZC5ucGMNCg0KDQoqSl9OYW1lCSJHdWFyZGEgZGUgUmljYXJ0ZW4iDQoNCg0KKkpfQ2hhdAkiRXN0ZXMgY2FtYXJhZGFzIGRlc2FwYXJlY2VtIGR1cmFudGUgYSBub2l0ZS4uLiBFc3RyYW5obywgbuNvIGFjaGE/IEVsZXMgc+NvICdlc3BlY2lhaXMnLi4uIg0KDQoqSl9DaGF0CSJPIFByaW1laXJvIERlc2FmaW8gZGUgQ2xhc3NlIGRvcyBUZW1za3JvbnMg6SB2ZW5jZXIgMyBkZXNzYXMgY3JpYXR1cmFzLi4uIg0KDQoqSl9DaGF0CSJO428gYWxpbWVudGUgZXN0YXMgY3JpYXR1cmFzLiBO83MgbuNvIGFzIGNvbmhlY2Vtb3MgbXVpdG8gYmVtLi4uIFRlbmhhIGN1aWRhZG8hIg0KDQoqSl9DaGF0CSJBbGd1bWFzIHBlc3NvYXMgc2UgYXRyZXZlbSBhIGVudHJhciBuYSBqYXVsYS4uLiBtYWlzLCDpIGxvdWN1cmEuIEZpcXVlIGxvbmdlISINCg0K"
+  }
+}

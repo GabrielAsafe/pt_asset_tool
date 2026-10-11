@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.wlord.wlord",
+  "logical_config": "char/monster/WLord/WLord.ini",
+  "legacy_cache": "char/monster/WLord/WLord.inx",
+  "consumers": [
+    {
+      "id": "monster.129_bruxa_da_noite",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/129_Bruxa da Noite.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/WLord/WLord.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/WLord/WLord.inx"
+    }
+  }
+}

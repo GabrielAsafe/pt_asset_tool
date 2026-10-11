@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.gp122",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/GP122.zhoon",
+    "GameServer/OpenItem/name/GP122.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/GP122.zhoon",
+    "legacy_sha256": "3259970f19f00a4b4dbbc138c3fec7f53b051fbd16adee02f27e458587925049",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cristal Guardião Supremo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ3Jpc3RhbCBHdWFyZGnjbyBTdXByZW1vIg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.48_hunki",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/48_Hunki.zhoon",
+    "GameServer/Monster/Name/48_Hunki.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/48_Hunki.zhoon",
+    "legacy_sha256": "5efa2410eefbcb1b141322ba3aba0899ef0408be3c5e719cd4cf10ed91a01578",
+    "legacy_size": 15
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Hunki"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiSHVua2ki"
+  }
+}

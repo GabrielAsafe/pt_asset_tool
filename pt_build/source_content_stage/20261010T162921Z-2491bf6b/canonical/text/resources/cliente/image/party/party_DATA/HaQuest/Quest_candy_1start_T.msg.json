@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_candy_1start_t",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_candy_1start_T.msg",
+    "image/party/party_DATA/HaQuest/Quest_candy_1start_T.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_candy_1start_T.msg",
+    "legacy_sha256": "aebe4403b6dc5c5a32a28b7d3056f9fdebea70f8e660ef01005f800c02caba59",
+    "legacy_size": 85
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "",
+      "",
+      "Give the lost candy to ",
+      "Blacksmith in Ricarten ",
+      "and get a reward from ",
+      "Goden"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoNCg0KR2l2ZSB0aGUgbG9zdCBjYW5keSB0byANCkJsYWNrc21pdGggaW4gUmljYXJ0ZW4gDQphbmQgZ2V0IGEgcmV3YXJkIGZyb20gDQpHb2Rlbg=="
+  }
+}

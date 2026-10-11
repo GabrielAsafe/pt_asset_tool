@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monmudy.monmudyjel",
+  "logical_config": "char/monster/monmudy/monmudyjel.ini",
+  "legacy_cache": "char/monster/monmudy/monmudyjel.inx",
+  "consumers": [
+    {
+      "id": "monster.5_zeldi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/5_Zeldi.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monmudy/monmudyjel.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monmudy/monmudyjel.inx"
+    }
+  }
+}

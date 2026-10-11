@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ahin",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Ahin.zhoon",
+    "GameServer/NPC/name/Ahin.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Ahin.zhoon",
+    "legacy_sha256": "f057a2e4adcaba53c4410d789de86e10751846ea8efc0bbab0016b4066596434",
+    "legacy_size": 282
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Ahin"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você deve ser um guerreiro muito corajoso para ter chegado até aqui."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Preparei um presente para você."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Como não tenho muito tempo, você só pode comprar um item a cada 3 minutos."
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Até a próxima. Adeus!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9BaGluLm5wYw0KDQoqSl9OQU1FCQkJIkFoaW4iDQoNCipKX0NIQVQJCQkiVm9j6iBkZXZlIHNlciB1bSBndWVycmVpcm8gbXVpdG8gY29yYWpvc28gcGFyYSB0ZXIgY2hlZ2FkbyBhdOkgYXF1aS4iDQoqSl9DSEFUCQkJIlByZXBhcmVpIHVtIHByZXNlbnRlIHBhcmEgdm9j6i4iDQoqSl9DSEFUCQkJIkNvbW8gbuNvIHRlbmhvIG11aXRvIHRlbXBvLCB2b2PqIHPzIHBvZGUgY29tcHJhciB1bSBpdGVtIGEgY2FkYSAzIG1pbnV0b3MuIg0KKkpfQ0hBVAkJCSJBdOkgYSBwcvN4aW1hLiBBZGV1cyEi"
+  }
+}

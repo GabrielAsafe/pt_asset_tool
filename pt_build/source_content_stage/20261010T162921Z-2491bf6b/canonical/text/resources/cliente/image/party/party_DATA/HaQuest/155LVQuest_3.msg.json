@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_3",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/155LVQuest_3.msg",
+    "image/party/party_DATA/HaQuest/155LVQuest_3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/155LVQuest_3.msg",
+    "legacy_sha256": "f4fbff8228ee6a7ef36d9cf9be3e5d050766df301cb7a789a3298546eac0f8ae",
+    "legacy_size": 156
+  },
+  "semantic": {
+    "lines": [
+      "Invoque a Esfera do Fogo na",
+      "área determinada do Abismo",
+      "do Mar Congelado e derrote",
+      "100 monstros.",
+      "Após, fale com Rubi, a",
+      "Sacerdotisa do Fogo, em",
+      "Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SW52b3F1ZSBhIEVzZmVyYSBkbyBGb2dvIG5hDQrhcmVhIGRldGVybWluYWRhIGRvIEFiaXNtbw0KZG8gTWFyIENvbmdlbGFkbyBlIGRlcnJvdGUNCjEwMCBtb25zdHJvcy4NCkFw83MsIGZhbGUgY29tIFJ1YmksIGENClNhY2VyZG90aXNhIGRvIEZvZ28sIGVtDQpQaWxsYWku"
+  }
+}

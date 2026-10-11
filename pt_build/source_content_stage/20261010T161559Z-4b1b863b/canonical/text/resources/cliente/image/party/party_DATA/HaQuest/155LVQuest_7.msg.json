@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_7",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/155LVQuest_7.msg",
+    "image/party/party_DATA/HaQuest/155LVQuest_7.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/155LVQuest_7.msg",
+    "legacy_sha256": "8e32e7c581391d7b0183622eb527eeee2a37e9113eb8b960a160ecb0bb60fd1e",
+    "legacy_size": 66
+  },
+  "semantic": {
+    "lines": [
+      "Entregue o Relatório de",
+      "Batalha ao Comandante Derik",
+      "em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RW50cmVndWUgbyBSZWxhdPNyaW8gZGUNCkJhdGFsaGEgYW8gQ29tYW5kYW50ZSBEZXJpaw0KZW0gUmljYXJ0ZW4u"
+  }
+}

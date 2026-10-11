@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn115",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN115.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN115.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN115.zhoon",
+    "legacy_sha256": "db8ebeb7b0a076e6d7a703a6401545676f42b51d70409fa36d57030d00c89a91",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Canku Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjExNS50eHQNCg0KKkpfTkFNRQkJIkNhbmt1IFBoYW50b20iDQo="
+  }
+}

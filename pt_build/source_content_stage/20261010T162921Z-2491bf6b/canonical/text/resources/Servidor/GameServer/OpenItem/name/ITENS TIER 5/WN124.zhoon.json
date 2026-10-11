@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn124",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN124.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN124.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN124.zhoon",
+    "legacy_sha256": "7eec3d4b35874a3a25dba1da80d92aea2074ca58da4538f1e46052f1e0325ae7",
+    "legacy_size": 44
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Wakinyan Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjEyNC50eHQNCg0KKkpfTkFNRQkJIldha2lueWFuIFBoYW50b20iDQo="
+  }
+}

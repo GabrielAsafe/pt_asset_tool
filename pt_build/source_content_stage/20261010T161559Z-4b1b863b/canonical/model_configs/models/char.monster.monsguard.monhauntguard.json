@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monsguard.monhauntguard",
+  "logical_config": "char/monster/monsguard/monhauntguard.ini",
+  "legacy_cache": "char/monster/monsguard/monhauntguard.inx",
+  "consumers": [
+    {
+      "id": "monster.57_cavaleiro_negro",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/57_Cavaleiro Negro.inf.json"
+    },
+    {
+      "id": "monster.new_sod_dark_knight",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/new_sod_dark_knight.inf.json"
+    },
+    {
+      "id": "monster.r3_cavaleiro_negro",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R3 Cavaleiro Negro.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/MonSGuard/Monhauntguard.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/MonSGuard/Monhauntguard.inx"
+    }
+  }
+}

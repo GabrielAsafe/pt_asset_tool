@@ -1,0 +1,97 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.iron_2",
+  "logical_path": "GameServer/Field/iron-2.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/iron-2.ase.spm",
+    "sha256": "d298226904050e4c44f79798c0458f65fd5f66dda67287b677cae730c427553f"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.86_omega",
+      "legacy_name": "Omega",
+      "legacy_name_bytes_hex": "4f6d656761",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.86_montanha",
+      "legacy_name": "Montanha",
+      "legacy_name_bytes_hex": "4d6f6e74616e6861",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.85_morgon",
+      "legacy_name": "Morgon",
+      "legacy_name_bytes_hex": "4d6f72676f6e",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.85_metron",
+      "legacy_name": "Metron",
+      "legacy_name_bytes_hex": "4d6574726f6e",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.84_guardi_u00e3o_antigo",
+      "legacy_name": "Guardiao Antigo",
+      "legacy_name_bytes_hex": "477561726469616f20416e7469676f",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.85_ogro_mec_u00e2nico",
+      "legacy_name": "Ogro Mecanico",
+      "legacy_name_bytes_hex": "4f67726f204d6563616e69636f",
+      "weight": 14,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.86_m_u00e1quina_d",
+      "legacy_name": "Maquina-D",
+      "legacy_name_bytes_hex": "4d617175696e612d44",
+      "weight": 11,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.87_punhos_de_a_u00e7o",
+      "legacy_name": "Punhos de Aco",
+      "legacy_name_bytes_hex": "50756e686f732064652041636f",
+      "weight": 5,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_104_babel",
+      "slave_monster_id": "monster.87_punhos_de_a_u00e7o",
+      "master_legacy_name": "Babel",
+      "slave_legacy_name": "Punhos de Aco",
+      "master_legacy_name_bytes_hex": "426162656c",
+      "slave_legacy_name_bytes_hex": "50756e686f732064652041636f",
+      "slave_count": 5,
+      "open_hours": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21
+      ],
+      "master_resolution": "exact",
+      "slave_resolution": "exact"
+    }
+  ]
+}

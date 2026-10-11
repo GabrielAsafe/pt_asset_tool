@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monavellriskstf.monavelriskstf",
+  "logical_config": "char/monster/monavellriskstf/monavelriskstf.ini",
+  "legacy_cache": "char/monster/monavellriskstf/monavelriskstf.inx",
+  "consumers": [
+    {
+      "id": "monster.84_centauro_guerreira",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/84_Centauro Guerreira.inf.json"
+    },
+    {
+      "id": "monster.sod_avelin_queen",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_avelin_queen.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monavellriskstf/monavelriskstf.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monavellriskstf/monavelriskstf.inx"
+    }
+  }
+}

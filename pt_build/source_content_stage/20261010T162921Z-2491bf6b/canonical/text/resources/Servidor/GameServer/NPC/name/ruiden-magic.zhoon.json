@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ruiden_magic",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ruiden-magic.zhoon",
+    "GameServer/NPC/name/ruiden-magic.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ruiden-magic.zhoon",
+    "legacy_sha256": "e09abc0ed9cce8acd8dc970624c0d71075931bb2f60a38051349b84ffe46f7e6",
+    "legacy_size": 399
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "2ª Loja do Maron"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Viu só? Cada artefato tem a assinatura do Mestre..."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Esta não é uma vila muito organizada. Mas tiramos algum dinheiro, graças aos viajantes que aparecem."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Vendemos artefatos feito pelo Mestre Maron. Dê uma olhada..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Esta é a segunda filial da Loja do Mestre Maron. Claro, ele produz todos os artefatos que fornecemos..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIjKqIExvamEgZG8gTWFyb24iDQoNCipKX0NIQVQJCSJWaXUgc/M/IENhZGEgYXJ0ZWZhdG8gdGVtIGEgYXNzaW5hdHVyYSBkbyBNZXN0cmUuLi4iDQoqSl9DSEFUCQkiRXN0YSBu428g6SB1bWEgdmlsYSBtdWl0byBvcmdhbml6YWRhLiBNYXMgdGlyYW1vcyBhbGd1bSBkaW5oZWlybywgZ3Jh52FzIGFvcyB2aWFqYW50ZXMgcXVlIGFwYXJlY2VtLiINCipKX0NIQVQJCSJWZW5kZW1vcyBhcnRlZmF0b3MgZmVpdG8gcGVsbyBNZXN0cmUgTWFyb24uIETqIHVtYSBvbGhhZGEuLi4iDQoqSl9DSEFUCQkiRXN0YSDpIGEgc2VndW5kYSBmaWxpYWwgZGEgTG9qYSBkbyBNZXN0cmUgTWFyb24uIENsYXJvLCBlbGUgcHJvZHV6IHRvZG9zIG9zIGFydGVmYXRvcyBxdWUgZm9ybmVjZW1vcy4uLiINCg0K"
+  }
+}

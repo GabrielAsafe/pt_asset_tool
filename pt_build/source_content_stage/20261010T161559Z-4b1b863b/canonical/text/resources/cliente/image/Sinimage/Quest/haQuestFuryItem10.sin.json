@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestfuryitem10",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestFuryItem10.sin",
+    "image/Sinimage/Quest/haQuestFuryItem10.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestFuryItem10.sin",
+    "legacy_sha256": "aea9427fc5a6f98c3ccc87b9e7722f8d85514554336fb57b1c97fb6ed549a76d",
+    "legacy_size": 310
+  },
+  "semantic": {
+    "lines": [
+      "[Fantasma Kahtesah]",
+      "                               ",
+      "                                 ",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "[Opção]",
+      "",
+      "Poder de Ataque  : 53-60     Add. HP  : 25",
+      "Vel. da Arma     : 8         Add. MP  : 100",
+      "Alcance          : 200       Add.STM  : 25",
+      "Taxa de Ataque   : 180       MP Regen.: 3.2",
+      "Bloqueio         : 13%"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "W0ZhbnRhc21hIEthaHRlc2FoXQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQoNCg0KDQoNCg0KW09w5+NvXQ0KDQpQb2RlciBkZSBBdGFxdWUgIDogNTMtNjAgICAgIEFkZC4gSFAgIDogMjUNClZlbC4gZGEgQXJtYSAgICAgOiA4ICAgICAgICAgQWRkLiBNUCAgOiAxMDANCkFsY2FuY2UgICAgICAgICAgOiAyMDAgICAgICAgQWRkLlNUTSAgOiAyNQ0KVGF4YSBkZSBBdGFxdWUgICA6IDE4MCAgICAgICBNUCBSZWdlbi46IDMuMg0KQmxvcXVlaW8gICAgICAgICA6IDEzJQ=="
+  }
+}

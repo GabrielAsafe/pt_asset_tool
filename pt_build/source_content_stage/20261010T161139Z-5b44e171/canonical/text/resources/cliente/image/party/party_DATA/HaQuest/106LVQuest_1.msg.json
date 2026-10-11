@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/106LVQuest_1.msg",
+    "image/party/party_DATA/HaQuest/106LVQuest_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/106LVQuest_1.msg",
+    "legacy_sha256": "0f4370619bede09cddbf4acebc24c1adc3c2351522d734f2a456207ea5a02de2",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "lines": [
+      "Cace 20 Olhar de Gelo no ",
+      "Vale Gallubia e fale com o ",
+      "Mestre da Força de Vila Eura."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FjZSAyMCBPbGhhciBkZSBHZWxvIG5vIA0KVmFsZSBHYWxsdWJpYSBlIGZhbGUgY29tIG8gDQpNZXN0cmUgZGEgRm9y52EgZGUgVmlsYSBFdXJhLg0K"
+  }
+}

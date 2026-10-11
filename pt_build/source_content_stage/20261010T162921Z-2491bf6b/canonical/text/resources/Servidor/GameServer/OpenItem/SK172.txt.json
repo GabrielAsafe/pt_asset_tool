@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sk172",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SK172.txt",
+    "GameServer/OpenItem/SK172.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SK172.txt",
+    "legacy_sha256": "367541bff8c3571e9df7b1849ba0ad3d25d8fe9e65762fd814713bca9492cbbc",
+    "legacy_size": 56
+  },
+  "semantic": {
+    "fields": {
+      "name": "Skin Lança",
+      "code": "SK172"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Skin Lança"
+        ],
+        "raw_values_hex": [
+          "536b696e204c616ee761"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SK172"
+        ],
+        "raw_values_hex": [
+          "534b313732"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiU2tpbiBMYW7nYSINCirE2rXlCSJTSzE3MiI="
+  }
+}

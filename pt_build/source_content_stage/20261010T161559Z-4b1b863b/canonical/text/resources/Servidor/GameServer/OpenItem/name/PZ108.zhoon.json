@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.pz108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/PZ108.zhoon",
+    "GameServer/OpenItem/name/PZ108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/PZ108.zhoon",
+    "legacy_sha256": "1c43ea147a7c3a6c1f6ffefa009b57c840432fcd517ed5b78c8b871b465c0811",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Quebra-Cabeça A8"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUXVlYnJhLUNhYmXnYSBBOCI="
+  }
+}

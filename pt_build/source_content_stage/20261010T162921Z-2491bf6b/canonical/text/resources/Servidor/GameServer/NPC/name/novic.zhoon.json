@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.novic",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/novic.zhoon",
+    "GameServer/NPC/name/novic.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/novic.zhoon",
+    "legacy_sha256": "cffa16dcc677b9cae72ec46ae98ac3bb8e088b231101df3c652994271a0d26d9",
+    "legacy_size": 278
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Novic"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Onde estou?"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Acho que consigo combinar essas gemas que você carrega."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Consigo sentir uma energia misteriosa ao redor dessas gemas."
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Hmm... por algum motivo, não tenho certeza se consigo criar isso..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9ub3ZpYy5ucGMNCg0KKkpfTkFNRQkJIk5vdmljIg0KDQoqSl9DSEFUCQkiT25kZSBlc3RvdT8iDQoqSl9DSEFUCQkiQWNobyBxdWUgY29uc2lnbyBjb21iaW5hciBlc3NhcyBnZW1hcyBxdWUgdm9j6iBjYXJyZWdhLiINCipKX0NIQVQJCSJDb25zaWdvIHNlbnRpciB1bWEgZW5lcmdpYSBtaXN0ZXJpb3NhIGFvIHJlZG9yIGRlc3NhcyBnZW1hcy4iDQoqSl9DSEFUCQkiSG1tLi4uIHBvciBhbGd1bSBtb3Rpdm8sIG7jbyB0ZW5obyBjZXJ0ZXphIHNlIGNvbnNpZ28gY3JpYXIgaXNzby4uLiI="
+  }
+}

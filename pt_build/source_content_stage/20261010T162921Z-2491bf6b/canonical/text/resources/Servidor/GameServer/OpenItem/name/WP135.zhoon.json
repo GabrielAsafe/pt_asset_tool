@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wp135",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WP135.zhoon",
+    "GameServer/OpenItem/name/WP135.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WP135.zhoon",
+    "legacy_sha256": "bef8e0e5143c7fa0226c18ba4190768e1e4843985cbbdc6dba91fb569b0341b5",
+    "legacy_size": 20
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Foice Drax"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRm9pY2UgRHJheCI="
+  }
+}

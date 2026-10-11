@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.navisko_civilian3",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/navisko-civilian3.zhoon",
+    "GameServer/NPC/name/navisko-civilian3.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/navisko-civilian3.zhoon",
+    "legacy_sha256": "c5b48e75750b8433052d76b4022b016b5962905b2417bf420e51f17a9f9b459c",
+    "legacy_size": 157
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "T_NAME",
+        "kind": "name",
+        "text": "갬㎽ず³띱"
+      },
+      {
+        "line": 4,
+        "legacy_key": "T_CHAT",
+        "kind": "chat",
+        "text": "¤£ª¾¬Q±ßµo¥Í¤F¤°»ò¡A¦­¤W¿ô¨Óµo²{§Úªº¦çªA³£Äê±¼¤F¡A¹³©Ù¥¬¤@¼Ë¡A¦ü¥G§Ú§Ñ°O¤F¤°»ò¨Æ±¡¡C¡C¡C"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9uYXZpc2tvLWNpdmlsaWFuMy5ucGMNCg0KKlRfTkFNRQkJIrC3p9Gquqn4tvAiDQoqVF9DSEFUCQkipKOqvqxRsd+1b6XNpEaksLvyoUGmraRXv/So07Vvsnun2qq6pueqQbOjxOqxvKRGoUG5s6nZpaykQLzLoUGm/KVHp9qn0bBPpEaksLvyqMaxoaFDoUOhQyINCg0KDQoNCg=="
+  }
+}

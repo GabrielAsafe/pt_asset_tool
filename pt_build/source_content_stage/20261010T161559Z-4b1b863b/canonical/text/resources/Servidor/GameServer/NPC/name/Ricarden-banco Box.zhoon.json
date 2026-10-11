@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_banco_box",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Ricarden-banco Box.zhoon",
+    "GameServer/NPC/name/Ricarden-banco Box.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Ricarden-banco Box.zhoon",
+    "legacy_sha256": "0337787e2f941f36f4e5d55c4a87956ffd2f5ad5cbd8ade209f9a62e67c1fbbd",
+    "legacy_size": 110
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Astolfo, o Banqueiro"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Cant find Ricarden-banco Box.NPC"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9SaWNhcmRlbi1iYW5jbyBCb3guTlBDDQoNCg0KKkpfTmFtZQkiQXN0b2xmbywgbyBCYW5xdWVpcm8iDQoNCg0KKkpfQ2hhdAlDYW50IGZpbmQgUmljYXJkZW4tYmFuY28gQm94Lk5QQw0KDQo="
+  }
+}

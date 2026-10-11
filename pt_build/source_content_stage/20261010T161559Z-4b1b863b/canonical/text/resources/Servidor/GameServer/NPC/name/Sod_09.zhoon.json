@@ -1,0 +1,78 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sod_09",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Sod_09.zhoon",
+    "GameServer/NPC/name/Sod_09.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Sod_09.zhoon",
+    "legacy_sha256": "db764e68fffbfb743509a02b35ec30fa43270b63b7e796ad801644ac918fd0ad",
+    "legacy_size": 740
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Danu"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "I wish the Wealth of Ground and love will follow your life..."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "You're late! Ardor is going on the battle."
+      },
+      {
+        "line": 10,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Which team is going to win?"
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "You look very strong too."
+      },
+      {
+        "line": 14,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Sorry, You cannot join in Ardor right now."
+      },
+      {
+        "line": 15,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Rewards are handed and the stadium is cleaned and under maintenance at this time of every day."
+      },
+      {
+        "line": 16,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Please come back later."
+      },
+      {
+        "line": 19,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "It seems to be early for you to get into Ardor. You need more exp."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Tb2RfMDkubnBjDQoNCipKX05BTUUJCSJEYW51Ig0KDQovL7alwMe758GmIMDOu+e4uyAtLSDH17vzILOqv8C0wiC43r3DwfYNCipKX0NIQVQJCSJJIHdpc2ggdGhlIFdlYWx0aCBvZiBHcm91bmQgYW5kIGxvdmUgd2lsbCBmb2xsb3cgeW91ciBsaWZlLi4uIg0KDQovL77GuKO1tbijsKEgx/bA5yDB+MfgIMHfIMDMsMWzqiDC/LChsKEgutKwobTJx9IgtqcgLSC+xrehILTryK216SDB3yC3o7T9x8+w1CDD4rfCDQoqSl9DSEFUCQkiWW91J3JlIGxhdGUhIEFyZG9yIGlzIGdvaW5nIG9uIHRoZSBiYXR0bGUuIgkNCipKX0NIQVQJCSJXaGljaCB0ZWFtIGlzIGdvaW5nIHRvIHdpbj8iDQoqSl9DSEFUCQkiWW91IGxvb2sgdmVyeSBzdHJvbmcgdG9vLiINCg0KLy/A1MDlILrSsKG0ySC9w7CjIC0gvsa3oSC068ittekgwd8gt6O0/cfPsNQgw+K3wg0KKkpfQ0hBVAkJIlNvcnJ5LCBZb3UgY2Fubm90IGpvaW4gaW4gQXJkb3IgcmlnaHQgbm93LiIJDQoqSl9DSEFUCQkiUmV3YXJkcyBhcmUgaGFuZGVkIGFuZCB0aGUgc3RhZGl1bSBpcyBjbGVhbmVkIGFuZCB1bmRlciBtYWludGVuYW5jZSBhdCB0aGlzIHRpbWUgb2YgZXZlcnkgZGF5LiIJDQoqSl9DSEFUCQkiUGxlYXNlIGNvbWUgYmFjayBsYXRlci4iDQoNCi8vvsa4o7W1uKMgwNTA5cDMILrSsKG0ycfRILe5uqfAzyC2pw0KKkpfQ0hBVAkJIkl0IHNlZW1zIHRvIGJlIGVhcmx5IGZvciB5b3UgdG8gZ2V0IGludG8gQXJkb3IuIFlvdSBuZWVkIG1vcmUgZXhwLiI="
+  }
+}

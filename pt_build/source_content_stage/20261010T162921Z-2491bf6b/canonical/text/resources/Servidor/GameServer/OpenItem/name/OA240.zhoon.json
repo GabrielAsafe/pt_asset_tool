@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.oa240",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OA240.zhoon",
+    "GameServer/OpenItem/name/OA240.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OA240.zhoon",
+    "legacy_sha256": "b521b28b232cdd35101ad7b61c5820fdd8d4162f73dc1667407941a311044cff",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Bracelete Infernal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQnJhY2VsZXRlIEluZmVybmFsIg=="
+  }
+}

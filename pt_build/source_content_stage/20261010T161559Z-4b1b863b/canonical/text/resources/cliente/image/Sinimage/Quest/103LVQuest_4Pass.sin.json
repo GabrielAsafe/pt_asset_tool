@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_4pass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_4Pass.sin",
+    "image/Sinimage/Quest/103LVQuest_4Pass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_4Pass.sin",
+    "legacy_sha256": "ed05eaf5871efcd043959a360ca1cf74520efcf67098ec465b562e2c4738bd2f",
+    "legacy_size": 357
+  },
+  "semantic": {
+    "lines": [
+      "You haven't finished discarding the pieces of C-stones?",
+      "You would do better to be well prepared before",
+      "evil things arrive.",
+      "",
+      "There are total of 7 pieces to be discarded.",
+      "You are not the only one helping me. However, ",
+      "I'm worried because there are so many left.",
+      "",
+      "You can activate it if you bring them to the north",
+      "of a special place at Lost Temple."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91IGhhdmVuJ3QgZmluaXNoZWQgZGlzY2FyZGluZyB0aGUgcGllY2VzIG9mIEMtc3RvbmVzPw0KWW91IHdvdWxkIGRvIGJldHRlciB0byBiZSB3ZWxsIHByZXBhcmVkIGJlZm9yZQ0KZXZpbCB0aGluZ3MgYXJyaXZlLg0KDQpUaGVyZSBhcmUgdG90YWwgb2YgNyBwaWVjZXMgdG8gYmUgZGlzY2FyZGVkLg0KWW91IGFyZSBub3QgdGhlIG9ubHkgb25lIGhlbHBpbmcgbWUuIEhvd2V2ZXIsIA0KSSdtIHdvcnJpZWQgYmVjYXVzZSB0aGVyZSBhcmUgc28gbWFueSBsZWZ0Lg0KDQpZb3UgY2FuIGFjdGl2YXRlIGl0IGlmIHlvdSBicmluZyB0aGVtIHRvIHRoZSBub3J0aA0Kb2YgYSBzcGVjaWFsIHBsYWNlIGF0IExvc3QgVGVtcGxlLg0K"
+  }
+}

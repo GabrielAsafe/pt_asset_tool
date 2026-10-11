@@ -1,0 +1,117 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.yura_force_master",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/yura-Force-master.NPC",
+    "GameServer/NPC/yura-Force-master.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/yura-Force-master.NPC",
+    "legacy_sha256": "443a3148fc2306ea82ad111885f74c321cd82cbff44de982e0bb496d92fb3efe",
+    "legacy_size": 829
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\IceN-03\\IceN-03.INI",
+      "name": "포스 마스터",
+      "class": 1006,
+      "refining": true,
+      "linked_file": "name\\yura-force-master.zhoon",
+      "model_config_id": "model.char.npc.icen.03.icen.03"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\IceN-03\\IceN-03.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4963654e2d30335c4963654e2d30332e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "포스 마스터"
+        ],
+        "raw_values_hex": [
+          "c6f7bdba20b8b6bdbac5cd"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1006
+        ],
+        "raw_values_hex": [
+          "31303036"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "refining",
+        "legacy_token": "*아이템연금",
+        "legacy_token_hex": "2abec6c0ccc5dbbfacb1dd",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 19,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\yura-force-master.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c797572612d666f7263652d6d61737465722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcSWNlTi0wM1xJY2VOLTAzLklOSSINCg0KKsDMuKcJCQkixve9uiC4tr26xc0iDQoqsOix3gkJCTEwMDYNCg0KLy8qtOvIrQkJCSKx4rz6t8LAzCDH4rvztce46SC09SC4ucC6IMG+t/nAxyDG9726IL/Auuogv6yx3cDMILChtMkgx9W0z7TZLiINCi8vKrTryK0JCQkis6++vrChIMPktNmw7SDH2LytIMb3vbogv8C66sDHILy6tMnAzCDA+sfPtce0wiCwzcC6IL7GtM+0zyC/sLfBx8/B9iC4try8v+QuIg0KLy8qtOvIrQkJCSK4rsSruKPF2bD6IMfKtvPAzMDHIMb3vboguLa9usXNv6Gw1CDBpiC+yLrOwbsgwPzH2MHWvccgvPYgwNbAuL3FsKG/5D8iDQovLyq068itCQkJIrCtt8LH0SC48726xc20wiDG9726IL/Auuq4piC757/rx8+/qSDIv8CywPvAuLfOILvns8nH2L7fIMfVtM+02S4iDQovLy8vKrTryK0JCQkivanF0iDBtrCiv6Egucy8vMfRIMj7wLsgutK+7iCz1r7uILi4tecgsdewzcC7IMb3vbogv8C66rbzILrOuKPB9r/kLiINCi8vLy8qtOvIrQkJCSLAzCCx4rz6wLogxdu9usWpt9AsILjwtvPAzL/CwMcgsM21tSC+xrTRILTZuKUgwMy16cDHILmuuO3A1LTPtNkuIg0KLy8vLyq068itCQkJIsfRufggu+e/68fRIMb3vbogv8C66rTCIMDPwaQgvcOwo8DMIMH2s6q46SC80rjqx8+w1CC1y7TPtNkuIMDMwaHAuyC47b3Jx8+8vL/kIg0KLy8vLyq068itCQkJIsb3vbrAxyDI+8DMIMH2vNO1x7TCILW/vsggs+6287/vILi4xa3AxyCwrcfRILD4sN23wsC7ILChwfogvPYgwNa9wLTPtNkuIg0KDQoqvsbAzMXbv6yx3Q0KDQoqv6yw4cbEwM8gIm5hbWVceXVyYS1mb3JjZS1tYXN0ZXIuemhvb24iDQoNCg=="
+  }
+}

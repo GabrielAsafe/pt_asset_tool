@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_urso_pitanga",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Urso Pitanga.zhoon",
+    "GameServer/Monster/Name/1_Urso Pitanga.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Urso Pitanga.zhoon",
+    "legacy_sha256": "d0f6a599cecf059e7b0d2805d6ab8ee677553086cdd30e1973acdf356162e449",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Urso Pitanga"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVXJzbyBQaXRhbmdhIg=="
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ricarden_civilian1",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ricarden-civilian1.npc",
+    "GameServer/NPC/ricarden-civilian1.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ricarden-civilian1.npc",
+    "legacy_sha256": "047bbd05e141094838d6bdcbf4cff5ff451403cf4658e6b61c9325f629054963",
+    "legacy_size": 1513
+  },
+  "semantic": {
+    "fields": {
+      "name": "착한소년 롱보",
+      "model_file": "char\\npc\\TN-006\\TN-006.ini",
+      "level": 100,
+      "linked_file": "name\\ricarden-civilian1.zhoon",
+      "model_config_id": "model.char.npc.tn.006.tn.006"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "착한소년 롱보"
+        ],
+        "raw_values_hex": [
+          "c2f8c7d1bcd2b3e220b7d5bab8"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-006\\TN-006.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030365c544e2d3030362e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ricarden-civilian1.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c726963617264656e2d636976696c69616e312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSLC+MfRvNKz4iC31bq4Ig0KKrjwvufGxMDPCSJjaGFyXG5wY1xUTi0wMDZcVE4tMDA2LmluaSINCiq3ubqnCQkxMDANCi8vKrTryK0JCSLA2rDtIMDPvu6zqrTPILTZuK61tSCx5r7uwfaw7SwgvvOxvLW1ILTetvPB9rDtILjwtc4guq/H2CC59rfIvu4/ILDUtNmwoSC4tsC7se7B9iC9zyC52bLuvu4gufa3yLDtLCC02SDBwcC6taUgs7sgtdq/oSCxq7mwtb+788C6IL7utfC02SDEob/uILDFvt8gs8q5qyDH48D8x8/A2rOqISINCi8vKrTryK0JCSK/+LehIMDMsPe/oSDEv7TZtvUgtb+78yDHz7OqsKEgwNa++rTCtaUgsKGy+yCx1yC1v7vzv6EgseK06yCzt8DhtbUgwNqw7SDH3776wfYuLiCx17ansKEgsde4s7G6Ig0KLy8qtOvIrQkJIsikvcMgvu610sDHILy6wPzAzLbzsO0gtem+7iC6w7OqPyC5+sH9tb+xvLD6ILn2vLi1v7G8ILvnwMy/oSDA1rTCILDttOsgvLrA/MDMtvOw7SDHz7TCtaUgsdew97+hILL7wffH0SC48726xc0gtenAzCCzqsW4s6202bDtIMfPtPWxuiC0573FtbUgsK3H2MH2sMW15yCywCCwobq4tvOw7SINCi8vKrTryK0JCSKzrSCwobq7wPvAuiC++MH2uLggu+e4tyCx7bz3x9EgsPe/oSDA+sHWILnewLogvcXA/MDMIMDWtNm09bG6ILm5ILHXsPfAuiC067f6v6G8rSCwocDlILCtx9EgwPy757XpuLggsKW89iDA1rTZsO0gx8+0zyC0573FwLogst61tSCy2cH2ILj4x8+w2sH2uLguLiINCi8vKrTryK0JCSK757i3ILChv+61pb+htMIgs9e68b26xNq287TCILW1vcOwoSDA1r7uILnjuLa02SDB1rnOtenAzCC48726xc23ziC6r8fPtMIgwPrB1iC53sC6ILW1vcPB9iCx17extOsgwaTA2yCx17D3wMcgwda5zrXpwLogwNq9xbXpwMwguPO9usXNt84guq/Hz7TCwfa1tSC48LiltNmw7SDHz7T1sboiDQovLyq068itCQkitOe9xSC/9sfBsNTAzMautvOw7SC+xrOqPyDA+iDAp7+hILnfuO2woSC+xsD6vr6woSC4uLXnILDHtOsgvPi9xLCjv6EgtNm4pSCw98C4t84gwMy1v73DxNEgwda0wiC9xbHix9EgwOXEobT1sbogwvwgwcHAuiC8vLvzwMy+3y4uLi4iDQovLyq068itCQkis9e68b26xNq/obyxIFNPRCC287TCIMD8xfUgsOax4rChIL+tuLC02bDtIMfPtPWxuiDBpMfYwfggtvO/7rXluKYgxeuw+sfPuOkgu/Ox3bW1IMHWvu7B+LTZsO0gx8+0+LWlILTnvcUgsK3H2CC6uMDMtMK1pSBTT0S/oSDC/LChx9gguri0wiCwzcC6IL7utqc/Ig0KLy8qtOvIrQkJIsH2sd3AuiDC+MfRILzSs+LAzCC1xsH2uLggv7nA/L+hILOtIL+xseLDu7PiILfVuri287DtILrSuK60wiCw+Mb3wMcgtOu788DMvvrB9iwgwqXB9bOquOkgyK4gv7Gx4rimILrOuLEgsMW0z7HuIL3DuvEgsMnB9iC4u7bzsO0iDQoNCg0KDQoNCg0KKr+ssOHGxMDPCSJuYW1lXHJpY2FyZGVuLWNpdmlsaWFuMS56aG9vbiINCg0KLy8iubkgv6HAzMKhwLsgx8+w2rTZsO0/IMDMt7EgsKO1tSDFqbG6LCC9x8bQIMfPuOkgvsbAzMXbLCC1tyDA/LrOIMDSvu659rixILz2IMDWwLi0zyC+y77GvK0gx8+287DtLi4gx8q288DMwMcguPC4rsfBtvO0wiC+57ndwMwgtbW/zcHZILDFvt8hISAiDQoNCg=="
+  }
+}

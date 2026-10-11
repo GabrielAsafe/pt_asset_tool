@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100_arqueiro_do_castelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/100_Arqueiro do Castelo.zhoon",
+    "GameServer/Monster/Name/100_Arqueiro do Castelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/100_Arqueiro do Castelo.zhoon",
+    "legacy_sha256": "bba5a49a83d9a39d243e4e00b8e82c8ac13e40697a0967ead3ed51cc24555b75",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Arqueiro do Castelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJxdWVpcm8gZG8gQ2FzdGVsbyI="
+  }
+}

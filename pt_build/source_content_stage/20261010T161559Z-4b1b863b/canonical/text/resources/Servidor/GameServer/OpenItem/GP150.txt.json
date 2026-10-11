@@ -1,0 +1,137 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.gp150",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/GP150.txt",
+    "GameServer/OpenItem/GP150.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/GP150.txt",
+    "legacy_sha256": "8f616d0e7c1e86b4e54d0f88f9a9da0a85da704cbd2ae19585cded987817c43e",
+    "legacy_size": 218
+  },
+  "semantic": {
+    "fields": {
+      "code": "GP150",
+      "name": "Cristal do Xetan",
+      "english_name": "Cristal do Xetan",
+      "level": 65,
+      "weight": 1,
+      "price": 100000,
+      "linked_file": "Name\\GP150.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "GP150"
+        ],
+        "raw_values_hex": [
+          "4750313530"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal do Xetan"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646f20586574616e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal do Xetan"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646f20586574616e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          65
+        ],
+        "raw_values_hex": [
+          "3635"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\GP150.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c47503135302e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkdQMTUwIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ3Jpc3RhbCBkbyBYZXRhbiINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJDcmlzdGFsIGRvIFhldGFuIg0KDQovL0xldmVsDQoqt7m6pyA2NQ0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SAxMDAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxHUDE1MC56aG9vbiI="
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.ruin_arenasf",
+  "logical_path": "GameServer/Field/ruin-arenasf.ase.spm",
+  "legacy_source": {
+    "path": "reconstructed/PATCH_207/ruin-arenasf.ase.spm",
+    "sha256": "c15c4c3bb40ee041bc98c91c44a00de8128dee092706f8a5706718573b75511f"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.119_gurkob",
+      "legacy_name": "Gurkob",
+      "legacy_name_bytes_hex": "4775726b6f62",
+      "weight": 14,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.119_dey",
+      "legacy_name": "Dey",
+      "legacy_name_bytes_hex": "446579",
+      "weight": 14,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.120_koon",
+      "legacy_name": "Koon",
+      "legacy_name_bytes_hex": "4b6f6f6e",
+      "weight": 14,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.121_faugn",
+      "legacy_name": "Faugn",
+      "legacy_name_bytes_hex": "466175676e",
+      "weight": 14,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.122_shogoth",
+      "legacy_name": "Shogoth",
+      "legacy_name_bytes_hex": "53686f676f7468",
+      "weight": 14,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.123_arhdyra",
+      "legacy_name": "Arhdyra",
+      "legacy_name_bytes_hex": "41726864797261",
+      "weight": 15,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.124_sathla",
+      "legacy_name": "Sathla2",
+      "legacy_name_bytes_hex": "536174686c6132",
+      "weight": 15,
+      "resolution": "source_monster_signature"
+    }
+  ],
+  "bosses": []
+}

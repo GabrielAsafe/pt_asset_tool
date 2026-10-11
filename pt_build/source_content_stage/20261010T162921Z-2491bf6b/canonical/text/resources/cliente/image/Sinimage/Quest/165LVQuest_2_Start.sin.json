@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_2_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_2_Start.sin",
+    "image/Sinimage/Quest/165LVQuest_2_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_2_Start.sin",
+    "legacy_sha256": "355835a238c6e3289ded5a712f11c2cc3d9e4205dfb86a53118a27a5863b081d",
+    "legacy_size": 620
+  },
+  "semantic": {
+    "lines": [
+      "Usamos a Alma de Fogo para destruir o Cristal de Gelo. Eu",
+      "vi as lágrimas no rosto da Dama da Neve antes dela partir.",
+      "Fragmentos da Alma de Fogo se espalharam por toda parte. ",
+      "Desde então, abalos sísmicos são frequentes. Isso causou ",
+      "atrito com o povo ocidental, os Brasolk. Tudo se resolveu",
+      "e Gaponyeon, o Cavalo Azul, purificou nossas águas.",
+      "",
+      "Analisei seus dados. Os Faugn conseguem superar o controle",
+      "de Midranda por instantes. Preciso de algumas amostras.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Colete o Tentáculo de Faugn, caçando o Faugn Insano no",
+      "Santuário do Abismo.",
+      "Ao terminar, fale com a Sábia Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VXNhbW9zIGEgQWxtYSBkZSBGb2dvIHBhcmEgZGVzdHJ1aXIgbyBDcmlzdGFsIGRlIEdlbG8uIEV1DQp2aSBhcyBs4WdyaW1hcyBubyByb3N0byBkYSBEYW1hIGRhIE5ldmUgYW50ZXMgZGVsYSBwYXJ0aXIuDQpGcmFnbWVudG9zIGRhIEFsbWEgZGUgRm9nbyBzZSBlc3BhbGhhcmFtIHBvciB0b2RhIHBhcnRlLiANCkRlc2RlIGVudONvLCBhYmFsb3Mgc+1zbWljb3Mgc+NvIGZyZXF1ZW50ZXMuIElzc28gY2F1c291IA0KYXRyaXRvIGNvbSBvIHBvdm8gb2NpZGVudGFsLCBvcyBCcmFzb2xrLiBUdWRvIHNlIHJlc29sdmV1DQplIEdhcG9ueWVvbiwgbyBDYXZhbG8gQXp1bCwgcHVyaWZpY291IG5vc3NhcyDhZ3Vhcy4NCg0KQW5hbGlzZWkgc2V1cyBkYWRvcy4gT3MgRmF1Z24gY29uc2VndWVtIHN1cGVyYXIgbyBjb250cm9sZQ0KZGUgTWlkcmFuZGEgcG9yIGluc3RhbnRlcy4gUHJlY2lzbyBkZSBhbGd1bWFzIGFtb3N0cmFzLg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KQ29sZXRlIG8gVGVudOFjdWxvIGRlIEZhdWduLCBjYedhbmRvIG8gRmF1Z24gSW5zYW5vIG5vDQpTYW50deFyaW8gZG8gQWJpc21vLg0KQW8gdGVybWluYXIsIGZhbGUgY29tIGEgU+FiaWEgQ2VsaW5hIGVtIFBpbGxhaS4="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.19_lorde_das_u00c1rvores",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/19_Lorde das #U00c1rvores.zhoon",
+    "GameServer/Monster/Name/19_Lorde das #U00c1rvores.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/19_Lorde das #U00c1rvores.zhoon",
+    "legacy_sha256": "7353742f78d8d256934ac3a6968acd01de6b7c33f04c3634a47725398b700b8c",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lorde das 햞vores"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTG9yZGUgZGFzIMFydm9yZXMi"
+  }
+}

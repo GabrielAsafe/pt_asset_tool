@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.db134",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DB134.zhoon",
+    "GameServer/OpenItem/name/DB134.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DB134.zhoon",
+    "legacy_sha256": "bc7ec62fe7001eb12a6d207d00e5d04c9f29bb0dd7a1320968e4645180c1a8a9",
+    "legacy_size": 32
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Botas da Velocidade 1h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQm90YXMgZGEgVmVsb2NpZGFkZSAxaCI="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.84_berserker",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/84_Berserker.zhoon",
+    "GameServer/Monster/Name/84_Berserker.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/84_Berserker.zhoon",
+    "legacy_sha256": "73b7f253df71f95fa190c9f91509e990885a0d2656b7d778b4e0d1b0992cfff2",
+    "legacy_size": 19
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Berserker"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQmVyc2Vya2VyIg=="
+  }
+}

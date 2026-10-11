@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.phillay_equip2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/phillay-equip2.zhoon",
+    "GameServer/NPC/name/phillay-equip2.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/phillay-equip2.zhoon",
+    "legacy_sha256": "f0b443a326769a08d2fd134880791ecb917e1c9fec69a8b70615259ac65811ba",
+    "legacy_size": 384
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 2,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Ferreiro Dfrain"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "O que? Eu sou gordo e preguiçoso? E quanto ao meu grande escudo, aqui, hein?"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Bom vê-lo novamente, jovem. O que será dessa vez? O de sempre?"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Dê uma olhada neste escudo que fiz. Não é qualquer um que pode fazer itens desta qualidade..."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se são armas que você procura, visite o Ferreiro Bartz, logo ao lado..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqSl9OQU1FCQkiRmVycmVpcm8gRGZyYWluIg0KDQoqSl9DSEFUCQkiTyBxdWU/IEV1IHNvdSBnb3JkbyBlIHByZWd1aedvc28/IEUgcXVhbnRvIGFvIG1ldSBncmFuZGUgZXNjdWRvLCBhcXVpLCBoZWluPyINCipKX0NIQVQJCSJCb20gduotbG8gbm92YW1lbnRlLCBqb3ZlbS4gTyBxdWUgc2Vy4SBkZXNzYSB2ZXo/IE8gZGUgc2VtcHJlPyINCipKX0NIQVQJCSJE6iB1bWEgb2xoYWRhIG5lc3RlIGVzY3VkbyBxdWUgZml6LiBO428g6SBxdWFscXVlciB1bSBxdWUgcG9kZSBmYXplciBpdGVucyBkZXN0YSBxdWFsaWRhZGUuLi4iDQoqSl9DSEFUCQkiU2Ugc+NvIGFybWFzIHF1ZSB2b2PqIHByb2N1cmEsIHZpc2l0ZSBvIEZlcnJlaXJvIEJhcnR6LCBsb2dvIGFvIGxhZG8uLi4i"
+  }
+}

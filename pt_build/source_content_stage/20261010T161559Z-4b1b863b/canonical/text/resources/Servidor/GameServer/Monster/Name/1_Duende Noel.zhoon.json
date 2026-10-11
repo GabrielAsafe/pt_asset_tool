@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_duende_noel",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Duende Noel.zhoon",
+    "GameServer/Monster/Name/1_Duende Noel.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Duende Noel.zhoon",
+    "legacy_sha256": "d8e491c63ddabef50cf446e1763dd8e3a94b1f1f912121782e1512ebbc536853",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Duende Noel"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRHVlbmRlIE5vZWwi"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_1_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_1_Path.sin",
+    "image/Sinimage/Quest/165LVQuest_1_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_1_Path.sin",
+    "legacy_sha256": "e9e9cc642128a70dba69f688ee5d1648f0ff92392422beba51178a700207c41f",
+    "legacy_size": 621
+  },
+  "semantic": {
+    "lines": [
+      "Os guerreiros de Midranda, resgatados da Estrada Sombria,",
+      "estão em menor número. Mas estão sedentos por vingança.",
+      "O poder subiu à cabeça, fazendo-os perder o controle.",
+      "Zarad foi imprudente. Seus guerreiros, derrotados em",
+      "batalha, se tornaram inimigos ao serem revigorados pela",
+      "햓ua da Vida, manipulada por Midranda.",
+      "",
+      "Por favor, ajude Arteres e Ceres a investigar a região do ",
+      "Santuário do Abismo, precisamos de toda informação possível",
+      "para planejar nossa estratégia de ataque.",
+      "",
+      "Vá até a área demarcada no Santuário do Abismo. Uma luz ",
+      "indicará o local.",
+      "",
+      "Fale com a Sábia Celina após coletar as informações."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T3MgZ3VlcnJlaXJvcyBkZSBNaWRyYW5kYSwgcmVzZ2F0YWRvcyBkYSBFc3RyYWRhIFNvbWJyaWEsDQplc3TjbyBlbSBtZW5vciBu+m1lcm8uIE1hcyBlc3TjbyBzZWRlbnRvcyBwb3IgdmluZ2Fu52EuDQpPIHBvZGVyIHN1Yml1IOAgY2FiZedhLCBmYXplbmRvLW9zIHBlcmRlciBvIGNvbnRyb2xlLg0KWmFyYWQgZm9pIGltcHJ1ZGVudGUuIFNldXMgZ3VlcnJlaXJvcywgZGVycm90YWRvcyBlbQ0KYmF0YWxoYSwgc2UgdG9ybmFyYW0gaW5pbWlnb3MgYW8gc2VyZW0gcmV2aWdvcmFkb3MgcGVsYQ0KwWd1YSBkYSBWaWRhLCBtYW5pcHVsYWRhIHBvciBNaWRyYW5kYS4NCg0KUG9yIGZhdm9yLCBhanVkZSBBcnRlcmVzIGUgQ2VyZXMgYSBpbnZlc3RpZ2FyIGEgcmVnaeNvIGRvIA0KU2FudHXhcmlvIGRvIEFiaXNtbywgcHJlY2lzYW1vcyBkZSB0b2RhIGluZm9ybWHn428gcG9zc+12ZWwNCnBhcmEgcGxhbmVqYXIgbm9zc2EgZXN0cmF06WdpYSBkZSBhdGFxdWUuDQoNClbhIGF06SBhIOFyZWEgZGVtYXJjYWRhIG5vIFNhbnR14XJpbyBkbyBBYmlzbW8uIFVtYSBsdXogDQppbmRpY2Fy4SBvIGxvY2FsLg0KDQpGYWxlIGNvbSBhIFPhYmlhIENlbGluYSBhcPNzIGNvbGV0YXIgYXMgaW5mb3JtYef1ZXMu"
+  }
+}

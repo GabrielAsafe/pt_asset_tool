@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_3.path_05e6ca9ce7",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/WeekQuest/Boss_Quest_3.msg",
+    "image/party/party_DATA/WeekQuest/Boss_Quest_3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/WeekQuest/Boss_Quest_3.msg",
+    "legacy_sha256": "95c3f329bec8fe34ffd5c0b8030eeb7dfa57ee5bcdae809fc9c2c753416b01d9",
+    "legacy_size": 66
+  },
+  "semantic": {
+    "lines": [
+      "Derrote o Golem Ancião em ",
+      "Oásis e fale com o Proud",
+      "em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBvIEdvbGVtIEFuY2njbyBlbSANCk/hc2lzIGUgZmFsZSBjb20gbyBQcm91ZA0KZW0gUmljYXJ0ZW4u"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.72_stygian",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/72_Stygian.zhoon",
+    "GameServer/Monster/Name/72_Stygian.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/72_Stygian.zhoon",
+    "legacy_sha256": "58eb03276c66a2337b2c3335928301e50ffab29bcb286c24711fe58fcea64e13",
+    "legacy_size": 17
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Stygian"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiU3R5Z2lhbiI="
+  }
+}

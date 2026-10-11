@@ -1,0 +1,145 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ca650",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CA650.txt",
+    "GameServer/OpenItem/CA650.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CA650.txt",
+    "legacy_sha256": "7170f3958e9d062344fb0a58cabff95b00211ed92f0d7dd80c869db324a9c546",
+    "legacy_size": 233
+  },
+  "semantic": {
+    "fields": {
+      "name": "Roupão Hopi (F)",
+      "code": "CA648",
+      "weight": 50,
+      "absorb": 2.5,
+      "defence": 80,
+      "life_add_alt": 10,
+      "mana_add_alt": 5,
+      "stamina_add_alt": 5
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Roupão Hopi (F)"
+        ],
+        "raw_values_hex": [
+          "526f7570e36f20486f706920284629"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CA648"
+        ],
+        "raw_values_hex": [
+          "4341363438"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.5
+        ],
+        "raw_values_hex": [
+          "322e35"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRElHTyBETyBJVEVNDQoqwMy4pwkJIlJvdXDjbyBIb3BpIChGKSINCirE2rXlCQkiQ0E2NDgiDQoNCi8vIFBFU08gTk8gSU5WRVRBUklPDQoquauw1CA1MA0KLy8gQUJTT1JDQU8NCirI7bz2t8IgMi41DQovLyBUQVhBIERFIERFRkVTQQ0KKrnmvu63wiA4MA0KLy8gQUREIEhQDQoqu/247bfCw9+woQkxMA0KLy8gQUREIE1QDQoqseK3wsPfsKEJNQ0KLy8gQUREIFJFUw0KKrHZt8LD37ChCTU="
+  }
+}

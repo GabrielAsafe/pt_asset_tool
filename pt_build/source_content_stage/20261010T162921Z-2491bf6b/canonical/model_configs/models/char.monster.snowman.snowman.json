@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.snowman.snowman",
+  "logical_config": "char/monster/snowman/snowman.ini",
+  "legacy_cache": "char/monster/snowman/snowman.inx",
+  "consumers": [
+    {
+      "id": "monster.evento_1_boneco_de_neve",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Evento_1_Boneco de Neve.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Snowman/Snowman.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Snowman/Snowman.inx"
+    }
+  }
+}

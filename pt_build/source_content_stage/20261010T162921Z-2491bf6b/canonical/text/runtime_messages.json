@@ -1,0 +1,597 @@
+{
+  "schema": "summit.runtime-localization-source/v1",
+  "schema_version": 1,
+  "entries": [
+    {
+      "key": "news.coin_shop_balance",
+      "locales": {
+        "pt-BR": "> Você possui %d moedas da Loja de Moedas",
+        "en": "> You have %d CoinShop"
+      }
+    },
+    {
+      "key": "news.player_online",
+      "locales": {
+        "pt-BR": "> Jogador [%s] está conectado",
+        "en": "> Player [%s] is online"
+      }
+    },
+    {
+      "key": "news.time_shop_balance",
+      "locales": {
+        "pt-BR": "> Você possui %d pontos da Loja de Tempo",
+        "en": "> You have %d TimeShop"
+      }
+    },
+    {
+      "key": "news.welcome",
+      "locales": {
+        "pt-BR": "Olá, %s. Bem-vindo ao Priston Tale.",
+        "en": "Hello %s, welcome to Priston Tale."
+      }
+    },
+    {
+      "key": "premium.active.description",
+      "locales": {
+        "pt-BR": "Efeito premium ativo.",
+        "en": "Premium effect active."
+      }
+    },
+    {
+      "key": "premium.active.title",
+      "locales": {
+        "pt-BR": "Premium",
+        "en": "Premium"
+      }
+    },
+    {
+      "key": "premium.big_head.description",
+      "locales": {
+        "pt-BR": "Efeito de Cabeça Grande ativo.",
+        "en": "Big Head effect active."
+      }
+    },
+    {
+      "key": "premium.big_head.title",
+      "locales": {
+        "pt-BR": "Cabeça Grande",
+        "en": "Big Head"
+      }
+    },
+    {
+      "key": "premium.caravan.description",
+      "locales": {
+        "pt-BR": "Caravana ativa.",
+        "en": "Caravan active."
+      }
+    },
+    {
+      "key": "premium.caravan.title",
+      "locales": {
+        "pt-BR": "Caravana",
+        "en": "Caravan"
+      }
+    },
+    {
+      "key": "premium.drop_bonus.description",
+      "locales": {
+        "pt-BR": "Drop +{percent}%",
+        "en": "Drop +{percent}%"
+      }
+    },
+    {
+      "key": "premium.eor.description",
+      "locales": {
+        "pt-BR": "Eor ativo: ajuda em batalhas.",
+        "en": "Eor active: assists in combat."
+      }
+    },
+    {
+      "key": "premium.eor.title",
+      "locales": {
+        "pt-BR": "Eor",
+        "en": "Eor"
+      }
+    },
+    {
+      "key": "premium.exp_bonus.description",
+      "locales": {
+        "pt-BR": "EXP +{percent}%",
+        "en": "EXP +{percent}%"
+      }
+    },
+    {
+      "key": "premium.exp_potion.title",
+      "locales": {
+        "pt-BR": "Bônus de EXP",
+        "en": "EXP Bonus"
+      }
+    },
+    {
+      "key": "premium.gold_looter.description",
+      "locales": {
+        "pt-BR": "Coleta automática de ouro ativa.",
+        "en": "Automatic gold collection active."
+      }
+    },
+    {
+      "key": "premium.gold_looter.title",
+      "locales": {
+        "pt-BR": "Coletor de Ouro",
+        "en": "Gold Collector"
+      }
+    },
+    {
+      "key": "premium.hp_booster.description",
+      "locales": {
+        "pt-BR": "Bônus de HP ativo.",
+        "en": "HP bonus active."
+      }
+    },
+    {
+      "key": "premium.hp_booster.title",
+      "locales": {
+        "pt-BR": "Booster de HP",
+        "en": "HP Booster"
+      }
+    },
+    {
+      "key": "premium.mana_recharge.description",
+      "locales": {
+        "pt-BR": "Converte parte do dano em MP.",
+        "en": "Converts part of damage into MP."
+      }
+    },
+    {
+      "key": "premium.mana_recharge.title",
+      "locales": {
+        "pt-BR": "Recarga de Mana",
+        "en": "Mana Recharge"
+      }
+    },
+    {
+      "key": "premium.mana_reduce.description",
+      "locales": {
+        "pt-BR": "Consumo de MP -{percent}%",
+        "en": "MP consumption -{percent}%"
+      }
+    },
+    {
+      "key": "premium.mana_reduce.title",
+      "locales": {
+        "pt-BR": "Redução de Mana",
+        "en": "Mana Reduction"
+      }
+    },
+    {
+      "key": "premium.might_awell.description",
+      "locales": {
+        "pt-BR": "Poder de Awell ativo.",
+        "en": "Might of Awell active."
+      }
+    },
+    {
+      "key": "premium.might_awell.title",
+      "locales": {
+        "pt-BR": "Poder de Awell",
+        "en": "Might of Awell"
+      }
+    },
+    {
+      "key": "premium.mp_booster.description",
+      "locales": {
+        "pt-BR": "Bônus de MP ativo.",
+        "en": "MP bonus active."
+      }
+    },
+    {
+      "key": "premium.mp_booster.title",
+      "locales": {
+        "pt-BR": "Booster de MP",
+        "en": "MP Booster"
+      }
+    },
+    {
+      "key": "premium.mut.description",
+      "locales": {
+        "pt-BR": "Mut ativo: ajuda em batalhas.",
+        "en": "Mut active: assists in combat."
+      }
+    },
+    {
+      "key": "premium.mut.title",
+      "locales": {
+        "pt-BR": "Mut",
+        "en": "Mut"
+      }
+    },
+    {
+      "key": "premium.nepsys.description",
+      "locales": {
+        "pt-BR": "Nepsys ativo: ajuda em batalhas.",
+        "en": "Nepsys active: assists in combat."
+      }
+    },
+    {
+      "key": "premium.nepsys.title",
+      "locales": {
+        "pt-BR": "Nepsys",
+        "en": "Nepsys"
+      }
+    },
+    {
+      "key": "premium.phoenix.description",
+      "locales": {
+        "pt-BR": "Fênix ativa: ajuda em batalhas.",
+        "en": "Phoenix active: assists in combat."
+      }
+    },
+    {
+      "key": "premium.phoenix.title",
+      "locales": {
+        "pt-BR": "Fênix",
+        "en": "Phoenix"
+      }
+    },
+    {
+      "key": "premium.res_booster.description",
+      "locales": {
+        "pt-BR": "Bônus de RES ativo.",
+        "en": "RES bonus active."
+      }
+    },
+    {
+      "key": "premium.res_booster.title",
+      "locales": {
+        "pt-BR": "Booster de RES",
+        "en": "RES Booster"
+      }
+    },
+    {
+      "key": "premium.stamina_recharge.description",
+      "locales": {
+        "pt-BR": "Regeneração de stamina ativa.",
+        "en": "Stamina regeneration active."
+      }
+    },
+    {
+      "key": "premium.stamina_recharge.title",
+      "locales": {
+        "pt-BR": "Recarga de Stamina",
+        "en": "Stamina Recharge"
+      }
+    },
+    {
+      "key": "premium.stamina_reduce.description",
+      "locales": {
+        "pt-BR": "Consumo de SP -{percent}%",
+        "en": "SP consumption -{percent}%"
+      }
+    },
+    {
+      "key": "premium.stamina_reduce.title",
+      "locales": {
+        "pt-BR": "Redução de Stamina",
+        "en": "Stamina Reduction"
+      }
+    },
+    {
+      "key": "premium.terry.description",
+      "locales": {
+        "pt-BR": "Terry ativo: ajuda em batalhas.",
+        "en": "Terry active: assists in combat."
+      }
+    },
+    {
+      "key": "premium.terry.title",
+      "locales": {
+        "pt-BR": "Terry",
+        "en": "Terry"
+      }
+    },
+    {
+      "key": "premium.third_eyes.title",
+      "locales": {
+        "pt-BR": "Terceiro Olho",
+        "en": "Third Eye"
+      }
+    },
+    {
+      "key": "premium.vampiric.description",
+      "locales": {
+        "pt-BR": "Converte parte do dano em HP.",
+        "en": "Converts part of damage into HP."
+      }
+    },
+    {
+      "key": "premium.vampiric.title",
+      "locales": {
+        "pt-BR": "Presa de Vampiro",
+        "en": "Vampiric Fang"
+      }
+    },
+    {
+      "key": "premium.vampiric_ex.description",
+      "locales": {
+        "pt-BR": "Super Presa de Vampiro ativa.",
+        "en": "Super Vampiric Fang active."
+      }
+    },
+    {
+      "key": "premium.vampiric_ex.title",
+      "locales": {
+        "pt-BR": "Super Presa de Vampiro",
+        "en": "Super Vampiric Fang"
+      }
+    },
+    {
+      "key": "status.active.title",
+      "locales": {
+        "pt-BR": "Efeito ativo",
+        "en": "Active effect"
+      }
+    },
+    {
+      "key": "status.missing_icon.description",
+      "locales": {
+        "pt-BR": "Ícone não resolvido; consulte LOGS/missing_status_icons.log",
+        "en": "Icon unresolved; see LOGS/missing_status_icons.log"
+      }
+    },
+    {
+      "key": "status.remaining.title",
+      "locales": {
+        "pt-BR": "Tempo restante: ",
+        "en": "Time remaining: "
+      }
+    },
+    {
+      "key": "status.vip.description",
+      "locales": {
+        "pt-BR": "Benefícios VIP ativos, conforme configuração do servidor.",
+        "en": "VIP benefits active, according to server configuration."
+      }
+    },
+    {
+      "key": "status.vip.help",
+      "locales": {
+        "pt-BR": "Use /comandos para consultar os atalhos VIP.",
+        "en": "Use /comandos for VIP shortcuts."
+      }
+    },
+    {
+      "key": "status.vip.title",
+      "locales": {
+        "pt-BR": "VIP",
+        "en": "VIP"
+      }
+    },
+    {
+      "key": "ui.death.description",
+      "locales": {
+        "pt-BR": "Escolha onde deseja renascer.",
+        "en": "Choose where to respawn."
+      },
+      "source": "patch219_death_screen"
+    },
+    {
+      "key": "ui.death.exit",
+      "locales": {
+        "pt-BR": "Sair",
+        "en": "Exit"
+      },
+      "source": "patch219_death_screen"
+    },
+    {
+      "key": "ui.death.field",
+      "locales": {
+        "pt-BR": "No campo",
+        "en": "In the field"
+      },
+      "source": "patch219_death_screen"
+    },
+    {
+      "key": "ui.death.field_blocked",
+      "locales": {
+        "pt-BR": "Renascer no campo está indisponível nesta situação.",
+        "en": "Field respawn is unavailable in this situation."
+      },
+      "source": "patch219_death_screen"
+    },
+    {
+      "key": "ui.death.timeout",
+      "locales": {
+        "pt-BR": "Sem escolha, você renascerá automaticamente na cidade.",
+        "en": "Without a choice, you will respawn in town automatically."
+      },
+      "source": "patch219_death_screen"
+    },
+    {
+      "key": "ui.death.title",
+      "locales": {
+        "pt-BR": "Personagem derrotado",
+        "en": "Character defeated"
+      },
+      "source": "patch219_death_screen"
+    },
+    {
+      "key": "ui.death.town",
+      "locales": {
+        "pt-BR": "Na cidade",
+        "en": "In town"
+      },
+      "source": "patch219_death_screen"
+    },
+    {
+      "key": "ui.premium.purchase.delivery",
+      "locales": {
+        "pt-BR": "Entrega recusada; pagamento revertido.",
+        "en": "Delivery rejected; payment rolled back."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.premium.purchase.funds",
+      "locales": {
+        "pt-BR": "Saldo insuficiente para esta compra.",
+        "en": "Insufficient balance for this purchase."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.premium.purchase.replayed",
+      "locales": {
+        "pt-BR": "Compra não repetida: pedido já processado.",
+        "en": "Purchase not repeated: request already processed."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.premium.purchase.request",
+      "locales": {
+        "pt-BR": "Compra recusada: pedido inválido.",
+        "en": "Purchase rejected: invalid request."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.premium.purchase.success",
+      "locales": {
+        "pt-BR": "Compra concluída. Confere o item no inventário.",
+        "en": "Purchase completed. Check your inventory."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.premium.purchase.transaction",
+      "locales": {
+        "pt-BR": "Compra não concluída. Tenta novamente.",
+        "en": "Purchase did not complete. Please try again."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.premium.purchase.unavailable",
+      "locales": {
+        "pt-BR": "Produto indisponível: entrega não implementada.",
+        "en": "Product unavailable: delivery is not implemented."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.premium.purchase.wallet",
+      "locales": {
+        "pt-BR": "Saldo premium indisponível no servidor.",
+        "en": "Premium balance unavailable on server."
+      },
+      "source": "patch233_premium_ack"
+    },
+    {
+      "key": "ui.shop.need.dexterity",
+      "locales": {
+        "pt-BR": "Destreza {required} (atual {current})",
+        "en": "Dexterity {required} (current {current})"
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.need.health",
+      "locales": {
+        "pt-BR": "Vida {required} (atual {current})",
+        "en": "Health {required} (current {current})"
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.need.level",
+      "locales": {
+        "pt-BR": "Nível {required} (atual {current})",
+        "en": "Level {required} (current {current})"
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.need.spirit",
+      "locales": {
+        "pt-BR": "Espírito {required} (atual {current})",
+        "en": "Spirit {required} (current {current})"
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.need.strength",
+      "locales": {
+        "pt-BR": "Força {required} (atual {current})",
+        "en": "Strength {required} (current {current})"
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.need.talent",
+      "locales": {
+        "pt-BR": "Talento {required} (atual {current})",
+        "en": "Talent {required} (current {current})"
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.reject.class",
+      "locales": {
+        "pt-BR": "Classe incompatível com este item.",
+        "en": "This item is not compatible with your class."
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.reject.requirements",
+      "locales": {
+        "pt-BR": "Falta: {details}",
+        "en": "Missing: {details}"
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.restriction.prefix",
+      "locales": {
+        "pt-BR": "Requer: ",
+        "en": "Requires: "
+      },
+      "source": "patch220_shop_reasons"
+    },
+    {
+      "key": "ui.shop.server_reject.gold",
+      "locales": {
+        "pt-BR": "Compra recusada: ouro insuficiente no servidor.",
+        "en": "Purchase rejected: insufficient server gold."
+      }
+    },
+    {
+      "key": "ui.shop.server_reject.invalid_item",
+      "locales": {
+        "pt-BR": "Compra recusada: dados do item inválidos.",
+        "en": "Purchase rejected: invalid item data."
+      }
+    },
+    {
+      "key": "ui.shop.server_reject.invalid_request",
+      "locales": {
+        "pt-BR": "Compra recusada: pedido inválido.",
+        "en": "Purchase rejected: invalid request."
+      }
+    },
+    {
+      "key": "ui.shop.server_reject.inventory",
+      "locales": {
+        "pt-BR": "Compra recusada: inventário indisponível.",
+        "en": "Purchase rejected: inventory unavailable."
+      }
+    },
+    {
+      "key": "ui.shop.server_reject.transaction",
+      "locales": {
+        "pt-BR": "Compra recusada pelo servidor.",
+        "en": "Purchase rejected by server."
+      }
+    }
+  ]
+}

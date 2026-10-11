@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv116",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV116.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV116.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV116.zhoon",
+    "legacy_sha256": "9ee2a74d82d83cf568edf43ccf8f4e07eded2278877f960703c263230b5f6830",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Tromos Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjExNi50eHQNCg0KKkpfTkFNRQkJIlRyb21vcyBTbmFrZSBCcmFjZSINCg=="
+  }
+}

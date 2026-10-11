@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r8b_shadow_phalanx",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R8B Shadow Phalanx.zhoon",
+    "GameServer/Monster/Name/R8B Shadow Phalanx.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R8B Shadow Phalanx.zhoon",
+    "legacy_sha256": "62b837703577c10fdbfe91701eb8ad3d46aa586b58a609e704638a799c79b928",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Falange Sombria R8B"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRmFsYW5nZSBTb21icmlhIFI4QiI="
+  }
+}

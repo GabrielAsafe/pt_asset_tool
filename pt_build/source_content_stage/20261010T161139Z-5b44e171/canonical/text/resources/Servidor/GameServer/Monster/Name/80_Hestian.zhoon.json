@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.80_hestian",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/80_Hestian.zhoon",
+    "GameServer/Monster/Name/80_Hestian.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/80_Hestian.zhoon",
+    "legacy_sha256": "2de25d87f13e4ff0389df649e99e10bec9e7af66e3da2f2970f0fcb983592f64",
+    "legacy_size": 17
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Hestian"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiSGVzdGlhbiI="
+  }
+}

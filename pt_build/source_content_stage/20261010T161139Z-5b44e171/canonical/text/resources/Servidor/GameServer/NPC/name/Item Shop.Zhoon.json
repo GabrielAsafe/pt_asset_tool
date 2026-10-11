@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.item_shop",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Item Shop.Zhoon",
+    "GameServer/NPC/name/Item Shop.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Item Shop.Zhoon",
+    "legacy_sha256": "5f586121c519ab542230126e97a93ae7d956e72ef2b6b8d494248903932548be",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Loja de Itens"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Do que estou falando?!?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JdGVtIFNob3AuTlBDDQoNCg0KKkpfTmFtZQkiTG9qYSBkZSBJdGVucyINCg0KDQoqSl9DaGF0CSJEbyBxdWUgZXN0b3UgZmFsYW5kbz8hPyINCg0K"
+  }
+}

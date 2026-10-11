@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or214",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR214.zhoon",
+    "GameServer/OpenItem/name/OR214.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR214.zhoon",
+    "legacy_sha256": "0daa6fecc8a9ef89b59cce42f7ba0d365b49dcc82869b0a6d87097093c4f7849",
+    "legacy_size": 189
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 6,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel de El Rasi Kun"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQovLwlQVCBJVEVNIFRFTVBMQVRFIEJZIFdPUk1ZCS8vDQovLwlFTkRMRVNTIFRPV0VSIDNGIElURU0gUEFDSwkvLw0KLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQoNCipKX05hbWUJCSJBbmVsIGRlIEVsIFJhc2kgS3VuIg0K"
+  }
+}

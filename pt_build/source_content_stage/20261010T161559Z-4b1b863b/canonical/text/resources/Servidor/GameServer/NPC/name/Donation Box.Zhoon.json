@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.donation_box.path_61db9e46a0",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Donation Box.Zhoon",
+    "GameServer/NPC/name/Donation Box.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Donation Box.Zhoon",
+    "legacy_sha256": "22f4fe8495cb751fb22b69abbfddbacab15731a793633d0e095e0787450ffeb6",
+    "legacy_size": 160
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Itens 60 (ATK/DEF)"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Compre aqui seus itens 6x pra tancar mas!"
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Obrigado por jogar Summit Tale =)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Eb25hdGlvbiBCb3guTlBDDQoNCg0KKkpfTmFtZQkiSXRlbnMgNjAgKEFUSy9ERUYpIg0KDQoNCipKX0NoYXQJIkNvbXByZSBhcXVpIHNldXMgaXRlbnMgNnggcHJhIHRhbmNhciBtYXMhIg0KDQoqSl9DaGF0CSJPYnJpZ2FkbyBwb3Igam9nYXIgU3VtbWl0IFRhbGUgPSkiDQoNCg=="
+  }
+}

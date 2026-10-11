@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r5b_unseen",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R5B Unseen.zhoon",
+    "GameServer/Monster/Name/R5B Unseen.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R5B Unseen.zhoon",
+    "legacy_sha256": "2708714a392fa4c50001086b6e48499a40a28c17190292436a6b1a0a0fc1caa2",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Invisível R5B"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiSW52aXPtdmVsIFI1QiI="
+  }
+}

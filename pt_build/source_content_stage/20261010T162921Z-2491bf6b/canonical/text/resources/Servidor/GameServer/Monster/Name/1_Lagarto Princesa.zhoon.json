@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_lagarto_princesa",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Lagarto Princesa.zhoon",
+    "GameServer/Monster/Name/1_Lagarto Princesa.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Lagarto Princesa.zhoon",
+    "legacy_sha256": "b99df5ae779b7bb38a673ed91df3d0779f7c0dc729d9ef6e2e9756010905bd94",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lagarto Princesa"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTGFnYXJ0byBQcmluY2VzYSI="
+  }
+}

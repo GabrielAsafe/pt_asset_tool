@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.5_zeldi",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/5_Zeldi.zhoon",
+    "GameServer/Monster/Name/5_Zeldi.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/5_Zeldi.zhoon",
+    "legacy_sha256": "9fd3a580e5dca896e5179b7ccdd474246fa6f90a30a90148a56f6b3a20a35832",
+    "legacy_size": 15
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Zeldi"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiWmVsZGki"
+  }
+}

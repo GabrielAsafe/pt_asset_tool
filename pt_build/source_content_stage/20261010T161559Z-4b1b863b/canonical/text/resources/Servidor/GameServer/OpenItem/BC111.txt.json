@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bc111",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BC111.txt",
+    "GameServer/OpenItem/BC111.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BC111.txt",
+    "legacy_sha256": "4f81cd6713702d85afc58228f01dad1936378d7335d7e5f601437c92db00c79e",
+    "legacy_size": 209
+  },
+  "semantic": {
+    "fields": {
+      "code": "BC111",
+      "name": "Sentença de Morte Pike",
+      "english_name": "Sentença de Morte Pike",
+      "weight": 1,
+      "price": 100000,
+      "linked_file": "Name\\BC111.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BC111"
+        ],
+        "raw_values_hex": [
+          "4243313131"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Sentença de Morte Pike"
+        ],
+        "raw_values_hex": [
+          "53656e74656ee761206465204d6f7274652050696b65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Sentença de Morte Pike"
+        ],
+        "raw_values_hex": [
+          "53656e74656ee761206465204d6f7274652050696b65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BC111.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42433131312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJDMTExIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiU2VudGVu52EgZGUgTW9ydGUgUGlrZSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJTZW50ZW7nYSBkZSBNb3J0ZSBQaWtlIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SAxMDAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxCQzExMS56aG9vbiI="
+  }
+}

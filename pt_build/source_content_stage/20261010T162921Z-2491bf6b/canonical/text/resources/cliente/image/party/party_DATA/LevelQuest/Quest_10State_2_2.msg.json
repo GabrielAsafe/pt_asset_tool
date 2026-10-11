@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_10state_2_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/LevelQuest/Quest_10State_2_2.msg",
+    "image/party/party_DATA/LevelQuest/Quest_10State_2_2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/LevelQuest/Quest_10State_2_2.msg",
+    "legacy_sha256": "9cccb9c3749452b92303670cb5bd2d399a19c508c817f9b394c2ec9c889111cc",
+    "legacy_size": 68
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt fifty D-Machines ",
+      "and go back to Ray the royal ",
+      "mage.",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IGZpZnR5IEQtTWFjaGluZXMgDQphbmQgZ28gYmFjayB0byBSYXkgdGhlIHJveWFsIA0KbWFnZS4NCg0KDQo="
+  }
+}

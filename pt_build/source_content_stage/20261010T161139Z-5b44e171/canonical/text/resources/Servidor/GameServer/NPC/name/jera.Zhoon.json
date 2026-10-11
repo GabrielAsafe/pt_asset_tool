@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.jera",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/jera.Zhoon",
+    "GameServer/NPC/name/jera.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/jera.Zhoon",
+    "legacy_sha256": "21224689e3e9c483ee7273891a6eb3bfd0acc3a98b1de2ead0876c2f699863f3",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Solar"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Para dar respec é necessário 2 jeras"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9qZXJhLk5QQw0KDQoNCipKX05hbWUJIlNvbGFyIg0KDQoNCipKX0NoYXQJIlBhcmEgZGFyIHJlc3BlYyDpIG5lY2Vzc+FyaW8gMiBqZXJhcyINCg0K"
+  }
+}

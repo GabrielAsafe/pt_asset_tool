@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.goldchange",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/GoldChange.sin",
+    "image/Sinimage/help/GoldChange.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/GoldChange.sin",
+    "legacy_sha256": "4aa9c9bbc5fbf707f3b31d3a34a8db77b7d42d32e4bba20cdbdc1e9857ddd382",
+    "legacy_size": 1252
+  },
+  "semantic": {
+    "lines": [
+      "Olá! Eu me chamo Aurum.",
+      "Eu viajava pelo continente como ourives. Mas, com as constantes guerras, resolvi me estabelecer em um local seguro. Com a autorização do Conselho Real, agora, estou prestando meus serviços, aqui, na cidade de Ricarten.",
+      "",
+      "Nesses tempos difíceis, frequentemente, você precisa carregar uma grande quantia de Ouro para aquisição de mantimentos para as longas jornadas, realização de reparos, compra e aprimoramento dos seus equipamentos. Carregar esse montante elevado, além de atrapalhar durante os deslocamentos e nas batalhas, facilita as perdas e os roubos. ",
+      "",
+      "Saiba que eu posso lhe ajudar, trocando seu Ouro por Moedas de Ouro de alto valor, certificadas pelo Conselho Real. As minhas Moedas de Ouro são verdadeiras obras de arte e eu lhe cobrarei apenas uma pequena taxa de serviço por elas:",
+      "• Valor comercial de 1x Moedas de Ouro = 250.000.000 Ouro",
+      "• Taxa de Serviço: 3% (7.500.000 Ouro)",
+      "• Valor total: 257.500.000 Ouro",
+      "",
+      "Para você converter, novamente e sem custo algum, as Moedas de Ouro em Ouro, basta vendê-las em qualquer PNJ do tipo Ferreiro, que estão presentes em todas as cidades do continente. A taxa de arrecadação do Bless Castle pode ser aplicada à taxa de serviço do Ourives.",
+      "Estou à sua disposição! "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhISBFdSBtZSBjaGFtbyBBdXJ1bS4NCkV1IHZpYWphdmEgcGVsbyBjb250aW5lbnRlIGNvbW8gb3VyaXZlcy4gTWFzLCBjb20gYXMgY29uc3RhbnRlcyBndWVycmFzLCByZXNvbHZpIG1lIGVzdGFiZWxlY2VyIGVtIHVtIGxvY2FsIHNlZ3Vyby4gQ29tIGEgYXV0b3JpemHn428gZG8gQ29uc2VsaG8gUmVhbCwgYWdvcmEsIGVzdG91IHByZXN0YW5kbyBtZXVzIHNlcnZp529zLCBhcXVpLCBuYSBjaWRhZGUgZGUgUmljYXJ0ZW4uDQoNCk5lc3NlcyB0ZW1wb3MgZGlm7WNlaXMsIGZyZXF1ZW50ZW1lbnRlLCB2b2PqIHByZWNpc2EgY2FycmVnYXIgdW1hIGdyYW5kZSBxdWFudGlhIGRlIE91cm8gcGFyYSBhcXVpc2nn428gZGUgbWFudGltZW50b3MgcGFyYSBhcyBsb25nYXMgam9ybmFkYXMsIHJlYWxpemHn428gZGUgcmVwYXJvcywgY29tcHJhIGUgYXByaW1vcmFtZW50byBkb3Mgc2V1cyBlcXVpcGFtZW50b3MuIENhcnJlZ2FyIGVzc2UgbW9udGFudGUgZWxldmFkbywgYWzpbSBkZSBhdHJhcGFsaGFyIGR1cmFudGUgb3MgZGVzbG9jYW1lbnRvcyBlIG5hcyBiYXRhbGhhcywgZmFjaWxpdGEgYXMgcGVyZGFzIGUgb3Mgcm91Ym9zLiANCg0KU2FpYmEgcXVlIGV1IHBvc3NvIGxoZSBhanVkYXIsIHRyb2NhbmRvIHNldSBPdXJvIHBvciBNb2VkYXMgZGUgT3VybyBkZSBhbHRvIHZhbG9yLCBjZXJ0aWZpY2FkYXMgcGVsbyBDb25zZWxobyBSZWFsLiBBcyBtaW5oYXMgTW9lZGFzIGRlIE91cm8gc+NvIHZlcmRhZGVpcmFzIG9icmFzIGRlIGFydGUgZSBldSBsaGUgY29icmFyZWkgYXBlbmFzIHVtYSBwZXF1ZW5hIHRheGEgZGUgc2VydmnnbyBwb3IgZWxhczoNCpUgVmFsb3IgY29tZXJjaWFsIGRlIDF4IE1vZWRhcyBkZSBPdXJvID0gMjUwLjAwMC4wMDAgT3Vybw0KlSBUYXhhIGRlIFNlcnZp5286IDMlICg3LjUwMC4wMDAgT3VybykNCpUgVmFsb3IgdG90YWw6IDI1Ny41MDAuMDAwIE91cm8NCg0KUGFyYSB2b2PqIGNvbnZlcnRlciwgbm92YW1lbnRlIGUgc2VtIGN1c3RvIGFsZ3VtLCBhcyBNb2VkYXMgZGUgT3VybyBlbSBPdXJvLCBiYXN0YSB2ZW5k6i1sYXMgZW0gcXVhbHF1ZXIgUE5KIGRvIHRpcG8gRmVycmVpcm8sIHF1ZSBlc3TjbyBwcmVzZW50ZXMgZW0gdG9kYXMgYXMgY2lkYWRlcyBkbyBjb250aW5lbnRlLiBBIHRheGEgZGUgYXJyZWNhZGHn428gZG8gQmxlc3MgQ2FzdGxlIHBvZGUgc2VyIGFwbGljYWRhIOAgdGF4YSBkZSBzZXJ2aedvIGRvIE91cml2ZXMuDQpFc3RvdSDgIHN1YSBkaXNwb3Np5+NvISANCg=="
+  }
+}

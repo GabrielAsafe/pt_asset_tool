@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.4_duende_selvagem",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/4_Duende Selvagem.zhoon",
+    "GameServer/Monster/Name/4_Duende Selvagem.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/4_Duende Selvagem.zhoon",
+    "legacy_sha256": "6ff17f2377fa95ed5a1b3fd5f37cfc4b35348be8e5d82c9abca9225076853089",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Duende Selvagem"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRHVlbmRlIFNlbHZhZ2VtIg=="
+  }
+}

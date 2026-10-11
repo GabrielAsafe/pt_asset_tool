@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/WeekQuest/Boss_Quest_5.msg",
+    "image/party/party_DATA/WeekQuest/Boss_Quest_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/WeekQuest/Boss_Quest_5.msg",
+    "legacy_sha256": "a072c11a243a6e23d98bf5dea2e69acf80e6cbd182ab7a3ea58c4ab5ec416fff",
+    "legacy_size": 82
+  },
+  "semantic": {
+    "lines": [
+      "Derrote o Perseguidor Sombrio",
+      "no Santuário Sombrio e fale",
+      "com Proud em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBvIFBlcnNlZ3VpZG9yIFNvbWJyaW8NCm5vIFNhbnR14XJpbyBTb21icmlvIGUgZmFsZQ0KY29tIFByb3VkIGVtIFJpY2FydGVuLg=="
+  }
+}

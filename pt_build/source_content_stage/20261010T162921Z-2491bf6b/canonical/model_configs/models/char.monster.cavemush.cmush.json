@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.cavemush.cmush",
+  "logical_config": "char/monster/cavemush/cmush.ini",
+  "legacy_cache": "char/monster/cavemush/cmush.inx",
+  "consumers": [
+    {
+      "id": "monster.56_muffin",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/56_Muffin.inf.json"
+    },
+    {
+      "id": "monster.r1_muffin",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R1 Muffin.inf.json"
+    },
+    {
+      "id": "monster.sod_muffin",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_muffin.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/CaveMush/Cmush.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/CaveMush/Cmush.inx"
+    }
+  }
+}

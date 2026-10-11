@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.20",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/20.msg",
+    "image/clanImage/Help/AutoHelp/20.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/20.msg",
+    "legacy_sha256": "8c0415ad7caf36fb610b0fc23ae551e1a47d534af6ff3b1dc50fb5a7cea72d07",
+    "legacy_size": 193
+  },
+  "semantic": {
+    "lines": [
+      "Congratulations!",
+      "You've reached level 60. ",
+      "Finally, you can enter the 3rd floor of the",
+      "Ancient Dungeon.",
+      "Go to hunt King Hoppie, the head captainof the",
+      "whole Hoppie unit. ",
+      "Good luck!",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29uZ3JhdHVsYXRpb25zIQ0KWW91J3ZlIHJlYWNoZWQgbGV2ZWwgNjAuIA0KRmluYWxseSwgeW91IGNhbiBlbnRlciB0aGUgM3JkIGZsb29yIG9mIHRoZQ0KQW5jaWVudCBEdW5nZW9uLg0KR28gdG8gaHVudCBLaW5nIEhvcHBpZSwgdGhlIGhlYWQgY2FwdGFpbm9mIHRoZQ0Kd2hvbGUgSG9wcGllIHVuaXQuIA0KR29vZCBsdWNrIQ0KDQoNCg=="
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.icegolem.icegolem",
+  "logical_config": "char/monster/icegolem/icegolem.ini",
+  "legacy_cache": "char/monster/icegolem/icegolem.inx",
+  "consumers": [
+    {
+      "id": "monster.90_golem_de_gelo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/90_Golem de Gelo.inf.json"
+    },
+    {
+      "id": "monster.r7_golem_de_gelo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R7 Golem de Gelo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/icegolem/icegolem.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/icegolem/icegolem.inx"
+    }
+  }
+}

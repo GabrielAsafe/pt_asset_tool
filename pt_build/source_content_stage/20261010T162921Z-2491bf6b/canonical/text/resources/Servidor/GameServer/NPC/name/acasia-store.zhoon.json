@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.acasia_store",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/acasia-store.zhoon",
+    "GameServer/NPC/name/acasia-store.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/acasia-store.zhoon",
+    "legacy_sha256": "98483bed4771ab38dfae6f1ccb02a0cc1ddb19f97c72648b830b998a292d2790",
+    "legacy_size": 432
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Loja da Lynn"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Bem-vindo. Esta é uma área segura da Floresta das Acácias."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Na entrada da floresta, há um local chamado 'Colinha dos Duendes', onde muitos Duendes perambulam o dia todo."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "A Caverna dos Cogumelos fica ao Norte da Floresta, mais somente guerreiros poderosos podem entrar lá."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Tenha cuidado com os Ciclopes da região. Eles são mais fortes que os outros monstros."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkxvamEgZGEgTHlubiINCg0KKkpfQ0hBVAkJIkJlbS12aW5kby4gRXN0YSDpIHVtYSDhcmVhIHNlZ3VyYSBkYSBGbG9yZXN0YSBkYXMgQWPhY2lhcy4iDQoqSl9DSEFUCQkiTmEgZW50cmFkYSBkYSBmbG9yZXN0YSwgaOEgdW0gbG9jYWwgY2hhbWFkbyAnQ29saW5oYSBkb3MgRHVlbmRlcycsIG9uZGUgbXVpdG9zIER1ZW5kZXMgcGVyYW1idWxhbSBvIGRpYSB0b2RvLiINCipKX0NIQVQJCSJBIENhdmVybmEgZG9zIENvZ3VtZWxvcyBmaWNhIGFvIE5vcnRlIGRhIEZsb3Jlc3RhLCBtYWlzIHNvbWVudGUgZ3VlcnJlaXJvcyBwb2Rlcm9zb3MgcG9kZW0gZW50cmFyIGzhLiINCipKX0NIQVQJCSJUZW5oYSBjdWlkYWRvIGNvbSBvcyBDaWNsb3BlcyBkYSByZWdp428uIEVsZXMgc+NvIG1haXMgZm9ydGVzIHF1ZSBvcyBvdXRyb3MgbW9uc3Ryb3MuIg0K"
+  }
+}

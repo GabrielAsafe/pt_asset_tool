@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.postbox.path_e9fb1e465b",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/shopall/PostBox.sin",
+    "image/Sinimage/shopall/PostBox.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/shopall/PostBox.sin",
+    "legacy_sha256": "f35d5d7ea92e6d13d612cac016ded777de7523a402774a2f85996b7550960a2d",
+    "legacy_size": 218
+  },
+  "semantic": {
+    "lines": [
+      "\tDelivery Items      ",
+      "===============================================",
+      "will be got items.",
+      "should check the rest space of inventory",
+      "press the confirmation botton.",
+      "",
+      "================================================"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "CURlbGl2ZXJ5IEl0ZW1zICAgICAgDQo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0Kd2lsbCBiZSBnb3QgaXRlbXMuDQpzaG91bGQgY2hlY2sgdGhlIHJlc3Qgc3BhY2Ugb2YgaW52ZW50b3J5DQpwcmVzcyB0aGUgY29uZmlybWF0aW9uIGJvdHRvbi4NCg0KPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09DQo="
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.002.tn.013",
+  "logical_config": "char/npc/TN-002/TN-013.INI",
+  "legacy_cache": "char/npc/TN-002/TN-013.inx",
+  "consumers": [
+    {
+      "id": "npc.navisko_dragoman",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/navisko-dragoman.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-002/TN-013.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-002/TN-013.inx"
+    }
+  }
+}

@@ -1,0 +1,438 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sacer",
+  "kind": "ini_config",
+  "selection_reason": "immutable_gameplay_config",
+  "runtime_paths": [
+    "Servidor/Configs/Skill/Sacer.ini",
+    "Configs/Skill/Sacer.ini"
+  ],
+  "source": {
+    "legacy_path": "Servidor/Configs/Skill/Sacer.ini",
+    "legacy_sha256": "9d380eeb8c2bac8b9ef3528f99a09ed72f1c37dab446052d8f7e96320a027a6d",
+    "legacy_size": 4165
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 1 _______________________"
+      },
+      {
+        "line": 3,
+        "section": "",
+        "key": "",
+        "value": "// Cura"
+      },
+      {
+        "line": 4,
+        "section": "",
+        "key": "Healing_UseMana",
+        "value": "11, 14, 17, 20, 24, 28, 32, 36, 38, 42 ;"
+      },
+      {
+        "line": 5,
+        "section": "",
+        "key": "Healing_Heal",
+        "value": "( 64, 86 ), ( 72, 98 ), ( 80, 110 ), ( 88, 122 ), ( 96, 134 ), ( 104, 146 ), ( 112, 158 ), ( 120, 170 ), ( 128, 175 ), ( 132, 180 ) ;"
+      },
+      {
+        "line": 7,
+        "section": "",
+        "key": "",
+        "value": "// Fagulha Sagrada"
+      },
+      {
+        "line": 8,
+        "section": "",
+        "key": "HolyBolt_UseMana",
+        "value": "14, 17, 20, 23, 27, 31, 35, 40, 45, 50 ;"
+      },
+      {
+        "line": 9,
+        "section": "",
+        "key": "HolyBolt_DamagePercent",
+        "value": "37, 39, 41, 43, 45, 47, 49, 51, 53, 55 ;"
+      },
+      {
+        "line": 11,
+        "section": "",
+        "key": "",
+        "value": "// Espinhos Multiplos"
+      },
+      {
+        "line": 12,
+        "section": "",
+        "key": "M_Spark_UseMana",
+        "value": "16, 19, 22, 25, 29, 33, 37, 58, 69, 82 ;"
+      },
+      {
+        "line": 13,
+        "section": "",
+        "key": "M_Spark_Damage_Percent",
+        "value": "90, 100, 105, 110, 115, 120, 125, 130, 135, 150;"
+      },
+      {
+        "line": 14,
+        "section": "",
+        "key": "M_Spark_Num",
+        "value": "4, 4, 4, 5, 5, 5, 6, 6, 7, 7 ;"
+      },
+      {
+        "line": 16,
+        "section": "",
+        "key": "",
+        "value": "// Feitico Divino"
+      },
+      {
+        "line": 17,
+        "section": "",
+        "key": "HolyMind_UseMana",
+        "value": "22, 25, 28, 32, 36, 40, 45, 50, 55, 60 ;"
+      },
+      {
+        "line": 18,
+        "section": "",
+        "key": "HolyMind_DecDamage",
+        "value": "10, 13, 16, 19, 22, 25, 28, 30, 32, 45 ;"
+      },
+      {
+        "line": 19,
+        "section": "",
+        "key": "HolyMind_Time",
+        "value": "15, 15, 15, 15, 15, 15, 15, 15, 15, 15 ;"
+      },
+      {
+        "line": 21,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 2 _______________________"
+      },
+      {
+        "line": 23,
+        "section": "",
+        "key": "",
+        "value": "// Meditacao"
+      },
+      {
+        "line": 24,
+        "section": "",
+        "key": "Meditation_Regen",
+        "value": "1, 2, 4, 6, 8, 10, 12, 13, 14, 15 ;"
+      },
+      {
+        "line": 26,
+        "section": "",
+        "key": "",
+        "value": "// Raios Divinos"
+      },
+      {
+        "line": 27,
+        "section": "",
+        "key": "Divine_Lightning_Damage_Percent",
+        "value": "90, 100, 110, 120, 130, 140, 150, 160, 170, 190;"
+      },
+      {
+        "line": 28,
+        "section": "",
+        "key": "Divine_Lightning_Num",
+        "value": "4, 4, 4, 5, 5, 5, 6, 6, 6, 7;"
+      },
+      {
+        "line": 29,
+        "section": "",
+        "key": "Divine_Lightning_Mana",
+        "value": "24, 26, 28, 31, 34, 37, 40, 44, 48, 92 ;"
+      },
+      {
+        "line": 31,
+        "section": "",
+        "key": "",
+        "value": "// Reflexao Divina"
+      },
+      {
+        "line": 32,
+        "section": "",
+        "key": "Holy_Reflection_Return_Damage",
+        "value": "20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ;"
+      },
+      {
+        "line": 33,
+        "section": "",
+        "key": "Holy_Reflection_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 34,
+        "section": "",
+        "key": "Holy_Reflection_Mana",
+        "value": "24, 27, 30, 33, 36, 40, 44, 48, 52, 56 ;"
+      },
+      {
+        "line": 36,
+        "section": "",
+        "key": "",
+        "value": "// Cura Maxima"
+      },
+      {
+        "line": 37,
+        "section": "",
+        "key": "Grand_Healing",
+        "value": "( 40, 50 ), ( 50, 60 ), ( 60, 70 ), ( 70, 80 ), ( 80, 90 ), ( 90, 100 ), ( 100, 110 ), ( 110, 110 ), ( 120, 130 ), ( 250, 300) ;"
+      },
+      {
+        "line": 38,
+        "section": "",
+        "key": "Grand_Healing_Range",
+        "value": "300, 310, 320, 330, 340, 350, 360, 370, 380, 400 ;"
+      },
+      {
+        "line": 39,
+        "section": "",
+        "key": "Grand_Healing_Mana",
+        "value": "24, 26, 29, 32, 36, 40, 44, 49, 54, 280 ;"
+      },
+      {
+        "line": 41,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 3 _______________________"
+      },
+      {
+        "line": 43,
+        "section": "",
+        "key": "",
+        "value": "// Esferas de Vigor"
+      },
+      {
+        "line": 44,
+        "section": "",
+        "key": "Vigor_Ball_Damage_Percent",
+        "value": "130, 138, 144, 157, 170, 174, 178, 183, 188, 200;"
+      },
+      {
+        "line": 45,
+        "section": "",
+        "key": "Vigor_Ball_UseMana",
+        "value": "26, 28, 30, 33, 36, 40, 44, 48, 52, 86 ;"
+      },
+      {
+        "line": 47,
+        "section": "",
+        "key": "",
+        "value": "// Ressureicao"
+      },
+      {
+        "line": 48,
+        "section": "",
+        "key": "Resurrection_Percent",
+        "value": "10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ;"
+      },
+      {
+        "line": 49,
+        "section": "",
+        "key": "Resurrection_Exp",
+        "value": "100, 150, 200, 250, 300, 350, 400, 450, 500, 550 ;"
+      },
+      {
+        "line": 50,
+        "section": "",
+        "key": "Resurrection_UseMana",
+        "value": "70, 66, 62, 58, 54, 50, 46, 42, 38, 55 ;"
+      },
+      {
+        "line": 52,
+        "section": "",
+        "key": "",
+        "value": "// Extincao"
+      },
+      {
+        "line": 53,
+        "section": "",
+        "key": "Extinction_Percent",
+        "value": "10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ;"
+      },
+      {
+        "line": 54,
+        "section": "",
+        "key": "Extinction_Amount",
+        "value": "20, 25, 30, 34, 38, 41, 44, 47, 50, 55 ;"
+      },
+      {
+        "line": 55,
+        "section": "",
+        "key": "Extinction_UseMana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 58, 65;"
+      },
+      {
+        "line": 57,
+        "section": "",
+        "key": "",
+        "value": "// HP Virtual"
+      },
+      {
+        "line": 58,
+        "section": "",
+        "key": "Virtual_Life_Percent",
+        "value": "5, 6, 9, 12, 15, 18, 21, 24, 27, 32 ;"
+      },
+      {
+        "line": 59,
+        "section": "",
+        "key": "Virtual_Life_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300;"
+      },
+      {
+        "line": 60,
+        "section": "",
+        "key": "Virtual_Life_UseMana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 58, 65;"
+      },
+      {
+        "line": 62,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 4 _______________________"
+      },
+      {
+        "line": 64,
+        "section": "",
+        "key": "",
+        "value": "// Espinhos Glaciais"
+      },
+      {
+        "line": 65,
+        "section": "",
+        "key": "Glacial_Spike_Damage_Percent",
+        "value": "185, 190, 195, 200, 205, 210, 215, 220, 225, 260 ;"
+      },
+      {
+        "line": 66,
+        "section": "",
+        "key": "Glacial_Spike_Area",
+        "value": "150, 155, 160, 165, 170, 175, 180, 185, 190, 197 ;"
+      },
+      {
+        "line": 67,
+        "section": "",
+        "key": "Glacial_Spike_UseMana",
+        "value": "65, 68, 71, 74, 77, 80, 83, 86, 89, 92 ;"
+      },
+      {
+        "line": 69,
+        "section": "",
+        "key": "",
+        "value": "// Campo de Regen"
+      },
+      {
+        "line": 70,
+        "section": "",
+        "key": "Regeneration_Field_LifeRegen",
+        "value": "10, 20, 30, 40, 40, 40, 50, 50, 50, 60 ;"
+      },
+      {
+        "line": 71,
+        "section": "",
+        "key": "Regeneration_Field_ManaRegen",
+        "value": "10, 20, 30, 40, 40, 40, 50, 50, 50, 60 ;"
+      },
+      {
+        "line": 72,
+        "section": "",
+        "key": "Regeneration_Field_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 73,
+        "section": "",
+        "key": "Regeneration_Field_Area",
+        "value": "250, 260, 270, 280, 290, 300, 310, 320, 330, 340 ;"
+      },
+      {
+        "line": 74,
+        "section": "",
+        "key": "Regeneration_Field_UseMana",
+        "value": "100, 104, 108, 112, 116, 120, 124, 128, 132, 136 ;"
+      },
+      {
+        "line": 76,
+        "section": "",
+        "key": "",
+        "value": "// Raios Continuos"
+      },
+      {
+        "line": 77,
+        "section": "",
+        "key": "Chain_Lightning_Damage_Percent",
+        "value": "205, 215, 225, 240, 260, 270, 280, 290, 320, 360 ;"
+      },
+      {
+        "line": 78,
+        "section": "",
+        "key": "Chain_Lightning_Num",
+        "value": "4, 4, 4, 5, 5, 5, 6, 6, 6, 7;"
+      },
+      {
+        "line": 79,
+        "section": "",
+        "key": "Chain_Lightning_Range",
+        "value": "140, 145, 150, 155, 160, 165, 170, 175, 180, 200 ;"
+      },
+      {
+        "line": 80,
+        "section": "",
+        "key": "Chain_Lightning_UseMana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 78, 105 ;"
+      },
+      {
+        "line": 82,
+        "section": "",
+        "key": "",
+        "value": "// Invocar Muspell"
+      },
+      {
+        "line": 83,
+        "section": "",
+        "key": "Summon_Muspell_Damage",
+        "value": "( 50, 60 ), ( 60, 70 ), ( 70, 80 ), ( 80, 90 ), ( 90, 100 ), ( 100, 110 ), ( 140, 150 ), ( 150, 160 ), ( 180, 190 ), ( 200, 210) ;"
+      },
+      {
+        "line": 84,
+        "section": "",
+        "key": "Summon_Muspell_Attack_Delay",
+        "value": "7, 7, 7, 6, 6, 6, 5, 5, 5, 5 ;"
+      },
+      {
+        "line": 85,
+        "section": "",
+        "key": "Summon_Muspell_UndeadAbsorbPercent",
+        "value": "10, 14, 18, 22, 26, 30, 34, 38, 42, 46 ;"
+      },
+      {
+        "line": 86,
+        "section": "",
+        "key": "Summon_Muspell_BlockPercent",
+        "value": "5, 8, 10, 12, 14, 18, 20, 22, 24, 26 ;"
+      },
+      {
+        "line": 87,
+        "section": "",
+        "key": "Summon_Muspell_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300;"
+      },
+      {
+        "line": 88,
+        "section": "",
+        "key": "Summon_Muspell_UseMana",
+        "value": "110, 114, 118, 122, 126, 130, 134, 138, 140, 150;"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gX19fX19fX19fX19fX19fX19fX19fX18gVElFUiAxIF9fX19fX19fX19fX19fX19fX19fX19fDQoNCi8vIEN1cmENCkhlYWxpbmdfVXNlTWFuYSA9IDExLCAxNCwgMTcsIDIwLCAyNCwgMjgsIDMyLCAzNiwgMzgsIDQyIDsNCkhlYWxpbmdfSGVhbCA9ICggNjQsIDg2ICksICggNzIsIDk4ICksICggODAsIDExMCApLCAoIDg4LCAxMjIgKSwgKCA5NiwgMTM0ICksICggMTA0LCAxNDYgKSwgKCAxMTIsIDE1OCApLCAoIDEyMCwgMTcwICksICggMTI4LCAxNzUgKSwgKCAxMzIsIDE4MCApIDsNCg0KLy8gRmFndWxoYSBTYWdyYWRhDQpIb2x5Qm9sdF9Vc2VNYW5hID0gMTQsIDE3LCAyMCwgMjMsIDI3LCAzMSwgMzUsIDQwLCA0NSwgNTAgOw0KSG9seUJvbHRfRGFtYWdlUGVyY2VudCA9IDM3LCAzOSwgNDEsIDQzLCA0NSwgNDcsIDQ5LCA1MSwgNTMsIDU1IDsNCg0KLy8gRXNwaW5ob3MgTXVsdGlwbG9zDQpNX1NwYXJrX1VzZU1hbmEgPSAxNiwgMTksIDIyLCAyNSwgMjksIDMzLCAzNywgNTgsIDY5LCA4MiA7DQpNX1NwYXJrX0RhbWFnZV9QZXJjZW50ID0gOTAsIDEwMCwgMTA1LCAxMTAsIDExNSwgMTIwLCAxMjUsIDEzMCwgMTM1LCAxNTA7DQpNX1NwYXJrX051bSA9IDQsIDQsIDQsIDUsIDUsIDUsIDYsIDYsIDcsIDcgOw0KDQovLyBGZWl0aWNvIERpdmlubw0KSG9seU1pbmRfVXNlTWFuYSA9IDIyLCAyNSwgMjgsIDMyLCAzNiwgNDAsIDQ1LCA1MCwgNTUsIDYwIDsNCkhvbHlNaW5kX0RlY0RhbWFnZSA9IDEwLCAxMywgMTYsIDE5LCAyMiwgMjUsIDI4LCAzMCwgMzIsIDQ1IDsNCkhvbHlNaW5kX1RpbWUgPSAxNSwgMTUsIDE1LCAxNSwgMTUsIDE1LCAxNSwgMTUsIDE1LCAxNSA7DQoNCi8vIF9fX19fX19fX19fX19fX19fX19fX19fIFRJRVIgMiBfX19fX19fX19fX19fX19fX19fX19fXw0KDQovLyBNZWRpdGFjYW8NCk1lZGl0YXRpb25fUmVnZW4gPSAxLCAyLCA0LCA2LCA4LCAxMCwgMTIsIDEzLCAxNCwgMTUgOw0KDQovLyBSYWlvcyBEaXZpbm9zDQpEaXZpbmVfTGlnaHRuaW5nX0RhbWFnZV9QZXJjZW50ID0gOTAsIDEwMCwgMTEwLCAxMjAsIDEzMCwgMTQwLCAxNTAsIDE2MCwgMTcwLCAxOTA7DQpEaXZpbmVfTGlnaHRuaW5nX051bSA9IDQsIDQsIDQsIDUsIDUsIDUsIDYsIDYsIDYsIDc7DQpEaXZpbmVfTGlnaHRuaW5nX01hbmEgPSAyNCwgMjYsIDI4LCAzMSwgMzQsIDM3LCA0MCwgNDQsIDQ4LCA5MiA7DQoNCi8vIFJlZmxleGFvIERpdmluYQ0KSG9seV9SZWZsZWN0aW9uX1JldHVybl9EYW1hZ2UgPSAyMCwgMzAsIDQwLCA1MCwgNjAsIDcwLCA4MCwgOTAsIDEwMCwgMTEwIDsNCkhvbHlfUmVmbGVjdGlvbl9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwIDsNCkhvbHlfUmVmbGVjdGlvbl9NYW5hID0gMjQsIDI3LCAzMCwgMzMsIDM2LCA0MCwgNDQsIDQ4LCA1MiwgNTYgOw0KDQovLyBDdXJhIE1heGltYQ0KR3JhbmRfSGVhbGluZyA9ICggNDAsIDUwICksICggNTAsIDYwICksICggNjAsIDcwICksICggNzAsIDgwICksICggODAsIDkwICksICggOTAsIDEwMCApLCAoIDEwMCwgMTEwICksICggMTEwLCAxMTAgKSwgKCAxMjAsIDEzMCApLCAoIDI1MCwgMzAwKSA7DQpHcmFuZF9IZWFsaW5nX1JhbmdlID0gMzAwLCAzMTAsIDMyMCwgMzMwLCAzNDAsIDM1MCwgMzYwLCAzNzAsIDM4MCwgNDAwIDsNCkdyYW5kX0hlYWxpbmdfTWFuYSA9IDI0LCAyNiwgMjksIDMyLCAzNiwgNDAsIDQ0LCA0OSwgNTQsIDI4MCA7DQoNCi8vIF9fX19fX19fX19fX19fX19fX19fX19fIFRJRVIgMyBfX19fX19fX19fX19fX19fX19fX19fXw0KDQovLyBFc2ZlcmFzIGRlIFZpZ29yDQpWaWdvcl9CYWxsX0RhbWFnZV9QZXJjZW50ID0gMTMwLCAxMzgsIDE0NCwgMTU3LCAxNzAsIDE3NCwgMTc4LCAxODMsIDE4OCwgMjAwOw0KVmlnb3JfQmFsbF9Vc2VNYW5hID0gMjYsIDI4LCAzMCwgMzMsIDM2LCA0MCwgNDQsIDQ4LCA1MiwgODYgOw0KDQovLyBSZXNzdXJlaWNhbw0KUmVzdXJyZWN0aW9uX1BlcmNlbnQgPSAxMCwgMjAsIDMwLCA0MCwgNTAsIDYwLCA3MCwgODAsIDkwLCAxMDAgOw0KUmVzdXJyZWN0aW9uX0V4cCA9IDEwMCwgMTUwLCAyMDAsIDI1MCwgMzAwLCAzNTAsIDQwMCwgNDUwLCA1MDAsIDU1MCA7DQpSZXN1cnJlY3Rpb25fVXNlTWFuYSA9IDcwLCA2NiwgNjIsIDU4LCA1NCwgNTAsIDQ2LCA0MiwgMzgsIDU1IDsNCg0KLy8gRXh0aW5jYW8NCkV4dGluY3Rpb25fUGVyY2VudCA9IDEwLCAyMCwgMzAsIDQwLCA1MCwgNjAsIDcwLCA4MCwgOTAsIDEwMCA7DQpFeHRpbmN0aW9uX0Ftb3VudCA9IDIwLCAyNSwgMzAsIDM0LCAzOCwgNDEsIDQ0LCA0NywgNTAsIDU1IDsNCkV4dGluY3Rpb25fVXNlTWFuYSA9IDMwLCAzMiwgMzQsIDM3LCA0MCwgNDQsIDQ4LCA1MywgNTgsIDY1Ow0KDQovLyBIUCBWaXJ0dWFsDQpWaXJ0dWFsX0xpZmVfUGVyY2VudCA9IDUsIDYsIDksIDEyLCAxNSwgMTgsIDIxLCAyNCwgMjcsIDMyIDsNClZpcnR1YWxfTGlmZV9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDA7DQpWaXJ0dWFsX0xpZmVfVXNlTWFuYSA9IDMwLCAzMiwgMzQsIDM3LCA0MCwgNDQsIDQ4LCA1MywgNTgsIDY1Ow0KDQovLyBfX19fX19fX19fX19fX19fX19fX19fXyBUSUVSIDQgX19fX19fX19fX19fX19fX19fX19fX18NCg0KLy8gRXNwaW5ob3MgR2xhY2lhaXMNCkdsYWNpYWxfU3Bpa2VfRGFtYWdlX1BlcmNlbnQgPSAxODUsIDE5MCwgMTk1LCAyMDAsIDIwNSwgMjEwLCAyMTUsIDIyMCwgMjI1LCAyNjAgOw0KR2xhY2lhbF9TcGlrZV9BcmVhID0gMTUwLCAxNTUsIDE2MCwgMTY1LCAxNzAsIDE3NSwgMTgwLCAxODUsIDE5MCwgMTk3IDsNCkdsYWNpYWxfU3Bpa2VfVXNlTWFuYSA9IDY1LCA2OCwgNzEsIDc0LCA3NywgODAsIDgzLCA4NiwgODksIDkyIDsNCg0KLy8gQ2FtcG8gZGUgUmVnZW4NClJlZ2VuZXJhdGlvbl9GaWVsZF9MaWZlUmVnZW4gPSAxMCwgMjAsIDMwLCA0MCwgNDAsIDQwLCA1MCwgNTAsIDUwLCA2MCA7DQpSZWdlbmVyYXRpb25fRmllbGRfTWFuYVJlZ2VuID0gMTAsIDIwLCAzMCwgNDAsIDQwLCA0MCwgNTAsIDUwLCA1MCwgNjAgOw0KUmVnZW5lcmF0aW9uX0ZpZWxkX1RpbWUgPSAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAgOw0KUmVnZW5lcmF0aW9uX0ZpZWxkX0FyZWEgPSAyNTAsIDI2MCwgMjcwLCAyODAsIDI5MCwgMzAwLCAzMTAsIDMyMCwgMzMwLCAzNDAgOw0KUmVnZW5lcmF0aW9uX0ZpZWxkX1VzZU1hbmEgPSAxMDAsIDEwNCwgMTA4LCAxMTIsIDExNiwgMTIwLCAxMjQsIDEyOCwgMTMyLCAxMzYgOw0KDQovLyBSYWlvcyBDb250aW51b3MNCkNoYWluX0xpZ2h0bmluZ19EYW1hZ2VfUGVyY2VudCA9IDIwNSwgMjE1LCAyMjUsIDI0MCwgMjYwLCAyNzAsIDI4MCwgMjkwLCAzMjAsIDM2MCA7DQpDaGFpbl9MaWdodG5pbmdfTnVtID0gNCwgNCwgNCwgNSwgNSwgNSwgNiwgNiwgNiwgNzsNCkNoYWluX0xpZ2h0bmluZ19SYW5nZSA9IDE0MCwgMTQ1LCAxNTAsIDE1NSwgMTYwLCAxNjUsIDE3MCwgMTc1LCAxODAsIDIwMCA7DQpDaGFpbl9MaWdodG5pbmdfVXNlTWFuYSA9IDMwLCAzMiwgMzQsIDM3LCA0MCwgNDQsIDQ4LCA1MywgNzgsIDEwNSA7DQoNCi8vIEludm9jYXIgTXVzcGVsbA0KU3VtbW9uX011c3BlbGxfRGFtYWdlID0gKCA1MCwgNjAgKSwgKCA2MCwgNzAgKSwgKCA3MCwgODAgKSwgKCA4MCwgOTAgKSwgKCA5MCwgMTAwICksICggMTAwLCAxMTAgKSwgKCAxNDAsIDE1MCApLCAoIDE1MCwgMTYwICksICggMTgwLCAxOTAgKSwgKCAyMDAsIDIxMCkgOw0KU3VtbW9uX011c3BlbGxfQXR0YWNrX0RlbGF5ID0gNywgNywgNywgNiwgNiwgNiwgNSwgNSwgNSwgNSA7DQpTdW1tb25fTXVzcGVsbF9VbmRlYWRBYnNvcmJQZXJjZW50ID0gMTAsIDE0LCAxOCwgMjIsIDI2LCAzMCwgMzQsIDM4LCA0MiwgNDYgOw0KU3VtbW9uX011c3BlbGxfQmxvY2tQZXJjZW50ID0gNSwgOCwgMTAsIDEyLCAxNCwgMTgsIDIwLCAyMiwgMjQsIDI2IDsNClN1bW1vbl9NdXNwZWxsX1RpbWUgPSAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMDsNClN1bW1vbl9NdXNwZWxsX1VzZU1hbmEgPSAxMTAsIDExNCwgMTE4LCAxMjIsIDEyNiwgMTMwLCAxMzQsIDEzOCwgMTQwLCAxNTA7DQoNCg=="
+  }
+}

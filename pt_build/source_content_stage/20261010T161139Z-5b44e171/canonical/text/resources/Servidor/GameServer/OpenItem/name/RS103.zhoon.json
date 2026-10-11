@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.rs103",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/RS103.zhoon",
+    "GameServer/OpenItem/name/RS103.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/RS103.zhoon",
+    "legacy_sha256": "12610748b07f04b42e3d3cf2c939141d606f3501f3dea38440d22ac90a520fcf",
+    "legacy_size": 38
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pedra de Reespecialização PS"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVkcmEgZGUgUmVlc3BlY2lhbGl6YefjbyBQUyI="
+  }
+}

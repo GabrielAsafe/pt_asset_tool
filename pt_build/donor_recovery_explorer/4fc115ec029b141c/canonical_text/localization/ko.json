@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "ko",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "monster.14_h_hobgoblin.name",
+      "text": "해머 고블린",
+      "quality": "legacy_source",
+      "source": "monster.14_h_hobgoblin"
+    }
+  ]
+}

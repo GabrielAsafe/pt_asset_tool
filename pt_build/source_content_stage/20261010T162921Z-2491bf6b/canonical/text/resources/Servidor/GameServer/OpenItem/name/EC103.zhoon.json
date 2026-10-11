@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ec103",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/EC103.zhoon",
+    "GameServer/OpenItem/name/EC103.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/EC103.zhoon",
+    "legacy_sha256": "78d8861dfb4444d61ad51a5470d15061229351e66447f8b9e49a4a90285bf5dc",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pergaminho para Atlantis"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVyZ2FtaW5obyBwYXJhIEF0bGFudGlzIg=="
+  }
+}

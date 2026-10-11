@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "ko",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "monster.105_i_marionette.name",
+      "text": "V-마리오네트",
+      "quality": "legacy_source",
+      "source": "monster.105_i_marionette"
+    }
+  ]
+}

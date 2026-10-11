@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sk241",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SK241.txt",
+    "GameServer/OpenItem/SK241.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SK241.txt",
+    "legacy_sha256": "5da854668228212e28c3de01d3eef923b1f90338244d56c80a535ed75356483b",
+    "legacy_size": 56
+  },
+  "semantic": {
+    "fields": {
+      "name": "Skin Foice",
+      "code": "SK241"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Skin Foice"
+        ],
+        "raw_values_hex": [
+          "536b696e20466f696365"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SK241"
+        ],
+        "raw_values_hex": [
+          "534b323431"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiU2tpbiBGb2ljZSINCirE2rXlCSJTSzI0MSI="
+  }
+}

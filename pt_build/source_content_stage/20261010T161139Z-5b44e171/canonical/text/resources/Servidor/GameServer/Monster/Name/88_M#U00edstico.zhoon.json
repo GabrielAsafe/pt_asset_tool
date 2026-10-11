@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.88_m_u00edstico",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/88_M#U00edstico.zhoon",
+    "GameServer/Monster/Name/88_M#U00edstico.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/88_M#U00edstico.zhoon",
+    "legacy_sha256": "582d13df5355db4192d631d0c8073664b3b734728ff3bae8ac7c8e22af6d1e90",
+    "legacy_size": 17
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Místico"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTe1zdGljbyI="
+  }
+}

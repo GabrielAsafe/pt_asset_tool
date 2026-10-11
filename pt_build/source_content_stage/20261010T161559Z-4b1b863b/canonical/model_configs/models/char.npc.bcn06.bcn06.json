@@ -1,0 +1,43 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.bcn06.bcn06",
+  "logical_config": "char/npc/Bcn06/Bcn06.INI",
+  "legacy_cache": "char/npc/Bcn06/Bcn06.inx",
+  "consumers": [
+    {
+      "id": "npc.bcn06",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Bcn06.npc.json"
+    },
+    {
+      "id": "npc.loja_premiun",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Loja premiun.NPC.json"
+    },
+    {
+      "id": "npc.loja_vip",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Loja VIP.NPC.json"
+    },
+    {
+      "id": "npc.premium",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/premium.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Bcn06/Bcn06.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Bcn06/Bcn06.inx"
+    }
+  }
+}

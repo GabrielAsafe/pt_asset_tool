@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_5_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_5_End.sin",
+    "image/Sinimage/Quest/172LVQuest_5_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_5_End.sin",
+    "legacy_sha256": "3f8c0e4295c22ef502f6c45274980bb05021436f88621cce8f839d558c0999d6",
+    "legacy_size": 319
+  },
+  "semantic": {
+    "lines": [
+      "Muito bem! Você capturou a Dama Flamejante.",
+      "",
+      "Ela parece ser uma criatura que não diferencia o bem do",
+      "mal. Aparenta apenas seguir a missão que lhe foi dada por",
+      "seu criador.",
+      "",
+      "Vou interrogá-la. Espero conseguir as informações apenas",
+      "conversando, ao contrário do que foi com o Greedy.",
+      "",
+      "Você pode voltar mais tarde?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TXVpdG8gYmVtISBWb2PqIGNhcHR1cm91IGEgRGFtYSBGbGFtZWphbnRlLg0KDQpFbGEgcGFyZWNlIHNlciB1bWEgY3JpYXR1cmEgcXVlIG7jbyBkaWZlcmVuY2lhIG8gYmVtIGRvDQptYWwuIEFwYXJlbnRhIGFwZW5hcyBzZWd1aXIgYSBtaXNz428gcXVlIGxoZSBmb2kgZGFkYSBwb3INCnNldSBjcmlhZG9yLg0KDQpWb3UgaW50ZXJyb2fhLWxhLiBFc3Blcm8gY29uc2VndWlyIGFzIGluZm9ybWHn9WVzIGFwZW5hcw0KY29udmVyc2FuZG8sIGFvIGNvbnRy4XJpbyBkbyBxdWUgZm9pIGNvbSBvIEdyZWVkeS4NCg0KVm9j6iBwb2RlIHZvbHRhciBtYWlzIHRhcmRlPw=="
+  }
+}

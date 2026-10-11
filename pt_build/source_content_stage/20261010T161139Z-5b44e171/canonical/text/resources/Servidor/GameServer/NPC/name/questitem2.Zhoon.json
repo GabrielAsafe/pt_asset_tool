@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.questitem2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/questitem2.Zhoon",
+    "GameServer/NPC/name/questitem2.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/questitem2.Zhoon",
+    "legacy_sha256": "99e55b3c1cb9aee62b951cd53860f4b0dc7e5089af768fbeb5e443ff77183423",
+    "legacy_size": 99
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Itens de Desafio"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Precisa de ajuda, nos desafios?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9xdWVzdGl0ZW0yLk5QQw0KDQoNCipKX05hbWUJIkl0ZW5zIGRlIERlc2FmaW8iDQoNCg0KKkpfQ2hhdAkiUHJlY2lzYSBkZSBhanVkYSwgbm9zIGRlc2FmaW9zPyINCg0K"
+  }
+}

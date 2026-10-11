@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da130",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA130.zhoon",
+    "GameServer/OpenItem/name/DA130.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA130.zhoon",
+    "legacy_sha256": "72cb5a7b08c4143cd35b9d102ce6f3b92a449068f15be28fcf6cba002353a05a",
+    "legacy_size": 47
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Armadura Mitológica"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9EQTMwNS50eHQNCg0KKkpfTmFtZQkJIkFybWFkdXJhIE1pdG9s82dpY2EiDQo="
+  }
+}

@@ -1,0 +1,393 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da216",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA216.txt",
+    "GameServer/OpenItem/DA216.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA216.txt",
+    "legacy_sha256": "66aabc3b2da39c9db3af9634a543c421dbc8d70cb28e9e06248d07a684daa0b2",
+    "legacy_size": 694
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA216",
+      "name": "Roupão de Episcopisas",
+      "english_name": "Roupão de Episcopisas",
+      "defence": [
+        180,
+        210
+      ],
+      "absorb": [
+        8.3,
+        8.9
+      ],
+      "bionic": [
+        7,
+        14
+      ],
+      "fire": [
+        7,
+        14
+      ],
+      "ice": [
+        7,
+        14
+      ],
+      "lightning": [
+        7,
+        14
+      ],
+      "poison": [
+        7,
+        14
+      ],
+      "durability": [
+        80,
+        102
+      ],
+      "level": 70,
+      "spirit": 160,
+      "talent": 90,
+      "job_random": [
+        "Priestess",
+        "Magician"
+      ],
+      "special_defence": [
+        32,
+        36
+      ],
+      "special_absorb": [
+        1.0,
+        1.3
+      ],
+      "special_mana_regen_alt": [
+        1.8,
+        2.1
+      ],
+      "weight": 64,
+      "price": 92000,
+      "linked_file": "Name\\DA216.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA216"
+        ],
+        "raw_values_hex": [
+          "4441323136"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Roupão de Episcopisas"
+        ],
+        "raw_values_hex": [
+          "526f7570e36f2064652045706973636f7069736173"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Roupão de Episcopisas"
+        ],
+        "raw_values_hex": [
+          "526f7570e36f2064652045706973636f7069736173"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          180,
+          210
+        ],
+        "raw_values_hex": [
+          "313830",
+          "323130"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          8.3,
+          8.9
+        ],
+        "raw_values_hex": [
+          "382e33",
+          "382e39"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          14
+        ],
+        "raw_values_hex": [
+          "37",
+          "3134"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          14
+        ],
+        "raw_values_hex": [
+          "37",
+          "3134"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          14
+        ],
+        "raw_values_hex": [
+          "37",
+          "3134"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          14
+        ],
+        "raw_values_hex": [
+          "37",
+          "3134"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          14
+        ],
+        "raw_values_hex": [
+          "37",
+          "3134"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          80,
+          102
+        ],
+        "raw_values_hex": [
+          "3830",
+          "313032"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          160
+        ],
+        "raw_values_hex": [
+          "313630"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          90
+        ],
+        "raw_values_hex": [
+          "3930"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_defence",
+        "legacy_token": "**방어력",
+        "legacy_token_hex": "2a2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          32,
+          36
+        ],
+        "raw_values_hex": [
+          "3332",
+          "3336"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0,
+          1.3
+        ],
+        "raw_values_hex": [
+          "312e30",
+          "312e33"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_mana_regen_alt",
+        "legacy_token": "**기력재생",
+        "legacy_token_hex": "2a2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.8,
+          2.1
+        ],
+        "raw_values_hex": [
+          "312e38",
+          "322e31"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          64
+        ],
+        "raw_values_hex": [
+          "3634"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          92000
+        ],
+        "raw_values_hex": [
+          "3932303030"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA216.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413231362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMjE2Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUm91cONvIGRlIEVwaXNjb3Bpc2FzIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIlJvdXDjbyBkZSBFcGlzY29waXNhcyINCg0KLy9EZWZlbnNlDQoquea+7rfCIDE4MCAyMTANCg0KLy9BYnNvcnB0aW9uDQoqyO289rfCIDguMyA4LjkNCg0KLy9PcmdhbmljUmVzaXN0YW5jZQ0KKrv9w7wgNyAxNA0KDQovL0ZpcmVSZXNpc3RhbmNlDQoqutIgNyAxNA0KDQovL0Zyb3N0UmVzaXN0YW5jZQ0KKrPDseIgNyAxNA0KDQovL0xpZ2h0bmluZ1Jlc2lzdGFuY2UNCiq5+LCzIDcgMTQNCg0KLy9Qb2lzb25SZXNpc3RhbmNlDQoqtbYgNyAxNA0KDQovL0ludGVncml0eQ0KKrO7sbi3wiA4MCAxMDINCg0KLy9MZXZlbA0KKre5uqcgNzANCg0KLy9TcGlyaXQNCirBpL3Ft8IgMTYwDQoNCi8vVGFsZW50DQoqwOe0ySA5MA0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gUHJpZXN0ZXNzIE1hZ2ljaWFuDQoNCi8vU3BlY0RlZmVuc2UNCioquea+7rfCIDMyIDM2DQoNCi8vU3BlY0Fic29ycHRpb24NCioqyO289rfCIDEuMCAxLjMNCg0KLy9TcGVjTVBSZWdlbg0KKiqx4rfCwOe7/SAxLjggMi4xDQoNCi8vV2VpZ2h0DQoquauw1CA2NA0KDQovL1ByaWNlDQoqsKGw3SA5MjAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXERBMjE2Lnpob29uIg=="
+  }
+}

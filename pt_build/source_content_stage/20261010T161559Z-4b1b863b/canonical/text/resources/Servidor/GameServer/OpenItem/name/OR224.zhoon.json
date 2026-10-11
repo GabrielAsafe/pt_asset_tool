@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or224",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR224.zhoon",
+    "GameServer/OpenItem/name/OR224.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR224.zhoon",
+    "legacy_sha256": "504d889d74d4e93bb01acaa97010ef205e1a2248da830fd960d6e3bad549bc54",
+    "legacy_size": 190
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 6,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel de STYX Arconte"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQovLwlQVCBJVEVNIFRFTVBMQVRFIEJZIFdPUk1ZCS8vDQovLwlFTkRMRVNTIFRPV0VSIDNGIElURU0gUEFDSwkvLw0KLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQoNCipKX05hbWUJCSJBbmVsIGRlIFNUWVggQXJjb250ZSINCg=="
+  }
+}

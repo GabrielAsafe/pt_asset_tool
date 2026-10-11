@@ -1,0 +1,71 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi325",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI325.txt",
+    "GameServer/OpenItem/BI325.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI325.txt",
+    "legacy_sha256": "f51b4a29fe6a7f6a282eb755afc56b44b39c8369fc9c99067660f6ab2fbb4f9c",
+    "legacy_size": 117
+  },
+  "semantic": {
+    "fields": {
+      "name": "Elixir da Gloria",
+      "code": "BI325",
+      "price": true
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Elixir da Gloria"
+        ],
+        "raw_values_hex": [
+          "456c6978697220646120476c6f726961"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI325"
+        ],
+        "raw_values_hex": [
+          "4249333235"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [],
+        "raw_values_hex": []
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiRWxpeGlyIGRhIEdsb3JpYSINCirE2rXlCSJCSTMyNSINCg0KLy8gUEVTTyBETyBJVEVNDQovLyq5q7DUCTENCi8vIFBSRT8gRE8gSVRFTQ0KKrChsN0J"
+  }
+}

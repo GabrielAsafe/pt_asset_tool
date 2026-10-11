@@ -529,6 +529,41 @@ def save_contract_source_config(
 
 
 def _configured_contract_donors(project_root: pathlib.Path, key: str) -> list[str]:
+
+    # PT_ASSET_PERSISTED_DONOR_CONFIG_COMPAT_V1
+    # Runtime/build state is persisted under app/pt_build in the packaged repo.
+    # Read that explicit state first, while retaining the legacy fallback below.
+    _project = pathlib.Path(project_root).resolve()
+    _persisted = (
+        _project / "app" / "pt_build" / "state" / "pt_asset_app_config.json",
+        _project / "pt_build" / "state" / "pt_asset_app_config.json",
+    )
+    for _config_path in _persisted:
+        if not _config_path.is_file():
+            continue
+        try:
+            _payload = json.loads(_config_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if not isinstance(_payload, dict) or key not in _payload:
+            continue
+        _rows = _payload.get(key)
+        if not isinstance(_rows, list):
+            continue
+        _specs: list[str] = []
+        for _row in _rows:
+            if isinstance(_row, str):
+                _text = _row.strip()
+                if _text:
+                    _specs.append(_text)
+                continue
+            if not isinstance(_row, dict):
+                continue
+            _label = str(_row.get("label") or "").strip().upper()
+            _path = str(_row.get("path") or "").strip()
+            if _label and _path:
+                _specs.append(f"{_label}={_path}")
+        return _specs
     cfg = load_config(project_root)
     raw = cfg.get(key)
     out: list[str] = []

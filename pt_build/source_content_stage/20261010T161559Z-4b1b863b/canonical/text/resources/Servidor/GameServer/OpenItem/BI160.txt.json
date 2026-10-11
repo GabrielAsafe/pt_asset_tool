@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi160",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI160.txt",
+    "GameServer/OpenItem/BI160.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI160.txt",
+    "legacy_sha256": "cc8389b1b0c98148afafe5a44f999e982d68b21797c8fa4a50f793eab5377c79",
+    "legacy_size": 174
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI160",
+      "name": "Super Ouro Mágico",
+      "english_name": "Super Ouro Mágico",
+      "weight": 1,
+      "linked_file": "Name\\BI160.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI160"
+        ],
+        "raw_values_hex": [
+          "4249313630"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Super Ouro Mágico"
+        ],
+        "raw_values_hex": [
+          "5375706572204f75726f204de16769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Super Ouro Mágico"
+        ],
+        "raw_values_hex": [
+          "5375706572204f75726f204de16769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI160.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493136302e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTYwIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiU3VwZXIgT3VybyBN4WdpY28iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiU3VwZXIgT3VybyBN4WdpY28iDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxNjAuemhvb24i"
+  }
+}

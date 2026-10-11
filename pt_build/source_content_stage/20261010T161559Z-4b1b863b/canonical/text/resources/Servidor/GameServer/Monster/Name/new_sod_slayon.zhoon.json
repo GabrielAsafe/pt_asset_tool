@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_slayon",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_slayon.zhoon",
+    "GameServer/Monster/Name/new_sod_slayon.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_slayon.zhoon",
+    "legacy_sha256": "cd96559d49de66f29a1f07bab82e1c80a4082106eff579412823338567929d7c",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Slayon do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJTbGF5b24gZG8gU29EIg0K"
+  }
+}

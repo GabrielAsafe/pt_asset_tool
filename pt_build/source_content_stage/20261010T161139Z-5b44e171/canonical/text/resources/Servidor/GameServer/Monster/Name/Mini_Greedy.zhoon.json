@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.mini_greedy",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/Mini_Greedy.zhoon",
+    "GameServer/Monster/Name/Mini_Greedy.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/Mini_Greedy.zhoon",
+    "legacy_sha256": "e1a785cb9b4066ba057d41e41551687559ed3880881a9c672d2b6dcaa80a5767",
+    "legacy_size": 44
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mini Greedy"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9NaW5pX0dyZWVkeS5pbmYNCg0KKkpfTkFNRSAiTWluaSBHcmVlZHkiDQo="
+  }
+}

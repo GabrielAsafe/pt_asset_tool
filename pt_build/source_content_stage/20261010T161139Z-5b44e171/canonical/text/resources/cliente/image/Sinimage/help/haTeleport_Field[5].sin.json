@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.hateleport_field_5",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/haTeleport_Field[5].sin",
+    "image/Sinimage/help/haTeleport_Field[5].sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/haTeleport_Field[5].sin",
+    "legacy_sha256": "d1658a154a241da2647052763cca18e7e3a56bea216fb1ec32aa7c1c7d25cd24",
+    "legacy_size": 146
+  },
+  "semantic": {
+    "lines": [
+      "                    [Campo de Teletransporte - Página 5]",
+      "=================================================",
+      "",
+      "40. Coração de Fogo (Lvl 172)",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "ICAgICAgICAgICAgICAgICAgICBbQ2FtcG8gZGUgVGVsZXRyYW5zcG9ydGUgLSBQ4WdpbmEgNV0NCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCg0KNDAuIENvcmHn428gZGUgRm9nbyAoTHZsIDE3MikNCg0KDQo="
+  }
+}

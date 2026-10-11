@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.15",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/15.msg",
+    "image/clanImage/Help/AutoHelp/15.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/15.msg",
+    "legacy_sha256": "33d91cb88b8c253682429d2f8443882f6a8476d58bd57ff900b6b6cb1a2ac5ce",
+    "legacy_size": 507
+  },
+  "semantic": {
+    "lines": [
+      "There is the Tower of Pain, \"Bellatra\" in the desert of Navisko.",
+      "In Bellatra, users will pay for entrance depending on their level.",
+      "Users can get money back by hunting monsters. This is a survival",
+      "game which users can recieve their share of Bellatra's income while",
+      "also getting a management rights if users get a high score with ",
+      "more than 3 clan members.",
+      "In addition, users will be able get the honor of listing their name or ",
+      "their clan's name on the Ranking chart on Pristontale's homepage. ",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhlcmUgaXMgdGhlIFRvd2VyIG9mIFBhaW4sICJCZWxsYXRyYSIgaW4gdGhlIGRlc2VydCBvZiBOYXZpc2tvLg0KSW4gQmVsbGF0cmEsIHVzZXJzIHdpbGwgcGF5IGZvciBlbnRyYW5jZSBkZXBlbmRpbmcgb24gdGhlaXIgbGV2ZWwuDQpVc2VycyBjYW4gZ2V0IG1vbmV5IGJhY2sgYnkgaHVudGluZyBtb25zdGVycy4gVGhpcyBpcyBhIHN1cnZpdmFsDQpnYW1lIHdoaWNoIHVzZXJzIGNhbiByZWNpZXZlIHRoZWlyIHNoYXJlIG9mIEJlbGxhdHJhJ3MgaW5jb21lIHdoaWxlDQphbHNvIGdldHRpbmcgYSBtYW5hZ2VtZW50IHJpZ2h0cyBpZiB1c2VycyBnZXQgYSBoaWdoIHNjb3JlIHdpdGggDQptb3JlIHRoYW4gMyBjbGFuIG1lbWJlcnMuDQpJbiBhZGRpdGlvbiwgdXNlcnMgd2lsbCBiZSBhYmxlIGdldCB0aGUgaG9ub3Igb2YgbGlzdGluZyB0aGVpciBuYW1lIG9yIA0KdGhlaXIgY2xhbidzIG5hbWUgb24gdGhlIFJhbmtpbmcgY2hhcnQgb24gUHJpc3RvbnRhbGUncyBob21lcGFnZS4gDQoNCg0K"
+  }
+}

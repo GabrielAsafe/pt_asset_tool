@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.hobsanta.hobsanta",
+  "logical_config": "char/npc/hobsanta/hobsanta.ini",
+  "legacy_cache": "char/npc/hobsanta/hobsanta.inx",
+  "consumers": [
+    {
+      "id": "npc.npc_hobsanta",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/npc_Hobsanta.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/hobsanta/hobsanta.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/hobsanta/hobsanta.inx"
+    }
+  }
+}

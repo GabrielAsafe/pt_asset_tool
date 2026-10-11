@@ -1,0 +1,1718 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "ko",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "item.2_wa108.name",
+      "text": "디먼 헌터",
+      "quality": "legacy_source",
+      "source": "item.2_wa108"
+    },
+    {
+      "key": "item.2_wc108.name",
+      "text": "앤션트 리벤지",
+      "quality": "legacy_source",
+      "source": "item.2_wc108"
+    },
+    {
+      "key": "item.2_wd109.name",
+      "text": "플래티넘 대거",
+      "quality": "legacy_source",
+      "source": "item.2_wd109"
+    },
+    {
+      "key": "item.2_wh109.name",
+      "text": "미티어라이트",
+      "quality": "legacy_source",
+      "source": "item.2_wh109"
+    },
+    {
+      "key": "item.2_wm109.name",
+      "text": "고스트",
+      "quality": "legacy_source",
+      "source": "item.2_wm109"
+    },
+    {
+      "key": "item.2_wn109.name",
+      "text": "타탕카",
+      "quality": "legacy_source",
+      "source": "item.2_wn109"
+    },
+    {
+      "key": "item.2_wp109.name",
+      "text": "데블 사이드",
+      "quality": "legacy_source",
+      "source": "item.2_wp109"
+    },
+    {
+      "key": "item.2_ws110.name",
+      "text": "미스트",
+      "quality": "legacy_source",
+      "source": "item.2_ws110"
+    },
+    {
+      "key": "item.2_ws210.name",
+      "text": "플레티넘 소드",
+      "quality": "legacy_source",
+      "source": "item.2_ws210"
+    },
+    {
+      "key": "item.2_wt109.name",
+      "text": "아나콘다",
+      "quality": "legacy_source",
+      "source": "item.2_wt109"
+    },
+    {
+      "key": "item.bc117.name",
+      "text": "마이트 스톤",
+      "quality": "legacy_source",
+      "source": "item.bc117"
+    },
+    {
+      "key": "item.bc118.name",
+      "text": "마이트 스톤",
+      "quality": "legacy_source",
+      "source": "item.bc118"
+    },
+    {
+      "key": "item.bc133.name",
+      "text": "스킬 딜레이 4차",
+      "quality": "legacy_source",
+      "source": "item.bc133"
+    },
+    {
+      "key": "item.bi199.name",
+      "text": "원격 창고",
+      "quality": "legacy_source",
+      "source": "item.bi199"
+    },
+    {
+      "key": "item.bi200.name",
+      "text": "복 주머니",
+      "quality": "legacy_source",
+      "source": "item.bi200"
+    },
+    {
+      "key": "item.ca185.name",
+      "text": "Traje 햓uia 1d",
+      "quality": "legacy_source",
+      "source": "item.ca185"
+    },
+    {
+      "key": "item.ca186.name",
+      "text": "Traje 햓uia 3d",
+      "quality": "legacy_source",
+      "source": "item.ca186"
+    },
+    {
+      "key": "item.ca187.name",
+      "text": "Traje 햓uia 1d",
+      "quality": "legacy_source",
+      "source": "item.ca187"
+    },
+    {
+      "key": "item.ca188.name",
+      "text": "Traje 햓uia 3d",
+      "quality": "legacy_source",
+      "source": "item.ca188"
+    },
+    {
+      "key": "item.jv101.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv101"
+    },
+    {
+      "key": "item.jv102.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv102"
+    },
+    {
+      "key": "item.jv103.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv103"
+    },
+    {
+      "key": "item.jv104.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv104"
+    },
+    {
+      "key": "item.jv105.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv105"
+    },
+    {
+      "key": "item.jv106.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv106"
+    },
+    {
+      "key": "item.jv107.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv107"
+    },
+    {
+      "key": "item.jv108.name",
+      "text": "제라",
+      "quality": "legacy_source",
+      "source": "item.jv108"
+    },
+    {
+      "key": "item.oa133.name",
+      "text": "삶땡裂졍",
+      "quality": "legacy_source",
+      "source": "item.oa133"
+    },
+    {
+      "key": "item.or132.name",
+      "text": "발렌토 링",
+      "quality": "legacy_source",
+      "source": "item.or132"
+    },
+    {
+      "key": "item.or206.name",
+      "text": "짱피 링",
+      "quality": "legacy_source",
+      "source": "item.or206"
+    },
+    {
+      "key": "item.or207.name",
+      "text": "메키스트 링",
+      "quality": "legacy_source",
+      "source": "item.or207"
+    },
+    {
+      "key": "item.or208.name",
+      "text": "이드 링",
+      "quality": "legacy_source",
+      "source": "item.or208"
+    },
+    {
+      "key": "item.or209.name",
+      "text": "플래틴 마브 링",
+      "quality": "legacy_source",
+      "source": "item.or209"
+    },
+    {
+      "key": "item.or210.name",
+      "text": "그레이브 샤킨스 링",
+      "quality": "legacy_source",
+      "source": "item.or210"
+    },
+    {
+      "key": "item.or211.name",
+      "text": "싸이클론 링",
+      "quality": "legacy_source",
+      "source": "item.or211"
+    },
+    {
+      "key": "item.or212.name",
+      "text": "바우톤 링",
+      "quality": "legacy_source",
+      "source": "item.or212"
+    },
+    {
+      "key": "item.or213.name",
+      "text": "길티 고든 링",
+      "quality": "legacy_source",
+      "source": "item.or213"
+    },
+    {
+      "key": "item.or214.name",
+      "text": "엘 라시 쿤 링",
+      "quality": "legacy_source",
+      "source": "item.or214"
+    },
+    {
+      "key": "item.or215.name",
+      "text": "프라이트 네뮨 링",
+      "quality": "legacy_source",
+      "source": "item.or215"
+    },
+    {
+      "key": "item.or216.name",
+      "text": "어파스터시 링",
+      "quality": "legacy_source",
+      "source": "item.or216"
+    },
+    {
+      "key": "item.or217.name",
+      "text": "언홀리 나이트 링",
+      "quality": "legacy_source",
+      "source": "item.or217"
+    },
+    {
+      "key": "item.or218.name",
+      "text": "베가 드미르 링",
+      "quality": "legacy_source",
+      "source": "item.or218"
+    },
+    {
+      "key": "item.or219.name",
+      "text": "베가 드미트리 링",
+      "quality": "legacy_source",
+      "source": "item.or219"
+    },
+    {
+      "key": "item.or220.name",
+      "text": "슬레이온 링",
+      "quality": "legacy_source",
+      "source": "item.or220"
+    },
+    {
+      "key": "item.or221.name",
+      "text": "블러디 로즈 링",
+      "quality": "legacy_source",
+      "source": "item.or221"
+    },
+    {
+      "key": "item.or222.name",
+      "text": "헬싱 링",
+      "quality": "legacy_source",
+      "source": "item.or222"
+    },
+    {
+      "key": "item.or223.name",
+      "text": "베르문 악타룬 링",
+      "quality": "legacy_source",
+      "source": "item.or223"
+    },
+    {
+      "key": "item.or224.name",
+      "text": "스틱스 아르칸 링",
+      "quality": "legacy_source",
+      "source": "item.or224"
+    },
+    {
+      "key": "item.pr304.name",
+      "text": "Runa de 햓ua Marinha A",
+      "quality": "legacy_source",
+      "source": "item.pr304"
+    },
+    {
+      "key": "item.pr404.name",
+      "text": "Runa de 햓ua Marinha B",
+      "quality": "legacy_source",
+      "source": "item.pr404"
+    },
+    {
+      "key": "item.uwa120_minotaur_axe.name",
+      "text": "미너터 액스",
+      "quality": "legacy_source",
+      "source": "item.uwa120_minotaur_axe"
+    },
+    {
+      "key": "item.uwc120_extreme_talon.name",
+      "text": "익스트림 탈론",
+      "quality": "legacy_source",
+      "source": "item.uwc120_extreme_talon"
+    },
+    {
+      "key": "item.uwd121_enigma_dagger.name",
+      "text": "이니그마 대거",
+      "quality": "legacy_source",
+      "source": "item.uwd121_enigma_dagger"
+    },
+    {
+      "key": "item.uwh121_dragon_bone_hammer.name",
+      "text": "드래곤 본 해머",
+      "quality": "legacy_source",
+      "source": "item.uwh121_dragon_bone_hammer"
+    },
+    {
+      "key": "item.uwm121_gothic_staff.name",
+      "text": "고딕 스태프",
+      "quality": "legacy_source",
+      "source": "item.uwm121_gothic_staff"
+    },
+    {
+      "key": "item.uwn121_kahsehtha_phantom.name",
+      "text": "카세타 팬텀",
+      "quality": "legacy_source",
+      "source": "item.uwn121_kahsehtha_phantom"
+    },
+    {
+      "key": "item.uwp121_hellfire_scythe.name",
+      "text": "헬파이어 사이드",
+      "quality": "legacy_source",
+      "source": "item.uwp121_hellfire_scythe"
+    },
+    {
+      "key": "item.uws122_revenge_bow.name",
+      "text": "리벤지 보우",
+      "quality": "legacy_source",
+      "source": "item.uws122_revenge_bow"
+    },
+    {
+      "key": "item.uws223_immortal_sword.name",
+      "text": "이모탈 소드",
+      "quality": "legacy_source",
+      "source": "item.uws223_immortal_sword"
+    },
+    {
+      "key": "item.uwt121_salamander_javelin.name",
+      "text": "샐러맨더 재블린",
+      "quality": "legacy_source",
+      "source": "item.uwt121_salamander_javelin"
+    },
+    {
+      "key": "item.wc101.name",
+      "text": "Garra de 햓uia",
+      "quality": "legacy_source",
+      "source": "item.wc101"
+    },
+    {
+      "key": "item.wd101.name",
+      "text": "노멀 대거",
+      "quality": "legacy_source",
+      "source": "item.wd101"
+    },
+    {
+      "key": "item.wd102.name",
+      "text": "아이언 대거",
+      "quality": "legacy_source",
+      "source": "item.wd102"
+    },
+    {
+      "key": "item.wd103.name",
+      "text": "헌팅 나이프",
+      "quality": "legacy_source",
+      "source": "item.wd103"
+    },
+    {
+      "key": "item.wd104.name",
+      "text": "커틀러스",
+      "quality": "legacy_source",
+      "source": "item.wd104"
+    },
+    {
+      "key": "item.wd105.name",
+      "text": "행어",
+      "quality": "legacy_source",
+      "source": "item.wd105"
+    },
+    {
+      "key": "item.wd106.name",
+      "text": "스틸 대거",
+      "quality": "legacy_source",
+      "source": "item.wd106"
+    },
+    {
+      "key": "item.wd107.name",
+      "text": "슬러터 나이프",
+      "quality": "legacy_source",
+      "source": "item.wd107"
+    },
+    {
+      "key": "item.wd108.name",
+      "text": "세인트 대거",
+      "quality": "legacy_source",
+      "source": "item.wd108"
+    },
+    {
+      "key": "item.wd109.name",
+      "text": "팔치온",
+      "quality": "legacy_source",
+      "source": "item.wd109"
+    },
+    {
+      "key": "item.wd110.name",
+      "text": "바인 대거",
+      "quality": "legacy_source",
+      "source": "item.wd110"
+    },
+    {
+      "key": "item.wd111.name",
+      "text": "어비스 대거",
+      "quality": "legacy_source",
+      "source": "item.wd111"
+    },
+    {
+      "key": "item.wd112.name",
+      "text": "윙 듀얼 소드",
+      "quality": "legacy_source",
+      "source": "item.wd112"
+    },
+    {
+      "key": "item.wd113.name",
+      "text": "솔 대거",
+      "quality": "legacy_source",
+      "source": "item.wd113"
+    },
+    {
+      "key": "item.wd114.name",
+      "text": "프람베르그",
+      "quality": "legacy_source",
+      "source": "item.wd114"
+    },
+    {
+      "key": "item.wd115.name",
+      "text": "포트리스 대거",
+      "quality": "legacy_source",
+      "source": "item.wd115"
+    },
+    {
+      "key": "item.wd116.name",
+      "text": "라바 듀얼 소드",
+      "quality": "legacy_source",
+      "source": "item.wd116"
+    },
+    {
+      "key": "item.wd117.name",
+      "text": "아르카나 대거",
+      "quality": "legacy_source",
+      "source": "item.wd117"
+    },
+    {
+      "key": "item.wd118.name",
+      "text": "문스톤 대거",
+      "quality": "legacy_source",
+      "source": "item.wd118"
+    },
+    {
+      "key": "item.wd119.name",
+      "text": "카오틱 대거",
+      "quality": "legacy_source",
+      "source": "item.wd119"
+    },
+    {
+      "key": "item.wd120.name",
+      "text": "플런더 대거",
+      "quality": "legacy_source",
+      "source": "item.wd120"
+    },
+    {
+      "key": "item.wd122.name",
+      "text": "드래곤 듀얼 소드",
+      "quality": "legacy_source",
+      "source": "item.wd122"
+    },
+    {
+      "key": "item.wd123.name",
+      "text": "데빌리언 대거",
+      "quality": "legacy_source",
+      "source": "item.wd123"
+    },
+    {
+      "key": "item.wd124.name",
+      "text": "다크샤이닝 대거",
+      "quality": "legacy_source",
+      "source": "item.wd124"
+    },
+    {
+      "key": "item.wd125.name",
+      "text": "크리스탈 대거",
+      "quality": "legacy_source",
+      "source": "item.wd125"
+    },
+    {
+      "key": "item.wd126.name",
+      "text": "미솔로지 대거",
+      "quality": "legacy_source",
+      "source": "item.wd126"
+    },
+    {
+      "key": "item.wd127.name",
+      "text": "데들리 대거",
+      "quality": "legacy_source",
+      "source": "item.wd127"
+    },
+    {
+      "key": "item.wd128.name",
+      "text": "플레임 대거",
+      "quality": "legacy_source",
+      "source": "item.wd128"
+    },
+    {
+      "key": "item.wd129.name",
+      "text": "베루스 대거",
+      "quality": "legacy_source",
+      "source": "item.wd129"
+    },
+    {
+      "key": "item.wd151.name",
+      "text": "플런더 대거(5시간)",
+      "quality": "legacy_source",
+      "source": "item.wd151"
+    },
+    {
+      "key": "item.wd152.name",
+      "text": "드래곤 듀얼 소드(5시간)",
+      "quality": "legacy_source",
+      "source": "item.wd152"
+    },
+    {
+      "key": "item.wd153.name",
+      "text": "데빌리언 대거(5시간)",
+      "quality": "legacy_source",
+      "source": "item.wd153"
+    },
+    {
+      "key": "item.wn101.name",
+      "text": "쉴드 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn101"
+    },
+    {
+      "key": "item.wn102.name",
+      "text": "크릭 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn102"
+    },
+    {
+      "key": "item.wn103.name",
+      "text": "핀 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn103"
+    },
+    {
+      "key": "item.wn104.name",
+      "text": "테르테 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn104"
+    },
+    {
+      "key": "item.wn105.name",
+      "text": "오쿠테 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn105"
+    },
+    {
+      "key": "item.wn106.name",
+      "text": "완카라 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn106"
+    },
+    {
+      "key": "item.wn107.name",
+      "text": "파하 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn107"
+    },
+    {
+      "key": "item.wn108.name",
+      "text": "피스킨 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn108"
+    },
+    {
+      "key": "item.wn109.name",
+      "text": "타탕카 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn109"
+    },
+    {
+      "key": "item.wn110.name",
+      "text": "소쇼 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn110"
+    },
+    {
+      "key": "item.wn111.name",
+      "text": "윰니 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn111"
+    },
+    {
+      "key": "item.wn112.name",
+      "text": "시하 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn112"
+    },
+    {
+      "key": "item.wn113.name",
+      "text": "위 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn113"
+    },
+    {
+      "key": "item.wn114.name",
+      "text": "로안 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn114"
+    },
+    {
+      "key": "item.wn115.name",
+      "text": "칸쿠 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn115"
+    },
+    {
+      "key": "item.wn116.name",
+      "text": "오와 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn116"
+    },
+    {
+      "key": "item.wn117.name",
+      "text": "은키즈 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn117"
+    },
+    {
+      "key": "item.wn118.name",
+      "text": "페주라 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn118"
+    },
+    {
+      "key": "item.wn119.name",
+      "text": "루타 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn119"
+    },
+    {
+      "key": "item.wn120.name",
+      "text": "나탄 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn120"
+    },
+    {
+      "key": "item.wn122.name",
+      "text": "니야하 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn122"
+    },
+    {
+      "key": "item.wn123.name",
+      "text": "아카라 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn123"
+    },
+    {
+      "key": "item.wn124.name",
+      "text": "와킨얀 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn124"
+    },
+    {
+      "key": "item.wn125.name",
+      "text": "와칸 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn125"
+    },
+    {
+      "key": "item.wn126.name",
+      "text": "미솔로지 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn126"
+    },
+    {
+      "key": "item.wn127.name",
+      "text": "데들리 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn127"
+    },
+    {
+      "key": "item.wn128.name",
+      "text": "플레임 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn128"
+    },
+    {
+      "key": "item.wn129.name",
+      "text": "베루스 팬텀",
+      "quality": "legacy_source",
+      "source": "item.wn129"
+    },
+    {
+      "key": "item.wn151.name",
+      "text": "나탄 팬텀(5시간)",
+      "quality": "legacy_source",
+      "source": "item.wn151"
+    },
+    {
+      "key": "item.wn152.name",
+      "text": "니야하 팬텀(5시간)",
+      "quality": "legacy_source",
+      "source": "item.wn152"
+    },
+    {
+      "key": "item.wn153.name",
+      "text": "아카라 팬텀(5시간)",
+      "quality": "legacy_source",
+      "source": "item.wn153"
+    },
+    {
+      "key": "monster.100_i_lena.name",
+      "text": "V-레나",
+      "quality": "legacy_source",
+      "source": "monster.100_i_lena"
+    },
+    {
+      "key": "npc.7crystal.name",
+      "text": "노점상 델라",
+      "quality": "legacy_source",
+      "source": "npc.7crystal"
+    },
+    {
+      "key": "npc.acasia_store.name",
+      "text": "잡화점 린",
+      "quality": "legacy_source",
+      "source": "npc.acasia_store"
+    },
+    {
+      "key": "npc.ahin.name",
+      "text": "아힌",
+      "quality": "legacy_source",
+      "source": "npc.ahin"
+    },
+    {
+      "key": "npc.arad.name",
+      "text": "착한소년 롱보",
+      "quality": "legacy_source",
+      "source": "npc.arad"
+    },
+    {
+      "key": "npc.arena_de_batalha.name",
+      "text": "대장장이 고덴",
+      "quality": "legacy_source",
+      "source": "npc.arena_de_batalha"
+    },
+    {
+      "key": "npc.babelquest.name",
+      "text": "수집가 홉고블린씨",
+      "quality": "legacy_source",
+      "source": "npc.babelquest"
+    },
+    {
+      "key": "npc.barba.name",
+      "text": "각인사 바르바",
+      "quality": "legacy_source",
+      "source": "npc.barba"
+    },
+    {
+      "key": "npc.baurin.name",
+      "text": "바우린",
+      "quality": "legacy_source",
+      "source": "npc.baurin"
+    },
+    {
+      "key": "npc.bc_reporter.name",
+      "text": "블레스캐슬 리포터",
+      "quality": "legacy_source",
+      "source": "npc.bc_reporter"
+    },
+    {
+      "key": "npc.bcn01.name",
+      "text": "잡화상 아이시리스",
+      "quality": "legacy_source",
+      "source": "npc.bcn01"
+    },
+    {
+      "key": "npc.bcn02.name",
+      "text": "노점상 쉘비",
+      "quality": "legacy_source",
+      "source": "npc.bcn02"
+    },
+    {
+      "key": "npc.bcn03.name",
+      "text": "노점상 로잘린",
+      "quality": "legacy_source",
+      "source": "npc.bcn03"
+    },
+    {
+      "key": "npc.bcn04.name",
+      "text": "노점상 로사",
+      "quality": "legacy_source",
+      "source": "npc.bcn04"
+    },
+    {
+      "key": "npc.bcn05.name",
+      "text": "집사 앤더스",
+      "quality": "legacy_source",
+      "source": "npc.bcn05"
+    },
+    {
+      "key": "npc.bcn06.name",
+      "text": "창고지기 던컨",
+      "quality": "legacy_source",
+      "source": "npc.bcn06"
+    },
+    {
+      "key": "npc.bellia.name",
+      "text": "집시 벨리아",
+      "quality": "legacy_source",
+      "source": "npc.bellia"
+    },
+    {
+      "key": "npc.blesscatle_guard.name",
+      "text": "블레스캐슬 가드",
+      "quality": "legacy_source",
+      "source": "npc.blesscatle_guard"
+    },
+    {
+      "key": "npc.bridge_guard.name",
+      "text": "다리 경비병",
+      "quality": "legacy_source",
+      "source": "npc.bridge_guard"
+    },
+    {
+      "key": "npc.bronzwolverin.name",
+      "text": "브론즈 울버린",
+      "quality": "legacy_source",
+      "source": "npc.bronzwolverin"
+    },
+    {
+      "key": "npc.celina.name",
+      "text": "현자 셀리나",
+      "quality": "legacy_source",
+      "source": "npc.celina"
+    },
+    {
+      "key": "npc.chocolate.name",
+      "text": "초코 상인",
+      "quality": "legacy_source",
+      "source": "npc.chocolate"
+    },
+    {
+      "key": "npc.clanmaster.name",
+      "text": "미스터 부마",
+      "quality": "legacy_source",
+      "source": "npc.clanmaster"
+    },
+    {
+      "key": "npc.coward.name",
+      "text": "겁쟁이",
+      "quality": "legacy_source",
+      "source": "npc.coward"
+    },
+    {
+      "key": "npc.cristais.name",
+      "text": "노점상 델라",
+      "quality": "legacy_source",
+      "source": "npc.cristais"
+    },
+    {
+      "key": "npc.cristal.name",
+      "text": "노점상 델라",
+      "quality": "legacy_source",
+      "source": "npc.cristal"
+    },
+    {
+      "key": "npc.deamon_sabio.name",
+      "text": "안내자 데이몬",
+      "quality": "legacy_source",
+      "source": "npc.deamon_sabio"
+    },
+    {
+      "key": "npc.derik.name",
+      "text": "기사단장 데릭",
+      "quality": "legacy_source",
+      "source": "npc.derik"
+    },
+    {
+      "key": "npc.desert_guard.name",
+      "text": "사막 경비병",
+      "quality": "legacy_source",
+      "source": "npc.desert_guard"
+    },
+    {
+      "key": "npc.distribuidor.name",
+      "text": "물품 교부처",
+      "quality": "legacy_source",
+      "source": "npc.distribuidor"
+    },
+    {
+      "key": "npc.donation_box.name",
+      "text": "잡화점 알리아",
+      "quality": "legacy_source",
+      "source": "npc.donation_box"
+    },
+    {
+      "key": "npc.donation_box_legacy_alt.name",
+      "text": "산타마리아",
+      "quality": "legacy_source",
+      "source": "npc.donation_box_legacy_alt"
+    },
+    {
+      "key": "npc.dos.name",
+      "text": "소켓 장인 도스",
+      "quality": "legacy_source",
+      "source": "npc.dos"
+    },
+    {
+      "key": "npc.dungeon_keeper.name",
+      "text": "던전 키퍼",
+      "quality": "legacy_source",
+      "source": "npc.dungeon_keeper"
+    },
+    {
+      "key": "npc.dzari.name",
+      "text": "드자리 공주",
+      "quality": "legacy_source",
+      "source": "npc.dzari"
+    },
+    {
+      "key": "npc.enquete.name",
+      "text": "설문조사 도우미",
+      "quality": "legacy_source",
+      "source": "npc.enquete"
+    },
+    {
+      "key": "npc.eto.name",
+      "text": "조사원 에토",
+      "quality": "legacy_source",
+      "source": "npc.eto"
+    },
+    {
+      "key": "npc.eventgirl.name",
+      "text": "이벤트 걸",
+      "quality": "legacy_source",
+      "source": "npc.eventgirl"
+    },
+    {
+      "key": "npc.flypitcher_store.name",
+      "text": "노점상 델라",
+      "quality": "legacy_source",
+      "source": "npc.flypitcher_store"
+    },
+    {
+      "key": "npc.force_master.name",
+      "text": "포스 마스터",
+      "quality": "legacy_source",
+      "source": "npc.force_master"
+    },
+    {
+      "key": "npc.fury.name",
+      "text": "퓨리",
+      "quality": "legacy_source",
+      "source": "npc.fury"
+    },
+    {
+      "key": "npc.goldenwolverin.name",
+      "text": "골덴 울버린",
+      "quality": "legacy_source",
+      "source": "npc.goldenwolverin"
+    },
+    {
+      "key": "npc.hermit.name",
+      "text": "겁쟁이 헤밋",
+      "quality": "legacy_source",
+      "source": "npc.hermit"
+    },
+    {
+      "key": "npc.heventgirl.name",
+      "text": "입장권 판매원",
+      "quality": "legacy_source",
+      "source": "npc.heventgirl"
+    },
+    {
+      "key": "npc.hosean.name",
+      "text": "장로 호세안",
+      "quality": "legacy_source",
+      "source": "npc.hosean"
+    },
+    {
+      "key": "npc.hunter.name",
+      "text": "사냥꾼 오웬",
+      "quality": "legacy_source",
+      "source": "npc.hunter"
+    },
+    {
+      "key": "npc.itempost.name",
+      "text": "물품 교부처",
+      "quality": "legacy_source",
+      "source": "npc.itempost"
+    },
+    {
+      "key": "npc.itens_60.name",
+      "text": "대장장이 엄프",
+      "quality": "legacy_source",
+      "source": "npc.itens_60"
+    },
+    {
+      "key": "npc.jin.name",
+      "text": "모험가 진",
+      "quality": "legacy_source",
+      "source": "npc.jin"
+    },
+    {
+      "key": "npc.kamiyu.name",
+      "text": "조사원 카미유",
+      "quality": "legacy_source",
+      "source": "npc.kamiyu"
+    },
+    {
+      "key": "npc.karastears.name",
+      "text": "카라의 후손",
+      "quality": "legacy_source",
+      "source": "npc.karastears"
+    },
+    {
+      "key": "npc.lake_guard.path_b82b34c224.name",
+      "text": "뚋궻똸뷈빜",
+      "quality": "legacy_source",
+      "source": "npc.lake_guard.path_b82b34c224"
+    },
+    {
+      "key": "npc.lake_guard.path_daa63fac93.name",
+      "text": "호수 경비병",
+      "quality": "legacy_source",
+      "source": "npc.lake_guard.path_daa63fac93"
+    },
+    {
+      "key": "npc.lim.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.lim"
+    },
+    {
+      "key": "npc.loja_da_allya.name",
+      "text": "잡화점 알리아",
+      "quality": "legacy_source",
+      "source": "npc.loja_da_allya"
+    },
+    {
+      "key": "npc.loja_de_cristais.name",
+      "text": "노점상 델라",
+      "quality": "legacy_source",
+      "source": "npc.loja_de_cristais"
+    },
+    {
+      "key": "npc.loja_de_pedras.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.loja_de_pedras"
+    },
+    {
+      "key": "npc.loja_do_repot_i1.name",
+      "text": "잡화점 알리아",
+      "quality": "legacy_source",
+      "source": "npc.loja_do_repot_i1"
+    },
+    {
+      "key": "npc.loja_do_repot_i2.name",
+      "text": "잡화점 알리아",
+      "quality": "legacy_source",
+      "source": "npc.loja_do_repot_i2"
+    },
+    {
+      "key": "npc.loja_do_repot_s1.name",
+      "text": "잡화점 알리아",
+      "quality": "legacy_source",
+      "source": "npc.loja_do_repot_s1"
+    },
+    {
+      "key": "npc.loja_premiun.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.loja_premiun"
+    },
+    {
+      "key": "npc.loja_vip.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.loja_vip"
+    },
+    {
+      "key": "npc.lucy.name",
+      "text": "믹스처리셋 장인 나디아",
+      "quality": "legacy_source",
+      "source": "npc.lucy"
+    },
+    {
+      "key": "npc.magicalgreen.name",
+      "text": "마력연구가",
+      "quality": "legacy_source",
+      "source": "npc.magicalgreen"
+    },
+    {
+      "key": "npc.marina.name",
+      "text": "마리나",
+      "quality": "legacy_source",
+      "source": "npc.marina"
+    },
+    {
+      "key": "npc.master_raymon.name",
+      "text": "마법수련소 레이몬",
+      "quality": "legacy_source",
+      "source": "npc.master_raymon"
+    },
+    {
+      "key": "npc.mestre_raymon.name",
+      "text": "마법수련소 레이몬",
+      "quality": "legacy_source",
+      "source": "npc.mestre_raymon"
+    },
+    {
+      "key": "npc.mestre_real_ray.name",
+      "text": "로열메이지 레이",
+      "quality": "legacy_source",
+      "source": "npc.mestre_real_ray"
+    },
+    {
+      "key": "npc.milter.name",
+      "text": "저주에 걸린 밀터",
+      "quality": "legacy_source",
+      "source": "npc.milter"
+    },
+    {
+      "key": "npc.mn_013.name",
+      "text": "안내자 데이몬",
+      "quality": "legacy_source",
+      "source": "npc.mn_013"
+    },
+    {
+      "key": "npc.moriph_o_misterioso.name",
+      "text": "아케인 모리프",
+      "quality": "legacy_source",
+      "source": "npc.moriph_o_misterioso"
+    },
+    {
+      "key": "npc.mrcave_keeper.name",
+      "text": "동굴 경비병",
+      "quality": "legacy_source",
+      "source": "npc.mrcave_keeper"
+    },
+    {
+      "key": "npc.nadia.name",
+      "text": "착한소년 롱보",
+      "quality": "legacy_source",
+      "source": "npc.nadia"
+    },
+    {
+      "key": "npc.navisko_civilian2.name",
+      "text": "마을주민 미뉴렌",
+      "quality": "legacy_source",
+      "source": "npc.navisko_civilian2"
+    },
+    {
+      "key": "npc.navisko_dragoman.name",
+      "text": "네비스코 가드",
+      "quality": "legacy_source",
+      "source": "npc.navisko_dragoman"
+    },
+    {
+      "key": "npc.navisko_equip.name",
+      "text": "대장장이 엄프",
+      "quality": "legacy_source",
+      "source": "npc.navisko_equip"
+    },
+    {
+      "key": "npc.navisko_magic.name",
+      "text": "마론 마법상점 3호점",
+      "quality": "legacy_source",
+      "source": "npc.navisko_magic"
+    },
+    {
+      "key": "npc.navisko_store.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.navisko_store"
+    },
+    {
+      "key": "npc.navisko_warehouse.chat.1",
+      "text": "이것도 힘든일이야.. 가끔씩만 들리라구!",
+      "quality": "legacy_source",
+      "source": "npc.navisko_warehouse"
+    },
+    {
+      "key": "npc.navisko_warehouse.name",
+      "text": "창고지기 미프",
+      "quality": "legacy_source",
+      "source": "npc.navisko_warehouse"
+    },
+    {
+      "key": "npc.nevisko_magic.name",
+      "text": "마론 마법상점 3호점",
+      "quality": "legacy_source",
+      "source": "npc.nevisko_magic"
+    },
+    {
+      "key": "npc.newter_o_s_u00e1bio.name",
+      "text": "현명한 뉴터",
+      "quality": "legacy_source",
+      "source": "npc.newter_o_s_u00e1bio"
+    },
+    {
+      "key": "npc.novic.name",
+      "text": "노비치",
+      "quality": "legacy_source",
+      "source": "npc.novic"
+    },
+    {
+      "key": "npc.npc_hobsanta.name",
+      "text": "산타고블린",
+      "quality": "legacy_source",
+      "source": "npc.npc_hobsanta"
+    },
+    {
+      "key": "npc.npc_ninefox.name",
+      "text": "프레이아",
+      "quality": "legacy_source",
+      "source": "npc.npc_ninefox"
+    },
+    {
+      "key": "npc.phillai_quest_shop.name",
+      "text": "퀘스트 담당자",
+      "quality": "legacy_source",
+      "source": "npc.phillai_quest_shop"
+    },
+    {
+      "key": "npc.phillay_civilian1.name",
+      "text": "몰리 할머니",
+      "quality": "legacy_source",
+      "source": "npc.phillay_civilian1"
+    },
+    {
+      "key": "npc.phillay_civilian2.name",
+      "text": "현명한 뉴터",
+      "quality": "legacy_source",
+      "source": "npc.phillay_civilian2"
+    },
+    {
+      "key": "npc.phillay_civilian3.name",
+      "text": "아케인 대리 뉴터",
+      "quality": "legacy_source",
+      "source": "npc.phillay_civilian3"
+    },
+    {
+      "key": "npc.phillay_dragoman.name",
+      "text": "필라이 가드",
+      "quality": "legacy_source",
+      "source": "npc.phillay_dragoman"
+    },
+    {
+      "key": "npc.phillay_dragoman1.name",
+      "text": "필라이 가드",
+      "quality": "legacy_source",
+      "source": "npc.phillay_dragoman1"
+    },
+    {
+      "key": "npc.phillay_equip1.name",
+      "text": "대장장이 바츠",
+      "quality": "legacy_source",
+      "source": "npc.phillay_equip1"
+    },
+    {
+      "key": "npc.phillay_equip2.name",
+      "text": "대장장이 드프레인",
+      "quality": "legacy_source",
+      "source": "npc.phillay_equip2"
+    },
+    {
+      "key": "npc.phillay_guard1.name",
+      "text": "필라이 경비병",
+      "quality": "legacy_source",
+      "source": "npc.phillay_guard1"
+    },
+    {
+      "key": "npc.phillay_guard2.name",
+      "text": "필라이 경비병",
+      "quality": "legacy_source",
+      "source": "npc.phillay_guard2"
+    },
+    {
+      "key": "npc.phillay_guard3.name",
+      "text": "감옥 경비병",
+      "quality": "legacy_source",
+      "source": "npc.phillay_guard3"
+    },
+    {
+      "key": "npc.phillay_imbue.name",
+      "text": "아케인 모리프",
+      "quality": "legacy_source",
+      "source": "npc.phillay_imbue"
+    },
+    {
+      "key": "npc.phillay_magic.name",
+      "text": "마법상점 마론",
+      "quality": "legacy_source",
+      "source": "npc.phillay_magic"
+    },
+    {
+      "key": "npc.phillay_master.name",
+      "text": "마법수련소 레이몬",
+      "quality": "legacy_source",
+      "source": "npc.phillay_master"
+    },
+    {
+      "key": "npc.phillay_store.name",
+      "text": "잡화점 필리아",
+      "quality": "legacy_source",
+      "source": "npc.phillay_store"
+    },
+    {
+      "key": "npc.phillay_warehouse.name",
+      "text": "창고지기 라벤다",
+      "quality": "legacy_source",
+      "source": "npc.phillay_warehouse"
+    },
+    {
+      "key": "npc.pillai_quest_shop.name",
+      "text": "퀘스트 담당자",
+      "quality": "legacy_source",
+      "source": "npc.pillai_quest_shop"
+    },
+    {
+      "key": "npc.premium.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.premium"
+    },
+    {
+      "key": "npc.priston.name",
+      "text": "롱보 여자친구",
+      "quality": "legacy_source",
+      "source": "npc.priston"
+    },
+    {
+      "key": "npc.pumpkin.name",
+      "text": "호박 상인",
+      "quality": "legacy_source",
+      "source": "npc.pumpkin"
+    },
+    {
+      "key": "npc.puzzleking.name",
+      "text": "퍼즐수집가 라몬트",
+      "quality": "legacy_source",
+      "source": "npc.puzzleking"
+    },
+    {
+      "key": "npc.quest.name",
+      "text": "퀘스트 담당자",
+      "quality": "legacy_source",
+      "source": "npc.quest"
+    },
+    {
+      "key": "npc.quest_de_tier.name",
+      "text": "퀘스트 담당자",
+      "quality": "legacy_source",
+      "source": "npc.quest_de_tier"
+    },
+    {
+      "key": "npc.ray.name",
+      "text": "로열메이지 레이",
+      "quality": "legacy_source",
+      "source": "npc.ray"
+    },
+    {
+      "key": "npc.real_clanmaster.name",
+      "text": "클랜 마스터",
+      "quality": "legacy_source",
+      "source": "npc.real_clanmaster"
+    },
+    {
+      "key": "npc.resercher.name",
+      "text": "마력연구가",
+      "quality": "legacy_source",
+      "source": "npc.resercher"
+    },
+    {
+      "key": "npc.ricarden_civilian1.name",
+      "text": "착한소년 롱보",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_civilian1"
+    },
+    {
+      "key": "npc.ricarden_civilian2.chat.1",
+      "text": "요즘 말이지 암시장에서 뒷돈을 들여 무기나 방어구를 구하는 전사들이 많다던데 그런 소릴 들을 때 마다 너무 답답해...? 꼭 참견을 하게 하는군!",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_civilian2"
+    },
+    {
+      "key": "npc.ricarden_civilian2.name",
+      "text": "참견하는 갈딘",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_civilian2"
+    },
+    {
+      "key": "npc.ricarden_civilian3.chat.1",
+      "text": "아!! 몬스터 들이 점점 강해지고 있다는데 이젠 뭔가 새로운 방식의 사냥법을 찾아야 할꺼야 .. 아 어떻게 하면 좋을까 고민이군..",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_civilian3"
+    },
+    {
+      "key": "npc.ricarden_civilian3.name",
+      "text": "고민많은 자콘",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_civilian3"
+    },
+    {
+      "key": "npc.ricarden_equip1.name",
+      "text": "대장장이 고덴",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_equip1"
+    },
+    {
+      "key": "npc.ricarden_equip2.name",
+      "text": "대장장이 거스",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_equip2"
+    },
+    {
+      "key": "npc.ricarden_guard.name",
+      "text": "리카르텐 가드",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_guard"
+    },
+    {
+      "key": "npc.ricarden_guard1.name",
+      "text": "리카르텐 경비병",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_guard1"
+    },
+    {
+      "key": "npc.ricarden_guard2.name",
+      "text": "리카르텐 경비병",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_guard2"
+    },
+    {
+      "key": "npc.ricarden_imbue.name",
+      "text": "조합장인 모랄드",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_imbue"
+    },
+    {
+      "key": "npc.ricarden_master.name",
+      "text": "스킬마스터 베르칸",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_master"
+    },
+    {
+      "key": "npc.ricarden_store.name",
+      "text": "잡화점 알리아",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_store"
+    },
+    {
+      "key": "npc.ricarden_warehouse.name",
+      "text": "창고지기 아렌트",
+      "quality": "legacy_source",
+      "source": "npc.ricarden_warehouse"
+    },
+    {
+      "key": "npc.ricio.name",
+      "text": "룬스톤 장인 리시오",
+      "quality": "legacy_source",
+      "source": "npc.ricio"
+    },
+    {
+      "key": "npc.rosemari.name",
+      "text": "이벤트걸 별난소녀",
+      "quality": "legacy_source",
+      "source": "npc.rosemari"
+    },
+    {
+      "key": "npc.ruiden_civilian1.name",
+      "text": "방랑자 로스트",
+      "quality": "legacy_source",
+      "source": "npc.ruiden_civilian1"
+    },
+    {
+      "key": "npc.ruiden_equip.name",
+      "text": "대장장이 루가",
+      "quality": "legacy_source",
+      "source": "npc.ruiden_equip"
+    },
+    {
+      "key": "npc.ruiden_magic.name",
+      "text": "마론 마법상점 2호점",
+      "quality": "legacy_source",
+      "source": "npc.ruiden_magic"
+    },
+    {
+      "key": "npc.ruiden_store.name",
+      "text": "노상잡화점 루네",
+      "quality": "legacy_source",
+      "source": "npc.ruiden_store"
+    },
+    {
+      "key": "npc.salon.name",
+      "text": "착한소년 롱보",
+      "quality": "legacy_source",
+      "source": "npc.salon"
+    },
+    {
+      "key": "npc.sanc_guard.name",
+      "text": "사원관리인",
+      "quality": "legacy_source",
+      "source": "npc.sanc_guard"
+    },
+    {
+      "key": "npc.sellquest.name",
+      "text": "부마",
+      "quality": "legacy_source",
+      "source": "npc.sellquest"
+    },
+    {
+      "key": "npc.shelton.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.shelton"
+    },
+    {
+      "key": "npc.sheltons.name",
+      "text": "잡화점 비안트",
+      "quality": "legacy_source",
+      "source": "npc.sheltons"
+    },
+    {
+      "key": "npc.sillverwolverin.name",
+      "text": "실버 울버린",
+      "quality": "legacy_source",
+      "source": "npc.sillverwolverin"
+    },
+    {
+      "key": "npc.skadi.name",
+      "text": "모험가 스카디",
+      "quality": "legacy_source",
+      "source": "npc.skadi"
+    },
+    {
+      "key": "npc.sod_01.name",
+      "text": "카사",
+      "quality": "legacy_source",
+      "source": "npc.sod_01"
+    },
+    {
+      "key": "npc.sod_02.name",
+      "text": "아리엘",
+      "quality": "legacy_source",
+      "source": "npc.sod_02"
+    },
+    {
+      "key": "npc.sod_03.name",
+      "text": "실피",
+      "quality": "legacy_source",
+      "source": "npc.sod_03"
+    },
+    {
+      "key": "npc.sod_04.name",
+      "text": "노아스",
+      "quality": "legacy_source",
+      "source": "npc.sod_04"
+    },
+    {
+      "key": "npc.sod_buma.name",
+      "text": "부마",
+      "quality": "legacy_source",
+      "source": "npc.sod_buma"
+    },
+    {
+      "key": "npc.sod_goblin.name",
+      "text": "홉고블린",
+      "quality": "legacy_source",
+      "source": "npc.sod_goblin"
+    },
+    {
+      "key": "npc.soul.name",
+      "text": "떠도는 영혼",
+      "quality": "legacy_source",
+      "source": "npc.soul"
+    },
+    {
+      "key": "npc.star_girl.name",
+      "text": "산타마리아",
+      "quality": "legacy_source",
+      "source": "npc.star_girl"
+    },
+    {
+      "key": "npc.status.name",
+      "text": "이벤트 걸",
+      "quality": "legacy_source",
+      "source": "npc.status"
+    },
+    {
+      "key": "npc.t_messenger.name",
+      "text": "왕국의 전령 이안",
+      "quality": "legacy_source",
+      "source": "npc.t_messenger"
+    },
+    {
+      "key": "npc.teacher01.name",
+      "text": "도우미 프리아",
+      "quality": "legacy_source",
+      "source": "npc.teacher01"
+    },
+    {
+      "key": "npc.templer.name",
+      "text": "신전사제",
+      "quality": "legacy_source",
+      "source": "npc.templer"
+    },
+    {
+      "key": "npc.tmcave_keeper.name",
+      "text": "동굴 경비병",
+      "quality": "legacy_source",
+      "source": "npc.tmcave_keeper"
+    },
+    {
+      "key": "npc.toolspilai.name",
+      "text": "대장장이 고덴",
+      "quality": "legacy_source",
+      "source": "npc.toolspilai"
+    },
+    {
+      "key": "npc.toolsric.name",
+      "text": "대장장이 고덴",
+      "quality": "legacy_source",
+      "source": "npc.toolsric"
+    },
+    {
+      "key": "npc.wfzone.name",
+      "text": "워프게이트 발명가",
+      "quality": "legacy_source",
+      "source": "npc.wfzone"
+    },
+    {
+      "key": "npc.xmasguy.name",
+      "text": "크리스 마스 롱보",
+      "quality": "legacy_source",
+      "source": "npc.xmasguy"
+    },
+    {
+      "key": "npc.yura_force_master.name",
+      "text": "포스 마스터",
+      "quality": "legacy_source",
+      "source": "npc.yura_force_master"
+    },
+    {
+      "key": "npc.yura_guard.name",
+      "text": "유라 경비병",
+      "quality": "legacy_source",
+      "source": "npc.yura_guard"
+    },
+    {
+      "key": "npc.yura_guard1.name",
+      "text": "유라 경비병",
+      "quality": "legacy_source",
+      "source": "npc.yura_guard1"
+    },
+    {
+      "key": "npc.yura_guard2.name",
+      "text": "유라 경비병",
+      "quality": "legacy_source",
+      "source": "npc.yura_guard2"
+    },
+    {
+      "key": "npc.yura_store.name",
+      "text": "잡화점 로렌",
+      "quality": "legacy_source",
+      "source": "npc.yura_store"
+    },
+    {
+      "key": "npc.yura_warehouse.name",
+      "text": "창고지기 워렌트",
+      "quality": "legacy_source",
+      "source": "npc.yura_warehouse"
+    },
+    {
+      "key": "npc.zarad_o_elengante.name",
+      "text": "대장장이 고덴",
+      "quality": "legacy_source",
+      "source": "npc.zarad_o_elengante"
+    }
+  ]
+}

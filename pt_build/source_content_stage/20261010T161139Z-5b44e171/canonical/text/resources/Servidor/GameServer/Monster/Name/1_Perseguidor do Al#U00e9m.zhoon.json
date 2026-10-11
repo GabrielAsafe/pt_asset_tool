@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_perseguidor_do_al_u00e9m",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Perseguidor do Al#U00e9m.zhoon",
+    "GameServer/Monster/Name/1_Perseguidor do Al#U00e9m.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Perseguidor do Al#U00e9m.zhoon",
+    "legacy_sha256": "b33f8352190d5adfd306b582d7c1002d46a7569323339a57c7b84f4dc071a880",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Perseguidor do Além"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVyc2VndWlkb3IgZG8gQWzpbSI="
+  }
+}

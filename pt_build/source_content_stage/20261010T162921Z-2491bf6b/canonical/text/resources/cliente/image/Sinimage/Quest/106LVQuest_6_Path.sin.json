@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_6_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/106LVQuest_6_Path.sin",
+    "image/Sinimage/Quest/106LVQuest_6_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/106LVQuest_6_Path.sin",
+    "legacy_sha256": "1b6136a158d33ab8b97bd6ebef6c5e659a80b410f41c7b9b9f40123d71574391",
+    "legacy_size": 43
+  },
+  "semantic": {
+    "lines": [
+      "Vá até o Vale Gallubia e derrote o Valento."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VuEgYXTpIG8gVmFsZSBHYWxsdWJpYSBlIGRlcnJvdGUgbyBWYWxlbnRvLg=="
+  }
+}

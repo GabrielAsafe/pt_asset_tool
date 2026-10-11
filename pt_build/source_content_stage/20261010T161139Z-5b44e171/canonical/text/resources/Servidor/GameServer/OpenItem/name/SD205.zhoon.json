@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sd205",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SD205.zhoon",
+    "GameServer/OpenItem/name/SD205.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SD205.zhoon",
+    "legacy_sha256": "fdb248f4bf918c8926c42db6d0349e8c2c6266f084819ffb68dd3280292dd10d",
+    "legacy_size": 49
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Stygian Seal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRDIwNS50eHQNCg0KKkpfTmFtZSAgICAgICAgICAgIlN0eWdpYW4gU2VhbCINCg=="
+  }
+}

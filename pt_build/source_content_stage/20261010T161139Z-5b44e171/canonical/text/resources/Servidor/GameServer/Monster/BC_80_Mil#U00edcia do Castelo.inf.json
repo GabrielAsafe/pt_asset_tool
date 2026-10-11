@@ -1,0 +1,486 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.bc_80_mil_u00edcia_do_castelo",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/BC_80_Mil#U00edcia do Castelo.inf",
+    "GameServer/Monster/BC_80_Mil#U00edcia do Castelo.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/BC_80_Mil#U00edcia do Castelo.inf",
+    "legacy_sha256": "7bea8191adb0468177bf884b0ef2beaad14a6cadf4c310bd5a4b54226f8cbe05",
+    "legacy_size": 900
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\soldier_b\\soldier_b.ini",
+      "name": "Milícia do Castelo",
+      "level": 80,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 400,
+      "life": 16000,
+      "attack_damage": [
+        130,
+        165
+      ],
+      "attack_rating": 1450,
+      "attack_speed": 9,
+      "attack_range": 80,
+      "skill_damage": [
+        170,
+        190
+      ],
+      "skill_rating": 20,
+      "skill_range": 130,
+      "defence": 720,
+      "absorption": 22,
+      "block": 12,
+      "stun_percent": 60,
+      "move_speed": 4,
+      "lightning": 50,
+      "ice": 50,
+      "fire": 50,
+      "poison": 50,
+      "monster_race": "디먼",
+      "size": "중대형",
+      "effect_sound": "SOLDIER_B",
+      "potion_count": 4,
+      "potion_percent": 10,
+      "fall_item": 10000,
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.soldier.b.soldier.b"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\soldier_b\\soldier_b.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c736f6c646965725f625c736f6c646965725f622e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Milícia do Castelo"
+        ],
+        "raw_values_hex": [
+          "4d696ced63696120646f2043617374656c6f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          400
+        ],
+        "raw_values_hex": [
+          "343030"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          16000
+        ],
+        "raw_values_hex": [
+          "3136303030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          130,
+          165
+        ],
+        "raw_values_hex": [
+          "313330",
+          "313635"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1450
+        ],
+        "raw_values_hex": [
+          "31343530"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "skill_damage",
+        "legacy_token": "*기술공격력",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          170,
+          190
+        ],
+        "raw_values_hex": [
+          "313730",
+          "313930"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "skill_range",
+        "legacy_token": "*기술공격범위",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          130
+        ],
+        "raw_values_hex": [
+          "313330"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          720
+        ],
+        "raw_values_hex": [
+          "373230"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          22
+        ],
+        "raw_values_hex": [
+          "3232"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          12
+        ],
+        "raw_values_hex": [
+          "3132"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "stun_percent",
+        "legacy_token": "*스턴율",
+        "legacy_token_hex": "2abdbac5cfc0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "ice",
+        "legacy_token": "*얼음",
+        "legacy_token_hex": "2abef3c0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 68,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 71,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 74,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "디먼"
+        ],
+        "raw_values_hex": [
+          "b5f0b8d5"
+        ]
+      },
+      {
+        "line": 77,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 80,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "SOLDIER_B"
+        ],
+        "raw_values_hex": [
+          "534f4c444945525f42"
+        ]
+      },
+      {
+        "line": 83,
+        "key": "potion_count",
+        "legacy_token": "*물약보유수",
+        "legacy_token_hex": "2ab9b0bee0bab8c0afbcf6",
+        "loader_status": "supported_mapped",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 86,
+        "key": "potion_percent",
+        "legacy_token": "*물약보유률",
+        "legacy_token_hex": "2ab9b0bee0bab8c0afb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 89,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          10000
+        ],
+        "raw_values_hex": [
+          "3130303030"
+        ]
+      },
+      {
+        "line": 90,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcc29sZGllcl9iXHNvbGRpZXJfYi5pbmkiDQoNCi8vTmFtZQ0KKsDMuKcgIk1pbO1jaWEgZG8gQ2FzdGVsbyINCg0KLy9MZXZlbA0KKre5uqcgODANCg0KLy9TaXplDQoquPC1qMWpseIgMS4wDQoNCi8vU3Bhd25RdWFudGl0eQ0KKsG2wfcgMSAxDQoNCi8vVmlld1JhbmdlDQoqvcO+3yA0MDANCg0KLy9IUA0KKrv9uO23wiAxNjAwMA0KDQovL0F0dGFja1Bvd2VyDQoqsPiw3bfCIDEzMCAxNjUNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgMTQ1MA0KDQovL0F0dGFja1NwZWVkDQoqsPiw3bzTtbUgOQ0KDQovL0F0dGFja1JhbmdlDQoqsPiw3bn8wKcgODANCg0KLy9Ta2lsbFBvd2VyDQoqseK8+rD4sN23wiAxNzAgMTkwDQoNCi8vU2tpbGxSYXRpbmcNCiqx4rz6sPiw3bf8IDIwDQoNCi8vU2tpbGxSYW5nZQ0KKrHivPqw+LDdufzApyAxMzANCg0KLy9EZWZlbnNlDQoquea+7rfCIDcyMA0KDQovL0Fic29ycHRpb24NCirI7bz2wLIgMjINCg0KLy9CbG9jaw0KKrrtt7DAsiAxMg0KDQovL1N0dW4NCiq9usXPwLIgNjANCg0KLy9Nb3ZlU3BlZWQNCirAzLW/t8IgNA0KDQovL0xpZ2h0bmluZw0KKrn4sLMgNTANCg0KLy9JY2UNCiq+88C9IDUwDQoNCi8vRmlyZQ0KKrrSIDUwDQoNCi8vUG9pc29uDQoqtbYgNTANCg0KLy9SYWNlDQoquPO9usXNwb7BtyC18LjVDQoNCi8vU2hhZG93U2l6ZQ0KKsWpseIgwd+068f8DQoNCi8vU291bmQNCirIv7D6wL0gU09MRElFUl9CDQoNCi8vUG90aW9ucw0KKrmwvuC6uMCvvPYgNA0KDQovL1BvdGlvbkNoYW5jZQ0KKrmwvuC6uMCvt/wgMTANCg0KLy9Ecm9wDQoqvsbAzMXbIDEwMDAwLy9FeHRlcm4gRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE5hbWUuemhvb24i"
+  }
+}

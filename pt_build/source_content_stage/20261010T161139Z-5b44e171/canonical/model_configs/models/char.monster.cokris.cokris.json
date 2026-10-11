@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.cokris.cokris",
+  "logical_config": "char/monster/cokris/cokris.ini",
+  "legacy_cache": "char/monster/cokris/cokris.inx",
+  "consumers": [
+    {
+      "id": "monster.22_barata_gigante",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/22_Barata Gigante.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/cokris/cokris.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/cokris/cokris.inx"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.barba",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Barba.zhoon",
+    "GameServer/NPC/name/Barba.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Barba.zhoon",
+    "legacy_sha256": "10780c8dd5f233806f690d29b18e4206dec606d74bcc42e9354ad82afea8a7f1",
+    "legacy_size": 366
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Barba"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Existe uma forma de proteger seu equipamento nestes tempos caóticos."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Gravar uma marca no equipamento reduz o risco de perdê-lo."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se quiser remover a marca, você precisará de um Pincel do Esquecimento."
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Itens marcados não podem ser transferidos do seu inventário para o de outra pessoa."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9CYXJiYS5ucGMNCg0KKkpfTkFNRQkJIkJhcmJhIg0KDQoqSl9DSEFUCQkiRXhpc3RlIHVtYSBmb3JtYSBkZSBwcm90ZWdlciBzZXUgZXF1aXBhbWVudG8gbmVzdGVzIHRlbXBvcyBjYfN0aWNvcy4iIA0KKkpfQ0hBVAkJIkdyYXZhciB1bWEgbWFyY2Egbm8gZXF1aXBhbWVudG8gcmVkdXogbyByaXNjbyBkZSBwZXJk6i1sby4iDQoqSl9DSEFUCQkiU2UgcXVpc2VyIHJlbW92ZXIgYSBtYXJjYSwgdm9j6iBwcmVjaXNhcuEgZGUgdW0gUGluY2VsIGRvIEVzcXVlY2ltZW50by4iDQoqSl9DSEFUCQkiSXRlbnMgbWFyY2Fkb3MgbuNvIHBvZGVtIHNlciB0cmFuc2Zlcmlkb3MgZG8gc2V1IGludmVudOFyaW8gcGFyYSBvIGRlIG91dHJhIHBlc3NvYS4i"
+  }
+}

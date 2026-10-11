@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_1_mstart",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_1_MStart.sin",
+    "image/Sinimage/Quest/103LVQuest_1_MStart.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_1_MStart.sin",
+    "legacy_sha256": "d81cf1bf9680df35773c261cc994c33abee5af48f854fa00a57fb8b8b9f35287",
+    "legacy_size": 562
+  },
+  "semantic": {
+    "lines": [
+      "Nice to see you. I'm Rusia, a messanger of Morion.",
+      "",
+      "As you have known, weird things are going on in ",
+      "the Priston Continent. We have determined it to ",
+      "be a crack of space-time. Royal Mage is looking for",
+      "the solution. Huge monsters like Pagon of ",
+      "Igol Ranos comes from the crack of space-time.",
+      "There are more people who have seen these ",
+      "monsters.",
+      "",
+      "For protection against these monsters, people are",
+      "manufacturing C-stone. However, the current C-stone ",
+      "form is too weak to offer protection. Can you gather ",
+      "monsters'specimens for materials of C-stone?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TmljZSB0byBzZWUgeW91LiBJJ20gUnVzaWEsIGEgbWVzc2FuZ2VyIG9mIE1vcmlvbi4NCg0KQXMgeW91IGhhdmUga25vd24sIHdlaXJkIHRoaW5ncyBhcmUgZ29pbmcgb24gaW4gDQp0aGUgUHJpc3RvbiBDb250aW5lbnQuIFdlIGhhdmUgZGV0ZXJtaW5lZCBpdCB0byANCmJlIGEgY3JhY2sgb2Ygc3BhY2UtdGltZS4gUm95YWwgTWFnZSBpcyBsb29raW5nIGZvcg0KdGhlIHNvbHV0aW9uLiBIdWdlIG1vbnN0ZXJzIGxpa2UgUGFnb24gb2YgDQpJZ29sIFJhbm9zIGNvbWVzIGZyb20gdGhlIGNyYWNrIG9mIHNwYWNlLXRpbWUuDQpUaGVyZSBhcmUgbW9yZSBwZW9wbGUgd2hvIGhhdmUgc2VlbiB0aGVzZSANCm1vbnN0ZXJzLg0KDQpGb3IgcHJvdGVjdGlvbiBhZ2FpbnN0IHRoZXNlIG1vbnN0ZXJzLCBwZW9wbGUgYXJlDQptYW51ZmFjdHVyaW5nIEMtc3RvbmUuIEhvd2V2ZXIsIHRoZSBjdXJyZW50IEMtc3RvbmUgDQpmb3JtIGlzIHRvbyB3ZWFrIHRvIG9mZmVyIHByb3RlY3Rpb24uIENhbiB5b3UgZ2F0aGVyIA0KbW9uc3RlcnMnc3BlY2ltZW5zIGZvciBtYXRlcmlhbHMgb2YgQy1zdG9uZT8NCg=="
+  }
+}

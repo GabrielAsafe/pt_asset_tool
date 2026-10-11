@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.102_sacerdotisa_das_cinzas",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/102_Sacerdotisa das Cinzas.zhoon",
+    "GameServer/Monster/Name/102_Sacerdotisa das Cinzas.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/102_Sacerdotisa das Cinzas.zhoon",
+    "legacy_sha256": "c8d2674ab171b5036737c212e427a215d88543cebcbe89c25cd411a49ad7c216",
+    "legacy_size": 32
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Sacerdotisa das Cinzas"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiU2FjZXJkb3Rpc2EgZGFzIENpbnphcyI="
+  }
+}

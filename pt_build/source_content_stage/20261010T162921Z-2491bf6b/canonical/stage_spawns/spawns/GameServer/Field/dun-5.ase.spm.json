@@ -1,0 +1,75 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.dun_5",
+  "logical_path": "GameServer/Field/dun-5.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/dun-5.ase.spm",
+    "sha256": "652cf175f2d7702f7f5edd26b4a8256a8b029c5963479e33cd590f22759161c5"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.75_dusk",
+      "legacy_name": "Dusk",
+      "legacy_name_bytes_hex": "4475736b",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.76_dawlin",
+      "legacy_name": "Dawlin",
+      "legacy_name_bytes_hex": "4461776c696e",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.77_incubus",
+      "legacy_name": "Incubus",
+      "legacy_name_bytes_hex": "496e6375627573",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.73_sombra",
+      "legacy_name": "Sombra",
+      "legacy_name_bytes_hex": "536f6d627261",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.79_ratoo",
+      "legacy_name": "Ratoo",
+      "legacy_name_bytes_hex": "5261746f6f",
+      "weight": 2,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.76_omicron",
+      "legacy_name": "Omicron",
+      "legacy_name_bytes_hex": "4f6d6963726f6e",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.78_espectro_negro",
+      "legacy_name": "Espectro Negro",
+      "legacy_name_bytes_hex": "457370656374726f204e6567726f",
+      "weight": 8,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.71_l_u00e2mina",
+      "legacy_name": "L?ina",
+      "legacy_name_bytes_hex": "4c3f696e61",
+      "weight": 20,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": []
+}

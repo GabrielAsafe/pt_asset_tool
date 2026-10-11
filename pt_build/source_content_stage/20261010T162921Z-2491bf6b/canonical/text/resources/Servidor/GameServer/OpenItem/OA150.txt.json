@@ -1,0 +1,223 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.oa150",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OA150.txt",
+    "GameServer/OpenItem/OA150.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OA150.txt",
+    "legacy_sha256": "ea99a57427cb7ef15ed215d924284ce298eeb572be26ace141f5eded4b3a8a26",
+    "legacy_size": 400
+  },
+  "semantic": {
+    "fields": {
+      "code": "OA150",
+      "name": "Colar Eliot 7d",
+      "english_name": "Colar Eliot 7d",
+      "life_add_alt": [
+        100,
+        100
+      ],
+      "mana_add_alt": [
+        100,
+        100
+      ],
+      "stamina_add_alt": [
+        100,
+        100
+      ],
+      "life_regen_alt": [
+        3.0,
+        3.0
+      ],
+      "mana_regen_alt": [
+        3.0,
+        3.0
+      ],
+      "stamina_regen_alt": [
+        3.0,
+        3.0
+      ],
+      "weight": 5,
+      "linked_file": "Name\\OA150.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OA150"
+        ],
+        "raw_values_hex": [
+          "4f41313530"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Colar Eliot 7d"
+        ],
+        "raw_values_hex": [
+          "436f6c617220456c696f74203764"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Colar Eliot 7d"
+        ],
+        "raw_values_hex": [
+          "436f6c617220456c696f74203764"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "life_regen_alt",
+        "legacy_token": "*생명력재생",
+        "legacy_token_hex": "2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          3.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "332e30"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "mana_regen_alt",
+        "legacy_token": "*기력재생",
+        "legacy_token_hex": "2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          3.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "332e30"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "stamina_regen_alt",
+        "legacy_token": "*근력재생",
+        "legacy_token_hex": "2ab1d9b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          3.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "332e30"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OA150.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f413135302e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9BMTUwIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ29sYXIgRWxpb3QgN2QiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQ29sYXIgRWxpb3QgN2QiDQoNCi8vSFANCiq7/bjtt8LD37ChIDEwMCAxMDANCg0KLy9NUA0KKrHit8LD37ChIDEwMCAxMDANCg0KLy9TVE0NCiqx2bfCw9+woSAxMDAgMTAwDQoNCi8vSFBSZWdlbg0KKrv9uO23wsDnu/0gMy4wIDMuMA0KDQovL01QUmVnZW4NCiqx4rfCwOe7/SAzLjAgMy4wDQoNCi8vU1RNUmVnZW4NCiqx2bfCwOe7/SAzLjAgMy4wDQoNCi8vTGV2ZWwNCi8vKre5uqcgMTANCg0KLy9TcGlyaXQNCi8vKsGkvcW3wiAyMA0KDQovL1dlaWdodA0KKrmrsNQgNQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE9BMTUwLnpob29uIg=="
+  }
+}

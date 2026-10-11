@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.forest3",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Forest3.sin",
+    "image/Sinimage/WarpGateDoc/Forest3.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Forest3.sin",
+    "legacy_sha256": "6640672b0beb84add8fc107c0f64a65b83132ea2fe6fa908aec2147e0c8dff3e",
+    "legacy_size": 173
+  },
+  "semantic": {
+    "lines": [
+      "Bamboo forest near by Ricarten is good for novice",
+      "warriors because less threatening monsters reside",
+      "in there.",
+      "It has magnificent scenery with thickset",
+      "bamboo trees. ",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QmFtYm9vIGZvcmVzdCBuZWFyIGJ5IFJpY2FydGVuIGlzIGdvb2QgZm9yIG5vdmljZQ0Kd2FycmlvcnMgYmVjYXVzZSBsZXNzIHRocmVhdGVuaW5nIG1vbnN0ZXJzIHJlc2lkZQ0KaW4gdGhlcmUuDQpJdCBoYXMgbWFnbmlmaWNlbnQgc2NlbmVyeSB3aXRoIHRoaWNrc2V0DQpiYW1ib28gdHJlZXMuIA0KDQo="
+  }
+}

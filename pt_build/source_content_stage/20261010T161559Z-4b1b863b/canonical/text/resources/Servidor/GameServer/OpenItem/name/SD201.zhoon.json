@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sd201",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SD201.zhoon",
+    "GameServer/OpenItem/name/SD201.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SD201.zhoon",
+    "legacy_sha256": "ae2082d1c3cfdfab99773e5ebacf29e2c1740f40fb889cae025297cfde376cea",
+    "legacy_size": 47
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Quake Seal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRDIwMS50eHQNCg0KKkpfTmFtZSAgICAgICAgICAgIlF1YWtlIFNlYWwiDQo="
+  }
+}

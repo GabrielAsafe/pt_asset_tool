@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.82_morte_s_u00fabita",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/82_Morte S#U00fabita.zhoon",
+    "GameServer/Monster/Name/82_Morte S#U00fabita.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/82_Morte S#U00fabita.zhoon",
+    "legacy_sha256": "340973c940977596b65f89af4285176fcb7e4318c94d7556bea576673dae0d42",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Morte Súbita"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTW9ydGUgU/piaXRhIg=="
+  }
+}

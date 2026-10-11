@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd103",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD103.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD103.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD103.zhoon",
+    "legacy_sha256": "d0d7c333c18389d92ef5cffe354c3954fd30b8ee299a9c042e29515193ad1926",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Hunting knife"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDEwMy50eHQNCg0KKkpfTkFNRQkJIkh1bnRpbmcga25pZmUiDQo="
+  }
+}

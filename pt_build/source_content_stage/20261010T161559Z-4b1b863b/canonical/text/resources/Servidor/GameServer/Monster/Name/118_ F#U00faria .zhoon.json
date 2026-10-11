@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.118_f_u00faria",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/118_ F#U00faria .zhoon",
+    "GameServer/Monster/Name/118_ F#U00faria .zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/118_ F#U00faria .zhoon",
+    "legacy_sha256": "afcbad296721284892931d541f528ef1e738bd22c91652a24f29b86ee14f2384",
+    "legacy_size": 17
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": " Fúria "
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiIEb6cmlhICI="
+  }
+}

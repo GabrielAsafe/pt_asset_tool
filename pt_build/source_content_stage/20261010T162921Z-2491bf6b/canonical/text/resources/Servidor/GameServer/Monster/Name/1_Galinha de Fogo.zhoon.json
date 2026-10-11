@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_galinha_de_fogo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Galinha de Fogo.zhoon",
+    "GameServer/Monster/Name/1_Galinha de Fogo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Galinha de Fogo.zhoon",
+    "legacy_sha256": "02f6d469f3a64360e3ec91898474e73a3567d240e0d789efd7f73cae58fe8747",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Galinha de Fogo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR2FsaW5oYSBkZSBGb2dvIg=="
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_civilian1",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ricarden-civilian1.zhoon",
+    "GameServer/NPC/name/ricarden-civilian1.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ricarden-civilian1.zhoon",
+    "legacy_sha256": "86b52ae4480166e4d312374841a3752bb3e7392a5cfe3bbfb01af4fce4465c41",
+    "legacy_size": 1515
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Longbo, o Garoto"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ouvi dizer que um torneio chamado 'Bellatra' ocorre em Navisko. A cada Round conquistado, sua recompensa aumenta. Você parece ser forte. Porque não tenta visitar Bellatra?"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Tudo mudou da noite para o dia. Minhas pernas cresceram, minha face mudou. E mais, toda a cidade foi alterada... Ok ok, isso tudo é divertido. Mas, e aquela estátua que costumava ficar atrás de mim, pra onde foi?."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Já ouviu falar do Templo Sombrio? Ele fica entre a Caverna dos Cogumelos e a Caverna das Abelhas. Criaturas horríveis perambulam pelo local. Quando for forte o bastante, tente se aventurar por lá."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ouvi dizer que o tal de 'Templo Maldito' fica no meio do deserto. Eu nunca fui lá... Seria um sonho visitar o local, pois somente os mais poderosos podem entrar."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você já conhece os Portais? Eles foram criados pelo 'Inventor dos Portais' e são excelentes para levar os guerreiros de um lugar ao outro, rapidamente. Que tecnologia fantástica!"
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Costumava haver uma estátua gigante, aqui. Eu tirava minhas sonecas nela... Aquilo, sim, era gostoso."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Existe uma cidade chamada Navisko, onde os civis se transformam em monstros, durante a noite. Uma maldição desconhecida assombra o local. Os moradores não sabem dessa transformação..."
+      },
+      {
+        "line": 10,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu costumava ser uma aberração, mais uma força sobrenatural me transformou neste belo garoto que está à sua frente. Não me irrite, ou irei voltar à minha verdadeira forma, ok?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkxvbmdibywgbyBHYXJvdG8iDQoNCipKX0NIQVQJCSJPdXZpIGRpemVyIHF1ZSB1bSB0b3JuZWlvIGNoYW1hZG8gJ0JlbGxhdHJhJyBvY29ycmUgZW0gTmF2aXNrby4gQSBjYWRhIFJvdW5kIGNvbnF1aXN0YWRvLCBzdWEgcmVjb21wZW5zYSBhdW1lbnRhLiBWb2PqIHBhcmVjZSBzZXIgZm9ydGUuIFBvcnF1ZSBu428gdGVudGEgdmlzaXRhciBCZWxsYXRyYT8iDQoqSl9DSEFUCQkiVHVkbyBtdWRvdSBkYSBub2l0ZSBwYXJhIG8gZGlhLiBNaW5oYXMgcGVybmFzIGNyZXNjZXJhbSwgbWluaGEgZmFjZSBtdWRvdS4gRSBtYWlzLCB0b2RhIGEgY2lkYWRlIGZvaSBhbHRlcmFkYS4uLiBPayBvaywgaXNzbyB0dWRvIOkgZGl2ZXJ0aWRvLiBNYXMsIGUgYXF1ZWxhIGVzdOF0dWEgcXVlIGNvc3R1bWF2YSBmaWNhciBhdHLhcyBkZSBtaW0sIHByYSBvbmRlIGZvaT8uIg0KKkpfQ0hBVAkJIkrhIG91dml1IGZhbGFyIGRvIFRlbXBsbyBTb21icmlvPyBFbGUgZmljYSBlbnRyZSBhIENhdmVybmEgZG9zIENvZ3VtZWxvcyBlIGEgQ2F2ZXJuYSBkYXMgQWJlbGhhcy4gQ3JpYXR1cmFzIGhvcnLtdmVpcyBwZXJhbWJ1bGFtIHBlbG8gbG9jYWwuIFF1YW5kbyBmb3IgZm9ydGUgbyBiYXN0YW50ZSwgdGVudGUgc2UgYXZlbnR1cmFyIHBvciBs4S4iDQoqSl9DSEFUCQkiT3V2aSBkaXplciBxdWUgbyB0YWwgZGUgJ1RlbXBsbyBNYWxkaXRvJyBmaWNhIG5vIG1laW8gZG8gZGVzZXJ0by4gRXUgbnVuY2EgZnVpIGzhLi4uIFNlcmlhIHVtIHNvbmhvIHZpc2l0YXIgbyBsb2NhbCwgcG9pcyBzb21lbnRlIG9zIG1haXMgcG9kZXJvc29zIHBvZGVtIGVudHJhci4iDQoqSl9DSEFUCQkiVm9j6iBq4SBjb25oZWNlIG9zIFBvcnRhaXM/IEVsZXMgZm9yYW0gY3JpYWRvcyBwZWxvICdJbnZlbnRvciBkb3MgUG9ydGFpcycgZSBz428gZXhjZWxlbnRlcyBwYXJhIGxldmFyIG9zIGd1ZXJyZWlyb3MgZGUgdW0gbHVnYXIgYW8gb3V0cm8sIHJhcGlkYW1lbnRlLiBRdWUgdGVjbm9sb2dpYSBmYW504XN0aWNhISINCipKX0NIQVQJCSJDb3N0dW1hdmEgaGF2ZXIgdW1hIGVzdOF0dWEgZ2lnYW50ZSwgYXF1aS4gRXUgdGlyYXZhIG1pbmhhcyBzb25lY2FzIG5lbGEuLi4gQXF1aWxvLCBzaW0sIGVyYSBnb3N0b3NvLiINCipKX0NIQVQJCSJFeGlzdGUgdW1hIGNpZGFkZSBjaGFtYWRhIE5hdmlza28sIG9uZGUgb3MgY2l2aXMgc2UgdHJhbnNmb3JtYW0gZW0gbW9uc3Ryb3MsIGR1cmFudGUgYSBub2l0ZS4gVW1hIG1hbGRp5+NvIGRlc2NvbmhlY2lkYSBhc3NvbWJyYSBvIGxvY2FsLiBPcyBtb3JhZG9yZXMgbuNvIHNhYmVtIGRlc3NhIHRyYW5zZm9ybWHn428uLi4iDQoqSl9DSEFUCQkiRXUgY29zdHVtYXZhIHNlciB1bWEgYWJlcnJh5+NvLCBtYWlzIHVtYSBmb3LnYSBzb2JyZW5hdHVyYWwgbWUgdHJhbnNmb3Jtb3UgbmVzdGUgYmVsbyBnYXJvdG8gcXVlIGVzdOEg4CBzdWEgZnJlbnRlLiBO428gbWUgaXJyaXRlLCBvdSBpcmVpIHZvbHRhciDgIG1pbmhhIHZlcmRhZGVpcmEgZm9ybWEsIG9rPyINCg0K"
+  }
+}

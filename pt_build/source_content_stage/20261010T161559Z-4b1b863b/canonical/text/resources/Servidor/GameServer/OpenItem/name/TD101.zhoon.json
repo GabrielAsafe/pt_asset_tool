@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.td101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/TD101.zhoon",
+    "GameServer/OpenItem/name/TD101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/TD101.zhoon",
+    "legacy_sha256": "9a60bc515be37a4f7c37dc804a6bb876edfd49f30d7d7459b0f4f5d9d9e97da6",
+    "legacy_size": 43
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Add Event Armor"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwMS50eHQNCg0KKkpfTmFtZQkJIkFkZCBFdmVudCBBcm1vciINCg=="
+  }
+}

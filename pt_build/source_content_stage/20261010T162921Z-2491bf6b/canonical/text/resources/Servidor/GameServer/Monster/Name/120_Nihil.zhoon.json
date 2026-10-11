@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.120_nihil",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/120_Nihil.zhoon",
+    "GameServer/Monster/Name/120_Nihil.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/120_Nihil.zhoon",
+    "legacy_sha256": "cb8007f712e921cb65311e84eaebae5e2c8ca18df5057074bb3f253be8293c66",
+    "legacy_size": 15
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Nihil"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTmloaWwi"
+  }
+}

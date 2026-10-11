@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.100_i_willy",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/100_I_Willy.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/100_I_Willy.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/100_I_Willy.inf",
+        "GameServer/Monster/100_I_Willy.inf"
+      ],
+      "legacy_sha256": "380a113599963fd4c90c892ec3a98561bb5125b3e797203f9bc7f078cf9435ea"
+    }
+  ]
+}

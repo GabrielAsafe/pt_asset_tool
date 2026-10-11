@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ws253",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WS253.zhoon",
+    "GameServer/OpenItem/name/WS253.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WS253.zhoon",
+    "legacy_sha256": "7c65d260fcfd1785557e463c8e11bcbb6406b99d82da86a251a20154e7fe7fc0",
+    "legacy_size": 45
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Espada de Suporte"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XUzI1NC50eHQNCg0KKkpfTmFtZQkJIkVzcGFkYSBkZSBTdXBvcnRlIg0K"
+  }
+}

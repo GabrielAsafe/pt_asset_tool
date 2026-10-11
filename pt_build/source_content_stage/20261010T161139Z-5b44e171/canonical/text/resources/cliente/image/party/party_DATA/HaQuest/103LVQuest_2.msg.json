@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/103LVQuest_2.msg",
+    "image/party/party_DATA/HaQuest/103LVQuest_2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/103LVQuest_2.msg",
+    "legacy_sha256": "c9e3343790ae243c04cdbffd24d77a3e82a681178d289a71abe91605054c046f",
+    "legacy_size": 84
+  },
+  "semantic": {
+    "lines": [
+      "I have gathered 5 specimens",
+      "from strong monsters. ",
+      "Let's go back to the village."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SSBoYXZlIGdhdGhlcmVkIDUgc3BlY2ltZW5zDQpmcm9tIHN0cm9uZyBtb25zdGVycy4gDQpMZXQncyBnbyBiYWNrIHRvIHRoZSB2aWxsYWdlLg0K"
+  }
+}

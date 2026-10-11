@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100lvquest_4start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/100LVQuest_4Start.sin",
+    "image/Sinimage/Quest/100LVQuest_4Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/100LVQuest_4Start.sin",
+    "legacy_sha256": "dccba4437f81fdbdfb7cf129179fae43658cf838ca4a30f997e295ce3ade6271",
+    "legacy_size": 438
+  },
+  "semantic": {
+    "lines": [
+      "Recently we received the report from our patrol",
+      "team on Eura Village.",
+      "",
+      "A bunch of monsters comes in flocks with",
+      "unexpected speed. However we cannot defend from ",
+      "those monsters with our patrol team in Eura Village.",
+      "It'll be great if you go there and help them.",
+      "",
+      "Those monsters are from Valley of Gallubia. I ",
+      "will count this action as 3rd quest if you",
+      "go to Valley of Gallubia and hunt 100 monsters.",
+      "Hurry! We need your help!!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UmVjZW50bHkgd2UgcmVjZWl2ZWQgdGhlIHJlcG9ydCBmcm9tIG91ciBwYXRyb2wNCnRlYW0gb24gRXVyYSBWaWxsYWdlLg0KDQpBIGJ1bmNoIG9mIG1vbnN0ZXJzIGNvbWVzIGluIGZsb2NrcyB3aXRoDQp1bmV4cGVjdGVkIHNwZWVkLiBIb3dldmVyIHdlIGNhbm5vdCBkZWZlbmQgZnJvbSANCnRob3NlIG1vbnN0ZXJzIHdpdGggb3VyIHBhdHJvbCB0ZWFtIGluIEV1cmEgVmlsbGFnZS4NCkl0J2xsIGJlIGdyZWF0IGlmIHlvdSBnbyB0aGVyZSBhbmQgaGVscCB0aGVtLg0KDQpUaG9zZSBtb25zdGVycyBhcmUgZnJvbSBWYWxsZXkgb2YgR2FsbHViaWEuIEkgDQp3aWxsIGNvdW50IHRoaXMgYWN0aW9uIGFzIDNyZCBxdWVzdCBpZiB5b3UNCmdvIHRvIFZhbGxleSBvZiBHYWxsdWJpYSBhbmQgaHVudCAxMDAgbW9uc3RlcnMuDQpIdXJyeSEgV2UgbmVlZCB5b3VyIGhlbHAhIQ0K"
+  }
+}

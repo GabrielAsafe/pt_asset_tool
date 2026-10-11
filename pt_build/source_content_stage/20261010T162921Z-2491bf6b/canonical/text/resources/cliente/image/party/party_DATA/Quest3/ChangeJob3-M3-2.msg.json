@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_m3_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest3/ChangeJob3-M3-2.msg",
+    "image/party/party_DATA/Quest3/ChangeJob3-M3-2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest3/ChangeJob3-M3-2.msg",
+    "legacy_sha256": "826568dd1dad81d705b26c125ec70ac18932f1b2e3aaf3afb32e12f363c168b4",
+    "legacy_size": 130
+  },
+  "semantic": {
+    "lines": [
+      "Let's mature the weapon",
+      "by hunting 100 monsters ",
+      "in the 1st floor of the",
+      "Ancient Dungeon and bring",
+      "it to skill/magic master."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV0J3MgbWF0dXJlIHRoZSB3ZWFwb24NCmJ5IGh1bnRpbmcgMTAwIG1vbnN0ZXJzIA0KaW4gdGhlIDFzdCBmbG9vciBvZiB0aGUNCkFuY2llbnQgRHVuZ2VvbiBhbmQgYnJpbmcNCml0IHRvIHNraWxsL21hZ2ljIG1hc3Rlci4NCg=="
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.pet_60_wolverine",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Pet_60_Wolverine.inf",
+    "GameServer/Monster/Pet_60_Wolverine.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Pet_60_Wolverine.inf",
+    "legacy_sha256": "938e571db8bbf86eb49895c57cf970183ea9fe0263c09d7c853f5441349ce525",
+    "legacy_size": 758
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\wolverin\\wolverin_a.ini",
+      "name": "Wolverine",
+      "level": 60,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 380,
+      "life": 1500,
+      "attack_damage": [
+        50,
+        75
+      ],
+      "attack_rating": 900,
+      "attack_speed": 7,
+      "attack_range": 75,
+      "skill_damage": [
+        65,
+        90
+      ],
+      "skill_rating": 20,
+      "skill_distance": 80,
+      "absorption": 5,
+      "move_speed": 3,
+      "lightning": 100,
+      "ice": 100,
+      "fire": 100,
+      "poison": 100,
+      "monster_race": "노멀",
+      "size": "중대형",
+      "effect_sound": "WOLVERIN_A",
+      "fall_item": 10000,
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.wolverin.wolverin.a"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\wolverin\\wolverin_a.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c776f6c766572696e5c776f6c766572696e5f612e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Wolverine"
+        ],
+        "raw_values_hex": [
+          "576f6c766572696e65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          380
+        ],
+        "raw_values_hex": [
+          "333830"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1500
+        ],
+        "raw_values_hex": [
+          "31353030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          75
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3735"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          900
+        ],
+        "raw_values_hex": [
+          "393030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          75
+        ],
+        "raw_values_hex": [
+          "3735"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "skill_damage",
+        "legacy_token": "*기술공격력",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          65,
+          90
+        ],
+        "raw_values_hex": [
+          "3635",
+          "3930"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "skill_distance",
+        "legacy_token": "*기술공격거리",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb0c5b8ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "ice",
+        "legacy_token": "*얼음",
+        "legacy_token_hex": "2abef3c0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "노멀"
+        ],
+        "raw_values_hex": [
+          "b3ebb8d6"
+        ]
+      },
+      {
+        "line": 68,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 71,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "WOLVERIN_A"
+        ],
+        "raw_values_hex": [
+          "574f4c564552494e5f41"
+        ]
+      },
+      {
+        "line": 74,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          10000
+        ],
+        "raw_values_hex": [
+          "3130303030"
+        ]
+      },
+      {
+        "line": 75,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcd29sdmVyaW5cd29sdmVyaW5fYS5pbmkiDQoNCi8vTmFtZQ0KKsDMuKcgIldvbHZlcmluZSINCg0KLy9MZXZlbA0KKre5uqcgNjANCg0KLy9TaXplDQoquPC1qMWpseIgMS4wDQoNCi8vU3Bhd25RdWFudGl0eQ0KKsG2wfcgMSAxDQoNCi8vVmlld1JhbmdlDQoqvcO+3yAzODANCg0KLy9IUA0KKrv9uO23wiAxNTAwDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgNTAgNzUNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgOTAwDQoNCi8vQXR0YWNrU3BlZWQNCiqw+LDdvNO1tSA3DQoNCi8vQXR0YWNrUmFuZ2UNCiqw+LDdufzApyA3NQ0KDQovL1NraWxsUG93ZXINCiqx4rz6sPiw3bfCIDY1IDkwDQoNCi8vU2tpbGxSYXRpbmcNCiqx4rz6sPiw3bf8IDIwDQoNCi8vU2tpbGxEaXN0YW5jZQ0KKrHivPqw+LDdsMW4riA4MA0KDQovL0Fic29ycHRpb24NCirI7bz2wLIgNQ0KDQovL01vdmVTcGVlZA0KKsDMtb+3wiAzDQoNCi8vTGlnaHRuaW5nDQoqufiwsyAxMDANCg0KLy9JY2UNCiq+88C9IDEwMA0KDQovL0ZpcmUNCiq60iAxMDANCg0KLy9Qb2lzb24NCiq1tiAxMDANCg0KLy9SYWNlDQoquPO9usXNwb7BtyCz67jWDQoNCi8vU2hhZG93U2l6ZQ0KKsWpseIgwd+068f8DQoNCi8vU291bmQNCirIv7D6wL0gV09MVkVSSU5fQQ0KDQovL0Ryb3ANCiq+xsDMxdsgMTAwMDAvL0V4dGVybiBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcTmFtZS56aG9vbiI="
+  }
+}

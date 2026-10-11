@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.7_sen",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/7_Sen.zhoon",
+    "GameServer/Monster/Name/7_Sen.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/7_Sen.zhoon",
+    "legacy_sha256": "ae09f37c859e08c258aa8c4fba574af1e015dffdf911ebaa6c6ea571548fbd32",
+    "legacy_size": 13
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Sen"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiU2VuIg=="
+  }
+}

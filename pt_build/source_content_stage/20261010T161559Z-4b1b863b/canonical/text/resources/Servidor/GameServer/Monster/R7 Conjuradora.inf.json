@@ -1,0 +1,327 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.r7_conjuradora",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/R7 Conjuradora.inf",
+    "GameServer/Monster/R7 Conjuradora.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/R7 Conjuradora.inf",
+    "legacy_sha256": "cc96d2cbdd9f4c8fd00483a5664b0e4e9d4791ef4179a42183fb6defb32b9682",
+    "legacy_size": 658
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\incubussummer\\incubussummer.ini",
+      "name": "R7 Conjuradora",
+      "level": 88,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 390,
+      "life": 8500,
+      "attack_damage": [
+        110,
+        190
+      ],
+      "attack_rating": 1400,
+      "attack_speed": 9,
+      "attack_range": 180,
+      "skill_rating": 18,
+      "defence": 720,
+      "move_speed": 3,
+      "monster_race": "언데드",
+      "size": "중형",
+      "experience": 152000,
+      "effect_sound": "SUCCUBUS",
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.incubussummer.incubussummer"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\incubussummer\\incubussummer.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c696e637562757373756d6d65725c696e637562757373756d6d65722e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "R7 Conjuradora"
+        ],
+        "raw_values_hex": [
+          "523720436f6e6a757261646f7261"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          88
+        ],
+        "raw_values_hex": [
+          "3838"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          390
+        ],
+        "raw_values_hex": [
+          "333930"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          8500
+        ],
+        "raw_values_hex": [
+          "38353030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          110,
+          190
+        ],
+        "raw_values_hex": [
+          "313130",
+          "313930"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1400
+        ],
+        "raw_values_hex": [
+          "31343030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          180
+        ],
+        "raw_values_hex": [
+          "313830"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          18
+        ],
+        "raw_values_hex": [
+          "3138"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          720
+        ],
+        "raw_values_hex": [
+          "373230"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "언데드"
+        ],
+        "raw_values_hex": [
+          "bef0b5a5b5e5"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중형"
+        ],
+        "raw_values_hex": [
+          "c1dfc7fc"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          152000
+        ],
+        "raw_values_hex": [
+          "313532303030"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "SUCCUBUS"
+        ],
+        "raw_values_hex": [
+          "5355434355425553"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcaW5jdWJ1c3N1bW1lclxpbmN1YnVzc3VtbWVyLmluaSINCg0KLy9OYW1lDQoqwMy4pyAiUjcgQ29uanVyYWRvcmEiDQoNCi8vTGV2ZWwNCiq3ubqnIDg4DQoNCi8vU2l6ZQ0KKrjwtajFqbHiIDEuMA0KDQovL1NwYXduUXVhbnRpdHkNCirBtsH3IDEgMQ0KDQovL1ZpZXdSYW5nZQ0KKr3Dvt8gMzkwDQoNCi8vSFANCiq7/bjtt8IgODUwMA0KDQovL0F0dGFja1Bvd2VyDQoqsPiw3bfCIDExMCAxOTANCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgMTQwMA0KDQovL0F0dGFja1NwZWVkDQoqsPiw3bzTtbUgOQ0KDQovL0F0dGFja1JhbmdlDQoqsPiw3bn8wKcgMTgwDQoNCi8vU2tpbGxSYXRpbmcNCiqx4rz6sPiw3bf8IDE4DQoNCi8vU2tpbGxDdXJzZQ0KLy8qwPrB1rHivPogMTAzDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA3MjANCg0KLy9Nb3ZlU3BlZWQNCirAzLW/t8IgMw0KDQovL1JhY2UNCiq48726xc3BvsG3IL7wtaW15Q0KDQovL1NoYWRvd1NpemUNCirFqbHiIMHfx/wNCg0KLy9FeHBlcmllbmNlDQoqsObH6MShIDE1MjAwMA0KDQovL1NvdW5kDQoqyL+w+sC9IFNVQ0NVQlVTDQoNCi8vRXh0ZXJuIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxOYW1lLnpob29uIg=="
+  }
+}

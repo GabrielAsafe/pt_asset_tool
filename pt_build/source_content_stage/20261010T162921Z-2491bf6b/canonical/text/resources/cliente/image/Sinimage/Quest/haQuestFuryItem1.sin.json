@@ -1,0 +1,46 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestfuryitem1",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestFuryItem1.sin",
+    "image/Sinimage/Quest/haQuestFuryItem1.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestFuryItem1.sin",
+    "legacy_sha256": "6a33bc4f3069b36d2d606768d078cfb42b18f564bc8168108af463ad9521ca28",
+    "legacy_size": 302
+  },
+  "semantic": {
+    "lines": [
+      "[Minotaur Axe]",
+      "                             ",
+      "                               ",
+      "                        ",
+      "",
+      "",
+      "",
+      "",
+      "[Option]",
+      "",
+      "Attack Power  : 68-90     Add. HP : 50",
+      "Weapon Speed  : 8         Add. MP : 50",
+      "Attack Rating : 275       Add.STM : 50",
+      "Critical      : 22%",
+      "Block Rating  : 13%",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "W01pbm90YXVyIEF4ZV0NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgICAgICAgICANCg0KDQoNCg0KW09wdGlvbl0NCg0KQXR0YWNrIFBvd2VyICA6IDY4LTkwICAgICBBZGQuIEhQIDogNTANCldlYXBvbiBTcGVlZCAgOiA4ICAgICAgICAgQWRkLiBNUCA6IDUwDQpBdHRhY2sgUmF0aW5nIDogMjc1ICAgICAgIEFkZC5TVE0gOiA1MA0KQ3JpdGljYWwgICAgICA6IDIyJQ0KQmxvY2sgUmF0aW5nICA6IDEzJQ0KDQoNCg0KDQoNCg0KDQo="
+  }
+}

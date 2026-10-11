@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uor105_ring_of_innocence",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uor105_Ring of Innocence.zhoon",
+    "GameServer/OpenItem/name/_Uor105_Ring of Innocence.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uor105_Ring of Innocence.zhoon",
+    "legacy_sha256": "fc9707433f4a71ac88415e9b33bd07db8476703b99affcaf757c4cd042344508",
+    "legacy_size": 67
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Ring of Innocence"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9fVW9yMTA1X1Jpbmcgb2YgSW5ub2NlbmNlLnR4dA0KDQoqSl9OYW1lCQkiUmluZyBvZiBJbm5vY2VuY2UiDQoNCg=="
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_4",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/140LVQuest_4.msg",
+    "image/party/party_DATA/HaQuest/140LVQuest_4.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/140LVQuest_4.msg",
+    "legacy_sha256": "7f34f61e84ad9d9254d1ff29fbbf66157482131fc901b82bad7b98cd4a5e63f2",
+    "legacy_size": 107
+  },
+  "semantic": {
+    "lines": [
+      "Cace o Shogoth, em Abismo",
+      "do Mar, até obter a",
+      "Alma Manipulada.",
+      "Após, fale com a Sábia",
+      "Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FjZSBvIFNob2dvdGgsIGVtIEFiaXNtbw0KZG8gTWFyLCBhdOkgb2J0ZXIgYQ0KQWxtYSBNYW5pcHVsYWRhLg0KQXDzcywgZmFsZSBjb20gYSBT4WJpYQ0KQ2VsaW5hIGVtIFBpbGxhaS4="
+  }
+}

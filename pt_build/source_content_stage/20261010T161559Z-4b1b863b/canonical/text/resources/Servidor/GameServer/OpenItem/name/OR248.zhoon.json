@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or248",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR248.zhoon",
+    "GameServer/OpenItem/name/OR248.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR248.zhoon",
+    "legacy_sha256": "1923110ab990fccbba6cc025b0a5a9dff50fe0b66b64ed706d2d2b13f75933be",
+    "legacy_size": 183
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 6,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel de Shire"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQovLwlQVCBJVEVNIFRFTVBMQVRFIEJZIFdPUk1ZCS8vDQovLwkgIElDRSBNSU5FIDFGIElURU0gUEFDSwkJLy8NCi8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLw0KDQoqSl9OYW1lCQkiQW5lbCBkZSBTaGlyZSINCg0K"
+  }
+}

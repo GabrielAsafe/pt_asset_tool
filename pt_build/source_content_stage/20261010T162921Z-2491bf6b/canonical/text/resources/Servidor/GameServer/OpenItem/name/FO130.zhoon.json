@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.fo130",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/FO130.zhoon",
+    "GameServer/OpenItem/name/FO130.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/FO130.zhoon",
+    "legacy_sha256": "e23f378239a00361f7ccf61afa1797e5fe7002c7e49aa66c6a36f997ed277445",
+    "legacy_size": 30
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Força Mágica Miragem"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRm9y52EgTeFnaWNhIE1pcmFnZW0i"
+  }
+}

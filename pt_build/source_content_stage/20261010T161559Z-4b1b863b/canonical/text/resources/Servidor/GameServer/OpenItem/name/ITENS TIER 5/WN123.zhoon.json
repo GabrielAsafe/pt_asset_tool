@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn123",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN123.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN123.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN123.zhoon",
+    "legacy_sha256": "4b847cf3e1362b68e3404e997bc31f253ecc8d4a9e459033dce9c3090bd63054",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Acala Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjEyMy50eHQNCg0KKkpfTkFNRQkJIkFjYWxhIFBoYW50b20iDQo="
+  }
+}

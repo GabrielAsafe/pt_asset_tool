@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.69_guardi_u00e3o_do_mal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/69_Guardi#U00e3o do Mal.zhoon",
+    "GameServer/Monster/Name/69_Guardi#U00e3o do Mal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/69_Guardi#U00e3o do Mal.zhoon",
+    "legacy_sha256": "088a5239cd237c1806dd90f4f7000d265d537334adb31040db8ceb20d29172d9",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guardião do Mal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR3VhcmRp428gZG8gTWFsIg=="
+  }
+}

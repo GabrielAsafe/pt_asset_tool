@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ec102",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/EC102.zhoon",
+    "GameServer/OpenItem/name/EC102.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/EC102.zhoon",
+    "legacy_sha256": "75f125b0bfdefa4ea068e424fe042664c43f62d174c7a9b87b86ae3ac881de2d",
+    "legacy_size": 33
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pergaminho para Navisko"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVyZ2FtaW5obyBwYXJhIE5hdmlza28i"
+  }
+}

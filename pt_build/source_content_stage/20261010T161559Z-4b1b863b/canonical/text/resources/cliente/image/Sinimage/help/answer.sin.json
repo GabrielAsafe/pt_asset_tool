@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.answer",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/answer.sin",
+    "image/Sinimage/help/answer.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/answer.sin",
+    "legacy_sha256": "7ffab73809b1d01ec0efe15e26ed9c573337796be08782a7b0d17a56ad433623",
+    "legacy_size": 293
+  },
+  "semantic": {
+    "lines": [
+      "Olá, {0},",
+      "",
+      "Sou a Professora Snake e aplico as aulas de Matemática na Academia Real.",
+      "",
+      "Desejo avaliar como você aplica o raciocínio matemático em suas aventuras diárias.",
+      "",
+      "Vou lhe contar a história de um aventureiro do nível 98.",
+      "Acompanhe atentamente e responda todas as perguntas corretamente.",
+      "-"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhLCB7MH0sCgpTb3UgYSBQcm9mZXNzb3JhIFNuYWtlIGUgYXBsaWNvIGFzIGF1bGFzIGRlIE1hdGVt4XRpY2EgbmEgQWNhZGVtaWEgUmVhbC4KCkRlc2VqbyBhdmFsaWFyIGNvbW8gdm9j6iBhcGxpY2EgbyByYWNpb2PtbmlvIG1hdGVt4XRpY28gZW0gc3VhcyBhdmVudHVyYXMgZGnhcmlhcy4KClZvdSBsaGUgY29udGFyIGEgaGlzdPNyaWEgZGUgdW0gYXZlbnR1cmVpcm8gZG8gbu12ZWwgOTguCkFjb21wYW5oZSBhdGVudGFtZW50ZSBlIHJlc3BvbmRhIHRvZGFzIGFzIHBlcmd1bnRhcyBjb3JyZXRhbWVudGUuCi0="
+  }
+}

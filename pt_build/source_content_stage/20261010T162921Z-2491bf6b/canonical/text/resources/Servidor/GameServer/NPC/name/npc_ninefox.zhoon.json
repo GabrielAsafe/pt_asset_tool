@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.npc_ninefox",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/npc_ninefox.zhoon",
+    "GameServer/NPC/name/npc_ninefox.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/npc_ninefox.zhoon",
+    "legacy_sha256": "969ea5ed4b3f79f3ced665064c9332cc74d6c4468c433a8f9ea29f4b88ccb0e7",
+    "legacy_size": 269
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Preia"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Vim até aqui procurando dois amuletos."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ele era um monstro, mas nós realmente nos amávamos..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Os dois amuletos eram a prova do nosso amor. Não perdoarei o monstro que os roubou."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJQcmVpYSINCg0KKkpfQ0hBVAkJCSJWaW0gYXTpIGFxdWkgcHJvY3VyYW5kbyBkb2lzIGFtdWxldG9zLiINCipKX0NIQVQgICAgICAgICAgICAgICAgICAgIkVsZSBlcmEgdW0gbW9uc3RybywgbWFzIG7zcyByZWFsbWVudGUgbm9zIGFt4XZhbW9zLi4uIg0KKkpfQ0hBVCAgICAgICAgICAgICAgICAgICAiT3MgZG9pcyBhbXVsZXRvcyBlcmFtIGEgcHJvdmEgZG8gbm9zc28gYW1vci4gTuNvIHBlcmRvYXJlaSBvIG1vbnN0cm8gcXVlIG9zIHJvdWJvdS4iDQo="
+  }
+}

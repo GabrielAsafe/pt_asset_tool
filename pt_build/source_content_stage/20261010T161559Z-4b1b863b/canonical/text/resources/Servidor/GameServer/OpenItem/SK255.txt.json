@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sk255",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SK255.txt",
+    "GameServer/OpenItem/SK255.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SK255.txt",
+    "legacy_sha256": "0d22be46d6abc3a870347089f87acb5fb46a518d6277ed49881873f4780f3651",
+    "legacy_size": 55
+  },
+  "semantic": {
+    "fields": {
+      "name": "Skin Arco",
+      "code": "SK255"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Skin Arco"
+        ],
+        "raw_values_hex": [
+          "536b696e204172636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SK255"
+        ],
+        "raw_values_hex": [
+          "534b323535"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiU2tpbiBBcmNvIg0KKsTateUJIlNLMjU1Ig=="
+  }
+}

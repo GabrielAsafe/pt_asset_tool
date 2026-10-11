@@ -1,0 +1,474 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.archer",
+  "kind": "ini_config",
+  "selection_reason": "immutable_gameplay_config",
+  "runtime_paths": [
+    "Servidor/Configs/Skill/Archer.ini",
+    "Configs/Skill/Archer.ini"
+  ],
+  "source": {
+    "legacy_path": "Servidor/Configs/Skill/Archer.ini",
+    "legacy_sha256": "cffe99c8861d4596f82a4c923afeb55db56dbdf8c1c30c0b452d0b9e8eeccc9b",
+    "legacy_size": 4656
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 1 _______________________"
+      },
+      {
+        "line": 3,
+        "section": "",
+        "key": "",
+        "value": "// Falcao Vigia"
+      },
+      {
+        "line": 4,
+        "section": "",
+        "key": "Scout_Hawk_Attack_Rate",
+        "value": "10, 20, 30, 40, 50, 60, 70, 80, 90, 150 ;"
+      },
+      {
+        "line": 5,
+        "section": "",
+        "key": "Scout_Hawk_UseTime",
+        "value": "50, 60, 70, 80, 100, 100, 100, 100, 200, 200 ;"
+      },
+      {
+        "line": 6,
+        "section": "",
+        "key": "Scout_Hawk_UseMana",
+        "value": "14, 16, 18, 20, 23, 26, 30, 34, 39, 44 ;"
+      },
+      {
+        "line": 9,
+        "section": "",
+        "key": "",
+        "value": "// Mestra do Tiro "
+      },
+      {
+        "line": 10,
+        "section": "",
+        "key": "S_Mastery_DamagePercent",
+        "value": "10, 16, 24, 28, 58, 72, 86, 100, 124, 130 ;"
+      },
+      {
+        "line": 12,
+        "section": "",
+        "key": "",
+        "value": "// Flecha de Vento"
+      },
+      {
+        "line": 13,
+        "section": "",
+        "key": "Wind_Arrow_Speed",
+        "value": "2, 2, 2, 3, 3, 3, 4, 4, 4, 5 ;"
+      },
+      {
+        "line": 14,
+        "section": "",
+        "key": "Wind_Arrow_Damage",
+        "value": "15, 24, 32, 39, 45, 60, 75, 77, 79, 90 ;"
+      },
+      {
+        "line": 15,
+        "section": "",
+        "key": "Wind_Arrow_UseMana",
+        "value": "12, 14, 16, 18, 20, 23, 26, 29, 32, 35 ;"
+      },
+      {
+        "line": 17,
+        "section": "",
+        "key": "",
+        "value": "// Mira Perfeita"
+      },
+      {
+        "line": 18,
+        "section": "",
+        "key": "Perfect_Aim_Attack_Rate",
+        "value": "12, 14, 16, 18, 20, 22, 24, 26, 28, 30 ;"
+      },
+      {
+        "line": 19,
+        "section": "",
+        "key": "Perfect_Aim_DamagePercent",
+        "value": "20, 22, 24, 26, 28, 30, 32, 34, 36, 38 ;"
+      },
+      {
+        "line": 20,
+        "section": "",
+        "key": "Perfect_Aim_Damage_LV",
+        "value": "8,8,8,8,7,7,7,6,6,6 ;"
+      },
+      {
+        "line": 21,
+        "section": "",
+        "key": "Perfect_Aim_UseMana",
+        "value": "14, 16, 18, 20, 22, 25, 28, 31, 35, 39 ;"
+      },
+      {
+        "line": 23,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 2 _______________________"
+      },
+      {
+        "line": 25,
+        "section": "",
+        "key": "",
+        "value": "// Olho de Dion"
+      },
+      {
+        "line": 26,
+        "section": "",
+        "key": "D_Eye_Attack_Rate",
+        "value": "20, 30, 40, 50, 70, 90, 110, 140, 170, 200 ;"
+      },
+      {
+        "line": 28,
+        "section": "",
+        "key": "",
+        "value": "// Falcao"
+      },
+      {
+        "line": 29,
+        "section": "",
+        "key": "Falcon_Damage",
+        "value": "( 10, 36 ), ( 12, 40 ), ( 14, 44 ), ( 16, 48 ), ( 18, 52 ), ( 20, 56 ), ( 22, 60 ), ( 24, 64 ), ( 26, 68 ), ( 28, 72 ) ;"
+      },
+      {
+        "line": 30,
+        "section": "",
+        "key": "Falcon_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 31,
+        "section": "",
+        "key": "Falcon_UseMana",
+        "value": "24, 26, 28, 30, 33, 36, 39, 43, 47, 52 ;"
+      },
+      {
+        "line": 33,
+        "section": "",
+        "key": "",
+        "value": "// Flecha da Furia"
+      },
+      {
+        "line": 34,
+        "section": "",
+        "key": "A_Rage_ArrowNum",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ;"
+      },
+      {
+        "line": 35,
+        "section": "",
+        "key": "A_Rage_Damage",
+        "value": "1, 2, 2, 3, 4, 4, 5, 5, 5, 5 ;"
+      },
+      {
+        "line": 36,
+        "section": "",
+        "key": "A_Rage_Area",
+        "value": "55, 59, 63, 67, 70, 73, 76, 79, 82, 85 ;"
+      },
+      {
+        "line": 37,
+        "section": "",
+        "key": "A_Rage_UseMana",
+        "value": "24, 26, 28, 31, 44, 67, 70, 74, 78, 83 ;"
+      },
+      {
+        "line": 39,
+        "section": "",
+        "key": "",
+        "value": "// Avalanche"
+      },
+      {
+        "line": 40,
+        "section": "",
+        "key": "Avalanche_Speed",
+        "value": "1, 1, 1, 2, 2, 2, 3, 3, 3, 4 ;"
+      },
+      {
+        "line": 41,
+        "section": "",
+        "key": "Avalanche_Damage",
+        "value": "30, 35, 40, 45, 50, 55, 60, 65, 70, 75 ;"
+      },
+      {
+        "line": 42,
+        "section": "",
+        "key": "Avalanche_ArrowNum",
+        "value": "3, 3, 3, 4, 4, 4, 5, 5, 5, 6 ;"
+      },
+      {
+        "line": 43,
+        "section": "",
+        "key": "Avalanche_UseMana",
+        "value": "25, 28, 31, 34, 38, 42, 46, 51, 56, 61 ;"
+      },
+      {
+        "line": 45,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 3 _______________________"
+      },
+      {
+        "line": 47,
+        "section": "",
+        "key": "",
+        "value": "// Tiro Elemental"
+      },
+      {
+        "line": 48,
+        "section": "",
+        "key": "Elemental_Shot_Ice",
+        "value": "( 10, 20 ), ( 13, 24 ), ( 16, 28 ), ( 19, 32 ), ( 22, 36 ), ( 25, 40 ), ( 28, 44 ), ( 31, 48 ), ( 34, 52 ), ( 37, 56 ) ;"
+      },
+      {
+        "line": 49,
+        "section": "",
+        "key": "Elemental_Shot_Fire",
+        "value": "( 12, 22 ), ( 17, 27 ), ( 22, 32 ), ( 27, 37 ), ( 32, 42 ), ( 37, 47 ), ( 42, 52 ), ( 47, 57 ), ( 52, 62 ), ( 57, 67 ) ;"
+      },
+      {
+        "line": 50,
+        "section": "",
+        "key": "Elemental_Shot_Lightning",
+        "value": "( 5, 17 ), ( 9, 22 ), ( 13, 27 ), ( 17, 32 ), ( 21, 37 ), ( 25, 42 ), ( 29, 47 ), ( 33, 52 ), ( 37, 57 ), ( 41, 62 ) ;"
+      },
+      {
+        "line": 51,
+        "section": "",
+        "key": "Elemental_ShotPercent",
+        "value": "27, 29, 31, 33, 36, 39, 42, 45, 48, 51 ;"
+      },
+      {
+        "line": 52,
+        "section": "",
+        "key": "Elemental_Shot_UseMana",
+        "value": "27, 29, 31, 33, 36, 39, 42, 45, 48, 51 ;"
+      },
+      {
+        "line": 54,
+        "section": "",
+        "key": "",
+        "value": "// Falcao Dourado"
+      },
+      {
+        "line": 55,
+        "section": "",
+        "key": "Golden_Falcon_Damage",
+        "value": "150, 160, 165, 170, 175, 180, 185, 190, 225, 250 ;"
+      },
+      {
+        "line": 56,
+        "section": "",
+        "key": "Golden_Falcon_LifeRegen",
+        "value": "2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.5 ;"
+      },
+      {
+        "line": 57,
+        "section": "",
+        "key": "Golden_Falcon_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 58,
+        "section": "",
+        "key": "Golden_Falcon_UseMana",
+        "value": "33, 36, 39, 42, 46, 50, 54, 59, 64, 70 ;"
+      },
+      {
+        "line": 60,
+        "section": "",
+        "key": "",
+        "value": "// Tiro Explosivo"
+      },
+      {
+        "line": 61,
+        "section": "",
+        "key": "BombShot_Damage",
+        "value": "4, 8, 12, 16, 20, 24, 28, 32, 36, 40 ;"
+      },
+      {
+        "line": 62,
+        "section": "",
+        "key": "BombShot_DemonDamage",
+        "value": "46, 52, 58, 64, 70, 76, 82, 88, 94, 100 ;"
+      },
+      {
+        "line": 63,
+        "section": "",
+        "key": "BombShot_AddDamage",
+        "value": "( 15, 27 ), ( 18, 31 ), ( 21, 35 ), ( 24, 39 ), ( 27, 43 ), ( 30, 47 ), ( 33, 51 ), ( 36, 55 ), ( 39, 59 ), ( 42, 63 ) ;"
+      },
+      {
+        "line": 64,
+        "section": "",
+        "key": "BombShot_Area",
+        "value": "82, 84, 86, 88, 90, 92, 94, 96, 98, 100 ;"
+      },
+      {
+        "line": 65,
+        "section": "",
+        "key": "BombShot_UseMana",
+        "value": "28, 31, 34, 37, 40, 43, 46, 49, 52, 53 ;"
+      },
+      {
+        "line": 67,
+        "section": "",
+        "key": "",
+        "value": "// Perfuracao"
+      },
+      {
+        "line": 68,
+        "section": "",
+        "key": "Perforation_Damage",
+        "value": "10, 20, 30, 40, 55, 62, 69, 96, 123, 130 ;"
+      },
+      {
+        "line": 69,
+        "section": "",
+        "key": "Perforation_Critical",
+        "value": "3, 6, 9, 12, 14, 15, 16, 20, 30, 45 ;"
+      },
+      {
+        "line": 70,
+        "section": "",
+        "key": "Perforation_UseMana",
+        "value": "28, 31, 32, 33, 34, 35, 36, 37, 38, 39 ;"
+      },
+      {
+        "line": 71,
+        "section": "",
+        "key": "Perforation_Attack_Range",
+        "value": "30, 34, 38, 42, 46, 50, 54, 58, 62, 66 ;"
+      },
+      {
+        "line": 73,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 4 _______________________"
+      },
+      {
+        "line": 75,
+        "section": "",
+        "key": "",
+        "value": "// Invocar Wolverine "
+      },
+      {
+        "line": 76,
+        "section": "",
+        "key": "Recall_Wolverin_Damage",
+        "value": "(100, 120), (120, 140), (140, 160), (160, 180), (180, 200), (200, 220), (220, 240), (240, 260), (260, 280), (280, 300) ;"
+      },
+      {
+        "line": 77,
+        "section": "",
+        "key": "Recall_Wolverin_Hit",
+        "value": "1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900 ;"
+      },
+      {
+        "line": 78,
+        "section": "",
+        "key": "Recall_Wolverin_Defense",
+        "value": "2000, 2050, 2100, 2150, 2250, 2300, 2350, 2400, 2450 ;"
+      },
+      {
+        "line": 79,
+        "section": "",
+        "key": "Recall_Wolverin_Life",
+        "value": "14000,14200,14400,14600,14800,15000,16000,17000,18000,20000 ;"
+      },
+      {
+        "line": 80,
+        "section": "",
+        "key": "Recall_Wolverin_UseMana",
+        "value": "52, 56, 60, 64, 68, 72, 76, 80, 84, 88 ;"
+      },
+      {
+        "line": 82,
+        "section": "",
+        "key": "",
+        "value": "// Mestra da Esquiva"
+      },
+      {
+        "line": 83,
+        "section": "",
+        "key": "Evasion_Mastery_AddPercent",
+        "value": "20, 20, 20, 20, 20, 20, 20, 20, 20, 20 ;"
+      },
+      {
+        "line": 85,
+        "section": "",
+        "key": "",
+        "value": "// Tiro Fenix"
+      },
+      {
+        "line": 86,
+        "section": "",
+        "key": "Phoenix_Shot_DamagePercent",
+        "value": "145, 160, 170, 190, 205, 220, 250, 350, 390, 430 ;"
+      },
+      {
+        "line": 87,
+        "section": "",
+        "key": "Phoenix_Shot_Time",
+        "value": "9, 18, 27, 36, 45, 54, 60, 68, 83, 86;"
+      },
+      {
+        "line": 88,
+        "section": "",
+        "key": "Phoenix_Shot_UseMana",
+        "value": "33, 35, 37, 40, 43, 46, 50, 52, 54, 59 ;"
+      },
+      {
+        "line": 90,
+        "section": "",
+        "key": "",
+        "value": "// Forca da Natureza"
+      },
+      {
+        "line": 91,
+        "section": "",
+        "key": "Force_Of_Nature_AddDamage",
+        "value": "70, 75, 80, 85, 90, 95, 100, 105, 110, 120 ;"
+      },
+      {
+        "line": 92,
+        "section": "",
+        "key": "Force_Of_Nature_AddHit",
+        "value": "40, 80, 120, 160, 200, 240, 280, 320, 360, 400 ;"
+      },
+      {
+        "line": 93,
+        "section": "",
+        "key": "Force_Of_Nature_FalconAddDamage",
+        "value": "22, 26, 30, 34, 38, 42, 46, 50, 54, 65 ;"
+      },
+      {
+        "line": 94,
+        "section": "",
+        "key": "Force_Of_Nature_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 95,
+        "section": "",
+        "key": "Force_Of_Nature_UseMana",
+        "value": "51, 54, 57, 60, 63, 66, 69, 72, 75, 78 ;"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gX19fX19fX19fX19fX19fX19fX19fX18gVElFUiAxIF9fX19fX19fX19fX19fX19fX19fX19fDQoNCi8vIEZhbGNhbyBWaWdpYQ0KU2NvdXRfSGF3a19BdHRhY2tfUmF0ZSA9IDEwLCAyMCwgMzAsIDQwLCA1MCwgNjAsIDcwLCA4MCwgOTAsIDE1MCA7DQpTY291dF9IYXdrX1VzZVRpbWUgPSA1MCwgNjAsIDcwLCA4MCwgMTAwLCAxMDAsIDEwMCwgMTAwLCAyMDAsIDIwMCA7DQpTY291dF9IYXdrX1VzZU1hbmEgPSAxNCwgMTYsIDE4LCAyMCwgMjMsIDI2LCAzMCwgMzQsIDM5LCA0NCA7DQoNCg0KLy8gTWVzdHJhIGRvIFRpcm8gDQpTX01hc3RlcnlfRGFtYWdlUGVyY2VudCA9IDEwLCAxNiwgMjQsIDI4LCA1OCwgNzIsIDg2LCAxMDAsIDEyNCwgMTMwIDsNCg0KLy8gRmxlY2hhIGRlIFZlbnRvDQpXaW5kX0Fycm93X1NwZWVkID0gMiwgMiwgMiwgMywgMywgMywgNCwgNCwgNCwgNSA7DQpXaW5kX0Fycm93X0RhbWFnZSA9IDE1LCAyNCwgMzIsIDM5LCA0NSwgNjAsIDc1LCA3NywgNzksIDkwIDsNCldpbmRfQXJyb3dfVXNlTWFuYSA9IDEyLCAxNCwgMTYsIDE4LCAyMCwgMjMsIDI2LCAyOSwgMzIsIDM1IDsNCg0KLy8gTWlyYSBQZXJmZWl0YQ0KUGVyZmVjdF9BaW1fQXR0YWNrX1JhdGUgPSAxMiwgMTQsIDE2LCAxOCwgMjAsIDIyLCAyNCwgMjYsIDI4LCAzMCA7DQpQZXJmZWN0X0FpbV9EYW1hZ2VQZXJjZW50ID0gMjAsIDIyLCAyNCwgMjYsIDI4LCAzMCwgMzIsIDM0LCAzNiwgMzggOw0KUGVyZmVjdF9BaW1fRGFtYWdlX0xWID0gOCw4LDgsOCw3LDcsNyw2LDYsNiA7DQpQZXJmZWN0X0FpbV9Vc2VNYW5hID0gMTQsIDE2LCAxOCwgMjAsIDIyLCAyNSwgMjgsIDMxLCAzNSwgMzkgOw0KDQovLyBfX19fX19fX19fX19fX19fX19fX19fXyBUSUVSIDIgX19fX19fX19fX19fX19fX19fX19fX18NCg0KLy8gT2xobyBkZSBEaW9uDQpEX0V5ZV9BdHRhY2tfUmF0ZSA9IDIwLCAzMCwgNDAsIDUwLCA3MCwgOTAsIDExMCwgMTQwLCAxNzAsIDIwMCA7DQoNCi8vIEZhbGNhbw0KRmFsY29uX0RhbWFnZSA9ICggMTAsIDM2ICksICggMTIsIDQwICksICggMTQsIDQ0ICksICggMTYsIDQ4ICksICggMTgsIDUyICksICggMjAsIDU2ICksICggMjIsIDYwICksICggMjQsIDY0ICksICggMjYsIDY4ICksICggMjgsIDcyICkgOw0KRmFsY29uX1RpbWUgPSAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAgOw0KRmFsY29uX1VzZU1hbmEgPSAyNCwgMjYsIDI4LCAzMCwgMzMsIDM2LCAzOSwgNDMsIDQ3LCA1MiA7DQoNCi8vIEZsZWNoYSBkYSBGdXJpYQ0KQV9SYWdlX0Fycm93TnVtID0gMSwgMiwgMywgNCwgNSwgNiwgNywgOCwgOSwgMTAgOw0KQV9SYWdlX0RhbWFnZSA9IDEsIDIsIDIsIDMsIDQsIDQsIDUsIDUsIDUsIDUgOw0KQV9SYWdlX0FyZWEgPSA1NSwgNTksIDYzLCA2NywgNzAsIDczLCA3NiwgNzksIDgyLCA4NSA7DQpBX1JhZ2VfVXNlTWFuYSA9IDI0LCAyNiwgMjgsIDMxLCA0NCwgNjcsIDcwLCA3NCwgNzgsIDgzIDsNCg0KLy8gQXZhbGFuY2hlDQpBdmFsYW5jaGVfU3BlZWQgPSAxLCAxLCAxLCAyLCAyLCAyLCAzLCAzLCAzLCA0IDsNCkF2YWxhbmNoZV9EYW1hZ2UgPSAzMCwgMzUsIDQwLCA0NSwgNTAsIDU1LCA2MCwgNjUsIDcwLCA3NSA7DQpBdmFsYW5jaGVfQXJyb3dOdW0gPSAzLCAzLCAzLCA0LCA0LCA0LCA1LCA1LCA1LCA2IDsNCkF2YWxhbmNoZV9Vc2VNYW5hID0gMjUsIDI4LCAzMSwgMzQsIDM4LCA0MiwgNDYsIDUxLCA1NiwgNjEgOw0KDQovLyBfX19fX19fX19fX19fX19fX19fX19fXyBUSUVSIDMgX19fX19fX19fX19fX19fX19fX19fX18NCg0KLy8gVGlybyBFbGVtZW50YWwNCkVsZW1lbnRhbF9TaG90X0ljZSA9ICggMTAsIDIwICksICggMTMsIDI0ICksICggMTYsIDI4ICksICggMTksIDMyICksICggMjIsIDM2ICksICggMjUsIDQwICksICggMjgsIDQ0ICksICggMzEsIDQ4ICksICggMzQsIDUyICksICggMzcsIDU2ICkgOw0KRWxlbWVudGFsX1Nob3RfRmlyZSA9ICggMTIsIDIyICksICggMTcsIDI3ICksICggMjIsIDMyICksICggMjcsIDM3ICksICggMzIsIDQyICksICggMzcsIDQ3ICksICggNDIsIDUyICksICggNDcsIDU3ICksICggNTIsIDYyICksICggNTcsIDY3ICkgOw0KRWxlbWVudGFsX1Nob3RfTGlnaHRuaW5nID0gKCA1LCAxNyApLCAoIDksIDIyICksICggMTMsIDI3ICksICggMTcsIDMyICksICggMjEsIDM3ICksICggMjUsIDQyICksICggMjksIDQ3ICksICggMzMsIDUyICksICggMzcsIDU3ICksICggNDEsIDYyICkgOw0KRWxlbWVudGFsX1Nob3RQZXJjZW50ID0gMjcsIDI5LCAzMSwgMzMsIDM2LCAzOSwgNDIsIDQ1LCA0OCwgNTEgOw0KRWxlbWVudGFsX1Nob3RfVXNlTWFuYSA9IDI3LCAyOSwgMzEsIDMzLCAzNiwgMzksIDQyLCA0NSwgNDgsIDUxIDsNCg0KLy8gRmFsY2FvIERvdXJhZG8NCkdvbGRlbl9GYWxjb25fRGFtYWdlID0gMTUwLCAxNjAsIDE2NSwgMTcwLCAxNzUsIDE4MCwgMTg1LCAxOTAsIDIyNSwgMjUwIDsNCkdvbGRlbl9GYWxjb25fTGlmZVJlZ2VuID0gMi41LCAzLjAsIDMuNSwgNC4wLCA0LjUsIDUuMCwgNS41LCA2LjAsIDYuNSwgNy41IDsNCkdvbGRlbl9GYWxjb25fVGltZSA9IDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCA7DQpHb2xkZW5fRmFsY29uX1VzZU1hbmEgPSAzMywgMzYsIDM5LCA0MiwgNDYsIDUwLCA1NCwgNTksIDY0LCA3MCA7DQoNCi8vIFRpcm8gRXhwbG9zaXZvDQpCb21iU2hvdF9EYW1hZ2UgPSA0LCA4LCAxMiwgMTYsIDIwLCAyNCwgMjgsIDMyLCAzNiwgNDAgOw0KQm9tYlNob3RfRGVtb25EYW1hZ2UgPSA0NiwgNTIsIDU4LCA2NCwgNzAsIDc2LCA4MiwgODgsIDk0LCAxMDAgOw0KQm9tYlNob3RfQWRkRGFtYWdlID0gKCAxNSwgMjcgKSwgKCAxOCwgMzEgKSwgKCAyMSwgMzUgKSwgKCAyNCwgMzkgKSwgKCAyNywgNDMgKSwgKCAzMCwgNDcgKSwgKCAzMywgNTEgKSwgKCAzNiwgNTUgKSwgKCAzOSwgNTkgKSwgKCA0MiwgNjMgKSA7DQpCb21iU2hvdF9BcmVhID0gODIsIDg0LCA4NiwgODgsIDkwLCA5MiwgOTQsIDk2LCA5OCwgMTAwIDsNCkJvbWJTaG90X1VzZU1hbmEgPSAyOCwgMzEsIDM0LCAzNywgNDAsIDQzLCA0NiwgNDksIDUyLCA1MyA7DQoNCi8vIFBlcmZ1cmFjYW8NClBlcmZvcmF0aW9uX0RhbWFnZSA9IDEwLCAyMCwgMzAsIDQwLCA1NSwgNjIsIDY5LCA5NiwgMTIzLCAxMzAgOw0KUGVyZm9yYXRpb25fQ3JpdGljYWwgPSAzLCA2LCA5LCAxMiwgMTQsIDE1LCAxNiwgMjAsIDMwLCA0NSA7DQpQZXJmb3JhdGlvbl9Vc2VNYW5hID0gMjgsIDMxLCAzMiwgMzMsIDM0LCAzNSwgMzYsIDM3LCAzOCwgMzkgOw0KUGVyZm9yYXRpb25fQXR0YWNrX1JhbmdlID0gMzAsIDM0LCAzOCwgNDIsIDQ2LCA1MCwgNTQsIDU4LCA2MiwgNjYgOw0KDQovLyBfX19fX19fX19fX19fX19fX19fX19fXyBUSUVSIDQgX19fX19fX19fX19fX19fX19fX19fX18NCg0KLy8gSW52b2NhciBXb2x2ZXJpbmUgDQpSZWNhbGxfV29sdmVyaW5fRGFtYWdlID0gKDEwMCwgMTIwKSwgKDEyMCwgMTQwKSwgKDE0MCwgMTYwKSwgKDE2MCwgMTgwKSwgKDE4MCwgMjAwKSwgKDIwMCwgMjIwKSwgKDIyMCwgMjQwKSwgKDI0MCwgMjYwKSwgKDI2MCwgMjgwKSwgKDI4MCwgMzAwKSA7CSAgDQpSZWNhbGxfV29sdmVyaW5fSGl0ID0gMTAwMCwgMTEwMCwgMTIwMCwgMTMwMCwgMTQwMCwgMTUwMCwgMTYwMCwgMTcwMCwgMTgwMCwgMTkwMCA7IA0KUmVjYWxsX1dvbHZlcmluX0RlZmVuc2UgPSAyMDAwLCAyMDUwLCAyMTAwLCAyMTUwLCAyMjUwLCAyMzAwLCAyMzUwLCAyNDAwLCAyNDUwIDsNClJlY2FsbF9Xb2x2ZXJpbl9MaWZlID0gMTQwMDAsMTQyMDAsMTQ0MDAsMTQ2MDAsMTQ4MDAsMTUwMDAsMTYwMDAsMTcwMDAsMTgwMDAsMjAwMDAgOyAgDQpSZWNhbGxfV29sdmVyaW5fVXNlTWFuYSA9IDUyLCA1NiwgNjAsIDY0LCA2OCwgNzIsIDc2LCA4MCwgODQsIDg4IDsNCg0KLy8gTWVzdHJhIGRhIEVzcXVpdmENCkV2YXNpb25fTWFzdGVyeV9BZGRQZXJjZW50ID0gMjAsIDIwLCAyMCwgMjAsIDIwLCAyMCwgMjAsIDIwLCAyMCwgMjAgOw0KDQovLyBUaXJvIEZlbml4DQpQaG9lbml4X1Nob3RfRGFtYWdlUGVyY2VudCA9IDE0NSwgMTYwLCAxNzAsIDE5MCwgMjA1LCAyMjAsIDI1MCwgMzUwLCAzOTAsIDQzMCA7DQpQaG9lbml4X1Nob3RfVGltZSA9IDksIDE4LCAyNywgMzYsIDQ1LCA1NCwgNjAsIDY4LCA4MywgODY7DQpQaG9lbml4X1Nob3RfVXNlTWFuYSA9IDMzLCAzNSwgMzcsIDQwLCA0MywgNDYsIDUwLCA1MiwgNTQsIDU5IDsNCg0KLy8gRm9yY2EgZGEgTmF0dXJlemENCkZvcmNlX09mX05hdHVyZV9BZGREYW1hZ2UgPSA3MCwgNzUsIDgwLCA4NSwgOTAsIDk1LCAxMDAsIDEwNSwgMTEwLCAxMjAgOwkNCkZvcmNlX09mX05hdHVyZV9BZGRIaXQgPSA0MCwgODAsIDEyMCwgMTYwLCAyMDAsIDI0MCwgMjgwLCAzMjAsIDM2MCwgNDAwIDsNCkZvcmNlX09mX05hdHVyZV9GYWxjb25BZGREYW1hZ2UgPSAyMiwgMjYsIDMwLCAzNCwgMzgsIDQyLCA0NiwgNTAsIDU0LCA2NSA7DQpGb3JjZV9PZl9OYXR1cmVfVGltZSA9IDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCA7IA0KRm9yY2VfT2ZfTmF0dXJlX1VzZU1hbmEgPSA1MSwgNTQsIDU3LCA2MCwgNjMsIDY2LCA2OSwgNzIsIDc1LCA3OCA7"
+  }
+}

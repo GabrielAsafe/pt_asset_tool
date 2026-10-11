@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wr106",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WR106.zhoon",
+    "GameServer/OpenItem/name/WR106.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WR106.zhoon",
+    "legacy_sha256": "db2e5d3feb1085798ce57b998fff4a78bc0275c40a448c06f873c9ae3414fc09",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Receita de Ataque Nível 80D"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUmVjZWl0YSBkZSBBdGFxdWUgTu12ZWwgODBEIg=="
+  }
+}

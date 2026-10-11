@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_6",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/114LVQuest_6.msg",
+    "image/party/party_DATA/HaQuest/114LVQuest_6.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/114LVQuest_6.msg",
+    "legacy_sha256": "c8696e6a8bca344ecedb404986f852484418b69a6474b7a40a9b3a3f9b57a4b5",
+    "legacy_size": 105
+  },
+  "semantic": {
+    "lines": [
+      "Derrote o Greedy na Arma",
+      "Antiga, capture-o com a",
+      "Prisão Mágica e fale,",
+      "novamente, com a Sábia",
+      "Celina."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBvIEdyZWVkeSBuYSBBcm1hDQpBbnRpZ2EsIGNhcHR1cmUtbyBjb20gYQ0KUHJpc+NvIE3hZ2ljYSBlIGZhbGUsDQpub3ZhbWVudGUsIGNvbSBhIFPhYmlhDQpDZWxpbmEu"
+  }
+}

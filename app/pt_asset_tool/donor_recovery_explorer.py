@@ -643,8 +643,16 @@ def _scan_domain(
 
 
 def _closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]:
-    path = project / "pt_build" / "general_asset_census" / "recovery_bundles.json"
-    if not path.is_file():
+    project = pathlib.Path(project).resolve()
+    # PT_ASSET_CLOSED_RECOVERY_APP_BUILD_COMPAT_V1
+    # Packaged/current PT Asset Tool persists build evidence under app/pt_build.
+    # Keep the historical pt_build fallback for older layouts.
+    candidates = (
+        project / "app" / "pt_build" / "general_asset_census" / "recovery_bundles.json",
+        project / "pt_build" / "general_asset_census" / "recovery_bundles.json",
+    )
+    path = next((candidate for candidate in candidates if candidate.is_file()), None)
+    if path is None:
         return {}
     try:
         data = json.loads(path.read_text(encoding="utf-8"))

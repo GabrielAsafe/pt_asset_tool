@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.gp140",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/GP140.zhoon",
+    "GameServer/OpenItem/name/GP140.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/GP140.zhoon",
+    "legacy_sha256": "dfd7b01e0b4b7708d95f5ba21c36aa3d81c8233c83d5c41c421891919f0ae7a9",
+    "legacy_size": 33
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cristal do Robô Mutante"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ3Jpc3RhbCBkbyBSb2L0IE11dGFudGUi"
+  }
+}

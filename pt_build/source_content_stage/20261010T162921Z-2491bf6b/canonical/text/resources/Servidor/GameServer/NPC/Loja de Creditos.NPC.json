@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.loja_de_creditos",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Loja de Creditos.NPC",
+    "GameServer/NPC/Loja de Creditos.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Loja de Creditos.NPC",
+    "legacy_sha256": "88a80ed0bfc650abeac5dad0e740eeeff4f307f20023f1b1e066947c22b0a3a2",
+    "legacy_size": 724
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "CHAR\\NPC\\CASHSHOP\\CASH.INI",
+      "english_name": "Abaranbo",
+      "shop": true,
+      "linked_file": "name\\Loja de Creditos.zhoon",
+      "model_config_id": "model.char.npc.cashshop.cash"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "CHAR\\NPC\\CASHSHOP\\CASH.INI"
+        ],
+        "raw_values_hex": [
+          "434841525c4e50435c4341534853484f505c434153482e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Abaranbo"
+        ],
+        "raw_values_hex": [
+          "41626172616e626f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 15,
+        "key": "shop",
+        "legacy_token": "*Shop",
+        "legacy_token_hex": "2a53686f70",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 26,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Loja de Creditos.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4c6f6a61206465204372656469746f732e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCSJDSEFSXE5QQ1xDQVNIU0hPUFxDQVNILklOSSINCi8vKsDMuKcJCQkitOvA5cDlwMwgsO21pyINCipOYW1lCQkJIkFiYXJhbmJvIg0KDQovLyqw6LHeIDEwMTgNCg0KLy8qtOvIrQkJCSLAzLn4v6Egu/W3ziCws773x9EgsO21pyDA1LTPtNkuIMD6yPEgsKGw1L+hvLEgw8qx3sDluvG4piDD67Hex8+w7SDA1sC4tM8gvtXAuLfOIMDfILrOxbkgteW4rrDavcC0z7TZLiINCi8vKrTryK0JCQkiwNogw8qx3iDA/Lvntem/obDUILLAIMfKv+TH0SDA5brxtenAzCDB2Lrxtce+7iDA1r3AtM+02S4iDQovLyq068itCQkJIrCzvvfH0cH2IL7zuLYgtcfB9iC+yr7Swfa4uCDHsMH6wLogyK69x8fVtM+02S4gwNrA2iC10bevILq4vLy/5CINCi8vKrTryK0JCQkitOe9xcDMIL/4x8+0wiDA5brxsKEgvvi02bjpILTZuK4gsMezysbtv6EgwNa0wiC068DlwOXAzCCwxb26uKYgw6O+xrChILq4vLy/5C4iDQoNCg0KKlNob3ANCg0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCi8vKrmrseLGx7jFCSB3cDExMiB3czExMyB3czIxMyB3dDExMiB3YTExMSB3YzExMSAgd2gxMTIgd20xMTIgDQoNCi8vKrnmvu6xuMbHuMUJZGExMTMgZGEyMTMgZHMxMTEgZGIxMTEgZGcxMTEgb2EyMTEgb3IxMTQgb2ExMTQNCg0KLy8qwOLIrcbHuMUJvvjAvQ0KDQoqv6yw4cbEwM8JIm5hbWVcTG9qYSBkZSBDcmVkaXRvcy56aG9vbiINCg=="
+  }
+}

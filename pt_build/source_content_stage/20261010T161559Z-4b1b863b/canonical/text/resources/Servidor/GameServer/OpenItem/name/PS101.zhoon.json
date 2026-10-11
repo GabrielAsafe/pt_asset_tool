@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ps101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/PS101.zhoon",
+    "GameServer/OpenItem/name/PS101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/PS101.zhoon",
+    "legacy_sha256": "8c33d25ba65b99f2af457d56165f332146f70dba6f7a5afc2ae7b5ba16bb613c",
+    "legacy_size": 30
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Poção Pequena de RES"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUG/n428gUGVxdWVuYSBkZSBSRVMi"
+  }
+}

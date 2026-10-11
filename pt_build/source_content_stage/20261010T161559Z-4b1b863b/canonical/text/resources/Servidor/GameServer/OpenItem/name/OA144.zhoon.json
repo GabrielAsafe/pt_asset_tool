@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.oa144",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OA144.zhoon",
+    "GameServer/OpenItem/name/OA144.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OA144.zhoon",
+    "legacy_sha256": "18c8e005567020585950900245af62d2807bc6ed6d7b8bee2b2d8f4da332ae03",
+    "legacy_size": 186
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 6,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Amuleto de Tulla"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQovLwlQVCBJVEVNIFRFTVBMQVRFIEJZIFdPUk1ZCS8vDQovLwkgIElDRSBNSU5FIDFGIElURU0gUEFDSwkJLy8NCi8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLw0KDQoqSl9OYW1lCQkiQW11bGV0byBkZSBUdWxsYSINCg0K"
+  }
+}

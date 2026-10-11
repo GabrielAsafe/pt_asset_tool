@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest55_2start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest55-2start.sin",
+    "image/Sinimage/Quest/LevelQuest55-2start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest55-2start.sin",
+    "legacy_sha256": "8a9588334afc657aa2fa526a5d484049da73a78e7db23fe4cf4816117965a409",
+    "legacy_size": 341
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "The time for the test has come.",
+      "",
+      "Actually, I know your skill is not perfect yet, ",
+      "and prepared something to help you with it. But ",
+      "you should pass the test first.",
+      "",
+      "Go into the Beehive Cave and hunt 20 Dire Bees ",
+      "to come back to me, then you will pass the test. ",
+      "I bet it will not be such hard for you.",
+      "",
+      "Now, leave for your quest!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpUaGUgdGltZSBmb3IgdGhlIHRlc3QgaGFzIGNvbWUuDQoNCkFjdHVhbGx5LCBJIGtub3cgeW91ciBza2lsbCBpcyBub3QgcGVyZmVjdCB5ZXQsIA0KYW5kIHByZXBhcmVkIHNvbWV0aGluZyB0byBoZWxwIHlvdSB3aXRoIGl0LiBCdXQgDQp5b3Ugc2hvdWxkIHBhc3MgdGhlIHRlc3QgZmlyc3QuDQoNCkdvIGludG8gdGhlIEJlZWhpdmUgQ2F2ZSBhbmQgaHVudCAyMCBEaXJlIEJlZXMgDQp0byBjb21lIGJhY2sgdG8gbWUsIHRoZW4geW91IHdpbGwgcGFzcyB0aGUgdGVzdC4gDQpJIGJldCBpdCB3aWxsIG5vdCBiZSBzdWNoIGhhcmQgZm9yIHlvdS4NCg0KTm93LCBsZWF2ZSBmb3IgeW91ciBxdWVzdCE="
+  }
+}

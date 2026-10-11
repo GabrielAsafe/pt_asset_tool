@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.teacher.teacher02",
+  "logical_config": "char/npc/Teacher/Teacher02.ini",
+  "legacy_cache": "char/npc/Teacher/Teacher02.inx",
+  "consumers": [
+    {
+      "id": "npc.loja_do_tempo",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Loja do Tempo.NPC.json"
+    },
+    {
+      "id": "npc.timeshop",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/timeshop.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Teacher/Teacher02.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Teacher/Teacher02.inx"
+    }
+  }
+}

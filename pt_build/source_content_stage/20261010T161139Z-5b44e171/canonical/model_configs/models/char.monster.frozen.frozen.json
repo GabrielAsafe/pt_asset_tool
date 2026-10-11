@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.frozen.frozen",
+  "logical_config": "char/monster/frozen/frozen.ini",
+  "legacy_cache": "char/monster/frozen/frozen.inx",
+  "consumers": [
+    {
+      "id": "monster.89_congelado",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/89_Congelado.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/frozen/frozen.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/frozen/frozen.inx"
+    }
+  }
+}

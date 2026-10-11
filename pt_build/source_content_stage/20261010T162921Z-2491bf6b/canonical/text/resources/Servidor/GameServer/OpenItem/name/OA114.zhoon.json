@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.oa114",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OA114.zhoon",
+    "GameServer/OpenItem/name/OA114.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OA114.zhoon",
+    "legacy_sha256": "6eaf66324feae2eb0493c7203739f6e7fec57be965699170c3a7d0ef5f7d097e",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Colar Encantado +1"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ29sYXIgRW5jYW50YWRvICsxIg=="
+  }
+}

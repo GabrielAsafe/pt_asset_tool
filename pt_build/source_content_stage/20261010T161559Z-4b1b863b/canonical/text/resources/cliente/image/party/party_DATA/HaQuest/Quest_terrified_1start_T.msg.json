@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_terrified_1start_t",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_terrified_1start_T.msg",
+    "image/party/party_DATA/HaQuest/Quest_terrified_1start_T.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_terrified_1start_T.msg",
+    "legacy_sha256": "3171c93ffe59270ac19832ebd6f80c9cddd8205d1908b378e3bc7a243aa08d92",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "lines": [
+      "After hunting 5 ",
+      "Hopies in the Garden of ",
+      "freedom, go back to Ran ",
+      "and get a reward."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QWZ0ZXIgaHVudGluZyA1IA0KSG9waWVzIGluIHRoZSBHYXJkZW4gb2YgDQpmcmVlZG9tLCBnbyBiYWNrIHRvIFJhbiANCmFuZCBnZXQgYSByZXdhcmQu"
+  }
+}

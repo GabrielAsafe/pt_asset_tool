@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.015.tn.015",
+  "logical_config": "char/npc/TN-015/TN-015.INI",
+  "legacy_cache": "char/npc/TN-015/TN-015.inx",
+  "consumers": [
+    {
+      "id": "npc.wfzone",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/wfzone.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-015/TN-015.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-015/TN-015.inx"
+    }
+  }
+}

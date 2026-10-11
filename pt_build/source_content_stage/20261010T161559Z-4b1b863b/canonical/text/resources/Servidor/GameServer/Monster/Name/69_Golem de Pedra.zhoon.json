@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.69_golem_de_pedra",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/69_Golem de Pedra.zhoon",
+    "GameServer/Monster/Name/69_Golem de Pedra.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/69_Golem de Pedra.zhoon",
+    "legacy_sha256": "a4d306dd6601cf3601eb9b036b2d9e2b6888b3400623cf82ad27e5421c26206c",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Golem de Pedra"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR29sZW0gZGUgUGVkcmEi"
+  }
+}

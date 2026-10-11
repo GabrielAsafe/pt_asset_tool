@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.g_wing_b",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/G_Wing_b.sin",
+    "image/Sinimage/Quest/G_Wing_b.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/G_Wing_b.sin",
+    "legacy_sha256": "15ee9efdaa7423880de679d75aecf4cbb18a7ea88756bfb507ec87b68d76d599",
+    "legacy_size": 411
+  },
+  "semantic": {
+    "lines": [
+      "Great! job well done.  I will give you my ",
+      "gold wing as I promised.",
+      "",
+      "It's made of precious gold, but don't you ",
+      "ever think about selling it off.",
+      "If you do, you have to start collecting from ",
+      "the metal wing again.",
+      "",
+      "Ah...wait.  Don't go yet. Why are you in such",
+      "a hurry? Recently, I finally invted a dia ",
+      "wing.",
+      "",
+      "If you want to know more about it's great ",
+      "power, don't forget to stop by next time.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "R3JlYXQhIGpvYiB3ZWxsIGRvbmUuICBJIHdpbGwgZ2l2ZSB5b3UgbXkgDQpnb2xkIHdpbmcgYXMgSSBwcm9taXNlZC4NCg0KSXQncyBtYWRlIG9mIHByZWNpb3VzIGdvbGQsIGJ1dCBkb24ndCB5b3UgDQpldmVyIHRoaW5rIGFib3V0IHNlbGxpbmcgaXQgb2ZmLg0KSWYgeW91IGRvLCB5b3UgaGF2ZSB0byBzdGFydCBjb2xsZWN0aW5nIGZyb20gDQp0aGUgbWV0YWwgd2luZyBhZ2Fpbi4NCg0KQWguLi53YWl0LiAgRG9uJ3QgZ28geWV0LiBXaHkgYXJlIHlvdSBpbiBzdWNoDQphIGh1cnJ5PyBSZWNlbnRseSwgSSBmaW5hbGx5IGludnRlZCBhIGRpYSANCndpbmcuDQoNCklmIHlvdSB3YW50IHRvIGtub3cgbW9yZSBhYm91dCBpdCdzIGdyZWF0IA0KcG93ZXIsIGRvbid0IGZvcmdldCB0byBzdG9wIGJ5IG5leHQgdGltZS4NCg0K"
+  }
+}

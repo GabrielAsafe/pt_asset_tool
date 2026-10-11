@@ -1,0 +1,458 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.bc_100_cristal_de_fogo",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/BC_100_Cristal de Fogo.inf",
+    "GameServer/Monster/BC_100_Cristal de Fogo.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/BC_100_Cristal de Fogo.inf",
+    "legacy_sha256": "8016c4f4cf9442df10b3f36fb8ffe3447e964d947f27349e064b0b80f4e53120",
+    "legacy_size": 862
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\t_crystal_r\\t_crystal_r.ini",
+      "name": "Cristal de Fogo",
+      "level": 100,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 600,
+      "life": 30000,
+      "attack_damage": [
+        320,
+        350
+      ],
+      "attack_rating": 1400,
+      "attack_speed": 9,
+      "attack_range": 400,
+      "skill_damage": [
+        300,
+        350
+      ],
+      "skill_rating": 15,
+      "skill_range": 200,
+      "defence": 1000,
+      "absorption": 96,
+      "move_speed": 1,
+      "lightning": 70,
+      "ice": 70,
+      "fire": 100,
+      "poison": 70,
+      "monster_race": "노멀",
+      "size": "중대형",
+      "effect_sound": "T_CRYSTAL_R",
+      "potion_count": 3,
+      "potion_percent": 10,
+      "fall_item": 10000,
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.t.crystal.r.t.crystal.r"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\t_crystal_r\\t_crystal_r.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c745f6372797374616c5f725c745f6372797374616c5f722e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Cristal de Fogo"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646520466f676f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          600
+        ],
+        "raw_values_hex": [
+          "363030"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          30000
+        ],
+        "raw_values_hex": [
+          "3330303030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          320,
+          350
+        ],
+        "raw_values_hex": [
+          "333230",
+          "333530"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1400
+        ],
+        "raw_values_hex": [
+          "31343030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          400
+        ],
+        "raw_values_hex": [
+          "343030"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "skill_damage",
+        "legacy_token": "*기술공격력",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          300,
+          350
+        ],
+        "raw_values_hex": [
+          "333030",
+          "333530"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "skill_range",
+        "legacy_token": "*기술공격범위",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          200
+        ],
+        "raw_values_hex": [
+          "323030"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1000
+        ],
+        "raw_values_hex": [
+          "31303030"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          96
+        ],
+        "raw_values_hex": [
+          "3936"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "ice",
+        "legacy_token": "*얼음",
+        "legacy_token_hex": "2abef3c0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 68,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "노멀"
+        ],
+        "raw_values_hex": [
+          "b3ebb8d6"
+        ]
+      },
+      {
+        "line": 71,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 74,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "T_CRYSTAL_R"
+        ],
+        "raw_values_hex": [
+          "545f4352595354414c5f52"
+        ]
+      },
+      {
+        "line": 77,
+        "key": "potion_count",
+        "legacy_token": "*물약보유수",
+        "legacy_token_hex": "2ab9b0bee0bab8c0afbcf6",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 80,
+        "key": "potion_percent",
+        "legacy_token": "*물약보유률",
+        "legacy_token_hex": "2ab9b0bee0bab8c0afb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 83,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          10000
+        ],
+        "raw_values_hex": [
+          "3130303030"
+        ]
+      },
+      {
+        "line": 84,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcdF9jcnlzdGFsX3JcdF9jcnlzdGFsX3IuaW5pIg0KDQovL05hbWUNCirAzLinICJDcmlzdGFsIGRlIEZvZ28iDQoNCi8vTGV2ZWwNCiq3ubqnIDEwMA0KDQovL1NpemUNCiq48LWoxamx4iAxLjANCg0KLy9TcGF3blF1YW50aXR5DQoqwbbB9yAxIDENCg0KLy9WaWV3UmFuZ2UNCiq9w77fIDYwMA0KDQovL0hQDQoqu/247bfCIDMwMDAwDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgMzIwIDM1MA0KDQovL0F0dGFja1JhdGluZw0KKrjtwd+3wiAxNDAwDQoNCi8vQXR0YWNrU3BlZWQNCiqw+LDdvNO1tSA5DQoNCi8vQXR0YWNrUmFuZ2UNCiqw+LDdufzApyA0MDANCg0KLy9Ta2lsbFBvd2VyDQoqseK8+rD4sN23wiAzMDAgMzUwDQoNCi8vU2tpbGxSYXRpbmcNCiqx4rz6sPiw3bf8IDE1DQoNCi8vU2tpbGxSYW5nZQ0KKrHivPqw+LDdufzApyAyMDANCg0KLy9EZWZlbnNlDQoquea+7rfCIDEwMDANCg0KLy9BYnNvcnB0aW9uDQoqyO289sCyIDk2DQoNCi8vTW92ZVNwZWVkDQoqwMy1v7fCIDENCg0KLy9MaWdodG5pbmcNCiq5+LCzIDcwDQoNCi8vSWNlDQoqvvPAvSA3MA0KDQovL0ZpcmUNCiq60iAxMDANCg0KLy9Qb2lzb24NCiq1tiA3MA0KDQovL1JhY2UNCiq48726xc3BvsG3ILPruNYNCg0KLy9TaGFkb3dTaXplDQoqxamx4iDB37Trx/wNCg0KLy9Tb3VuZA0KKsi/sPrAvSBUX0NSWVNUQUxfUg0KDQovL1BvdGlvbnMNCiq5sL7gurjAr7z2IDMNCg0KLy9Qb3Rpb25DaGFuY2UNCiq5sL7gurjAr7f8IDEwDQoNCi8vRHJvcA0KKr7GwMzF2yAxMDAwMC8vRXh0ZXJuIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxOYW1lLnpob29uIg=="
+  }
+}

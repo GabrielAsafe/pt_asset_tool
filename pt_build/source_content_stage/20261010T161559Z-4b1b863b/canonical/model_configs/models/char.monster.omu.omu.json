@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.omu.omu",
+  "logical_config": "char/monster/omu/omu.ini",
+  "legacy_cache": "char/monster/omu/omu.inx",
+  "consumers": [
+    {
+      "id": "monster.70_omu",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/70_Omu.inf.json"
+    },
+    {
+      "id": "monster.chefe_74_mestre_omu",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_74_Mestre Omu.inf.json"
+    },
+    {
+      "id": "monster.r5_omu",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R5 Omu.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/omu/Omu.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/omu/omu.inx"
+    }
+  }
+}

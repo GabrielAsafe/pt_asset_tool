@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/155LVQuest_1.msg",
+    "image/party/party_DATA/HaQuest/155LVQuest_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/155LVQuest_1.msg",
+    "legacy_sha256": "bb697918bcd9d2944dd2e1d3f6dc5b2e178241ccb600608596f9ca5aacd8a6ae",
+    "legacy_size": 49
+  },
+  "semantic": {
+    "lines": [
+      "Fale com Rubi, a Sacerdotisa",
+      "do Fogo, em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmFsZSBjb20gUnViaSwgYSBTYWNlcmRvdGlzYQ0KZG8gRm9nbywgZW0gUGlsbGFpLg=="
+  }
+}

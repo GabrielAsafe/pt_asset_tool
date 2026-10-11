@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_4",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/172LVQuest_4.msg",
+    "image/party/party_DATA/HaQuest/172LVQuest_4.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/172LVQuest_4.msg",
+    "legacy_sha256": "e8140960a9b729381b5333a2adc0f377c6320ed713197baf4235354f98691ad1",
+    "legacy_size": 35
+  },
+  "semantic": {
+    "lines": [
+      "Fale com a Sábia Celina",
+      "em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmFsZSBjb20gYSBT4WJpYSBDZWxpbmENCmVtIFBpbGxhaS4="
+  }
+}

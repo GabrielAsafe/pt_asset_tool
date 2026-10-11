@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100_cristal_de_fogo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/100_Cristal de Fogo.zhoon",
+    "GameServer/Monster/Name/100_Cristal de Fogo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/100_Cristal de Fogo.zhoon",
+    "legacy_sha256": "09a20c2eebaf1aea638b31180b6ea1325460b428007d25514aaa68682ed36ad7",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cristal de Fogo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ3Jpc3RhbCBkZSBGb2dvIg=="
+  }
+}

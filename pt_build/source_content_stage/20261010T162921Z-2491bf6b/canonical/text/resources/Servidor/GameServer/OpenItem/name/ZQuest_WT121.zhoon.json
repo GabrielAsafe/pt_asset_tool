@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.zquest_wt121",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ZQuest_WT121.zhoon",
+    "GameServer/OpenItem/name/ZQuest_WT121.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ZQuest_WT121.zhoon",
+    "legacy_sha256": "ad35a3b0d8ddae477be7e8429340b5ecb426cfc8376e8865d514ba1458f16fcb",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lança da Justiça"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTGFu52EgZGEgSnVzdGnnYSI="
+  }
+}

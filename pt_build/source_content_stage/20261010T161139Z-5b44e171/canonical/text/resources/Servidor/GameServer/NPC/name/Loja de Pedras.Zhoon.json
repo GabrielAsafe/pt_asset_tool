@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.loja_de_pedras",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Loja de Pedras.Zhoon",
+    "GameServer/NPC/name/Loja de Pedras.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Loja de Pedras.Zhoon",
+    "legacy_sha256": "a7311762360337851eb92813ae95ff61b1920f16a6f99b7b55803ae38c4581e3",
+    "legacy_size": 93
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Loja de Pedras"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Do que estou falando?!?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Mb2phIGRlIFBlZHJhcy5OUEMNCg0KDQoqSl9OYW1lCSJMb2phIGRlIFBlZHJhcyINCg0KDQoqSl9DaGF0CSJEbyBxdWUgZXN0b3UgZmFsYW5kbz8hPyINCg0K"
+  }
+}

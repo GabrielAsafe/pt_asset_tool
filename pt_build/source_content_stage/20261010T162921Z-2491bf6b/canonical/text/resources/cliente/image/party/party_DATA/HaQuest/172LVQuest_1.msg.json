@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/172LVQuest_1.msg",
+    "image/party/party_DATA/HaQuest/172LVQuest_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/172LVQuest_1.msg",
+    "legacy_sha256": "d40796a4dfa282de2a5caabc1ace963d1f776570e8ad7c131e63b4a1a676280a",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "lines": [
+      "Vá até a área demarcada",
+      "no Coração de Fogo.",
+      "Após, fale com a Sábia",
+      "Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VuEgYXTpIGEg4XJlYSBkZW1hcmNhZGENCm5vIENvcmHn428gZGUgRm9nby4NCkFw83MsIGZhbGUgY29tIGEgU+FiaWENCkNlbGluYSBlbSBQaWxsYWku"
+  }
+}

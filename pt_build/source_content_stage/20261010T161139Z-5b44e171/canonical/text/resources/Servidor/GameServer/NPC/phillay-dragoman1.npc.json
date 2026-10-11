@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.phillay_dragoman1",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/phillay-dragoman1.npc",
+    "GameServer/NPC/phillay-dragoman1.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/phillay-dragoman1.npc",
+    "legacy_sha256": "58ef83a17cff03dae74d804e53274f61e51b94599931429c6426a29c58c91cb4",
+    "legacy_size": 598
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-001\\MN-001.INI",
+      "name": "필라이 가드",
+      "linked_file": "name\\phillay-dragoman1.zhoon",
+      "model_config_id": "model.char.npc.mn.001.mn.001"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-001\\MN-001.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030315c4d4e2d3030312e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "필라이 가드"
+        ],
+        "raw_values_hex": [
+          "c7cab6f3c0cc20b0a1b5e5"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 13,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\phillay-dragoman1.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c7068696c6c61792d647261676f6d616e312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDAxXE1OLTAwMS5JTkkNCg0KKsDMuKcJCQkix8q288DMILChteUiDQoNCi8vKrTryK0JCQkiwMyw98C6ILT1IMDMu/MgsebAzCC++L3AtM+02S4gvaPAuLfOILChvcO3wbDFtecgtbW9wyCzssLKv6EgwNa0wiC/9sfBsNTAzMauuKYgwMy/68fPvcq9w7/AIg0KLy8qtOvIrQkJCSLBpiC12rfOILq4wMy0wiCw98C6ILTZuKUgsPfAuLfOIMDMtb8gx9IgvPYgwNa0wiC/9sfBsNTAzMauIMDUtM+02S4gubC30CDAriC+xsDMxdvAzCDA1r7uvt+4uCDAzL/rIMfSILz2IMDWvcC0z7TZLiINCi8vKrTryK0JCQkiwK4gvsbAzMXbwLsguLi16bDtIL3NsMW15yC/9sfBsNTAzMauuKYgxbiw7SC4rsSruKPF2b+hIMDWtMIgv/bHwbDUwMzGriC537jtsKG4piDDo77GILChtbW3zyDHz73KvcO/wCINCi8vKrTryK0JCQkiuK7Eq7ijxdmw+iDHyrbzwMzAxyDAzLW/wLoguau34bfOILChtMnHz8H2uLggtNm4pSCw98C4t84gwMy1v8fPseIgwKfH2LyxIMCuIL7GwMzF28DMIMDWvu6+3yDH1bTPtNkuIg0KDQoNCiq/rLDhxsTAzyAibmFtZVxwaGlsbGF5LWRyYWdvbWFuMS56aG9vbiINCg0KDQovL7ChteUNCg=="
+  }
+}

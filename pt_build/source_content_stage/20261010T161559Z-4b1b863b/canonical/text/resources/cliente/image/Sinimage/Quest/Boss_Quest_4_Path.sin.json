@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_4_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_4_Path.sin",
+    "image/Sinimage/Quest/Boss_Quest_4_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_4_Path.sin",
+    "legacy_sha256": "94eca8a24963365d23a5310638a93a1fc45c1145902804937d7e077885b3f248",
+    "legacy_size": 52
+  },
+  "semantic": {
+    "lines": [
+      "Derrote a Múmia Real no Calabouço Antigo (2º Andar)."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBhIE36bWlhIFJlYWwgbm8gQ2FsYWJvdedvIEFudGlnbyAoMrogQW5kYXIpLg=="
+  }
+}

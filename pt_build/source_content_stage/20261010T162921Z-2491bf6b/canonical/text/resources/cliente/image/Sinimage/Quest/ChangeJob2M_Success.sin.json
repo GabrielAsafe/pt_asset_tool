@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob2m_success",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob2M_Success.sin",
+    "image/Sinimage/Quest/ChangeJob2M_Success.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob2M_Success.sin",
+    "legacy_sha256": "9266e7c080d4562554eed28ccdc4b52c9ee9829dc2339e01cf2f09cdc674d85d",
+    "legacy_size": 204
+  },
+  "semantic": {
+    "lines": [
+      "Oh, it's you.  I just heard you have done a great ",
+      "work. If you are able to accomplish such a hard ",
+      "mission, I believe you deserve to be granted for ",
+      "rank-up.",
+      "I will assist you to learn a new skill."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2gsIGl0J3MgeW91LiAgSSBqdXN0IGhlYXJkIHlvdSBoYXZlIGRvbmUgYSBncmVhdCANCndvcmsuIElmIHlvdSBhcmUgYWJsZSB0byBhY2NvbXBsaXNoIHN1Y2ggYSBoYXJkIA0KbWlzc2lvbiwgSSBiZWxpZXZlIHlvdSBkZXNlcnZlIHRvIGJlIGdyYW50ZWQgZm9yIA0KcmFuay11cC4NCkkgd2lsbCBhc3Npc3QgeW91IHRvIGxlYXJuIGEgbmV3IHNraWxsLg0K"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.faugn.faugn",
+  "logical_config": "char/monster/Faugn/Faugn.ini",
+  "legacy_cache": "char/monster/Faugn/Faugn.inx",
+  "consumers": [
+    {
+      "id": "monster.121_faugn",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/121_Faugn.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Faugn/Faugn.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Faugn/Faugn.inx"
+    }
+  }
+}

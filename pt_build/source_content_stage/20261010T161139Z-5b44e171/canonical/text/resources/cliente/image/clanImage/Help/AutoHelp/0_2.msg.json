@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.0_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/0_2.msg",
+    "image/clanImage/Help/AutoHelp/0_2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/0_2.msg",
+    "legacy_sha256": "1cc292a421c57f097b524a231e9bd2945071c9f6c82f4d136a41dd2a91b8d32c",
+    "legacy_size": 278
+  },
+  "semantic": {
+    "lines": [
+      "we have provided you basic armour.",
+      "This armour will help for your defence.",
+      "Now let's go for hunting.",
+      "If you are in Ricarten Village go to northern-east ",
+      "of village and if your are in Pillai go to warp gate ",
+      "which is located in southern village ",
+      "for beginers hunting field."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "d2UgaGF2ZSBwcm92aWRlZCB5b3UgYmFzaWMgYXJtb3VyLg0KVGhpcyBhcm1vdXIgd2lsbCBoZWxwIGZvciB5b3VyIGRlZmVuY2UuDQpOb3cgbGV0J3MgZ28gZm9yIGh1bnRpbmcuDQpJZiB5b3UgYXJlIGluIFJpY2FydGVuIFZpbGxhZ2UgZ28gdG8gbm9ydGhlcm4tZWFzdCANCm9mIHZpbGxhZ2UgYW5kIGlmIHlvdXIgYXJlIGluIFBpbGxhaSBnbyB0byB3YXJwIGdhdGUgDQp3aGljaCBpcyBsb2NhdGVkIGluIHNvdXRoZXJuIHZpbGxhZ2UgDQpmb3IgYmVnaW5lcnMgaHVudGluZyBmaWVsZC4="
+  }
+}

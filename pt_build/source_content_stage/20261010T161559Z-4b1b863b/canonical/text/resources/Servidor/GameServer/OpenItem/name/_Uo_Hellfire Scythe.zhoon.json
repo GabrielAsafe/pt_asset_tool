@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uo_hellfire_scythe",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uo_Hellfire Scythe.zhoon",
+    "GameServer/OpenItem/name/_Uo_Hellfire Scythe.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uo_Hellfire Scythe.zhoon",
+    "legacy_sha256": "fd2f776f1caee4dfcce86b1233fb6f128c43fad9d92180e31a5a80e6f650b3b5",
+    "legacy_size": 67
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Foice de Fogo Infernal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9VV1AxMjFfSGVsbGZpcmUgU2N5dGhlLnR4dA0KDQoqSl9OYW1lCQkiRm9pY2UgZGUgRm9nbyBJbmZlcm5hbCINCg=="
+  }
+}

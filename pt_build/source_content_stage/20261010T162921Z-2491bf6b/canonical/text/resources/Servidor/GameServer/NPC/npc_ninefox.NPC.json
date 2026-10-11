@@ -1,0 +1,107 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.npc_ninefox",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/npc_ninefox.NPC",
+    "GameServer/NPC/npc_ninefox.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/npc_ninefox.NPC",
+    "legacy_sha256": "7028ef96968e5b40c368b56f0ecbfd998cd5f97d925490a5e99d9768eec52582",
+    "legacy_size": 516
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\NineFox\\npc_ninefox.INI",
+      "name": "프레이아",
+      "quest_event": 4,
+      "linked_file": "name\\npc_ninefox.zhoon",
+      "model_config_id": "model.char.npc.ninefox.npc.ninefox"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\NineFox\\npc_ninefox.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4e696e65466f785c6e70635f6e696e65666f782e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "프레이아"
+        ],
+        "raw_values_hex": [
+          "c7c1b7b9c0ccbec6"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "quest_event",
+        "legacy_token": "*퀘스트이벤트",
+        "legacy_token_hex": "2ac4f9bdbac6aec0ccbaa5c6ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\npc_ninefox.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e70635f6e696e65666f782e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTmluZUZveFxucGNfbmluZWZveC5JTkkiDQoNCirAzLinCQkJIsfBt7nAzL7GIg0KDQoqxPm9usauwMy6pcauCQk0DQoNCi8vKrTryK0JCQkix9G91sDHIL7GucS3v8C7IMOjvsYgv6mx4rHuwfYgv9S+7r/kLiINCi8vKrTryK0gICAgICAgICAgICAgICAgICAgIrHXILvntvfAuiC48726xc0gv7TB9ri4IMGkuLu3ziC/7LiutMIgu+e2+8fPtMIgu+fAzL+0vu6/5C4iDQovLyq068itICAgICAgICAgICAgICAgICAgICK1zrCzwMcgvsa5xLe/wLogv+y4riC757b7wMcgwfXHpb+0vu6/5C4gsdewySDIycPEsKMguPO9usXNuKYgwP206yC/67ytIMfSILz2IL74vu6/5C4iDQoNCi8vuPO9usXNuKYgu+ezycfPuOkgt6O0/SDHz7DUILXltvi1x7TCDQovL7OqwM4sIMXXwM8gvsa5xLe/wLsgx8G3ucDMvsZOUEO/obDUDQovL7Chwa602SDB1sDaLg0KDQoNCiq/rLDhxsTAzwkibmFtZVxucGNfbmluZWZveC56aG9vbiINCg0KDQoNCg0KDQoNCg0KDQoNCg0K"
+  }
+}

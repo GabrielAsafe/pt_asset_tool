@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.star_girl",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Star Girl.NPC",
+    "GameServer/NPC/Star Girl.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Star Girl.NPC",
+    "legacy_sha256": "0d836005910df710b86353894ab652129088f2af717774a8411ae1048b0ba061",
+    "legacy_size": 417
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-017\\TN-017.ini",
+      "name": "산타마리아",
+      "ranking": true,
+      "linked_file": "name\\Star Girl.zhoon",
+      "model_config_id": "model.char.npc.tn.017.tn.017"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-017\\TN-017.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3031375c544e2d3031372e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "산타마리아"
+        ],
+        "raw_values_hex": [
+          "bbeac5b8b8b6b8aebec6"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "ranking",
+        "legacy_token": "*Ranking",
+        "legacy_token_hex": "2a52616e6b696e67",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 16,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Star Girl.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c53746172204769726c2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDE3XFROLTAxNy5pbmkiDQoNCirAzLinCQkJIrvqxbi4triuvsYiDQovLyq6sMb3wM7GrsD7uLMNCipSYW5raW5nDQovLyq48LHdx9QNCi8vKrHius7H1A0KDQovLyq068itCQkJIrjzvbrFzSDFqbiuvbrFuyA3sLO4piC48L7GIMD6v6Gw1CDB1r3DuOkgx6rB/MfRILvzx7DAuyC15biztM+02S4iDQovLyq068itCQkJIsDMuqXGriCx4rCjwLogMTK/+SAzMMDPILytufYgwaSx4sGhsMsgwPyx7sH2IMDUtM+02S4iDQovLyq068itICAgICAgICAgICAgICAgICAgICKw1MDTILO7IL7GwMzF2yC/3L+hIFBDLCC18MSrLCC5q7yxIMWwuri15S+xpLi2v+y9uiC8vMautbUgteW3wb/kIg0KDQoNCiq/rLDhxsTAzwkibmFtZVxTdGFyIEdpcmwuemhvb24iDQoNCg0KDQoNCg0K"
+  }
+}

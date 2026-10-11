@@ -1,0 +1,137 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.gp113",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/GP113.txt",
+    "GameServer/OpenItem/GP113.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/GP113.txt",
+    "legacy_sha256": "e802ab14245ce3743c956d6772e8457a3ea41aebaa51781624de7da8e796437f",
+    "legacy_size": 237
+  },
+  "semantic": {
+    "fields": {
+      "code": "GP113",
+      "name": "Cristal de Guardião de Aço",
+      "english_name": "Cristal de Guardião de Aço",
+      "level": 80,
+      "weight": 1,
+      "price": 50000,
+      "linked_file": "Name\\GP113.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "GP113"
+        ],
+        "raw_values_hex": [
+          "4750313133"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal de Guardião de Aço"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646520477561726469e36f2064652041e76f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal de Guardião de Aço"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646520477561726469e36f2064652041e76f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50000
+        ],
+        "raw_values_hex": [
+          "3530303030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\GP113.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c47503131332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkdQMTEzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ3Jpc3RhbCBkZSBHdWFyZGnjbyBkZSBB528iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQ3Jpc3RhbCBkZSBHdWFyZGnjbyBkZSBB528iDQoNCi8vTGV2ZWwNCiq3ubqnIDgwDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDUwMDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcR1AxMTMuemhvb24i"
+  }
+}

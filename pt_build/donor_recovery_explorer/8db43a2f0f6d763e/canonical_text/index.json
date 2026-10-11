@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.s92_crow",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/S92_Crow.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/S92_Crow.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/S92_Crow.inf",
+        "GameServer/Monster/S92_Crow.inf"
+      ],
+      "legacy_sha256": "75e59c40ea41790a0962ef879d55afcd2a5cd26e2d24dab3f9f711b75abd0017"
+    }
+  ]
+}

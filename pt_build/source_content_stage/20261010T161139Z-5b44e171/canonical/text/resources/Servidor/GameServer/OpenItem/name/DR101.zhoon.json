@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dr101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DR101.zhoon",
+    "GameServer/OpenItem/name/DR101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DR101.zhoon",
+    "legacy_sha256": "3b7591e34c6421bb9617750662c5863e928679e36785a14aefa07724116439a6",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Receita de Defesa Nível 70"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUmVjZWl0YSBkZSBEZWZlc2EgTu12ZWwgNzAi"
+  }
+}

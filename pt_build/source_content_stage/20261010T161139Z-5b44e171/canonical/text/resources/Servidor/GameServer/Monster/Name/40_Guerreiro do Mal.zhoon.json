@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.40_guerreiro_do_mal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/40_Guerreiro do Mal.zhoon",
+    "GameServer/Monster/Name/40_Guerreiro do Mal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/40_Guerreiro do Mal.zhoon",
+    "legacy_sha256": "92163b2b14f3afb806696cd53e035fb0517155d06e11ac610866c4980226745b",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guerreiro do Mal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR3VlcnJlaXJvIGRvIE1hbCI="
+  }
+}

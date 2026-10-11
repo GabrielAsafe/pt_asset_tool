@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100_cristal_do_castelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/100_Cristal do Castelo.zhoon",
+    "GameServer/Monster/Name/100_Cristal do Castelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/100_Cristal do Castelo.zhoon",
+    "legacy_sha256": "92714102f5dfcd0a0898337724bdf47621a53e36b839b813e7afcb88a5988c8f",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cristal do Castelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ3Jpc3RhbCBkbyBDYXN0ZWxvIg=="
+  }
+}

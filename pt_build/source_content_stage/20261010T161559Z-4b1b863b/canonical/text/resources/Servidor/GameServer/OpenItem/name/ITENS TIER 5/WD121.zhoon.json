@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd121",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD121.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD121.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD121.zhoon",
+    "legacy_sha256": "96fa8278098009176183ece81c29838ca8f3111a558f953ce41b03fce5f348fb",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Shadow Dagger"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDEyMS50eHQNCg0KKkpfTkFNRQkJIlNoYWRvdyBEYWdnZXIiDQo="
+  }
+}

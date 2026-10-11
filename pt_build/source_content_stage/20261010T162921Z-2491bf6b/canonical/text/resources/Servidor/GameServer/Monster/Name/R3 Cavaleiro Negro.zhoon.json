@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r3_cavaleiro_negro",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R3 Cavaleiro Negro.zhoon",
+    "GameServer/Monster/Name/R3 Cavaleiro Negro.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R3 Cavaleiro Negro.zhoon",
+    "legacy_sha256": "65375db0defa98f90c2820cf6a02fa8fefe46960db40acf7ff5de88c14c350db",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R3 Cavaleiro Negro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjMgQ2F2YWxlaXJvIE5lZ3JvIg=="
+  }
+}

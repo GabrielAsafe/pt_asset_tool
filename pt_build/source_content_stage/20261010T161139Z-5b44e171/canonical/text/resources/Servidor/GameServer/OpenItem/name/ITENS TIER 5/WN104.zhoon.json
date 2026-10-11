@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn104",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN104.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN104.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN104.zhoon",
+    "legacy_sha256": "73c4302e5701e9c3a6c87c357df4236a390eb12b3a5ba48b27455d7d9807f5fd",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Terte Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjEwNC50eHQNCg0KKkpfTkFNRQkJIlRlcnRlIFBoYW50b20iDQo="
+  }
+}

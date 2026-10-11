@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.91_kelvezu",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/91_Kelvezu.zhoon",
+    "GameServer/Monster/Name/91_Kelvezu.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/91_Kelvezu.zhoon",
+    "legacy_sha256": "c4eededf30e442f090c537b73358bfe2f38f785fa8e1388ba5ebd3e4fdfc5f08",
+    "legacy_size": 17
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Kelvezu"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiS2VsdmV6dSI="
+  }
+}

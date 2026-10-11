@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_7state_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/LevelQuest/Quest_7State_1.msg",
+    "image/party/party_DATA/LevelQuest/Quest_7State_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/LevelQuest/Quest_7State_1.msg",
+    "legacy_sha256": "5c942af65be3cba457c932f2e11dd843eed67d42540be6415a51872966b98992",
+    "legacy_size": 62
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Meet Minuren in Navisko",
+      "Town and comply with ",
+      "his request."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpNZWV0IE1pbnVyZW4gaW4gTmF2aXNrbw0KVG93biBhbmQgY29tcGx5IHdpdGggDQpoaXMgcmVxdWVzdC4="
+  }
+}

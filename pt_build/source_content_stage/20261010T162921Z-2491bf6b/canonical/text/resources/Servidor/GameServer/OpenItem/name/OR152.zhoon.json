@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or152",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR152.zhoon",
+    "GameServer/OpenItem/name/OR152.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR152.zhoon",
+    "legacy_sha256": "e9a46767879cc51f7dc05a3bacf00295855de78e152192e11cb9a7a7a8914f79",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel de 2019"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9PUjEyMi50eHQNCg0KKkpfTmFtZQkJIkFuZWwgZGUgMjAxOSINCg=="
+  }
+}

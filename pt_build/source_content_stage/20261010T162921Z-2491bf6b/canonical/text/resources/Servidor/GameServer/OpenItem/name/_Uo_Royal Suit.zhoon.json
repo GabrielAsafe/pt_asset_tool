@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uo_royal_suit",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uo_Royal Suit.zhoon",
+    "GameServer/OpenItem/name/_Uo_Royal Suit.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uo_Royal Suit.zhoon",
+    "legacy_sha256": "ee27fe17ed1c6666b3308c1afd74897fc59671453438034f0c10f0caeedea306",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Traje Real"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIlRyYWplIFJlYWwi"
+  }
+}

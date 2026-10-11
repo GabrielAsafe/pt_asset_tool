@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_6_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_6_Path.sin",
+    "image/Sinimage/Quest/172LVQuest_6_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_6_Path.sin",
+    "legacy_sha256": "514f4779ed7358f3d17c2cc85d76944def15e785965a93910fdf3693e21f0edd",
+    "legacy_size": 775
+  },
+  "semantic": {
+    "lines": [
+      "A Dama Flamejante respondeu minhas perguntas sem problema.",
+      "Acho que o Deus do Fogo não previu esse tipo de interação",
+      "dela com outros seres e não pensou em controlá-la.",
+      "Parte das criaturas do Coração de Fogo foram criadas da",
+      "lava e rochas vulcânicas. A outra parte foi criada dos",
+      "corpos de aventureiros invasores que, como punição, foram",
+      "transformados em monstros pelo Deus do Fogo, para servirem",
+      "de escravos e sofrerem por toda a eternidade.",
+      "Dizia-se que o Deus do Fogo era responsável por todas as",
+      "chamas do mundo. Parece que ele não era sociável com os",
+      "outros deuses e tinha problemas com Midranda.",
+      "Quando perguntei o porquê, a Dama Flamejante amoleceu e",
+      "desabou no chão. E não disse mais nenhuma palavra.",
+      "",
+      "Preciso assimilar tudo. Por favor, volte mais tarde."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSBEYW1hIEZsYW1lamFudGUgcmVzcG9uZGV1IG1pbmhhcyBwZXJndW50YXMgc2VtIHByb2JsZW1hLg0KQWNobyBxdWUgbyBEZXVzIGRvIEZvZ28gbuNvIHByZXZpdSBlc3NlIHRpcG8gZGUgaW50ZXJh5+NvDQpkZWxhIGNvbSBvdXRyb3Mgc2VyZXMgZSBu428gcGVuc291IGVtIGNvbnRyb2zhLWxhLg0KUGFydGUgZGFzIGNyaWF0dXJhcyBkbyBDb3Jh5+NvIGRlIEZvZ28gZm9yYW0gY3JpYWRhcyBkYQ0KbGF2YSBlIHJvY2hhcyB2dWxj4m5pY2FzLiBBIG91dHJhIHBhcnRlIGZvaSBjcmlhZGEgZG9zDQpjb3Jwb3MgZGUgYXZlbnR1cmVpcm9zIGludmFzb3JlcyBxdWUsIGNvbW8gcHVuaefjbywgZm9yYW0NCnRyYW5zZm9ybWFkb3MgZW0gbW9uc3Ryb3MgcGVsbyBEZXVzIGRvIEZvZ28sIHBhcmEgc2VydmlyZW0NCmRlIGVzY3Jhdm9zIGUgc29mcmVyZW0gcG9yIHRvZGEgYSBldGVybmlkYWRlLg0KRGl6aWEtc2UgcXVlIG8gRGV1cyBkbyBGb2dvIGVyYSByZXNwb25z4XZlbCBwb3IgdG9kYXMgYXMNCmNoYW1hcyBkbyBtdW5kby4gUGFyZWNlIHF1ZSBlbGUgbuNvIGVyYSBzb2Np4XZlbCBjb20gb3MNCm91dHJvcyBkZXVzZXMgZSB0aW5oYSBwcm9ibGVtYXMgY29tIE1pZHJhbmRhLg0KUXVhbmRvIHBlcmd1bnRlaSBvIHBvcnF16iwgYSBEYW1hIEZsYW1lamFudGUgYW1vbGVjZXUgZQ0KZGVzYWJvdSBubyBjaONvLiBFIG7jbyBkaXNzZSBtYWlzIG5lbmh1bWEgcGFsYXZyYS4NCg0KUHJlY2lzbyBhc3NpbWlsYXIgdHVkby4gUG9yIGZhdm9yLCB2b2x0ZSBtYWlzIHRhcmRlLg=="
+  }
+}

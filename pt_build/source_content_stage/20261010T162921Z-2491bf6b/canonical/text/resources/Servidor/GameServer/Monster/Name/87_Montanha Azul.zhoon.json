@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.87_montanha_azul",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/87_Montanha Azul.zhoon",
+    "GameServer/Monster/Name/87_Montanha Azul.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/87_Montanha Azul.zhoon",
+    "legacy_sha256": "565ed42cc12870bff53c25b0c690b31aef6ac52aba1ffe21e80e6b3503ebd4c4",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Montanha Azul"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTW9udGFuaGEgQXp1bCI="
+  }
+}

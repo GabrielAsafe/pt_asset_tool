@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_4.path_2206c48cea",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest3/ChangeJob3-4.msg",
+    "image/party/party_DATA/Quest3/ChangeJob3-4.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest3/ChangeJob3-4.msg",
+    "legacy_sha256": "03a5617f094ab1fe97e5fb1d55853a8bcb2130174d9da5bb0fcf8f2b81a1398f",
+    "legacy_size": 107
+  },
+  "semantic": {
+    "lines": [
+      "Your rank-up is completed",
+      "after the rank-up quest.",
+      "As the result, maximum HP",
+      "increases by 15 points.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91ciByYW5rLXVwIGlzIGNvbXBsZXRlZA0KYWZ0ZXIgdGhlIHJhbmstdXAgcXVlc3QuDQpBcyB0aGUgcmVzdWx0LCBtYXhpbXVtIEhQDQppbmNyZWFzZXMgYnkgMTUgcG9pbnRzLg0KDQo="
+  }
+}

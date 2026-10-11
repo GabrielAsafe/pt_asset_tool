@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn113",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN113.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN113.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN113.zhoon",
+    "legacy_sha256": "4ea9280b770ed6abebcafedebc651b7a0c8727ed5e04244de9c136cb1e8121a5",
+    "legacy_size": 38
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Wi Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjExMy50eHQNCg0KKkpfTkFNRQkJIldpIFBoYW50b20iDQo="
+  }
+}

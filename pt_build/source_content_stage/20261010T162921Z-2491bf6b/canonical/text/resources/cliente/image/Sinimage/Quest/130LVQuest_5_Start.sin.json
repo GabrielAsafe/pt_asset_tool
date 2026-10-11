@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_5_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/130LVQuest_5_Start.sin",
+    "image/Sinimage/Quest/130LVQuest_5_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/130LVQuest_5_Start.sin",
+    "legacy_sha256": "2141b40feff4e0ab563e0e8c4442e954a675c6f408f273ec0c2bd807c9cd6578",
+    "legacy_size": 613
+  },
+  "semantic": {
+    "lines": [
+      "Soube que os pristonianos foram até o fundo do mar e já",
+      "enfrentaram as tropas de Yagditha, o governante dos mares.",
+      "O Conselho Real formou uma aliança com o povo das águas,",
+      "contrários à Yagditha. Midranda permanece escondido.",
+      "",
+      "Vários Cristais Negros apareceram na Estrada Sombria e",
+      "pelo o continente. Um estranho sinal está sendo emitido",
+      "por eles. As Bruxas Mestre estão protegendo-os. Pode ter",
+      "relação com Midranda, preciso que verifique a situação.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Capture o Cristal Negro, caçando a Bruxa Mestre em ",
+      "Estrada Sombria.",
+      "Ao terminar, fale com o Xamã Real em Estrada dos Ventos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "U291YmUgcXVlIG9zIHByaXN0b25pYW5vcyBmb3JhbSBhdOkgbyBmdW5kbyBkbyBtYXIgZSBq4Q0KZW5mcmVudGFyYW0gYXMgdHJvcGFzIGRlIFlhZ2RpdGhhLCBvIGdvdmVybmFudGUgZG9zIG1hcmVzLg0KTyBDb25zZWxobyBSZWFsIGZvcm1vdSB1bWEgYWxpYW7nYSBjb20gbyBwb3ZvIGRhcyDhZ3VhcywNCmNvbnRy4XJpb3Mg4CBZYWdkaXRoYS4gTWlkcmFuZGEgcGVybWFuZWNlIGVzY29uZGlkby4NCg0KVuFyaW9zIENyaXN0YWlzIE5lZ3JvcyBhcGFyZWNlcmFtIG5hIEVzdHJhZGEgU29tYnJpYSBlDQpwZWxvIG8gY29udGluZW50ZS4gVW0gZXN0cmFuaG8gc2luYWwgZXN04SBzZW5kbyBlbWl0aWRvDQpwb3IgZWxlcy4gQXMgQnJ1eGFzIE1lc3RyZSBlc3TjbyBwcm90ZWdlbmRvLW9zLiBQb2RlIHRlcg0KcmVsYefjbyBjb20gTWlkcmFuZGEsIHByZWNpc28gcXVlIHZlcmlmaXF1ZSBhIHNpdHVh5+NvLg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KQ2FwdHVyZSBvIENyaXN0YWwgTmVncm8sIGNh52FuZG8gYSBCcnV4YSBNZXN0cmUgZW0gDQpFc3RyYWRhIFNvbWJyaWEuDQpBbyB0ZXJtaW5hciwgZmFsZSBjb20gbyBYYW3jIFJlYWwgZW0gRXN0cmFkYSBkb3MgVmVudG9zLg=="
+  }
+}

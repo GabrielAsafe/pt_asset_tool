@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dailyquest",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/dailyquest.zhoon",
+    "GameServer/NPC/name/dailyquest.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/dailyquest.zhoon",
+    "legacy_sha256": "fbd64bd4587fefddddb501069bb1fc808e1cda0dc65806451d57b22068888f84",
+    "legacy_size": 259
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Removedor de Combinação/Aprimoramento"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Remova com segurança o aprimoramento ou a combinação do seu item."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Limpeza de itens do Summit Tale."
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Quer seu item limpinho? Venha falar comigo ;)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9kYWlseXF1ZXN0Lk5QQw0KDQoNCipKX05hbWUJIlJlbW92ZWRvciBkZSBDb21iaW5h5+NvL0Fwcmltb3JhbWVudG8iDQoNCg0KKkpfQ2hhdAkiUmVtb3ZhIGNvbSBzZWd1cmFu52EgbyBhcHJpbW9yYW1lbnRvIG91IGEgY29tYmluYefjbyBkbyBzZXUgaXRlbS4iDQoNCipKX0NoYXQJIkxpbXBlemEgZGUgaXRlbnMgZG8gU3VtbWl0IFRhbGUuIg0KDQoqSl9DaGF0CSJRdWVyIHNldSBpdGVtIGxpbXBpbmhvPyBWZW5oYSBmYWxhciBjb21pZ28gOykiDQoNCg=="
+  }
+}

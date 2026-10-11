@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca632",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/CA632.zhoon",
+    "GameServer/OpenItem/name/CA632.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/CA632.zhoon",
+    "legacy_sha256": "ed42d90793dfcd22e9bf580ffd79f46ad35f049222fdfdcafbfb8c5742ca5bbd",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Traje Mágico Colegial 3d"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVHJhamUgTeFnaWNvIENvbGVnaWFsIDNkIg=="
+  }
+}

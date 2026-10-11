@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_4_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/130LVQuest_4_Path.sin",
+    "image/Sinimage/Quest/130LVQuest_4_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/130LVQuest_4_Path.sin",
+    "legacy_sha256": "001e7957e68021a032ea14fe81491c70d52746306a52eb6088f519ea3d0a976b",
+    "legacy_size": 507
+  },
+  "semantic": {
+    "lines": [
+      "Os monstros que formam as tropas especiais de Midranda",
+      "são poderosos. Eles causaram muita destruição durante a",
+      "Invasão de Pillai. Tivemos perdas irreparáveis.",
+      "Não podemos deixar que isso se repita novamente.",
+      "",
+      "Por favor, ajude os Magos Reais a deter esses monstros.",
+      "Precisei reduzir seu poder de ataque em 30%, para que ",
+      "não atraia muita atenção dos monstros.",
+      "",
+      "Cace 100 monstros em Estrada Sombria, dentre eles:",
+      "o Crios, o Najan ou o Ignis.",
+      "Ao terminar, fale com o Mago Real em Estrada dos Ventos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T3MgbW9uc3Ryb3MgcXVlIGZvcm1hbSBhcyB0cm9wYXMgZXNwZWNpYWlzIGRlIE1pZHJhbmRhDQpz428gcG9kZXJvc29zLiBFbGVzIGNhdXNhcmFtIG11aXRhIGRlc3RydWnn428gZHVyYW50ZSBhDQpJbnZhc+NvIGRlIFBpbGxhaS4gVGl2ZW1vcyBwZXJkYXMgaXJyZXBhcuF2ZWlzLg0KTuNvIHBvZGVtb3MgZGVpeGFyIHF1ZSBpc3NvIHNlIHJlcGl0YSBub3ZhbWVudGUuDQoNClBvciBmYXZvciwgYWp1ZGUgb3MgTWFnb3MgUmVhaXMgYSBkZXRlciBlc3NlcyBtb25zdHJvcy4NClByZWNpc2VpIHJlZHV6aXIgc2V1IHBvZGVyIGRlIGF0YXF1ZSBlbSAzMCUsIHBhcmEgcXVlIA0KbuNvIGF0cmFpYSBtdWl0YSBhdGVu5+NvIGRvcyBtb25zdHJvcy4NCg0KQ2FjZSAxMDAgbW9uc3Ryb3MgZW0gRXN0cmFkYSBTb21icmlhLCBkZW50cmUgZWxlczoNCm8gQ3Jpb3MsIG8gTmFqYW4gb3UgbyBJZ25pcy4NCkFvIHRlcm1pbmFyLCBmYWxlIGNvbSBvIE1hZ28gUmVhbCBlbSBFc3RyYWRhIGRvcyBWZW50b3Mu"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.109_xetan",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/109_Xetan.zhoon",
+    "GameServer/Monster/Name/109_Xetan.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/109_Xetan.zhoon",
+    "legacy_sha256": "8646cf5a3a6c98be4f6f480bda0a0634658528b40fe8916f31592d480e810a73",
+    "legacy_size": 15
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Xetan"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiWGV0YW4i"
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.r6_morte_s_u00fabita",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/R6 Morte S#U00fabita.inf",
+    "GameServer/Monster/R6 Morte S#U00fabita.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/R6 Morte S#U00fabita.inf",
+    "legacy_sha256": "6713b07a4375f26b667a6f2ffb9346d003f13c97237753f1ceefc03256fe91cf",
+    "legacy_size": 604
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\deadzone\\deadzone.ini",
+      "name": "R6 Morte Súbita",
+      "level": 80,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 360,
+      "life": 3700,
+      "attack_damage": [
+        110,
+        155
+      ],
+      "attack_rating": 1200,
+      "attack_speed": 8,
+      "attack_range": 75,
+      "defence": 660,
+      "block": 5,
+      "move_speed": 3,
+      "monster_race": "메카닉",
+      "size": "중대형",
+      "experience": 86000,
+      "effect_sound": "DEADZONE",
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.deadzone.deadzone"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\deadzone\\deadzone.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c646561647a6f6e655c646561647a6f6e652e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "R6 Morte S?ita"
+        ],
+        "raw_values_hex": [
+          "5236204d6f72746520533f697461"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          360
+        ],
+        "raw_values_hex": [
+          "333630"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3700
+        ],
+        "raw_values_hex": [
+          "33373030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          110,
+          155
+        ],
+        "raw_values_hex": [
+          "313130",
+          "313535"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1200
+        ],
+        "raw_values_hex": [
+          "31323030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          75
+        ],
+        "raw_values_hex": [
+          "3735"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          660
+        ],
+        "raw_values_hex": [
+          "363630"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "메카닉"
+        ],
+        "raw_values_hex": [
+          "b8dec4abb4d0"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          86000
+        ],
+        "raw_values_hex": [
+          "3836303030"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "DEADZONE"
+        ],
+        "raw_values_hex": [
+          "444541445a4f4e45"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcZGVhZHpvbmVcZGVhZHpvbmUuaW5pIg0KDQovL05hbWUNCirAzLinICJSNiBNb3J0ZSBTP2l0YSINCg0KLy9MZXZlbA0KKre5uqcgODANCg0KLy9TaXplDQoquPC1qMWpseIgMS4wDQoNCi8vU3Bhd25RdWFudGl0eQ0KKsG2wfcgMSAxDQoNCi8vVmlld1JhbmdlDQoqvcO+3yAzNjANCg0KLy9IUA0KKrv9uO23wiAzNzAwDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgMTEwIDE1NQ0KDQovL0F0dGFja1JhdGluZw0KKrjtwd+3wiAxMjAwDQoNCi8vQXR0YWNrU3BlZWQNCiqw+LDdvNO1tSA4DQoNCi8vQXR0YWNrUmFuZ2UNCiqw+LDdufzApyA3NQ0KDQovL0RlZmVuc2UNCiq55r7ut8IgNjYwDQoNCi8vQmxvY2sNCiq67bewwLIgNQ0KDQovL01vdmVTcGVlZA0KKsDMtb+3wiAzDQoNCi8vUmFjZQ0KKrjzvbrFzcG+wbcguN7Eq7TQDQoNCi8vU2hhZG93U2l6ZQ0KKsWpseIgwd+068f8DQoNCi8vRXhwZXJpZW5jZQ0KKrDmx+jEoSA4NjAwMA0KDQovL1NvdW5kDQoqyL+w+sC9IERFQURaT05FDQoNCi8vRXh0ZXJuIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxOYW1lLnpob29uIg=="
+  }
+}

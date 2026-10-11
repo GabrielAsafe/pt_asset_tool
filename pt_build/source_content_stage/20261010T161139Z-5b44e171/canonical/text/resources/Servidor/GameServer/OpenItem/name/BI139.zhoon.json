@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi139",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI139.zhoon",
+    "GameServer/OpenItem/name/BI139.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI139.zhoon",
+    "legacy_sha256": "2b6272f8324715c8fe74c07351ff4b7d62d687bfd11bac53bdeca0c0db6f96c9",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mestre das Habilidades A"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTWVzdHJlIGRhcyBIYWJpbGlkYWRlcyBBIg=="
+  }
+}

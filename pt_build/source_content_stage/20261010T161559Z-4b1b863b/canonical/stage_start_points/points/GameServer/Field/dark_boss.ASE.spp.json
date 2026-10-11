@@ -1,0 +1,18 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.dark_boss",
+  "logical_path": "GameServer/Field/dark_boss.ASE.spp",
+  "points": [
+    {
+      "slot": 0,
+      "state": 1,
+      "x": 198280,
+      "z": 242864
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/dark_boss.ASE.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "36248fa90b76dbdfe4ec908f3ebcef5c42d9d0d0b01fd0f37a194b6c4a63ffbe"
+  }
+}

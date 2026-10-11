@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.se109",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SE109.zhoon",
+    "GameServer/OpenItem/name/SE109.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SE109.zhoon",
+    "legacy_sha256": "96976512650e11f6f727317293219e5249a9ef0cf5b0c4f791e27f53c59d0086",
+    "legacy_size": 55
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Especialização de Cavaleiro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwNC50eHQNCg0KKkpfTmFtZQkJIkVzcGVjaWFsaXph5+NvIGRlIENhdmFsZWlybyINCg=="
+  }
+}

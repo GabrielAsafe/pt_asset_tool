@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestcyclops_fend",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestcyclops_Fend.sin",
+    "image/Sinimage/Quest/haQuestcyclops_Fend.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestcyclops_Fend.sin",
+    "legacy_sha256": "165d24df0157267beef8ef41ce1c1ceee11b348935d3568bf4eb3d58ca923a44",
+    "legacy_size": 320
+  },
+  "semantic": {
+    "lines": [
+      "Você conseguiu nos defender dos Cíclopes, mas não sabemos",
+      "quando eles atacarão novamente.",
+      "",
+      "Imagino que tenha usado muitas poções durante a batalha.",
+      "Preparei algumas para você. Espero que ajudem nas próximas lutas.",
+      "",
+      "Existem poções de Vida, Vigor e Mana em vários tamanhos.",
+      "Use a que melhor se adequar à situação."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBjb25zZWd1aXUgbm9zIGRlZmVuZGVyIGRvcyBD7WNsb3BlcywgbWFzIG7jbyBzYWJlbW9zDQpxdWFuZG8gZWxlcyBhdGFjYXLjbyBub3ZhbWVudGUuDQoNCkltYWdpbm8gcXVlIHRlbmhhIHVzYWRvIG11aXRhcyBwb+f1ZXMgZHVyYW50ZSBhIGJhdGFsaGEuDQpQcmVwYXJlaSBhbGd1bWFzIHBhcmEgdm9j6i4gRXNwZXJvIHF1ZSBhanVkZW0gbmFzIHBy83hpbWFzIGx1dGFzLg0KDQpFeGlzdGVtIHBv5/VlcyBkZSBWaWRhLCBWaWdvciBlIE1hbmEgZW0gduFyaW9zIHRhbWFuaG9zLg0KVXNlIGEgcXVlIG1lbGhvciBzZSBhZGVxdWFyIOAgc2l0dWHn428uDQo="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest4/ChangeJob4_5.msg",
+    "image/party/party_DATA/Quest4/ChangeJob4_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest4/ChangeJob4_5.msg",
+    "legacy_sha256": "b6f7c0fb6375839302aaa74241ea4f9bc2d487e1f0b1043a650eae7d64f366af",
+    "legacy_size": 84
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Passed fourth step of",
+      "rank-up quest appointed",
+      "by master, ",
+      "Completed rank-up",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpQYXNzZWQgZm91cnRoIHN0ZXAgb2YNCnJhbmstdXAgcXVlc3QgYXBwb2ludGVkDQpieSBtYXN0ZXIsIA0KQ29tcGxldGVkIHJhbmstdXANCg0K"
+  }
+}

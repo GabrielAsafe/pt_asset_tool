@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.zquest_wp109",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ZQuest_WP109.zhoon",
+    "GameServer/OpenItem/name/ZQuest_WP109.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ZQuest_WP109.zhoon",
+    "legacy_sha256": "26fa4a1379b7895e0b0ffc9fc5c56e0d8423d41aa0d646cc9b6869f35023e61a",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Foice Demônio"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRm9pY2UgRGVt9G5pbyI="
+  }
+}

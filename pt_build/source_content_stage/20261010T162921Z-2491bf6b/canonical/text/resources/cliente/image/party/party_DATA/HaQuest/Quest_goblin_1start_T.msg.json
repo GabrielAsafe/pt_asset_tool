@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_goblin_1start_t",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_goblin_1start_T.msg",
+    "image/party/party_DATA/HaQuest/Quest_goblin_1start_T.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_goblin_1start_T.msg",
+    "legacy_sha256": "fa4d17e1140b40f81c010c82b44fa05bb394a30e8aa45cef07021350d1c6689a",
+    "legacy_size": 140
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "",
+      "After hunting 5 ",
+      "Hob Goblins in the ",
+      "Garden of freedom, go ",
+      "back to the Guardian ",
+      "at the town's entrance ",
+      "and get a reward.",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoNCkFmdGVyIGh1bnRpbmcgNSANCkhvYiBHb2JsaW5zIGluIHRoZSANCkdhcmRlbiBvZiBmcmVlZG9tLCBnbyANCmJhY2sgdG8gdGhlIEd1YXJkaWFuIA0KYXQgdGhlIHRvd24ncyBlbnRyYW5jZSANCmFuZCBnZXQgYSByZXdhcmQuDQoNCg0KDQo="
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_6_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_6_Start.sin",
+    "image/Sinimage/Quest/155LVQuest_6_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_6_Start.sin",
+    "legacy_sha256": "24726c9d3b0d4e8458d2377a0fa271d74dfbf007b255d7c3b6a975e0d5c6f9bb",
+    "legacy_size": 625
+  },
+  "semantic": {
+    "lines": [
+      "Estamos prestes a entrar em uma Era Glacial. O tempo é",
+      "curto. O continente e a 햞vore da Vida estão em risco.",
+      "Glacies terminou seu treino com Raory e pediu ajuda à",
+      "Branwen e Herfies, a Senhora do Outono. Suvien, a Senhora",
+      "do Verão, permanece com a 햞vore da Vida para aquecê-la.",
+      "As fadas se juntaram às Sacerdotisas Elementais no Vale",
+      "Gallubia. Com a Quintessência, destruiremos o rio glacial.",
+      "",
+      "Leve a Quintessência até o Vale Gallubia.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Ative a Quintessência no Vale Snowstorm, no Vale Gallubia,",
+      "na área determinada e derrote a Dama da Neve.",
+      "Ao acabar, fale com a Sábia Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RXN0YW1vcyBwcmVzdGVzIGEgZW50cmFyIGVtIHVtYSBFcmEgR2xhY2lhbC4gTyB0ZW1wbyDpDQpjdXJ0by4gTyBjb250aW5lbnRlIGUgYSDBcnZvcmUgZGEgVmlkYSBlc3TjbyBlbSByaXNjby4NCkdsYWNpZXMgdGVybWlub3Ugc2V1IHRyZWlubyBjb20gUmFvcnkgZSBwZWRpdSBhanVkYSDgDQpCcmFud2VuIGUgSGVyZmllcywgYSBTZW5ob3JhIGRvIE91dG9uby4gU3V2aWVuLCBhIFNlbmhvcmENCmRvIFZlcuNvLCBwZXJtYW5lY2UgY29tIGEgwXJ2b3JlIGRhIFZpZGEgcGFyYSBhcXVlY+otbGEuDQpBcyBmYWRhcyBzZSBqdW50YXJhbSDgcyBTYWNlcmRvdGlzYXMgRWxlbWVudGFpcyBubyBWYWxlDQpHYWxsdWJpYS4gQ29tIGEgUXVpbnRlc3PqbmNpYSwgZGVzdHJ1aXJlbW9zIG8gcmlvIGdsYWNpYWwuDQoNCkxldmUgYSBRdWludGVzc+puY2lhIGF06SBvIFZhbGUgR2FsbHViaWEuDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpBdGl2ZSBhIFF1aW50ZXNz6m5jaWEgbm8gVmFsZSBTbm93c3Rvcm0sIG5vIFZhbGUgR2FsbHViaWEsDQpuYSDhcmVhIGRldGVybWluYWRhIGUgZGVycm90ZSBhIERhbWEgZGEgTmV2ZS4NCkFvIGFjYWJhciwgZmFsZSBjb20gYSBT4WJpYSBDZWxpbmEgZW0gUGlsbGFpLg=="
+  }
+}

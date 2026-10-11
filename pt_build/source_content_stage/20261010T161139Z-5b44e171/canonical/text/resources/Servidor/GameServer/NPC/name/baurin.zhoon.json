@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.baurin",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/baurin.zhoon",
+    "GameServer/NPC/name/baurin.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/baurin.zhoon",
+    "legacy_sha256": "2062b99e6f7d16f21ad41b272722c9b93cc59b80f5420349093edcad02b17b3d",
+    "legacy_size": 148
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Baurin"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Feliz Ano-Novo!"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se você me trouxer uma Cápsula de Dragão, eu a trocarei por um presente."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9iYXVyaW4ubnBjDQoNCipKX05BTUUJCSJCYXVyaW4iDQoNCipKX0NIQVQJCSJGZWxpeiBBbm8tTm92byEiDQoqSl9DSEFUCQkiU2Ugdm9j6iBtZSB0cm91eGVyIHVtYSBD4XBzdWxhIGRlIERyYWfjbywgZXUgYSB0cm9jYXJlaSBwb3IgdW0gcHJlc2VudGUuIg=="
+  }
+}

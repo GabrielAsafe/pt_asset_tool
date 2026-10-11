@@ -1,0 +1,75 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.pr314",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PR314.txt",
+    "GameServer/OpenItem/PR314.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PR314.txt",
+    "legacy_sha256": "8f97f3d753b72b42a67e85403b60e8d87e8251068b2f83b3d5afc41a5cbea983",
+    "legacy_size": 85
+  },
+  "semantic": {
+    "fields": {
+      "code": "PR314",
+      "weight": 1,
+      "linked_file": "Name\\PR314.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PR314"
+        ],
+        "raw_values_hex": [
+          "5052333134"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PR314.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c50523331342e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBSMzE0Ig0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFBSMzE0Lnpob29uIg=="
+  }
+}

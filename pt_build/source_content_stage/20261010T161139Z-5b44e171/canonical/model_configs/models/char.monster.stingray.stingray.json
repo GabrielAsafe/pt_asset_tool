@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.stingray.stingray",
+  "logical_config": "char/monster/stingray/stingray.ini",
+  "legacy_cache": "char/monster/stingray/stingray.inx",
+  "consumers": [
+    {
+      "id": "monster.71_raia_venenosa",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/71_Raia Venenosa.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/stingray/stingray.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/stingray/stingray.inx"
+    }
+  }
+}

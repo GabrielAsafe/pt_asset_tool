@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bs101",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BS101.txt",
+    "GameServer/OpenItem/BS101.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BS101.txt",
+    "legacy_sha256": "cbb7499fba14c6dede3dd153fc7a52a0de79239489ff800a7635da529a6bd2e2",
+    "legacy_size": 64
+  },
+  "semantic": {
+    "fields": {
+      "code": "BS101",
+      "linked_file": "Name\\BS101.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BS101"
+        ],
+        "raw_values_hex": [
+          "4253313031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BS101.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42533130312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJTMTAxIg0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJTMTAxLnpob29uIg=="
+  }
+}

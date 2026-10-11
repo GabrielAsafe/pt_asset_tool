@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.td106",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/TD106.zhoon",
+    "GameServer/OpenItem/name/TD106.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/TD106.zhoon",
+    "legacy_sha256": "928324a044e43dda0703fb7763ffe92b83a9a777115ddc964bce277865b4ef6f",
+    "legacy_size": 44
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Add Event Shield"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwMS50eHQNCg0KKkpfTmFtZQkJIkFkZCBFdmVudCBTaGllbGQiDQo="
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_4",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/130LVQuest_4.msg",
+    "image/party/party_DATA/HaQuest/130LVQuest_4.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/130LVQuest_4.msg",
+    "legacy_sha256": "66d006eb2ff1a150f48db0233faf17a4b7683f1c46d7319ccaff3dc3a2a5e020",
+    "legacy_size": 147
+  },
+  "semantic": {
+    "lines": [
+      "Com seu dano reduzido,",
+      "cace 100 monstros em ",
+      "Estrada Sombria, entre: ",
+      "-Ignis",
+      "-Crios",
+      "-Najan",
+      "Após, fale com o Mago Real",
+      "em Estrada dos Ventos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29tIHNldSBkYW5vIHJlZHV6aWRvLA0KY2FjZSAxMDAgbW9uc3Ryb3MgZW0gDQpFc3RyYWRhIFNvbWJyaWEsIGVudHJlOiANCi1JZ25pcw0KLUNyaW9zDQotTmFqYW4NCkFw83MsIGZhbGUgY29tIG8gTWFnbyBSZWFsDQplbSBFc3RyYWRhIGRvcyBWZW50b3Mu"
+  }
+}

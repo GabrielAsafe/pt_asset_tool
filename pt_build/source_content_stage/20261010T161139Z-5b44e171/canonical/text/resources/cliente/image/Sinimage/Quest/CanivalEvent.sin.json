@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.canivalevent",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/CanivalEvent.sin",
+    "image/Sinimage/Quest/CanivalEvent.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/CanivalEvent.sin",
+    "legacy_sha256": "94be3d12ac1226f05eeba38d6b5bf2fd3a9ef75a935dbf69f623467e6eb2585e",
+    "legacy_size": 491
+  },
+  "semantic": {
+    "lines": [
+      "Não fuja! Não lhe farei mal! Sou a Carmem Midranda.  ",
+      "",
+      "Minha irmã, a Aurora Midranda, é a malvada. ",
+      "Preciso de sua ajuda para detê-la. Ela usou o poder",
+      "da Essência do Fogo e transformou as frutas em monstros",
+      "mais uma vez. Seu exército de frutas monstros está",
+      "roubando toda a ALEGRIA do Carnaval.",
+      "",
+      "O Carnaval corre perigo!",
+      "",
+      "Derrote minha irmã e sua horda de frutas monstros para",
+      "recuperar a ALEGRIA. ",
+      "",
+      "Traga-me as 7 letras da palavra ALEGRIA e lhe darei uma",
+      "recompensa especial."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TuNvIGZ1amEhIE7jbyBsaGUgZmFyZWkgbWFsISBTb3UgYSBDYXJtZW0gTWlkcmFuZGEuICANCg0KTWluaGEgaXJt4ywgYSBBdXJvcmEgTWlkcmFuZGEsIOkgYSBtYWx2YWRhLiANClByZWNpc28gZGUgc3VhIGFqdWRhIHBhcmEgZGV06i1sYS4gRWxhIHVzb3UgbyBwb2Rlcg0KZGEgRXNz6m5jaWEgZG8gRm9nbyBlIHRyYW5zZm9ybW91IGFzIGZydXRhcyBlbSBtb25zdHJvcw0KbWFpcyB1bWEgdmV6LiBTZXUgZXjpcmNpdG8gZGUgZnJ1dGFzIG1vbnN0cm9zIGVzdOENCnJvdWJhbmRvIHRvZGEgYSBBTEVHUklBIGRvIENhcm5hdmFsLg0KDQpPIENhcm5hdmFsIGNvcnJlIHBlcmlnbyENCg0KRGVycm90ZSBtaW5oYSBpcm3jIGUgc3VhIGhvcmRhIGRlIGZydXRhcyBtb25zdHJvcyBwYXJhDQpyZWN1cGVyYXIgYSBBTEVHUklBLiANCg0KVHJhZ2EtbWUgYXMgNyBsZXRyYXMgZGEgcGFsYXZyYSBBTEVHUklBIGUgbGhlIGRhcmVpIHVtYQ0KcmVjb21wZW5zYSBlc3BlY2lhbC4="
+  }
+}

@@ -1,0 +1,612 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wv122",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/Tier5/WV122.txt",
+    "GameServer/OpenItem/Tier5/WV122.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/Tier5/WV122.txt",
+    "legacy_sha256": "118c580b825737698f2ff1eccde4a572f2127db4a594789e76103bd26ff4efdd",
+    "legacy_size": 1264
+  },
+  "semantic": {
+    "fields": {
+      "name": "Deimos Snake Brace",
+      "english_name": "Deimos Snake Brace",
+      "code": "WV122",
+      "durability": [
+        110,
+        136
+      ],
+      "weight": 1,
+      "price": 2200000,
+      "bionic": true,
+      "earth": true,
+      "fire": true,
+      "ice": true,
+      "lightning": true,
+      "poison": true,
+      "water": true,
+      "wind": true,
+      "attack_damage": [
+        68,
+        75,
+        85,
+        90
+      ],
+      "shooting_range": true,
+      "attack_speed": 7,
+      "attack_rating": [
+        178,
+        199
+      ],
+      "critical": 18,
+      "absorb": true,
+      "defence": true,
+      "block": 15,
+      "move_speed": true,
+      "potion_space": true,
+      "life_regen_alt": true,
+      "mana_regen_alt": true,
+      "stamina_regen_alt": true,
+      "life_add_alt": true,
+      "mana_add_alt": true,
+      "stamina_add_alt": true,
+      "unmapped.2ab8b6b9fdb1e2bcfabcf7b7c3b5b5": true,
+      "level": 100,
+      "strength": 182,
+      "spirit": true,
+      "talent": 90,
+      "dexterity": true,
+      "health": true,
+      "life_alt": true,
+      "mana_alt": true,
+      "stamina_alt": true,
+      "job_random": "MartialArtist",
+      "special_damage": [
+        0,
+        6
+      ],
+      "special_attack_rating": [
+        1,
+        3
+      ],
+      "special_critical": 3,
+      "special_attack_speed": 1,
+      "linked_file": "name\\WV122.zhoon"
+    },
+    "directives": [
+      {
+        "line": 4,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Deimos Snake Brace"
+        ],
+        "raw_values_hex": [
+          "4465696d6f7320536e616b65204272616365"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Deimos Snake Brace"
+        ],
+        "raw_values_hex": [
+          "4465696d6f7320536e616b65204272616365"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WV122"
+        ],
+        "raw_values_hex": [
+          "5756313232"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 10,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          110,
+          136
+        ],
+        "raw_values_hex": [
+          "313130",
+          "313336"
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2200000
+        ],
+        "raw_values_hex": [
+          "32323030303030"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 17,
+        "key": "earth",
+        "legacy_token": "*대자연",
+        "legacy_token_hex": "2ab4ebc0dabfac",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 18,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 19,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 20,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 21,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 22,
+        "key": "water",
+        "legacy_token": "*물",
+        "legacy_token_hex": "2ab9b0",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 23,
+        "key": "wind",
+        "legacy_token": "*바람",
+        "legacy_token_hex": "2ab9d9b6f7",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 28,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          68,
+          75,
+          85,
+          90
+        ],
+        "raw_values_hex": [
+          "3638",
+          "3735",
+          "3835",
+          "3930"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "shooting_range",
+        "legacy_token": "*사정거리",
+        "legacy_token_hex": "2abbe7c1a4b0c5b8ae",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 30,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 31,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          178,
+          199
+        ],
+        "raw_values_hex": [
+          "313738",
+          "313939"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          18
+        ],
+        "raw_values_hex": [
+          "3138"
+        ]
+      },
+      {
+        "line": 37,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 38,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 39,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "move_speed",
+        "legacy_token": "*이동속도",
+        "legacy_token_hex": "2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 49,
+        "key": "potion_space",
+        "legacy_token": "*보유공간",
+        "legacy_token_hex": "2abab8c0afb0f8b0a3",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 54,
+        "key": "life_regen_alt",
+        "legacy_token": "*생명력재생",
+        "legacy_token_hex": "2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 55,
+        "key": "mana_regen_alt",
+        "legacy_token": "*기력재생",
+        "legacy_token_hex": "2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 56,
+        "key": "stamina_regen_alt",
+        "legacy_token": "*근력재생",
+        "legacy_token_hex": "2ab1d9b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 57,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 58,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 59,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 60,
+        "key": "unmapped.2ab8b6b9fdb1e2bcfabcf7b7c3b5b5",
+        "legacy_token": "*마법기술숙련도",
+        "legacy_token_hex": "2ab8b6b9fdb1e2bcfabcf7b7c3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 65,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 66,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          182
+        ],
+        "raw_values_hex": [
+          "313832"
+        ]
+      },
+      {
+        "line": 67,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 68,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          90
+        ],
+        "raw_values_hex": [
+          "3930"
+        ]
+      },
+      {
+        "line": 69,
+        "key": "dexterity",
+        "legacy_token": "*민첩성",
+        "legacy_token_hex": "2ab9cec3b8bcba",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 70,
+        "key": "health",
+        "legacy_token": "*건강",
+        "legacy_token_hex": "2ab0c7b0ad",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 75,
+        "key": "life_alt",
+        "legacy_token": "*생명력상승",
+        "legacy_token_hex": "2abbfdb8edb7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 76,
+        "key": "mana_alt",
+        "legacy_token": "*기력상승",
+        "legacy_token_hex": "2ab1e2b7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 77,
+        "key": "stamina_alt",
+        "legacy_token": "*근력상승",
+        "legacy_token_hex": "2ab1d9b7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 82,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "MartialArtist"
+        ],
+        "raw_values_hex": [
+          "4d61727469616c417274697374"
+        ]
+      },
+      {
+        "line": 85,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0,
+          6
+        ],
+        "raw_values_hex": [
+          "30",
+          "36"
+        ]
+      },
+      {
+        "line": 86,
+        "key": "special_attack_rating",
+        "legacy_token": "**명중력",
+        "legacy_token_hex": "2a2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 87,
+        "key": "special_critical",
+        "legacy_token": "**크리티컬",
+        "legacy_token_hex": "2a2ac5a9b8aec6bcc4c3",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 88,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 90,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\WV122.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c57563132322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {
+      "*마법기술숙련도": 1
+    }
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8JCb7GwMzF2yDBpLq4CQkvLw0KDQoNCirAzLinCQkiRGVpbW9zIFNuYWtlIEJyYWNlIg0KKk5hbWUJCSJEZWltb3MgU25ha2UgQnJhY2UiDQoqxNq15QkJIldWMTIyIg0KDQovLy8vLy8vLy8vLy8vLy8JsPjF67vnx9cJCSAvLy8vLy8vLy8vLy8NCg0KKrO7sbi3wgkJMTEwCTEzNg0KKrmrsNQJCTENCiqwobDdCQkyMjAwMDAwDQoNCi8vLy8vLy8vLy8vLy8vLwm/+LzSCQkvLy8vLy8vLy8vLy8vDQoNCiq7/cO8CQkNCiq068Dav6wJCQ0KKrrSCQkNCiqzw7HiCQkNCiq5+LCzCQkNCiq1tgkJDQoqubAJCQ0KKrnZtvcJCQ0KDQovLy8vLy8vLy8vLy8vLy8JsPiw3by6tMkJCS8vLy8vLy8vLy8vLy8NCi8vIMPfsKG/5MDOCcPWvNIJw9a06wkNCg0KKrD4sN23wgkJNjggNzUJODUgOTANCiq758GksMW4rgkNCiqw+LDdvNO1tQk3DQoquO3B37fCCQkxNzgJMTk5DQoqxam4rsa8xMMJMTgNCg0KLy8vLy8vLy8vLy8vLy8Juea+7ry6tMkJCS8vLy8vLy8vLy8vLy8NCi8vIMPfsKG/5MDODQoNCirI7bz2t8IJCQ0KKrnmvu63wgkJDQoquu23sMCyCQkxNQ0KDQovLy8vLy8vLy8vLy8vLwm9xbnfvLq0yQkJLy8vLy8vLy8vLy8vLw0KLy8gw9+wob/kwM4NCg0KKsDMtb+807W1CQkNCg0KLy8vLy8vLy8vLy8vLy8JwPrA5bD4sKMJCS8vLy8vLy8vLy8vLy8NCi8vILzSxM+w+LCjx9K05w0KDQoqurjAr7D4sKMJCQ0KDQovLy8vLy8vLy8vLy8vLwnGr7z2tMm3wgkJLy8vLy8vLy8vLy8vLw0KLy8gw9+wob/kwM4NCg0KKrv9uO23wsDnu/0JDQoqseK3wsDnu/0JDQoqsdm3wsDnu/0JDQoqu/247bfCw9+woQkNCiqx4rfCw9+woQkNCiqx2bfCw9+woQkNCiq4trn9seK8+rz3t8O1tQkNCg0KLy8vLy8vLy8vLy8vLy8Jv+SxuMavvLoJCS8vLy8vLy8vLy8vLy8NCi8vILvnv+vBpsfRIL/ksbjEoQ0KDQoqt7m6pwkJMTAwDQoqyPsJCTE4Mg0KKsGkvcW3wgkJDQoqwOe0yQkJOTANCiq5zsO4vLoJCQ0KKrDHsK0JCQ0KDQovLy8vLy8vLy8vLy8vCci4urm+4AkJIC8vLy8vLy8vLy8vLw0KLy8gw9+wob/kwM4Jw9a80gnD1rTrDQoNCiq7/bjtt8K7873CCQ0KKrHit8K7873CCQ0KKrHZt8K7873CCQ0KDQovLy8vLy8vLy8vLy8vLwnEs7ivxc3Gr7y6CS8vLy8vLy8vLy8vLy8NCi8vIMSzuK/FzbqwIMavyK28urTJDQoNCioqxq/IrbejtP0gTWFydGlhbEFydGlzdA0KLy8gUm9ndWUgUGlsZ3JpbSAvLw0KDQoqKrD4sN23wgkwCTYNCioquO3B37fCCTEJMw0KKirFqbiuxrzEwwkzDQoqKrD4sN2807W1CTENCg0KKr+ssOHGxMDPCSJuYW1lXFdWMTIyLnpob29uIg=="
+  }
+}

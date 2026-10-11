@@ -1,0 +1,54 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.dun_2",
+  "logical_path": "GameServer/Field/dun-2.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/dun-2.ase.spm",
+    "sha256": "73625074ea6ac0dcce9e032087163fc2f380f8aaabe913a56d23116d3e72fa9b"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.41_patrulheiro_do_mal",
+      "legacy_name": "Patrulheiro do Mal",
+      "legacy_name_bytes_hex": "50617472756c686569726f20646f204d616c",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.50_cavaleiro_do_mal",
+      "legacy_name": "Cavaleiro do Mal",
+      "legacy_name_bytes_hex": "436176616c6569726f20646f204d616c",
+      "weight": 30,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.43_decapitador",
+      "legacy_name": "Decapitador",
+      "legacy_name_bytes_hex": "4465636170697461646f72",
+      "weight": 25,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.52_carniceiro",
+      "legacy_name": "Carniceiro",
+      "legacy_name_bytes_hex": "4361726e69636569726f",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.42_m_u00famia",
+      "legacy_name": "M?ia",
+      "legacy_name_bytes_hex": "4d3f6961",
+      "weight": 20,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": []
+}

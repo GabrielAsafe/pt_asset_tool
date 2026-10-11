@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ca295",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/CA295.zhoon",
+    "GameServer/OpenItem/name/CA295.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/CA295.zhoon",
+    "legacy_sha256": "718849a731a741ed21672213b4784dbf67f6d8ac429b2307e8a65c0c59495619",
+    "legacy_size": 35
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Traje Mágico Caribenho 7d"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVHJhamUgTeFnaWNvIENhcmliZW5obyA3ZCI="
+  }
+}

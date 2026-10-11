@@ -1,0 +1,89 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.castle",
+  "logical_path": "GameServer/Field/castle.ase.spc",
+  "npcs": [
+    {
+      "slot": 0,
+      "npc_id": "npc.bcn02",
+      "x": 9046757,
+      "y": 118154,
+      "z": -5922384,
+      "ax": 0,
+      "ay": 2058,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 1,
+      "npc_id": "npc.bcn03",
+      "x": 9277872,
+      "y": 101934,
+      "z": -5953671,
+      "ax": 0,
+      "ay": 2609,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 2,
+      "npc_id": "npc.bcn04",
+      "x": 8673024,
+      "y": 126208,
+      "z": -5965824,
+      "ax": 0,
+      "ay": 5689,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 3,
+      "npc_id": "npc.bcn01",
+      "x": 8981610,
+      "y": 191844,
+      "z": -8274659,
+      "ax": 0,
+      "ay": 3527,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 4,
+      "npc_id": "npc.bcn06",
+      "x": 8706042,
+      "y": 191908,
+      "z": -8288616,
+      "ax": 0,
+      "ay": 4283,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 5,
+      "npc_id": "npc.bcn05",
+      "x": 8845116,
+      "y": 191744,
+      "z": -8256000,
+      "ax": 0,
+      "ay": 0,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 6,
+      "npc_id": "npc.blesscatle_guard",
+      "x": 8839914,
+      "y": 171800,
+      "z": -6392444,
+      "ax": 0,
+      "ay": 4320,
+      "az": 0,
+      "state": 0
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/castle.ase.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "d899ca6757e7834b67c004ee437554694140ff7f91b6858a6266a0b1623beb94"
+  }
+}

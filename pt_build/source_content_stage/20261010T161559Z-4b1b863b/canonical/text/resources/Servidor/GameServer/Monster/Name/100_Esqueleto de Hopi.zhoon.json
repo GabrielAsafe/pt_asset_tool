@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100_esqueleto_de_hopi",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/100_Esqueleto de Hopi.zhoon",
+    "GameServer/Monster/Name/100_Esqueleto de Hopi.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/100_Esqueleto de Hopi.zhoon",
+    "legacy_sha256": "6be2a80cce5b3e8c84563459c5b41a61968a1ff16cd945f4b395e3ec1e689ccc",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Esqueleto de Hopi"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRXNxdWVsZXRvIGRlIEhvcGki"
+  }
+}

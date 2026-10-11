@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.phillay_master",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/phillay-master.zhoon",
+    "GameServer/NPC/name/phillay-master.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/phillay-master.zhoon",
+    "legacy_sha256": "d3938bca3e8f4a65864e671f0bf1a071bd4dc3b673a9f5bee130f7cac722c5a4",
+    "legacy_size": 100
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Mestre Raymon"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Vamos aprimorar as habilidades?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9QSElMTEFZLU1BU1RFUi5OUEMNCg0KDQoqSl9OYW1lCSJNZXN0cmUgUmF5bW9uIg0KDQoNCipKX0NoYXQJIlZhbW9zIGFwcmltb3JhciBhcyBoYWJpbGlkYWRlcz8iDQoNCg=="
+  }
+}

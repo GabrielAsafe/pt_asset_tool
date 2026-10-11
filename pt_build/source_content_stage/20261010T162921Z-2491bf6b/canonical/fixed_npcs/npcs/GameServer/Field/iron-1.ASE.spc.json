@@ -1,0 +1,34 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.iron_1",
+  "logical_path": "GameServer/Field/iron-1.ASE.spc",
+  "npcs": [
+    {
+      "slot": 0,
+      "npc_id": "npc.yura_guard2",
+      "x": 11643035,
+      "y": 289303,
+      "z": 5479853,
+      "ax": 0,
+      "ay": 5116,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 1,
+      "npc_id": "npc.loja_do_repot_i1",
+      "x": 12493461,
+      "y": 266752,
+      "z": 3917568,
+      "ax": 0,
+      "ay": 4090,
+      "az": 0,
+      "state": 0
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/iron-1.ASE.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "361b34d9b0222eacd789978c1f1a32cb51a2202ba1678124bb6ce25d4850bdef"
+  }
+}

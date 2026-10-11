@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.xmasguy",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Xmasguy.zhoon",
+    "GameServer/NPC/name/Xmasguy.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Xmasguy.zhoon",
+    "legacy_sha256": "a8398aac8ae79b52094d12506040ee591b2790abbe60dc244c50962aa5d2c8b8",
+    "legacy_size": 286
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Rombo, o Trabalhador"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Feliz Natal!"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu fiz uma árvore para todos, mas..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Não consigo encontrar um bom lugar para colocá-la..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se eu soubesse que seria assim, teria me exercitado em vez de ficar andando pela cidade..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJSb21ibywgbyBUcmFiYWxoYWRvciINCg0KKkpfQ0hBVAkJCSJGZWxpeiBOYXRhbCEiDQoqSl9DSEFUCQkJIkV1IGZpeiB1bWEg4XJ2b3JlIHBhcmEgdG9kb3MsIG1hcy4uLiINCipKX0NIQVQJCQkiTuNvIGNvbnNpZ28gZW5jb250cmFyIHVtIGJvbSBsdWdhciBwYXJhIGNvbG9j4S1sYS4uLiINCipKX0NIQVQJCQkiU2UgZXUgc291YmVzc2UgcXVlIHNlcmlhIGFzc2ltLCB0ZXJpYSBtZSBleGVyY2l0YWRvIGVtIHZleiBkZSBmaWNhciBhbmRhbmRvIHBlbGEgY2lkYWRlLi4uIg0KDQoNCg=="
+  }
+}

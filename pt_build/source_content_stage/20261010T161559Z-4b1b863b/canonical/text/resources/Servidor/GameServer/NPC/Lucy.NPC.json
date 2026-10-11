@@ -1,0 +1,120 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.lucy",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Lucy.NPC",
+    "GameServer/NPC/Lucy.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Lucy.NPC",
+    "legacy_sha256": "9f96214ae4e0073a96a8c42cfa9cfb55dafe67f1e3141984c7d4dfa2f1b90e6a",
+    "legacy_size": 360
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\phl\\phl.INI",
+      "name": "믹스처리셋 장인 나디아",
+      "english_name": "Reset ^_^",
+      "mixture_reset": true,
+      "linked_file": "name\\Lucy.zhoon",
+      "model_config_id": "model.char.npc.phl.phl"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\phl\\phl.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c70686c5c70686c2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "믹스처리셋 장인 나디아"
+        ],
+        "raw_values_hex": [
+          "b9cdbdbac3b3b8aebcc220c0e5c0ce20b3aab5f0bec6"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Reset ^_^"
+        ],
+        "raw_values_hex": [
+          "5265736574205e5f5e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "mixture_reset",
+        "legacy_token": "*믹스처리셋",
+        "legacy_token_hex": "2ab9cdbdbac3b3b8aebcc2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Lucy.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4c7563792e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNccGhsXHBobC5JTkkiDQoNCirAzLinCQkJIrnNvbrDs7iuvMIgwOXAziCzqrXwvsYiDQoqTmFtZQkJCSJSZXNldCBeX14iDQoquc29usOzuK68wg0KDQovLyq068itCQkJIrnNvbrDsyDH0SC+xsDMxdvAuyCzqr+hsNQgsKHBrr/NIMHWvLy/5C4iIA0KLy8qtOvIrQkJCSK5zb26w7OwoSC1x8H2IL7KwLogvsbAzMXbwLsgt6O0/SCxs8ivx9ggwdmysr/kLiINCi8vKrTryK0JCQkiwbbH1cDlwM4guPC29rXlIMfSvsa59sH2sKEgvsu46SC8rb/ux9ggx9LB9iC48LijsNqz17/kLiINCg0KDQoqv6yw4cbEwM8JIm5hbWVcTHVjeS56aG9vbiINCg0KDQoNCg0KDQoNCg0KDQoNCg0K"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.or116",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OR116.txt",
+    "GameServer/OpenItem/OR116.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OR116.txt",
+    "legacy_sha256": "5d6d97fe2f398f9d0c1616dfe52051cdda036e5133c0b82f285a1ef09b4ac0f7",
+    "legacy_size": 435
+  },
+  "semantic": {
+    "fields": {
+      "code": "OR116",
+      "name": "Anel Encantado +3",
+      "english_name": "Anel Encantado +3",
+      "life_add_alt": [
+        7,
+        10
+      ],
+      "stamina_add_alt": [
+        36,
+        49
+      ],
+      "level": 60,
+      "spirit": 65,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_life_regen_alt": [
+        0.2,
+        0.3
+      ],
+      "weight": 4,
+      "price": 30000,
+      "linked_file": "Name\\OR116.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OR116"
+        ],
+        "raw_values_hex": [
+          "4f52313136"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel Encantado +3"
+        ],
+        "raw_values_hex": [
+          "416e656c20456e63616e7461646f202b33"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel Encantado +3"
+        ],
+        "raw_values_hex": [
+          "416e656c20456e63616e7461646f202b33"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          10
+        ],
+        "raw_values_hex": [
+          "37",
+          "3130"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          36,
+          49
+        ],
+        "raw_values_hex": [
+          "3336",
+          "3439"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          65
+        ],
+        "raw_values_hex": [
+          "3635"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "special_life_regen_alt",
+        "legacy_token": "**생명력재생",
+        "legacy_token_hex": "2a2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.2,
+          0.3
+        ],
+        "raw_values_hex": [
+          "302e32",
+          "302e33"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          30000
+        ],
+        "raw_values_hex": [
+          "3330303030"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OR116.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f523131362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9SMTE2Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQW5lbCBFbmNhbnRhZG8gKzMiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQW5lbCBFbmNhbnRhZG8gKzMiDQoNCi8vSFANCiq7/bjtt8LD37ChIDcgMTANCg0KLy9TVE0NCiqx2bfCw9+woSAzNiA0OQ0KDQovL0xldmVsDQoqt7m6pyA2MA0KDQovL1NwaXJpdA0KKsGkvcW3wiA2NQ0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gTWVjaGFuaWNpYW4gRmlnaHRlciBQaWtlbWFuIEFyY2hlciBLbmlnaHQgQXRhbGFudGEgUHJpZXN0ZXNzIE1hZ2ljaWFuDQoNCi8vU3BlY0hQUmVnZW4NCioqu/247bfCwOe7/SAwLjIgMC4zDQoNCi8vV2VpZ2h0DQoquauw1CA0DQoNCi8vUHJpY2UNCiqwobDdIDMwMDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcT1IxMTYuemhvb24i"
+  }
+}

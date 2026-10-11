@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uoa106_amulet_of_love",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uoa106_Amulet of Love.zhoon",
+    "GameServer/OpenItem/name/_Uoa106_Amulet of Love.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uoa106_Amulet of Love.zhoon",
+    "legacy_sha256": "3592ee26dc748439ba72779a7106896c5526ce26268a94d22cc520562223b3da",
+    "legacy_size": 61
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Amulet of Love"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9fVW9hMTA2X0FtdWxldCBvZiBMb3ZlLnR4dA0KDQoqSl9OYW1lCQkiQW11bGV0IG9mIExvdmUiDQoNCg=="
+  }
+}

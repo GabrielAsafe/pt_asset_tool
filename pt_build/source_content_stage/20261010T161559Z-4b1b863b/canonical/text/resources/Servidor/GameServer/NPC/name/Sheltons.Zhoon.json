@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sheltons",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Sheltons.Zhoon",
+    "GameServer/NPC/name/Sheltons.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Sheltons.Zhoon",
+    "legacy_sha256": "2be4229958bfe1551fb03f36310c80c7a58a88b462464f5bfc7a2c9c149c2b0e",
+    "legacy_size": 85
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Loja de Pedras"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Os melhores sheltons!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TaGVsdG9ucy5OUEMNCg0KDQoqSl9OYW1lCSJMb2phIGRlIFBlZHJhcyINCg0KDQoqSl9DaGF0CSJPcyBtZWxob3JlcyBzaGVsdG9ucyEiDQoNCg=="
+  }
+}

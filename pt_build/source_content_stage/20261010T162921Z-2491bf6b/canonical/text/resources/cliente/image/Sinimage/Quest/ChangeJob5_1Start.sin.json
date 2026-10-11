@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_1start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob5_1Start.sin",
+    "image/Sinimage/Quest/ChangeJob5_1Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob5_1Start.sin",
+    "legacy_sha256": "f3bf462ae328280e32ad2c09a4ffdad0a431e5f287ac40bf302994dbfbd8cd89",
+    "legacy_size": 776
+  },
+  "semantic": {
+    "lines": [
+      "Você está aqui por causa das novidades",
+      "sobre novos poderes que foram abertos. Estive esperando você.",
+      "",
+      "Entretanto, você precisa provar que é capaz",
+      "de realizar o Desafio de Classe. A forma para provar",
+      "será caçando monstros que eu escolho, e coletar",
+      "3 Pedras da Lua. No totl, 3 testes serão feitos,",
+      "e você receberá 1 Pedra da Lua por passar",
+      "em cada teste.",
+      "",
+      "Você deverá caçar todos os monstros em um tempo estimado.",
+      "Caso consiga, o Desafio de Classe será um sucesso.",
+      "O processo é o mesmo do último Desafio de Classe, portanto,",
+      "não explicarei mais.",
+      "",
+      "Como você sabe, o tempo começa a contar logo após você aceitar",
+      "o Desafio. Você está pronto ? Lhe informarei os monstros logo",
+      "em seguida.",
+      "",
+      "",
+      "[Quest]",
+      "",
+      "     Cace os monstros escolhidos pelo mestre",
+      "     a tempo."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBlc3ThIGFxdWkgcG9yIGNhdXNhIGRhcyBub3ZpZGFkZXMNCnNvYnJlIG5vdm9zIHBvZGVyZXMgcXVlIGZvcmFtIGFiZXJ0b3MuIEVzdGl2ZSBlc3BlcmFuZG8gdm9j6i4NCg0KRW50cmV0YW50bywgdm9j6iBwcmVjaXNhIHByb3ZhciBxdWUg6SBjYXBheg0KZGUgcmVhbGl6YXIgbyBEZXNhZmlvIGRlIENsYXNzZS4gQSBmb3JtYSBwYXJhIHByb3Zhcg0Kc2Vy4SBjYedhbmRvIG1vbnN0cm9zIHF1ZSBldSBlc2NvbGhvLCBlIGNvbGV0YXINCjMgUGVkcmFzIGRhIEx1YS4gTm8gdG90bCwgMyB0ZXN0ZXMgc2Vy428gZmVpdG9zLA0KZSB2b2PqIHJlY2ViZXLhIDEgUGVkcmEgZGEgTHVhIHBvciBwYXNzYXINCmVtIGNhZGEgdGVzdGUuDQoNClZvY+ogZGV2ZXLhIGNh52FyIHRvZG9zIG9zIG1vbnN0cm9zIGVtIHVtIHRlbXBvIGVzdGltYWRvLg0KQ2FzbyBjb25zaWdhLCBvIERlc2FmaW8gZGUgQ2xhc3NlIHNlcuEgdW0gc3VjZXNzby4NCk8gcHJvY2Vzc28g6SBvIG1lc21vIGRvIPpsdGltbyBEZXNhZmlvIGRlIENsYXNzZSwgcG9ydGFudG8sDQpu428gZXhwbGljYXJlaSBtYWlzLg0KDQpDb21vIHZvY+ogc2FiZSwgbyB0ZW1wbyBjb21l52EgYSBjb250YXIgbG9nbyBhcPNzIHZvY+ogYWNlaXRhcg0KbyBEZXNhZmlvLiBWb2PqIGVzdOEgcHJvbnRvID8gTGhlIGluZm9ybWFyZWkgb3MgbW9uc3Ryb3MgbG9nbw0KZW0gc2VndWlkYS4NCg0KDQpbUXVlc3RdDQoNCiAgICAgQ2FjZSBvcyBtb25zdHJvcyBlc2NvbGhpZG9zIHBlbG8gbWVzdHJlDQogICAgIGEgdGVtcG8uDQo="
+  }
+}

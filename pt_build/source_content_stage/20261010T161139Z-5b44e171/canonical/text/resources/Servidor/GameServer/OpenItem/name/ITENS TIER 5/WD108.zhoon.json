@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD108.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD108.zhoon",
+    "legacy_sha256": "5768deca74220ff5fdf2aabf79fb73bdf45e20ece9798f05aa84f6f56d4de589",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Saint Dagger"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDEwOC50eHQNCg0KKkpfTkFNRQkJIlNhaW50IERhZ2dlciINCg=="
+  }
+}

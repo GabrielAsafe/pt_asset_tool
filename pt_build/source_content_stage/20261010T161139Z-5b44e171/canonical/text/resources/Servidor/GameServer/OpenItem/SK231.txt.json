@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sk231",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SK231.txt",
+    "GameServer/OpenItem/SK231.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SK231.txt",
+    "legacy_sha256": "6a9156bd3a374d98a587a7d595a805b0a97993fa065adac0ae0df99cff138b01",
+    "legacy_size": 60
+  },
+  "semantic": {
+    "fields": {
+      "name": "Skin Cajado 2H",
+      "code": "SK231"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Skin Cajado 2H"
+        ],
+        "raw_values_hex": [
+          "536b696e2043616a61646f203248"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SK231"
+        ],
+        "raw_values_hex": [
+          "534b323331"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiU2tpbiBDYWphZG8gMkgiDQoqxNq15QkiU0syMzEi"
+  }
+}

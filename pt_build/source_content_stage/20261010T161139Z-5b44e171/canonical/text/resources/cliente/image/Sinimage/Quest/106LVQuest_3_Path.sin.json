@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_3_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/106LVQuest_3_Path.sin",
+    "image/Sinimage/Quest/106LVQuest_3_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/106LVQuest_3_Path.sin",
+    "legacy_sha256": "b28f0f935b4d819437cff8906a07bcd0bf222b6367743bb43982582137edcf11",
+    "legacy_size": 75
+  },
+  "semantic": {
+    "lines": [
+      "Leve o anel até o Mago Real Ray, em Pillai, para ele",
+      "livrá-lo da maldição."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV2ZSBvIGFuZWwgYXTpIG8gTWFnbyBSZWFsIFJheSwgZW0gUGlsbGFpLCBwYXJhIGVsZQ0KbGl2cuEtbG8gZGEgbWFsZGnn428u"
+  }
+}

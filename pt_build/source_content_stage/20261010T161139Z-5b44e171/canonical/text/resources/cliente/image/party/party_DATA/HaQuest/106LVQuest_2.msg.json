@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/106LVQuest_2.msg",
+    "image/party/party_DATA/HaQuest/106LVQuest_2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/106LVQuest_2.msg",
+    "legacy_sha256": "5c0dc1cff6fda5f165df922597dc00508e33f16af86fab6b08948ce6b48f46c9",
+    "legacy_size": 115
+  },
+  "semantic": {
+    "lines": [
+      "Derrote Caoscara no Vale",
+      "Gallubia, até encontrar o ",
+      "Anel Amaldiçoado, e retorne ao",
+      "Mestre da Força de Vila Eura."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBDYW9zY2FyYSBubyBWYWxlDQpHYWxsdWJpYSwgYXTpIGVuY29udHJhciBvIA0KQW5lbCBBbWFsZGnnb2FkbywgZSByZXRvcm5lIGFvDQpNZXN0cmUgZGEgRm9y52EgZGUgVmlsYSBFdXJhLg=="
+  }
+}

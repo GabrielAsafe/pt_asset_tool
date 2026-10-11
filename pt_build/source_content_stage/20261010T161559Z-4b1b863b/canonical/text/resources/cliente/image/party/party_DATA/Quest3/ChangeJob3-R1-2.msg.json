@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_r1_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest3/ChangeJob3-R1-2.msg",
+    "image/party/party_DATA/Quest3/ChangeJob3-R1-2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest3/ChangeJob3-R1-2.msg",
+    "legacy_sha256": "3ce02948e7e64169ea52d8dfe576356970b4248526f355ecb30349d88ae7808f",
+    "legacy_size": 57
+  },
+  "semantic": {
+    "lines": [
+      "Let's mature the weapon by",
+      "hunting 25 Armored Beetles."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV0J3MgbWF0dXJlIHRoZSB3ZWFwb24gYnkNCmh1bnRpbmcgMjUgQXJtb3JlZCBCZWV0bGVzLg0K"
+  }
+}

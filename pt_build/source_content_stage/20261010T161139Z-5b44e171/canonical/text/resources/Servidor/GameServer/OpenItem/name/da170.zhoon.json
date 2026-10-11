@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da170",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/da170.zhoon",
+    "GameServer/OpenItem/name/da170.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/da170.zhoon",
+    "legacy_sha256": "80a7364ccbb92fb972936ba49c1f389f9695cb9821ec2c91e1dc77a9d610c669",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Uniforme Japonês M (30d)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIlVuaWZvcm1lIEphcG9u6nMgTSAoMzBkKSINCg=="
+  }
+}

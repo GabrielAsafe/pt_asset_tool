@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.rs106",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/RS106.zhoon",
+    "GameServer/OpenItem/name/RS106.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/RS106.zhoon",
+    "legacy_sha256": "123a9480b4fa9a683cd6812ccf948528f59a90a06aafccbc5e0187a3058aded9",
+    "legacy_size": 39
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pedra de Reespecialização ATS"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVkcmEgZGUgUmVlc3BlY2lhbGl6YefjbyBBVFMi"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.105_i_marionette",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/105_I_Marionette.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/105_I_Marionette.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/105_I_Marionette.inf",
+        "GameServer/Monster/105_I_Marionette.inf"
+      ],
+      "legacy_sha256": "645233fd77420e7a0d1bfb9fab33fc829cc01b2f44e79845e5f23c15aee933dc"
+    }
+  ]
+}

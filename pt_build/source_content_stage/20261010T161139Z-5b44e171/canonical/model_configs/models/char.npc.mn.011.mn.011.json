@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.mn.011.mn.011",
+  "logical_config": "char/npc/MN-011/MN-011.INI",
+  "legacy_cache": "char/npc/MN-011/MN-011.inx",
+  "consumers": [
+    {
+      "id": "npc.quest",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/quest.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/MN-011/MN-011.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/MN-011/MN-011.inx"
+    }
+  }
+}

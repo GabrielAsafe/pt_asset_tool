@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monplant.monplant.c",
+  "logical_config": "char/monster/monplant/monplant-c.ini",
+  "legacy_cache": "char/monster/monplant/monplant-c.inx",
+  "consumers": [
+    {
+      "id": "monster.13_planta",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/13_Planta.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monplant/MonPlant-c.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monplant/MonPlant-c.inx"
+    }
+  }
+}

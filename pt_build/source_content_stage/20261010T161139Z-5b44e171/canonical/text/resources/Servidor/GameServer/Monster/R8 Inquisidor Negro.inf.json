@@ -1,0 +1,374 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.r8_inquisidor_negro",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/R8 Inquisidor Negro.inf",
+    "GameServer/Monster/R8 Inquisidor Negro.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/R8 Inquisidor Negro.inf",
+    "legacy_sha256": "040074b6e0c47d237d69aec2923cb0f3ccc2c4ed054d5fa3872f786370ee18f7",
+    "legacy_size": 718
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\darkphalanx\\darkphalanx.ini",
+      "name": "R8 Inquisidor Negro",
+      "level": 94,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 390,
+      "life": 10500,
+      "attack_damage": [
+        120,
+        235
+      ],
+      "attack_rating": 1330,
+      "attack_speed": 8,
+      "attack_range": 100,
+      "skill_damage": [
+        240,
+        280
+      ],
+      "skill_rating": 20,
+      "defence": 820,
+      "block": 20,
+      "stun_percent": 10,
+      "move_speed": 2,
+      "monster_race": "언데드",
+      "size": "중대형",
+      "experience": 201000,
+      "effect_sound": "DARKPHALANX",
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.darkphalanx.darkphalanx"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\darkphalanx\\darkphalanx.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c6461726b7068616c616e785c6461726b7068616c616e782e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "R8 Inquisidor Negro"
+        ],
+        "raw_values_hex": [
+          "523820496e7175697369646f72204e6567726f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          94
+        ],
+        "raw_values_hex": [
+          "3934"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          390
+        ],
+        "raw_values_hex": [
+          "333930"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          10500
+        ],
+        "raw_values_hex": [
+          "3130353030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          120,
+          235
+        ],
+        "raw_values_hex": [
+          "313230",
+          "323335"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1330
+        ],
+        "raw_values_hex": [
+          "31333330"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "skill_damage",
+        "legacy_token": "*기술공격력",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          240,
+          280
+        ],
+        "raw_values_hex": [
+          "323430",
+          "323830"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          820
+        ],
+        "raw_values_hex": [
+          "383230"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "stun_percent",
+        "legacy_token": "*스턴율",
+        "legacy_token_hex": "2abdbac5cfc0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "언데드"
+        ],
+        "raw_values_hex": [
+          "bef0b5a5b5e5"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          201000
+        ],
+        "raw_values_hex": [
+          "323031303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "DARKPHALANX"
+        ],
+        "raw_values_hex": [
+          "4441524b5048414c414e58"
+        ]
+      },
+      {
+        "line": 69,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcZGFya3BoYWxhbnhcZGFya3BoYWxhbnguaW5pIg0KDQovL05hbWUNCirAzLinCSJSOCBJbnF1aXNpZG9yIE5lZ3JvIg0KDQovL0xldmVsDQoqt7m6pwk5NA0KDQovL1NpemUNCiq48LWoxamx4gkxLjANCg0KLy9TcGF3blF1YW50aXR5DQoqwbbB9wkxIDENCg0KLy9WaWV3UmFuZ2UNCiq9w77fCTM5MA0KDQovL0hQDQoqu/247bfCCTEwNTAwDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IJMTIwIDIzNQ0KDQovL0F0dGFja1JhdGluZw0KKrjtwd+3wgkxMzMwDQoNCi8vQXR0YWNrU3BlZWQNCiqw+LDdvNO1tQk4DQoNCi8vQXR0YWNrUmFuZ2UNCiqw+LDdufzApyAxMDANCg0KLy9Ta2lsbFBvd2VyDQoqseK8+rD4sN23wgkyNDAgMjgwDQoNCi8vU2tpbGxSYXRpbmcNCiqx4rz6sPiw3bf8IDIwDQoNCi8vRGVmZW5zZQ0KKrnmvu63wgk4MjANCg0KLy9CbG9jaw0KKrrtt7DAsgkyMA0KDQovL1N0dW4NCiq9usXPwLIgMTANCg0KLy9Nb3ZlU3BlZWQNCirAzLW/t8IgMg0KDQovL1JhY2UNCiq48726xc3BvsG3Cb7wtaW15Q0KDQovL1NoYWRvd1NpemUNCirFqbHiIMHftOvH/A0KDQovL0V4cGVyaWVuY2UNCiqw5sfoxKEJMjAxMDAwDQoNCi8vU291bmQNCirIv7D6wL0JREFSS1BIQUxBTlgNCg0KDQovL0V4dGVybiBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcTmFtZS56aG9vbiINCg=="
+  }
+}

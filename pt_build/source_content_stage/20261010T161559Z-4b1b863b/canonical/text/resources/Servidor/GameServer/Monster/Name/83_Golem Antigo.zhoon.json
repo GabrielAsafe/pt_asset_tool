@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.83_golem_antigo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/83_Golem Antigo.zhoon",
+    "GameServer/Monster/Name/83_Golem Antigo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/83_Golem Antigo.zhoon",
+    "legacy_sha256": "f9e50e1c10d6a73fb12b9ad3a768f539a4074aff6ff0fae58f0d24e595e8a2ef",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Golem Antigo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR29sZW0gQW50aWdvIg=="
+  }
+}

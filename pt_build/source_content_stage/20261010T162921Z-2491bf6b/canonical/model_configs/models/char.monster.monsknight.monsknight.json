@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monsknight.monsknight",
+  "logical_config": "char/monster/monsknight/monsknight.ini",
+  "legacy_cache": "char/monster/monsknight/monsknight.inx",
+  "consumers": [
+    {
+      "id": "monster.50_cavaleiro_do_mal",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/50_Cavaleiro do Mal.inf.json"
+    },
+    {
+      "id": "monster.sod_skeleton_knight",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_skeleton_knight.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/MonSKnight/MonSKnight.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/MonSKnight/MonSKnight.inx"
+    }
+  }
+}

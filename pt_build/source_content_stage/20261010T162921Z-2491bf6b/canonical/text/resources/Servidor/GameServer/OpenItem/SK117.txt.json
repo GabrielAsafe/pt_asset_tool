@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sk117",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SK117.txt",
+    "GameServer/OpenItem/SK117.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SK117.txt",
+    "legacy_sha256": "9ed2975d9730f371163c06490dab7b28634d6986f9738fbc8e9a3d76a3ba6b38",
+    "legacy_size": 61
+  },
+  "semantic": {
+    "fields": {
+      "name": "Skin Machado 1H",
+      "code": "SK117"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Skin Machado 1H"
+        ],
+        "raw_values_hex": [
+          "536b696e204d61636861646f203148"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SK117"
+        ],
+        "raw_values_hex": [
+          "534b313137"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiU2tpbiBNYWNoYWRvIDFIIg0KKsTateUJIlNLMTE3Ig=="
+  }
+}

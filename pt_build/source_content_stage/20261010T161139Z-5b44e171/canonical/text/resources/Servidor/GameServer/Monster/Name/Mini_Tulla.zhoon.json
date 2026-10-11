@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.mini_tulla",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/Mini_Tulla.zhoon",
+    "GameServer/Monster/Name/Mini_Tulla.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/Mini_Tulla.zhoon",
+    "legacy_sha256": "0acd875eca4b213f928cefede0418ea5cfd53b1849f30d70b265ce851497407a",
+    "legacy_size": 42
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mini Tulla"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9NaW5pX1R1bGxhLmluZg0KDQoqSl9OQU1FICJNaW5pIFR1bGxhIg0K"
+  }
+}

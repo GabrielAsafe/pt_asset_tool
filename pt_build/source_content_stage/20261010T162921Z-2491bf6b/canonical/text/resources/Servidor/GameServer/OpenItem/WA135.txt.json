@@ -1,0 +1,374 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wa135",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WA135.txt",
+    "GameServer/OpenItem/WA135.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WA135.txt",
+    "legacy_sha256": "d6c5533cfdd8568ff68fc866e61d180fed93b3d707627916cd36e0084a261d34",
+    "legacy_size": 691
+  },
+  "semantic": {
+    "fields": {
+      "code": "WA135",
+      "name": "Machado Drax",
+      "english_name": "Machado Drax",
+      "attack_damage": [
+        189,
+        192,
+        201,
+        204
+      ],
+      "attack_rating": [
+        308,
+        318
+      ],
+      "attack_speed": 8,
+      "critical": 22,
+      "block": [
+        13.0,
+        13.0
+      ],
+      "durability": [
+        274,
+        351
+      ],
+      "level": 146,
+      "strength": 270,
+      "talent": 100,
+      "job": "Fighter",
+      "job_random": [
+        "Mechanician",
+        "Pikeman"
+      ],
+      "special_damage": [
+        7,
+        7
+      ],
+      "special_attack_rating": [
+        1,
+        3
+      ],
+      "special_attack_speed": 1,
+      "special_critical": 4,
+      "weight": 172,
+      "price": 2010000,
+      "linked_file": "Name\\WA135.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WA135"
+        ],
+        "raw_values_hex": [
+          "5741313335"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Machado Drax"
+        ],
+        "raw_values_hex": [
+          "4d61636861646f2044726178"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Machado Drax"
+        ],
+        "raw_values_hex": [
+          "4d61636861646f2044726178"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          189,
+          192,
+          201,
+          204
+        ],
+        "raw_values_hex": [
+          "313839",
+          "313932",
+          "323031",
+          "323034"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          308,
+          318
+        ],
+        "raw_values_hex": [
+          "333038",
+          "333138"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          22
+        ],
+        "raw_values_hex": [
+          "3232"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          13.0,
+          13.0
+        ],
+        "raw_values_hex": [
+          "31332e30",
+          "31332e30"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          274,
+          351
+        ],
+        "raw_values_hex": [
+          "323734",
+          "333531"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          146
+        ],
+        "raw_values_hex": [
+          "313436"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          270
+        ],
+        "raw_values_hex": [
+          "323730"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "job",
+        "legacy_token": "**Ưȭ",
+        "legacy_token_hex": "2a2ac6afc8ad",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Fighter"
+        ],
+        "raw_values_hex": [
+          "46696768746572"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Pikeman"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "50696b656d616e"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          7
+        ],
+        "raw_values_hex": [
+          "37",
+          "37"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_attack_rating",
+        "legacy_token": "**명중력",
+        "legacy_token_hex": "2a2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_critical",
+        "legacy_token": "**크리티컬",
+        "legacy_token_hex": "2a2ac5a9b8aec6bcc4c3",
+        "loader_status": "supported_mapped",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          172
+        ],
+        "raw_values_hex": [
+          "313732"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2010000
+        ],
+        "raw_values_hex": [
+          "32303130303030"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WA135.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c57413133352e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldBMTM1Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiTWFjaGFkbyBEcmF4Ig0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIk1hY2hhZG8gRHJheCINCg0KLy9BdHRhY2tQb3dlcg0KKrD4sN23wiAxODkgMTkyIDIwMSAyMDQNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgMzA4IDMxOA0KDQovL0F0dGFja1NwZWVkDQoqsPiw3bzTtbUgOA0KDQovL0F0dGFja0NyaXRpY2FsDQoqxam4rsa8xMMgMjINCg0KLy9CbG9jaw0KKrrtt7DAsiAxMy4wIDEzLjANCg0KLy9JbnRlZ3JpdHkNCiqzu7G4t8IgMjc0IDM1MQ0KDQovL0xldmVsDQoqt7m6pyAxNDYNCg0KLy9TdHJlbmd0aA0KKsj7IDI3MA0KDQovL1RhbGVudA0KKsDntMkgMTAwDQoNCi8vUHJpbWFyeVNwZWMNCioqxq/IrSBGaWdodGVyDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBQaWtlbWFuDQoNCi8vU3BlY0F0dGFja1Bvd2VyDQoqKrD4sN23wiA3IDcNCg0KLy9TcGVjQXR0YWNrUmF0aW5nDQoqKrjtwd+3wiAxIDMNCg0KLy9TcGVjQXR0YWNrU3BlZWQNCioqsPiw3bzTtbUgMQ0KDQovL1NwZWNBdHRhY2tDcml0aWNhbA0KKirFqbiuxrzEwyA0DQoNCi8vV2VpZ2h0DQoquauw1CAxNzINCg0KLy9QcmljZQ0KKrChsN0gMjAxMDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFdBMTM1Lnpob29uIg=="
+  }
+}

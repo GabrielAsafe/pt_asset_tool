@@ -1,0 +1,88 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.ice_2",
+  "logical_path": "GameServer/Field/ice_2.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/ice_2.ase.spm",
+    "sha256": "044a7f7c7780951c90b272a31e1221e50e79765f2f90bbe9d8be0e06480f4082"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.90_nevasca",
+      "legacy_name": "Nevasca",
+      "legacy_name_bytes_hex": "4e657661736361",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.88_conjuradora",
+      "legacy_name": "Conjuradora",
+      "legacy_name_bytes_hex": "436f6e6a757261646f7261",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.89_tartaruga_blindada",
+      "legacy_name": "Tartaruga Blindada",
+      "legacy_name_bytes_hex": "54617274617275676120426c696e64616461",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.89_gelo",
+      "legacy_name": "Gelo",
+      "legacy_name_bytes_hex": "47656c6f",
+      "weight": 13,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.90_golem_de_gelo",
+      "legacy_name": "Golem de Gelo",
+      "legacy_name_bytes_hex": "476f6c656d2064652047656c6f",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.90_p_u00e1ssaro_demon_u00edaco",
+      "legacy_name": "Passaro Demoniaco",
+      "legacy_name_bytes_hex": "5061737361726f2044656d6f6e6961636f",
+      "weight": 5,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.88_guerreiro_c_u00edclope",
+      "legacy_name": "Guerreiro Ciclope",
+      "legacy_name_bytes_hex": "47756572726569726f204369636c6f7065",
+      "weight": 15,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_91_tartaruga_drag_u00e3o",
+      "slave_monster_id": "monster.89_tartaruga_blindada",
+      "master_legacy_name": "Tartaruga Dragão",
+      "slave_legacy_name": "Tartaruga Blindada",
+      "master_legacy_name_bytes_hex": "5461727461727567612044726167e36f",
+      "slave_legacy_name_bytes_hex": "54617274617275676120426c696e64616461",
+      "slave_count": 4,
+      "open_hours": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "master_resolution": "exact",
+      "slave_resolution": "exact"
+    }
+  ]
+}

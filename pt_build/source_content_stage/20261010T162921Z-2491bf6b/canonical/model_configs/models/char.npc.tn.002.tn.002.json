@@ -1,0 +1,58 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.002.tn.002",
+  "logical_config": "char/npc/TN-002/TN-002.INI",
+  "legacy_cache": "char/npc/TN-002/TN-002.inx",
+  "consumers": [
+    {
+      "id": "npc.desert_guard",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/desert-guard.npc.json"
+    },
+    {
+      "id": "npc.lake_guard.path_daa63fac93",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/lake-guard.npc.json"
+    },
+    {
+      "id": "npc.ricarden_guard1",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ricarden-guard1.npc.json"
+    },
+    {
+      "id": "npc.ricarden_guard2",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ricarden-guard2.npc.json"
+    },
+    {
+      "id": "npc.yura_guard",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/yura-guard.npc.json"
+    },
+    {
+      "id": "npc.yura_guard1",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/yura-guard1.npc.json"
+    },
+    {
+      "id": "npc.yura_guard2",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/yura-guard2.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-002/TN-002.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-002/TN-002.inx"
+    }
+  }
+}

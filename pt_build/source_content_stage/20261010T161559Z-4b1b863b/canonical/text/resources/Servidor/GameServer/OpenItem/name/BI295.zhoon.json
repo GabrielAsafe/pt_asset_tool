@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi295",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI295.zhoon",
+    "GameServer/OpenItem/name/BI295.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI295.zhoon",
+    "legacy_sha256": "87a32a6dfd3c800e241b2e280b38f9348bc78c7bc106f4e5e628104a6782d028",
+    "legacy_size": 32
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pedra do Acesso - Runa"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVkcmEgZG8gQWNlc3NvIC0gUnVuYSI="
+  }
+}

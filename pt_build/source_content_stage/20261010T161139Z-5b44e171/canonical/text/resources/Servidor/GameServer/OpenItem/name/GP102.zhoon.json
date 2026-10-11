@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.gp102",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/GP102.zhoon",
+    "GameServer/OpenItem/name/GP102.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/GP102.zhoon",
+    "legacy_sha256": "b3ed869a4b3db46eed344b5488f19ce6f9ea4d1d645fcc76805de42992646fd3",
+    "legacy_size": 35
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cristal de Duende Macabro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ3Jpc3RhbCBkZSBEdWVuZGUgTWFjYWJybyI="
+  }
+}

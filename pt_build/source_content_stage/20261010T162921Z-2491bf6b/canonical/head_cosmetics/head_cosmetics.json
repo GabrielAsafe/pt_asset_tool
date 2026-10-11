@@ -1,0 +1,25 @@
+{
+  "schema": "summit.head-cosmetics/v1",
+  "schema_version": 1,
+  "mode": "cosmetic_slot",
+  "slot": {
+    "id": "head_cosmetic",
+    "legacy_inventory_bit": "0x00020000",
+    "combat_stats": false
+  },
+  "cosmetics": [
+    {
+      "id": "head.mask.815",
+      "display_name": "815 Mask",
+      "item_id": null,
+      "male_asset": "char/tmABCD/815mask_M.tga",
+      "female_asset": "char/tmABCD/815mask_W.tga",
+      "render_mode": "head_overlay",
+      "status": "asset_present_item_and_runtime_slot_pending"
+    }
+  ],
+  "notes": [
+    "Do not overload armor stats. Server persists equipped cosmetic id; client resolves/render asset. Protocol/save must be versioned before enabling the slot."
+  ],
+  "active_runtime": false
+}

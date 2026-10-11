@@ -1,0 +1,41 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_6_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_6_Start.sin",
+    "image/Sinimage/Quest/110LVQuest_6_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_6_Start.sin",
+    "legacy_sha256": "1d8cfa5b3966553005e715e34c8e7ba67fad7fbb8f7cf8811cc6fbccbeffbc1a",
+    "legacy_size": 598
+  },
+  "semantic": {
+    "lines": [
+      "Para destruir tal arma, explosivos simples não farão efeito.",
+      "",
+      "Acho que a magia de teletransporte é útil para causar uma",
+      "grande explosão e destruir um espaço sem ferir as pessoas.",
+      "",
+      "Vamos chamar o explosivo de \"Bomba da Destruição\", já",
+      "que ela irá destruir e desaparecer com qualquer vestígio.",
+      "",
+      "Para produzir o explosivo, uma fonte forte e instável de",
+      "energia é necessária.",
+      "Derrote Tulla na Mina de Gelo (1º Andar), e traga o ",
+      "Cristal Instável dele.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Derrote Tulla na Mina de Gelo (1º Andar), encontre o",
+      "Cristal Instável e entregue a Newter, o Sábio, em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UGFyYSBkZXN0cnVpciB0YWwgYXJtYSwgZXhwbG9zaXZvcyBzaW1wbGVzIG7jbyBmYXLjbyBlZmVpdG8uDQoNCkFjaG8gcXVlIGEgbWFnaWEgZGUgdGVsZXRyYW5zcG9ydGUg6SD6dGlsIHBhcmEgY2F1c2FyIHVtYQ0KZ3JhbmRlIGV4cGxvc+NvIGUgZGVzdHJ1aXIgdW0gZXNwYedvIHNlbSBmZXJpciBhcyBwZXNzb2FzLg0KDQpWYW1vcyBjaGFtYXIgbyBleHBsb3Npdm8gZGUgIkJvbWJhIGRhIERlc3RydWnn428iLCBq4Q0KcXVlIGVsYSBpcuEgZGVzdHJ1aXIgZSBkZXNhcGFyZWNlciBjb20gcXVhbHF1ZXIgdmVzdO1naW8uDQoNClBhcmEgcHJvZHV6aXIgbyBleHBsb3Npdm8sIHVtYSBmb250ZSBmb3J0ZSBlIGluc3ThdmVsIGRlDQplbmVyZ2lhIOkgbmVjZXNz4XJpYS4NCkRlcnJvdGUgVHVsbGEgbmEgTWluYSBkZSBHZWxvICgxuiBBbmRhciksIGUgdHJhZ2EgbyANCkNyaXN0YWwgSW5zdOF2ZWwgZGVsZS4NCg0KW09iamV0aXZvIGRvIERlc2FmaW9dDQoNCkRlcnJvdGUgVHVsbGEgbmEgTWluYSBkZSBHZWxvICgxuiBBbmRhciksIGVuY29udHJlIG8NCkNyaXN0YWwgSW5zdOF2ZWwgZSBlbnRyZWd1ZSBhIE5ld3RlciwgbyBT4WJpbywgZW0gUGlsbGFpLg=="
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ws209",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WS209.txt",
+    "GameServer/OpenItem/WS209.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WS209.txt",
+    "legacy_sha256": "ab85cfe8d150311af9f5bcd254b29e1c02c51db0ecfec068bb7746bafe6ff175",
+    "legacy_size": 659
+  },
+  "semantic": {
+    "fields": {
+      "code": "WS209",
+      "name": "Espada Protetora",
+      "english_name": "Espada Protetora",
+      "attack_damage": [
+        8,
+        12,
+        16,
+        18
+      ],
+      "attack_rating": [
+        45,
+        56
+      ],
+      "attack_speed": 7,
+      "critical": 7,
+      "durability": [
+        50,
+        75
+      ],
+      "level": 30,
+      "strength": 66,
+      "talent": 52,
+      "job": "Knight",
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman"
+      ],
+      "special_damage": [
+        6,
+        6
+      ],
+      "special_attack_rating": [
+        1,
+        3
+      ],
+      "special_attack_speed": 1,
+      "special_critical": 4,
+      "weight": 9,
+      "price": 13000,
+      "linked_file": "Name\\WS209.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WS209"
+        ],
+        "raw_values_hex": [
+          "5753323039"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Espada Protetora"
+        ],
+        "raw_values_hex": [
+          "4573706164612050726f7465746f7261"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Espada Protetora"
+        ],
+        "raw_values_hex": [
+          "4573706164612050726f7465746f7261"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          8,
+          12,
+          16,
+          18
+        ],
+        "raw_values_hex": [
+          "38",
+          "3132",
+          "3136",
+          "3138"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          45,
+          56
+        ],
+        "raw_values_hex": [
+          "3435",
+          "3536"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50,
+          75
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3735"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          30
+        ],
+        "raw_values_hex": [
+          "3330"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          66
+        ],
+        "raw_values_hex": [
+          "3636"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          52
+        ],
+        "raw_values_hex": [
+          "3532"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "job",
+        "legacy_token": "**Ưȭ",
+        "legacy_token_hex": "2a2ac6afc8ad",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Knight"
+        ],
+        "raw_values_hex": [
+          "4b6e69676874"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          6
+        ],
+        "raw_values_hex": [
+          "36",
+          "36"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "special_attack_rating",
+        "legacy_token": "**명중력",
+        "legacy_token_hex": "2a2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_critical",
+        "legacy_token": "**크리티컬",
+        "legacy_token_hex": "2a2ac5a9b8aec6bcc4c3",
+        "loader_status": "supported_mapped",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          13000
+        ],
+        "raw_values_hex": [
+          "3133303030"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WS209.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c57533230392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldTMjA5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiRXNwYWRhIFByb3RldG9yYSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJFc3BhZGEgUHJvdGV0b3JhIg0KDQovL0F0dGFja1Bvd2VyDQoqsPiw3bfCIDggMTIgMTYgMTgNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgNDUgNTYNCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDcNCg0KLy9BdHRhY2tDcml0aWNhbA0KKsWpuK7GvMTDIDcNCg0KLy9JbnRlZ3JpdHkNCiqzu7G4t8IgNTAgNzUNCg0KLy9MZXZlbA0KKre5uqcgMzANCg0KLy9TdHJlbmd0aA0KKsj7IDY2DQoNCi8vVGFsZW50DQoqwOe0ySA1Mg0KDQovL1ByaW1hcnlTcGVjDQoqKsavyK0gS25pZ2h0DQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBGaWdodGVyIFBpa2VtYW4NCg0KLy9TcGVjQXR0YWNrUG93ZXINCioqsPiw3bfCIDYgNg0KDQovL1NwZWNBdHRhY2tSYXRpbmcNCioquO3B37fCIDEgMw0KDQovL1NwZWNBdHRhY2tTcGVlZA0KKiqw+LDdvNO1tSAxDQoNCi8vU3BlY0F0dGFja0NyaXRpY2FsDQoqKsWpuK7GvMTDIDQNCg0KLy9XZWlnaHQNCiq5q7DUIDkNCg0KLy9QcmljZQ0KKrChsN0gMTMwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxXUzIwOS56aG9vbiI="
+  }
+}

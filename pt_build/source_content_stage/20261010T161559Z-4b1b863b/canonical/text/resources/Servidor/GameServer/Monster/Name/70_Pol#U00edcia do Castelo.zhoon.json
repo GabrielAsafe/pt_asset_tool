@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.70_pol_u00edcia_do_castelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/70_Pol#U00edcia do Castelo.zhoon",
+    "GameServer/Monster/Name/70_Pol#U00edcia do Castelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/70_Pol#U00edcia do Castelo.zhoon",
+    "legacy_sha256": "e6c20881cefaf63645967740a7373e8df4751ea7d0c60751d5f28712faec4c25",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Polícia do Castelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUG9s7WNpYSBkbyBDYXN0ZWxvIg=="
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.phillai_quest_shop",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Phillai Quest Shop.NPC",
+    "GameServer/NPC/Phillai Quest Shop.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Phillai Quest Shop.NPC",
+    "legacy_sha256": "0f8733c1a948044fad2b8ffe2eb55e55f0f61f3366caed71391ce743ca6543df",
+    "legacy_size": 271
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\stella\\stella.INI",
+      "name": "퀘스트 담당자",
+      "sell_weapon": "없음",
+      "sell_defence": {
+        "$repeated": [
+          "없음",
+          "없음"
+        ]
+      },
+      "sell_etc": [
+        "MA201",
+        "MA202",
+        "ma101",
+        "qt106",
+        "qt113"
+      ],
+      "linked_file": "name\\Phillai Quest Shop.zhoon",
+      "model_config_id": "model.char.npc.stella.stella"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\stella\\stella.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c7374656c6c615c7374656c6c612e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "퀘스트 담당자"
+        ],
+        "raw_values_hex": [
+          "c4f9bdbac6ae20b4e3b4e7c0da"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 10,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 13,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "MA201",
+          "MA202",
+          "ma101",
+          "qt106",
+          "qt113"
+        ],
+        "raw_values_hex": [
+          "4d41323031",
+          "4d41323032",
+          "6d61313031",
+          "7174313036",
+          "7174313133"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Phillai Quest Shop.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c5068696c6c61692051756573742053686f702e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcc3RlbGxhXHN0ZWxsYS5JTkkiDQoNCirAzLinCQkJIsT5vbrGriC047TnwNoiDQoNCi8vKrTryK0JCQkiubqwoSDE+b26xq64piDB4LnZIMG7Li4uIg0KDQoNCiq5q7Hixse4xQm++MC9DQoNCiq55r7usbjGx7jFCb74wL0NCiq55r7usbjGx7jFCb74wL0NCg0KKsDiyK3Gx7jFIE1BMjAxIE1BMjAyIG1hMTAxIHF0MTA2IHF0MTEzDQoNCg0KKr+ssOHGxMDPCSJuYW1lXFBoaWxsYWkgUXVlc3QgU2hvcC56aG9vbiINCg=="
+  }
+}

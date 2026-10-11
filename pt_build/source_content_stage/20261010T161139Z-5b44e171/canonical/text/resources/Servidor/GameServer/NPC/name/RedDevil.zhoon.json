@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.reddevil.path_9480a3ee67",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/RedDevil.zhoon",
+    "GameServer/NPC/name/RedDevil.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/RedDevil.zhoon",
+    "legacy_sha256": "e23b8c0d9b438f9487566178582b6e9c3a01054d0124e6f662239a94e524cf89",
+    "legacy_size": 92
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Cant find reddevil.npc"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Cant find reddevil.npc"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9yZWRkZXZpbC5ucGMNCg0KDQoqSl9OYW1lCSJDYW50IGZpbmQgcmVkZGV2aWwubnBjIg0KDQoNCipKX0NoYXQJQ2FudCBmaW5kIHJlZGRldmlsLm5wYw0KDQo="
+  }
+}

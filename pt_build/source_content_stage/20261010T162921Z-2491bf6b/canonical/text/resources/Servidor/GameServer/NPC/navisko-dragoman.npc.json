@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.navisko_dragoman",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/navisko-dragoman.npc",
+    "GameServer/NPC/navisko-dragoman.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/navisko-dragoman.npc",
+    "legacy_sha256": "6ee6f76d0590bfa41b94d69b4aa35599ecc862446a09a553163022166a100a7d",
+    "legacy_size": 470
+  },
+  "semantic": {
+    "fields": {
+      "name": "네비스코 가드",
+      "model_file": "char\\npc\\TN-002\\TN-013.INI",
+      "level": 100,
+      "linked_file": "name\\navisko-dragoman.zhoon",
+      "model_config_id": "model.char.npc.tn.002.tn.013"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "네비스코 가드"
+        ],
+        "raw_values_hex": [
+          "b3d7baf1bdbac4da20b0a1b5e5"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-002\\TN-013.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030325c544e2d3031332e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\navisko-dragoman.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e617669736b6f2d647261676f6d616e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSKz17rxvbrE2iCwobXlIg0KKrjwvufGxMDPCSJjaGFyXG5wY1xUTi0wMDJcVE4tMDEzLklOSSINCiq3ubqnCQkxMDANCi8vKrTryK0JCSK4tsC7t84guPO9usXNILXpwMwgtem+7r/CtNm0wiC80rmuwMwgwNa0wrWlILOtIMfRufi1tSC6u8D7wMwgvvi+7iwgsMXC/CDAzLvzx8+xui4uPyINCi8vKrTryK0JCSK+7sGmIMD6s+G/oSC52bDvILmruK616cC7ILq7ILDNILCwwLq1pSDAzLvzx8+03CC4u8DMvt8/Ig0KLy8qtOvIrQkJIlNPRCCw5rHiwOXAuyDDo7TCILvntve16cDMILTDvu6zqrjpvK0gs6ogyKXA2iDAzLD3wLsgwfbFsLHiv6MgufawzLTZsO0iDQovLyq068itCQkiv/bHwbDUwMzGrrimIMXrx9ggwNSxuLimIMXrx8/B9iC+yrDtILXpvu6/wLTCILvntve16cDMILTDvu6zqrjpvK0gs6q1tSCw8cShIL7Gx8Gw1CC1x776vu4iDQoNCg0KKr+ssOHGxMDPCSJuYW1lXG5hdmlza28tZHJhZ29tYW4uemhvb24iDQo="
+  }
+}

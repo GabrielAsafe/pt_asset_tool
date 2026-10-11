@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.87_morg_u00f4nia",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/87_Morg#U00f4nia.zhoon",
+    "GameServer/Monster/Name/87_Morg#U00f4nia.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/87_Morg#U00f4nia.zhoon",
+    "legacy_sha256": "2c66124c63bda677cb9135219f0a35294b9b6d684ac2a9c055fdd78857b7ae8e",
+    "legacy_size": 18
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Morgônia"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTW9yZ/RuaWEi"
+  }
+}

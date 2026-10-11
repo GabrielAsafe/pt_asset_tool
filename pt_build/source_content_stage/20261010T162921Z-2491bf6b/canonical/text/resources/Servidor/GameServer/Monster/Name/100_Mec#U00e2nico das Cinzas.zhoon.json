@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100_mec_u00e2nico_das_cinzas",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/100_Mec#U00e2nico das Cinzas.zhoon",
+    "GameServer/Monster/Name/100_Mec#U00e2nico das Cinzas.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/100_Mec#U00e2nico das Cinzas.zhoon",
+    "legacy_sha256": "84e55c1f579818f3ed836bd36868a6998c5e905958319f3c402dc952b13e425c",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mecânico das Cinzas"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTWVj4m5pY28gZGFzIENpbnphcyI="
+  }
+}

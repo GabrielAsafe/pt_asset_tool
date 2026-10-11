@@ -1,0 +1,95 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.or231",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OR231.txt",
+    "GameServer/OpenItem/OR231.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OR231.txt",
+    "legacy_sha256": "9dcd1abf2340705ad5c66919ced0f737f80d50c204e8e86ed8e07925d1af7757",
+    "legacy_size": 145
+  },
+  "semantic": {
+    "fields": {
+      "code": "OR231",
+      "name": "Anel do Babel",
+      "english_name": "Anel do Babel",
+      "linked_file": "Name\\OR231.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OR231"
+        ],
+        "raw_values_hex": [
+          "4f52323331"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel do Babel"
+        ],
+        "raw_values_hex": [
+          "416e656c20646f20426162656c"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel do Babel"
+        ],
+        "raw_values_hex": [
+          "416e656c20646f20426162656c"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OR231.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f523233312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9SMjMxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQW5lbCBkbyBCYWJlbCINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJBbmVsIGRvIEJhYmVsIg0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE9SMjMxLnpob29uIg=="
+  }
+}

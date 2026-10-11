@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.rebuild",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Rebuild_Ph/Rebuild.msg",
+    "image/party/party_DATA/Rebuild_Ph/Rebuild.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Rebuild_Ph/Rebuild.msg",
+    "legacy_sha256": "067d11fbed3c112310102d3e56ea38ba5363a75eac34efe6f72b0bfe99d91bf5",
+    "legacy_size": 111
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Colete os itens solicitados:",
+      "2x Cerejas",
+      "2x Chantilly  ",
+      "2x Trigo  ",
+      "e entregue-os para a ",
+      "Confeiteira Myu."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpDb2xldGUgb3MgaXRlbnMgc29saWNpdGFkb3M6DQoyeCBDZXJlamFzDQoyeCBDaGFudGlsbHkgIA0KMnggVHJpZ28gIA0KZSBlbnRyZWd1ZS1vcyBwYXJhIGEgDQpDb25mZWl0ZWlyYSBNeXUu"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd109",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD109.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD109.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD109.zhoon",
+    "legacy_sha256": "24edb959966a7f315e4519a964037009f5d4eeed22497aefeca6b2a23479f7e6",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Falchion"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDEwOS50eHQNCg0KKkpfTkFNRQkJIkZhbGNoaW9uIg0K"
+  }
+}

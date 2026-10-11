@@ -1,0 +1,419 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ds122",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DS122.txt",
+    "GameServer/OpenItem/DS122.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DS122.txt",
+    "legacy_sha256": "23f99666fca59a8852242c9c011c42ed0fec1ff8bb727113d5748fb212f0bbe0",
+    "legacy_size": 734
+  },
+  "semantic": {
+    "fields": {
+      "code": "DS122",
+      "name": "Escudo da Morte",
+      "english_name": "Escudo da Morte",
+      "defence": [
+        210,
+        230
+      ],
+      "absorb": [
+        12.2,
+        12.5
+      ],
+      "block": [
+        17.0,
+        20.0
+      ],
+      "bionic": [
+        3,
+        6
+      ],
+      "fire": [
+        3,
+        6
+      ],
+      "ice": [
+        3,
+        6
+      ],
+      "lightning": [
+        3,
+        6
+      ],
+      "poison": [
+        3,
+        6
+      ],
+      "durability": [
+        180,
+        200
+      ],
+      "level": 102,
+      "strength": 130,
+      "talent": 75,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta"
+      ],
+      "special_defence": [
+        38,
+        44
+      ],
+      "special_absorb": [
+        1.2,
+        1.3
+      ],
+      "special_block": 4.0,
+      "weight": 85,
+      "price": 800000,
+      "linked_file": "Name\\DS122.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DS122"
+        ],
+        "raw_values_hex": [
+          "4453313232"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Escudo da Morte"
+        ],
+        "raw_values_hex": [
+          "45736375646f206461204d6f727465"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Escudo da Morte"
+        ],
+        "raw_values_hex": [
+          "45736375646f206461204d6f727465"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          210,
+          230
+        ],
+        "raw_values_hex": [
+          "323130",
+          "323330"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          12.2,
+          12.5
+        ],
+        "raw_values_hex": [
+          "31322e32",
+          "31322e35"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          17.0,
+          20.0
+        ],
+        "raw_values_hex": [
+          "31372e30",
+          "32302e30"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          3,
+          6
+        ],
+        "raw_values_hex": [
+          "33",
+          "36"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3,
+          6
+        ],
+        "raw_values_hex": [
+          "33",
+          "36"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3,
+          6
+        ],
+        "raw_values_hex": [
+          "33",
+          "36"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          3,
+          6
+        ],
+        "raw_values_hex": [
+          "33",
+          "36"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          3,
+          6
+        ],
+        "raw_values_hex": [
+          "33",
+          "36"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          180,
+          200
+        ],
+        "raw_values_hex": [
+          "313830",
+          "323030"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          102
+        ],
+        "raw_values_hex": [
+          "313032"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          130
+        ],
+        "raw_values_hex": [
+          "313330"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          75
+        ],
+        "raw_values_hex": [
+          "3735"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_defence",
+        "legacy_token": "**방어력",
+        "legacy_token_hex": "2a2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          38,
+          44
+        ],
+        "raw_values_hex": [
+          "3338",
+          "3434"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.2,
+          1.3
+        ],
+        "raw_values_hex": [
+          "312e32",
+          "312e33"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "special_block",
+        "legacy_token": "**블럭율",
+        "legacy_token_hex": "2a2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          4.0
+        ],
+        "raw_values_hex": [
+          "342e30"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          85
+        ],
+        "raw_values_hex": [
+          "3835"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          800000
+        ],
+        "raw_values_hex": [
+          "383030303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DS122.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44533132322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRTMTIyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiRXNjdWRvIGRhIE1vcnRlIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkVzY3VkbyBkYSBNb3J0ZSINCg0KLy9EZWZlbnNlDQoquea+7rfCIDIxMCAyMzANCg0KLy9BYnNvcnB0aW9uDQoqyO289rfCIDEyLjIgMTIuNQ0KDQovL0Jsb2NrDQoquu23sMCyIDE3LjAgMjAuMA0KDQovL09yZ2FuaWNSZXNpc3RhbmNlDQoqu/3DvCAzIDYNCg0KLy9GaXJlUmVzaXN0YW5jZQ0KKrrSIDMgNg0KDQovL0Zyb3N0UmVzaXN0YW5jZQ0KKrPDseIgMyA2DQoNCi8vTGlnaHRuaW5nUmVzaXN0YW5jZQ0KKrn4sLMgMyA2DQoNCi8vUG9pc29uUmVzaXN0YW5jZQ0KKrW2IDMgNg0KDQovL0ludGVncml0eQ0KKrO7sbi3wiAxODAgMjAwDQoNCi8vTGV2ZWwNCiq3ubqnIDEwMg0KDQovL1N0cmVuZ3RoDQoqyPsgMTMwDQoNCi8vVGFsZW50DQoqwOe0ySA3NQ0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gTWVjaGFuaWNpYW4gRmlnaHRlciBQaWtlbWFuIEFyY2hlciBLbmlnaHQgQXRhbGFudGENCg0KLy9TcGVjRGVmZW5zZQ0KKiq55r7ut8IgMzggNDQNCg0KLy9TcGVjQWJzb3JwdGlvbg0KKirI7bz2t8IgMS4yIDEuMw0KDQovL1NwZWNCbG9jaw0KKiq67bewwLIgNC4wDQoNCi8vV2VpZ2h0DQoquauw1CA4NQ0KDQovL1ByaWNlDQoqsKGw3SA4MDAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxEUzEyMi56aG9vbiI="
+  }
+}

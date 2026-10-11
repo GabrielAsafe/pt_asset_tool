@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.b_castle",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/B_Castle.sin",
+    "image/Sinimage/WarpGateDoc/B_Castle.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/B_Castle.sin",
+    "legacy_sha256": "12d7b54f61cf648845e47bafe618ecd80d463b750bbf7802be5fffcb492cdf35",
+    "legacy_size": 396
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Bless Castle is a castle located in the middle of",
+      "a small Island under the sea of south location of",
+      "Tempskron's territory, the Bamboo forest.",
+      "Elliot Bless, who is the origin of the Bless ",
+      "dynasty, and his subordinate Arjen DeVaan has built ",
+      "the castle and it reflects the techmology of ",
+      "the Tempskrons. ",
+      "",
+      "Nobody can move in the castle except for the ",
+      "clan members who own the castle."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpCbGVzcyBDYXN0bGUgaXMgYSBjYXN0bGUgbG9jYXRlZCBpbiB0aGUgbWlkZGxlIG9mDQphIHNtYWxsIElzbGFuZCB1bmRlciB0aGUgc2VhIG9mIHNvdXRoIGxvY2F0aW9uIG9mDQpUZW1wc2tyb24ncyB0ZXJyaXRvcnksIHRoZSBCYW1ib28gZm9yZXN0Lg0KRWxsaW90IEJsZXNzLCB3aG8gaXMgdGhlIG9yaWdpbiBvZiB0aGUgQmxlc3MgDQpkeW5hc3R5LCBhbmQgaGlzIHN1Ym9yZGluYXRlIEFyamVuIERlVmFhbiBoYXMgYnVpbHQgDQp0aGUgY2FzdGxlIGFuZCBpdCByZWZsZWN0cyB0aGUgdGVjaG1vbG9neSBvZiANCnRoZSBUZW1wc2tyb25zLiANCg0KTm9ib2R5IGNhbiBtb3ZlIGluIHRoZSBjYXN0bGUgZXhjZXB0IGZvciB0aGUgDQpjbGFuIG1lbWJlcnMgd2hvIG93biB0aGUgY2FzdGxlLg0K"
+  }
+}

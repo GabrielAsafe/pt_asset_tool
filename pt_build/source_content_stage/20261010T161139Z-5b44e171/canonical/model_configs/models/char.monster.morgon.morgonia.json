@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.morgon.morgonia",
+  "logical_config": "char/monster/morgon/morgonia.ini",
+  "legacy_cache": "char/monster/morgon/morgonia.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_87_morg_u00f4nia",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_87_Morg#U00f4nia.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Morgon/Morgonia.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Morgon/Morgonia.inx"
+    }
+  }
+}

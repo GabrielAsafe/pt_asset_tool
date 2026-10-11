@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.hobogolem.hobogolem",
+  "logical_config": "char/monster/hobogolem/hobogolem.ini",
+  "legacy_cache": "char/monster/hobogolem/hobogolem.inx",
+  "consumers": [
+    {
+      "id": "monster.101_golem_rob_u00f4",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/101_Golem Rob#U00f4.inf.json"
+    },
+    {
+      "id": "monster.chefe_101_rob_u00f4_mutante",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_101_Rob#U00f4 Mutante.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/hobogolem/hobogolem.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/hobogolem/hobogolem.inx"
+    }
+  }
+}

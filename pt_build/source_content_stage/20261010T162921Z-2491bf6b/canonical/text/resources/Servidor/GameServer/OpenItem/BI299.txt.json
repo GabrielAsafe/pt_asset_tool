@@ -1,0 +1,85 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi299",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI299.txt",
+    "GameServer/OpenItem/BI299.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI299.txt",
+    "legacy_sha256": "1749c137d7df896b2ec3e948eccbff5f5ac1a1be81855c3941cbfc2d09c7f845",
+    "legacy_size": 112
+  },
+  "semantic": {
+    "fields": {
+      "name": "Vale Crédito",
+      "code": "BI299",
+      "weight": 2,
+      "price": true
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Vale Crédito"
+        ],
+        "raw_values_hex": [
+          "56616c65204372e96469746f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI299"
+        ],
+        "raw_values_hex": [
+          "4249323939"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [],
+        "raw_values_hex": []
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiVmFsZSBDculkaXRvIg0KKsTateUJIkJJMjk5Ig0KDQovLyBQRVNPIERPIElURU0NCiq5q7DUCTINCi8vIFBSRcdPIERPIElURU0NCiqwobDdCQ=="
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_3_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_3_Path.sin",
+    "image/Sinimage/Quest/114LVQuest_3_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_3_Path.sin",
+    "legacy_sha256": "2cee0f2cbd01242dbd4e378776f442490105c443f036bc6e583e0101e7fb48d0",
+    "legacy_size": 137
+  },
+  "semantic": {
+    "lines": [
+      "Você já coletou Cristais de Alma Maligna de todos os",
+      "monstros?",
+      "Você precisa enfrentar o Soldado Zumbi, Elite Zumbi,",
+      "Acero e o Chalybs."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBq4SBjb2xldG91IENyaXN0YWlzIGRlIEFsbWEgTWFsaWduYSBkZSB0b2RvcyBvcw0KbW9uc3Ryb3M/DQpWb2PqIHByZWNpc2EgZW5mcmVudGFyIG8gU29sZGFkbyBadW1iaSwgRWxpdGUgWnVtYmksDQpBY2VybyBlIG8gQ2hhbHlicy4="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.60_mestre_verkan",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/60_Mestre Verkan.zhoon",
+    "GameServer/Monster/Name/60_Mestre Verkan.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/60_Mestre Verkan.zhoon",
+    "legacy_sha256": "105f15a3425b60fea89b0835a7c7f0ab36b488bd0bda3f71575f4a620b1026e7",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mestre Verkan"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTWVzdHJlIFZlcmthbiI="
+  }
+}

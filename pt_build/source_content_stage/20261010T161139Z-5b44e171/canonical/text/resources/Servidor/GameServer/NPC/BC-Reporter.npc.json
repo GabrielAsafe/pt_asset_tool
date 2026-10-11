@@ -1,0 +1,127 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.bc_reporter",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/BC-Reporter.npc",
+    "GameServer/NPC/BC-Reporter.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/BC-Reporter.npc",
+    "legacy_sha256": "f86c58f70fd1e95541310abecdfd51141cda21c19b7720e4d75cf61b2a1232d2",
+    "legacy_size": 679
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-016\\TN-016.ini",
+      "name": "블레스캐슬 리포터",
+      "media_title": "공성전 생중계",
+      "media_path": "mms://media.pristontale.com/siegewartest",
+      "linked_file": "name\\BC-Reporter.zhoon",
+      "model_config_id": "model.char.npc.tn.016.tn.016"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-016\\TN-016.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3031365c544e2d3031362e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "블레스캐슬 리포터"
+        ],
+        "raw_values_hex": [
+          "baedb7b9bdbac4b3bdbd20b8aec6f7c5cd"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "media_title",
+        "legacy_token": "*동영상제목",
+        "legacy_token_hex": "2ab5bfbfb5bbf3c1a6b8f1",
+        "loader_status": "supported_mapped",
+        "values": [
+          "공성전 생중계"
+        ],
+        "raw_values_hex": [
+          "b0f8bcbac0fc20bbfdc1dfb0e8"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "media_path",
+        "legacy_token": "*동영상경로",
+        "legacy_token_hex": "2ab5bfbfb5bbf3b0e6b7ce",
+        "loader_status": "supported_mapped",
+        "values": [
+          "mms://media.pristontale.com/siegewartest"
+        ],
+        "raw_values_hex": [
+          "6d6d733a2f2f6d656469612e70726973746f6e74616c652e636f6d2f736965676577617274657374"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 18,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\BC-Reporter.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c42432d5265706f727465722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDE2XFROLTAxNi5pbmkiDQoNCirAzLinCQkJIrrtt7m9usSzvb0guK7G98XNIg0KKrW/v7W788GmuPEgICAgICAgICAgICAgIrD4vLrA/CC7/cHfsOgiDQoqtb+/tbvzsOa3ziAgICAgICAgICAgICAibW1zOi8vbWVkaWEucHJpc3RvbnRhbGUuY29tL3NpZWdld2FydGVzdCINCg0KDQovLy8vKrTryK0JCQkisPq/rCDAzLn4IMHWwMcgvLrB1rTCILSpsKEgtcmx7r/kPyINCi8vLy8qtOvIrSAJCQkisPi8usD8wLoguMXB1iDH0SC5+L6/IL+tuK645yC538fStvPAxyDFvsC7IMbEsavHz7TCIMWst6PAzCC8usHWsKEgtcu0z7TZLiINCi8vLy8qtOvIrSAgICAgICAgICAgICAgICAgICAivLrAuyDC98H2x8+w1CC1x7jpILHXILq4u/PAzCC+7ri2vu64tiDHz7T4taUgtbXA/MfYILq4vce3ob/kPyINCi8vLy8qtOvIrSAgICAgICAgICAgICAgICAgICAixKG/rcfRIMD8xfWwoSC5+r7uwfaw7SDA1rTCILvzyLLAuyC9sbDUILq4vccgvPYgwNa9wLTPtNkuIg0KLy8vLyq068itICAgICAgICAgICAgICAgICAgICK67be5vbogxLO9vbfOILChseIgwKfH2LyttMIgtOuzqrmrIL2jwMcgvsizu8DaILWlwMy48yC+xsD6vr6/obDUILi7vrjAuyDHz7zFvt8gx9i/5C4iDQoNCg0KDQoqv6yw4cbEwM8JICJuYW1lXEJDLVJlcG9ydGVyLnpob29uIg=="
+  }
+}

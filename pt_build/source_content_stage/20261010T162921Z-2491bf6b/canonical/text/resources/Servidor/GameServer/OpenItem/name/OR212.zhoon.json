@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or212",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR212.zhoon",
+    "GameServer/OpenItem/name/OR212.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR212.zhoon",
+    "legacy_sha256": "0c3fee6d4295faf7ec08ce89a9e11a4a55ca8b7b05238016ca300bd4b51e1e68",
+    "legacy_size": 184
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 6,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel de Bauton"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQovLwlQVCBJVEVNIFRFTVBMQVRFIEJZIFdPUk1ZCS8vDQovLwlFTkRMRVNTIFRPV0VSIDNGIElURU0gUEFDSwkvLw0KLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQoNCipKX05hbWUJCSJBbmVsIGRlIEJhdXRvbiINCg=="
+  }
+}

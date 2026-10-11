@@ -1,0 +1,41 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.teleport.path_4c12abf31d",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Teleport.sin",
+    "image/Sinimage/WarpGateDoc/Teleport.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Teleport.sin",
+    "legacy_sha256": "05318acee19c3de25134e719c8b4a84994216733c888eabbf4274144259ee0f1",
+    "legacy_size": 446
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "                [Teleport]",
+      "If you want to use this, pay for it first.",
+      "",
+      "Select the area you want to go.",
+      "",
+      "Please prepare the etercore to retrieve town in advance. ",
+      "",
+      "",
+      "----------------- Teleport fee ---------------------",
+      "",
+      "* 1st area: The guard of Mushroom cave.    100 Gold",
+      "* 2nd area: The guard of Beehive cave.     100 Gold",
+      "* 3rd area: The keeper of Dungeon.         500 Gold",
+      "* 4th area: Entrance of Railway of Chaos. 1000 Gold",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQogICAgICAgICAgICAgICAgW1RlbGVwb3J0XQ0KSWYgeW91IHdhbnQgdG8gdXNlIHRoaXMsIHBheSBmb3IgaXQgZmlyc3QuDQoNClNlbGVjdCB0aGUgYXJlYSB5b3Ugd2FudCB0byBnby4NCg0KUGxlYXNlIHByZXBhcmUgdGhlIGV0ZXJjb3JlIHRvIHJldHJpZXZlIHRvd24gaW4gYWR2YW5jZS4gDQoNCg0KLS0tLS0tLS0tLS0tLS0tLS0gVGVsZXBvcnQgZmVlIC0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KDQoqIDFzdCBhcmVhOiBUaGUgZ3VhcmQgb2YgTXVzaHJvb20gY2F2ZS4gICAgMTAwIEdvbGQNCiogMm5kIGFyZWE6IFRoZSBndWFyZCBvZiBCZWVoaXZlIGNhdmUuICAgICAxMDAgR29sZA0KKiAzcmQgYXJlYTogVGhlIGtlZXBlciBvZiBEdW5nZW9uLiAgICAgICAgIDUwMCBHb2xkDQoqIDR0aCBhcmVhOiBFbnRyYW5jZSBvZiBSYWlsd2F5IG9mIENoYW9zLiAxMDAwIEdvbGQNCg0KDQo="
+  }
+}

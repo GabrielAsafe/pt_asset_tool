@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi302",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI302.txt",
+    "GameServer/OpenItem/BI302.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI302.txt",
+    "legacy_sha256": "1e5d5637eaeb979ccb69d8712d5d08d17ac3932939bf0e8b960564a3b1b0787e",
+    "legacy_size": 172
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI302",
+      "name": "Pacote de UP 12h",
+      "english_name": "Pacote de UP 12h",
+      "weight": 1,
+      "linked_file": "Name\\BI302.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI302"
+        ],
+        "raw_values_hex": [
+          "4249333032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pacote de UP 12h"
+        ],
+        "raw_values_hex": [
+          "5061636f746520646520555020313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pacote de UP 12h"
+        ],
+        "raw_values_hex": [
+          "5061636f746520646520555020313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI302.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493330322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMzAyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUGFjb3RlIGRlIFVQIDEyaCINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJQYWNvdGUgZGUgVVAgMTJoIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJJMzAyLnpob29uIg=="
+  }
+}

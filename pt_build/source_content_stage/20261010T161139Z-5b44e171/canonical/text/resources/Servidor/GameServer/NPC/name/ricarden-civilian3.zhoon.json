@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_civilian3",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ricarden-civilian3.zhoon",
+    "GameServer/NPC/name/ricarden-civilian3.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ricarden-civilian3.zhoon",
+    "legacy_sha256": "6ac3dec59d9fbd1cabe322ca848e4ce067e061e5151c310e617620cfd1f3aa9d",
+    "legacy_size": 204
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "T_NAME",
+        "kind": "name",
+        "text": "Jacon, o Preocupado"
+      },
+      {
+        "line": 4,
+        "legacy_key": "T_CHAT",
+        "kind": "chat",
+        "text": "Ah! Dizem que os monstros estão ficando cada vez mais fortes. Preciso encontrar uma nova forma de caçá-los... O que devo fazer?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9yaWNhcmRlbi1jaXZpbGlhbjMubnBjDQoNCipUX05BTUUJCSJKYWNvbiwgbyBQcmVvY3VwYWRvIg0KKlRfQ0hBVAkJIkFoISBEaXplbSBxdWUgb3MgbW9uc3Ryb3MgZXN0428gZmljYW5kbyBjYWRhIHZleiBtYWlzIGZvcnRlcy4gUHJlY2lzbyBlbmNvbnRyYXIgdW1hIG5vdmEgZm9ybWEgZGUgY2Hn4S1sb3MuLi4gTyBxdWUgZGV2byBmYXplcj8iDQoNCg0K"
+  }
+}

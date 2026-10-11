@@ -1,0 +1,110 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ricarden_civilian3",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ricarden-civilian3.npc",
+    "GameServer/NPC/ricarden-civilian3.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ricarden-civilian3.npc",
+    "legacy_sha256": "28f8718beee4d60eb71e2edf963501beaed0adc18ff25ec2ecc26c2631fe2403",
+    "legacy_size": 247
+  },
+  "semantic": {
+    "fields": {
+      "name": "고민많은 자콘",
+      "model_file": "char\\npc\\npc-04.ini",
+      "level": 100,
+      "dialog": "아!! 몬스터 들이 점점 강해지고 있다는데 이젠 뭔가 새로운 방식의 사냥법을 찾아야 할꺼야 .. 아 어떻게 하면 좋을까 고민이군..",
+      "linked_file": "name\\ricarden-civilian3.zhoon",
+      "model_config_id": "model.char.npc.npc.04"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "고민많은 자콘"
+        ],
+        "raw_values_hex": [
+          "b0edb9ceb8b9c0ba20c0dac4dc"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\npc-04.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c6e70632d30342e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 4,
+        "key": "dialog",
+        "legacy_token": "*대화",
+        "legacy_token_hex": "2ab4ebc8ad",
+        "loader_status": "supported_mapped",
+        "values": [
+          "아!! 몬스터 들이 점점 강해지고 있다는데 이젠 뭔가 새로운 방식의 사냥법을 찾아야 할꺼야 .. 아 어떻게 하면 좋을까 고민이군.."
+        ],
+        "raw_values_hex": [
+          "bec6212120b8f3bdbac5cd20b5e9c0cc20c1a1c1a120b0adc7d8c1f6b0ed20c0d6b4d9b4c2b5a520c0ccc1a820b9bab0a120bbf5b7cebfee20b9e6bdc4c0c720bbe7b3c9b9fdc0bb20c3a3bec6bedf20c7d2b2a8bedf202e2e20bec620beeeb6bbb0d420c7cfb8e920c1c1c0bbb1ee20b0edb9cec0ccb1ba2e2e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ricarden-civilian3.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c726963617264656e2d636976696c69616e332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSKw7bnOuLnAuiDA2sTcIg0KKrjwvufGxMDPCSJjaGFyXG5wY1xucGMtMDQuaW5pIg0KKre5uqcJCTEwMA0KKrTryK0JCSK+xiEhILjzvbrFzSC16cDMIMGhwaEgsK3H2MH2sO0gwNa02bTCtaUgwMzBqCC5urChILv1t86/7iC55r3EwMcgu+ezybn9wLsgw6O+xr7fIMfSsqi+3yAuLiC+xiC+7ra7sNQgx8+46SDBwcC7se4gsO25zsDMsbouLiINCg0KKr+ssOHGxMDPCSJuYW1lXHJpY2FyZGVuLWNpdmlsaWFuMy56aG9vbiINCg=="
+  }
+}

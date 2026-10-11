@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.109_devilshy",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/109_DevilShy.zhoon",
+    "GameServer/Monster/Name/109_DevilShy.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/109_DevilShy.zhoon",
+    "legacy_sha256": "5f55843d3ea597a0906460cb8944f693ccdaca777a1efcf4830cc182326678e0",
+    "legacy_size": 18
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "DevilShy"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRGV2aWxTaHki"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.force_master",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Force-master.NPC",
+    "GameServer/NPC/Force-master.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Force-master.NPC",
+    "legacy_sha256": "2f2a8b44d0359f914ec014fca95abf35dba3c7a0df795ad4e51466298198261c",
+    "legacy_size": 454
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-012\\MN-012.INI",
+      "name": "포스 마스터",
+      "refining": true,
+      "linked_file": "name\\Force-master.zhoon",
+      "model_config_id": "model.char.npc.mn.012.mn.012"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-012\\MN-012.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3031325c4d4e2d3031322e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "포스 마스터"
+        ],
+        "raw_values_hex": [
+          "c6f7bdba20b8b6bdbac5cd"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 12,
+        "key": "refining",
+        "legacy_token": "*아이템연금",
+        "legacy_token_hex": "2abec6c0ccc5dbbfacb1dd",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Force-master.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c466f7263652d6d61737465722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDEyXE1OLTAxMi5JTkkNCg0KKsDMuKcJCQkixve9uiC4tr26xc0iDQoNCi8vKrTryK0JCQkivanF0iDBtrCiv6Egucy8vMfRIMj7wLsgutK+7iCz1r7uILi4tecgsdewzcC7IMb3vbogv8C66rbzILrOuKPB9r/kLiINCi8vKrTryK0JCQkiwMwgseK8+sC6IMXbvbrFqbfQLCC48LbzwMy/wsDHILDNtbUgvsa00SC02bilIMDMtenAxyC5rrjtwNS0z7TZLiINCi8vKrTryK0JCQkix9G5+CC757/rx9Egxve9uiC/wLrqtMIgvNK46sfPsNQgtcu0z7TZLiDAzMGhwLsguO29ycfPvLy/5CINCi8vKrTryK0JCQkixve9usDHIMj7wMwgwfa807XHtMIgtb++yCCz7rbzv+8guLjFrcDHILCtx9EgsPiw3bfCwLsgsKHB+iC89iDA1r3AtM+02S4iDQoNCiq+xsDMxdu/rLHdDQoNCiq/rLDhxsTAzyAibmFtZVxGb3JjZS1tYXN0ZXIuemhvb24iDQoNCg=="
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_3_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_3_Path.sin",
+    "image/Sinimage/Quest/140LVQuest_3_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_3_Path.sin",
+    "legacy_sha256": "4a02a61eba564e0188001f25a9c09f400d41a589169fd7f41bb5645754a8d65d",
+    "legacy_size": 649
+  },
+  "semantic": {
+    "lines": [
+      "O Comandante Derik iniciou a missão de resgate do Príncipe",
+      "Zarad, nós também iremos. Arteres guiará as tropas pelo",
+      "subterrâneo da fortaleza de Yagditha.",
+      "",
+      "O destino dos Shogoth é muito triste, eles foram criados",
+      "por Yagditha, usando o corpo dos pristonianos mortos em",
+      "batalhas e os capturados pelos Cristais Negros, que você",
+      "viu na Estrada Sombria. Suas almas estão presas e sob",
+      "o controle dos Sathla e Arhdyra. Celina quer estudar suas",
+      "almas para descobrir uma forma de libertar a alma dos",
+      "Shogoth desse sofrimento.",
+      "",
+      "Colete a Alma Azul e Alma Vermelha, caçando Sathla e",
+      "Arhdyra, respectivamente, e leve-as até a Sábia Celina em",
+      "Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TyBDb21hbmRhbnRlIERlcmlrIGluaWNpb3UgYSBtaXNz428gZGUgcmVzZ2F0ZSBkbyBQcu1uY2lwZQ0KWmFyYWQsIG7zcyB0YW1i6W0gaXJlbW9zLiBBcnRlcmVzIGd1aWFy4SBhcyB0cm9wYXMgcGVsbw0Kc3VidGVycuJuZW8gZGEgZm9ydGFsZXphIGRlIFlhZ2RpdGhhLg0KDQpPIGRlc3Rpbm8gZG9zIFNob2dvdGgg6SBtdWl0byB0cmlzdGUsIGVsZXMgZm9yYW0gY3JpYWRvcw0KcG9yIFlhZ2RpdGhhLCB1c2FuZG8gbyBjb3JwbyBkb3MgcHJpc3Rvbmlhbm9zIG1vcnRvcyBlbQ0KYmF0YWxoYXMgZSBvcyBjYXB0dXJhZG9zIHBlbG9zIENyaXN0YWlzIE5lZ3JvcywgcXVlIHZvY+oNCnZpdSBuYSBFc3RyYWRhIFNvbWJyaWEuIFN1YXMgYWxtYXMgZXN0428gcHJlc2FzIGUgc29iDQpvIGNvbnRyb2xlIGRvcyBTYXRobGEgZSBBcmhkeXJhLiBDZWxpbmEgcXVlciBlc3R1ZGFyIHN1YXMNCmFsbWFzIHBhcmEgZGVzY29icmlyIHVtYSBmb3JtYSBkZSBsaWJlcnRhciBhIGFsbWEgZG9zDQpTaG9nb3RoIGRlc3NlIHNvZnJpbWVudG8uDQoNCkNvbGV0ZSBhIEFsbWEgQXp1bCBlIEFsbWEgVmVybWVsaGEsIGNh52FuZG8gU2F0aGxhIGUNCkFyaGR5cmEsIHJlc3BlY3RpdmFtZW50ZSwgZSBsZXZlLWFzIGF06SBhIFPhYmlhIENlbGluYSBlbQ0KUGlsbGFpLg=="
+  }
+}

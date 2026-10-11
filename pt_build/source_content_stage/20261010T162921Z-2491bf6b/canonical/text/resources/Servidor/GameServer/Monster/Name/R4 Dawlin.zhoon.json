@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r4_dawlin",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R4 Dawlin.zhoon",
+    "GameServer/Monster/Name/R4 Dawlin.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R4 Dawlin.zhoon",
+    "legacy_sha256": "601c16f583b7043e775dfed6a8355ed81a4f2db05652a8e2863b9a49852e3254",
+    "legacy_size": 19
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R4 Dawlin"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjQgRGF3bGluIg=="
+  }
+}

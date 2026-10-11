@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.newter_o_s_u00e1bio",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Newter, o S#U00e1bio.Zhoon",
+    "GameServer/NPC/name/Newter, o S#U00e1bio.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Newter, o S#U00e1bio.Zhoon",
+    "legacy_sha256": "11629112b018b4012d7c67b893029f9fdddb6b564bdcfe79412066de44890e32",
+    "legacy_size": 505
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Newter, o Falso"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Não importa qual tribo é mais forte, Morions ou Tempskrons. Devemos respeitar as diferenças de cada civilização..."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Eu desenvolvi uma nova tecnologia chamada 'Teletransporte', mas ainda não pude usá-la..."
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Você poderá usar o Teletransporte para chegar a lugares para os quais sua Asa não pode levá-lo..."
+      },
+      {
+        "line": 13,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Uma vez teletransportado, você terá que andar ou usar um Core para voltar para sua Cidade..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9OZXd0ZXIsIG8gU+FiaW8uTlBDDQoNCg0KKkpfTmFtZQkiTmV3dGVyLCBvIEZhbHNvIg0KDQoNCipKX0NoYXQJIk7jbyBpbXBvcnRhIHF1YWwgdHJpYm8g6SBtYWlzIGZvcnRlLCBNb3Jpb25zIG91IFRlbXBza3JvbnMuIERldmVtb3MgcmVzcGVpdGFyIGFzIGRpZmVyZW7nYXMgZGUgY2FkYSBjaXZpbGl6Yefjby4uLiINCg0KKkpfQ2hhdAkiRXUgZGVzZW52b2x2aSB1bWEgbm92YSB0ZWNub2xvZ2lhIGNoYW1hZGEgJ1RlbGV0cmFuc3BvcnRlJywgbWFzIGFpbmRhIG7jbyBwdWRlIHVz4S1sYS4uLiINCg0KKkpfQ2hhdAkiVm9j6iBwb2RlcuEgdXNhciBvIFRlbGV0cmFuc3BvcnRlIHBhcmEgY2hlZ2FyIGEgbHVnYXJlcyBwYXJhIG9zIHF1YWlzIHN1YSBBc2EgbuNvIHBvZGUgbGV24S1sby4uLiINCg0KKkpfQ2hhdAkiVW1hIHZleiB0ZWxldHJhbnNwb3J0YWRvLCB2b2PqIHRlcuEgcXVlIGFuZGFyIG91IHVzYXIgdW0gQ29yZSBwYXJhIHZvbHRhciBwYXJhIHN1YSBDaWRhZGUuLi4iDQoNCg=="
+  }
+}

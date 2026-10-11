@@ -1,0 +1,628 @@
+{
+  "schema": "summit.text-shadow/v1",
+  "schema_version": 1,
+  "kind": "monster_definition",
+  "id": "monster.105_i_marionette",
+  "source": {
+    "path": "Servidor/GameServer/Monster/105_I_Marionette.inf",
+    "size": 1526,
+    "sha256": "645233fd77420e7a0d1bfb9fab33fc829cc01b2f44e79845e5f23c15aee933dc"
+  },
+  "content": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\Marionette\\Marionette.ini",
+      "name": "V-마리오네트",
+      "english_name": "V-Marionette",
+      "level": 105,
+      "active_hour": "제한없음",
+      "generate_group": [
+        1,
+        1
+      ],
+      "iq": 9,
+      "nature": "Neutral",
+      "sight": 300,
+      "life": 15000,
+      "attack_damage": [
+        240,
+        250
+      ],
+      "absorption": 25,
+      "block": 15,
+      "defence": 950,
+      "attack_speed": 8,
+      "attack_rating": 1300,
+      "special_attack_rate": 15,
+      "size": "중형",
+      "attack_range": 60,
+      "bionic": 50,
+      "lightning": 50,
+      "ice": 50,
+      "fire": 50,
+      "poison": 50,
+      "unmapped.2ab8c5c1f7": 50,
+      "monster_race": "뮤턴트",
+      "unmapped.2ac0ccb5bfbcd3b5b5": 4,
+      "move_type": 0,
+      "effect_sound": "MARIONETTE",
+      "experience": 1500000,
+      "fall_item_max": 1,
+      "fall_item": [
+        5000,
+        "돈",
+        30000,
+        35000
+      ],
+      "linked_file": "name\\105_I_Marionette.zhoon"
+    },
+    "directives": [
+      {
+        "line": 3,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 4,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\Marionette\\Marionette.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c4d6172696f6e657474655c4d6172696f6e657474652e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "V-마리오네트"
+        ],
+        "raw_values_hex": [
+          "562db8b6b8aebfc0b3d7c6ae"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "V-Marionette"
+        ],
+        "raw_values_hex": [
+          "562d4d6172696f6e65747465"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 9,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          105
+        ],
+        "raw_values_hex": [
+          "313035"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "active_hour",
+        "legacy_token": "*활동시간",
+        "legacy_token_hex": "2ac8b0b5bfbdc3b0a3",
+        "loader_status": "supported_mapped",
+        "values": [
+          "제한없음"
+        ],
+        "raw_values_hex": [
+          "c1a6c7d1bef8c0bd"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "iq",
+        "legacy_token": "*지능",
+        "legacy_token_hex": "2ac1f6b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 21,
+        "key": "nature",
+        "legacy_token": "*품성",
+        "legacy_token_hex": "2ac7b0bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Neutral"
+        ],
+        "raw_values_hex": [
+          "4e65757472616c"
+        ]
+      },
+      {
+        "line": 24,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          300
+        ],
+        "raw_values_hex": [
+          "333030"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          15000
+        ],
+        "raw_values_hex": [
+          "3135303030"
+        ]
+      },
+      {
+        "line": 30,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          240,
+          250
+        ],
+        "raw_values_hex": [
+          "323430",
+          "323530"
+        ]
+      },
+      {
+        "line": 33,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          25
+        ],
+        "raw_values_hex": [
+          "3235"
+        ]
+      },
+      {
+        "line": 36,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 39,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          950
+        ],
+        "raw_values_hex": [
+          "393530"
+        ]
+      },
+      {
+        "line": 42,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 45,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1300
+        ],
+        "raw_values_hex": [
+          "31333030"
+        ]
+      },
+      {
+        "line": 48,
+        "key": "special_attack_rate",
+        "legacy_token": "*특수공격률",
+        "legacy_token_hex": "2ac6afbcf6b0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 52,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중형"
+        ],
+        "raw_values_hex": [
+          "c1dfc7fc"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 63,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 64,
+        "key": "ice",
+        "legacy_token": "*얼음",
+        "legacy_token_hex": "2abef3c0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 66,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 67,
+        "key": "unmapped.2ab8c5c1f7",
+        "legacy_token": "*매직",
+        "legacy_token_hex": "2ab8c5c1f7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 70,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "뮤턴트"
+        ],
+        "raw_values_hex": [
+          "b9c2c5cfc6ae"
+        ]
+      },
+      {
+        "line": 73,
+        "key": "unmapped.2ac0ccb5bfbcd3b5b5",
+        "legacy_token": "*이동속도",
+        "legacy_token_hex": "2ac0ccb5bfbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 76,
+        "key": "move_type",
+        "legacy_token": "*이동타입",
+        "legacy_token_hex": "2ac0ccb5bfc5b8c0d4",
+        "loader_status": "supported_mapped",
+        "values": [
+          0
+        ],
+        "raw_values_hex": [
+          "30"
+        ]
+      },
+      {
+        "line": 79,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "MARIONETTE"
+        ],
+        "raw_values_hex": [
+          "4d4152494f4e45545445"
+        ]
+      },
+      {
+        "line": 82,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          1500000
+        ],
+        "raw_values_hex": [
+          "31353030303030"
+        ]
+      },
+      {
+        "line": 85,
+        "key": "fall_item_max",
+        "legacy_token": "*아이템카운터",
+        "legacy_token_hex": "2abec6c0ccc5dbc4abbfeec5cd",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 87,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          5000,
+          "돈",
+          30000,
+          35000
+        ],
+        "raw_values_hex": [
+          "35303030",
+          "b5b7",
+          "3330303030",
+          "3335303030"
+        ]
+      },
+      {
+        "line": 90,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\105_I_Marionette.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c3130355f495f4d6172696f6e657474652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "comments": [
+      {
+        "line": 11,
+        "text": "몬스터가 활동하는 시간"
+      },
+      {
+        "line": 14,
+        "text": "무리가 필요한 몬스터의 수 최소X-최대X"
+      },
+      {
+        "line": 17,
+        "text": "지능의 구분은 1-10 까지의 IQ"
+      },
+      {
+        "line": 20,
+        "text": "몬스터의 성향 Good, Neutral, Evil"
+      },
+      {
+        "line": 23,
+        "text": "몬스터가 캐릭터를 인식하는 거리 1M = 27"
+      },
+      {
+        "line": 26,
+        "text": "몬스터의 HP"
+      },
+      {
+        "line": 29,
+        "text": "몬스터의 공격력"
+      },
+      {
+        "line": 32,
+        "text": "몬스터의 공격 흡수율 XX% 만큼 데미지를 흡수한다."
+      },
+      {
+        "line": 35,
+        "text": "방패를 든 몬스터의 경우 블럭율이 존재"
+      },
+      {
+        "line": 38,
+        "text": "몬스터의 방어력"
+      },
+      {
+        "line": 41,
+        "text": "공격 속도의 빠르기 최소 5 - 최대 9"
+      },
+      {
+        "line": 44,
+        "text": "공격시 공격의 명중력 (86)"
+      },
+      {
+        "line": 47,
+        "text": "몬스터가 가지고 있는 공격 패턴의 확률 구분 (최소 데미지 / 최대 데미지 = m / m (+X)"
+      },
+      {
+        "line": 51,
+        "text": "몬스터의 그림자 크기 소형, 중형, 중대형, 대형, 없음"
+      },
+      {
+        "line": 55,
+        "text": "공격범위 몬스터가 공격 할 때 공격 범위를 표시"
+      },
+      {
+        "line": 59,
+        "text": "속성"
+      },
+      {
+        "line": 60,
+        "text": "//////// 속성 저항력 //////////"
+      },
+      {
+        "line": 69,
+        "text": "언데드 유무"
+      },
+      {
+        "line": 72,
+        "text": "몬스터의 이동 속도 1-6의 범위"
+      },
+      {
+        "line": 75,
+        "text": "이동타입"
+      },
+      {
+        "line": 78,
+        "text": "구분 ( CYCLOPS / HOBGOBLIN / IMP / MINIG / PLANT / SKELETON / ZOMBI / OBIT )"
+      },
+      {
+        "line": 81,
+        "text": "몬스터 사망시 유저들에게 돌아가는 경험치의 양"
+      },
+      {
+        "line": 84,
+        "text": "몬스터가 떨어뜨리는 아이템 설정 블럭"
+      }
+    ],
+    "unknown_tokens": {
+      "*매직": 1,
+      "*이동속도": 1
+    },
+    "atom_encodings": {
+      "cp949": 62,
+      "ascii": 34
+    }
+  }
+}

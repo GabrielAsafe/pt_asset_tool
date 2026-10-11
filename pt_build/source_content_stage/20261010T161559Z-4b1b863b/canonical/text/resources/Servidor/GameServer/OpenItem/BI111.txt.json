@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi111",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI111.txt",
+    "GameServer/OpenItem/BI111.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI111.txt",
+    "legacy_sha256": "edd02de9fa7264274e055ea86d28bcbb9b1d7c2f3a5753778815693ae97097b1",
+    "legacy_size": 162
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI111",
+      "name": "Ouro Mágico",
+      "english_name": "Ouro Mágico",
+      "weight": 1,
+      "linked_file": "Name\\BI111.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI111"
+        ],
+        "raw_values_hex": [
+          "4249313131"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Ouro Mágico"
+        ],
+        "raw_values_hex": [
+          "4f75726f204de16769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Ouro Mágico"
+        ],
+        "raw_values_hex": [
+          "4f75726f204de16769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI111.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493131312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTExIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiT3VybyBN4WdpY28iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiT3VybyBN4WdpY28iDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxMTEuemhvb24i"
+  }
+}

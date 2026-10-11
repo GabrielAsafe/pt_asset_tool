@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.morgon.morgon",
+  "logical_config": "char/monster/morgon/morgon.ini",
+  "legacy_cache": "char/monster/morgon/morgon.inx",
+  "consumers": [
+    {
+      "id": "monster.85_morgon",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/85_Morgon.inf.json"
+    },
+    {
+      "id": "monster.r7b_morgonyte",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R7B Morgonyte.inf.json"
+    },
+    {
+      "id": "monster.sod_morgonyte",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_morgonyte.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Morgon/Morgon.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Morgon/Morgon.inx"
+    }
+  }
+}

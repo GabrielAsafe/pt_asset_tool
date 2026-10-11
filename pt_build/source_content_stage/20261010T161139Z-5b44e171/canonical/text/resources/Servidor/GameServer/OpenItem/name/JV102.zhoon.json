@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.jv102",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/JV102.zhoon",
+    "GameServer/OpenItem/name/JV102.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/JV102.zhoon",
+    "legacy_sha256": "7141dc89bde8dd3bb64d94b1457779f028c3e603aaad77ddb19836c67e787c22",
+    "legacy_size": 54
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Especialização de Mecânico"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwMS50eHQNCg0KKkpfTmFtZQkJIkVzcGVjaWFsaXph5+NvIGRlIE1lY+JuaWNvIg0K"
+  }
+}

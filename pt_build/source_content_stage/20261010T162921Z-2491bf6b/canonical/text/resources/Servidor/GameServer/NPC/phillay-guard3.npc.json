@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.phillay_guard3",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/phillay-guard3.npc",
+    "GameServer/NPC/phillay-guard3.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/phillay-guard3.npc",
+    "legacy_sha256": "7e7c08e2c4f1832e7df87c7914e29b7647c8581407ef7eb715b110c8d4da5035",
+    "legacy_size": 493
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-002\\MN-002.INI",
+      "name": "감옥 경비병",
+      "linked_file": "name\\phillay-guard3.zhoon",
+      "model_config_id": "model.char.npc.mn.002.mn.002"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-002\\MN-002.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030325c4d4e2d3030322e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "감옥 경비병"
+        ],
+        "raw_values_hex": [
+          "b0a8bfc120b0e6baf1bab4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\phillay-guard3.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c7068696c6c61792d6775617264332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDAyXE1OLTAwMi5JTkkNCg0KKsDMuKcJCQkisKi/wSCw5rrxurQiDQoNCi8vKrTryK0JCQkiwMyw98C6ILn8wcvA2iC16cC7ILChtc60wiCwqL/BwNS0z7TZLiC0573FtbUgwMy3sSCw97+hIL/AwfYgvsq1tbfPILnZuKUgu/3IsMC7IMfPvcq9w7/AIg0KLy8qtOvIrQkJCSK/5MHywLogvbrFuLbzsO0gx9i8rSC9ur26t84gsKi/wcC4t84gtem+7rChtMIgutC16cDMIMDWtMK1pSDHz8fKILCov8HAzLbztM8uLiINCi8vKrTryK0JCQkixdu9usWpt9C16cC6ILCov8G/oSC/77n2uLDAuyCwobXQtNmw7SDHz8HSLCDBpLi7IL61taW++LTCIMH+wLsuLiINCi8vKrTryK0JCQkiyKXA2iCwqL/BwLsgwfbFsLTCIMDPtbUgvcm9ycfPsO0gtfu60MfPwdIgsKGy+yCz7revIL/NIMHWvLy/5C4uIMfPx7AiDQoNCg0KDQoNCiq/rLDhxsTAzyAibmFtZVxwaGlsbGF5LWd1YXJkMy56aG9vbiINCg0KDQovL7DmuvENCg=="
+  }
+}

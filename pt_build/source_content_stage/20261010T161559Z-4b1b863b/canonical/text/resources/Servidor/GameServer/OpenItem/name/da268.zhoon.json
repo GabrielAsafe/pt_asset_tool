@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da268",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/da268.zhoon",
+    "GameServer/OpenItem/name/da268.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/da268.zhoon",
+    "legacy_sha256": "16506e3223d41025a5d7a8aea4906ca2de6ae5fac1b6b122beea5205c9f008d4",
+    "legacy_size": 39
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Uniforme Argentino F (30d)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIlVuaWZvcm1lIEFyZ2VudGlubyBGICgzMGQpIg0K"
+  }
+}

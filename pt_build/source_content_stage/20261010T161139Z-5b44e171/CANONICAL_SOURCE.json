@@ -1,0 +1,111 @@
+{
+  "schema": "summit.canonical-source/v1",
+  "source_of_truth": "SourceCode/Content/canonical",
+  "runtime_dependency_on_external_canonical": false,
+  "imported_this_run": false,
+  "imported_families": {},
+  "families": {
+    "commerce": {
+      "files": 3,
+      "bytes": 14935,
+      "sha256": "d63cd127ba444a0ca030d6845fb18f79b49af02c8c511a47bbbbf320766e5d09"
+    },
+    "covenant_altars": {
+      "files": 1,
+      "bytes": 24134,
+      "sha256": "0ee004c27898e2ff447a610f921cf11edec137827a7d9b8957836b56ce06acf4"
+    },
+    "equipment_sets": {
+      "files": 1,
+      "bytes": 1974,
+      "sha256": "1a325dfebb6fc15d0b3c144459655c0e5d1094dfcf64f2b702ad62fa9c941226"
+    },
+    "fixed_npcs": {
+      "files": 25,
+      "bytes": 33337,
+      "sha256": "9134aa4b5003b23a06450e2d7a430445de1a6386d0313cf8897e54ba2285dccb"
+    },
+    "gameplay_balance": {
+      "files": 1,
+      "bytes": 3676,
+      "sha256": "a0547ebe28c7c8bee3d4d2311d843770104c9af47c80c92ce8f7bc19b0c17138"
+    },
+    "gameplay_reference": {
+      "files": 4,
+      "bytes": 246747,
+      "sha256": "9b1d92bfe5d7cb298815001877035473d12c791c7e6d3661e93b882c5d6fb71e"
+    },
+    "head_cosmetics": {
+      "files": 1,
+      "bytes": 730,
+      "sha256": "f21cd41ab3cdeea5aa5116b34441a6e7b1eb85453eecb6a4cbc58612f577cb95"
+    },
+    "item_profiles": {
+      "files": 3,
+      "bytes": 46747,
+      "sha256": "4b0f5252fb8f11d38fa8d5b4ef2f24315b20968708ad8b9190e7381e86727954"
+    },
+    "legacy_variants": {
+      "files": 17,
+      "bytes": 340462,
+      "sha256": "5aa29fec117b585b09cebd4f055939cfc21c5bc62bc36a50f7609700a34adf50"
+    },
+    "maps": {
+      "files": 2,
+      "bytes": 317255,
+      "sha256": "1464b2e7aa859fd9b919c34f1b43d75712bae7c780c9bac3f405c666e5272625"
+    },
+    "model_configs": {
+      "files": 366,
+      "bytes": 372296,
+      "sha256": "fd818ee812d962dfc24410b28b98d65c070cd41ae3c761deb0ca562c10439553"
+    },
+    "stage_spawns": {
+      "files": 56,
+      "bytes": 94891,
+      "sha256": "ee5bd88d34646db5869af2c016781f2870a1d47f273650e520b0040ae962821c"
+    },
+    "stage_start_points": {
+      "files": 66,
+      "bytes": 596889,
+      "sha256": "dddaaef79ca651bb0b17603412df557058062f00a7c49ac5e6ade0ea33ea75ec"
+    },
+    "text": {
+      "files": 5615,
+      "bytes": 29910572,
+      "sha256": "bc64930a4f7e97065359693a8b8480673251856bd90d88134b18a2b711842bd7"
+    },
+    "world_phases": {
+      "files": 1,
+      "bytes": 587,
+      "sha256": "2422749bc2c8d29be269aca933c89e7a010caeeeb71da4e1f254915164712b27"
+    },
+    "world_story": {
+      "files": 1,
+      "bytes": 742,
+      "sha256": "b78586da201de5e15933145a9d95fbda329c0fd1900b6df99a4dd6d6d099619a"
+    }
+  },
+  "forever_fall": {
+    "forever-fall-01.ase.spm.json": {
+      "actors": 5,
+      "bosses": 0,
+      "weight_sum": 100
+    },
+    "forever-fall-02.ase.spm.json": {
+      "actors": 6,
+      "bosses": 0,
+      "weight_sum": 100
+    },
+    "forever-fall-03.ase.spm.json": {
+      "actors": 7,
+      "bosses": 0,
+      "weight_sum": 100
+    },
+    "forever-fall-04.ase.spm.json": {
+      "actors": 6,
+      "bosses": 0,
+      "weight_sum": 100
+    }
+  }
+}

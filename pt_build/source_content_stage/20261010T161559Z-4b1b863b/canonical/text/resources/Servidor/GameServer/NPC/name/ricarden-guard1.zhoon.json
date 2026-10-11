@@ -1,0 +1,60 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_guard1",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ricarden-guard1.zhoon",
+    "GameServer/NPC/name/ricarden-guard1.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ricarden-guard1.zhoon",
+    "legacy_sha256": "77a2eda81a5b987d94d2a0924a60845521382f6864e1b18c7c96a09923f01769",
+    "legacy_size": 560
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda de Ricarten"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Esta é Ricarten, localizada ao Sul do continente de Priston."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Muitas pessoas vivem aqui, mas este é um lugar calmo, sem muitos problemas..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Muitos guerreiros passam por aqui, o que nos torna o maior centro comercial de Priston Tale..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Qual o nome desta cidade? Esta é Ricarten! Capital dos Tempskrons! Jamais se esqueça disso!"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se for sua primeira batalha, comece com os Hoppies ou Cogumelos. Quando estiver pronto, tente lutar contra os Duendes, ao Oeste da região..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkYSBkZSBSaWNhcnRlbiINCg0KKkpfQ0hBVAkJIkVzdGEg6SBSaWNhcnRlbiwgbG9jYWxpemFkYSBhbyBTdWwgZG8gY29udGluZW50ZSBkZSBQcmlzdG9uLiINCipKX0NIQVQJCSJNdWl0YXMgcGVzc29hcyB2aXZlbSBhcXVpLCBtYXMgZXN0ZSDpIHVtIGx1Z2FyIGNhbG1vLCBzZW0gbXVpdG9zIHByb2JsZW1hcy4uLiINCipKX0NIQVQJCSJNdWl0b3MgZ3VlcnJlaXJvcyBwYXNzYW0gcG9yIGFxdWksIG8gcXVlIG5vcyB0b3JuYSBvIG1haW9yIGNlbnRybyBjb21lcmNpYWwgZGUgUHJpc3RvbiBUYWxlLi4uIg0KKkpfQ0hBVAkJIlF1YWwgbyBub21lIGRlc3RhIGNpZGFkZT8gRXN0YSDpIFJpY2FydGVuISBDYXBpdGFsIGRvcyBUZW1wc2tyb25zISBKYW1haXMgc2UgZXNxdWXnYSBkaXNzbyEiDQoqSl9DSEFUCQkiU2UgZm9yIHN1YSBwcmltZWlyYSBiYXRhbGhhLCBjb21lY2UgY29tIG9zIEhvcHBpZXMgb3UgQ29ndW1lbG9zLiBRdWFuZG8gZXN0aXZlciBwcm9udG8sIHRlbnRlIGx1dGFyIGNvbnRyYSBvcyBEdWVuZGVzLCBhbyBPZXN0ZSBkYSByZWdp428uLi4iDQo="
+  }
+}

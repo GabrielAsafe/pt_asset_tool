@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest30",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/LevelQuest/Quest30.Msg",
+    "image/party/party_DATA/LevelQuest/Quest30.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/LevelQuest/Quest30.Msg",
+    "legacy_sha256": "9f8ab7cd69b9e94fc9ed8151758e71ead0ccbf8bbf767ad8713a676262ee6322",
+    "legacy_size": 107
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt twenty Bargons in",
+      "forgotten land and then",
+      "go back to miscellaneous",
+      "store in Town to get rewarded."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IHR3ZW50eSBCYXJnb25zIGluDQpmb3Jnb3R0ZW4gbGFuZCBhbmQgdGhlbg0KZ28gYmFjayB0byBtaXNjZWxsYW5lb3VzDQpzdG9yZSBpbiBUb3duIHRvIGdldCByZXdhcmRlZC4="
+  }
+}

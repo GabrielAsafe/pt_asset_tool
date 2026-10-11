@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest85end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest85end.sin",
+    "image/Sinimage/Quest/LevelQuest85end.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest85end.sin",
+    "legacy_sha256": "19a69c15a3a5ed6c134881660ad89eabd425f366e6f8393e9cbd1a7588035e46",
+    "legacy_size": 92
+  },
+  "semantic": {
+    "lines": [
+      "Chaliar's Tear is activating.",
+      "Your body has already been indulged with ",
+      "Caliar's Blessing."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2hhbGlhcidzIFRlYXIgaXMgYWN0aXZhdGluZy4NCllvdXIgYm9keSBoYXMgYWxyZWFkeSBiZWVuIGluZHVsZ2VkIHdpdGggDQpDYWxpYXIncyBCbGVzc2luZy4="
+  }
+}

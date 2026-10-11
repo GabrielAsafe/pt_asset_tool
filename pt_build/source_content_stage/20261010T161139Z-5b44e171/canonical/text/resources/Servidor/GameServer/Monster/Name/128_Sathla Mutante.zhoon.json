@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.128_sathla_mutante",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/128_Sathla Mutante.zhoon",
+    "GameServer/Monster/Name/128_Sathla Mutante.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/128_Sathla Mutante.zhoon",
+    "legacy_sha256": "4ad797b7093fbb7065f5b63e475b25d730e23a01dfbd48425534992d8c268354",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Sathla Mutante"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiU2F0aGxhIE11dGFudGUi"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.goblinchief.noschief",
+  "logical_config": "char/monster/goblinchief/noschief.ini",
+  "legacy_cache": "char/monster/goblinchief/noschief.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_4_duende_do_norte",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_4_Duende do Norte.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/goblinchief/noschief.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/goblinchief/noschief.inx"
+    }
+  }
+}

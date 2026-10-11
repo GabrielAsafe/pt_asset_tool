@@ -1,0 +1,40 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_7_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_7_Start.sin",
+    "image/Sinimage/Quest/110LVQuest_7_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_7_Start.sin",
+    "legacy_sha256": "b057d771641c477dd949068ee934e61741dc268e0372e9440ffddabaa9853170",
+    "legacy_size": 483
+  },
+  "semantic": {
+    "lines": [
+      "A construção do explosivo foi concluída!",
+      "Vai se chamar \"Bomba da Destruição\"...",
+      "Da forma como foi construída, é realmente grande e",
+      "bonita, você não acha?",
+      "Então...Acho que preciso pensar sobre o nome novamente...",
+      "",
+      "Perdão? Não há tempo??",
+      "*JJup* Eu entendo. Aqui está.",
+      "",
+      "Por favor, leve o explosivo para o Comandante Derik.",
+      "Se você chacoalhar ele, BOOM! Explode. Então, cuidado.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Vá até Ricarten e entregue a Bomba da Destruição ao",
+      "Comandante Derik."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSBjb25zdHJ15+NvIGRvIGV4cGxvc2l2byBmb2kgY29uY2x17WRhIQ0KVmFpIHNlIGNoYW1hciAiQm9tYmEgZGEgRGVzdHJ1aefjbyIuLi4NCkRhIGZvcm1hIGNvbW8gZm9pIGNvbnN0cnXtZGEsIOkgcmVhbG1lbnRlIGdyYW5kZSBlDQpib25pdGEsIHZvY+ogbuNvIGFjaGE/DQpFbnTjby4uLkFjaG8gcXVlIHByZWNpc28gcGVuc2FyIHNvYnJlIG8gbm9tZSBub3ZhbWVudGUuLi4NCg0KUGVyZONvPyBO428gaOEgdGVtcG8/Pw0KKkpKdXAqIEV1IGVudGVuZG8uIEFxdWkgZXN04S4NCg0KUG9yIGZhdm9yLCBsZXZlIG8gZXhwbG9zaXZvIHBhcmEgbyBDb21hbmRhbnRlIERlcmlrLg0KU2Ugdm9j6iBjaGFjb2FsaGFyIGVsZSwgQk9PTSEgRXhwbG9kZS4gRW50428sIGN1aWRhZG8uDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpW4SBhdOkgUmljYXJ0ZW4gZSBlbnRyZWd1ZSBhIEJvbWJhIGRhIERlc3RydWnn428gYW8NCkNvbWFuZGFudGUgRGVyaWsu"
+  }
+}

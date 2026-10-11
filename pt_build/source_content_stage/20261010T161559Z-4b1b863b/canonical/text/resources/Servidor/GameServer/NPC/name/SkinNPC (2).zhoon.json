@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.skinnpc_2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/SkinNPC (2).zhoon",
+    "GameServer/NPC/name/SkinNPC (2).zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/SkinNPC (2).zhoon",
+    "legacy_sha256": "921d2d9db33aa0a49f24a00239588b68553e77c81c289d443039fe380c7ffb7f",
+    "legacy_size": 91
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Trocar de Skins"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "eai, bora trocar de Skins ?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TS0lOTlBDLk5QQw0KDQoNCipKX05hbWUJIlRyb2NhciBkZSBTa2lucyINCg0KDQoqSl9DaGF0CSJlYWksIGJvcmEgdHJvY2FyIGRlIFNraW5zID8iDQoNCg=="
+  }
+}

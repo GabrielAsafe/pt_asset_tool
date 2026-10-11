@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_5_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/130LVQuest_5_Path.sin",
+    "image/Sinimage/Quest/130LVQuest_5_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/130LVQuest_5_Path.sin",
+    "legacy_sha256": "486f3fc973baf1743733071148fa57824dee593dcb7cfd7ff225d11ee56927ef",
+    "legacy_size": 447
+  },
+  "semantic": {
+    "lines": [
+      "A batalha contra o governante dos mares começou. Yagditha",
+      "está escondendo Midranda e nos atacando.",
+      "",
+      "Os Cristais Negros parecem ter relação com Midranda. Eles ",
+      "emitem um sinal muito estranho, parecem se comunicar.",
+      "",
+      "Por favor, apresse-se!",
+      "",
+      "Temos que continuar fazendo nosso trabalho, para proteger",
+      "o continente pristoniano!",
+      "",
+      "Capture o Cristal Negro, caçando a Bruxa Mestre em ",
+      "Estrada Sombria.",
+      "Ao terminar, venha falar comigo novamente."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSBiYXRhbGhhIGNvbnRyYSBvIGdvdmVybmFudGUgZG9zIG1hcmVzIGNvbWXnb3UuIFlhZ2RpdGhhDQplc3ThIGVzY29uZGVuZG8gTWlkcmFuZGEgZSBub3MgYXRhY2FuZG8uDQoNCk9zIENyaXN0YWlzIE5lZ3JvcyBwYXJlY2VtIHRlciByZWxh5+NvIGNvbSBNaWRyYW5kYS4gRWxlcyANCmVtaXRlbSB1bSBzaW5hbCBtdWl0byBlc3RyYW5obywgcGFyZWNlbSBzZSBjb211bmljYXIuDQoNClBvciBmYXZvciwgYXByZXNzZS1zZSENCg0KVGVtb3MgcXVlIGNvbnRpbnVhciBmYXplbmRvIG5vc3NvIHRyYWJhbGhvLCBwYXJhIHByb3RlZ2VyDQpvIGNvbnRpbmVudGUgcHJpc3Rvbmlhbm8hDQoNCkNhcHR1cmUgbyBDcmlzdGFsIE5lZ3JvLCBjYedhbmRvIGEgQnJ1eGEgTWVzdHJlIGVtIA0KRXN0cmFkYSBTb21icmlhLg0KQW8gdGVybWluYXIsIHZlbmhhIGZhbGFyIGNvbWlnbyBub3ZhbWVudGUu"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.nyquest_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/RepeatQuest/NYQuest_1.msg",
+    "image/party/party_DATA/RepeatQuest/NYQuest_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/RepeatQuest/NYQuest_1.msg",
+    "legacy_sha256": "2dfacb8b4b0019067b542cc9171d402b45689fe5460d5ea7ef9586761736af04",
+    "legacy_size": 56
+  },
+  "semantic": {
+    "lines": [
+      "Capture 30 Serpentes",
+      "e retorne ao Caçador de Serpentes."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FwdHVyZSAzMCBTZXJwZW50ZXMNCmUgcmV0b3JuZSBhbyBDYedhZG9yIGRlIFNlcnBlbnRlcy4="
+  }
+}

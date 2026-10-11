@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest90_2path2",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest90_2Path2.sin",
+    "image/Sinimage/Quest/LevelQuest90_2Path2.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest90_2Path2.sin",
+    "legacy_sha256": "47a26d74a05cd1335f2e104882a3f1af7fd24d8a05b8f69a31f3e46e8d68223c",
+    "legacy_size": 148
+  },
+  "semantic": {
+    "lines": [
+      "The curse will not disappear easily, if you ",
+      "passed the second divine test, ",
+      "We will recognize you as one of the kingdom.",
+      "",
+      "Hunt 50 $$%s quickly."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhlIGN1cnNlIHdpbGwgbm90IGRpc2FwcGVhciBlYXNpbHksIGlmIHlvdSANCnBhc3NlZCB0aGUgc2Vjb25kIGRpdmluZSB0ZXN0LCANCldlIHdpbGwgcmVjb2duaXplIHlvdSBhcyBvbmUgb2YgdGhlIGtpbmdkb20uDQoNCkh1bnQgNTAgJCQlcyBxdWlja2x5Lg=="
+  }
+}

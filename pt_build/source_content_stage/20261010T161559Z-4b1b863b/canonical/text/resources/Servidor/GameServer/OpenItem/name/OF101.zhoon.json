@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.of101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OF101.zhoon",
+    "GameServer/OpenItem/name/OF101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OF101.zhoon",
+    "legacy_sha256": "8520384a7fbe0a7c1a72f57e4da17c52e8f62e87050c013448bdae71f1f2e1c8",
+    "legacy_size": 44
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "VfBtH[X"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9PRjEwMS50eHQNCg0KKkpfTmFtZQkJIoOLg1aDZoNCg3SDSIFbg1giDQo="
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.research3",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/Research3.sin",
+    "image/Sinimage/help/Research3.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/Research3.sin",
+    "legacy_sha256": "a5606608f85c909fe273d87f8fcbf3ead732e27625de8e26a296c55f3a6e67d5",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "lines": [
+      "3번째 설문지다 !!",
+      "",
+      "음하하하하하",
+      "",
+      "하사마 짱"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "M7n4wrAgvLO5rsH2tNkgISENCg0KwL3Hz8fPx8/Hz8fPDQoNCsfPu+e4tiDCrw=="
+  }
+}

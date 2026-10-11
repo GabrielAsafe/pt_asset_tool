@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.clanmaster",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ClanMaster.zhoon",
+    "GameServer/NPC/name/ClanMaster.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ClanMaster.zhoon",
+    "legacy_sha256": "d9e66e8984c1fe39d4a9b5f85a38f7a221cbc38a830b27c75b7b673767b975d1",
+    "legacy_size": 97
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mestre Buma"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Pode me chamar de 'Mestre Buma', o gênio dos clãs! Ho ho ho!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIk1lc3RyZSBCdW1hIg0KDQoqSl9DSEFUCQkiUG9kZSBtZSBjaGFtYXIgZGUgJ01lc3RyZSBCdW1hJywgbyBn6m5pbyBkb3MgY2zjcyEgSG8gaG8gaG8hIg=="
+  }
+}

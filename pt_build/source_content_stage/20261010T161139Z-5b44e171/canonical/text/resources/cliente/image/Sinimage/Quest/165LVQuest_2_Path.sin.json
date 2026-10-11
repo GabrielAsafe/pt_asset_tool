@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_2_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_2_Path.sin",
+    "image/Sinimage/Quest/165LVQuest_2_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_2_Path.sin",
+    "legacy_sha256": "7cb984ddddf47dc225762aefba6ba81f28afa5efbe53e6e9c988d95db0756551",
+    "legacy_size": 527
+  },
+  "semantic": {
+    "lines": [
+      "Pelos últimos acontecimentos, Midranda parece estar",
+      "querendo nos destruir internamente. Me pergunto se ele",
+      "ainda não se recuperou completamente.",
+      "",
+      "Com as informações que você trouxe, acredito que podemos",
+      "usar os Faugn em nossos planos. O desejo dessa criatura",
+      "em proteger seu habitat é tão grande, que ele consegue",
+      "se libertar do controle de Midranda de tempos em tempos.",
+      "Precisamos estudá-lo.",
+      "",
+      "Por favor, vá até o Santuário do Abismo e colete o ",
+      "Tentáculo de Faugn, caçando o Faugn Insano. ",
+      "",
+      "Estarei lhe esperando."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UGVsb3Mg+mx0aW1vcyBhY29udGVjaW1lbnRvcywgTWlkcmFuZGEgcGFyZWNlIGVzdGFyDQpxdWVyZW5kbyBub3MgZGVzdHJ1aXIgaW50ZXJuYW1lbnRlLiBNZSBwZXJndW50byBzZSBlbGUNCmFpbmRhIG7jbyBzZSByZWN1cGVyb3UgY29tcGxldGFtZW50ZS4NCg0KQ29tIGFzIGluZm9ybWHn9WVzIHF1ZSB2b2PqIHRyb3V4ZSwgYWNyZWRpdG8gcXVlIHBvZGVtb3MNCnVzYXIgb3MgRmF1Z24gZW0gbm9zc29zIHBsYW5vcy4gTyBkZXNlam8gZGVzc2EgY3JpYXR1cmENCmVtIHByb3RlZ2VyIHNldSBoYWJpdGF0IOkgdONvIGdyYW5kZSwgcXVlIGVsZSBjb25zZWd1ZQ0Kc2UgbGliZXJ0YXIgZG8gY29udHJvbGUgZGUgTWlkcmFuZGEgZGUgdGVtcG9zIGVtIHRlbXBvcy4NClByZWNpc2Ftb3MgZXN0dWThLWxvLg0KDQpQb3IgZmF2b3IsIHbhIGF06SBvIFNhbnR14XJpbyBkbyBBYmlzbW8gZSBjb2xldGUgbyANClRlbnThY3VsbyBkZSBGYXVnbiwgY2HnYW5kbyBvIEZhdWduIEluc2Fuby4gDQoNCkVzdGFyZWkgbGhlIGVzcGVyYW5kby4="
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.fore_2",
+  "logical_path": "GameServer/Field/fore-2.ase.spc",
+  "npcs": [
+    {
+      "slot": 0,
+      "npc_id": "npc.mn_013",
+      "x": -285981,
+      "y": 85760,
+      "z": -3215616,
+      "ax": 0,
+      "ay": 4164,
+      "az": 0,
+      "state": 0
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/fore-2.ase.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "7c4eb686270c0d5f3066a64f2cb51e0acedcf21383e4933477b24e389c8b5f0e"
+  }
+}

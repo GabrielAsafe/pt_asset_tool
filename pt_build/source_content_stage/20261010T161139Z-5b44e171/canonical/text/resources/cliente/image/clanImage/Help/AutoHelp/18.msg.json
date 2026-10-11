@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.18",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/18.msg",
+    "image/clanImage/Help/AutoHelp/18.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/18.msg",
+    "legacy_sha256": "d0f6bcd8a1294349328124461381d83ff0c7930def264bbdf55ad11985da1672",
+    "legacy_size": 223
+  },
+  "semantic": {
+    "lines": [
+      "Congratulations!",
+      "You've reached level 50. ",
+      "You're allowed to enter the 2nd floor of the Ancient Dungeon",
+      "and make your own clan independently.",
+      "You can form a clan through clan masters in Ricarten",
+      "and Pillai.",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29uZ3JhdHVsYXRpb25zIQ0KWW91J3ZlIHJlYWNoZWQgbGV2ZWwgNTAuIA0KWW91J3JlIGFsbG93ZWQgdG8gZW50ZXIgdGhlIDJuZCBmbG9vciBvZiB0aGUgQW5jaWVudCBEdW5nZW9uDQphbmQgbWFrZSB5b3VyIG93biBjbGFuIGluZGVwZW5kZW50bHkuDQpZb3UgY2FuIGZvcm0gYSBjbGFuIHRocm91Z2ggY2xhbiBtYXN0ZXJzIGluIFJpY2FydGVuDQphbmQgUGlsbGFpLg0KDQoNCg0KDQoNCg=="
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monimp.monimp.b",
+  "logical_config": "char/monster/monimp/monimp-b.ini",
+  "legacy_cache": "char/monster/monimp/monimp-b.inx",
+  "consumers": [
+    {
+      "id": "monster.24_mephit",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/24_Mephit.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monimp/Monimp-b.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monimp/Monimp-b.inx"
+    }
+  }
+}

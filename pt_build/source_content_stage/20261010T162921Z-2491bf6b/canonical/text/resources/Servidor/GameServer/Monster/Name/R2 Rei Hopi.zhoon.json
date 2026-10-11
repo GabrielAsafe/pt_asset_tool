@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r2_rei_hopi",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R2 Rei Hopi.zhoon",
+    "GameServer/Monster/Name/R2 Rei Hopi.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R2 Rei Hopi.zhoon",
+    "legacy_sha256": "0e74adfd4d4313ff7f6da00540e716bbdb57eff7ce36b63ab80a87f8f69188e6",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R2 Rei Hopi"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjIgUmVpIEhvcGki"
+  }
+}

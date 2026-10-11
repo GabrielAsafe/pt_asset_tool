@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn105",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN105.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN105.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN105.zhoon",
+    "legacy_sha256": "d2f893ba5afe150e2b17c96977181198c2810f3f034f8de35e9643abb4d09d1f",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Okute Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjEwNS50eHQNCg0KKkpfTkFNRQkJIk9rdXRlIFBoYW50b20iDQo="
+  }
+}

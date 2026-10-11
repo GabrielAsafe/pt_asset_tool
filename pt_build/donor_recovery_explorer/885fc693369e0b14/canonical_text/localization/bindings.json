@@ -1,0 +1,12 @@
+{
+  "schema": "summit.localization-bindings/v1",
+  "bindings": [
+    {
+      "content_id": "monster.80_deadhopy",
+      "kind": "monster_definition",
+      "name_key": "monster.80_deadhopy.name",
+      "chat_keys": [],
+      "linked_resource_id": null
+    }
+  ]
+}

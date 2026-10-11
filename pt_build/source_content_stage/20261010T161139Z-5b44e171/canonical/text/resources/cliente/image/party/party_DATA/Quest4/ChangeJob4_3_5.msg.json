@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_3_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_5.msg",
+    "image/party/party_DATA/Quest4/ChangeJob4_3_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_5.msg",
+    "legacy_sha256": "965597d450e491859cff270f710280e36a95eb6ab0cde13773b80b4893624792",
+    "legacy_size": 86
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt Chain Golem",
+      "appointed by master",
+      "to get royal amulet,",
+      "and go back to him.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IENoYWluIEdvbGVtDQphcHBvaW50ZWQgYnkgbWFzdGVyDQp0byBnZXQgcm95YWwgYW11bGV0LA0KYW5kIGdvIGJhY2sgdG8gaGltLg0KDQo="
+  }
+}

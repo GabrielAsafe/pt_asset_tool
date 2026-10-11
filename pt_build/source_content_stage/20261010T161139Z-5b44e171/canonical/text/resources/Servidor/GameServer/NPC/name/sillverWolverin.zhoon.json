@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sillverwolverin",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/sillverWolverin.zhoon",
+    "GameServer/NPC/name/sillverWolverin.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/sillverWolverin.zhoon",
+    "legacy_sha256": "e447df82af78ef2d85eb531a020c5d23414cba2a921561bb7a6d6b68464fa59a",
+    "legacy_size": 105
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 2,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Carcaju de Prata"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Urr.. urrrrrrrrr.. urrr..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Grrrrr... grrrrrr..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqSl9OQU1FCQkiQ2FyY2FqdSBkZSBQcmF0YSINCg0KKkpfQ0hBVAkJIlVyci4uIHVycnJycnJycnIuLiB1cnJyLi4uIg0KKkpfQ0hBVAkJIkdycnJyci4uLiBncnJycnJyLi4uIg0K"
+  }
+}

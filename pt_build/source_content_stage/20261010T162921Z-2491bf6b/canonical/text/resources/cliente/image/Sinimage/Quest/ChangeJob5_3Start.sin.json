@@ -1,0 +1,41 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_3start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob5_3Start.sin",
+    "image/Sinimage/Quest/ChangeJob5_3Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob5_3Start.sin",
+    "legacy_sha256": "ca2dfc02f1378946fdd4ccd3d75eea38f3072557046992e7dd272e0e00f75a16",
+    "legacy_size": 458
+  },
+  "semantic": {
+    "lines": [
+      "Você voltou a tempo. Você deve ser um",
+      "bravo herói. Eu honro a sua bravura.",
+      "",
+      "OK! Agora eu escolherei o terceiro monstro.",
+      "Como você esperava, você caçará monstros mais fortes",
+      "em menores períodos de tempo. Isso é para",
+      "testar o seu direito de ganhar novos poderes, então",
+      "cumpra com cordialidade.",
+      "",
+      "O tempo não é longo, então vá depressa!",
+      "Boa sorte para você, jovem bravo herói.",
+      "",
+      "",
+      "[Quest]",
+      "",
+      "     Cace os monstros escolhidos pelo mestre",
+      "     a tempo."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iB2b2x0b3UgYSB0ZW1wby4gVm9j6iBkZXZlIHNlciB1bQ0KYnJhdm8gaGVy82kuIEV1IGhvbnJvIGEgc3VhIGJyYXZ1cmEuDQoNCk9LISBBZ29yYSBldSBlc2NvbGhlcmVpIG8gdGVyY2Vpcm8gbW9uc3Ryby4NCkNvbW8gdm9j6iBlc3BlcmF2YSwgdm9j6iBjYedhcuEgbW9uc3Ryb3MgbWFpcyBmb3J0ZXMNCmVtIG1lbm9yZXMgcGVy7W9kb3MgZGUgdGVtcG8uIElzc28g6SBwYXJhDQp0ZXN0YXIgbyBzZXUgZGlyZWl0byBkZSBnYW5oYXIgbm92b3MgcG9kZXJlcywgZW50428NCmN1bXByYSBjb20gY29yZGlhbGlkYWRlLg0KDQpPIHRlbXBvIG7jbyDpIGxvbmdvLCBlbnTjbyB24SBkZXByZXNzYSENCkJvYSBzb3J0ZSBwYXJhIHZvY+osIGpvdmVtIGJyYXZvIGhlcvNpLg0KDQoNCltRdWVzdF0NCg0KICAgICBDYWNlIG9zIG1vbnN0cm9zIGVzY29saGlkb3MgcGVsbyBtZXN0cmUNCiAgICAgYSB0ZW1wby4="
+  }
+}

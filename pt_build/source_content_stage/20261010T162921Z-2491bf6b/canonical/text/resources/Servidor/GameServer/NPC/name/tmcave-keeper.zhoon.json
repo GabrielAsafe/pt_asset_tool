@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.tmcave_keeper",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/tmcave-keeper.zhoon",
+    "GameServer/NPC/name/tmcave-keeper.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/tmcave-keeper.zhoon",
+    "legacy_sha256": "17010595f6ff2557467794d678d7edc8098293917880576c740d6a78554505ff",
+    "legacy_size": 516
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guardião da Caverna"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você tem que se concentrar, quando estiver dentro do Santuário, pois a força negra poderá dominá-lo!"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Esta é a entrada da Caverna, que leva ao Santuário Sombrio. Até as criaturas da caverna se transformam em monstros, devido à força negra do Santuário..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Somente jogadores acima do Nível 55 podem entrar aqui."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você pode caminhar da Caverna das Abelhas à Caverna dos Cogumelos, passando pelo Santuário Sombrio, se for forte o bastante."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkaeNvIGRhIENhdmVybmEiDQoNCipKX0NIQVQJCSJWb2PqIHRlbSBxdWUgc2UgY29uY2VudHJhciwgcXVhbmRvIGVzdGl2ZXIgZGVudHJvIGRvIFNhbnR14XJpbywgcG9pcyBhIGZvcudhIG5lZ3JhIHBvZGVy4SBkb21pbuEtbG8hIg0KKkpfQ0hBVAkJIkVzdGEg6SBhIGVudHJhZGEgZGEgQ2F2ZXJuYSwgcXVlIGxldmEgYW8gU2FudHXhcmlvIFNvbWJyaW8uIEF06SBhcyBjcmlhdHVyYXMgZGEgY2F2ZXJuYSBzZSB0cmFuc2Zvcm1hbSBlbSBtb25zdHJvcywgZGV2aWRvIOAgZm9y52EgbmVncmEgZG8gU2FudHXhcmlvLi4uIg0KKkpfQ0hBVAkJIlNvbWVudGUgam9nYWRvcmVzIGFjaW1hIGRvIE7tdmVsIDU1IHBvZGVtIGVudHJhciBhcXVpLiINCipKX0NIQVQJCSJWb2PqIHBvZGUgY2FtaW5oYXIgZGEgQ2F2ZXJuYSBkYXMgQWJlbGhhcyDgIENhdmVybmEgZG9zIENvZ3VtZWxvcywgcGFzc2FuZG8gcGVsbyBTYW50deFyaW8gU29tYnJpbywgc2UgZm9yIGZvcnRlIG8gYmFzdGFudGUuIg0K"
+  }
+}

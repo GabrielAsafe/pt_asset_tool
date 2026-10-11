@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.55_abelha_selvagem",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/55_Abelha Selvagem.zhoon",
+    "GameServer/Monster/Name/55_Abelha Selvagem.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/55_Abelha Selvagem.zhoon",
+    "legacy_sha256": "25da3bfc00d89d0b0f620c1f8bb800d8d591dd86aa7652e8b5d1c7a40bf2a843",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Abelha Selvagem"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQWJlbGhhIFNlbHZhZ2VtIg=="
+  }
+}

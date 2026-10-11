@@ -1,0 +1,432 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.knight",
+  "kind": "ini_config",
+  "selection_reason": "immutable_gameplay_config",
+  "runtime_paths": [
+    "Servidor/Configs/Skill/Knight.ini",
+    "Configs/Skill/Knight.ini"
+  ],
+  "source": {
+    "legacy_path": "Servidor/Configs/Skill/Knight.ini",
+    "legacy_sha256": "0300d3f80cc48636b2142818d62cbf3ca764d890799beb4124b0e1fbcedc2ff3",
+    "legacy_size": 3729
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 1 _______________________"
+      },
+      {
+        "line": 3,
+        "section": "",
+        "key": "",
+        "value": "// Rajada Sagrada"
+      },
+      {
+        "line": 4,
+        "section": "",
+        "key": "Sword_Blast_UseMana",
+        "value": "8, 10, 12, 15, 18, 21, 25, 29, 33, 38 ;"
+      },
+      {
+        "line": 5,
+        "section": "",
+        "key": "Sword_Blast_DamagePercent",
+        "value": "2, 4, 6, 8, 10, 12, 14, 16, 18, 20;"
+      },
+      {
+        "line": 6,
+        "section": "",
+        "key": "Sword_Blast_ShootingRange",
+        "value": "80, 84, 88, 92, 96, 100, 104, 108, 112, 116 ;"
+      },
+      {
+        "line": 8,
+        "section": "",
+        "key": "",
+        "value": "// Corpo Sagrado"
+      },
+      {
+        "line": 9,
+        "section": "",
+        "key": "HolyBody_UseMana",
+        "value": "18, 21, 24, 27, 30, 34, 38, 42, 46, 50 ;"
+      },
+      {
+        "line": 10,
+        "section": "",
+        "key": "HolyBody_Absorb",
+        "value": "3, 6, 9, 12, 15, 18, 21, 24, 27, 30 ;"
+      },
+      {
+        "line": 11,
+        "section": "",
+        "key": "HolyBody_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 13,
+        "section": "",
+        "key": "",
+        "value": "// Treinamento Fisico"
+      },
+      {
+        "line": 14,
+        "section": "",
+        "key": "P_Traning_Stamina",
+        "value": "4, 8, 12, 16, 20, 24, 28, 32, 36, 40 ;"
+      },
+      {
+        "line": 16,
+        "section": "",
+        "key": "",
+        "value": "// Golpe Duplo"
+      },
+      {
+        "line": 17,
+        "section": "",
+        "key": "D_Crash_UseMana",
+        "value": "18, 20, 22, 24, 27, 30, 33, 36, 39, 50 ;"
+      },
+      {
+        "line": 18,
+        "section": "",
+        "key": "D_Crash_Damage",
+        "value": "10, 14, 18, 24, 30, 36, 42, 48, 54, 60 ;"
+      },
+      {
+        "line": 19,
+        "section": "",
+        "key": "D_Crash_Critical",
+        "value": "2, 3, 3, 4, 4, 4, 5, 5, 6 ;"
+      },
+      {
+        "line": 21,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 2 _______________________"
+      },
+      {
+        "line": 23,
+        "section": "",
+        "key": "",
+        "value": "// Valor Sagrado"
+      },
+      {
+        "line": 24,
+        "section": "",
+        "key": "Holy_Valor_Damage",
+        "value": "4, 8, 12, 16, 20, 24, 28, 32, 38, 44 ;"
+      },
+      {
+        "line": 25,
+        "section": "",
+        "key": "Holy_Valor_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 26,
+        "section": "",
+        "key": "Holy_Valor_Mana",
+        "value": "23, 26, 29, 32, 35, 120, 120, 120, 120, 120 ;"
+      },
+      {
+        "line": 28,
+        "section": "",
+        "key": "",
+        "value": "// Brandish"
+      },
+      {
+        "line": 29,
+        "section": "",
+        "key": "Brandish_Damage",
+        "value": "30, 35, 40, 45, 50, 55, 60, 65, 70, 75 ;"
+      },
+      {
+        "line": 30,
+        "section": "",
+        "key": "Brandish_Range",
+        "value": "73, 76, 79, 82, 85, 88, 91, 94, 97, 100 ;"
+      },
+      {
+        "line": 31,
+        "section": "",
+        "key": "Brandish_Mana",
+        "value": "22, 24, 26, 28, 80, 33, 36, 39, 42, 50 ;"
+      },
+      {
+        "line": 33,
+        "section": "",
+        "key": "",
+        "value": "// Piercing"
+      },
+      {
+        "line": 34,
+        "section": "",
+        "key": "Piercing_Damage",
+        "value": "28, 34, 42, 50, 58, 62, 66, 70, 72, 75 ;"
+      },
+      {
+        "line": 35,
+        "section": "",
+        "key": "Piercing_Attack_Rating",
+        "value": "40, 50, 60, 70, 80, 90, 100, 110, 120, 130 ;"
+      },
+      {
+        "line": 36,
+        "section": "",
+        "key": "Piercing_Mana",
+        "value": "24, 26, 28, 30, 32, 34, 36, 38, 40, 50 ;"
+      },
+      {
+        "line": 38,
+        "section": "",
+        "key": "",
+        "value": "// Espirito Drastico"
+      },
+      {
+        "line": 39,
+        "section": "",
+        "key": "Drastic_Spirit_Defense",
+        "value": "3, 6, 9, 12, 15, 18, 25, 35, 45, 50 ;"
+      },
+      {
+        "line": 40,
+        "section": "",
+        "key": "Drastic_Spirit_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 41,
+        "section": "",
+        "key": "Drastic_Spirit_Mana",
+        "value": "25, 27, 29, 32, 35, 38, 41, 45, 49, 74 ;"
+      },
+      {
+        "line": 43,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 3 _______________________"
+      },
+      {
+        "line": 45,
+        "section": "",
+        "key": "",
+        "value": "// Mestre da Espada"
+      },
+      {
+        "line": 46,
+        "section": "",
+        "key": "Sword_Mastery_DamagePercent",
+        "value": "11, 14, 17, 20, 25, 29, 34, 40, 45, 50 ;"
+      },
+      {
+        "line": 48,
+        "section": "",
+        "key": "",
+        "value": "// Escudo Divino"
+      },
+      {
+        "line": 49,
+        "section": "",
+        "key": "D_Inhalation_Life",
+        "value": "5, 10, 15, 20, 25, 30, 35, 40, 42, 45 ;"
+      },
+      {
+        "line": 50,
+        "section": "",
+        "key": "D_Inhalation_Block",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10;"
+      },
+      {
+        "line": 51,
+        "section": "",
+        "key": "D_Inhalation_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 52,
+        "section": "",
+        "key": "D_Inhalation_UseMana",
+        "value": "30, 33, 36, 39, 43, 47, 51, 55, 60, 100;"
+      },
+      {
+        "line": 54,
+        "section": "",
+        "key": "",
+        "value": "// Encantamento Sagrado"
+      },
+      {
+        "line": 55,
+        "section": "",
+        "key": "H_Incantation_Success",
+        "value": "45, 54, 62, 69, 75, 80, 84, 88, 92, 96 ;"
+      },
+      {
+        "line": 56,
+        "section": "",
+        "key": "H_Incantation_AddLife",
+        "value": "100, 120, 140, 160, 180, 200, 220, 240, 260, 280 ;"
+      },
+      {
+        "line": 57,
+        "section": "",
+        "key": "H_Incantation_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 58,
+        "section": "",
+        "key": "H_Incantation_UseMana",
+        "value": "10, 15, 25, 29, 35, 41, 45, 47, 49, 55 ;"
+      },
+      {
+        "line": 60,
+        "section": "",
+        "key": "",
+        "value": "// Grande Cruzada"
+      },
+      {
+        "line": 61,
+        "section": "",
+        "key": "Grand_Cross_Damage",
+        "value": "25, 30, 35, 40, 65, 80, 100, 200, 250, 300 ;"
+      },
+      {
+        "line": 62,
+        "section": "",
+        "key": "Grand_Cross_AttackRate",
+        "value": "5, 10, 15, 20, 30, 40, 50, 60, 65, 75 ;"
+      },
+      {
+        "line": 63,
+        "section": "",
+        "key": "Grand_Cross_UndeadDamage",
+        "value": "5, 10, 15, 20, 25, 30, 32, 34, 36, 40 ;"
+      },
+      {
+        "line": 64,
+        "section": "",
+        "key": "Grand_Cross_UseMana",
+        "value": "26, 29, 32, 35, 38, 41, 44, 47, 60, 70 ;"
+      },
+      {
+        "line": 66,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 4 _______________________"
+      },
+      {
+        "line": 68,
+        "section": "",
+        "key": "",
+        "value": "// Espada da Justica"
+      },
+      {
+        "line": 69,
+        "section": "",
+        "key": "Sword_Of_Justice_DamagePercent",
+        "value": "50, 58, 66, 74, 82, 90, 98, 106, 114, 122 ;"
+      },
+      {
+        "line": 70,
+        "section": "",
+        "key": "Sword_Of_Justice_Area",
+        "value": "80, 90, 100, 110, 120, 130, 140, 150, 160, 170 ;"
+      },
+      {
+        "line": 71,
+        "section": "",
+        "key": "Sword_Of_Justice_UseMana",
+        "value": "50, 53, 56, 59, 62, 65, 68, 71, 74, 90 ;"
+      },
+      {
+        "line": 73,
+        "section": "",
+        "key": "",
+        "value": "// Escudo dos Deuses"
+      },
+      {
+        "line": 74,
+        "section": "",
+        "key": "Godly_Shield_AbsorbPercent",
+        "value": "1, 2, 3, 5, 6, 7, 10, 12, 14, 16 ;"
+      },
+      {
+        "line": 75,
+        "section": "",
+        "key": "Godly_Shield_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 76,
+        "section": "",
+        "key": "Godly_Shield_UseMana",
+        "value": "26, 29, 32, 35, 38, 41, 44, 47, 55, 100 ;"
+      },
+      {
+        "line": 78,
+        "section": "",
+        "key": "",
+        "value": "// Bencao Divina"
+      },
+      {
+        "line": 79,
+        "section": "",
+        "key": "God_Bless_AddDamage",
+        "value": "10, 20, 30, 40, 50, 60, 70, 80, 90, 105 ;"
+      },
+      {
+        "line": 80,
+        "section": "",
+        "key": "God_Bless_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ;"
+      },
+      {
+        "line": 81,
+        "section": "",
+        "key": "God_Bless_UseMana",
+        "value": "26, 29, 32, 35, 38, 51, 64, 77, 85, 120 ;"
+      },
+      {
+        "line": 83,
+        "section": "",
+        "key": "",
+        "value": "// Piercing Divino"
+      },
+      {
+        "line": 84,
+        "section": "",
+        "key": "Divine_Piercing_DamagePercent",
+        "value": "135, 140, 145, 150, 155, 160, 165, 190, 245, 300 ;"
+      },
+      {
+        "line": 85,
+        "section": "",
+        "key": "Divine_Piercing_AddHit",
+        "value": "20, 30, 40, 50, 50, 60, 60, 70, 70, 80 ;"
+      },
+      {
+        "line": 86,
+        "section": "",
+        "key": "Divine_Piercing_AttackNum",
+        "value": "3, 3, 3, 3, 5, 5, 5, 5, 7, 7 ;"
+      },
+      {
+        "line": 87,
+        "section": "",
+        "key": "Divine_Piercing_UseMana",
+        "value": "26, 29, 32, 35, 38, 51, 64, 77, 85, 130 ;"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gX19fX19fX19fX19fX19fX19fX19fX18gVElFUiAxIF9fX19fX19fX19fX19fX19fX19fX19fDQoNCi8vIFJhamFkYSBTYWdyYWRhDQpTd29yZF9CbGFzdF9Vc2VNYW5hID0gOCwgMTAsIDEyLCAxNSwgMTgsIDIxLCAyNSwgMjksIDMzLCAzOCA7DQpTd29yZF9CbGFzdF9EYW1hZ2VQZXJjZW50ID0gMiwgNCwgNiwgOCwgMTAsIDEyLCAxNCwgMTYsIDE4LCAyMDsNClN3b3JkX0JsYXN0X1Nob290aW5nUmFuZ2UgPSA4MCwgODQsIDg4LCA5MiwgOTYsIDEwMCwgMTA0LCAxMDgsIDExMiwgMTE2IDsNCg0KLy8gQ29ycG8gU2FncmFkbw0KSG9seUJvZHlfVXNlTWFuYSA9IDE4LCAyMSwgMjQsIDI3LCAzMCwgMzQsIDM4LCA0MiwgNDYsIDUwIDsNCkhvbHlCb2R5X0Fic29yYiA9IDMsIDYsIDksIDEyLCAxNSwgMTgsIDIxLCAyNCwgMjcsIDMwIDsNCkhvbHlCb2R5X1RpbWUgPSAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAgOw0KDQovLyBUcmVpbmFtZW50byBGaXNpY28NClBfVHJhbmluZ19TdGFtaW5hID0gNCwgOCwgMTIsIDE2LCAyMCwgMjQsIDI4LCAzMiwgMzYsIDQwIDsNCg0KLy8gR29scGUgRHVwbG8NCkRfQ3Jhc2hfVXNlTWFuYSA9IDE4LCAyMCwgMjIsIDI0LCAyNywgMzAsIDMzLCAzNiwgMzksIDUwIDsNCkRfQ3Jhc2hfRGFtYWdlID0gMTAsIDE0LCAxOCwgMjQsIDMwLCAzNiwgNDIsIDQ4LCA1NCwgNjAgOw0KRF9DcmFzaF9Dcml0aWNhbCA9IDIsIDMsIDMsIDQsIDQsIDQsIDUsIDUsIDYgOw0KDQovLyBfX19fX19fX19fX19fX19fX19fX19fXyBUSUVSIDIgX19fX19fX19fX19fX19fX19fX19fX18NCg0KLy8gVmFsb3IgU2FncmFkbw0KSG9seV9WYWxvcl9EYW1hZ2UgPSA0LCA4LCAxMiwgMTYsIDIwLCAyNCwgMjgsIDMyLCAzOCwgNDQgOw0KSG9seV9WYWxvcl9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwIDsNCkhvbHlfVmFsb3JfTWFuYSA9IDIzLCAyNiwgMjksIDMyLCAzNSwgMTIwLCAxMjAsIDEyMCwgMTIwLCAxMjAgOw0KDQovLyBCcmFuZGlzaA0KQnJhbmRpc2hfRGFtYWdlID0gMzAsIDM1LCA0MCwgNDUsIDUwLCA1NSwgNjAsIDY1LCA3MCwgNzUgOw0KQnJhbmRpc2hfUmFuZ2UgPSA3MywgNzYsIDc5LCA4MiwgODUsIDg4LCA5MSwgOTQsIDk3LCAxMDAgOw0KQnJhbmRpc2hfTWFuYSA9IDIyLCAyNCwgMjYsIDI4LCA4MCwgMzMsIDM2LCAzOSwgNDIsIDUwIDsNCg0KLy8gUGllcmNpbmcNClBpZXJjaW5nX0RhbWFnZSA9IDI4LCAzNCwgNDIsIDUwLCA1OCwgNjIsIDY2LCA3MCwgNzIsIDc1IDsNClBpZXJjaW5nX0F0dGFja19SYXRpbmcgPSA0MCwgNTAsIDYwLCA3MCwgODAsIDkwLCAxMDAsIDExMCwgMTIwLCAxMzAgOw0KUGllcmNpbmdfTWFuYSA9IDI0LCAyNiwgMjgsIDMwLCAzMiwgMzQsIDM2LCAzOCwgNDAsIDUwIDsNCg0KLy8gRXNwaXJpdG8gRHJhc3RpY28NCkRyYXN0aWNfU3Bpcml0X0RlZmVuc2UgPSAzLCA2LCA5LCAxMiwgMTUsIDE4LCAyNSwgMzUsIDQ1LCA1MCA7DQpEcmFzdGljX1NwaXJpdF9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwIDsNCkRyYXN0aWNfU3Bpcml0X01hbmEgPSAyNSwgMjcsIDI5LCAzMiwgMzUsIDM4LCA0MSwgNDUsIDQ5LCA3NCA7DQoNCi8vIF9fX19fX19fX19fX19fX19fX19fX19fIFRJRVIgMyBfX19fX19fX19fX19fX19fX19fX19fXw0KDQovLyBNZXN0cmUgZGEgRXNwYWRhDQpTd29yZF9NYXN0ZXJ5X0RhbWFnZVBlcmNlbnQgPSAxMSwgMTQsIDE3LCAyMCwgMjUsIDI5LCAzNCwgNDAsIDQ1LCA1MCA7DQoNCi8vIEVzY3VkbyBEaXZpbm8NCkRfSW5oYWxhdGlvbl9MaWZlID0gNSwgMTAsIDE1LCAyMCwgMjUsIDMwLCAzNSwgNDAsIDQyLCA0NSA7DQpEX0luaGFsYXRpb25fQmxvY2sgPSAxLCAyLCAzLCA0LCA1LCA2LCA3LCA4LCA5LCAxMDsNCkRfSW5oYWxhdGlvbl9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwIDsNCkRfSW5oYWxhdGlvbl9Vc2VNYW5hID0gMzAsIDMzLCAzNiwgMzksIDQzLCA0NywgNTEsIDU1LCA2MCwgMTAwOw0KDQovLyBFbmNhbnRhbWVudG8gU2FncmFkbw0KSF9JbmNhbnRhdGlvbl9TdWNjZXNzID0gNDUsIDU0LCA2MiwgNjksIDc1LCA4MCwgODQsIDg4LCA5MiwgOTYgOw0KSF9JbmNhbnRhdGlvbl9BZGRMaWZlID0gMTAwLCAxMjAsIDE0MCwgMTYwLCAxODAsIDIwMCwgMjIwLCAyNDAsIDI2MCwgMjgwIDsNCkhfSW5jYW50YXRpb25fVGltZSA9IDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCA7DQpIX0luY2FudGF0aW9uX1VzZU1hbmEgPSAxMCwgMTUsIDI1LCAyOSwgMzUsIDQxLCA0NSwgNDcsIDQ5LCA1NSA7DQoNCi8vIEdyYW5kZSBDcnV6YWRhDQpHcmFuZF9Dcm9zc19EYW1hZ2UgPSAyNSwgMzAsIDM1LCA0MCwgNjUsIDgwLCAxMDAsIDIwMCwgMjUwLCAzMDAgOw0KR3JhbmRfQ3Jvc3NfQXR0YWNrUmF0ZSA9IDUsIDEwLCAxNSwgMjAsIDMwLCA0MCwgNTAsIDYwLCA2NSwgNzUgOw0KR3JhbmRfQ3Jvc3NfVW5kZWFkRGFtYWdlID0gNSwgMTAsIDE1LCAyMCwgMjUsIDMwLCAzMiwgMzQsIDM2LCA0MCA7DQpHcmFuZF9Dcm9zc19Vc2VNYW5hID0gMjYsIDI5LCAzMiwgMzUsIDM4LCA0MSwgNDQsIDQ3LCA2MCwgNzAgOw0KDQovLyBfX19fX19fX19fX19fX19fX19fX19fXyBUSUVSIDQgX19fX19fX19fX19fX19fX19fX19fX18NCg0KLy8gRXNwYWRhIGRhIEp1c3RpY2ENClN3b3JkX09mX0p1c3RpY2VfRGFtYWdlUGVyY2VudCA9IDUwLCA1OCwgNjYsIDc0LCA4MiwgOTAsIDk4LCAxMDYsIDExNCwgMTIyIDsNClN3b3JkX09mX0p1c3RpY2VfQXJlYSA9IDgwLCA5MCwgMTAwLCAxMTAsIDEyMCwgMTMwLCAxNDAsIDE1MCwgMTYwLCAxNzAgOw0KU3dvcmRfT2ZfSnVzdGljZV9Vc2VNYW5hID0gNTAsIDUzLCA1NiwgNTksIDYyLCA2NSwgNjgsIDcxLCA3NCwgOTAgOw0KDQovLyBFc2N1ZG8gZG9zIERldXNlcw0KR29kbHlfU2hpZWxkX0Fic29yYlBlcmNlbnQgPSAxLCAyLCAzLCA1LCA2LCA3LCAxMCwgMTIsIDE0LCAxNiA7DQpHb2RseV9TaGllbGRfVGltZSA9IDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCA7DQpHb2RseV9TaGllbGRfVXNlTWFuYSA9IDI2LCAyOSwgMzIsIDM1LCAzOCwgNDEsIDQ0LCA0NywgNTUsIDEwMCA7DQoNCi8vIEJlbmNhbyBEaXZpbmENCkdvZF9CbGVzc19BZGREYW1hZ2UgPSAxMCwgMjAsIDMwLCA0MCwgNTAsIDYwLCA3MCwgODAsIDkwLCAxMDUgOw0KR29kX0JsZXNzX1RpbWUgPSAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAgOw0KR29kX0JsZXNzX1VzZU1hbmEgPSAyNiwgMjksIDMyLCAzNSwgMzgsIDUxLCA2NCwgNzcsIDg1LCAxMjAgOw0KDQovLyBQaWVyY2luZyBEaXZpbm8NCkRpdmluZV9QaWVyY2luZ19EYW1hZ2VQZXJjZW50ID0gMTM1LCAxNDAsIDE0NSwgMTUwLCAxNTUsIDE2MCwgMTY1LCAxOTAsIDI0NSwgMzAwIDsNCkRpdmluZV9QaWVyY2luZ19BZGRIaXQgPSAyMCwgMzAsIDQwLCA1MCwgNTAsIDYwLCA2MCwgNzAsIDcwLCA4MCA7DQpEaXZpbmVfUGllcmNpbmdfQXR0YWNrTnVtID0gMywgMywgMywgMywgNSwgNSwgNSwgNSwgNywgNyA7DQpEaXZpbmVfUGllcmNpbmdfVXNlTWFuYSA9IDI2LCAyOSwgMzIsIDM1LCAzOCwgNTEsIDY0LCA3NywgODUsIDEzMCA7"
+  }
+}

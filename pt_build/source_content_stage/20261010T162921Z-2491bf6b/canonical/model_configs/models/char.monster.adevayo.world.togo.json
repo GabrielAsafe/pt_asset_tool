@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.adevayo.world.togo",
+  "logical_config": "char/monster/Adevayo/world_togo.INI",
+  "legacy_cache": "char/monster/Adevayo/world_togo.inx",
+  "consumers": [
+    {
+      "id": "monster.evento_1_nego_ney",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Evento_1_Nego Ney.inf.json"
+    },
+    {
+      "id": "npc.soccerfan_nego_ney",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Soccerfan Nego Ney.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Adevayo/world_togo.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Adevayo/world_togo.inx"
+    }
+  }
+}

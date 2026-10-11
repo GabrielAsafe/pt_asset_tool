@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uws111_bone_age",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uws111_Bone Age.zhoon",
+    "GameServer/OpenItem/name/_Uws111_Bone Age.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uws111_Bone Age.zhoon",
+    "legacy_sha256": "d17661e8b506d0da4879c1c146911fcb70acc7c1a0d2957baf64b49de0294aec",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Era dos Ossos"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIkVyYSBkb3MgT3Nzb3Mi"
+  }
+}

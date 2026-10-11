@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.81_morcego_mutante",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/81_Morcego Mutante.zhoon",
+    "GameServer/Monster/Name/81_Morcego Mutante.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/81_Morcego Mutante.zhoon",
+    "legacy_sha256": "8bf3c05a5e3ad9d80dcfb5fd493d895aaa71026457382b429756246662764d8b",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Morcego Mutante"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTW9yY2VnbyBNdXRhbnRlIg=="
+  }
+}

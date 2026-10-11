@@ -1,0 +1,327 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da149",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA149.txt",
+    "GameServer/OpenItem/DA149.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA149.txt",
+    "legacy_sha256": "ae47ca8961b0bc9428e1b54553c94ce16e96ddd458e01985b17627f9514a3ffa",
+    "legacy_size": 531
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA149",
+      "name": "Armadura Gaia (M)",
+      "english_name": "Armadura Gaia (M)",
+      "defence": [
+        400,
+        400
+      ],
+      "absorb": [
+        11.6,
+        11.9
+      ],
+      "bionic": [
+        1,
+        5
+      ],
+      "fire": [
+        1,
+        5
+      ],
+      "ice": [
+        1,
+        5
+      ],
+      "lightning": [
+        1,
+        5
+      ],
+      "poison": [
+        1,
+        5
+      ],
+      "life_add_alt": [
+        30,
+        30
+      ],
+      "mana_add_alt": [
+        30,
+        30
+      ],
+      "durability": [
+        30,
+        35
+      ],
+      "level": 20,
+      "weight": 50,
+      "price": 4200000,
+      "linked_file": "Name\\DA149.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA149"
+        ],
+        "raw_values_hex": [
+          "4441313439"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Gaia (M)"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261204761696120284d29"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Gaia (M)"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261204761696120284d29"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          400,
+          400
+        ],
+        "raw_values_hex": [
+          "343030",
+          "343030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          11.6,
+          11.9
+        ],
+        "raw_values_hex": [
+          "31312e36",
+          "31312e39"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          5
+        ],
+        "raw_values_hex": [
+          "31",
+          "35"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          5
+        ],
+        "raw_values_hex": [
+          "31",
+          "35"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          5
+        ],
+        "raw_values_hex": [
+          "31",
+          "35"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          5
+        ],
+        "raw_values_hex": [
+          "31",
+          "35"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          5
+        ],
+        "raw_values_hex": [
+          "31",
+          "35"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          30,
+          30
+        ],
+        "raw_values_hex": [
+          "3330",
+          "3330"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          30,
+          30
+        ],
+        "raw_values_hex": [
+          "3330",
+          "3330"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          30,
+          35
+        ],
+        "raw_values_hex": [
+          "3330",
+          "3335"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4200000
+        ],
+        "raw_values_hex": [
+          "34323030303030"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA149.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413134392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMTQ5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQXJtYWR1cmEgR2FpYSAoTSkiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQXJtYWR1cmEgR2FpYSAoTSkiDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA0MDAgNDAwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiAxMS42IDExLjkNCg0KLy9PcmdhbmljUmVzaXN0YW5jZQ0KKrv9w7wgMSA1DQoNCi8vRmlyZVJlc2lzdGFuY2UNCiq60iAxIDUNCg0KLy9Gcm9zdFJlc2lzdGFuY2UNCiqzw7HiIDEgNQ0KDQovL0xpZ2h0bmluZ1Jlc2lzdGFuY2UNCiq5+LCzIDEgNQ0KDQovL1BvaXNvblJlc2lzdGFuY2UNCiq1tiAxIDUNCg0KLy9IUA0KKrv9uO23wsPfsKEgMzAgMzANCg0KLy9NUA0KKrHit8LD37ChIDMwIDMwDQoNCi8vSW50ZWdyaXR5DQoqs7uxuLfCIDMwIDM1DQoNCi8vTGV2ZWwNCiq3ubqnIDIwDQoNCi8vV2VpZ2h0DQoquauw1CA1MA0KDQovL1ByaWNlDQoqsKGw3SA0MjAwMDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcREExNDkuemhvb24i"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_lagarto_dom_u00e9stica",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Lagarto Dom#U00e9stica.zhoon",
+    "GameServer/Monster/Name/1_Lagarto Dom#U00e9stica.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Lagarto Dom#U00e9stica.zhoon",
+    "legacy_sha256": "bbfaf710ca4e7196af6388cc3a8e21fedfdcb2e730052556c3bc8087e1b8d7be",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lagarto Doméstica"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTGFnYXJ0byBEb23pc3RpY2Ei"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest55path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest55Path.sin",
+    "image/Sinimage/Quest/LevelQuest55Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest55Path.sin",
+    "legacy_sha256": "e679cdd37fc568c25cb8d92d3ead25b4c481fbbb96c16197945414ea776a609d",
+    "legacy_size": 202
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Great warriors show themselves by great power!",
+      "",
+      "If you cannot pass my test, you will never even ",
+      "deserve the title of Warrior! ",
+      "",
+      "Go to Mushroom Cave and prove your true courage ",
+      "and power there!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpHcmVhdCB3YXJyaW9ycyBzaG93IHRoZW1zZWx2ZXMgYnkgZ3JlYXQgcG93ZXIhDQoNCklmIHlvdSBjYW5ub3QgcGFzcyBteSB0ZXN0LCB5b3Ugd2lsbCBuZXZlciBldmVuIA0KZGVzZXJ2ZSB0aGUgdGl0bGUgb2YgV2FycmlvciEgDQoNCkdvIHRvIE11c2hyb29tIENhdmUgYW5kIHByb3ZlIHlvdXIgdHJ1ZSBjb3VyYWdlIA0KYW5kIHBvd2VyIHRoZXJlIQ=="
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.dungeon_keeper",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/dungeon-keeper.npc",
+    "GameServer/NPC/dungeon-keeper.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/dungeon-keeper.npc",
+    "legacy_sha256": "7845219bd1be674e6548eacbdc5b33a7c9d154033c30f06a5cad2fcb6ed5e8a8",
+    "legacy_size": 634
+  },
+  "semantic": {
+    "fields": {
+      "name": "던전 키퍼",
+      "model_file": "char\\npc\\TN-001\\TN-001.INI",
+      "level": 100,
+      "sell_weapon": "없음",
+      "sell_defence": "없음",
+      "sell_etc": [
+        "PL102",
+        "PL103",
+        "PS102",
+        "PS103",
+        "ec101",
+        "ec102",
+        "ec104"
+      ],
+      "linked_file": "name\\dungeon-keeper.zhoon",
+      "model_config_id": "model.char.npc.tn.001.tn.001"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "던전 키퍼"
+        ],
+        "raw_values_hex": [
+          "b4f8c0fc20c5b0c6db"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-001\\TN-001.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030315c544e2d3030312e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "PL102",
+          "PL103",
+          "PS102",
+          "PS103",
+          "ec101",
+          "ec102",
+          "ec104"
+        ],
+        "raw_values_hex": [
+          "504c313032",
+          "504c313033",
+          "5053313032",
+          "5053313033",
+          "6563313031",
+          "6563313032",
+          "6563313034"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\dungeon-keeper.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c64756e67656f6e2d6b65657065722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK0+MD8IMWwxtsiDQoquPC+58bEwM8JImNoYXJcbnBjXFROLTAwMVxUTi0wMDEuSU5JIg0KKre5uqcJCTEwMA0KLy8qtOvIrSAJCSK+87i2IMD8IMW3yKPHx7ChILbVvu4gs/XAuiC6riC12rfOILz7sNzB+CC55sDMILnfsN8gtca02bDtIMfPs9e/5C4uILHXILnmwMcgwaTDvLTCILjWse6/5D8iDQovLyq068itCQkiwMyw98C6ILDttOvAzrXpwMwguau++cDOsKG4piCwobXOseIgwKfH2CC4uLXpvvq02bTCIMH2x8+wqL/BIMDUtM+02S4iDQovLyq068itCQkiwPu+7rW1IDQwIMDMu/PAxyC3ubqnwLsgsKHB+CDA/Lvntem4uCDD4sDUIMfSILz2IMDWvcC0z7TZLiINCi8vKrTryK0JCSKw7bTrsKi/wSC+yL+htMIgyKPHx7XpwMcgtOvA5SCw3cDOIMW3yKPHx7ChILOqxbizqsHSLCCx1yDFqyC1osShv6EgsK23wsfRILvUILD4sN0uLiC7/bCiuLggx9i1tSC/wL3Px9ggwf20z7TZLiINCg0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCiq5q7Hixse4xQkJvvjAvQ0KDQoquea+7rG4xse4xQkJvvjAvQ0KDQoqwOLIrcbHuMUJCVBMMTAyIFBMMTAzIFBTMTAyIFBTMTAzIGVjMTAxIGVjMTAyIGVjMTA0DQoNCiq/rLDhxsTAzwkibmFtZVxkdW5nZW9uLWtlZXBlci56aG9vbiINCg=="
+  }
+}

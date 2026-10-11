@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.moncyclops.moncyclops.a",
+  "logical_config": "char/monster/moncyclops/moncyclops-a.ini",
+  "legacy_cache": "char/monster/moncyclops/moncyclops-a.inx",
+  "consumers": [
+    {
+      "id": "monster.29_c_u00edclope",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/29_C#U00edclope.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Moncyclops/MonCyclops-a.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Moncyclops/MonCyclops-a.inx"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.ziddane.world.fran",
+  "logical_config": "char/monster/Ziddane/world_fran.INI",
+  "legacy_cache": "char/monster/Ziddane/world_fran.inx",
+  "consumers": [
+    {
+      "id": "monster.evento_1_zidane",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Evento_1_Zidane.inf.json"
+    },
+    {
+      "id": "npc.soccerfan",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Soccerfan.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Ziddane/world_fran.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Ziddane/world_fran.inx"
+    }
+  }
+}

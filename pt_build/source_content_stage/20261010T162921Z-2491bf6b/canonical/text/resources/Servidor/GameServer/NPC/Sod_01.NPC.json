@@ -1,0 +1,107 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.sod_01",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Sod_01.NPC",
+    "GameServer/NPC/Sod_01.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Sod_01.NPC",
+    "legacy_sha256": "0ba455d68c05c95829c7c20b7e63017eb135d372a5a0cbe52fcbff3dd4dd68b9",
+    "legacy_size": 1031
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\SN-003\\SN-003.ini",
+      "name": "카사",
+      "event_npc": 1,
+      "linked_file": "name\\Sod_01.zhoon",
+      "model_config_id": "model.char.npc.sn.003.sn.003"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\SN-003\\SN-003.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c534e2d3030335c534e2d3030332e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "카사"
+        ],
+        "raw_values_hex": [
+          "c4abbbe7"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "event_npc",
+        "legacy_token": "*이벤트매표소",
+        "legacy_token_hex": "2ac0ccbaa5c6aeb8c5c7a5bcd2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Sod_01.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c536f645f30312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcU04tMDAzXFNOLTAwMy5pbmkiDQoNCirAzLinCQkJIsSru+ciDQoqwMy6pcauuMXHpbzSIDENCg0KLy+60sDHu+fBpiDAzrvnuLsgLS0gx9e78yCzqr/AtMIguN69w8H2DQovLyq068itCQkJIrrSwMcgyPuw+iC/67HisKEgtOe9xcDHIL7Vsea/oSC+8MGms6ogx9SysiDHz7HiuKYuLi4iCQkJCQkJMQ0KLy+/7r+1sccgsKHB+CDFrLejuLsNCi8vKrTryK0JCQkiwPrI8SC9w7fDwMcgxb4guqe288autvMgwMcgv+6/tbHHwLogx/bA5yAnWFhYJyDFrLejv6Gw1CDA1r3AtM+02S4iCQkJCQkyDQoNCi8vuqe288autvOwoSDH9sDnIMH4x+Agwd8gwMywxbOqIML8sKGwoSC60rChtMnH0iC2pyAtIL7Gt6EgtOvIrbXpwd8gt6O0/cfPsNTD4rfCDQovLyq068itCQkJIsfRud8gtMrAuLzMs9e/5CEgx/bA5yC6p7bzxq6287ChIMH4x+Agwd8gwNS0z7TZLiAiCQkJCQkJMw0KLy8qtOvIrQkJCSKw+r+sIL/svcLAxyC/tbGkwLogvu62siDGwMDMILChwa6wobDUILXJse6/5D8gIgkJCQkJNA0KLy8qtOvIrQkJCSK0573FtbUguavDtCCwrcfYILq4wMy0wrG6v+QuICIJCQkJCQkJCQk1DQoNCi8vwNTA5SC60rChtMkgvcOwoyAtIL7Gt6EgtOvIrbXpwd8gt6O0/cfPsNTD4rfCDQovLyq068itCQkJIsHLvNvH1bTPtNkuIMH2sd3AuiC6p7bzxq6287+hIML8sKEgx8+9xyC89rChIL74vcC0z7TZLiIJCQkJCTMNCi8vKrTryK0JCQkiuMXAzyDAzCC9w7CjwLogvu7BpsDHILqntvPGrrbzILz2wM2x3cC7IMD8tN7Hz7DtLCCw5rHiwOXAxyCzu7rOuKYgvPa4riC51yDBobDLIMfPtMIgvcOwo8DUtM+02S4gIgkJCQkJNA0KLy8qtOvIrQkJCSLA4b3DIMjEv6EgtNm9wyC/zcHWvLy/5C4iCQkJCQkJCTUNCg0KLy+6p7bzxq628yDA1MDlwMwgutKwobTJx9Egt7m6p8DPi5oNCi8vKrTryK0JCQkitOe9xcDMILqntvPGrrbzv6Egtem+7rChseK/obTCIMj7tem+7iC6uMDMs9e/5C4gwbu09SCw5sfowLsgvdew7SC/wLy8v+QiDQoNCg0KKr+ssOHGxMDPICJuYW1lXFNvZF8wMS56aG9vbiI="
+  }
+}

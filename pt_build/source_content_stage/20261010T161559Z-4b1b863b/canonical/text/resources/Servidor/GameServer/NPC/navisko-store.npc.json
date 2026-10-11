@@ -1,0 +1,219 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.navisko_store",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/navisko-store.npc",
+    "GameServer/NPC/navisko-store.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/navisko-store.npc",
+    "legacy_sha256": "c795a537e5eb861a70df0571e0cab7b72e4024d6a901c5752bfd430b898e2e5b",
+    "legacy_size": 659
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-005\\TN-005.ini",
+      "level": 100,
+      "name": "잡화점 비안트",
+      "english_name": "Mr Lim",
+      "sell_weapon": "없음",
+      "sell_defence": {
+        "$repeated": [
+          "없음",
+          "없음"
+        ]
+      },
+      "sell_etc": [
+        "PL101",
+        "PL102",
+        "PL103",
+        "PL104",
+        "PS101",
+        "PS102",
+        "PS103",
+        "PS104",
+        "os101",
+        "os102",
+        "os103",
+        "os104"
+      ],
+      "linked_file": "name\\navisko-store.zhoon",
+      "model_config_id": "model.char.npc.tn.005.tn.005"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-005\\TN-005.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030355c544e2d3030352e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "잡화점 비안트"
+        ],
+        "raw_values_hex": [
+          "c0e2c8adc1a120baf1bec8c6ae"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mr Lim"
+        ],
+        "raw_values_hex": [
+          "4d72204c696d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 18,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 21,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "PL101",
+          "PL102",
+          "PL103",
+          "PL104",
+          "PS101",
+          "PS102",
+          "PS103",
+          "PS104",
+          "os101",
+          "os102",
+          "os103",
+          "os104"
+        ],
+        "raw_values_hex": [
+          "504c313031",
+          "504c313032",
+          "504c313033",
+          "504c313034",
+          "5053313031",
+          "5053313032",
+          "5053313033",
+          "5053313034",
+          "6f73313031",
+          "6f73313032",
+          "6f73313033",
+          "6f73313034"
+        ]
+      },
+      {
+        "line": 25,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\navisko-store.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e617669736b6f2d73746f72652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDA1XFROLTAwNS5pbmkiDQoqt7m6pwkJCTEwMA0KDQoqwMy4pwkJCSLA4sitwaEguvG+yMauIg0KKk5hbWUJCQkiTXIgTGltIg0KDQovLyq068itCQkJIrvnuLe/obyxILmwtbUgwd+/5MfPwfa4uCDAwLHeIMSht+G4piDAp8fRIL7gx7C16bW1ILjFv+wgwd+/5MfYv+QhIg0KLy8qtOvIrQkJCSLAzCCx2cOzv6G8rSC5sL7gtenAuyC77CC89iDA1rTCILD3wLogwMyw98DMIMCvwM/H1bTPtNkuIg0KLy8qtOvIrQkJCSK48726xc2woSDG977Hx9jB9rjpvK0gwaHBoSDFqyC/67euwMcgubC+4LXpwLsgsbjA1MfYILChtPWxur/kIg0KLy8qtOvIrQkJCSK5sL7gwMwguPDA2rbzILTZvcMgtbm+xr/AtMIgwM/AzCC++LW1t88gwN8gw6yw3CCwobW1t88gx8+8vL/kIg0KDQoNCg0KLy/Gx7jFILmrseK3+Swguea+7rG4LCDA4sitILf5sKEgxse4xbXKLA0KDQoquaux4sbHuMUJCb74wL0NCg0KKrnmvu6xuMbHuMUJCb74wL0NCiq55r7usbjGx7jFCQm++MC9DQoNCirA4sitxse4xQkJUEwxMDEgUEwxMDIgUEwxMDMgUEwxMDQgUFMxMDEgUFMxMDIgUFMxMDMgUFMxMDQgb3MxMDEgb3MxMDIgb3MxMDMgb3MxMDQNCg0KKr+ssOHGxMDPCSJuYW1lXG5hdmlza28tc3RvcmUuemhvb24iDQoNCg0KDQoNCg0KDQo="
+  }
+}

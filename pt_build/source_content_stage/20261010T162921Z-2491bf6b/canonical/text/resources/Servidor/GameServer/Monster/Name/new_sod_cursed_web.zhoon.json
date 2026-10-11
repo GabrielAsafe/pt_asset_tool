@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_cursed_web",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_cursed_web.zhoon",
+    "GameServer/Monster/Name/new_sod_cursed_web.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_cursed_web.zhoon",
+    "legacy_sha256": "231e144b78d3ee5f5b5f70b5f8630560f2a08b8c892385bf48d82ebe71978aab",
+    "legacy_size": 39
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Teia Amaldiçoada do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJUZWlhIEFtYWxkaedvYWRhIGRvIFNvRCINCg0K"
+  }
+}

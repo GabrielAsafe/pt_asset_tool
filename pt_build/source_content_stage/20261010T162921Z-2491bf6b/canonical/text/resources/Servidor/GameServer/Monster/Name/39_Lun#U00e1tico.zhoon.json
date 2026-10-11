@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.39_lun_u00e1tico",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/39_Lun#U00e1tico.zhoon",
+    "GameServer/Monster/Name/39_Lun#U00e1tico.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/39_Lun#U00e1tico.zhoon",
+    "legacy_sha256": "efd49536d19a826dc0fab22b34032d36c8cae90ccc5edec63af3dc6cd5866743",
+    "legacy_size": 18
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lunático"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTHVu4XRpY28i"
+  }
+}

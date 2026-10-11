@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_3_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_3_End.sin",
+    "image/Sinimage/Quest/140LVQuest_3_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_3_End.sin",
+    "legacy_sha256": "0a4659b8c0e6a808a8b1ee41da1ee32c1389c9c5caf3a016bc172a287bf38ee4",
+    "legacy_size": 708
+  },
+  "semantic": {
+    "lines": [
+      "Yagditha enviou Zarkga para roubar a Quintessência e me",
+      "matar. Escapei graças à Lirie, a líder das Sacerdotisas.",
+      "Zarkga foi derrotado, mas as Quintessências foram levadas.",
+      "",
+      "Produzi a Quintessência com os ensinamentos de Pítia, mãe",
+      "de Zarad. Ela conhece a técnica da Fusão do povo das águas",
+      "e vivia escondida na superfície. As criei para deter a Maré",
+      "Negra. Mas Yagditha as está usando para criar mais Shogoth",
+      "com o corpo dos pristonianos. Suas almas merecem descansar.",
+      "",
+      "Deixe-me ver isso... Essas almas possuem a essência do mal",
+      "de Yagditha. Preciso de um tempo para analisá-las.",
+      "Aproveite para repor seus suprimentos e volte mais tarde.",
+      "",
+      "Receba um item especial, como recompensa por sua ajuda."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WWFnZGl0aGEgZW52aW91IFphcmtnYSBwYXJhIHJvdWJhciBhIFF1aW50ZXNz6m5jaWEgZSBtZQ0KbWF0YXIuIEVzY2FwZWkgZ3Jh52FzIOAgTGlyaWUsIGEgbO1kZXIgZGFzIFNhY2VyZG90aXNhcy4NClphcmtnYSBmb2kgZGVycm90YWRvLCBtYXMgYXMgUXVpbnRlc3PqbmNpYXMgZm9yYW0gbGV2YWRhcy4NCg0KUHJvZHV6aSBhIFF1aW50ZXNz6m5jaWEgY29tIG9zIGVuc2luYW1lbnRvcyBkZSBQ7XRpYSwgbeNlDQpkZSBaYXJhZC4gRWxhIGNvbmhlY2UgYSB06WNuaWNhIGRhIEZ1c+NvIGRvIHBvdm8gZGFzIOFndWFzDQplIHZpdmlhIGVzY29uZGlkYSBuYSBzdXBlcmbtY2llLiBBcyBjcmllaSBwYXJhIGRldGVyIGEgTWFy6Q0KTmVncmEuIE1hcyBZYWdkaXRoYSBhcyBlc3ThIHVzYW5kbyBwYXJhIGNyaWFyIG1haXMgU2hvZ290aA0KY29tIG8gY29ycG8gZG9zIHByaXN0b25pYW5vcy4gU3VhcyBhbG1hcyBtZXJlY2VtIGRlc2NhbnNhci4NCg0KRGVpeGUtbWUgdmVyIGlzc28uLi4gRXNzYXMgYWxtYXMgcG9zc3VlbSBhIGVzc+puY2lhIGRvIG1hbA0KZGUgWWFnZGl0aGEuIFByZWNpc28gZGUgdW0gdGVtcG8gcGFyYSBhbmFsaXPhLWxhcy4NCkFwcm92ZWl0ZSBwYXJhIHJlcG9yIHNldXMgc3VwcmltZW50b3MgZSB2b2x0ZSBtYWlzIHRhcmRlLg0KDQpSZWNlYmEgdW0gaXRlbSBlc3BlY2lhbCwgY29tbyByZWNvbXBlbnNhIHBvciBzdWEgYWp1ZGEu"
+  }
+}

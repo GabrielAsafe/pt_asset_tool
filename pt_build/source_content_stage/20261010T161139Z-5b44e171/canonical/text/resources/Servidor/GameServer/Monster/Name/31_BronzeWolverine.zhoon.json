@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.31_bronzewolverine",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/31_BronzeWolverine.zhoon",
+    "GameServer/Monster/Name/31_BronzeWolverine.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/31_BronzeWolverine.zhoon",
+    "legacy_sha256": "59c66818f49bbeba4e70c44ba7a2f9daf10d8732b7fa0976de24b2fddec54c1a",
+    "legacy_size": 60
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "E_NAME",
+        "kind": "name",
+        "text": "Invocação do Tigre"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8zN19Ccm9uemVXb2x2ZXJpbmUuaW5mDQoNCipFX05BTUUJCQkiSW52b2Nh5+NvIGRvIFRpZ3JlIg0K"
+  }
+}

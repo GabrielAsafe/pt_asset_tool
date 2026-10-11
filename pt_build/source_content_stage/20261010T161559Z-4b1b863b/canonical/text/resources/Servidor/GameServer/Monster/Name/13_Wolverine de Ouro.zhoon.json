@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.13_wolverine_de_ouro",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/13_Wolverine de Ouro.zhoon",
+    "GameServer/Monster/Name/13_Wolverine de Ouro.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/13_Wolverine de Ouro.zhoon",
+    "legacy_sha256": "3ff1e0a8d002ae3e4c1f5eaa19df3cfa0b60cd0d7fe0ca6b82e931eb7ccfb9a7",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Wolverine de Ouro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiV29sdmVyaW5lIGRlIE91cm8i"
+  }
+}

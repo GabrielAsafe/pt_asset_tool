@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_3_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_3_End.sin",
+    "image/Sinimage/Quest/114LVQuest_3_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_3_End.sin",
+    "legacy_sha256": "53ce7ae0cc333ce7fc2c3944b26bfefb9f424cb57bd74dcae8c92b0a313a2959",
+    "legacy_size": 368
+  },
+  "semantic": {
+    "lines": [
+      "Finalmente!",
+      "Você conseguiu coletar os Cristais de Alma Maligna.",
+      "",
+      "Por favor, aguarde um momento. Preciso me concentrar.",
+      "A arte da \"Fusão\" é antiga, mas é muito nova para mim.",
+      "Ainda estou aprendendo sobre ela.",
+      "Vou tentar criar um artefato com esses poderosos",
+      "elementos que você trouxe.",
+      "",
+      "Por ora, aceite este Cristal Dragão em retribuição à sua",
+      "valiosa ajuda."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmluYWxtZW50ZSENClZvY+ogY29uc2VndWl1IGNvbGV0YXIgb3MgQ3Jpc3RhaXMgZGUgQWxtYSBNYWxpZ25hLg0KDQpQb3IgZmF2b3IsIGFndWFyZGUgdW0gbW9tZW50by4gUHJlY2lzbyBtZSBjb25jZW50cmFyLg0KQSBhcnRlIGRhICJGdXPjbyIg6SBhbnRpZ2EsIG1hcyDpIG11aXRvIG5vdmEgcGFyYSBtaW0uDQpBaW5kYSBlc3RvdSBhcHJlbmRlbmRvIHNvYnJlIGVsYS4NClZvdSB0ZW50YXIgY3JpYXIgdW0gYXJ0ZWZhdG8gY29tIGVzc2VzIHBvZGVyb3Nvcw0KZWxlbWVudG9zIHF1ZSB2b2PqIHRyb3V4ZS4NCg0KUG9yIG9yYSwgYWNlaXRlIGVzdGUgQ3Jpc3RhbCBEcmFn428gZW0gcmV0cmlidWnn428g4CBzdWENCnZhbGlvc2EgYWp1ZGEuDQo="
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_4start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_4Start.sin",
+    "image/Sinimage/Quest/103LVQuest_4Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_4Start.sin",
+    "legacy_sha256": "10770ff0e12ee316137e6128daf0cf60a3d2a90c31f37b6c3a2a2c72a4b03731",
+    "legacy_size": 658
+  },
+  "semantic": {
+    "lines": [
+      "Are you ready? To discard pieces of C-stones, ",
+      "there is a lot of hard work involved. If you activate ",
+      "these pieces in the area where they can be ",
+      "activated, magical power will come out.",
+      "They will look like monsters, according to",
+      "Royal Mage. You can get a small piece after ",
+      "killing this monster. We call this piece the",
+      "'Evidence of killing evil things.'",
+      "",
+      "Pieces can be activated in the north",
+      "of special place at Lost Temple. There are",
+      "many pieces, but pieces of C-stone have very",
+      "powerful evil properties. Discard just 7 of them,",
+      "and bring me the proof.",
+      "",
+      "Take care of yourself and good luck to you.",
+      "I will be seeing you with this good news."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QXJlIHlvdSByZWFkeT8gVG8gZGlzY2FyZCBwaWVjZXMgb2YgQy1zdG9uZXMsIA0KdGhlcmUgaXMgYSBsb3Qgb2YgaGFyZCB3b3JrIGludm9sdmVkLiBJZiB5b3UgYWN0aXZhdGUgDQp0aGVzZSBwaWVjZXMgaW4gdGhlIGFyZWEgd2hlcmUgdGhleSBjYW4gYmUgDQphY3RpdmF0ZWQsIG1hZ2ljYWwgcG93ZXIgd2lsbCBjb21lIG91dC4NClRoZXkgd2lsbCBsb29rIGxpa2UgbW9uc3RlcnMsIGFjY29yZGluZyB0bw0KUm95YWwgTWFnZS4gWW91IGNhbiBnZXQgYSBzbWFsbCBwaWVjZSBhZnRlciANCmtpbGxpbmcgdGhpcyBtb25zdGVyLiBXZSBjYWxsIHRoaXMgcGllY2UgdGhlDQonRXZpZGVuY2Ugb2Yga2lsbGluZyBldmlsIHRoaW5ncy4nDQoNClBpZWNlcyBjYW4gYmUgYWN0aXZhdGVkIGluIHRoZSBub3J0aA0Kb2Ygc3BlY2lhbCBwbGFjZSBhdCBMb3N0IFRlbXBsZS4gVGhlcmUgYXJlDQptYW55IHBpZWNlcywgYnV0IHBpZWNlcyBvZiBDLXN0b25lIGhhdmUgdmVyeQ0KcG93ZXJmdWwgZXZpbCBwcm9wZXJ0aWVzLiBEaXNjYXJkIGp1c3QgNyBvZiB0aGVtLA0KYW5kIGJyaW5nIG1lIHRoZSBwcm9vZi4NCg0KVGFrZSBjYXJlIG9mIHlvdXJzZWxmIGFuZCBnb29kIGx1Y2sgdG8geW91Lg0KSSB3aWxsIGJlIHNlZWluZyB5b3Ugd2l0aCB0aGlzIGdvb2QgbmV3cy4NCg=="
+  }
+}

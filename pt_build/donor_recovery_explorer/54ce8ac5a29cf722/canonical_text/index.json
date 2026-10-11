@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.105_i_foxhound",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/105_I_FoxHound.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/105_I_FoxHound.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/105_I_FoxHound.inf",
+        "GameServer/Monster/105_I_FoxHound.inf"
+      ],
+      "legacy_sha256": "a8ea0b288ded97e65fc5b61864ae1bbf3256593d1f940f254696f71b68ae1777"
+    }
+  ]
+}

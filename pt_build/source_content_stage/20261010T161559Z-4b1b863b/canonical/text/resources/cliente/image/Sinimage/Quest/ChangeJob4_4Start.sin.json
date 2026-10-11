@@ -1,0 +1,43 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_4start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob4_4Start.sin",
+    "image/Sinimage/Quest/ChangeJob4_4Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob4_4Start.sin",
+    "legacy_sha256": "619bacad7f063b3c2e41d6cd708d30f4268761b02c258e9aac4927b100cb3952",
+    "legacy_size": 664
+  },
+  "semantic": {
+    "lines": [
+      "This is the last 4th job quest.",
+      "you succeed in the 2tests and even got ",
+      "the RoyalAmulet.",
+      "You must be stronger and physically more ",
+      "powerful than me. we will move to a secret ",
+      "place in the Kingdom so, give me ",
+      "Royal Amulet. You will not get ",
+      "the Royal Amulet back so do not regret!",
+      "You have to battle with me for the 4th test, ",
+      "which is easy.If you fail in this test, ",
+      "you have to get another Royal Amulet and ",
+      "we do the battle again. Are you ready for it?",
+      "Try not to have a difficult time and learn ",
+      "from your mistake. Moreover, if you fail ",
+      "go back to town and visit me again.",
+      "",
+      "[Job Quest]",
+      "Complete your quest by confronting ",
+      "the skill Master."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhpcyBpcyB0aGUgbGFzdCA0dGggam9iIHF1ZXN0Lg0KeW91IHN1Y2NlZWQgaW4gdGhlIDJ0ZXN0cyBhbmQgZXZlbiBnb3QgDQp0aGUgUm95YWxBbXVsZXQuDQpZb3UgbXVzdCBiZSBzdHJvbmdlciBhbmQgcGh5c2ljYWxseSBtb3JlIA0KcG93ZXJmdWwgdGhhbiBtZS4gd2Ugd2lsbCBtb3ZlIHRvIGEgc2VjcmV0IA0KcGxhY2UgaW4gdGhlIEtpbmdkb20gc28sIGdpdmUgbWUgDQpSb3lhbCBBbXVsZXQuIFlvdSB3aWxsIG5vdCBnZXQgDQp0aGUgUm95YWwgQW11bGV0IGJhY2sgc28gZG8gbm90IHJlZ3JldCENCllvdSBoYXZlIHRvIGJhdHRsZSB3aXRoIG1lIGZvciB0aGUgNHRoIHRlc3QsIA0Kd2hpY2ggaXMgZWFzeS5JZiB5b3UgZmFpbCBpbiB0aGlzIHRlc3QsIA0KeW91IGhhdmUgdG8gZ2V0IGFub3RoZXIgUm95YWwgQW11bGV0IGFuZCANCndlIGRvIHRoZSBiYXR0bGUgYWdhaW4uIEFyZSB5b3UgcmVhZHkgZm9yIGl0Pw0KVHJ5IG5vdCB0byBoYXZlIGEgZGlmZmljdWx0IHRpbWUgYW5kIGxlYXJuIA0KZnJvbSB5b3VyIG1pc3Rha2UuIE1vcmVvdmVyLCBpZiB5b3UgZmFpbCANCmdvIGJhY2sgdG8gdG93biBhbmQgdmlzaXQgbWUgYWdhaW4uDQoNCltKb2IgUXVlc3RdDQpDb21wbGV0ZSB5b3VyIHF1ZXN0IGJ5IGNvbmZyb250aW5nIA0KdGhlIHNraWxsIE1hc3Rlci4NCg=="
+  }
+}

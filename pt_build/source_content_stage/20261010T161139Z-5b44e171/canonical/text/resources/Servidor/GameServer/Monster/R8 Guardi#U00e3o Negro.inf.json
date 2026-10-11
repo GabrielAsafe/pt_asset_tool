@@ -1,0 +1,388 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.r8_guardi_u00e3o_negro",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/R8 Guardi#U00e3o Negro.inf",
+    "GameServer/Monster/R8 Guardi#U00e3o Negro.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/R8 Guardi#U00e3o Negro.inf",
+    "legacy_sha256": "285c41da61cc22bf5991eb38ad3d75738ee2fa20b0b5adad9af781549cec271f",
+    "legacy_size": 741
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\darkguard\\skullac.ini",
+      "name": "R8 Guardião Negro",
+      "level": 93,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 380,
+      "life": 11000,
+      "attack_damage": [
+        120,
+        240
+      ],
+      "attack_rating": 1300,
+      "attack_speed": 8,
+      "attack_range": 150,
+      "skill_damage": [
+        230,
+        280
+      ],
+      "skill_rating": 15,
+      "skill_distance": 200,
+      "defence": 780,
+      "block": 14,
+      "stun_percent": 15,
+      "move_speed": 3,
+      "monster_race": "언데드",
+      "size": "중대형",
+      "experience": 296000,
+      "effect_sound": "DARKGUARD",
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.darkguard.skullac"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\darkguard\\skullac.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c6461726b67756172645c736b756c6c61632e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "R8 Guardi? Negro"
+        ],
+        "raw_values_hex": [
+          "5238204775617264693f204e6567726f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          93
+        ],
+        "raw_values_hex": [
+          "3933"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          380
+        ],
+        "raw_values_hex": [
+          "333830"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          11000
+        ],
+        "raw_values_hex": [
+          "3131303030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          120,
+          240
+        ],
+        "raw_values_hex": [
+          "313230",
+          "323430"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1300
+        ],
+        "raw_values_hex": [
+          "31333030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          150
+        ],
+        "raw_values_hex": [
+          "313530"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "skill_damage",
+        "legacy_token": "*기술공격력",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          230,
+          280
+        ],
+        "raw_values_hex": [
+          "323330",
+          "323830"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "skill_distance",
+        "legacy_token": "*기술공격거리",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb0c5b8ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          200
+        ],
+        "raw_values_hex": [
+          "323030"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          780
+        ],
+        "raw_values_hex": [
+          "373830"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          14
+        ],
+        "raw_values_hex": [
+          "3134"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "stun_percent",
+        "legacy_token": "*스턴율",
+        "legacy_token_hex": "2abdbac5cfc0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "언데드"
+        ],
+        "raw_values_hex": [
+          "bef0b5a5b5e5"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          296000
+        ],
+        "raw_values_hex": [
+          "323936303030"
+        ]
+      },
+      {
+        "line": 68,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "DARKGUARD"
+        ],
+        "raw_values_hex": [
+          "4441524b4755415244"
+        ]
+      },
+      {
+        "line": 71,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcZGFya2d1YXJkXHNrdWxsYWMuaW5pIg0KDQovL05hbWUNCirAzLinICJSOCBHdWFyZGk/IE5lZ3JvIg0KDQovL0xldmVsDQoqt7m6pyA5Mw0KDQovL1NpemUNCiq48LWoxamx4iAxLjANCg0KLy9TcGF3blF1YW50aXR5DQoqwbbB9yAxIDENCg0KLy9WaWV3UmFuZ2UNCiq9w77fIDM4MA0KDQovL0hQDQoqu/247bfCIDExMDAwDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgMTIwIDI0MA0KDQovL0F0dGFja1JhdGluZw0KKrjtwd+3wiAxMzAwDQoNCi8vQXR0YWNrU3BlZWQNCiqw+LDdvNO1tSA4DQoNCi8vQXR0YWNrUmFuZ2UNCiqw+LDdufzApyAxNTANCg0KLy9Ta2lsbFBvd2VyDQoqseK8+rD4sN23wiAyMzAgMjgwDQoNCi8vU2tpbGxSYXRpbmcNCiqx4rz6sPiw3bf8IDE1DQoNCi8vU2tpbGxEaXN0YW5jZQ0KKrHivPqw+LDdsMW4riAyMDANCg0KLy9EZWZlbnNlDQoquea+7rfCIDc4MA0KDQovL0Jsb2NrDQoquu23sMCyIDE0DQoNCi8vU3R1bg0KKr26xc/AsiAxNQ0KDQovL01vdmVTcGVlZA0KKsDMtb+3wiAzDQoNCi8vUmFjZQ0KKrjzvbrFzcG+wbcgvvC1pbXlDQoNCi8vU2hhZG93U2l6ZQ0KKsWpseIgwd+068f8DQoNCi8vRXhwZXJpZW5jZQ0KKrDmx+jEoSAyOTYwMDANCg0KLy9Tb3VuZA0KKsi/sPrAvSBEQVJLR1VBUkQNCg0KLy9FeHRlcm4gRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE5hbWUuemhvb24i"
+  }
+}

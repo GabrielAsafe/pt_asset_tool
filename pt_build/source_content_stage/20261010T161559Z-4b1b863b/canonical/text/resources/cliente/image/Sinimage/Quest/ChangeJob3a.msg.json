@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3a.path_713d1ecfbd",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob3a.msg",
+    "image/Sinimage/Quest/ChangeJob3a.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob3a.msg",
+    "legacy_sha256": "e57d1536f3707f94aa165bd386be85e36b6e7ac914c4c7aeb67d47ffc6757aaa",
+    "legacy_size": 192
+  },
+  "semantic": {
+    "lines": [
+      "In order to rank-up, you",
+      "are required to destroy ",
+      "'devolish tree.'",
+      "Once you defeat the ",
+      "tree, you will be able ",
+      "to extract mysterious ",
+      "oil. Let the oil age, ",
+      "then take it to 'Defrain.' "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SW4gb3JkZXIgdG8gcmFuay11cCwgeW91DQphcmUgcmVxdWlyZWQgdG8gZGVzdHJveSANCidkZXZvbGlzaCB0cmVlLicNCk9uY2UgeW91IGRlZmVhdCB0aGUgDQp0cmVlLCB5b3Ugd2lsbCBiZSBhYmxlIA0KdG8gZXh0cmFjdCBteXN0ZXJpb3VzIA0Kb2lsLiBMZXQgdGhlIG9pbCBhZ2UsIA0KdGhlbiB0YWtlIGl0IHRvICdEZWZyYWluLicg"
+  }
+}

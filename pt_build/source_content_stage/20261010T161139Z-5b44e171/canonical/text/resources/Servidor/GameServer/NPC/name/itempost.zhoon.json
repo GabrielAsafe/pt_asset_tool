@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.itempost",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/itempost.zhoon",
+    "GameServer/NPC/name/itempost.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/itempost.zhoon",
+    "legacy_sha256": "8f9a174a7e93be0d18a79c6a195e4923b6dbf678c0a6256cfe421b30162f72b7",
+    "legacy_size": 299
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Distribuidor!"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Os itens são distribuídos pelo nosso sistema de PNJs."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "OK. Deixe-me ver, qual é seu nome mesmo?"
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Vamos ver se há alguma encomenda com seu nome."
+      },
+      {
+        "line": 13,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Eu acho que não há nada para você, mas, deixe-me ver..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9pdGVtcG9zdC5ucGMNCg0KDQoqSl9OYW1lCSJEaXN0cmlidWlkb3IhIg0KDQoNCipKX0NoYXQJIk9zIGl0ZW5zIHPjbyBkaXN0cmlide1kb3MgcGVsbyBub3NzbyBzaXN0ZW1hIGRlIFBOSnMuIg0KDQoqSl9DaGF0CSJPSy4gRGVpeGUtbWUgdmVyLCBxdWFsIOkgc2V1IG5vbWUgbWVzbW8/Ig0KDQoqSl9DaGF0CSJWYW1vcyB2ZXIgc2UgaOEgYWxndW1hIGVuY29tZW5kYSBjb20gc2V1IG5vbWUuIg0KDQoqSl9DaGF0CSJFdSBhY2hvIHF1ZSBu428gaOEgbmFkYSBwYXJhIHZvY+osIG1hcywgZGVpeGUtbWUgdmVyLi4uIg0KDQo="
+  }
+}

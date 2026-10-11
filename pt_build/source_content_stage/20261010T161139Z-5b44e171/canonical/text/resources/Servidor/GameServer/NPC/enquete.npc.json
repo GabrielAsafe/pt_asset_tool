@@ -1,0 +1,121 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.enquete",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/enquete.npc",
+    "GameServer/NPC/enquete.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/enquete.npc",
+    "legacy_sha256": "3d5868e6a064bd80bf49582f92dca37c1bb06768ed0d1453fef23ad64ef5c8ca",
+    "legacy_size": 454
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "name": "설문조사 도우미",
+      "model_file": "char\\npc\\TN-017\\TN-017.INI",
+      "polling": 1,
+      "class": 0,
+      "linked_file": "name\\TN-017.zhoon",
+      "model_config_id": "model.char.npc.tn.017.tn.017"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "설문조사 도우미"
+        ],
+        "raw_values_hex": [
+          "bcb3b9aec1b6bbe720b5b5bfecb9cc"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-017\\TN-017.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3031375c544e2d3031372e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "polling",
+        "legacy_token": "*설문조사",
+        "legacy_token_hex": "2abcb3b9aec1b6bbe7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 7,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          0
+        ],
+        "raw_values_hex": [
+          "30"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\TN-017.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c544e2d3031372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KrzTvLogICAgICAgICAgICBOUEMNCirAzLinCQkivLO5rsG2u+cgtbW/7LnMIg0KDQoquPC+58bEwM8JImNoYXJcbnBjXFROLTAxN1xUTi0wMTcuSU5JIg0KDQoqvLO5rsG2u+cgMQ0KKrDosd4gMA0KLy8qt7m6pwkJMTAwDQoNCi8vKrTryK0JCSK8rbn2IMXrx9W/oSC068fYIL7utruw1CC7/bCix8+9w7TCwfYgtOe9xcDHIMDHsN/AuyC+y7fBwda8vL/kLiINCi8vKrTryK0JCSK8s7muIML8sKG0wiAxsOjBpLTnIDHIuLi4ILChtMnH1bTPtNkuIg0KLy8qtOvIrSAgICAgICAgICAgIr+pt6+60MDHILzSwd/H0SDAx7DfwLsgseK02biztM+02S4iDQovLyq068itICAgICAgICAgICAiuMcguLbB9ri3IMiuwM4gufbGsMC7ILSpuKO9w7jpIMDHsN/AzCDA/LTetce45ywgw+u80iC59sawwLsgtKm4o7jpIMDnILyzua7AzCCwobTJx9W0z7TZLiINCg0KKr+ssOHGxMDPCSJuYW1lXFROLTAxNy56aG9vbiINCg=="
+  }
+}

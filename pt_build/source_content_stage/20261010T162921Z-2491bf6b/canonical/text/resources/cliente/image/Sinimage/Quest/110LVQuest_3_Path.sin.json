@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_3_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_3_Path.sin",
+    "image/Sinimage/Quest/110LVQuest_3_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_3_Path.sin",
+    "legacy_sha256": "df83896bb10a8a94cb80463a11566e4dc8d71f30897cf4959541b802dc635b59",
+    "legacy_size": 54
+  },
+  "semantic": {
+    "lines": [
+      "Por favor, leve meu relatório para o Comandante Derik."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UG9yIGZhdm9yLCBsZXZlIG1ldSByZWxhdPNyaW8gcGFyYSBvIENvbWFuZGFudGUgRGVyaWsu"
+  }
+}

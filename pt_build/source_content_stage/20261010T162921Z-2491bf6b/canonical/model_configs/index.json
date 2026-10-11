@@ -1,0 +1,2191 @@
+{
+  "schema": "summit.model-config-catalog/v1",
+  "schema_version": 1,
+  "model_count": 364,
+  "models": [
+    {
+      "id": "model.char.monster.acero.acero",
+      "json_path": "models/char.monster.acero.acero.json",
+      "logical_config": "char/monster/Acero/Acero.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.adevayo.world.togo",
+      "json_path": "models/char.monster.adevayo.world.togo.json",
+      "logical_config": "char/monster/Adevayo/world_togo.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ancientgolem.ancientgolem",
+      "json_path": "models/char.monster.ancientgolem.ancientgolem.json",
+      "logical_config": "char/monster/ancientgolem/ancientgolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.arcuda.arcuda",
+      "json_path": "models/char.monster.arcuda.arcuda.json",
+      "logical_config": "char/monster/arcuda/arcuda.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.arhdyra.arhdyra",
+      "json_path": "models/char.monster.arhdyra.arhdyra.json",
+      "logical_config": "char/monster/Arhdyra/Arhdyra.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.armbeetle.armbeetle",
+      "json_path": "models/char.monster.armbeetle.armbeetle.json",
+      "logical_config": "char/monster/ArmBeetle/ArmBeetle.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.bal.crystal.bal.crystal",
+      "json_path": "models/char.monster.bal.crystal.bal.crystal.json",
+      "logical_config": "char/monster/bal_crystal/bal_crystal.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.beetle.beetle",
+      "json_path": "models/char.monster.beetle.beetle.json",
+      "logical_config": "char/monster/beetle/beetle.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.bguardian.bguardian",
+      "json_path": "models/char.monster.bguardian.bguardian.json",
+      "logical_config": "char/monster/bguardian/bguardian.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.billy.billy",
+      "json_path": "models/char.monster.billy.billy.json",
+      "logical_config": "char/monster/billy/billy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.blizzardgiant.blizzardgiant",
+      "json_path": "models/char.monster.blizzardgiant.blizzardgiant.json",
+      "logical_config": "char/monster/blizzardgiant/blizzardgiant.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.bloodyknight.bknight",
+      "json_path": "models/char.monster.bloodyknight.bknight.json",
+      "logical_config": "char/monster/bloodyknight/bknight.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.boitata.boitata",
+      "json_path": "models/char.monster.boitata.boitata.json",
+      "logical_config": "char/monster/boitata/boitata.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.bsnake.bsnake",
+      "json_path": "models/char.monster.bsnake.bsnake.json",
+      "logical_config": "char/monster/bsnake/bsnake.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.buma.buma",
+      "json_path": "models/char.monster.buma.buma.json",
+      "logical_config": "char/monster/buma/buma.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.buma.monbuma.boss",
+      "json_path": "models/char.monster.buma.monbuma.boss.json",
+      "logical_config": "char/monster/buma/monbuma-boss.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.castledoor.castledoor",
+      "json_path": "models/char.monster.castledoor.castledoor.json",
+      "logical_config": "char/monster/castledoor/castledoor.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.cavemush.cmush",
+      "json_path": "models/char.monster.cavemush.cmush.json",
+      "logical_config": "char/monster/cavemush/cmush.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.chaingolem.chaingolem",
+      "json_path": "models/char.monster.chaingolem.chaingolem.json",
+      "logical_config": "char/monster/chaingolem/chaingolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.chalybs.chalybs",
+      "json_path": "models/char.monster.chalybs.chalybs.json",
+      "logical_config": "char/monster/Chalybs/Chalybs.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.chaoscara.chaoscara",
+      "json_path": "models/char.monster.chaoscara.chaoscara.json",
+      "logical_config": "char/monster/chaoscara/chaoscara.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.chimera.kimera.a",
+      "json_path": "models/char.monster.chimera.kimera.a.json",
+      "logical_config": "char/monster/chimera/kimera_a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.cokris.cokris",
+      "json_path": "models/char.monster.cokris.cokris.json",
+      "logical_config": "char/monster/cokris/cokris.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.coldeye.coldeye",
+      "json_path": "models/char.monster.coldeye.coldeye.json",
+      "logical_config": "char/monster/coldeye/coldeye.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.coldeye.redeye",
+      "json_path": "models/char.monster.coldeye.redeye.json",
+      "logical_config": "char/monster/coldeye/redeye.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.cstone.cstone",
+      "json_path": "models/char.monster.cstone.cstone.json",
+      "logical_config": "char/monster/cstone/cstone.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.cyclopswarrior.cyclopswarrior",
+      "json_path": "models/char.monster.cyclopswarrior.cyclopswarrior.json",
+      "logical_config": "char/monster/cyclopswarrior/cyclopswarrior.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.ar.dar",
+      "json_path": "models/char.monster.d.ar.dar.json",
+      "logical_config": "char/monster/d_ar/dar.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.atal.datal",
+      "json_path": "models/char.monster.d.atal.datal.json",
+      "logical_config": "char/monster/d_atal/datal.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.fi.dfi",
+      "json_path": "models/char.monster.d.fi.dfi.json",
+      "logical_config": "char/monster/d_fi/dfi.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.kn.dkn",
+      "json_path": "models/char.monster.d.kn.dkn.json",
+      "logical_config": "char/monster/d_kn/dkn.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.magi.dmagi",
+      "json_path": "models/char.monster.d.magi.dmagi.json",
+      "logical_config": "char/monster/d_magi/dmagi.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.meca.dmeca",
+      "json_path": "models/char.monster.d.meca.dmeca.json",
+      "logical_config": "char/monster/d_meca/dmeca.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.pa.dpike",
+      "json_path": "models/char.monster.d.pa.dpike.json",
+      "logical_config": "char/monster/d_pa/dpike.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.d.pr.dpr",
+      "json_path": "models/char.monster.d.pr.dpr.json",
+      "logical_config": "char/monster/d_pr/dpr.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.darkguard.skullac",
+      "json_path": "models/char.monster.darkguard.skullac.json",
+      "logical_config": "char/monster/darkguard/skullac.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.darkmage.skullma",
+      "json_path": "models/char.monster.darkmage.skullma.json",
+      "logical_config": "char/monster/darkmage/skullma.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.darkphalanx.darkphalanx",
+      "json_path": "models/char.monster.darkphalanx.darkphalanx.json",
+      "logical_config": "char/monster/Darkphalanx/darkphalanx.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.darkstalker.darkstalker",
+      "json_path": "models/char.monster.darkstalker.darkstalker.json",
+      "logical_config": "char/monster/darkstalker/darkstalker.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.deadkinghopy.deadkinghopy",
+      "json_path": "models/char.monster.deadkinghopy.deadkinghopy.json",
+      "logical_config": "char/monster/deadkinghopy/deadkinghopy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.deadzone.deadzone",
+      "json_path": "models/char.monster.deadzone.deadzone.json",
+      "logical_config": "char/monster/deadzone/deadzone.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.death.knight.death.knight",
+      "json_path": "models/char.monster.death.knight.death.knight.json",
+      "logical_config": "char/monster/death_knight/death_knight.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.decoy.decoy",
+      "json_path": "models/char.monster.decoy.decoy.json",
+      "logical_config": "char/monster/decoy/decoy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.decoy.mondecoy.boss",
+      "json_path": "models/char.monster.decoy.mondecoy.boss.json",
+      "logical_config": "char/monster/decoy/mondecoy-boss.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.devilbird.devilbird",
+      "json_path": "models/char.monster.devilbird.devilbird.json",
+      "logical_config": "char/monster/devilbird/devilbird.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.devilshy.devilshy",
+      "json_path": "models/char.monster.devilshy.devilshy.json",
+      "logical_config": "char/monster/devilshy/devilshy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.dey.dey",
+      "json_path": "models/char.monster.dey.dey.json",
+      "logical_config": "char/monster/Dey/Dey.inx",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.doral.doral",
+      "json_path": "models/char.monster.doral.doral.json",
+      "logical_config": "char/monster/doral/doral.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.draxos.draxos",
+      "json_path": "models/char.monster.draxos.draxos.json",
+      "logical_config": "char/monster/Draxos/Draxos.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.esnail.esnail",
+      "json_path": "models/char.monster.esnail.esnail.json",
+      "logical_config": "char/monster/esnail/esnail.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.evilmaple.evilmaple",
+      "json_path": "models/char.monster.evilmaple.evilmaple.json",
+      "logical_config": "char/monster/evilmaple/evilmaple.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.evilplant.evilplant",
+      "json_path": "models/char.monster.evilplant.evilplant.json",
+      "logical_config": "char/monster/evilplant/evilplant.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.evilspirit.evilspirit",
+      "json_path": "models/char.monster.evilspirit.evilspirit.json",
+      "logical_config": "char/monster/evilspirit/evilspirit.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.faugn.faugn",
+      "json_path": "models/char.monster.faugn.faugn.json",
+      "logical_config": "char/monster/Faugn/Faugn.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.figon.figon",
+      "json_path": "models/char.monster.figon.figon.json",
+      "logical_config": "char/monster/figon/figon.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.figon.monfigon.boss",
+      "json_path": "models/char.monster.figon.monfigon.boss.json",
+      "logical_config": "char/monster/figon/Monfigon-boss.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.firegolem.firegolem",
+      "json_path": "models/char.monster.firegolem.firegolem.json",
+      "logical_config": "char/monster/firegolem/firegolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.fireworm.fireworm",
+      "json_path": "models/char.monster.fireworm.fireworm.json",
+      "logical_config": "char/monster/fireworm/fireworm.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.frost.frost",
+      "json_path": "models/char.monster.frost.frost.json",
+      "logical_config": "char/monster/frost/frost.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.frozen.frozen",
+      "json_path": "models/char.monster.frozen.frozen.json",
+      "logical_config": "char/monster/frozen/frozen.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.g.wolverin.wolverin.a",
+      "json_path": "models/char.monster.g.wolverin.wolverin.a.json",
+      "logical_config": "char/monster/g_wolverin/wolverin_a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ghost.ghost",
+      "json_path": "models/char.monster.ghost.ghost.json",
+      "logical_config": "char/monster/ghost/ghost.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.goblinchief.goblinchief",
+      "json_path": "models/char.monster.goblinchief.goblinchief.json",
+      "logical_config": "char/monster/goblinchief/goblinchief.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.goblinchief.noschief",
+      "json_path": "models/char.monster.goblinchief.noschief.json",
+      "logical_config": "char/monster/goblinchief/noschief.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.goblinshaman.goblinshaman",
+      "json_path": "models/char.monster.goblinshaman.goblinshaman.json",
+      "logical_config": "char/monster/goblinshaman/goblinshaman.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.golem.golem",
+      "json_path": "models/char.monster.golem.golem.json",
+      "logical_config": "char/monster/golem/golem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.gorgon.gorgon",
+      "json_path": "models/char.monster.gorgon.gorgon.json",
+      "logical_config": "char/monster/gorgon/gorgon.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.great.greven.great.greven",
+      "json_path": "models/char.monster.great.greven.great.greven.json",
+      "logical_config": "char/monster/great_greven/great_greven.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.greedy.greedy",
+      "json_path": "models/char.monster.greedy.greedy.json",
+      "logical_config": "char/monster/Greedy/Greedy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.grotesque.grotesque",
+      "json_path": "models/char.monster.grotesque.grotesque.json",
+      "logical_config": "char/monster/grotesque/grotesque.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.guardian.guardian",
+      "json_path": "models/char.monster.guardian.guardian.json",
+      "logical_config": "char/monster/guardian/guardian.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.gurkob.gurkob",
+      "json_path": "models/char.monster.gurkob.gurkob.json",
+      "logical_config": "char/monster/Gurkob/Gurkob.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.headcut.headcut",
+      "json_path": "models/char.monster.headcut.headcut.json",
+      "logical_config": "char/monster/headcut/headcut.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.headcut.headcutaxe",
+      "json_path": "models/char.monster.headcut.headcutaxe.json",
+      "logical_config": "char/monster/headcut/headcutaxe.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hellhound.bonehound",
+      "json_path": "models/char.monster.hellhound.bonehound.json",
+      "logical_config": "char/monster/hellhound/bonehound.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hellhound.hellhound",
+      "json_path": "models/char.monster.hellhound.hellhound.json",
+      "logical_config": "char/monster/hellhound/hellhound.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hellplant.hellplant",
+      "json_path": "models/char.monster.hellplant.hellplant.json",
+      "logical_config": "char/monster/hellplant/hellplant.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hest.hest",
+      "json_path": "models/char.monster.hest.hest.json",
+      "logical_config": "char/monster/hest/hest.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hestian.hestian",
+      "json_path": "models/char.monster.hestian.hestian.json",
+      "logical_config": "char/monster/hestian/hestian.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hobogolem.hobogolem",
+      "json_path": "models/char.monster.hobogolem.hobogolem.json",
+      "logical_config": "char/monster/hobogolem/hobogolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hongky.hongky",
+      "json_path": "models/char.monster.hongky.hongky.json",
+      "logical_config": "char/monster/hongky/hongky.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hopy.hopy",
+      "json_path": "models/char.monster.hopy.hopy.json",
+      "logical_config": "char/monster/hopy/hopy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hopy.mopy",
+      "json_path": "models/char.monster.hopy.mopy.json",
+      "logical_config": "char/monster/hopy/mopy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hopyking.hopyking",
+      "json_path": "models/char.monster.hopyking.hopyking.json",
+      "logical_config": "char/monster/hopyking/hopyking.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.hyper.hyper",
+      "json_path": "models/char.monster.hyper.hyper.json",
+      "logical_config": "char/monster/hyper/hyper.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ibomber.ibomber",
+      "json_path": "models/char.monster.ibomber.ibomber.json",
+      "logical_config": "char/monster/IBomber/IBomber.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.iceelemental.iceelemental",
+      "json_path": "models/char.monster.iceelemental.iceelemental.json",
+      "logical_config": "char/monster/IceElemental/iceelemental.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.icegoblin.icegoblin",
+      "json_path": "models/char.monster.icegoblin.icegoblin.json",
+      "logical_config": "char/monster/icegoblin/icegoblin.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.icegolem.icegolem",
+      "json_path": "models/char.monster.icegolem.icegolem.json",
+      "logical_config": "char/monster/icegolem/icegolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.iceserpent.iceserpent",
+      "json_path": "models/char.monster.iceserpent.iceserpent.json",
+      "logical_config": "char/monster/iceserpent/iceserpent.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.iceworm.iceworm",
+      "json_path": "models/char.monster.iceworm.iceworm.json",
+      "logical_config": "char/monster/iceworm/iceworm.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ielite.ielite",
+      "json_path": "models/char.monster.ielite.ielite.json",
+      "logical_config": "char/monster/IElite/IElite.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.igolation.igolation",
+      "json_path": "models/char.monster.igolation.igolation.json",
+      "logical_config": "char/monster/igolation/igolation.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.incubussummer.incubussummer",
+      "json_path": "models/char.monster.incubussummer.incubussummer.json",
+      "logical_config": "char/monster/incubussummer/incubussummer.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ironfist.ironfist",
+      "json_path": "models/char.monster.ironfist.ironfist.json",
+      "logical_config": "char/monster/ironfist/ironfist.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.isoldier.isoldier",
+      "json_path": "models/char.monster.isoldier.isoldier.json",
+      "logical_config": "char/monster/ISoldier/ISoldier.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.itechnician.itechnician",
+      "json_path": "models/char.monster.itechnician.itechnician.json",
+      "logical_config": "char/monster/ITechnician/ITechnician.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.kakoa.kakoa",
+      "json_path": "models/char.monster.kakoa.kakoa.json",
+      "logical_config": "char/monster/kakoa/kakoa.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.kelvezu.kelvezu",
+      "json_path": "models/char.monster.kelvezu.kelvezu.json",
+      "logical_config": "char/monster/kelvezu/kelvezu.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.kingbat.kingbat",
+      "json_path": "models/char.monster.kingbat.kingbat.json",
+      "logical_config": "char/monster/kingbat/kingbat.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.koon.koon",
+      "json_path": "models/char.monster.koon.koon.json",
+      "logical_config": "char/monster/Koon/Koon.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.leech.leech",
+      "json_path": "models/char.monster.leech.leech.json",
+      "logical_config": "char/monster/leech/leech.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.lengineer.lengineer",
+      "json_path": "models/char.monster.lengineer.lengineer.json",
+      "logical_config": "char/monster/LEngineer/LEngineer.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.lengineer.1.lengineer",
+      "json_path": "models/char.monster.lengineer.1.lengineer.json",
+      "logical_config": "char/monster/LEngineer_1/LEngineer.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.lguardian.lguardian",
+      "json_path": "models/char.monster.lguardian.lguardian.json",
+      "logical_config": "char/monster/lguardian/lguardian.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.lizard.bigmama.lizard.bigmama",
+      "json_path": "models/char.monster.lizard.bigmama.lizard.bigmama.json",
+      "logical_config": "char/monster/Lizard_Bigmama/Lizard_Bigmama.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.lizard.commander.lizard.commander",
+      "json_path": "models/char.monster.lizard.commander.lizard.commander.json",
+      "logical_config": "char/monster/Lizard_Commander/Lizard_Commander.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.lizardfolk.lizardfolk",
+      "json_path": "models/char.monster.lizardfolk.lizardfolk.json",
+      "logical_config": "char/monster/lizardfolk/lizardfolk.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.lltiger.tiger",
+      "json_path": "models/char.monster.lltiger.tiger.json",
+      "logical_config": "char/monster/LLTiger/tiger.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ltechnician.ltechnician",
+      "json_path": "models/char.monster.ltechnician.ltechnician.json",
+      "logical_config": "char/monster/LTechnician/LTechnician.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ltechnician.1.ltechnician",
+      "json_path": "models/char.monster.ltechnician.1.ltechnician.json",
+      "logical_config": "char/monster/LTechnician_1/LTechnician.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.m.lord.m.load",
+      "json_path": "models/char.monster.m.lord.m.load.json",
+      "logical_config": "char/monster/m_lord/m_load.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.metalgolem.metalgolem",
+      "json_path": "models/char.monster.metalgolem.metalgolem.json",
+      "logical_config": "char/monster/metalgolem/metalgolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.midranda.midranda",
+      "json_path": "models/char.monster.midranda.midranda.json",
+      "logical_config": "char/monster/Midranda/Midranda.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mimic.mimic",
+      "json_path": "models/char.monster.mimic.mimic.json",
+      "logical_config": "char/monster/mimic/mimic.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.minebat.minebat",
+      "json_path": "models/char.monster.minebat.minebat.json",
+      "logical_config": "char/monster/minebat/minebat.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.minegolem.minegolem",
+      "json_path": "models/char.monster.minegolem.minegolem.json",
+      "logical_config": "char/monster/minegolem/minegolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mirekeeper.mirekeeper",
+      "json_path": "models/char.monster.mirekeeper.mirekeeper.json",
+      "logical_config": "char/monster/mirekeeper/mirekeeper.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monavellriskbow.monavelriskbow",
+      "json_path": "models/char.monster.monavellriskbow.monavelriskbow.json",
+      "logical_config": "char/monster/monavellriskbow/monavelriskbow.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monavellriskstf.monavelriskstf",
+      "json_path": "models/char.monster.monavellriskstf.monavelriskstf.json",
+      "logical_config": "char/monster/monavellriskstf/monavelriskstf.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monavelrisk.monavelrisk.mass",
+      "json_path": "models/char.monster.monavelrisk.monavelrisk.mass.json",
+      "logical_config": "char/monster/monavelrisk/monavelrisk-mass.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monavelrisk.monavelrisk.spear",
+      "json_path": "models/char.monster.monavelrisk.monavelrisk.spear.json",
+      "logical_config": "char/monster/monavelrisk/monavelrisk-spear.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monavelrisk.monavelrisk.sword",
+      "json_path": "models/char.monster.monavelrisk.monavelrisk.sword.json",
+      "logical_config": "char/monster/Monavelrisk/Monavelrisk-sword.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monbabyhulk.monbabyhulk",
+      "json_path": "models/char.monster.monbabyhulk.monbabyhulk.json",
+      "logical_config": "char/monster/monbabyhulk/monbabyhulk.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monbagon.monbagon.a",
+      "json_path": "models/char.monster.monbagon.monbagon.a.json",
+      "logical_config": "char/monster/monbagon/monbagon-a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monbagon.monbagon.b",
+      "json_path": "models/char.monster.monbagon.monbagon.b.json",
+      "logical_config": "char/monster/monbagon/monbagon-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monbagon.monbagon.boss",
+      "json_path": "models/char.monster.monbagon.monbagon.boss.json",
+      "logical_config": "char/monster/Monbagon/Monbagon-boss.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monbagon.monbagon.c",
+      "json_path": "models/char.monster.monbagon.monbagon.c.json",
+      "logical_config": "char/monster/monbagon/monbagon-c.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monbeechief.monbeechief",
+      "json_path": "models/char.monster.monbeechief.monbeechief.json",
+      "logical_config": "char/monster/monbeechief/monbeechief.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monbeedog.monbeedog",
+      "json_path": "models/char.monster.monbeedog.monbeedog.json",
+      "logical_config": "char/monster/monbeedog/monbeedog.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monberserker.monberserker",
+      "json_path": "models/char.monster.monberserker.monberserker.json",
+      "logical_config": "char/monster/monberserker/monberserker.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monburntree.monburntree",
+      "json_path": "models/char.monster.monburntree.monburntree.json",
+      "logical_config": "char/monster/monburntree/monburntree.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.moncavemummy.moncavemummy",
+      "json_path": "models/char.monster.moncavemummy.moncavemummy.json",
+      "logical_config": "char/monster/moncavemummy/moncavemummy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monclip.monclip.boss",
+      "json_path": "models/char.monster.monclip.monclip.boss.json",
+      "logical_config": "char/monster/monclip/monclip-boss.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monclip.monclip",
+      "json_path": "models/char.monster.monclip.monclip.json",
+      "logical_config": "char/monster/monclip/monclip.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.moncyclops.moncyclops.a",
+      "json_path": "models/char.monster.moncyclops.moncyclops.a.json",
+      "logical_config": "char/monster/moncyclops/moncyclops-a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.moncyclops.moncyclops.b",
+      "json_path": "models/char.monster.moncyclops.moncyclops.b.json",
+      "logical_config": "char/monster/moncyclops/moncyclops-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.moncyclops.moncyclops.c",
+      "json_path": "models/char.monster.moncyclops.moncyclops.c.json",
+      "logical_config": "char/monster/moncyclops/moncyclops-c.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.moncyclops.moncyclops.d",
+      "json_path": "models/char.monster.moncyclops.moncyclops.d.json",
+      "logical_config": "char/monster/Moncyclops/MonCyclops-d.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mondawlin.mondawlin",
+      "json_path": "models/char.monster.mondawlin.mondawlin.json",
+      "logical_config": "char/monster/mondawlin/mondawlin.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mondirebee.mondirebee",
+      "json_path": "models/char.monster.mondirebee.mondirebee.json",
+      "logical_config": "char/monster/mondirebee/mondirebee.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mondmachine.mondmachine",
+      "json_path": "models/char.monster.mondmachine.mondmachine.json",
+      "logical_config": "char/monster/mondmachine/mondmachine.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monegan.monegan",
+      "json_path": "models/char.monster.monegan.monegan.json",
+      "logical_config": "char/monster/monegan/monegan.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.moneye.eye",
+      "json_path": "models/char.monster.moneye.eye.json",
+      "logical_config": "char/monster/moneye/eye.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monfury.monfury",
+      "json_path": "models/char.monster.monfury.monfury.json",
+      "logical_config": "char/monster/monfury/monfury.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mongknight.mong2knight",
+      "json_path": "models/char.monster.mongknight.mong2knight.json",
+      "logical_config": "char/monster/mongknight/mong2knight.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mongknight.mongknight",
+      "json_path": "models/char.monster.mongknight.mongknight.json",
+      "logical_config": "char/monster/mongknight/mongknight.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mongreven.mongreven",
+      "json_path": "models/char.monster.mongreven.mongreven.json",
+      "logical_config": "char/monster/mongreven/mongreven.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monhauntplant.monhauntmaple",
+      "json_path": "models/char.monster.monhauntplant.monhauntmaple.json",
+      "logical_config": "char/monster/monhauntplant/monhauntmaple.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monhauntplant.monhauntplant",
+      "json_path": "models/char.monster.monhauntplant.monhauntplant.json",
+      "logical_config": "char/monster/monhauntplant/monhauntplant.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monheavygoblin.monheavygoblin",
+      "json_path": "models/char.monster.monheavygoblin.monheavygoblin.json",
+      "logical_config": "char/monster/monheavygoblin/monheavygoblin.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monhobgoblin.monhobgoblin.a",
+      "json_path": "models/char.monster.monhobgoblin.monhobgoblin.a.json",
+      "logical_config": "char/monster/monhobgoblin/monhobgoblin-a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monhobgoblin.monhobgoblin.b",
+      "json_path": "models/char.monster.monhobgoblin.monhobgoblin.b.json",
+      "logical_config": "char/monster/monhobgoblin/monhobgoblin-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monhobsanta.monhobsanta",
+      "json_path": "models/char.monster.monhobsanta.monhobsanta.json",
+      "logical_config": "char/monster/Monhobsanta/Monhobsanta.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monhulk.1.monhulk.1",
+      "json_path": "models/char.monster.monhulk.1.monhulk.1.json",
+      "logical_config": "char/monster/monhulk-1/monhulk-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monhulk.monhulk",
+      "json_path": "models/char.monster.monhulk.monhulk.json",
+      "logical_config": "char/monster/Monhulk/Monhulk.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monigad.monigad",
+      "json_path": "models/char.monster.monigad.monigad.json",
+      "logical_config": "char/monster/monigad/monigad.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monimp.monimp.a",
+      "json_path": "models/char.monster.monimp.monimp.a.json",
+      "logical_config": "char/monster/monimp/monimp-a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monimp.monimp.b",
+      "json_path": "models/char.monster.monimp.monimp.b.json",
+      "logical_config": "char/monster/monimp/monimp-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monimp.monimp.c",
+      "json_path": "models/char.monster.monimp.monimp.c.json",
+      "logical_config": "char/monster/monimp/monimp-c.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monkingspider.ks",
+      "json_path": "models/char.monster.monkingspider.ks.json",
+      "logical_config": "char/monster/monkingspider/ks.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmetron.monmetron",
+      "json_path": "models/char.monster.monmetron.monmetron.json",
+      "logical_config": "char/monster/monmetron/monmetron.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmightygoblin.monmightygoblin",
+      "json_path": "models/char.monster.monmightygoblin.monmightygoblin.json",
+      "logical_config": "char/monster/monmightygoblin/monmightygoblin.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monminig.monminig.a1",
+      "json_path": "models/char.monster.monminig.monminig.a1.json",
+      "logical_config": "char/monster/monminig/monminig-a1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monminig.monminig.b1",
+      "json_path": "models/char.monster.monminig.monminig.b1.json",
+      "logical_config": "char/monster/monminig/monminig-b1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monminig.monminig.c1",
+      "json_path": "models/char.monster.monminig.monminig.c1.json",
+      "logical_config": "char/monster/monminig/monminig-c1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmokova.mokova",
+      "json_path": "models/char.monster.monmokova.mokova.json",
+      "logical_config": "char/monster/MonMokova/mokova.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmudy.monmudy",
+      "json_path": "models/char.monster.monmudy.monmudy.json",
+      "logical_config": "char/monster/monmudy/monmudy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmudy.monmudyjel",
+      "json_path": "models/char.monster.monmudy.monmudyjel.json",
+      "logical_config": "char/monster/monmudy/monmudyjel.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmummy.monmummy",
+      "json_path": "models/char.monster.monmummy.monmummy.json",
+      "logical_config": "char/monster/monmummy/monmummy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmushroom.mo.monmushroom",
+      "json_path": "models/char.monster.monmushroom.mo.monmushroom.json",
+      "logical_config": "char/monster/monmushroom-mo/monmushroom.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monmushroom.monmushroom",
+      "json_path": "models/char.monster.monmushroom.monmushroom.json",
+      "logical_config": "char/monster/monmushroom/monmushroom.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monnazz.1.monnazz.1",
+      "json_path": "models/char.monster.monnazz.1.monnazz.1.json",
+      "logical_config": "char/monster/Monnazz-1/Monnazz-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monnazz.monnazz",
+      "json_path": "models/char.monster.monnazz.monnazz.json",
+      "logical_config": "char/monster/monnazz/monnazz.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monomicron.1.monomicron.1",
+      "json_path": "models/char.monster.monomicron.1.monomicron.1.json",
+      "logical_config": "char/monster/monomicron-1/monomicron-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monomicron.monomicron",
+      "json_path": "models/char.monster.monomicron.monomicron.json",
+      "logical_config": "char/monster/monomicron/monomicron.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monplant.monplant.a",
+      "json_path": "models/char.monster.monplant.monplant.a.json",
+      "logical_config": "char/monster/monplant/monplant-a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monplant.monplant.b",
+      "json_path": "models/char.monster.monplant.monplant.b.json",
+      "logical_config": "char/monster/monplant/monplant-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monplant.monplant.c",
+      "json_path": "models/char.monster.monplant.monplant.c.json",
+      "logical_config": "char/monster/monplant/monplant-c.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monplant.monplant.d",
+      "json_path": "models/char.monster.monplant.monplant.d.json",
+      "logical_config": "char/monster/monplant/monplant-d.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monplant.mudygolem",
+      "json_path": "models/char.monster.monplant.mudygolem.json",
+      "logical_config": "char/monster/monplant/mudygolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monrafra.monrafra",
+      "json_path": "models/char.monster.monrafra.monrafra.json",
+      "logical_config": "char/monster/monrafra/monrafra.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monratoo.1.monratoo.1",
+      "json_path": "models/char.monster.monratoo.1.monratoo.1.json",
+      "logical_config": "char/monster/monratoo-1/monratoo-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monratoo.monaratoo",
+      "json_path": "models/char.monster.monratoo.monaratoo.json",
+      "logical_config": "char/monster/monratoo/monaratoo.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monrebi.monrebi.1",
+      "json_path": "models/char.monster.monrebi.monrebi.1.json",
+      "logical_config": "char/monster/monrebi/monrebi-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monrebi.monrebi",
+      "json_path": "models/char.monster.monrebi.monrebi.json",
+      "logical_config": "char/monster/monrebi/monrebi.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monrebion.monrebion.1",
+      "json_path": "models/char.monster.monrebion.monrebion.1.json",
+      "logical_config": "char/monster/monrebion/monrebion-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monrebion.monrebion",
+      "json_path": "models/char.monster.monrebion.monrebion.json",
+      "logical_config": "char/monster/monrebion/monrebion.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsarcher.monsarcher",
+      "json_path": "models/char.monster.monsarcher.monsarcher.json",
+      "logical_config": "char/monster/monsarcher/monsarcher.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsen.monsen",
+      "json_path": "models/char.monster.monsen.monsen.json",
+      "logical_config": "char/monster/monsen/monsen.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monseto.seto",
+      "json_path": "models/char.monster.monseto.seto.json",
+      "logical_config": "char/monster/monseto/seto.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsguard.mondoomguard",
+      "json_path": "models/char.monster.monsguard.mondoomguard.json",
+      "logical_config": "char/monster/MonSGuard/Mondoomguard.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsguard.monhauntguard",
+      "json_path": "models/char.monster.monsguard.monhauntguard.json",
+      "logical_config": "char/monster/monsguard/monhauntguard.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monshadow.1.monshadow.1",
+      "json_path": "models/char.monster.monshadow.1.monshadow.1.json",
+      "logical_config": "char/monster/Monshadow-1/Monshadow-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monshadow.monshadow",
+      "json_path": "models/char.monster.monshadow.monshadow.json",
+      "logical_config": "char/monster/monshadow/monshadow.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monskeleton.monskeleton.a",
+      "json_path": "models/char.monster.monskeleton.monskeleton.a.json",
+      "logical_config": "char/monster/monskeleton/monskeleton-a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monskeleton.monskeleton.b",
+      "json_path": "models/char.monster.monskeleton.monskeleton.b.json",
+      "logical_config": "char/monster/monskeleton/monskeleton-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsknight.monsknight.b",
+      "json_path": "models/char.monster.monsknight.monsknight.b.json",
+      "logical_config": "char/monster/monsknight/monsknight-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsknight.monsknight",
+      "json_path": "models/char.monster.monsknight.monsknight.json",
+      "logical_config": "char/monster/monsknight/monsknight.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsliver.monsliver",
+      "json_path": "models/char.monster.monsliver.monsliver.json",
+      "logical_config": "char/monster/monsliver/monsliver.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monsrazorarcher.monsrazorarcher",
+      "json_path": "models/char.monster.monsrazorarcher.monsrazorarcher.json",
+      "logical_config": "char/monster/MonSRazorArcher/MonSRazorArcher.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monstonegolem.monstonegolem",
+      "json_path": "models/char.monster.monstonegolem.monstonegolem.json",
+      "logical_config": "char/monster/monstonegolem/monstonegolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monstygianlord.1.monstygianlord.1",
+      "json_path": "models/char.monster.monstygianlord.1.monstygianlord.1.json",
+      "logical_config": "char/monster/monstygianlord-1/monstygianlord-1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monstygianlord.monstygianlord",
+      "json_path": "models/char.monster.monstygianlord.monstygianlord.json",
+      "logical_config": "char/monster/monstygianlord/monstygianlord.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monswarrior.monswarrior",
+      "json_path": "models/char.monster.monswarrior.monswarrior.json",
+      "logical_config": "char/monster/monswarrior/monswarrior.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.montempleguard.templeguard",
+      "json_path": "models/char.monster.montempleguard.templeguard.json",
+      "logical_config": "char/monster/montempleguard/templeguard.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monthorncrowler.monthorncrowler",
+      "json_path": "models/char.monster.monthorncrowler.monthorncrowler.json",
+      "logical_config": "char/monster/monthorncrowler/monthorncrowler.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monwitch.monwitch",
+      "json_path": "models/char.monster.monwitch.monwitch.json",
+      "logical_config": "char/monster/monwitch/monwitch.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monwitch.monwitch1",
+      "json_path": "models/char.monster.monwitch.monwitch1.json",
+      "logical_config": "char/monster/monwitch/monwitch1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monwitch.monwitch2",
+      "json_path": "models/char.monster.monwitch.monwitch2.json",
+      "logical_config": "char/monster/MonWitch/MonWitch2.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monwolverin.monwolverin.01",
+      "json_path": "models/char.monster.monwolverin.monwolverin.01.json",
+      "logical_config": "char/monster/monwolverin/monwolverin-01.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monwolverin.monwolverin.02",
+      "json_path": "models/char.monster.monwolverin.monwolverin.02.json",
+      "logical_config": "char/monster/monwolverin/monwolverin-02.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monwolverin.monwolverin.03",
+      "json_path": "models/char.monster.monwolverin.monwolverin.03.json",
+      "logical_config": "char/monster/monwolverin/monwolverin-03.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monzombi.monzombi.a",
+      "json_path": "models/char.monster.monzombi.monzombi.a.json",
+      "logical_config": "char/monster/monzombi/monzombi-a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monzombi.monzombi.b",
+      "json_path": "models/char.monster.monzombi.monzombi.b.json",
+      "logical_config": "char/monster/monzombi/monzombi-b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.monzombi.monzombi.c",
+      "json_path": "models/char.monster.monzombi.monzombi.c.json",
+      "logical_config": "char/monster/monzombi/monzombi-c.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.morgon.morgon",
+      "json_path": "models/char.monster.morgon.morgon.json",
+      "logical_config": "char/monster/morgon/morgon.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.morgon.morgonia",
+      "json_path": "models/char.monster.morgon.morgonia.json",
+      "logical_config": "char/monster/morgon/morgonia.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mountain.b.mountain",
+      "json_path": "models/char.monster.mountain.b.mountain.json",
+      "logical_config": "char/monster/mountain/b_mountain.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mountain.mountain",
+      "json_path": "models/char.monster.mountain.mountain.json",
+      "logical_config": "char/monster/mountain/mountain.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mouse.mouse",
+      "json_path": "models/char.monster.mouse.mouse.json",
+      "logical_config": "char/monster/mouse/mouse.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.mystic.mystic",
+      "json_path": "models/char.monster.mystic.mystic.json",
+      "logical_config": "char/monster/mystic/mystic.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.nazsenior.nazsenior",
+      "json_path": "models/char.monster.nazsenior.nazsenior.json",
+      "logical_config": "char/monster/nazsenior/nazsenior.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.nihil.nihil",
+      "json_path": "models/char.monster.nihil.nihil.json",
+      "logical_config": "char/monster/Nihil/Nihil.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.nihil.nihil1",
+      "json_path": "models/char.monster.nihil.nihil1.json",
+      "logical_config": "char/monster/Nihil/Nihil1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.nihil.nihil.1",
+      "json_path": "models/char.monster.nihil.nihil.1.json",
+      "logical_config": "char/monster/Nihil/Nihil_1.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.niken.niken",
+      "json_path": "models/char.monster.niken.niken.json",
+      "logical_config": "char/monster/niken/niken.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.omicronos.omicronos",
+      "json_path": "models/char.monster.omicronos.omicronos.json",
+      "logical_config": "char/monster/omicronos/omicronos.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.omu.omu",
+      "json_path": "models/char.monster.omu.omu.json",
+      "logical_config": "char/monster/omu/omu.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.pumpkinghost.pumpkinghost",
+      "json_path": "models/char.monster.pumpkinghost.pumpkinghost.json",
+      "logical_config": "char/monster/pumpkinghost/pumpkinghost.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.rampage.rampage",
+      "json_path": "models/char.monster.rampage.rampage.json",
+      "logical_config": "char/monster/rampage/rampage.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ribbonhopy.ribbonhopy",
+      "json_path": "models/char.monster.ribbonhopy.ribbonhopy.json",
+      "logical_config": "char/monster/ribbonhopy/ribbonhopy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.royalmummy.royalmummy",
+      "json_path": "models/char.monster.royalmummy.royalmummy.json",
+      "logical_config": "char/monster/royalmummy/royalmummy.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ruca.ruca",
+      "json_path": "models/char.monster.ruca.ruca.json",
+      "logical_config": "char/monster/ruca/ruca.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.runicguardian.gurdian",
+      "json_path": "models/char.monster.runicguardian.gurdian.json",
+      "logical_config": "char/monster/runicguardian/gurdian.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.s.bloodyknight.s.bknight",
+      "json_path": "models/char.monster.s.bloodyknight.s.bknight.json",
+      "logical_config": "char/monster/s_bloodyknight/s_bknight.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.sadness.sadness",
+      "json_path": "models/char.monster.sadness.sadness.json",
+      "logical_config": "char/monster/Sadness/sadness.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.sandlem.monsandlem.boss",
+      "json_path": "models/char.monster.sandlem.monsandlem.boss.json",
+      "logical_config": "char/monster/sandlem/monsandlem-boss.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.sandlem.sandlem",
+      "json_path": "models/char.monster.sandlem.sandlem.json",
+      "logical_config": "char/monster/sandlem/sandlem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.sathla.sathla",
+      "json_path": "models/char.monster.sathla.sathla.json",
+      "logical_config": "char/monster/Sathla/Sathla.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.scorpion.scorpion",
+      "json_path": "models/char.monster.scorpion.scorpion.json",
+      "logical_config": "char/monster/scorpion/scorpion.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.sealcrasher.sealcrasher",
+      "json_path": "models/char.monster.sealcrasher.sealcrasher.json",
+      "logical_config": "char/monster/sealcrasher/sealcrasher.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.shogoth.shogoth",
+      "json_path": "models/char.monster.shogoth.shogoth.json",
+      "logical_config": "char/monster/Shogoth/Shogoth.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.slayer.slayer",
+      "json_path": "models/char.monster.slayer.slayer.json",
+      "logical_config": "char/monster/slayer/slayer.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.snowman.snowman",
+      "json_path": "models/char.monster.snowman.snowman.json",
+      "logical_config": "char/monster/snowman/snowman.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.soldier.a.soldier.a",
+      "json_path": "models/char.monster.soldier.a.soldier.a.json",
+      "logical_config": "char/monster/soldier_a/soldier_a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.soldier.b.soldier.b",
+      "json_path": "models/char.monster.soldier.b.soldier.b.json",
+      "logical_config": "char/monster/soldier_b/soldier_b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.soldier.c.soldier.c",
+      "json_path": "models/char.monster.soldier.c.soldier.c.json",
+      "logical_config": "char/monster/soldier_c/soldier_c.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.soldier.d.soldier.d",
+      "json_path": "models/char.monster.soldier.d.soldier.d.json",
+      "logical_config": "char/monster/soldier_d/soldier_d.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.spider.spider",
+      "json_path": "models/char.monster.spider.spider.json",
+      "logical_config": "char/monster/spider/spider.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.sprin.sprin",
+      "json_path": "models/char.monster.sprin.sprin.json",
+      "logical_config": "char/monster/sprin/sprin.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ssnail.ssnail",
+      "json_path": "models/char.monster.ssnail.ssnail.json",
+      "logical_config": "char/monster/ssnail/ssnail.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.stingray.stingray",
+      "json_path": "models/char.monster.stingray.stingray.json",
+      "logical_config": "char/monster/stingray/stingray.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.strider.strider",
+      "json_path": "models/char.monster.strider.strider.json",
+      "logical_config": "char/monster/strider/strider.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.t.crystal.b.t.crystal.b",
+      "json_path": "models/char.monster.t.crystal.b.t.crystal.b.json",
+      "logical_config": "char/monster/t_crystal_b/t_crystal_b.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.t.crystal.g.t.crystal.g",
+      "json_path": "models/char.monster.t.crystal.g.t.crystal.g.json",
+      "logical_config": "char/monster/t_crystal_g/t_crystal_g.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.t.crystal.n.t.crystal.n",
+      "json_path": "models/char.monster.t.crystal.n.t.crystal.n.json",
+      "logical_config": "char/monster/t_crystal_n/t_crystal_n.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.t.crystal.r.t.crystal.r",
+      "json_path": "models/char.monster.t.crystal.r.t.crystal.r.json",
+      "logical_config": "char/monster/t_crystal_r/t_crystal_r.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.tarantulika.tarantulika",
+      "json_path": "models/char.monster.tarantulika.tarantulika.json",
+      "logical_config": "char/monster/tarantulika/tarantulika.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.tbomber.tbomber",
+      "json_path": "models/char.monster.tbomber.tbomber.json",
+      "logical_config": "char/monster/TBomber/TBomber.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.telite.telite",
+      "json_path": "models/char.monster.telite.telite.json",
+      "logical_config": "char/monster/TElite/TElite.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.towergolem.towergolem",
+      "json_path": "models/char.monster.towergolem.towergolem.json",
+      "logical_config": "char/monster/towergolem/towergolem.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.tsoldier.tsoldier",
+      "json_path": "models/char.monster.tsoldier.tsoldier.json",
+      "logical_config": "char/monster/TSoldier/TSoldier.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ttechnician.ttechnician",
+      "json_path": "models/char.monster.ttechnician.ttechnician.json",
+      "logical_config": "char/monster/TTechnician/TTechnician.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.tulla.tulla",
+      "json_path": "models/char.monster.tulla.tulla.json",
+      "logical_config": "char/monster/tulla/tulla.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.turtlecannon.turtlecannon",
+      "json_path": "models/char.monster.turtlecannon.turtlecannon.json",
+      "logical_config": "char/monster/turtlecannon/turtlecannon.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.turtlecannon.turtledragon",
+      "json_path": "models/char.monster.turtlecannon.turtledragon.json",
+      "logical_config": "char/monster/turtlecannon/turtledragon.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.undeadmanager.undeadmanager",
+      "json_path": "models/char.monster.undeadmanager.undeadmanager.json",
+      "logical_config": "char/monster/undeadmanager/undeadmanager.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.undeadmaple.undeadmaple",
+      "json_path": "models/char.monster.undeadmaple.undeadmaple.json",
+      "logical_config": "char/monster/undeadmaple/undeadmaple.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.undeadminer.undeadminer",
+      "json_path": "models/char.monster.undeadminer.undeadminer.json",
+      "logical_config": "char/monster/undeadminer/undeadminer.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.v.bee.v.bee",
+      "json_path": "models/char.monster.v.bee.v.bee.json",
+      "logical_config": "char/monster/v_bee/v_bee.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.vampiric.vemp",
+      "json_path": "models/char.monster.vampiric.vemp.json",
+      "logical_config": "char/monster/vampiric/vemp.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.vampiricbat.vampiricbat",
+      "json_path": "models/char.monster.vampiricbat.vampiricbat.json",
+      "logical_config": "char/monster/vampiricbat/vampiricbat.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.web.web",
+      "json_path": "models/char.monster.web.web.json",
+      "logical_config": "char/monster/web/web.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.wlord.wlord",
+      "json_path": "models/char.monster.wlord.wlord.json",
+      "logical_config": "char/monster/WLord/WLord.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.wolverin.wolverin.a",
+      "json_path": "models/char.monster.wolverin.wolverin.a.json",
+      "logical_config": "char/monster/wolverin/wolverin_a.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.xetan.xetan",
+      "json_path": "models/char.monster.xetan.xetan.json",
+      "logical_config": "char/monster/xetan/xetan.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.yagditha.yagditha",
+      "json_path": "models/char.monster.yagditha.yagditha.json",
+      "logical_config": "char/monster/Yagditha/Yagditha.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.monster.ziddane.world.fran",
+      "json_path": "models/char.monster.ziddane.world.fran.json",
+      "logical_config": "char/monster/Ziddane/world_fran.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.ahin.ahin",
+      "json_path": "models/char.npc.ahin.ahin.json",
+      "logical_config": "char/npc/Ahin/Ahin.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.arad.arad",
+      "json_path": "models/char.npc.arad.arad.json",
+      "logical_config": "char/npc/arad/arad.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.ascam.ascam",
+      "json_path": "models/char.npc.ascam.ascam.json",
+      "logical_config": "char/npc/Ascam/Ascam.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.barba.barba",
+      "json_path": "models/char.npc.barba.barba.json",
+      "logical_config": "char/npc/Barba/barba.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.baurin.baurin",
+      "json_path": "models/char.npc.baurin.baurin.json",
+      "logical_config": "char/npc/Baurin/Baurin.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.bcn01.bcn01",
+      "json_path": "models/char.npc.bcn01.bcn01.json",
+      "logical_config": "char/npc/Bcn01/Bcn01.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.bcn02.bcn02",
+      "json_path": "models/char.npc.bcn02.bcn02.json",
+      "logical_config": "char/npc/Bcn02/Bcn02.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.bcn03.bcn03",
+      "json_path": "models/char.npc.bcn03.bcn03.json",
+      "logical_config": "char/npc/Bcn03/Bcn03.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.bcn04.bcn04",
+      "json_path": "models/char.npc.bcn04.bcn04.json",
+      "logical_config": "char/npc/Bcn04/Bcn04.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.bcn05.bcn05",
+      "json_path": "models/char.npc.bcn05.bcn05.json",
+      "logical_config": "char/npc/Bcn05/Bcn05.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.bcn06.bcn06",
+      "json_path": "models/char.npc.bcn06.bcn06.json",
+      "logical_config": "char/npc/Bcn06/Bcn06.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.bt03.battleportal",
+      "json_path": "models/char.npc.bt03.battleportal.json",
+      "logical_config": "char/npc/bt03/battleportal.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.cashshop.cash",
+      "json_path": "models/char.npc.cashshop.cash.json",
+      "logical_config": "CHAR/NPC/CASHSHOP/CASH.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.derik.derik",
+      "json_path": "models/char.npc.derik.derik.json",
+      "logical_config": "char/npc/Derik/derik.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.enzo.enzo",
+      "json_path": "models/char.npc.enzo.enzo.json",
+      "logical_config": "char/npc/Enzo/Enzo.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.evenmorif.evenmorif",
+      "json_path": "models/char.npc.evenmorif.evenmorif.json",
+      "logical_config": "char/npc/evenmorif/evenmorif.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.eventmolly.eventmolly",
+      "json_path": "models/char.npc.eventmolly.eventmolly.json",
+      "logical_config": "char/npc/eventmolly/eventmolly.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.hermit.hermit",
+      "json_path": "models/char.npc.hermit.hermit.json",
+      "logical_config": "char/npc/Hermit/Hermit.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.hobsanta.hobsanta",
+      "json_path": "models/char.npc.hobsanta.hobsanta.json",
+      "logical_config": "char/npc/hobsanta/hobsanta.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.hosean.hosean",
+      "json_path": "models/char.npc.hosean.hosean.json",
+      "logical_config": "char/npc/hosean/hosean.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.hunter.hunter",
+      "json_path": "models/char.npc.hunter.hunter.json",
+      "logical_config": "char/npc/Hunter/Hunter.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.icen.01.icen.01",
+      "json_path": "models/char.npc.icen.01.icen.01.json",
+      "logical_config": "char/npc/IceN-01/IceN-01.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.icen.02.icen.02",
+      "json_path": "models/char.npc.icen.02.icen.02.json",
+      "logical_config": "char/npc/IceN-02/IceN-02.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.icen.03.icen.03",
+      "json_path": "models/char.npc.icen.03.icen.03.json",
+      "logical_config": "char/npc/IceN-03/IceN-03.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.ji.woo.jiwoo",
+      "json_path": "models/char.npc.ji.woo.jiwoo.json",
+      "logical_config": "char/npc/ji_woo/jiwoo.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.jin.jin",
+      "json_path": "models/char.npc.jin.jin.json",
+      "logical_config": "char/npc/Jin/Jin.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.m.messenger.m.messenger",
+      "json_path": "models/char.npc.m.messenger.m.messenger.json",
+      "logical_config": "char/npc/M_Messenger/M_Messenger.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mage.mage",
+      "json_path": "models/char.npc.mage.mage.json",
+      "logical_config": "char/npc/mage/mage.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.marina.marina",
+      "json_path": "models/char.npc.marina.marina.json",
+      "logical_config": "char/npc/Marina/Marina.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.maskedwoman.maskedwoman",
+      "json_path": "models/char.npc.maskedwoman.maskedwoman.json",
+      "logical_config": "char/npc/maskedwoman/maskedwoman.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.milter.milter",
+      "json_path": "models/char.npc.milter.milter.json",
+      "logical_config": "char/npc/milter/milter.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.001.mn.001",
+      "json_path": "models/char.npc.mn.001.mn.001.json",
+      "logical_config": "char/npc/MN-001/MN-001.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.002.mn.002",
+      "json_path": "models/char.npc.mn.002.mn.002.json",
+      "logical_config": "char/npc/MN-002/MN-002.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.003.mn.003",
+      "json_path": "models/char.npc.mn.003.mn.003.json",
+      "logical_config": "char/npc/MN-003/MN-003.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.004.mn.004",
+      "json_path": "models/char.npc.mn.004.mn.004.json",
+      "logical_config": "char/npc/MN-004/MN-004.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.005.mn.005",
+      "json_path": "models/char.npc.mn.005.mn.005.json",
+      "logical_config": "char/npc/MN-005/MN-005.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.006.mn.006",
+      "json_path": "models/char.npc.mn.006.mn.006.json",
+      "logical_config": "char/npc/MN-006/MN-006.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.007.mn.007",
+      "json_path": "models/char.npc.mn.007.mn.007.json",
+      "logical_config": "char/npc/MN-007/MN-007.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.008.mn.008",
+      "json_path": "models/char.npc.mn.008.mn.008.json",
+      "logical_config": "char/npc/MN-008/MN-008.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.009.mn.009",
+      "json_path": "models/char.npc.mn.009.mn.009.json",
+      "logical_config": "char/npc/MN-009/MN-009.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.010.mn.010",
+      "json_path": "models/char.npc.mn.010.mn.010.json",
+      "logical_config": "char/npc/MN-010/MN-010.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.011.mn.011",
+      "json_path": "models/char.npc.mn.011.mn.011.json",
+      "logical_config": "char/npc/MN-011/MN-011.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.012.mn.012",
+      "json_path": "models/char.npc.mn.012.mn.012.json",
+      "logical_config": "char/npc/MN-012/MN-012.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.mn.013.mn.013",
+      "json_path": "models/char.npc.mn.013.mn.013.json",
+      "logical_config": "char/npc/MN-013/MN-013.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.nadia.nadia",
+      "json_path": "models/char.npc.nadia.nadia.json",
+      "logical_config": "char/npc/Nadia/Nadia.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.ninefox.npc.ninefox",
+      "json_path": "models/char.npc.ninefox.npc.ninefox.json",
+      "logical_config": "char/npc/NineFox/npc_ninefox.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.npc.04",
+      "json_path": "models/char.npc.npc.04.json",
+      "logical_config": "char/npc/npc-04.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.npc.09",
+      "json_path": "models/char.npc.npc.09.json",
+      "logical_config": "char/npc/npc-09.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.npc.10",
+      "json_path": "models/char.npc.npc.10.json",
+      "logical_config": "char/npc/npc-10.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.packjjangpy.packjjangpy",
+      "json_path": "models/char.npc.packjjangpy.packjjangpy.json",
+      "logical_config": "CHAR/NPC/PACKJJANGPY/PACKJJANGPY.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.phl.phl",
+      "json_path": "models/char.npc.phl.phl.json",
+      "logical_config": "char/npc/phl/phl.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.quest.ray.quest.ray",
+      "json_path": "models/char.npc.quest.ray.quest.ray.json",
+      "logical_config": "char/npc/Quest_ray/Quest_ray.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.rudolf.snowboard",
+      "json_path": "models/char.npc.rudolf.snowboard.json",
+      "logical_config": "char/npc/Rudolf/snowboard.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.shunter.shunter",
+      "json_path": "models/char.npc.shunter.shunter.json",
+      "logical_config": "char/npc/SHunter/SHunter.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.skadi.skadi",
+      "json_path": "models/char.npc.skadi.skadi.json",
+      "logical_config": "char/npc/Skadi/Skadi.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.skillmaster.skillmaster",
+      "json_path": "models/char.npc.skillmaster.skillmaster.json",
+      "logical_config": "char/npc/skillmaster/skillmaster.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.sn.002.sn.002",
+      "json_path": "models/char.npc.sn.002.sn.002.json",
+      "logical_config": "char/npc/SN-002/SN-002.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.sn.003.sn.003",
+      "json_path": "models/char.npc.sn.003.sn.003.json",
+      "logical_config": "char/npc/SN-003/SN-003.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.sn.004.sn.004",
+      "json_path": "models/char.npc.sn.004.sn.004.json",
+      "logical_config": "char/npc/SN-004/SN-004.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.sn.005.sn.005",
+      "json_path": "models/char.npc.sn.005.sn.005.json",
+      "logical_config": "char/npc/SN-005/SN-005.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.stella.celina",
+      "json_path": "models/char.npc.stella.celina.json",
+      "logical_config": "char/npc/Stella/Celina.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.stella.stella",
+      "json_path": "models/char.npc.stella.stella.json",
+      "logical_config": "char/npc/stella/stella.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.t.messenger.t.messenger",
+      "json_path": "models/char.npc.t.messenger.t.messenger.json",
+      "logical_config": "char/npc/T_Messenger/T_Messenger.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.teacher.teacher01",
+      "json_path": "models/char.npc.teacher.teacher01.json",
+      "logical_config": "char/npc/Teacher/Teacher01.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.teacher.teacher02",
+      "json_path": "models/char.npc.teacher.teacher02.json",
+      "logical_config": "char/npc/Teacher/Teacher02.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.teacher.teacher03",
+      "json_path": "models/char.npc.teacher.teacher03.json",
+      "logical_config": "CHAR/NPC/TEACHER/TEACHER03.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.001.tn.001",
+      "json_path": "models/char.npc.tn.001.tn.001.json",
+      "logical_config": "char/npc/TN-001/TN-001.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.002.tn.002",
+      "json_path": "models/char.npc.tn.002.tn.002.json",
+      "logical_config": "char/npc/TN-002/TN-002.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.002.tn.013",
+      "json_path": "models/char.npc.tn.002.tn.013.json",
+      "logical_config": "char/npc/TN-002/TN-013.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.003.tn.003",
+      "json_path": "models/char.npc.tn.003.tn.003.json",
+      "logical_config": "char/npc/TN-003/TN-003.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.004.tn.004",
+      "json_path": "models/char.npc.tn.004.tn.004.json",
+      "logical_config": "char/npc/TN-004/TN-004.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.005.tn.005",
+      "json_path": "models/char.npc.tn.005.tn.005.json",
+      "logical_config": "char/npc/TN-005/TN-005.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.006.tn.006",
+      "json_path": "models/char.npc.tn.006.tn.006.json",
+      "logical_config": "char/npc/TN-006/TN-006.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.007.tn.007",
+      "json_path": "models/char.npc.tn.007.tn.007.json",
+      "logical_config": "char/npc/TN-007/TN-007.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.008.tn.008",
+      "json_path": "models/char.npc.tn.008.tn.008.json",
+      "logical_config": "char/npc/TN-008/TN-008.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.009.tn.009",
+      "json_path": "models/char.npc.tn.009.tn.009.json",
+      "logical_config": "char/npc/TN-009/TN-009.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.010.tn.010",
+      "json_path": "models/char.npc.tn.010.tn.010.json",
+      "logical_config": "char/npc/TN-010/TN-010.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.011.tn.011",
+      "json_path": "models/char.npc.tn.011.tn.011.json",
+      "logical_config": "char/npc/TN-011/TN-011.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.012.tn.012",
+      "json_path": "models/char.npc.tn.012.tn.012.json",
+      "logical_config": "char/npc/TN-012/TN-012.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.014.tn.014",
+      "json_path": "models/char.npc.tn.014.tn.014.json",
+      "logical_config": "CHAR/NPC/TN-014/TN-014.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.015.tn.015",
+      "json_path": "models/char.npc.tn.015.tn.015.json",
+      "logical_config": "char/npc/TN-015/TN-015.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.016.tn.016",
+      "json_path": "models/char.npc.tn.016.tn.016.json",
+      "logical_config": "char/npc/TN-016/TN-016.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.tn.017.tn.017",
+      "json_path": "models/char.npc.tn.017.tn.017.json",
+      "logical_config": "char/npc/TN-017/TN-017.INI",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npc.zarad.zarad",
+      "json_path": "models/char.npc.zarad.zarad.json",
+      "logical_config": "char/npc/Zarad/Zarad.ini",
+      "source_status": "unresolved"
+    },
+    {
+      "id": "model.char.npcxms.chtree.longbo",
+      "json_path": "models/char.npcxms.chtree.longbo.json",
+      "logical_config": "char/npcXms/ChTree_Longbo.ini",
+      "source_status": "unresolved"
+    }
+  ]
+}

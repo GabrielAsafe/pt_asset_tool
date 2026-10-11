@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.mapletree",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/MapleTree.zhoon",
+    "GameServer/NPC/name/MapleTree.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/MapleTree.zhoon",
+    "legacy_sha256": "39b213c8e0706481c331ff5f92c5ef12030b416535b64b87d25efe9f44bb340f",
+    "legacy_size": 228
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "MapleTree"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "이렇게 외진곳에서도 이골라노스의 마력이 존재하다니!!"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "이골라노스의 마력을 그냥 두어서는 안돼. 어떻게든 막아야해."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "77u/Ly9NYXBsZVRyZWUubnBjDQoNCipKX05BTUUJCSJNYXBsZVRyZWUiDQoNCipKX0NIQVQJCSLsnbTroIfqsowg7Jm47KeE6rOz7JeQ7ISc64+EIOydtOqzqOudvOuFuOyKpOydmCDrp4jroKXsnbQg7KG07J6s7ZWY64uk64uIISEiDQoqSl9DSEFUCQki7J206rOo652864W47Iqk7J2YIOuniOugpeydhCDqt7jrg6Ug65GQ7Ja07ISc64qUIOyViOuPvC4g7Ja065a76rKM65OgIOunieyVhOyVvO2VtC4i"
+  }
+}

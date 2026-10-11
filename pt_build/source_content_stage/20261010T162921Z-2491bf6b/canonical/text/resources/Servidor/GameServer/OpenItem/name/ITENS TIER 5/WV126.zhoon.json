@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv126",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV126.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV126.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV126.zhoon",
+    "legacy_sha256": "f58b0830a037bc606d58f68bcbc8ec61d919c19f4262f18f8ac22ad43f8cf255",
+    "legacy_size": 49
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mythology Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjEyNi50eHQNCg0KKkpfTkFNRQkJIk15dGhvbG9neSBTbmFrZSBCcmFjZSINCg=="
+  }
+}

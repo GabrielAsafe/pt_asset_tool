@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bockdol2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/bockdol2.zhoon",
+    "GameServer/NPC/name/bockdol2.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/bockdol2.zhoon",
+    "legacy_sha256": "9e0d0d39795903442591a4b545ee32f3fd97bd48d1af44e722efa6f3a0897649",
+    "legacy_size": 130
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "T_NAME",
+        "kind": "name",
+        "text": "붑덫"
+      },
+      {
+        "line": 5,
+        "legacy_key": "T_CHAT",
+        "kind": "chat",
+        "text": "·Ç³Æ¤@¤U¦Û¤v»Ý­nªºªF¦è."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9ib2NrZG9sMi5ucGMNCg0KKlRfTkFNRQkJIrrWtaMiDQoNCipUX0NIQVQJCSK3x7PGpECkVabbpHa73a1uqrqqRqboLiINCg0KLy8qplemcgkJCSK61rWjIg0KLy8que+43AkJCSK3x7PGpECkVabbpHa73a1uqrqqRqboLiINCg=="
+  }
+}

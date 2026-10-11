@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.loja_vip",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Loja VIP.Zhoon",
+    "GameServer/NPC/name/Loja VIP.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Loja VIP.Zhoon",
+    "legacy_sha256": "2719f45fbdb450cab519322568ee0ec3f8d2a1138d7c51173f3a6dd94f8759ce",
+    "legacy_size": 73
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Loja do VIP"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Seja um VIP!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Mb2phIFZJUC5OUEMNCg0KDQoqSl9OYW1lCSJMb2phIGRvIFZJUCINCg0KDQoqSl9DaGF0CSJTZWphIHVtIFZJUCEiDQoNCg=="
+  }
+}

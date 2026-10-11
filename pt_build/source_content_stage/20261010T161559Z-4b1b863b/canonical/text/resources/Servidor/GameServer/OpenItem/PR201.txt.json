@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.pr201",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PR201.txt",
+    "GameServer/OpenItem/PR201.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PR201.txt",
+    "legacy_sha256": "81508bdd3353857b13ea1b8110fe94fa8f2ce3ac3725a700eaea1bc4338e2155",
+    "legacy_size": 180
+  },
+  "semantic": {
+    "fields": {
+      "code": "PR201",
+      "name": "Relíquia de Ametista",
+      "english_name": "Relíquia de Ametista",
+      "weight": 1,
+      "linked_file": "Name\\PR201.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PR201"
+        ],
+        "raw_values_hex": [
+          "5052323031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Relíquia de Ametista"
+        ],
+        "raw_values_hex": [
+          "52656ced7175696120646520416d657469737461"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Relíquia de Ametista"
+        ],
+        "raw_values_hex": [
+          "52656ced7175696120646520416d657469737461"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PR201.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c50523230312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBSMjAxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUmVs7XF1aWEgZGUgQW1ldGlzdGEiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUmVs7XF1aWEgZGUgQW1ldGlzdGEiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcUFIyMDEuemhvb24i"
+  }
+}

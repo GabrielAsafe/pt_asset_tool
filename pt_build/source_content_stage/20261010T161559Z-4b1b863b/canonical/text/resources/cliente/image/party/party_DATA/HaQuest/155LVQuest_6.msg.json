@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_6",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/155LVQuest_6.msg",
+    "image/party/party_DATA/HaQuest/155LVQuest_6.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/155LVQuest_6.msg",
+    "legacy_sha256": "885c7a5cd581c85bbb15a62df3077c156d12c825f4658ca945d0611edccc3843",
+    "legacy_size": 233
+  },
+  "semantic": {
+    "lines": [
+      "Use a Quintessência na área",
+      "demarcada do Vale Snowstorm,",
+      "em Vale Gallubia, e derrote",
+      "a Dama da Neve.",
+      "Após, fale com a Sábia Celina.",
+      "OBS: Se for vencido pela Dama",
+      "da Neve ou sair do jogo durante",
+      "o combate, o desafio irá falhar."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VXNlIGEgUXVpbnRlc3PqbmNpYSBuYSDhcmVhDQpkZW1hcmNhZGEgZG8gVmFsZSBTbm93c3Rvcm0sDQplbSBWYWxlIEdhbGx1YmlhLCBlIGRlcnJvdGUNCmEgRGFtYSBkYSBOZXZlLg0KQXDzcywgZmFsZSBjb20gYSBT4WJpYSBDZWxpbmEuDQpPQlM6IFNlIGZvciB2ZW5jaWRvIHBlbGEgRGFtYQ0KZGEgTmV2ZSBvdSBzYWlyIGRvIGpvZ28gZHVyYW50ZQ0KbyBjb21iYXRlLCBvIGRlc2FmaW8gaXLhIGZhbGhhci4="
+  }
+}

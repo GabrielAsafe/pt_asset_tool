@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_3",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/106LVQuest_3.msg",
+    "image/party/party_DATA/HaQuest/106LVQuest_3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/106LVQuest_3.msg",
+    "legacy_sha256": "2a45e94226266f9588159b1e2005ab8c99b317c692a478c40727f0df104754df",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "lines": [
+      "Fale com o Mago Real Ray em",
+      "Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmFsZSBjb20gbyBNYWdvIFJlYWwgUmF5IGVtDQpQaWxsYWku"
+  }
+}

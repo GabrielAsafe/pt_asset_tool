@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.2_ws210",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/2_WS210.zhoon",
+    "GameServer/OpenItem/name/2_WS210.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/2_WS210.zhoon",
+    "legacy_sha256": "ef2f293e583e50824939e153d6c5a26fa751e1b0ba3df2fa22a49ee775c9d30a",
+    "legacy_size": 47
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Espada de Platina"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8yX1dTMjEwLnR4dA0KDQoqSl9OYW1lCQkiRXNwYWRhIGRlIFBsYXRpbmEiDQo="
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.timeshop",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/timeshop.zhoon",
+    "GameServer/NPC/name/timeshop.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/timeshop.zhoon",
+    "legacy_sha256": "d2d68073e624c27c1e84c6cf2bcb65c082cfbfdbb6f815363369e04ebc30b407",
+    "legacy_size": 132
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Loja de Minutos"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Aproveite seus pontos da Loja de Tempo e aprimore o seu personagem!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly90aW1lc2hvcC5OUEMNCg0KDQoqSl9OYW1lCSJMb2phIGRlIE1pbnV0b3MiDQoNCg0KKkpfQ2hhdAkiQXByb3ZlaXRlIHNldXMgcG9udG9zIGRhIExvamEgZGUgVGVtcG8gZSBhcHJpbW9yZSBvIHNldSBwZXJzb25hZ2VtISINCg0K"
+  }
+}

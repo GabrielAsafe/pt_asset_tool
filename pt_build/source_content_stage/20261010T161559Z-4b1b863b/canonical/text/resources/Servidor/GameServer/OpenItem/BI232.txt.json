@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi232",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI232.txt",
+    "GameServer/OpenItem/BI232.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI232.txt",
+    "legacy_sha256": "b2387be31613e580ce35f8d30354409691977b578490471efa15dae70599bd0f",
+    "legacy_size": 174
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI232",
+      "name": "Baú de Ouro Up 6h",
+      "english_name": "Baú de Ouro Up 6h",
+      "weight": 1,
+      "linked_file": "Name\\BI232.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI232"
+        ],
+        "raw_values_hex": [
+          "4249323332"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Baú de Ouro Up 6h"
+        ],
+        "raw_values_hex": [
+          "4261fa206465204f75726f205570203668"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Baú de Ouro Up 6h"
+        ],
+        "raw_values_hex": [
+          "4261fa206465204f75726f205570203668"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI232.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493233322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMjMyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQmH6IGRlIE91cm8gVXAgNmgiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQmH6IGRlIE91cm8gVXAgNmgiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkyMzIuemhvb24i"
+  }
+}

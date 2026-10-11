@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_6_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_6_Path.sin",
+    "image/Sinimage/Quest/165LVQuest_6_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_6_Path.sin",
+    "legacy_sha256": "dde310a86cd5a80f10210e990488eb93a05c8881b8a9968ad2ba48ee0a06c43b",
+    "legacy_size": 465
+  },
+  "semantic": {
+    "lines": [
+      "Precisamos da Chama Ancestral da Bruxa Insana para ter ",
+      "poder suficiente para queimar o Tentáculo de Faugn no",
+      "Incensário Mágico.",
+      "",
+      "Não temos tempo a perder. Midranda deixou de ser",
+      "espectador e, finalmente, iniciou seu ataque final.",
+      "Nossos companheiros e o povo do mar, liderado por",
+      "Zarad, estão enfrentado as hordas de Midranda no",
+      "Santuário do Abismo.",
+      "",
+      "Cace 30 Bruxas Insanas no Santuário do Abismo.",
+      "Quando terminar, traga-me o Incensário Mágico de volta."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UHJlY2lzYW1vcyBkYSBDaGFtYSBBbmNlc3RyYWwgZGEgQnJ1eGEgSW5zYW5hIHBhcmEgdGVyIA0KcG9kZXIgc3VmaWNpZW50ZSBwYXJhIHF1ZWltYXIgbyBUZW504WN1bG8gZGUgRmF1Z24gbm8NCkluY2Vuc+FyaW8gTeFnaWNvLg0KDQpO428gdGVtb3MgdGVtcG8gYSBwZXJkZXIuIE1pZHJhbmRhIGRlaXhvdSBkZSBzZXINCmVzcGVjdGFkb3IgZSwgZmluYWxtZW50ZSwgaW5pY2lvdSBzZXUgYXRhcXVlIGZpbmFsLg0KTm9zc29zIGNvbXBhbmhlaXJvcyBlIG8gcG92byBkbyBtYXIsIGxpZGVyYWRvIHBvcg0KWmFyYWQsIGVzdONvIGVuZnJlbnRhZG8gYXMgaG9yZGFzIGRlIE1pZHJhbmRhIG5vDQpTYW50deFyaW8gZG8gQWJpc21vLg0KDQpDYWNlIDMwIEJydXhhcyBJbnNhbmFzIG5vIFNhbnR14XJpbyBkbyBBYmlzbW8uDQpRdWFuZG8gdGVybWluYXIsIHRyYWdhLW1lIG8gSW5jZW5z4XJpbyBN4WdpY28gZGUgdm9sdGEu"
+  }
+}

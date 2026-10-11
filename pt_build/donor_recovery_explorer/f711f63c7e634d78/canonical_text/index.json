@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.lizard_papa_1",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/Lizard_Papa_1.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/Lizard_Papa_1.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/Lizard_Papa_1.inf",
+        "GameServer/Monster/Lizard_Papa_1.inf"
+      ],
+      "legacy_sha256": "928713a991a55cf9387ec3bc8f3a6db7cc7a317a8d7e3d9a2354b289ceeee714"
+    }
+  ]
+}

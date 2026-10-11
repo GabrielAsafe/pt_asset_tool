@@ -1,0 +1,40 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_4_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_4_Path.sin",
+    "image/Sinimage/Quest/155LVQuest_4_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_4_Path.sin",
+    "legacy_sha256": "3d3d1cb7245b0fd0bbe769b1a2320e82a55a1e417a2ef632b2bb4455ff5dca75",
+    "legacy_size": 646
+  },
+  "semantic": {
+    "lines": [
+      "A 햞vore da Vida, essencial para a vida no continente",
+      "pristoniano, está congelando. A fada do Inverno, Glacies,",
+      "veio ao continente para descobrir a causa. Ela encontrou",
+      "as nascentes do rio glacial e acabou entrando em combate",
+      "com a Dama da Neve, sendo salva no último instante pela",
+      "Senhora da Primavera, a fada Branwen.",
+      "",
+      "Precisamos atrair o Dragão de Snowstorm e a Dama da Neve",
+      "para fora de seus refúgios, para destruir as nascentes.",
+      "Primeiro, precisamos conseguir um Ovo de Kelvezu.",
+      "",
+      "Ative a Incubadora na área marcada e vença Kelvezu, para",
+      "obter o Ovo de Kelvezu. Uma luz indicará o local correto.",
+      "",
+      "Volte aqui quando terminar.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSDBcnZvcmUgZGEgVmlkYSwgZXNzZW5jaWFsIHBhcmEgYSB2aWRhIG5vIGNvbnRpbmVudGUNCnByaXN0b25pYW5vLCBlc3ThIGNvbmdlbGFuZG8uIEEgZmFkYSBkbyBJbnZlcm5vLCBHbGFjaWVzLA0KdmVpbyBhbyBjb250aW5lbnRlIHBhcmEgZGVzY29icmlyIGEgY2F1c2EuIEVsYSBlbmNvbnRyb3UNCmFzIG5hc2NlbnRlcyBkbyByaW8gZ2xhY2lhbCBlIGFjYWJvdSBlbnRyYW5kbyBlbSBjb21iYXRlDQpjb20gYSBEYW1hIGRhIE5ldmUsIHNlbmRvIHNhbHZhIG5vIPpsdGltbyBpbnN0YW50ZSBwZWxhDQpTZW5ob3JhIGRhIFByaW1hdmVyYSwgYSBmYWRhIEJyYW53ZW4uDQoNClByZWNpc2Ftb3MgYXRyYWlyIG8gRHJhZ+NvIGRlIFNub3dzdG9ybSBlIGEgRGFtYSBkYSBOZXZlDQpwYXJhIGZvcmEgZGUgc2V1cyByZWb6Z2lvcywgcGFyYSBkZXN0cnVpciBhcyBuYXNjZW50ZXMuDQpQcmltZWlybywgcHJlY2lzYW1vcyBjb25zZWd1aXIgdW0gT3ZvIGRlIEtlbHZlenUuDQoNCkF0aXZlIGEgSW5jdWJhZG9yYSBuYSDhcmVhIG1hcmNhZGEgZSB2ZW7nYSBLZWx2ZXp1LCBwYXJhDQpvYnRlciBvIE92byBkZSBLZWx2ZXp1LiBVbWEgbHV6IGluZGljYXLhIG8gbG9jYWwgY29ycmV0by4NCg0KVm9sdGUgYXF1aSBxdWFuZG8gdGVybWluYXIuDQoNCg=="
+  }
+}

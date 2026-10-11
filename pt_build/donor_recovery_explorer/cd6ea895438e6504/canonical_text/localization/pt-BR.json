@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "pt-BR",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "monster.107_i_undead_stalker.name",
+      "text": "V-언데드 스토커",
+      "quality": "legacy_fallback",
+      "source": "monster.107_i_undead_stalker"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.s_wing_b",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/S_Wing_b.sin",
+    "image/Sinimage/Quest/S_Wing_b.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/S_Wing_b.sin",
+    "legacy_sha256": "415b89f710946bc8f25adbfdb4d99560923b623d4071aa23b3193c76ff94ad38",
+    "legacy_size": 303
+  },
+  "semantic": {
+    "lines": [
+      "Once again, you have brought all the items.",
+      "I will give you a silver wing as i promised.",
+      "",
+      "This can teleport you to farther places than ",
+      "you can with a metal wing.",
+      "",
+      "As I told you before, if you are not satisfied ",
+      "with the silver wing, bring it back to me.",
+      "I will try to find a better one for you."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T25jZSBhZ2FpbiwgeW91IGhhdmUgYnJvdWdodCBhbGwgdGhlIGl0ZW1zLg0KSSB3aWxsIGdpdmUgeW91IGEgc2lsdmVyIHdpbmcgYXMgaSBwcm9taXNlZC4NCg0KVGhpcyBjYW4gdGVsZXBvcnQgeW91IHRvIGZhcnRoZXIgcGxhY2VzIHRoYW4gDQp5b3UgY2FuIHdpdGggYSBtZXRhbCB3aW5nLg0KDQpBcyBJIHRvbGQgeW91IGJlZm9yZSwgaWYgeW91IGFyZSBub3Qgc2F0aXNmaWVkIA0Kd2l0aCB0aGUgc2lsdmVyIHdpbmcsIGJyaW5nIGl0IGJhY2sgdG8gbWUuDQpJIHdpbGwgdHJ5IHRvIGZpbmQgYSBiZXR0ZXIgb25lIGZvciB5b3Uu"
+  }
+}

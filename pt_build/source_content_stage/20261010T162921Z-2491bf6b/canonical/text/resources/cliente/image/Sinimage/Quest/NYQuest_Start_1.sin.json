@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.nyquest_start_1",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/NYQuest_Start_1.sin",
+    "image/Sinimage/Quest/NYQuest_Start_1.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/NYQuest_Start_1.sin",
+    "legacy_sha256": "c540cfcc4552c0951aa3a682d6a8426f283556bf17ea0e8651ce6e2bf9ebe83d",
+    "legacy_size": 210
+  },
+  "semantic": {
+    "lines": [
+      "Todas as serpentes que eu capturei escaparam!",
+      "Saia daqui! ",
+      "Aquelas serpentes possuem um poder sinistro.",
+      "Elas podem afetar terrivelmente todo o",
+      "Continente do Priston Tale.",
+      "Você pode me ajudar a capturá-las?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VG9kYXMgYXMgc2VycGVudGVzIHF1ZSBldSBjYXB0dXJlaSBlc2NhcGFyYW0hDQpTYWlhIGRhcXVpISANCkFxdWVsYXMgc2VycGVudGVzIHBvc3N1ZW0gdW0gcG9kZXIgc2luaXN0cm8uDQpFbGFzIHBvZGVtIGFmZXRhciB0ZXJyaXZlbG1lbnRlIHRvZG8gbw0KQ29udGluZW50ZSBkbyBQcmlzdG9uIFRhbGUuDQpWb2PqIHBvZGUgbWUgYWp1ZGFyIGEgY2FwdHVy4S1sYXM/"
+  }
+}

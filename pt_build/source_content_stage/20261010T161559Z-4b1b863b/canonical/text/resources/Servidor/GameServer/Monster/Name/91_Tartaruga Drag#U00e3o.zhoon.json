@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.91_tartaruga_drag_u00e3o",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/91_Tartaruga Drag#U00e3o.zhoon",
+    "GameServer/Monster/Name/91_Tartaruga Drag#U00e3o.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/91_Tartaruga Drag#U00e3o.zhoon",
+    "legacy_sha256": "212c63cbf9a3f5fcc05fd8570a5a5049ab65583c4cba47d1222bc6d90dc1c845",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Tartaruga Dragão"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVGFydGFydWdhIERyYWfjbyI="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv106",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV106.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV106.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV106.zhoon",
+    "legacy_sha256": "22ba8881ee121ec0afc391f830b23d0437812f49c97ca6ce0d744a652ec6fa25",
+    "legacy_size": 47
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Thermos Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjEwNi50eHQNCg0KKkpfTkFNRQkJIlRoZXJtb3MgU25ha2UgQnJhY2UiDQo="
+  }
+}

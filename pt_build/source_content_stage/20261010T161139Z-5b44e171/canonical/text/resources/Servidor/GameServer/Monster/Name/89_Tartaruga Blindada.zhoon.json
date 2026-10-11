@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.89_tartaruga_blindada",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/89_Tartaruga Blindada.zhoon",
+    "GameServer/Monster/Name/89_Tartaruga Blindada.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/89_Tartaruga Blindada.zhoon",
+    "legacy_sha256": "696088a4da18b6f7a1dfc3c3b184a7d78bd68aa154379cacfb26f183c3963b51",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Tartaruga Blindada"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVGFydGFydWdhIEJsaW5kYWRhIg=="
+  }
+}

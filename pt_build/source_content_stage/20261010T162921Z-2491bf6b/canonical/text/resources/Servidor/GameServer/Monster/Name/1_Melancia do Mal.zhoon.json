@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_melancia_do_mal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Melancia do Mal.zhoon",
+    "GameServer/Monster/Name/1_Melancia do Mal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Melancia do Mal.zhoon",
+    "legacy_sha256": "c0e41bf6fe8a0524228f7e7a4088a281ca639ff1d40cccf8b5b47ffaadd8102d",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Melancia do Mal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTWVsYW5jaWEgZG8gTWFsIg=="
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.tsoldier.tsoldier",
+  "logical_config": "char/monster/TSoldier/TSoldier.ini",
+  "legacy_cache": "char/monster/TSoldier/TSoldier.inx",
+  "consumers": [
+    {
+      "id": "monster.slab_118_soldado_zumbi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Slab_118_Soldado Zumbi.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/TSoldier/TSoldier.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/TSoldier/TSoldier.inx"
+    }
+  }
+}

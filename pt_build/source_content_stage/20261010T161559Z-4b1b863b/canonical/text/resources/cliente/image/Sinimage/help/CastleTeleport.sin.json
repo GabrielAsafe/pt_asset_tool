@@ -1,0 +1,44 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.castleteleport.path_3b1fd5f3b2",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/CastleTeleport.sin",
+    "image/Sinimage/help/CastleTeleport.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/CastleTeleport.sin",
+    "legacy_sha256": "dd941b5b429050772f12f5428c9352179cb294ed0901d354b5ed44637e1c5dd9",
+    "legacy_size": 570
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Are you the warrior willing for journey to Bless Castle?",
+      "Bless Castle is on an island, so you can't walk in there.",
+      "",
+      "Quite recently, around the town, I started ",
+      "to help warriors who wished to move to the Bless Castle",
+      "to get there, with the teleport tricks I've learned ",
+      "from the Wise Newtor. ",
+      "",
+      "Would you like to go to the Bless Castle? I can help.",
+      "However, since my skills aren't perfect, note that your",
+      "landing location may be inconsistent.",
+      "",
+      "---------------Teleport Fee----------------",
+      "",
+      "¢Â Battle Field: In front of Bless castle station  %d won",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpBcmUgeW91IHRoZSB3YXJyaW9yIHdpbGxpbmcgZm9yIGpvdXJuZXkgdG8gQmxlc3MgQ2FzdGxlPw0KQmxlc3MgQ2FzdGxlIGlzIG9uIGFuIGlzbGFuZCwgc28geW91IGNhbid0IHdhbGsgaW4gdGhlcmUuDQoNClF1aXRlIHJlY2VudGx5LCBhcm91bmQgdGhlIHRvd24sIEkgc3RhcnRlZCANCnRvIGhlbHAgd2FycmlvcnMgd2hvIHdpc2hlZCB0byBtb3ZlIHRvIHRoZSBCbGVzcyBDYXN0bGUNCnRvIGdldCB0aGVyZSwgd2l0aCB0aGUgdGVsZXBvcnQgdHJpY2tzIEkndmUgbGVhcm5lZCANCmZyb20gdGhlIFdpc2UgTmV3dG9yLiANCg0KV291bGQgeW91IGxpa2UgdG8gZ28gdG8gdGhlIEJsZXNzIENhc3RsZT8gSSBjYW4gaGVscC4NCkhvd2V2ZXIsIHNpbmNlIG15IHNraWxscyBhcmVuJ3QgcGVyZmVjdCwgbm90ZSB0aGF0IHlvdXINCmxhbmRpbmcgbG9jYXRpb24gbWF5IGJlIGluY29uc2lzdGVudC4NCg0KLS0tLS0tLS0tLS0tLS0tVGVsZXBvcnQgRmVlLS0tLS0tLS0tLS0tLS0tLQ0KDQqiwiBCYXR0bGUgRmllbGQ6IEluIGZyb250IG9mIEJsZXNzIGNhc3RsZSBzdGF0aW9uICAlZCB3b24NCg0KDQoNCg0K"
+  }
+}

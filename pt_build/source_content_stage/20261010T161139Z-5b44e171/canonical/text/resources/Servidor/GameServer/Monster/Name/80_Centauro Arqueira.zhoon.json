@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.80_centauro_arqueira",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/80_Centauro Arqueira.zhoon",
+    "GameServer/Monster/Name/80_Centauro Arqueira.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/80_Centauro Arqueira.zhoon",
+    "legacy_sha256": "03e1f4ac5062542cb0c88e6dd9cd57b034c8e946c5b19b737f40ab68a06c2afb",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Centauro Arqueira"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2VudGF1cm8gQXJxdWVpcmEi"
+  }
+}

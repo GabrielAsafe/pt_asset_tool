@@ -1,0 +1,124 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.wfzone",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/wfzone.npc",
+    "GameServer/NPC/wfzone.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/wfzone.npc",
+    "legacy_sha256": "6f3af0290e390a07135945ef0ad8ae09b7e202c11fad729122805ac4cb7c7bf4",
+    "legacy_size": 818
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-015\\TN-015.INI",
+      "name": "워프게이트 발명가",
+      "sell_etc": [
+        "QW101",
+        "QW102",
+        "QW103",
+        "QW104",
+        "QW105",
+        "QW106"
+      ],
+      "linked_file": "name\\wfzone.zhoon",
+      "model_config_id": "model.char.npc.tn.015.tn.015"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-015\\TN-015.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3031355c544e2d3031352e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "워프게이트 발명가"
+        ],
+        "raw_values_hex": [
+          "bff6c7c1b0d4c0ccc6ae20b9dfb8edb0a1"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 17,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "QW101",
+          "QW102",
+          "QW103",
+          "QW104",
+          "QW105",
+          "QW106"
+        ],
+        "raw_values_hex": [
+          "5157313031",
+          "5157313032",
+          "5157313033",
+          "5157313034",
+          "5157313035",
+          "5157313036"
+        ]
+      },
+      {
+        "line": 19,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\wfzone.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c77667a6f6e652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDE1XFROLTAxNS5JTkkNCg0KKsDMuKcJCQkiv/bHwbDUwMzGriC537jtsKEiDQoNCi8vKrTryK0JCQkiteW18L7uIL/2x8Gw1MDMxq6woSC/z7y6tca02S4gs60gwKe068fRILnfuO3AuyDH0bDFtvOxuCEiDQovLyq068itCQkJIr/2x8Gw1MDMxq60wiC8+L3EsKO/oSC02bilIMDlvNK3ziDAzLW/IL3DxNHB1rTCILz4sKPAzLW/IMDlxKG287PXIg0KLy8qtOvIrQkJCSK5uSC/9sfBsNTAzMauuKYgwMy/68fPsO0gvc202bDtPyCx17ezIMCuIL7GwMzF28C7ILi4tem+7r7fIMfPtM8gwOe34bimILG4x9ggv8C1tbfPIMfPsNQiDQovLyq068itCQkJIsCuIL7GwMzF28C7ILi4tekgvPYgwNa0wiDA2rTCILTrt/q/obytIL/Awfcgs6q708DMwfYhIg0KLy8qtOvIrSAgICAgICAgICAgICAgICAgICAix8q288DMILi2wLvAxyC0usXNtvOw7SDA1sH2PyCx1yCz8MDMILHbveogs7sgseK8+sC7IMjJw8SwoyCwzSCwsL7GIg0KLy8qtOvIrSAgICAgICAgICAgICAgICAgICAisdcgse7B/iDF2re5xvfGrrimIMfRILn4IMDMv+vH2CC6uLDatNmw7SDHyrbzwMwguLbAu7HuwfYgsKXF2bChPyINCi8vKrTryK0gICAgICAgICAgICAgICAgICAgIsXat7nG98autMIgseKyr8fYvt8gs9ew9yC527+hIMDMtb/H0iC89iC++LTZtPWxuiEgv/bHwbDUwMzGrrTCIMDMtb/H0iC89iDA1rTCILD3wMwgxdq3ucb3xq7AxyC1ziC56Lbzs9ciIA0KDQoNCg0KKsDiyK3Gx7jFICAgICAgUVcxMDEgUVcxMDIgUVcxMDMgUVcxMDQgUVcxMDUgUVcxMDYNCg0KKr+ssOHGxMDPCSJuYW1lXHdmem9uZS56aG9vbiI="
+  }
+}

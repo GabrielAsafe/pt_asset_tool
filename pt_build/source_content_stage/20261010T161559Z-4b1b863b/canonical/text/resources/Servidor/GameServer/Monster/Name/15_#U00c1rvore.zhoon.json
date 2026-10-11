@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.15_u00c1rvore",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/15_#U00c1rvore.zhoon",
+    "GameServer/Monster/Name/15_#U00c1rvore.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/15_#U00c1rvore.zhoon",
+    "legacy_sha256": "9ad5c8bf21a505c5e0a8ceaa9b34d5721607b9e23c72a46fc7ff0b267795e433",
+    "legacy_size": 16
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "햞vore"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiwXJ2b3JlIg=="
+  }
+}

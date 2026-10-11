@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.118_t_u00e9cnico_zumbi",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/118_T#U00e9cnico Zumbi.zhoon",
+    "GameServer/Monster/Name/118_T#U00e9cnico Zumbi.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/118_T#U00e9cnico Zumbi.zhoon",
+    "legacy_sha256": "fd70d85ae26e5b04b3d20470835d97d0f7a282dc1fe718b0a32dabca13e6c489",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Técnico Zumbi"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVOljbmljbyBadW1iaSI="
+  }
+}

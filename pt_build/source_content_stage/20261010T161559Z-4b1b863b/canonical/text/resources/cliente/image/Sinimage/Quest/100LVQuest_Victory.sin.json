@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100lvquest_victory",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/100LVQuest_Victory.sin",
+    "image/Sinimage/Quest/100LVQuest_Victory.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/100LVQuest_Victory.sin",
+    "legacy_sha256": "c2b855319c878a27033fd24e327e91c01ba6d56f3ca522ccc4783e9b8a3e177b",
+    "legacy_size": 127
+  },
+  "semantic": {
+    "lines": [
+      "Congratulations on your victory against Fury!",
+      "",
+      "Click on the button to go to Royal Mage Ray in ",
+      "Morion's Pillai town.",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29uZ3JhdHVsYXRpb25zIG9uIHlvdXIgdmljdG9yeSBhZ2FpbnN0IEZ1cnkhDQoNCkNsaWNrIG9uIHRoZSBidXR0b24gdG8gZ28gdG8gUm95YWwgTWFnZSBSYXkgaW4gDQpNb3Jpb24ncyBQaWxsYWkgdG93bi4NCg0KDQoNCg=="
+  }
+}

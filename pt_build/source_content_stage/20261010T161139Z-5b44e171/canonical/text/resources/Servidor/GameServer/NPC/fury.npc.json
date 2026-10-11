@@ -1,0 +1,135 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.fury",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/fury.npc",
+    "GameServer/NPC/fury.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/fury.npc",
+    "legacy_sha256": "18890d6ca46c157634bd8b45f035686a442286dbdeb31435c62c66c74f809036",
+    "legacy_size": 238
+  },
+  "semantic": {
+    "fields": {
+      "model_scale": 1.5,
+      "state": "NPC",
+      "model_file": "char\\monster\\MonFury\\Monfury.INI",
+      "effect_sound": "Fury",
+      "name": "퓨리",
+      "size": "대형",
+      "linked_file": "name\\fury.zhoon",
+      "model_config_id": "model.char.monster.monfury.monfury"
+    },
+    "directives": [
+      {
+        "line": 3,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.5
+        ],
+        "raw_values_hex": [
+          "312e35"
+        ]
+      },
+      {
+        "line": 4,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\MonFury\\Monfury.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c4d6f6e467572795c4d6f6e667572792e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Fury"
+        ],
+        "raw_values_hex": [
+          "46757279"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "퓨리"
+        ],
+        "raw_values_hex": [
+          "c7bbb8ae"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 10,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "대형"
+        ],
+        "raw_values_hex": [
+          "b4ebc7fc"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\fury.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c667572792e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoNCiq48LWoxamx4gkJMS41DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxtb25zdGVyXE1vbkZ1cnlcTW9uZnVyeS5JTkkiDQoNCirIv7D6wL0JCQlGdXJ5DQoqwMy4pwkJCSLHu7iuIg0KDQoqxamx4gkJCbTrx/wNCi8vKrTryK0JCQkixLy+xn5+v8AiDQovLyq068itCQkJIsTtvsa+xr7GvsYiDQovLyq068itCQkJIse7v+x+fiC38sDMLi4iDQoNCg0KDQoqv6yw4cbEwM8gIm5hbWVcZnVyeS56aG9vbiINCg=="
+  }
+}

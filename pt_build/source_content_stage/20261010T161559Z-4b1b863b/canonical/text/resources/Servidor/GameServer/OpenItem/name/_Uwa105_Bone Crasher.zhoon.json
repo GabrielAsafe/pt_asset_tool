@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uwa105_bone_crasher",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uwa105_Bone Crasher.zhoon",
+    "GameServer/OpenItem/name/_Uwa105_Bone Crasher.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uwa105_Bone Crasher.zhoon",
+    "legacy_sha256": "495a4f7adb1d0b043c5ba2d28b6855960750fa79827350e869f21f9406c5992e",
+    "legacy_size": 31
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Esmagador de Ossos"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIkVzbWFnYWRvciBkZSBPc3NvcyINCg=="
+  }
+}

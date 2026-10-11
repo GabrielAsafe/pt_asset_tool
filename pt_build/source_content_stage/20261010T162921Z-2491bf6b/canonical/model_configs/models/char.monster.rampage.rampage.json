@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.rampage.rampage",
+  "logical_config": "char/monster/rampage/rampage.ini",
+  "legacy_cache": "char/monster/rampage/rampage.inx",
+  "consumers": [
+    {
+      "id": "monster.82_destruidor",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/82_Destruidor.inf.json"
+    },
+    {
+      "id": "monster.r6_destruidor",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R6 Destruidor.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Rampage/rampage.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Rampage/rampage.inx"
+    }
+  }
+}

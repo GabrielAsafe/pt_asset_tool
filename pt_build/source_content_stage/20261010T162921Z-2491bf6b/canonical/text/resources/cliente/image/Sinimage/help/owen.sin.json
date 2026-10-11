@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.owen.path_030b717949",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/owen.sin",
+    "image/Sinimage/help/owen.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/owen.sin",
+    "legacy_sha256": "125d274a676a1f9eb48f1a418168206a9f87aa6eac7e8f082a3eec3287b011d8",
+    "legacy_size": 1127
+  },
+  "semantic": {
+    "lines": [
+      "Olá!",
+      "",
+      "Sou o Caçador Owen! Pelo que vejo, você já avançou bastante!",
+      "Os nossos novos aliados tritões da guarda do Príncipe Zarad me ensinaram alguns truques e mostraram como lutam os guerreiros do mar e como vencê-los, explorando os seus pontos fracos. ",
+      "Na batalha, é fundamental conhecermos o nosso oponente. Vou passar o que aprendi para você. Eu, Jin e Skadi, durante muitos anos, lutamos juntos para manter os invasores de outros mundos afastados do nosso continente. Nunca imaginávamos que o inimigo viria do fundo dos oceanos...",
+      "Se você, realmente, quer fazer a diferença na Guerra dos Mundos, então volte todos os dias, aqui, e complete uma missão.",
+      "Mas, se você preferir, posso inscrever você na missão do Pântano do Crepúsculo. Estou ajudando a Princesa Dzari no recrutamento também.",
+      "Não consigo me livrar dos meus antigos hábitos e ficar parado por muito tempo no mesmo lugar. Por isso, você pode me encontrar tanto em Pillai como em Ricarten. Mas, só posso instruir você, se o seu personagem estiver no Nível 31 ou acima.",
+      "Você será recompensado ao concluir os meus desafios.",
+      "Podemos começar? Então, vamos lá!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhIQ0KDQpTb3UgbyBDYedhZG9yIE93ZW4hIFBlbG8gcXVlIHZlam8sIHZvY+ogauEgYXZhbudvdSBiYXN0YW50ZSENCk9zIG5vc3NvcyBub3ZvcyBhbGlhZG9zIHRyaXT1ZXMgZGEgZ3VhcmRhIGRvIFBy7W5jaXBlIFphcmFkIG1lIGVuc2luYXJhbSBhbGd1bnMgdHJ1cXVlcyBlIG1vc3RyYXJhbSBjb21vIGx1dGFtIG9zIGd1ZXJyZWlyb3MgZG8gbWFyIGUgY29tbyB2ZW5j6i1sb3MsIGV4cGxvcmFuZG8gb3Mgc2V1cyBwb250b3MgZnJhY29zLiANCk5hIGJhdGFsaGEsIOkgZnVuZGFtZW50YWwgY29uaGVjZXJtb3MgbyBub3NzbyBvcG9uZW50ZS4gVm91IHBhc3NhciBvIHF1ZSBhcHJlbmRpIHBhcmEgdm9j6i4gRXUsIEppbiBlIFNrYWRpLCBkdXJhbnRlIG11aXRvcyBhbm9zLCBsdXRhbW9zIGp1bnRvcyBwYXJhIG1hbnRlciBvcyBpbnZhc29yZXMgZGUgb3V0cm9zIG11bmRvcyBhZmFzdGFkb3MgZG8gbm9zc28gY29udGluZW50ZS4gTnVuY2EgaW1hZ2lu4XZhbW9zIHF1ZSBvIGluaW1pZ28gdmlyaWEgZG8gZnVuZG8gZG9zIG9jZWFub3MuLi4NClNlIHZvY+osIHJlYWxtZW50ZSwgcXVlciBmYXplciBhIGRpZmVyZW7nYSBuYSBHdWVycmEgZG9zIE11bmRvcywgZW50428gdm9sdGUgdG9kb3Mgb3MgZGlhcywgYXF1aSwgZSBjb21wbGV0ZSB1bWEgbWlzc+NvLg0KTWFzLCBzZSB2b2PqIHByZWZlcmlyLCBwb3NzbyBpbnNjcmV2ZXIgdm9j6iBuYSBtaXNz428gZG8gUOJudGFubyBkbyBDcmVw+nNjdWxvLiBFc3RvdSBhanVkYW5kbyBhIFByaW5jZXNhIER6YXJpIG5vIHJlY3J1dGFtZW50byB0YW1i6W0uDQpO428gY29uc2lnbyBtZSBsaXZyYXIgZG9zIG1ldXMgYW50aWdvcyBo4WJpdG9zIGUgZmljYXIgcGFyYWRvIHBvciBtdWl0byB0ZW1wbyBubyBtZXNtbyBsdWdhci4gUG9yIGlzc28sIHZvY+ogcG9kZSBtZSBlbmNvbnRyYXIgdGFudG8gZW0gUGlsbGFpIGNvbW8gZW0gUmljYXJ0ZW4uIE1hcywgc/MgcG9zc28gaW5zdHJ1aXIgdm9j6iwgc2UgbyBzZXUgcGVyc29uYWdlbSBlc3RpdmVyIG5vIE7tdmVsIDMxIG91IGFjaW1hLg0KVm9j6iBzZXLhIHJlY29tcGVuc2FkbyBhbyBjb25jbHVpciBvcyBtZXVzIGRlc2FmaW9zLg0KUG9kZW1vcyBjb21l52FyPyBFbnTjbywgdmFtb3MgbOEhDQo="
+  }
+}

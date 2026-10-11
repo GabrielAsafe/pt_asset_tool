@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.salon",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/salon.npc",
+    "GameServer/NPC/salon.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/salon.npc",
+    "legacy_sha256": "668363f9afad361b1cf7b818c9e8ac31a18c55838dba16f1d6660fa52c5d6965",
+    "legacy_size": 757
+  },
+  "semantic": {
+    "fields": {
+      "name": "착한소년 롱보",
+      "model_file": "char\\monster\\d_meca\\dmeca.ini",
+      "class": 1019,
+      "linked_file": "name\\nadia.zhoon",
+      "model_config_id": "model.char.monster.d.meca.dmeca"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "착한소년 롱보"
+        ],
+        "raw_values_hex": [
+          "c2f8c7d1bcd2b3e220b7d5bab8"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\d_meca\\dmeca.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c645f6d6563615c646d6563612e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1019
+        ],
+        "raw_values_hex": [
+          "31303139"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\nadia.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e616469612e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSLC+MfRvNKz4iC31bq4Ig0KKrjwvufGxMDPCSJjaGFyXG1vbnN0ZXJcZF9tZWNhXGRtZWNhLmluaSINCiqw6LHeIDEwMTkNCi8vKrTryK0JCSLAzLD3wLoguK7Eq7ijxdkgwNS0z7TZLiDF2726xam30CDB9r+qILOywsq/oSDAp8Shx9EgtbW9w8HSIg0KLy8qtOvIrQkJIsD6yPEgtbW9w7TCILTrt/ogw9a068DHILvzscfAuyDA2rb7x8+0wiC1tb3Dt84gsde4uMWtILi5wLogu+e297XpwMwgv9W3ocfPsO0gwNa9wLTPtNkiDQovLyq068itCQkiv6E/ILW1vcMgwMy4p8DMILm5s8Sw7b/kPyDAzLD3wLogxdu9usWpt9DAxyDB373JILW1vcPAziC4rsSruKPF2SDA1LTPtNkuIMDfILHivu/H2CC1zry8v+QiDQovLyq068itCQkiuLnAuiC757b3tenAzCDA1sH2uLggxasgvNK29SC++MDMIMbyyK23zr/uILW1vcPA1LTPtNkuIg0KLy8qtOvIrQkJIsOzwL0gu+ezycC7ILOqsKG9xbTZuOkgtNm4rrDHs8q/oSDIo8fHuKYgu+ezycfPvcOw7SDBtrHdILTJvPfHz73DtNm46SC8rcLKv6EgvsbEq73DvsYgvaOx7sH2ILChvMW8rSDIqbDtuu24sMC7ILvns8nHz73DtMIgsM3AzCDBwcC7ILDMtM+02S4iDQoNCiq/rLDhxsTAzwkibmFtZVxuYWRpYS56aG9vbiINCg0KLy8iubkgv6HAzMKhwLsgx8+w2rTZsO0/IMDMt7EgsKO1tSDFqbG6LCC9x8bQIMfPuOkgvsbAzMXbLCC1tyDA/LrOIMDSvu659rixILz2IMDWwLi0zyC+y77GvK0gx8+287DtLi4gx8q288DMwMcguPC4rsfBtvO0wiC+57ndwMwgtbW/zcHZILDFvt8hISAiDQoNCg0KDQoNCg=="
+  }
+}

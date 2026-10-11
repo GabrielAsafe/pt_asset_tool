@@ -1,0 +1,394 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wc113",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WC113.txt",
+    "GameServer/OpenItem/WC113.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WC113.txt",
+    "legacy_sha256": "f40d41f83f0bc3b85add21599f7246689c3f9e9a1b65518429994fad85086a1e",
+    "legacy_size": 720
+  },
+  "semantic": {
+    "fields": {
+      "code": "WC113",
+      "name": "Garra do Caos",
+      "english_name": "Garra do Caos",
+      "attack_damage": [
+        21,
+        23,
+        31,
+        35
+      ],
+      "attack_rating": [
+        100,
+        114
+      ],
+      "attack_speed": 7,
+      "critical": 13,
+      "defence": [
+        43,
+        50
+      ],
+      "durability": [
+        55,
+        72
+      ],
+      "level": 65,
+      "strength": 88,
+      "talent": 80,
+      "dexterity": 80,
+      "job": "Mechanician",
+      "job_random": [
+        "Fighter",
+        "Pikeman",
+        "Knight",
+        "Atalanta"
+      ],
+      "special_damage": [
+        7,
+        7
+      ],
+      "special_attack_rating": [
+        1,
+        3
+      ],
+      "special_attack_speed": 1,
+      "special_critical": 3,
+      "weight": 38,
+      "price": 58000,
+      "linked_file": "Name\\WC113.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WC113"
+        ],
+        "raw_values_hex": [
+          "5743313133"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Garra do Caos"
+        ],
+        "raw_values_hex": [
+          "476172726120646f2043616f73"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Garra do Caos"
+        ],
+        "raw_values_hex": [
+          "476172726120646f2043616f73"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          21,
+          23,
+          31,
+          35
+        ],
+        "raw_values_hex": [
+          "3231",
+          "3233",
+          "3331",
+          "3335"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100,
+          114
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313134"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          13
+        ],
+        "raw_values_hex": [
+          "3133"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          43,
+          50
+        ],
+        "raw_values_hex": [
+          "3433",
+          "3530"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          55,
+          72
+        ],
+        "raw_values_hex": [
+          "3535",
+          "3732"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          65
+        ],
+        "raw_values_hex": [
+          "3635"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          88
+        ],
+        "raw_values_hex": [
+          "3838"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "dexterity",
+        "legacy_token": "*민첩성",
+        "legacy_token_hex": "2ab9cec3b8bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "job",
+        "legacy_token": "**Ưȭ",
+        "legacy_token_hex": "2a2ac6afc8ad",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mechanician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Fighter",
+          "Pikeman",
+          "Knight",
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "46696768746572",
+          "50696b656d616e",
+          "4b6e69676874",
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          7
+        ],
+        "raw_values_hex": [
+          "37",
+          "37"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_attack_rating",
+        "legacy_token": "**명중력",
+        "legacy_token_hex": "2a2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "special_critical",
+        "legacy_token": "**크리티컬",
+        "legacy_token_hex": "2a2ac5a9b8aec6bcc4c3",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          38
+        ],
+        "raw_values_hex": [
+          "3338"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          58000
+        ],
+        "raw_values_hex": [
+          "3538303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WC113.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c57433131332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldDMTEzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiR2FycmEgZG8gQ2FvcyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJHYXJyYSBkbyBDYW9zIg0KDQovL0F0dGFja1Bvd2VyDQoqsPiw3bfCIDIxIDIzIDMxIDM1DQoNCi8vQXR0YWNrUmF0aW5nDQoquO3B37fCIDEwMCAxMTQNCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDcNCg0KLy9BdHRhY2tDcml0aWNhbA0KKsWpuK7GvMTDIDEzDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA0MyA1MA0KDQovL0ludGVncml0eQ0KKrO7sbi3wiA1NSA3Mg0KDQovL0xldmVsDQoqt7m6pyA2NQ0KDQovL1N0cmVuZ3RoDQoqyPsgODgNCg0KLy9UYWxlbnQNCirA57TJIDgwDQoNCi8vQWdpbGl0eQ0KKrnOw7i8uiA4MA0KDQovL1ByaW1hcnlTcGVjDQoqKsavyK0gTWVjaGFuaWNpYW4NCg0KLy9TZWNvbmRhcnlTcGVjDQoqKsavyK23o7T9IEZpZ2h0ZXIgUGlrZW1hbiBLbmlnaHQgQXRhbGFudGENCg0KLy9TcGVjQXR0YWNrUG93ZXINCioqsPiw3bfCIDcgNw0KDQovL1NwZWNBdHRhY2tSYXRpbmcNCioquO3B37fCIDEgMw0KDQovL1NwZWNBdHRhY2tTcGVlZA0KKiqw+LDdvNO1tSAxDQoNCi8vU3BlY0F0dGFja0NyaXRpY2FsDQoqKsWpuK7GvMTDIDMNCg0KLy9XZWlnaHQNCiq5q7DUIDM4DQoNCi8vUHJpY2UNCiqwobDdIDU4MDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcV0MxMTMuemhvb24i"
+  }
+}

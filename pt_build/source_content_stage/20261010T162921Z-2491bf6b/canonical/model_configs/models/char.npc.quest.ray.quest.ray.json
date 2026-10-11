@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.quest.ray.quest.ray",
+  "logical_config": "char/npc/Quest_ray/Quest_ray.INI",
+  "legacy_cache": "char/npc/Quest_ray/Quest_ray.inx",
+  "consumers": [
+    {
+      "id": "npc.mestre_real_ray",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Mestre Real Ray.NPC.json"
+    },
+    {
+      "id": "npc.ray",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ray.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Quest_ray/Quest_ray.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Quest_ray/Quest_ray.inx"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.puzzleking",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/puzzleking.npc",
+    "GameServer/NPC/puzzleking.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/puzzleking.npc",
+    "legacy_sha256": "0900f6aa2e04dd73f34424dbf8754ea7d0e177952d5e5d9f9337753f2fbc69bc",
+    "legacy_size": 553
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-013\\MN-013.ini",
+      "name": "퍼즐수집가 라몬트",
+      "quest_event": true,
+      "linked_file": "name\\puzzleking.zhoon",
+      "model_config_id": "model.char.npc.mn.013.mn.013"
+    },
+    "directives": [
+      {
+        "line": 4,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-013\\MN-013.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3031335c4d4e2d3031332e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "퍼즐수집가 라몬트"
+        ],
+        "raw_values_hex": [
+          "c6dbc1f1bcf6c1fdb0a120b6f3b8f3c6ae"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "quest_event",
+        "legacy_token": "*퀘스트이벤트",
+        "legacy_token_hex": "2ac4f9bdbac6aec0ccbaa5c6ae",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\puzzleking.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c70757a7a6c656b696e672e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8JCQlZIMHCCVogwcLHpSgrtMIgxKu43rbzILDFuK6woSC41r7uwfwpDQovLyrIrbjpurjBpAkJLTMxCTE1MA0KLy8quPC1qMWpseIJCTAuNw0KKrzTvLoJCQlOUEMNCiq48L7nxsTAzwkJImNoYXJcbnBjXE1OLTAxM1xNTi0wMTMuaW5pIg0KKsDMuKcJCQkixtvB8bz2wf2woSC287jzxq4iDQoNCirE+b26xq7AzLqlxq4NCg0KLy8qtOvIrQkJCSKzu7ChIL/4x8+0wiC1zrChwfYgxtvB8cC6IL2xsNQgurwgvPYgwNa0wiDI58fRIMbbwfHAzCC+xrTPs9cuIg0KLy8qtOvIrQkJCSIyv/kgMTfAz7HuwfYgwMyw97+hvK0gwNqz17imILHitNm4rrDtIMDWsNqz1y4gus618CC5q7vnyPcgsK6w7SC/wLHmILnZtvOz1yINCi8vKrTryK0JCQkixtvB8cC6IMDOuqXF5LiuwMcgwaTH2MH4IL+1v6q/obytIMG2x9UgyMQgs6q4piDDo77Gv82+3yDHz7PXLiINCi8vKrTryK0JCQkixtvB8cC6ILCowaTAuyDH2Lq7IMjEv6EgvNW788DMIL74tNm46SCzu7ChIL7gvNPH0SC+xsDMxdsgwd8gx8+zqrfOILq4u/PH2MHWsNqz1y4iDQoNCiq/rLDhxsTAzyAibmFtZVxwdXp6bGVraW5nLnpob29uIg=="
+  }
+}

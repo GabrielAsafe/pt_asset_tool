@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.companion",
+  "kind": "ini_config",
+  "selection_reason": "immutable_gameplay_config",
+  "runtime_paths": [
+    "Servidor/Configs/Companion.ini",
+    "Configs/Companion.ini"
+  ],
+  "source": {
+    "legacy_path": "Servidor/Configs/Companion.ini",
+    "legacy_sha256": "4ff373e50acd84f75538802a9f009a8e9739a3c5e19a58ff087f27161305add5",
+    "legacy_size": 424
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 5,
+        "section": "Companion",
+        "key": "CrystalItemCode",
+        "value": "0"
+      },
+      {
+        "line": 8,
+        "section": "Companion",
+        "key": "LifetimeMinutes",
+        "value": "720"
+      },
+      {
+        "line": 11,
+        "section": "Companion",
+        "key": "ExpFlushSeconds",
+        "value": "30"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "W0NvbXBhbmlvbl0KOyBEZWNpbWFsIGl0ZW0gQ09ERSB0aGF0IHNob3VsZCBhY3QgYXMgdGhlIGNvbXBhbmlvbiBjcnlzdGFsLgo7IDAgPSBpdGVtIGludGVyY2VwdGlvbiBkaXNhYmxlZDsgL2NvbXBhbmlvbiBjb21tYW5kcyBzdGlsbCB3b3JrLgo7IFBvaW50IHRoaXMgYXQgYW4gaXRlbSB3aG9zZSBQb3Rpb25Db3VudCBpcyAxMDAsIGxpa2UgdGhlIGxlZ2FjeSBzdW1tb24gY3J5c3RhbHMuCkNyeXN0YWxJdGVtQ29kZT0wCgo7IFNlcnZlci1hdXRob3JpdGF0aXZlIGNvbXBhbmlvbiBsaWZldGltZS4gVmFsaWQgcmFuZ2U6IDEwLi4xNDQwIG1pbnV0ZXMuCkxpZmV0aW1lTWludXRlcz03MjAKCjsgQnVmZmVyZWQgb2ZmbGluZSBFWFAgZmx1c2ggaW50ZXJ2YWwuIFZhbGlkIHJhbmdlOiA1Li4zMDAgc2Vjb25kcy4KRXhwRmx1c2hTZWNvbmRzPTMwCg=="
+  }
+}

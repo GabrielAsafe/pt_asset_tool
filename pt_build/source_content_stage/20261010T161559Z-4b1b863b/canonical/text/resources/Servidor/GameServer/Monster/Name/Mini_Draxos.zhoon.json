@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.mini_draxos",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/Mini_Draxos.zhoon",
+    "GameServer/Monster/Name/Mini_Draxos.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/Mini_Draxos.zhoon",
+    "legacy_sha256": "790f55eab1ddd3193e6e9551d6d37e24dc219ab6b3f72c42b48ee68e696215a8",
+    "legacy_size": 44
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mini Draxos"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9NaW5pX0RyYXhvcy5pbmYNCg0KKkpfTkFNRSAiTWluaSBEcmF4b3MiDQo="
+  }
+}

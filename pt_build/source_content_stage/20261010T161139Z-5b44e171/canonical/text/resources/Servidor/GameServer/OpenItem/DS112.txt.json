@@ -1,0 +1,419 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ds112",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DS112.txt",
+    "GameServer/OpenItem/DS112.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DS112.txt",
+    "legacy_sha256": "8e37c3e8bd6737e5a85e806d46d4038c43448fb62ba8ad846114156855cf6fce",
+    "legacy_size": 730
+  },
+  "semantic": {
+    "fields": {
+      "code": "DS112",
+      "name": "Escudo Espinhoso",
+      "english_name": "Escudo Espinhoso",
+      "defence": [
+        76,
+        100
+      ],
+      "absorb": [
+        4.2,
+        4.6
+      ],
+      "block": [
+        16.0,
+        18.0
+      ],
+      "bionic": [
+        2,
+        4
+      ],
+      "fire": [
+        2,
+        4
+      ],
+      "ice": [
+        2,
+        4
+      ],
+      "lightning": [
+        2,
+        4
+      ],
+      "poison": [
+        2,
+        4
+      ],
+      "durability": [
+        85,
+        110
+      ],
+      "level": 60,
+      "strength": 112,
+      "talent": 60,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta"
+      ],
+      "special_defence": [
+        16,
+        20
+      ],
+      "special_absorb": [
+        0.6,
+        0.8
+      ],
+      "special_block": 2.0,
+      "weight": 38,
+      "price": 56000,
+      "linked_file": "Name\\DS112.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DS112"
+        ],
+        "raw_values_hex": [
+          "4453313132"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Escudo Espinhoso"
+        ],
+        "raw_values_hex": [
+          "45736375646f20457370696e686f736f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Escudo Espinhoso"
+        ],
+        "raw_values_hex": [
+          "45736375646f20457370696e686f736f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          76,
+          100
+        ],
+        "raw_values_hex": [
+          "3736",
+          "313030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          4.2,
+          4.6
+        ],
+        "raw_values_hex": [
+          "342e32",
+          "342e36"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          16.0,
+          18.0
+        ],
+        "raw_values_hex": [
+          "31362e30",
+          "31382e30"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          85,
+          110
+        ],
+        "raw_values_hex": [
+          "3835",
+          "313130"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          112
+        ],
+        "raw_values_hex": [
+          "313132"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_defence",
+        "legacy_token": "**방어력",
+        "legacy_token_hex": "2a2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          16,
+          20
+        ],
+        "raw_values_hex": [
+          "3136",
+          "3230"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.6,
+          0.8
+        ],
+        "raw_values_hex": [
+          "302e36",
+          "302e38"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "special_block",
+        "legacy_token": "**블럭율",
+        "legacy_token_hex": "2a2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.0
+        ],
+        "raw_values_hex": [
+          "322e30"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          38
+        ],
+        "raw_values_hex": [
+          "3338"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          56000
+        ],
+        "raw_values_hex": [
+          "3536303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DS112.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44533131322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRTMTEyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiRXNjdWRvIEVzcGluaG9zbyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJFc2N1ZG8gRXNwaW5ob3NvIg0KDQovL0RlZmVuc2UNCiq55r7ut8IgNzYgMTAwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiA0LjIgNC42DQoNCi8vQmxvY2sNCiq67bewwLIgMTYuMCAxOC4wDQoNCi8vT3JnYW5pY1Jlc2lzdGFuY2UNCiq7/cO8IDIgNA0KDQovL0ZpcmVSZXNpc3RhbmNlDQoqutIgMiA0DQoNCi8vRnJvc3RSZXNpc3RhbmNlDQoqs8Ox4iAyIDQNCg0KLy9MaWdodG5pbmdSZXNpc3RhbmNlDQoqufiwsyAyIDQNCg0KLy9Qb2lzb25SZXNpc3RhbmNlDQoqtbYgMiA0DQoNCi8vSW50ZWdyaXR5DQoqs7uxuLfCIDg1IDExMA0KDQovL0xldmVsDQoqt7m6pyA2MA0KDQovL1N0cmVuZ3RoDQoqyPsgMTEyDQoNCi8vVGFsZW50DQoqwOe0ySA2MA0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gTWVjaGFuaWNpYW4gRmlnaHRlciBQaWtlbWFuIEFyY2hlciBLbmlnaHQgQXRhbGFudGENCg0KLy9TcGVjRGVmZW5zZQ0KKiq55r7ut8IgMTYgMjANCg0KLy9TcGVjQWJzb3JwdGlvbg0KKirI7bz2t8IgMC42IDAuOA0KDQovL1NwZWNCbG9jaw0KKiq67bewwLIgMi4wDQoNCi8vV2VpZ2h0DQoquauw1CAzOA0KDQovL1ByaWNlDQoqsKGw3SA1NjAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXERTMTEyLnpob29uIg=="
+  }
+}

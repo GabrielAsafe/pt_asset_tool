@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.royalacademy_1",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/royalAcademy[1].sin",
+    "image/Sinimage/help/royalAcademy[1].sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/royalAcademy[1].sin",
+    "legacy_sha256": "3e3d6cbe8c9210c6b572070e6fdfcc373c3afdabe862737079b5cd66283ec050",
+    "legacy_size": 257
+  },
+  "semantic": {
+    "lines": [
+      "Caros alunos,",
+      "Honrado estou de ensiná-los.",
+      "",
+      "De muitos acontecimentos constituem o Priston,",
+      "E juntos vamos desbravá-los.",
+      "",
+      "Para chegar até aqui,",
+      "Um começo veio para ajudar.",
+      "",
+      "Traga parte do início da sua história,",
+      "E direi se está pronto para avançar."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2Fyb3MgYWx1bm9zLA0KSG9ucmFkbyBlc3RvdSBkZSBlbnNpbuEtbG9zLg0KDQpEZSBtdWl0b3MgYWNvbnRlY2ltZW50b3MgY29uc3RpdHVlbSBvIFByaXN0b24sDQpFIGp1bnRvcyB2YW1vcyBkZXNicmF24S1sb3MuDQoNClBhcmEgY2hlZ2FyIGF06SBhcXVpLA0KVW0gY29tZedvIHZlaW8gcGFyYSBhanVkYXIuDQoNClRyYWdhIHBhcnRlIGRvIGlu7WNpbyBkYSBzdWEgaGlzdPNyaWEsDQpFIGRpcmVpIHNlIGVzdOEgcHJvbnRvIHBhcmEgYXZhbudhci4="
+  }
+}

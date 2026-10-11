@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sp112",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/sp112.zhoon",
+    "GameServer/OpenItem/name/sp112.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/sp112.zhoon",
+    "legacy_sha256": "21d6120d89c9a2b67ebdcdc144ed48ce55be7d5cb8578a934513a4f114d1049d",
+    "legacy_size": 33
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 2,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Caixa de Halloween"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqSl9OYW1lCQkiQ2FpeGEgZGUgSGFsbG93ZWVuIg0K"
+  }
+}

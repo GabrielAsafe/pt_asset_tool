@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_1.path_6b06b31916",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob3_1.sin",
+    "image/Sinimage/Quest/ChangeJob3_1.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob3_1.sin",
+    "legacy_sha256": "8015ac0c7221aa78d5327584ec8eb88e36fbe5575650790102ac04ef25423437",
+    "legacy_size": 129
+  },
+  "semantic": {
+    "lines": [
+      "You can get Vamps from Minigue silver ",
+      "which you can encounter in Navisko at night time.",
+      "Keep in mind that you need 3 of those."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91IGNhbiBnZXQgVmFtcHMgZnJvbSBNaW5pZ3VlIHNpbHZlciANCndoaWNoIHlvdSBjYW4gZW5jb3VudGVyIGluIE5hdmlza28gYXQgbmlnaHQgdGltZS4NCktlZXAgaW4gbWluZCB0aGF0IHlvdSBuZWVkIDMgb2YgdGhvc2Uu"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.sod_1",
+  "logical_path": "GameServer/Field/sod-1.ASE.spp",
+  "points": [
+    {
+      "slot": 0,
+      "state": 1,
+      "x": 21370,
+      "z": 2673
+    },
+    {
+      "slot": 1,
+      "state": 1,
+      "x": 22014,
+      "z": 5339
+    },
+    {
+      "slot": 2,
+      "state": 1,
+      "x": 24636,
+      "z": 2650
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/sod-1.ASE.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "1ed8298f749fc9fdca3625799507ee09f7bd37e0b2ef6cf83954cc11b845536d"
+  }
+}

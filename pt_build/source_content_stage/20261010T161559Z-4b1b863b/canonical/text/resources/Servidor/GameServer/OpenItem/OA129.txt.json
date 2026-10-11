@@ -1,0 +1,283 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.oa129",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OA129.txt",
+    "GameServer/OpenItem/OA129.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OA129.txt",
+    "legacy_sha256": "e8f0e244c237b5d4babe398531e399edf9ab0333757f3db265d6327a034c3a68",
+    "legacy_size": 488
+  },
+  "semantic": {
+    "fields": {
+      "code": "OA129",
+      "name": "Colar Anúbis",
+      "english_name": "Colar Anúbis",
+      "defence": [
+        100,
+        100
+      ],
+      "life_add_alt": [
+        100,
+        100
+      ],
+      "mana_add_alt": [
+        100,
+        100
+      ],
+      "stamina_add_alt": [
+        100,
+        100
+      ],
+      "level": 100,
+      "spirit": 60,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_life_regen_alt": [
+        4.9,
+        5.2
+      ],
+      "weight": 7,
+      "price": 90000,
+      "linked_file": "Name\\OA129.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OA129"
+        ],
+        "raw_values_hex": [
+          "4f41313239"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Colar Anúbis"
+        ],
+        "raw_values_hex": [
+          "436f6c617220416efa626973"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Colar Anúbis"
+        ],
+        "raw_values_hex": [
+          "436f6c617220416efa626973"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "special_life_regen_alt",
+        "legacy_token": "**생명력재생",
+        "legacy_token_hex": "2a2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          4.9,
+          5.2
+        ],
+        "raw_values_hex": [
+          "342e39",
+          "352e32"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          90000
+        ],
+        "raw_values_hex": [
+          "3930303030"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OA129.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f413132392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9BMTI5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ29sYXIgQW76YmlzIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkNvbGFyIEFu+mJpcyINCg0KLy9EZWZlbnNlDQoquea+7rfCIDEwMCAxMDANCg0KLy9IUA0KKrv9uO23wsPfsKEgMTAwIDEwMA0KDQovL01QDQoqseK3wsPfsKEgMTAwIDEwMA0KDQovL1NUTQ0KKrHZt8LD37ChIDEwMCAxMDANCg0KLy9MZXZlbA0KKre5uqcgMTAwDQoNCi8vU3Bpcml0DQoqwaS9xbfCIDYwDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBGaWdodGVyIFBpa2VtYW4gQXJjaGVyIEtuaWdodCBBdGFsYW50YSBQcmllc3Rlc3MgTWFnaWNpYW4NCg0KLy9TcGVjSFBSZWdlbg0KKiq7/bjtt8LA57v9IDQuOSA1LjINCg0KLy9XZWlnaHQNCiq5q7DUIDcNCg0KLy9QcmljZQ0KKrChsN0gOTAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxPQTEyOS56aG9vbiI="
+  }
+}

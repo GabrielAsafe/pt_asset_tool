@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monwitch.monwitch",
+  "logical_config": "char/monster/monwitch/monwitch.ini",
+  "legacy_cache": "char/monster/monwitch/monwitch.inx",
+  "consumers": [
+    {
+      "id": "monster.75_succubus",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/75_Succubus.inf.json"
+    },
+    {
+      "id": "monster.r4_succubus",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R4 Succubus.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monwitch/Monwitch.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monwitch/Monwitch.inx"
+    }
+  }
+}

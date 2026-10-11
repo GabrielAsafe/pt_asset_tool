@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.moneye.eye",
+  "logical_config": "char/monster/moneye/eye.ini",
+  "legacy_cache": "char/monster/moneye/eye.inx",
+  "consumers": [
+    {
+      "id": "monster.11_u00d3rbita",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/11_#U00d3rbita.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Moneye/eye.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Moneye/eye.inx"
+    }
+  }
+}

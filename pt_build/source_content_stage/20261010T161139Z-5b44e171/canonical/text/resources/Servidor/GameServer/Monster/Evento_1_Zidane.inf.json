@@ -1,0 +1,502 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.evento_1_zidane",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Evento_1_Zidane.inf",
+    "GameServer/Monster/Evento_1_Zidane.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Evento_1_Zidane.inf",
+    "legacy_sha256": "cc32ce057d27d86cc980e5977a2ee021fa19a4d912397b7b108e4502607e1154",
+    "legacy_size": 815
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\Ziddane\\world_fran.INI",
+      "name": "Zidane",
+      "level": 60,
+      "model_scale": 1.2,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 300,
+      "life": 1500,
+      "attack_damage": [
+        6,
+        10
+      ],
+      "attack_rating": 500,
+      "attack_speed": 8,
+      "attack_range": 150,
+      "defence": 100,
+      "absorption": 45,
+      "move_speed": 2,
+      "lightning": 50,
+      "ice": 50,
+      "fire": 50,
+      "monster_race": "노멀",
+      "size": "소형",
+      "effect_sound": "LTechnician",
+      "experience": 100000,
+      "fall_item_max": 3,
+      "fall_item": {
+        "$repeated": [
+          [
+            0,
+            "없음"
+          ],
+          [
+            2000,
+            "돈",
+            20000,
+            30000
+          ],
+          [
+            3000,
+            "os106",
+            "fo106",
+            "os107",
+            "fo107",
+            "os108",
+            "fo108",
+            "os109",
+            "fo109",
+            "os110"
+          ],
+          [
+            2500,
+            "PS104",
+            "PL104",
+            "PM104",
+            "PM105"
+          ]
+        ]
+      },
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.ziddane.world.fran"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 4,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\Ziddane\\world_fran.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c5a696464616e655c776f726c645f6672616e2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Zidane"
+        ],
+        "raw_values_hex": [
+          "5a6964616e65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 9,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.2
+        ],
+        "raw_values_hex": [
+          "312e32"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          300
+        ],
+        "raw_values_hex": [
+          "333030"
+        ]
+      },
+      {
+        "line": 21,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1500
+        ],
+        "raw_values_hex": [
+          "31353030"
+        ]
+      },
+      {
+        "line": 24,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          10
+        ],
+        "raw_values_hex": [
+          "36",
+          "3130"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          500
+        ],
+        "raw_values_hex": [
+          "353030"
+        ]
+      },
+      {
+        "line": 30,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 33,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          150
+        ],
+        "raw_values_hex": [
+          "313530"
+        ]
+      },
+      {
+        "line": 36,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 39,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          45
+        ],
+        "raw_values_hex": [
+          "3435"
+        ]
+      },
+      {
+        "line": 42,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 45,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 48,
+        "key": "ice",
+        "legacy_token": "*얼음",
+        "legacy_token_hex": "2abef3c0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 51,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 54,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "노멀"
+        ],
+        "raw_values_hex": [
+          "b3ebb8d6"
+        ]
+      },
+      {
+        "line": 57,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "소형"
+        ],
+        "raw_values_hex": [
+          "bcd2c7fc"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "LTechnician"
+        ],
+        "raw_values_hex": [
+          "4c546563686e696369616e"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "fall_item_max",
+        "legacy_token": "*아이템카운터",
+        "legacy_token_hex": "2abec6c0ccc5dbc4abbfeec5cd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 67,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          0,
+          "없음"
+        ],
+        "raw_values_hex": [
+          "30",
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 68,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          2000,
+          "돈",
+          20000,
+          30000
+        ],
+        "raw_values_hex": [
+          "32303030",
+          "b5b7",
+          "3230303030",
+          "3330303030"
+        ]
+      },
+      {
+        "line": 69,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          3000,
+          "os106",
+          "fo106",
+          "os107",
+          "fo107",
+          "os108",
+          "fo108",
+          "os109",
+          "fo109",
+          "os110"
+        ],
+        "raw_values_hex": [
+          "33303030",
+          "6f73313036",
+          "666f313036",
+          "6f73313037",
+          "666f313037",
+          "6f73313038",
+          "666f313038",
+          "6f73313039",
+          "666f313039",
+          "6f73313130"
+        ]
+      },
+      {
+        "line": 70,
+        "key": "fall_item",
+        "legacy_token": "*아이템",
+        "legacy_token_hex": "2abec6c0ccc5db",
+        "loader_status": "supported_mapped",
+        "values": [
+          2500,
+          "PS104",
+          "PL104",
+          "PM104",
+          "PM105"
+        ],
+        "raw_values_hex": [
+          "32353030",
+          "5053313034",
+          "504c313034",
+          "504d313034",
+          "504d313035"
+        ]
+      },
+      {
+        "line": 73,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KKrjwvufGxMDPCQkiY2hhclxtb25zdGVyXFppZGRhbmVcd29ybGRfZnJhbi5JTkkiDQoNCirAzLinCSJaaWRhbmUiDQoNCi8vTGV2ZWwNCiq3ubqnIDYwDQoNCi8vU2l6ZQ0KKrjwtajFqbHiIDEuMg0KDQovL1NwYXduUXVhbnRpdHkNCirBtsH3IDEgMQ0KDQovL1ZpZXdSYW5nZQ0KKr3Dvt8gMzAwDQoNCi8vSFANCiq7/bjtt8IgMTUwMA0KDQovL0F0dGFja1Bvd2VyDQoqsPiw3bfCIDYgMTANCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgNTAwDQoNCi8vQXR0YWNrU3BlZWQNCiqw+LDdvNO1tSA4DQoNCi8vQXR0YWNrUmFuZ2UNCiqw+LDdufzApyAxNTANCg0KLy9EZWZlbnNlDQoquea+7rfCIDEwMA0KDQovL0Fic29ycHRpb24NCirI7bz2wLIgNDUNCg0KLy9Nb3ZlU3BlZWQNCirAzLW/t8IgMg0KDQovL0xpZ2h0bmluZw0KKrn4sLMgNTANCg0KLy9JY2UNCiq+88C9IDUwDQoNCi8vRmlyZQ0KKrrSIDUwDQoNCi8vUmFjZQ0KKrjzvbrFzcG+wbcgs+u41g0KDQovL1NoYWRvd1NpemUNCirFqbHiILzSx/wNCg0KKsi/sPrAvQlMVGVjaG5pY2lhbg0KDQovL0V4cA0KKrDmx+jEoQkJCTEwMDAwMA0KDQovL0Ryb3BzTnVtYmVyDQoqvsbAzMXbxKu/7sXNIDMNCg0KKr7GwMzF2wkJMAm++MC9DQoqvsbAzMXbCQkyMDAwCbW3CTIwMDAwCTMwMDAwDQoqvsbAzMXbCQkzMDAwCW9zMTA2IGZvMTA2IG9zMTA3IGZvMTA3IG9zMTA4IGZvMTA4IG9zMTA5IGZvMTA5IG9zMTEwDQoqvsbAzMXbIAkyNTAwIAlQUzEwNCBQTDEwNCBQTTEwNCBQTTEwNQ0KDQoNCiq/rLDhxsTAzyAiTmFtZVxOYW1lLnpob29uIg0KDQo="
+  }
+}

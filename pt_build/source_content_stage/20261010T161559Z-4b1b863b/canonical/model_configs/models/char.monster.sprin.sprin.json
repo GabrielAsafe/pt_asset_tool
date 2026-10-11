@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.sprin.sprin",
+  "logical_config": "char/monster/sprin/sprin.ini",
+  "legacy_cache": "char/monster/sprin/sprin.inx",
+  "consumers": [
+    {
+      "id": "monster.107_sprin",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/107_Sprin.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Sprin/Sprin.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Sprin/Sprin.inx"
+    }
+  }
+}

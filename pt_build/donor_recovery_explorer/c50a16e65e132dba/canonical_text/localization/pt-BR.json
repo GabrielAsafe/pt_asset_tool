@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "pt-BR",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "monster.lizard_elder_2.name",
+      "text": "리자드 원로",
+      "quality": "legacy_fallback",
+      "source": "monster.lizard_elder_2"
+    }
+  ]
+}

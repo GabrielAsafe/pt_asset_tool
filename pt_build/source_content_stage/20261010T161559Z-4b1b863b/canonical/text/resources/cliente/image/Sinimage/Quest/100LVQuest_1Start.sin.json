@@ -1,0 +1,46 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100lvquest_1start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/100LVQuest_1Start.sin",
+    "image/Sinimage/Quest/100LVQuest_1Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/100LVQuest_1Start.sin",
+    "legacy_sha256": "3c50d574c0914488cb3a550ba909a1bb09975d42608ddca8b4a5ae83db979121",
+    "legacy_size": 685
+  },
+  "semantic": {
+    "lines": [
+      "Long time no see Warrior.",
+      "",
+      "Oh..I can feel your spirit of a greatest warrior in earth!",
+      "",
+      "Perhaps do you know about \"Fury\"? The huge ",
+      "monster sealed on the 2nd floor of Cursed Temple.",
+      "You might feel it too but I sense that Midranda ",
+      "is increasing his power more and more these days.",
+      "When he gains his power and try to take over our ",
+      "land, he will try to unleash the Fury first.",
+      "",
+      "We are recruiting strongest warrior to fight ",
+      "against Fury. ",
+      "For those warriors who have successfully passed ",
+      "this test, will be rewarded a great weapon that ",
+      "was inherited from a royal family.",
+      "",
+      "I guess it's a royal weapon that has made ",
+      "by the Gods. How does it sounds? wanna  try? ",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TG9uZyB0aW1lIG5vIHNlZSBXYXJyaW9yLg0KDQpPaC4uSSBjYW4gZmVlbCB5b3VyIHNwaXJpdCBvZiBhIGdyZWF0ZXN0IHdhcnJpb3IgaW4gZWFydGghDQoNClBlcmhhcHMgZG8geW91IGtub3cgYWJvdXQgIkZ1cnkiPyBUaGUgaHVnZSANCm1vbnN0ZXIgc2VhbGVkIG9uIHRoZSAybmQgZmxvb3Igb2YgQ3Vyc2VkIFRlbXBsZS4NCllvdSBtaWdodCBmZWVsIGl0IHRvbyBidXQgSSBzZW5zZSB0aGF0IE1pZHJhbmRhIA0KaXMgaW5jcmVhc2luZyBoaXMgcG93ZXIgbW9yZSBhbmQgbW9yZSB0aGVzZSBkYXlzLg0KV2hlbiBoZSBnYWlucyBoaXMgcG93ZXIgYW5kIHRyeSB0byB0YWtlIG92ZXIgb3VyIA0KbGFuZCwgaGUgd2lsbCB0cnkgdG8gdW5sZWFzaCB0aGUgRnVyeSBmaXJzdC4NCg0KV2UgYXJlIHJlY3J1aXRpbmcgc3Ryb25nZXN0IHdhcnJpb3IgdG8gZmlnaHQgDQphZ2FpbnN0IEZ1cnkuIA0KRm9yIHRob3NlIHdhcnJpb3JzIHdobyBoYXZlIHN1Y2Nlc3NmdWxseSBwYXNzZWQgDQp0aGlzIHRlc3QsIHdpbGwgYmUgcmV3YXJkZWQgYSBncmVhdCB3ZWFwb24gdGhhdCANCndhcyBpbmhlcml0ZWQgZnJvbSBhIHJveWFsIGZhbWlseS4NCg0KSSBndWVzcyBpdCdzIGEgcm95YWwgd2VhcG9uIHRoYXQgaGFzIG1hZGUgDQpieSB0aGUgR29kcy4gSG93IGRvZXMgaXQgc291bmRzPyB3YW5uYSAgdHJ5PyANCg0KDQoNCg=="
+  }
+}

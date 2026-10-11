@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.repeatquest_start_j",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/RepeatQuest_Start_J.sin",
+    "image/Sinimage/Quest/RepeatQuest_Start_J.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/RepeatQuest_Start_J.sin",
+    "legacy_sha256": "e1939a418c8e2bf779b8fb7b8c77059d9df4119686adf18d0f3f49d998b769ad",
+    "legacy_size": 264
+  },
+  "semantic": {
+    "lines": [
+      "How are you? I'm Jin who is doing volunteer",
+      "work during the monster suppression. ",
+      "Are you going out to hunt monsters? ",
+      "I will let you know which monster you need",
+      "to hunt after finishing suppressing monsters.",
+      "Come back to me to get rewards. ",
+      "Good luck to you."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SG93IGFyZSB5b3U/IEknbSBKaW4gd2hvIGlzIGRvaW5nIHZvbHVudGVlcg0Kd29yayBkdXJpbmcgdGhlIG1vbnN0ZXIgc3VwcHJlc3Npb24uIA0KQXJlIHlvdSBnb2luZyBvdXQgdG8gaHVudCBtb25zdGVycz8gDQpJIHdpbGwgbGV0IHlvdSBrbm93IHdoaWNoIG1vbnN0ZXIgeW91IG5lZWQNCnRvIGh1bnQgYWZ0ZXIgZmluaXNoaW5nIHN1cHByZXNzaW5nIG1vbnN0ZXJzLg0KQ29tZSBiYWNrIHRvIG1lIHRvIGdldCByZXdhcmRzLiANCkdvb2QgbHVjayB0byB5b3Uu"
+  }
+}

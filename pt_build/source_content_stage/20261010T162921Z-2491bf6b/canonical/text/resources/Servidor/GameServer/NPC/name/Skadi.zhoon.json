@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.skadi.path_2d56f97915",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Skadi.zhoon",
+    "GameServer/NPC/name/Skadi.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Skadi.zhoon",
+    "legacy_sha256": "edc2ba70dc81300dc72781dc1ce201a47583506a279d8636259bb29b67c20b0b",
+    "legacy_size": 310
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Aventureiro Skadi"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Olá! Sou Skadi e viajei por todo o continente de Priston."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Nasci em uma família de viajantes e tenho um irmão gêmeo. Nestes tempos perigosos, faço trabalho voluntário na vila."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Pode dizer 'olá' ao meu irmão mais novo por mim? ^0^"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Ta2FkaS5ucGMNCg0KKkpfTkFNRQkJIkF2ZW50dXJlaXJvIFNrYWRpIg0KDQoqSl9DSEFUCQkiT2zhISBTb3UgU2thZGkgZSB2aWFqZWkgcG9yIHRvZG8gbyBjb250aW5lbnRlIGRlIFByaXN0b24uIiANCipKX0NIQVQJCSJOYXNjaSBlbSB1bWEgZmFt7WxpYSBkZSB2aWFqYW50ZXMgZSB0ZW5obyB1bSBpcm3jbyBn6m1lby4gTmVzdGVzIHRlbXBvcyBwZXJpZ29zb3MsIGZh528gdHJhYmFsaG8gdm9sdW504XJpbyBuYSB2aWxhLiINCipKX0NIQVQJCSJQb2RlIGRpemVyICdvbOEnIGFvIG1ldSBpcm3jbyBtYWlzIG5vdm8gcG9yIG1pbT8gXjBeIg=="
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_5_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_5_Start.sin",
+    "image/Sinimage/Quest/110LVQuest_5_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_5_Start.sin",
+    "legacy_sha256": "789fd061321733d546bcfcd3da0fedab36aca46c88d69263e94f08c55812374a",
+    "legacy_size": 281
+  },
+  "semantic": {
+    "lines": [
+      "Não importa quantas vezes já pensei sobre isso, acho que é",
+      "melhor usar explosivos para obliterar a arma. Embora que,",
+      "explosivos comuns não devam fazer muito efeito.",
+      "",
+      "Vá pegar um conselho com Newter, o Sábio.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Vá até Pillai e fale com Newter, o Sábio."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TuNvIGltcG9ydGEgcXVhbnRhcyB2ZXplcyBq4SBwZW5zZWkgc29icmUgaXNzbywgYWNobyBxdWUg6Q0KbWVsaG9yIHVzYXIgZXhwbG9zaXZvcyBwYXJhIG9ibGl0ZXJhciBhIGFybWEuIEVtYm9yYSBxdWUsDQpleHBsb3Npdm9zIGNvbXVucyBu428gZGV2YW0gZmF6ZXIgbXVpdG8gZWZlaXRvLg0KDQpW4SBwZWdhciB1bSBjb25zZWxobyBjb20gTmV3dGVyLCBvIFPhYmlvLg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KVuEgYXTpIFBpbGxhaSBlIGZhbGUgY29tIE5ld3RlciwgbyBT4WJpby4="
+  }
+}

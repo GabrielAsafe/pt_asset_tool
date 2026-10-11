@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monavellriskbow.monavelriskbow",
+  "logical_config": "char/monster/monavellriskbow/monavelriskbow.ini",
+  "legacy_cache": "char/monster/monavellriskbow/monavelriskbow.inx",
+  "consumers": [
+    {
+      "id": "monster.80_centauro_arqueira",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/80_Centauro Arqueira.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monavellriskbow/monavelriskbow.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monavellriskbow/monavelriskbow.inx"
+    }
+  }
+}

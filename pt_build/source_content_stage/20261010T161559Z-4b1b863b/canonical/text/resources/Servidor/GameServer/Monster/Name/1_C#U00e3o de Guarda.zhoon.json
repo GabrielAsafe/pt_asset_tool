@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_c_u00e3o_de_guarda",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_C#U00e3o de Guarda.zhoon",
+    "GameServer/Monster/Name/1_C#U00e3o de Guarda.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_C#U00e3o de Guarda.zhoon",
+    "legacy_sha256": "b141c50a0558c012544ac691909f080b07ebf03124e106f9860bbd88db3de2ad",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cão de Guarda"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ+NvIGRlIEd1YXJkYSI="
+  }
+}

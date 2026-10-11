@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.templer",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/templer.zhoon",
+    "GameServer/NPC/name/templer.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/templer.zhoon",
+    "legacy_sha256": "3ef53951a78b5c38ac7b53ff1c5e805a094e95c640843a95310c9a4ba86d4c63",
+    "legacy_size": 377
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Clériga do Templo"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "O Primeiro Andar do Templo está aberto agora. Não vá lá! É muito perigoso!"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Tenha cuidado! Monstros ainda piores aparecem no Segundo Andar!"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Somente Guerreiros acima do Nível 75 poderão entrar no Segundo Andar do Templo..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Pela lei desta região, somente guerreiros acima do Nível 70 podem entrar..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkNs6XJpZ2EgZG8gVGVtcGxvIg0KDQoqSl9DSEFUCQkiTyBQcmltZWlybyBBbmRhciBkbyBUZW1wbG8gZXN04SBhYmVydG8gYWdvcmEuIE7jbyB24SBs4SEgySBtdWl0byBwZXJpZ29zbyEiDQoqSl9DSEFUCQkiVGVuaGEgY3VpZGFkbyEgTW9uc3Ryb3MgYWluZGEgcGlvcmVzIGFwYXJlY2VtIG5vIFNlZ3VuZG8gQW5kYXIhIg0KKkpfQ0hBVAkJIlNvbWVudGUgR3VlcnJlaXJvcyBhY2ltYSBkbyBO7XZlbCA3NSBwb2RlcuNvIGVudHJhciBubyBTZWd1bmRvIEFuZGFyIGRvIFRlbXBsby4uLiINCipKX0NIQVQJCSJQZWxhIGxlaSBkZXN0YSByZWdp428sIHNvbWVudGUgZ3VlcnJlaXJvcyBhY2ltYSBkbyBO7XZlbCA3MCBwb2RlbSBlbnRyYXIuLi4iDQo="
+  }
+}

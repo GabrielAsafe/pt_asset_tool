@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.64_rosa_sangrenta",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/64_Rosa Sangrenta.zhoon",
+    "GameServer/Monster/Name/64_Rosa Sangrenta.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/64_Rosa Sangrenta.zhoon",
+    "legacy_sha256": "7424ff2ea8c3117794445eb5d7b289c998314faca69d9da947779df5ca42c8c4",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Rosa Sangrenta"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUm9zYSBTYW5ncmVudGEi"
+  }
+}

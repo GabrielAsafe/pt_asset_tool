@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.qw105",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/QW105.txt",
+    "GameServer/OpenItem/QW105.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/QW105.txt",
+    "legacy_sha256": "546655cb2eb7970e97389770c22e3c21a8b7d3a9268ff50350220d5f2ec1a0a6",
+    "legacy_size": 187
+  },
+  "semantic": {
+    "fields": {
+      "code": "QW105",
+      "name": "Asa do Caos",
+      "english_name": "Asa do Caos",
+      "weight": 1,
+      "price": 150000,
+      "linked_file": "Name\\QW105.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "QW105"
+        ],
+        "raw_values_hex": [
+          "5157313035"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Asa do Caos"
+        ],
+        "raw_values_hex": [
+          "41736120646f2043616f73"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Asa do Caos"
+        ],
+        "raw_values_hex": [
+          "41736120646f2043616f73"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          150000
+        ],
+        "raw_values_hex": [
+          "313530303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\QW105.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c51573130352e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlFXMTA1Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQXNhIGRvIENhb3MiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQXNhIGRvIENhb3MiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDE1MDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFFXMTA1Lnpob29uIg=="
+  }
+}

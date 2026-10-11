@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.guardpillai",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Guardpillai.Zhoon",
+    "GameServer/NPC/name/Guardpillai.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Guardpillai.Zhoon",
+    "legacy_sha256": "8e47129687dfbe0d03491960bb09623aa5daab891c3147a9f3276a005fe8d1b7",
+    "legacy_size": 253
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Guarda de Pillai"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Esta é cidade flutuante Phillai, tenha cuidado se voce cair e morte certa."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Algumas pessoas estão tentando para entrar na prisão para chamar a atenção, isso e  uma vergonha"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9HdWFyZHBpbGxhaS5OUEMNCg0KDQoqSl9OYW1lCSJHdWFyZGEgZGUgUGlsbGFpIg0KDQoNCipKX0NoYXQJIkVzdGEg6SBjaWRhZGUgZmx1dHVhbnRlIFBoaWxsYWksIHRlbmhhIGN1aWRhZG8gc2Ugdm9jZSBjYWlyIGUgbW9ydGUgY2VydGEuIg0KDQoqSl9DaGF0CSJBbGd1bWFzIHBlc3NvYXMgZXN0428gdGVudGFuZG8gcGFyYSBlbnRyYXIgbmEgcHJpc+NvIHBhcmEgY2hhbWFyIGEgYXRlbufjbywgaXNzbyBlICB1bWEgdmVyZ29uaGEiDQoNCg=="
+  }
+}

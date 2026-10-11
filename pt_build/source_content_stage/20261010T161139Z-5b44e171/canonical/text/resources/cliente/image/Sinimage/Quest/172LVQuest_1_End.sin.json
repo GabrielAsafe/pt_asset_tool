@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_1_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_1_End.sin",
+    "image/Sinimage/Quest/172LVQuest_1_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_1_End.sin",
+    "legacy_sha256": "468874928ece0aed0bff4dc66a9b795cf415de6534d730808e502599c80d0662",
+    "legacy_size": 564
+  },
+  "semantic": {
+    "lines": [
+      "Houve outro tremor dentro da caverna? Todos estão bem?",
+      "",
+      "Uma voz misteriosa? Sim, ouvimos. Ela disse:",
+      "\"Não! Voltem! Não contaminem o reino sagrado com sua",
+      "insignificância!\" ",
+      "Ouvi essas palavras saindo da boca de Diana, quando ela",
+      "entrou em transe. Acredito que a voz misteriosa foi ouvida",
+      "em todo o continente.",
+      "",
+      "Após atravessarem a passagem, se depararam com um céu",
+      "vermelho? O ar é escaldante e sufocante... Havia lava por",
+      "todo lado? Deve ser um local terrível.",
+      "Precisamos de mais informações.",
+      "",
+      "Por favor, cuide de seus ferimentos e volte mais tarde."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SG91dmUgb3V0cm8gdHJlbW9yIGRlbnRybyBkYSBjYXZlcm5hPyBUb2RvcyBlc3TjbyBiZW0/DQoNClVtYSB2b3ogbWlzdGVyaW9zYT8gU2ltLCBvdXZpbW9zLiBFbGEgZGlzc2U6DQoiTuNvISBWb2x0ZW0hIE7jbyBjb250YW1pbmVtIG8gcmVpbm8gc2FncmFkbyBjb20gc3VhDQppbnNpZ25pZmlj4m5jaWEhIiANCk91dmkgZXNzYXMgcGFsYXZyYXMgc2FpbmRvIGRhIGJvY2EgZGUgRGlhbmEsIHF1YW5kbyBlbGENCmVudHJvdSBlbSB0cmFuc2UuIEFjcmVkaXRvIHF1ZSBhIHZveiBtaXN0ZXJpb3NhIGZvaSBvdXZpZGENCmVtIHRvZG8gbyBjb250aW5lbnRlLg0KDQpBcPNzIGF0cmF2ZXNzYXJlbSBhIHBhc3NhZ2VtLCBzZSBkZXBhcmFyYW0gY29tIHVtIGPpdQ0KdmVybWVsaG8/IE8gYXIg6SBlc2NhbGRhbnRlIGUgc3Vmb2NhbnRlLi4uIEhhdmlhIGxhdmEgcG9yDQp0b2RvIGxhZG8/IERldmUgc2VyIHVtIGxvY2FsIHRlcnLtdmVsLg0KUHJlY2lzYW1vcyBkZSBtYWlzIGluZm9ybWHn9WVzLg0KDQpQb3IgZmF2b3IsIGN1aWRlIGRlIHNldXMgZmVyaW1lbnRvcyBlIHZvbHRlIG1haXMgdGFyZGUu"
+  }
+}

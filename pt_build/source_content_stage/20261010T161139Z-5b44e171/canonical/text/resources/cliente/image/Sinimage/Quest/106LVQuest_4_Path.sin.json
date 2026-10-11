@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_4_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/106LVQuest_4_Path.sin",
+    "image/Sinimage/Quest/106LVQuest_4_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/106LVQuest_4_Path.sin",
+    "legacy_sha256": "e9c8b631ec395a272a9397000e838f1c8576621f7b1423472831c217adcebf9b",
+    "legacy_size": 114
+  },
+  "semantic": {
+    "lines": [
+      "Por favor, vá até a Mina de Gelo (1º Andar), derrote o Golem",
+      "Minerador, e me traga um Cristal Mágico Concentrado."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UG9yIGZhdm9yLCB24SBhdOkgYSBNaW5hIGRlIEdlbG8gKDG6IEFuZGFyKSwgZGVycm90ZSBvIEdvbGVtDQpNaW5lcmFkb3IsIGUgbWUgdHJhZ2EgdW0gQ3Jpc3RhbCBN4WdpY28gQ29uY2VudHJhZG8u"
+  }
+}

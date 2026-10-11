@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.d_wing_b",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/D_Wing_b.sin",
+    "image/Sinimage/Quest/D_Wing_b.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/D_Wing_b.sin",
+    "legacy_sha256": "4c706524183295921479dc817033b7389fe554c2ae0c44bda824dfaa55cf8ee0",
+    "legacy_size": 447
+  },
+  "semantic": {
+    "lines": [
+      "It wasn't easy, huh? I will give you a dia wing as I ",
+      "promised.",
+      "",
+      "You should be proud of using it because it is the ",
+      "best wing you can get out there.",
+      "I will go find a way to make a better wing from now ",
+      "on.",
+      "",
+      "The dia wing is the best I can produce, at least now.",
+      "I haven't found a way to produce a better one, but ",
+      "one day I know I will eventually be able to figure ",
+      "out a way to make the better wing.",
+      "So stop by some time in the future."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SXQgd2Fzbid0IGVhc3ksIGh1aD8gSSB3aWxsIGdpdmUgeW91IGEgZGlhIHdpbmcgYXMgSSANCnByb21pc2VkLg0KDQpZb3Ugc2hvdWxkIGJlIHByb3VkIG9mIHVzaW5nIGl0IGJlY2F1c2UgaXQgaXMgdGhlIA0KYmVzdCB3aW5nIHlvdSBjYW4gZ2V0IG91dCB0aGVyZS4NCkkgd2lsbCBnbyBmaW5kIGEgd2F5IHRvIG1ha2UgYSBiZXR0ZXIgd2luZyBmcm9tIG5vdyANCm9uLg0KDQpUaGUgZGlhIHdpbmcgaXMgdGhlIGJlc3QgSSBjYW4gcHJvZHVjZSwgYXQgbGVhc3Qgbm93Lg0KSSBoYXZlbid0IGZvdW5kIGEgd2F5IHRvIHByb2R1Y2UgYSBiZXR0ZXIgb25lLCBidXQgDQpvbmUgZGF5IEkga25vdyBJIHdpbGwgZXZlbnR1YWxseSBiZSBhYmxlIHRvIGZpZ3VyZSANCm91dCBhIHdheSB0byBtYWtlIHRoZSBiZXR0ZXIgd2luZy4NClNvIHN0b3AgYnkgc29tZSB0aW1lIGluIHRoZSBmdXR1cmUu"
+  }
+}

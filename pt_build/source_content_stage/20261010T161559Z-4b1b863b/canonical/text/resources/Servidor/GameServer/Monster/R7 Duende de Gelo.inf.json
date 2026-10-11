@@ -1,0 +1,388 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.r7_duende_de_gelo",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/R7 Duende de Gelo.inf",
+    "GameServer/Monster/R7 Duende de Gelo.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/R7 Duende de Gelo.inf",
+    "legacy_sha256": "fef7d8c0ca4f6df349fba75548d5ae710ed86fe78f1f58796741f9ca8361996b",
+    "legacy_size": 751
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\icegoblin\\icegoblin.ini",
+      "name": "R7 Duende de Gelo",
+      "level": 86,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 350,
+      "life": 8500,
+      "attack_damage": [
+        100,
+        165
+      ],
+      "attack_rating": 1250,
+      "attack_speed": 7,
+      "attack_range": 80,
+      "skill_damage": [
+        200,
+        220
+      ],
+      "skill_rating": 15,
+      "skill_range": 70,
+      "skill_distance": 90,
+      "defence": 760,
+      "block": 14,
+      "move_speed": 5,
+      "monster_race": "노멀",
+      "size": "중대형",
+      "experience": 156000,
+      "effect_sound": "ICEGOBLIN",
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.icegoblin.icegoblin"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\icegoblin\\icegoblin.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c696365676f626c696e5c696365676f626c696e2e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "R7 Duende de Gelo"
+        ],
+        "raw_values_hex": [
+          "5237204475656e64652064652047656c6f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          86
+        ],
+        "raw_values_hex": [
+          "3836"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          350
+        ],
+        "raw_values_hex": [
+          "333530"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          8500
+        ],
+        "raw_values_hex": [
+          "38353030"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          100,
+          165
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313635"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1250
+        ],
+        "raw_values_hex": [
+          "31323530"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "skill_damage",
+        "legacy_token": "*기술공격력",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          200,
+          220
+        ],
+        "raw_values_hex": [
+          "323030",
+          "323230"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "skill_range",
+        "legacy_token": "*기술공격범위",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "skill_distance",
+        "legacy_token": "*기술공격거리",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb0c5b8ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          90
+        ],
+        "raw_values_hex": [
+          "3930"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          760
+        ],
+        "raw_values_hex": [
+          "373630"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          14
+        ],
+        "raw_values_hex": [
+          "3134"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "노멀"
+        ],
+        "raw_values_hex": [
+          "b3ebb8d6"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          156000
+        ],
+        "raw_values_hex": [
+          "313536303030"
+        ]
+      },
+      {
+        "line": 68,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "ICEGOBLIN"
+        ],
+        "raw_values_hex": [
+          "494345474f424c494e"
+        ]
+      },
+      {
+        "line": 71,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcaWNlZ29ibGluXGljZWdvYmxpbi5pbmkiDQoNCi8vTmFtZQ0KKsDMuKcgIlI3IER1ZW5kZSBkZSBHZWxvIg0KDQovL0xldmVsDQoqt7m6pyA4Ng0KDQovL1NpemUNCiq48LWoxamx4iAxLjANCg0KLy9TcGF3blF1YW50aXR5DQoqwbbB9yAxIDENCg0KLy9WaWV3UmFuZ2UNCiq9w77fIDM1MA0KDQovL0hQDQoqu/247bfCIDg1MDANCg0KLy9BdHRhY2tQb3dlcg0KKrD4sN23wiAxMDAgMTY1DQoNCi8vQXR0YWNrUmF0aW5nDQoquO3B37fCIDEyNTANCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDcNCg0KLy9BdHRhY2tSYW5nZQ0KKrD4sN25/MCnIDgwDQoNCi8vU2tpbGxQb3dlcg0KKrHivPqw+LDdt8IgMjAwIDIyMA0KDQovL1NraWxsUmF0aW5nDQoqseK8+rD4sN23/CAxNQ0KDQovL1NraWxsUmFuZ2UNCiqx4rz6sPiw3bn8wKcgNzANCg0KLy9Ta2lsbERpc3RhbmNlDQoqseK8+rD4sN2wxbiuIDkwDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA3NjANCg0KLy9CbG9jaw0KKrrtt7DAsiAxNA0KDQovL01vdmVTcGVlZA0KKsDMtb+3wiA1DQoNCi8vUmFjZQ0KKrjzvbrFzcG+wbcgs+u41g0KDQovL1NoYWRvd1NpemUNCirFqbHiIMHftOvH/A0KDQovL0V4cGVyaWVuY2UNCiqw5sfoxKEgMTU2MDAwDQoNCi8vU291bmQNCirIv7D6wL0gSUNFR09CTElODQoNCi8vRXh0ZXJuIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxOYW1lLnpob29uIg=="
+  }
+}

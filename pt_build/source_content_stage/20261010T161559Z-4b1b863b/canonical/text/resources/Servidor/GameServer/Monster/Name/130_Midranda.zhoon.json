@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130_midranda",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/130_Midranda.zhoon",
+    "GameServer/Monster/Name/130_Midranda.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/130_Midranda.zhoon",
+    "legacy_sha256": "7f17e367721502a2c89db8c667ebbc6c09c408a4084fd06053205223484966c4",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Midranda"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8xMzBfTWlkcmFuZGEuaW5mDQoNCipKX05BTUUgIk1pZHJhbmRhIg=="
+  }
+}

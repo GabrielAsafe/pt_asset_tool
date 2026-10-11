@@ -1,0 +1,149 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.bronzwolverin",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/bronzWolverin.npc",
+    "GameServer/NPC/bronzWolverin.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/bronzWolverin.npc",
+    "legacy_sha256": "a32a2915dcd2e935b4e38745078f33e5f21bb39221a850d371b78c39bbeb7e02",
+    "legacy_size": 256
+  },
+  "semantic": {
+    "fields": {
+      "name": "브론즈 울버린",
+      "model_file": "char\\monster\\MonWolverin\\MonWolverin-01.ini",
+      "level": 100,
+      "size": "중대형",
+      "effect_sound": "WOLVERLIN",
+      "event_code": 100,
+      "event_info": 1,
+      "linked_file": "name\\bronzWolverin.zhoon",
+      "model_config_id": "model.char.monster.monwolverin.monwolverin.01"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "브론즈 울버린"
+        ],
+        "raw_values_hex": [
+          "baeab7d0c1ee20bfefb9f6b8b0"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\MonWolverin\\MonWolverin-01.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c4d6f6e576f6c766572696e5c4d6f6e576f6c766572696e2d30312e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 7,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "WOLVERLIN"
+        ],
+        "raw_values_hex": [
+          "574f4c5645524c494e"
+        ]
+      },
+      {
+        "line": 11,
+        "key": "event_code",
+        "legacy_token": "*이벤트코드",
+        "legacy_token_hex": "2ac0ccbaa5c6aec4dab5e5",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "event_info",
+        "legacy_token": "*이벤트정보",
+        "legacy_token_hex": "2ac0ccbaa5c6aec1a4bab8",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\bronzWolverin.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c62726f6e7a576f6c766572696e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK66rfQwe4gv++59riwIg0KKrjwvufGxMDPCSJjaGFyXG1vbnN0ZXJcTW9uV29sdmVyaW5cTW9uV29sdmVyaW4tMDEuaW5pIg0KKre5uqcJCTEwMA0KLy8qtOvIrQkJIsS8v8AhIMC4uKO3ty4uLiINCi8vKrTryK0JCSK/9r/sfn4iDQoNCirFqbHiCQnB37Trx/wNCirIv7D6wL0JCQlXT0xWRVJMSU4NCg0KDQoqwMy6pcauxNq15QkJMTAwDQoqwMy6pcauwaS6uAkJMQ0KDQoqv6yw4cbEwM8JIm5hbWVcYnJvbnpXb2x2ZXJpbi56aG9vbiINCg=="
+  }
+}

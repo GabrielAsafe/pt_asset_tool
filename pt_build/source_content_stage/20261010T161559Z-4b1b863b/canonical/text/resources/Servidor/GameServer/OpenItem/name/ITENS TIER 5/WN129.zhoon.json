@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn129",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN129.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN129.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN129.zhoon",
+    "legacy_sha256": "403cf16707789f0b612f58b3ddfa16c10553b4a8510e779c6239cf68e6370deb",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Verus Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjEyOS50eHQNCg0KKkpfTkFNRQkJCSJWZXJ1cyBQaGFudG9tIg=="
+  }
+}

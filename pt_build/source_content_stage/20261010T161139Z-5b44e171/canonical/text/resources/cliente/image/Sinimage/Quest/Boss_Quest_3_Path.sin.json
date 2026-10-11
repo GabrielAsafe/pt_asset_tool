@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_3_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_3_Path.sin",
+    "image/Sinimage/Quest/Boss_Quest_3_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_3_Path.sin",
+    "legacy_sha256": "7e4f9fa794f1c33779562ecf756601ef51ac7f2097410be1c17607832ccd61a7",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "lines": [
+      "Derrote o Golem Ancião em Oásis."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBvIEdvbGVtIEFuY2njbyBlbSBP4XNpcy4NCg=="
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_2_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/130LVQuest_2_Start.sin",
+    "image/Sinimage/Quest/130LVQuest_2_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/130LVQuest_2_Start.sin",
+    "legacy_sha256": "3f18a22b452bdb5ee0a370bf9fff3fb9ebf3f8c41fb990d32fd2b6e946ce6eb3",
+    "legacy_size": 590
+  },
+  "semantic": {
+    "lines": [
+      "Já pegou tudo que precisa? Essa missão será perigosa.",
+      "Boa parte da malha dimensional foi restaurada. Porém, essa",
+      "brecha se transformou no portal para a Dimensão Sombria.",
+      "",
+      "Acreditava-se que a Dimensão Sombria era um mito. Ela foi",
+      "definida como um universo paralelo que coexiste com o",
+      "nosso mundo no espaço-tempo, porém, em outra dimensão.",
+      "",
+      "Precisamos de informações. Leve e instale essa C-stone,",
+      "para coletar os dados necessários. Tenha cuidado!",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Explore a Estrada Sombria e instale a CStone no local",
+      "correto. Ao terminar, fale com o Xamã Real novamente."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SuEgcGVnb3UgdHVkbyBxdWUgcHJlY2lzYT8gRXNzYSBtaXNz428gc2Vy4SBwZXJpZ29zYS4NCkJvYSBwYXJ0ZSBkYSBtYWxoYSBkaW1lbnNpb25hbCBmb2kgcmVzdGF1cmFkYS4gUG9y6W0sIGVzc2ENCmJyZWNoYSBzZSB0cmFuc2Zvcm1vdSBubyBwb3J0YWwgcGFyYSBhIERpbWVuc+NvIFNvbWJyaWEuDQoNCkFjcmVkaXRhdmEtc2UgcXVlIGEgRGltZW5z428gU29tYnJpYSBlcmEgdW0gbWl0by4gRWxhIGZvaQ0KZGVmaW5pZGEgY29tbyB1bSB1bml2ZXJzbyBwYXJhbGVsbyBxdWUgY29leGlzdGUgY29tIG8NCm5vc3NvIG11bmRvIG5vIGVzcGHnby10ZW1wbywgcG9y6W0sIGVtIG91dHJhIGRpbWVuc+NvLg0KDQpQcmVjaXNhbW9zIGRlIGluZm9ybWHn9WVzLiBMZXZlIGUgaW5zdGFsZSBlc3NhIEMtc3RvbmUsDQpwYXJhIGNvbGV0YXIgb3MgZGFkb3MgbmVjZXNz4XJpb3MuIFRlbmhhIGN1aWRhZG8hDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpFeHBsb3JlIGEgRXN0cmFkYSBTb21icmlhIGUgaW5zdGFsZSBhIENTdG9uZSBubyBsb2NhbA0KY29ycmV0by4gQW8gdGVybWluYXIsIGZhbGUgY29tIG8gWGFt4yBSZWFsIG5vdmFtZW50ZS4="
+  }
+}

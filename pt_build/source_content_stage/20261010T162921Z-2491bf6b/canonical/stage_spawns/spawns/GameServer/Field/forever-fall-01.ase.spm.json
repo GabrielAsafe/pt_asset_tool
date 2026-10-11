@@ -1,0 +1,59 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.forever_fall_01",
+  "logical_path": "GameServer/Field/forever-fall-01.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/forever-fall-01.ase.spm",
+    "sha256": "a556bf7ae068c647d9ee12bbb8406af34b4aec6645e02a4b1de3e8a8ced47479"
+  },
+  "limit_max": 110,
+  "delay": {
+    "shift": 5,
+    "milliseconds": 14000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.1_coelho",
+      "legacy_name": "래비",
+      "legacy_name_bytes_hex": "b7a1baf1",
+      "weight": 40,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Coelho"
+    },
+    {
+      "monster_id": "monster.2_coelha",
+      "legacy_name": "토비",
+      "legacy_name_bytes_hex": "c5e4baf1",
+      "weight": 10,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Coelha"
+    },
+    {
+      "monster_id": "monster.3_cogumelo",
+      "legacy_name": "머쉬",
+      "legacy_name_bytes_hex": "b8d3bdac",
+      "weight": 20,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Cogumelo"
+    },
+    {
+      "monster_id": "monster.5_zeldi",
+      "legacy_name": "젤디",
+      "legacy_name_bytes_hex": "c1a9b5f0",
+      "weight": 22,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Zeldi"
+    },
+    {
+      "monster_id": "monster.4_duende_selvagem",
+      "legacy_name": "노쓰고블린",
+      "legacy_name_bytes_hex": "b3ebbeb2b0edbaedb8b0",
+      "weight": 8,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Duende Selvagem"
+    }
+  ],
+  "bosses": []
+}

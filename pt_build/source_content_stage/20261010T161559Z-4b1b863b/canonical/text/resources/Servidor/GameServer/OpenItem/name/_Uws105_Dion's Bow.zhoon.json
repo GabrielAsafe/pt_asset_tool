@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uws105_dion_s_bow",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uws105_Dion's Bow.zhoon",
+    "GameServer/OpenItem/name/_Uws105_Dion's Bow.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uws105_Dion's Bow.zhoon",
+    "legacy_sha256": "9e54ba72b1720eef327e2fa0717b6185f807b3f735753dc4d6b1cae9a9feb14a",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Arco de Dion's"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIkFyY28gZGUgRGlvbidzIg=="
+  }
+}

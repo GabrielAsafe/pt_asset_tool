@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monrebion.monrebion",
+  "logical_config": "char/monster/monrebion/monrebion.ini",
+  "legacy_cache": "char/monster/monrebion/monrebion.inx",
+  "consumers": [
+    {
+      "id": "monster.8_coelho_mutante",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/8_Coelho Mutante.inf.json"
+    },
+    {
+      "id": "monster.dentu_u00e7o_gigante.path_84a09dd58c",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Dentu#U00e7o Gigante.inf.json"
+    },
+    {
+      "id": "monster.dentu_u00e7o_gigante.path_a50f07cd5c",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Evento de P#U00e1scoa/Dentu#U00e7o Gigante.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monrebion/Monrebion.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monrebion/Monrebion.inx"
+    }
+  }
+}

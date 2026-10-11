@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.phillay_imbue",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/phillay-imbue.zhoon",
+    "GameServer/NPC/name/phillay-imbue.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/phillay-imbue.zhoon",
+    "legacy_sha256": "c19eb01eeb24bbebf9fc312cda98e20c13b56346fc7960dea46e84b5adad50ca",
+    "legacy_size": 444
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Moriph, o Misterioso"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ouvi dizer que agora existe uma pedra que aumenta a chance de sucesso no aprimoramento...^^"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Este sistema foi criado para buscar o desempenho máximo dos itens, mas, existe um certo risco em seu uso..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Alguns itens podem ser perdidos durante o processo, mas ele é muito mais eficaz do que a Mixagem."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você poderá fazer o aprimoramento a qualquer momento, se tiver os recursos necessários."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIk1vcmlwaCwgbyBNaXN0ZXJpb3NvIg0KDQoqSl9DSEFUCQkiT3V2aSBkaXplciBxdWUgYWdvcmEgZXhpc3RlIHVtYSBwZWRyYSBxdWUgYXVtZW50YSBhIGNoYW5jZSBkZSBzdWNlc3NvIG5vIGFwcmltb3JhbWVudG8uLi5eXiINCipKX0NIQVQJCSJWb2PqIHBvZGVy4SBmYXplciBvIGFwcmltb3JhbWVudG8gYSBxdWFscXVlciBtb21lbnRvLCBzZSB0aXZlciBvcyByZWN1cnNvcyBuZWNlc3Phcmlvcy4iDQoqSl9DSEFUCQkiQWxndW5zIGl0ZW5zIHBvZGVtIHNlciBwZXJkaWRvcyBkdXJhbnRlIG8gcHJvY2Vzc28sIG1hcyBlbGUg6SBtdWl0byBtYWlzIGVmaWNheiBkbyBxdWUgYSBNaXhhZ2VtLiINCipKX0NIQVQJCSJWb2PqIHBvZGVy4SBmYXplciBvIEFnaW5nLCBhIHF1YWxxdWVyIG1vbWVudG8sIHNlIHRpdmVyIG9zIHJlY3Vyc29zIG5lY2Vzc+FyaW9zLiINCg0K"
+  }
+}

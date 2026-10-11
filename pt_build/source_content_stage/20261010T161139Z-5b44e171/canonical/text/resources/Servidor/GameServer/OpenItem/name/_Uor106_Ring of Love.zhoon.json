@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uor106_ring_of_love",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uor106_Ring of Love.zhoon",
+    "GameServer/OpenItem/name/_Uor106_Ring of Love.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uor106_Ring of Love.zhoon",
+    "legacy_sha256": "57ecd7440360208fb2d2573ec379e63c27864c7d320e428bcb951b2c7732a73b",
+    "legacy_size": 57
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Ring of Love"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9fVW9yMTA2X1Jpbmcgb2YgTG92ZS50eHQNCg0KKkpfTmFtZQkJIlJpbmcgb2YgTG92ZSINCg0K"
+  }
+}

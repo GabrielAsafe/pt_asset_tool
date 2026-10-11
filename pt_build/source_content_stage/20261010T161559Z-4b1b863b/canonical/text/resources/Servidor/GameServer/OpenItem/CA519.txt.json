@@ -1,0 +1,199 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ca519",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CA519.txt",
+    "GameServer/OpenItem/CA519.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CA519.txt",
+    "legacy_sha256": "5f5b881ca819a7e3e695d8e6e2fa94ed0afc820d0f90fb999ff59ae3990998d9",
+    "legacy_size": 318
+  },
+  "semantic": {
+    "fields": {
+      "code": "CA519",
+      "name": "Traje Romântico 1d",
+      "english_name": "Traje Romântico 1d",
+      "weight": 1,
+      "level": 10,
+      "defence": [
+        130,
+        130
+      ],
+      "absorb": [
+        12.0,
+        12.0
+      ],
+      "life_add_alt": [
+        130,
+        130
+      ],
+      "mana_add_alt": [
+        120,
+        120
+      ],
+      "linked_file": "Name\\CA519.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CA519"
+        ],
+        "raw_values_hex": [
+          "4341353139"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Romântico 1d"
+        ],
+        "raw_values_hex": [
+          "5472616a6520526f6de26e7469636f203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Romântico 1d"
+        ],
+        "raw_values_hex": [
+          "5472616a6520526f6de26e7469636f203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          130,
+          130
+        ],
+        "raw_values_hex": [
+          "313330",
+          "313330"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          12.0,
+          12.0
+        ],
+        "raw_values_hex": [
+          "31322e30",
+          "31322e30"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          130,
+          130
+        ],
+        "raw_values_hex": [
+          "313330",
+          "313330"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          120,
+          120
+        ],
+        "raw_values_hex": [
+          "313230",
+          "313230"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\CA519.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c43413531392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkNBNTE5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiVHJhamUgUm9t4m50aWNvIDFkIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIlRyYWplIFJvbeJudGljbyAxZCINCg0KLy9XZWlnaHQNCiq5q7DUIDENCg0KLy9MZXZlbA0KKre5uqcgMTANCg0KLy9EZWZlbnNlDQoquea+7rfCIDEzMCAxMzANCg0KLy9BYnNvcnB0aW9uDQoqyO289rfCIDEyLjAgMTIuMA0KDQovL0hQDQoqu/247bfCw9+woSAxMzAgMTMwDQoNCi8vTVANCiqx4rfCw9+woSAxMjAgMTIwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQ0E1MTkuemhvb24i"
+  }
+}

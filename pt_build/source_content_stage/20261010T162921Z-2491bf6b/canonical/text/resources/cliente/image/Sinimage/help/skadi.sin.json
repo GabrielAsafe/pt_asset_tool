@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.skadi.path_b8e07564e5",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/skadi.sin",
+    "image/Sinimage/help/skadi.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/skadi.sin",
+    "legacy_sha256": "288c2f73f1a73a67a8cf02557e83cc560f333301606a40b5a7ec9e62934301d5",
+    "legacy_size": 1066
+  },
+  "semantic": {
+    "lines": [
+      "Olá!",
+      "",
+      "Eu sou Skadi e estou aqui para formar você para a batalha.",
+      "O Conselho Real me pediu um exército e eu darei um a eles!",
+      "A minha irmã Jin está em Pillai, agora, treinando seus irmãos Morions, assim como estou fazendo com você e outros jovens Tempskrons.",
+      "O nosso inimigo é poderoso, mas temos um plano para vencê-lo.",
+      "Eu e minha irmã somos filhas nascidas em uma família de viajantes e, assim como o Owen, nós somos nômades.",
+      "O destino nos uniu, nos confins do continente, para defender as nossas fronteiras contra ameaças de outros mundos.",
+      "Agora, precisamos lutar e vencer a Guerra dos Mundos no território inimigo.",
+      "Hoje, é o primeiro dia do resto da sua vida! A sua obrigação é retornar, diariamente, para completar uma missão.",
+      "Concluindo o desafio, eu lhe darei os suprimentos que você precisará para continuar a sua caminhada evolutiva.",
+      "A sua jornada comigo, começa no Nível 8 e termina no Nível 30.",
+      "A partir do Nível 31, você passará a ser instruído pelo meu companheiro de inúmeras batalhas, o Caçador Owen.",
+      "Então, podemos começar? Prepare-se!",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhIQ0KDQpFdSBzb3UgU2thZGkgZSBlc3RvdSBhcXVpIHBhcmEgZm9ybWFyIHZvY+ogcGFyYSBhIGJhdGFsaGEuDQpPIENvbnNlbGhvIFJlYWwgbWUgcGVkaXUgdW0gZXjpcmNpdG8gZSBldSBkYXJlaSB1bSBhIGVsZXMhDQpBIG1pbmhhIGlybeMgSmluIGVzdOEgZW0gUGlsbGFpLCBhZ29yYSwgdHJlaW5hbmRvIHNldXMgaXJt429zIE1vcmlvbnMsIGFzc2ltIGNvbW8gZXN0b3UgZmF6ZW5kbyBjb20gdm9j6iBlIG91dHJvcyBqb3ZlbnMgVGVtcHNrcm9ucy4NCk8gbm9zc28gaW5pbWlnbyDpIHBvZGVyb3NvLCBtYXMgdGVtb3MgdW0gcGxhbm8gcGFyYSB2ZW5j6i1sby4NCkV1IGUgbWluaGEgaXJt4yBzb21vcyBmaWxoYXMgbmFzY2lkYXMgZW0gdW1hIGZhbe1saWEgZGUgdmlhamFudGVzIGUsIGFzc2ltIGNvbW8gbyBPd2VuLCBu83Mgc29tb3MgbvRtYWRlcy4NCk8gZGVzdGlubyBub3MgdW5pdSwgbm9zIGNvbmZpbnMgZG8gY29udGluZW50ZSwgcGFyYSBkZWZlbmRlciBhcyBub3NzYXMgZnJvbnRlaXJhcyBjb250cmEgYW1lYedhcyBkZSBvdXRyb3MgbXVuZG9zLg0KQWdvcmEsIHByZWNpc2Ftb3MgbHV0YXIgZSB2ZW5jZXIgYSBHdWVycmEgZG9zIE11bmRvcyBubyB0ZXJyaXTzcmlvIGluaW1pZ28uDQpIb2plLCDpIG8gcHJpbWVpcm8gZGlhIGRvIHJlc3RvIGRhIHN1YSB2aWRhISBBIHN1YSBvYnJpZ2Hn428g6SByZXRvcm5hciwgZGlhcmlhbWVudGUsIHBhcmEgY29tcGxldGFyIHVtYSBtaXNz428uDQpDb25jbHVpbmRvIG8gZGVzYWZpbywgZXUgbGhlIGRhcmVpIG9zIHN1cHJpbWVudG9zIHF1ZSB2b2PqIHByZWNpc2Fy4SBwYXJhIGNvbnRpbnVhciBhIHN1YSBjYW1pbmhhZGEgZXZvbHV0aXZhLg0KQSBzdWEgam9ybmFkYSBjb21pZ28sIGNvbWXnYSBubyBO7XZlbCA4IGUgdGVybWluYSBubyBO7XZlbCAzMC4NCkEgcGFydGlyIGRvIE7tdmVsIDMxLCB2b2PqIHBhc3NhcuEgYSBzZXIgaW5zdHJ17WRvIHBlbG8gbWV1IGNvbXBhbmhlaXJvIGRlIGlu+m1lcmFzIGJhdGFsaGFzLCBvIENh52Fkb3IgT3dlbi4NCkVudONvLCBwb2RlbW9zIGNvbWXnYXI/IFByZXBhcmUtc2UhDQoNCg=="
+  }
+}

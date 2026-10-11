@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "pt-BR",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "monster.100_i_willy.name",
+      "text": "I-윌리",
+      "quality": "legacy_fallback",
+      "source": "monster.100_i_willy"
+    }
+  ]
+}

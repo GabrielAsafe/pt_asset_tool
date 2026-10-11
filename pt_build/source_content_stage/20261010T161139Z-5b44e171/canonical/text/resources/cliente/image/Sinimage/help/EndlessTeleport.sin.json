@@ -1,0 +1,43 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.endlessteleport",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/EndlessTeleport.sin",
+    "image/Sinimage/help/EndlessTeleport.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/EndlessTeleport.sin",
+    "legacy_sha256": "47fdc6837b6bf387b7f45603cd9d977d066b0dc47f66201a037e69faf04bf421",
+    "legacy_size": 563
+  },
+  "semantic": {
+    "lines": [
+      "[Teleport] Hey, as you know, I am already",
+      "dead. Long before our fighter ancenstors were",
+      "wiped out from here after the war with demon. ",
+      "But those grieving souls, cursed by Igolas,",
+      "never found peace. At last, those spirits became",
+      "gate guard for the lower floor of Endless Tower. ",
+      "The fighter of the continent, please solace our",
+      "spirits.",
+      "You can't enter this Endless Tower, covered with ",
+      "Igolas's curse on foot, but I will help you.",
+      "Please take care.",
+      "",
+      "------------------Teleport -------------------",
+      "",
+      "¢Â Transporting to the Endless Tower 1F.  ",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "W1RlbGVwb3J0XSBIZXksIGFzIHlvdSBrbm93LCBJIGFtIGFscmVhZHkNCmRlYWQuIExvbmcgYmVmb3JlIG91ciBmaWdodGVyIGFuY2Vuc3RvcnMgd2VyZQ0Kd2lwZWQgb3V0IGZyb20gaGVyZSBhZnRlciB0aGUgd2FyIHdpdGggZGVtb24uIA0KQnV0IHRob3NlIGdyaWV2aW5nIHNvdWxzLCBjdXJzZWQgYnkgSWdvbGFzLA0KbmV2ZXIgZm91bmQgcGVhY2UuIEF0IGxhc3QsIHRob3NlIHNwaXJpdHMgYmVjYW1lDQpnYXRlIGd1YXJkIGZvciB0aGUgbG93ZXIgZmxvb3Igb2YgRW5kbGVzcyBUb3dlci4gDQpUaGUgZmlnaHRlciBvZiB0aGUgY29udGluZW50LCBwbGVhc2Ugc29sYWNlIG91cg0Kc3Bpcml0cy4NCllvdSBjYW4ndCBlbnRlciB0aGlzIEVuZGxlc3MgVG93ZXIsIGNvdmVyZWQgd2l0aCANCklnb2xhcydzIGN1cnNlIG9uIGZvb3QsIGJ1dCBJIHdpbGwgaGVscCB5b3UuDQpQbGVhc2UgdGFrZSBjYXJlLg0KDQotLS0tLS0tLS0tLS0tLS0tLS1UZWxlcG9ydCAtLS0tLS0tLS0tLS0tLS0tLS0tDQoNCqLCIFRyYW5zcG9ydGluZyB0byB0aGUgRW5kbGVzcyBUb3dlciAxRi4gIA0KDQoNCg0KDQo="
+  }
+}

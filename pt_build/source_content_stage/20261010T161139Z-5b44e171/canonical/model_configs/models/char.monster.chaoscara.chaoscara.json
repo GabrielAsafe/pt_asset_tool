@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.chaoscara.chaoscara",
+  "logical_config": "char/monster/chaoscara/chaoscara.ini",
+  "legacy_cache": "char/monster/chaoscara/chaoscara.inx",
+  "consumers": [
+    {
+      "id": "monster.90_caos_cara",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/90_Caos Cara.inf.json"
+    },
+    {
+      "id": "npc.karastears",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/KarasTears.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/chaoscara/chaoscara.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/chaoscara/chaoscara.inx"
+    }
+  }
+}

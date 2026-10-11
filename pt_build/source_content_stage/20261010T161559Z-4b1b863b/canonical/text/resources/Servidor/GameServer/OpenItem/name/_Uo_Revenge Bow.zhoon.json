@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uo_revenge_bow",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uo_Revenge Bow.zhoon",
+    "GameServer/OpenItem/name/_Uo_Revenge Bow.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uo_Revenge Bow.zhoon",
+    "legacy_sha256": "848131f1f64098deec54f6f07f4a1ce3c1a88cf632a3b8064e49b46c682c2ad1",
+    "legacy_size": 57
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Arco de Vingança"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9VV1MxMjJfUmV2ZW5nZSBCb3cudHh0DQoNCipKX05hbWUJCSJBcmNvIGRlIFZpbmdhbudhIg0K"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.lizard_bigmama_2",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/Lizard_Bigmama_2.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/Lizard_Bigmama_2.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/Lizard_Bigmama_2.inf",
+        "GameServer/Monster/Lizard_Bigmama_2.inf"
+      ],
+      "legacy_sha256": "e59563ccb4d346e877158698db3e013aa9758f8221afd99d5aeda6f248ade767"
+    }
+  ]
+}

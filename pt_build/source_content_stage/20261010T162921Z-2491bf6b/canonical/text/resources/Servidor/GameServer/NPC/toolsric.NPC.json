@@ -1,0 +1,196 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.toolsric",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/toolsric.NPC",
+    "GameServer/NPC/toolsric.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/toolsric.NPC",
+    "legacy_sha256": "95589094772f9596628e3dbecc3c45f74df0fa6fbe092ae5803d1368f8276cbc",
+    "legacy_size": 676
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "CHAR\\NPC\\PACKJJANGPY\\PACKJJANGPY.INI",
+      "name": "대장장이 고덴",
+      "english_name": "Abaranbo",
+      "sell_weapon": "없음",
+      "sell_defence": "없음",
+      "sell_etc": [
+        "TW101",
+        "TW102",
+        "TW103",
+        "TW104",
+        "TW105",
+        "TW106",
+        "TW107",
+        "TW108",
+        "TW109",
+        "TW110",
+        "TW111",
+        "TW112",
+        "TW113",
+        "TW115",
+        "TW117"
+      ],
+      "linked_file": "name\\toolsric.zhoon",
+      "model_config_id": "model.char.npc.packjjangpy.packjjangpy"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "CHAR\\NPC\\PACKJJANGPY\\PACKJJANGPY.INI"
+        ],
+        "raw_values_hex": [
+          "434841525c4e50435c5041434b4a4a414e4750595c5041434b4a4a414e4750592e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "대장장이 고덴"
+        ],
+        "raw_values_hex": [
+          "b4ebc0e5c0e5c0cc20b0edb5a7"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Abaranbo"
+        ],
+        "raw_values_hex": [
+          "41626172616e626f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 13,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "TW101",
+          "TW102",
+          "TW103",
+          "TW104",
+          "TW105",
+          "TW106",
+          "TW107",
+          "TW108",
+          "TW109",
+          "TW110",
+          "TW111",
+          "TW112",
+          "TW113",
+          "TW115",
+          "TW117"
+        ],
+        "raw_values_hex": [
+          "5457313031",
+          "5457313032",
+          "5457313033",
+          "5457313034",
+          "5457313035",
+          "5457313036",
+          "5457313037",
+          "5457313038",
+          "5457313039",
+          "5457313130",
+          "5457313131",
+          "5457313132",
+          "5457313133",
+          "5457313135",
+          "5457313137"
+        ]
+      },
+      {
+        "line": 19,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\toolsric.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c746f6f6c737269632e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCSJDSEFSXE5QQ1xQQUNLSkpBTkdQWVxQQUNLSkpBTkdQWS5JTkkiDQoNCirAzLinCQkJIrTrwOXA5cDMILDttaciDQoqTmFtZQkJCSJBYmFyYW5ibyINCg0KLy8qtOvIrQkJCSLAzLD3wLogsPjB37rOvucgtbW9wyDHyrbzwMwgwNS0z7TZLiDBtr3Jx8/B9iC+ysC4uOkgtrO+7sH6wfa1tSC48LiotM+02S4gIg0KLy8qtOvIrQkJCSLAzMLKwMwgvaPAuLfOIMXrx8+0wiDHyrbzwMzAxyDA1LG4wNS0z7TZLiC528C4t84gs6qwoSC9w7fBILDFtecgwPogvtW/oSC/9sfBsNTAzMauIMCnv6EgvK3A1sC4uOkgtcu0z7TZLiINCi8vKrTryK0JCQkiuPC288DMv8LAxyC1tb3Dwfa4uCDF2726xam30MDHIL/Vt6G1tSC4ucC4tM8gs8q5qyCz7rbzwfa0wiC4try8v+QuIg0KLy8qtOvIrQkJCSLAzLD3wMwgx8q288DMwMcgwNSxuLDtIMD6ILrPwsrAuLfOILChuOkgtNm4pSCw98C4t84gwMy1vyCwobTJx9Egv/bHwbDUwMzGrrChIMDWvcC0z7TZLiINCg0KKrmrseLGx7jFCb74wL0NCg0KKrnmvu6xuMbHuMUJvvjAvQ0KDQoqwOLIrcbHuMUJVFcxMDEgVFcxMDIgVFcxMDMgVFcxMDQgVFcxMDUgVFcxMDYgVFcxMDcgVFcxMDggVFcxMDkgVFcxMTAgVFcxMTEgVFcxMTIgVFcxMTMgVFcxMTUgIFRXMTE3DQoNCiq/rLDhxsTAzwkibmFtZVx0b29sc3JpYy56aG9vbiINCg=="
+  }
+}

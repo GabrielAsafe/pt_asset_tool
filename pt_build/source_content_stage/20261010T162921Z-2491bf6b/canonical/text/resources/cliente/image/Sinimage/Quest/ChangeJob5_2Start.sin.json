@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_2start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob5_2Start.sin",
+    "image/Sinimage/Quest/ChangeJob5_2Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob5_2Start.sin",
+    "legacy_sha256": "66ea69af7cb609eee6a4c67e5664582e863ebb6575964663e61218bbc9d574dc",
+    "legacy_size": 408
+  },
+  "semantic": {
+    "lines": [
+      "Você voltou a tempo. Sua habilidade",
+      "é maior do que eu esperava. Entretanto, você",
+      "apenas passou o primeiro teste, então não fique convencido.",
+      "",
+      "Em breve eu vou lhe informar o próximo monstro ",
+      "para caçar. Também há um tempo limite, portanto,",
+      "volte o mais rápido possível assim que terminar.",
+      "Vou começar a contar a partir de agora.",
+      "",
+      "[Quest]",
+      "",
+      "     Cace os monstros escolhidos pelo mestre",
+      "     a tempo."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iB2b2x0b3UgYSB0ZW1wby4gU3VhIGhhYmlsaWRhZGUNCukgbWFpb3IgZG8gcXVlIGV1IGVzcGVyYXZhLiBFbnRyZXRhbnRvLCB2b2PqDQphcGVuYXMgcGFzc291IG8gcHJpbWVpcm8gdGVzdGUsIGVudONvIG7jbyBmaXF1ZSBjb252ZW5jaWRvLg0KDQpFbSBicmV2ZSBldSB2b3UgbGhlIGluZm9ybWFyIG8gcHLzeGltbyBtb25zdHJvIA0KcGFyYSBjYedhci4gVGFtYultIGjhIHVtIHRlbXBvIGxpbWl0ZSwgcG9ydGFudG8sDQp2b2x0ZSBvIG1haXMgcuFwaWRvIHBvc3PtdmVsIGFzc2ltIHF1ZSB0ZXJtaW5hci4NClZvdSBjb21l52FyIGEgY29udGFyIGEgcGFydGlyIGRlIGFnb3JhLg0KDQpbUXVlc3RdDQoNCiAgICAgQ2FjZSBvcyBtb25zdHJvcyBlc2NvbGhpZG9zIHBlbG8gbWVzdHJlDQogICAgIGEgdGVtcG8u"
+  }
+}

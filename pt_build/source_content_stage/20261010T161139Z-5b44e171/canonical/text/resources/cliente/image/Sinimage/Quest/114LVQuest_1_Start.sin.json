@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_1_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_1_Start.sin",
+    "image/Sinimage/Quest/114LVQuest_1_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_1_Start.sin",
+    "legacy_sha256": "98eb5dc680d4d0f745822d518cd66c352c27c19ebe8f837bc931a584d1a16358",
+    "legacy_size": 447
+  },
+  "semantic": {
+    "lines": [
+      "- Preciso chegar até a Arma Antiga. O Greedy pretende",
+      "usá-la contra nós.",
+      "",
+      "- Entendo. Mas, os meus amigos Nihil ainda estão sob",
+      "o controle mental do Greedy e estão machucando",
+      "os pristonianos.",
+      "Por favor, ajude os meus amigos, que se tornaram",
+      "escravos de Midranda, a descansar em paz e eu",
+      "prometo que encontrarei um caminho para",
+      "resolver a sua situação.",
+      "",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Cace 50 Nihil e fale com a Alma Flutuante na Arma Antiga."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "LSBQcmVjaXNvIGNoZWdhciBhdOkgYSBBcm1hIEFudGlnYS4gTyBHcmVlZHkgcHJldGVuZGUNCnVz4S1sYSBjb250cmEgbvNzLg0KDQotIEVudGVuZG8uIE1hcywgb3MgbWV1cyBhbWlnb3MgTmloaWwgYWluZGEgZXN0428gc29iDQpvIGNvbnRyb2xlIG1lbnRhbCBkbyBHcmVlZHkgZSBlc3TjbyBtYWNodWNhbmRvDQpvcyBwcmlzdG9uaWFub3MuDQpQb3IgZmF2b3IsIGFqdWRlIG9zIG1ldXMgYW1pZ29zLCBxdWUgc2UgdG9ybmFyYW0NCmVzY3Jhdm9zIGRlIE1pZHJhbmRhLCBhIGRlc2NhbnNhciBlbSBwYXogZSBldQ0KcHJvbWV0byBxdWUgZW5jb250cmFyZWkgdW0gY2FtaW5obyBwYXJhDQpyZXNvbHZlciBhIHN1YSBzaXR1Yefjby4NCg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KQ2FjZSA1MCBOaWhpbCBlIGZhbGUgY29tIGEgQWxtYSBGbHV0dWFudGUgbmEgQXJtYSBBbnRpZ2Eu"
+  }
+}

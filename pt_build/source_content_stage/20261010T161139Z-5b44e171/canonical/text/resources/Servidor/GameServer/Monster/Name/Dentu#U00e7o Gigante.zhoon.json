@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dentu_u00e7o_gigante.path_e770df3eca",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/Dentu#U00e7o Gigante.zhoon",
+    "GameServer/Monster/Name/Dentu#U00e7o Gigante.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/Dentu#U00e7o Gigante.zhoon",
+    "legacy_sha256": "680879f1d866af09713a2a3cc3f93f7d6f1cc4ee9f6a2478b854d3220ee5717b",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Dentuço Gigante"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRGVudHXnbyBHaWdhbnRlIg=="
+  }
+}

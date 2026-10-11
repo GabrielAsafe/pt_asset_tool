@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_4_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_4_Start.sin",
+    "image/Sinimage/Quest/165LVQuest_4_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_4_Start.sin",
+    "legacy_sha256": "0a32634f0cde0a3fe7151775c28a80b333ee64c97546649581fe06af40ccccc5",
+    "legacy_size": 538
+  },
+  "semantic": {
+    "lines": [
+      "Me desculpe pela demora. Os incidentes com os Fragmentos",
+      "da Alma de Fogo tem aumentado e os tremores continuam ",
+      "ocorrendo. Enviamos um grupo para investigar os tremores.",
+      "Isso tem tomado todo nosso tempo no Conselho Real.",
+      "",
+      "Aqui está, realizei o ritual de purificação. Toda energia",
+      "maligna da insanidade do Crios foi suprimida.",
+      "",
+      "Por favor, seja rápido. Leve essa Lâmina Purificada para",
+      "Salon, antes que a energia suprimida seja liberada.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Entregue a Lâmina Purificada para Salon, a Artesã, em ",
+      "Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TWUgZGVzY3VscGUgcGVsYSBkZW1vcmEuIE9zIGluY2lkZW50ZXMgY29tIG9zIEZyYWdtZW50b3MNCmRhIEFsbWEgZGUgRm9nbyB0ZW0gYXVtZW50YWRvIGUgb3MgdHJlbW9yZXMgY29udGludWFtIA0Kb2NvcnJlbmRvLiBFbnZpYW1vcyB1bSBncnVwbyBwYXJhIGludmVzdGlnYXIgb3MgdHJlbW9yZXMuDQpJc3NvIHRlbSB0b21hZG8gdG9kbyBub3NzbyB0ZW1wbyBubyBDb25zZWxobyBSZWFsLg0KDQpBcXVpIGVzdOEsIHJlYWxpemVpIG8gcml0dWFsIGRlIHB1cmlmaWNh5+NvLiBUb2RhIGVuZXJnaWENCm1hbGlnbmEgZGEgaW5zYW5pZGFkZSBkbyBDcmlvcyBmb2kgc3VwcmltaWRhLg0KDQpQb3IgZmF2b3IsIHNlamEgcuFwaWRvLiBMZXZlIGVzc2EgTOJtaW5hIFB1cmlmaWNhZGEgcGFyYQ0KU2Fsb24sIGFudGVzIHF1ZSBhIGVuZXJnaWEgc3VwcmltaWRhIHNlamEgbGliZXJhZGEuDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpFbnRyZWd1ZSBhIEzibWluYSBQdXJpZmljYWRhIHBhcmEgU2Fsb24sIGEgQXJ0ZXPjLCBlbSANClJpY2FydGVuLg=="
+  }
+}

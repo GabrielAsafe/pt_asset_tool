@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.11_u00d3rbita",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/11_#U00d3rbita.zhoon",
+    "GameServer/Monster/Name/11_#U00d3rbita.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/11_#U00d3rbita.zhoon",
+    "legacy_sha256": "79e2151ce80f6686e137c47ee88f4fe12ae99bb6ec9644a82fa6679eb83bf477",
+    "legacy_size": 16
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Órbita"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAi03JiaXRhIg=="
+  }
+}

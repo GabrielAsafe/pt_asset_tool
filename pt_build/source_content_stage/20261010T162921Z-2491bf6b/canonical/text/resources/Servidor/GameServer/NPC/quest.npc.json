@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.quest",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/quest.npc",
+    "GameServer/NPC/quest.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/quest.npc",
+    "legacy_sha256": "13c4b1b04a5bea87dae6d0028906cda2a8445a3a529d13abcf95f66e22e512c2",
+    "legacy_size": 156
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-011\\MN-011.INI",
+      "name": "퀘스트 담당자",
+      "linked_file": "name\\quest.zhoon",
+      "model_config_id": "model.char.npc.mn.011.mn.011"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-011\\MN-011.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3031315c4d4e2d3031312e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "퀘스트 담당자"
+        ],
+        "raw_values_hex": [
+          "c4f9bdbac6ae20b4e3b4e7c0da"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\quest.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c71756573742e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDExXE1OLTAxMS5JTkkNCg0KKsDMuKcJCQkixPm9usauILTjtOfA2iINCg0KLy8qtOvIrQkJCSK5urChIMT5vbrGrrimIMHgudkgwbsuLi4iDQoNCg0KDQoqv6yw4cbEwM8gIm5hbWVccXVlc3Quemhvb24i"
+  }
+}

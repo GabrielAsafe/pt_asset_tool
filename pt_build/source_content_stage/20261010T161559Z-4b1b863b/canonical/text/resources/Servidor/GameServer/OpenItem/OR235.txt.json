@@ -1,0 +1,95 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.or235",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OR235.txt",
+    "GameServer/OpenItem/OR235.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OR235.txt",
+    "legacy_sha256": "f4c16b30928c580b87573402b6cd3633d7275bd8f523bd38806068f22550e3e9",
+    "legacy_size": 131
+  },
+  "semantic": {
+    "fields": {
+      "code": "OR235",
+      "name": "Anel 2",
+      "english_name": "Anel 2",
+      "linked_file": "Name\\OR235.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OR235"
+        ],
+        "raw_values_hex": [
+          "4f52323335"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel 2"
+        ],
+        "raw_values_hex": [
+          "416e656c2032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel 2"
+        ],
+        "raw_values_hex": [
+          "416e656c2032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OR235.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f523233352e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9SMjM1Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQW5lbCAyIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkFuZWwgMiINCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxPUjIzNS56aG9vbiI="
+  }
+}

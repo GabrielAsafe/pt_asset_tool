@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.102_atalanta_das_cinzas",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/102_Atalanta das Cinzas.zhoon",
+    "GameServer/Monster/Name/102_Atalanta das Cinzas.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/102_Atalanta das Cinzas.zhoon",
+    "legacy_sha256": "bb5fff409256abf295979474adec9a4580c9ef757008e1f4b9cd7ad633f12d35",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Atalanta das Cinzas"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXRhbGFudGEgZGFzIENpbnphcyI="
+  }
+}

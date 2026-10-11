@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_3.path_7269dd894c",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest3/ChangeJob3-3.msg",
+    "image/party/party_DATA/Quest3/ChangeJob3-3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest3/ChangeJob3-3.msg",
+    "legacy_sha256": "1f7ea200d87e4990ccbf8a445d74ff91a6d441036569856d8c606bd4189c78ae",
+    "legacy_size": 184
+  },
+  "semantic": {
+    "lines": [
+      "Your rank-up is completed",
+      "after you finish the rank",
+      "-up quest.",
+      "You can use the weapon and",
+      "Missile Ring for 5 days as",
+      "reward. ",
+      "Go and see the master when",
+      "these items disappear."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91ciByYW5rLXVwIGlzIGNvbXBsZXRlZA0KYWZ0ZXIgeW91IGZpbmlzaCB0aGUgcmFuaw0KLXVwIHF1ZXN0Lg0KWW91IGNhbiB1c2UgdGhlIHdlYXBvbiBhbmQNCk1pc3NpbGUgUmluZyBmb3IgNSBkYXlzIGFzDQpyZXdhcmQuIA0KR28gYW5kIHNlZSB0aGUgbWFzdGVyIHdoZW4NCnRoZXNlIGl0ZW1zIGRpc2FwcGVhci4NCg=="
+  }
+}

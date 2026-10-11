@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monplant.monplant.b",
+  "logical_config": "char/monster/monplant/monplant-b.ini",
+  "legacy_cache": "char/monster/monplant/monplant-b.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_19_lorde_das_u00c1rvores",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_19_Lorde das #U00c1rvores.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monplant/MonPlant-b.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monplant/MonPlant-b.inx"
+    }
+  }
+}

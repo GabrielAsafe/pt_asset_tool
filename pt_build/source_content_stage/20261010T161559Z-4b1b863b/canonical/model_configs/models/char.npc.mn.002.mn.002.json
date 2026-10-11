@@ -1,0 +1,43 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.mn.002.mn.002",
+  "logical_config": "char/npc/MN-002/MN-002.INI",
+  "legacy_cache": "char/npc/MN-002/MN-002.inx",
+  "consumers": [
+    {
+      "id": "npc.mrcave_keeper",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/mrcave-keeper.npc.json"
+    },
+    {
+      "id": "npc.phillay_guard1",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-guard1.npc.json"
+    },
+    {
+      "id": "npc.phillay_guard2",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-guard2.npc.json"
+    },
+    {
+      "id": "npc.phillay_guard3",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-guard3.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/MN-002/MN-002.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/MN-002/MN-002.inx"
+    }
+  }
+}

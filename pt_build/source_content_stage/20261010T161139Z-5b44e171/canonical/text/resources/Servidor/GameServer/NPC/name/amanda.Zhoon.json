@@ -1,0 +1,60 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.amanda",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/amanda.Zhoon",
+    "GameServer/NPC/name/amanda.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/amanda.Zhoon",
+    "legacy_sha256": "21f01518d94ee3bbac38112b307070bae58c57d88820964d520a57c9c25d699a",
+    "legacy_size": 455
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Instrutora Amanda"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Vou lhe arranjar uns bons itens se você atender meus pedidos."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Se você ajudar ao povo da cidade, eles provavelmente te darão vários itens."
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Depois que você chegar ao nível 40, não terá mais que falar comigo."
+      },
+      {
+        "line": 13,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Estou aqui para ajudar os iniciantes a viver no continente de Priston."
+      },
+      {
+        "line": 15,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "E só você para trazer de volta as conspirações e Igolanos."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9hbWFuZGEuTlBDDQoNCg0KKkpfTmFtZQkiSW5zdHJ1dG9yYSBBbWFuZGEiDQoNCipKX0NoYXQJIkRlcG9pcyBxdWUgdm9j6iBjaGVnYXIgYW8gbu12ZWwgNDAsIG7jbyB0ZXLhIG1haXMgcXVlIGZhbGFyIGNvbWlnby4iDQoNCipKX0NoYXQJIlNlIHZvY+ogYWp1ZGFyIGFvIHBvdm8gZGEgY2lkYWRlLCBlbGVzIHByb3ZhdmVsbWVudGUgdGUgZGFy428gduFyaW9zIGl0ZW5zLiINCg0KKkpfQ2hhdAkiRGVwb2lzIHF1ZSB2b2PqIGNoZWdhciBhIGxldmVsIDQwLCBu428gdGVy4SBtYWlzIHF1ZSBmYWxhciBjb21pZ28uIg0KDQoqSl9DaGF0CSJFc3RvdSBhcXVpIHBhcmEgYWp1ZGFyIG9zIGluaWNpYW50ZXMgYSB2aXZlciBubyBjb250aW5lbnRlIGRlIFByaXN0b24uIg0KDQoqSl9DaGF0CSJFIHPzIHZvY+ogcGFyYSB0cmF6ZXIgZGUgdm9sdGEgYXMgY29uc3BpcmHn9WVzIGUgSWdvbGFub3MuIg0KDQo="
+  }
+}

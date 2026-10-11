@@ -1,0 +1,411 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.db112",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DB112.txt",
+    "GameServer/OpenItem/DB112.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DB112.txt",
+    "legacy_sha256": "66e39d615c7e8153c71b32af685dab5486fdaf2ab67860e6829d13069165ce49",
+    "legacy_size": 720
+  },
+  "semantic": {
+    "fields": {
+      "code": "DB112",
+      "name": "Botas Espinhosas",
+      "english_name": "Botas Espinhosas",
+      "defence": [
+        58,
+        74
+      ],
+      "absorb": [
+        2.6,
+        3.2
+      ],
+      "move_speed": [
+        2.5,
+        2.8
+      ],
+      "bionic": [
+        2,
+        4
+      ],
+      "fire": [
+        2,
+        4
+      ],
+      "ice": [
+        2,
+        4
+      ],
+      "lightning": [
+        2,
+        4
+      ],
+      "poison": [
+        2,
+        4
+      ],
+      "durability": [
+        72,
+        88
+      ],
+      "level": 60,
+      "strength": 87,
+      "dexterity": 80,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_absorb": [
+        0.4,
+        0.6
+      ],
+      "special_move_speed": [
+        0.3,
+        1
+      ],
+      "weight": 24,
+      "price": 52000,
+      "linked_file": "Name\\DB112.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DB112"
+        ],
+        "raw_values_hex": [
+          "4442313132"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Botas Espinhosas"
+        ],
+        "raw_values_hex": [
+          "426f74617320457370696e686f736173"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Botas Espinhosas"
+        ],
+        "raw_values_hex": [
+          "426f74617320457370696e686f736173"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          58,
+          74
+        ],
+        "raw_values_hex": [
+          "3538",
+          "3734"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.6,
+          3.2
+        ],
+        "raw_values_hex": [
+          "322e36",
+          "332e32"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "move_speed",
+        "legacy_token": "*이동속도",
+        "legacy_token_hex": "2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.5,
+          2.8
+        ],
+        "raw_values_hex": [
+          "322e35",
+          "322e38"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          4
+        ],
+        "raw_values_hex": [
+          "32",
+          "34"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          72,
+          88
+        ],
+        "raw_values_hex": [
+          "3732",
+          "3838"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          60
+        ],
+        "raw_values_hex": [
+          "3630"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          87
+        ],
+        "raw_values_hex": [
+          "3837"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "dexterity",
+        "legacy_token": "*민첩성",
+        "legacy_token_hex": "2ab9cec3b8bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.4,
+          0.6
+        ],
+        "raw_values_hex": [
+          "302e34",
+          "302e36"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_move_speed",
+        "legacy_token": "**이동속도",
+        "legacy_token_hex": "2a2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.3,
+          1
+        ],
+        "raw_values_hex": [
+          "302e33",
+          "31"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          24
+        ],
+        "raw_values_hex": [
+          "3234"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          52000
+        ],
+        "raw_values_hex": [
+          "3532303030"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DB112.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44423131322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRCMTEyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQm90YXMgRXNwaW5ob3NhcyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJCb3RhcyBFc3Bpbmhvc2FzIg0KDQovL0RlZmVuc2UNCiq55r7ut8IgNTggNzQNCg0KLy9BYnNvcnB0aW9uDQoqyO289rfCIDIuNiAzLjINCg0KLy9TcGVlZA0KKsDMtb+807W1IDIuNSAyLjgNCg0KLy9PcmdhbmljUmVzaXN0YW5jZQ0KKrv9w7wgMiA0DQoNCi8vRmlyZVJlc2lzdGFuY2UNCiq60iAyIDQNCg0KLy9Gcm9zdFJlc2lzdGFuY2UNCiqzw7HiIDIgNA0KDQovL0xpZ2h0bmluZ1Jlc2lzdGFuY2UNCiq5+LCzIDIgNA0KDQovL1BvaXNvblJlc2lzdGFuY2UNCiq1tiAyIDQNCg0KLy9JbnRlZ3JpdHkNCiqzu7G4t8IgNzIgODgNCg0KLy9MZXZlbA0KKre5uqcgNjANCg0KLy9TdHJlbmd0aA0KKsj7IDg3DQoNCi8vQWdpbGl0eQ0KKrnOw7i8uiA4MA0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gTWVjaGFuaWNpYW4gRmlnaHRlciBQaWtlbWFuIEFyY2hlciBLbmlnaHQgQXRhbGFudGEgUHJpZXN0ZXNzIE1hZ2ljaWFuDQoNCi8vU3BlY0Fic29ycHRpb24NCioqyO289rfCIDAuNCAwLjYNCg0KLy9TcGVjU3BlZWQNCioqwMy1v7zTtbUgMC4zIDENCg0KLy9XZWlnaHQNCiq5q7DUIDI0DQoNCi8vUHJpY2UNCiqwobDdIDUyMDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcREIxMTIuemhvb24i"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.pr306",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PR306.txt",
+    "GameServer/OpenItem/PR306.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PR306.txt",
+    "legacy_sha256": "1e284c5befab5d78c7c390b878d90fef329549040d1290c7cb6278507824f943",
+    "legacy_size": 174
+  },
+  "semantic": {
+    "fields": {
+      "code": "PR306",
+      "name": "Runa de Citrino A",
+      "english_name": "Runa de Citrino A",
+      "weight": 1,
+      "linked_file": "Name\\PR306.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PR306"
+        ],
+        "raw_values_hex": [
+          "5052333036"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Runa de Citrino A"
+        ],
+        "raw_values_hex": [
+          "52756e612064652043697472696e6f2041"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Runa de Citrino A"
+        ],
+        "raw_values_hex": [
+          "52756e612064652043697472696e6f2041"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PR306.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c50523330362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBSMzA2Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUnVuYSBkZSBDaXRyaW5vIEEiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUnVuYSBkZSBDaXRyaW5vIEEiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcUFIzMDYuemhvb24i"
+  }
+}

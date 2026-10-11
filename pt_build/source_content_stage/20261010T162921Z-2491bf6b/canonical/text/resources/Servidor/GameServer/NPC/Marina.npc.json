@@ -1,0 +1,192 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.marina",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Marina.npc",
+    "GameServer/NPC/Marina.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Marina.npc",
+    "legacy_sha256": "fb15a022c95ab1390a6b2b909b428cf78fac785d233badb6152c1ab7a2bf5392",
+    "legacy_size": 507
+  },
+  "semantic": {
+    "fields": {
+      "model_scale": 2.0,
+      "state": "NPC",
+      "model_file": "char\\npc\\Marina\\Marina.INI",
+      "name": "마리나",
+      "sell_etc": [
+        "PL101",
+        "PL102",
+        "PL103",
+        "PL104",
+        "se102",
+        "SP179",
+        "ec101",
+        "ec104",
+        "ec102",
+        "PS101",
+        "PS102",
+        "PS103",
+        "PS104",
+        "se103",
+        "bi108",
+        "os101",
+        "os102",
+        "os103",
+        "os104",
+        "se104",
+        "bi116",
+        "bi117",
+        "bi118",
+        "bi123"
+      ],
+      "linked_file": "name\\Marina.zhoon",
+      "model_config_id": "model.char.npc.marina.marina"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.0
+        ],
+        "raw_values_hex": [
+          "322e30"
+        ]
+      },
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\Marina\\Marina.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d6172696e615c4d6172696e612e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "마리나"
+        ],
+        "raw_values_hex": [
+          "b8b6b8aeb3aa"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 12,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "PL101",
+          "PL102",
+          "PL103",
+          "PL104",
+          "se102",
+          "SP179",
+          "ec101",
+          "ec104",
+          "ec102",
+          "PS101",
+          "PS102",
+          "PS103",
+          "PS104",
+          "se103",
+          "bi108",
+          "os101",
+          "os102",
+          "os103",
+          "os104",
+          "se104",
+          "bi116",
+          "bi117",
+          "bi118",
+          "bi123"
+        ],
+        "raw_values_hex": [
+          "504c313031",
+          "504c313032",
+          "504c313033",
+          "504c313034",
+          "7365313032",
+          "5350313739",
+          "6563313031",
+          "6563313034",
+          "6563313032",
+          "5053313031",
+          "5053313032",
+          "5053313033",
+          "5053313034",
+          "7365313033",
+          "6269313038",
+          "6f73313031",
+          "6f73313032",
+          "6f73313033",
+          "6f73313034",
+          "7365313034",
+          "6269313136",
+          "6269313137",
+          "6269313138",
+          "6269313233"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Marina.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4d6172696e612e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KrjwtajFqbHiCTIuMA0KKrzTvLoJCU5QQw0KKrjwvufGxMDPCSJjaGFyXG5wY1xNYXJpbmFcTWFyaW5hLklOSSINCg0KKsDMuKcJCSK4trius6oiDQoNCi8vKrTryK0JCSK/7LiuIL/VwNq01CwgwaS4uyC42sDWwfYgvsq+xr/kPyINCi8vKrTryK0JCSLA37OtIMO0IMfPtMIgsM24uCC7qbjpLCC/z7qux9EgsM0gsLDAurWlLi4iDQovLyq068itCQkiu+e9xyDA37OtIMO0IMfPtMIgsM21tSDBpLi7ILjFt8LA+8DMv6G/5C4iDQoNCg0KKsDiyK3Gx7jFCVBMMTAxIFBMMTAyIFBMMTAzIFBMMTA0IHNlMTAyIFNQMTc5IGVjMTAxIGVjMTA0IGVjMTAyIFBTMTAxIFBTMTAyIFBTMTAzIFBTMTA0IHNlMTAzIGJpMTA4IG9zMTAxIG9zMTAyIG9zMTAzIG9zMTA0IHNlMTA0IGJpMTE2IGJpMTE3IGJpMTE4IGJpMTIzDQoNCg0KKr+ssOHGxMDPCSJuYW1lXE1hcmluYS56aG9vbiINCg0KLy+9yb+swMcgudm02SDA4situ/PAzsC4t84gu+e/6w0KLy+9yb+swMcgudm02SC3ubqnIMT5vbrGrr/rwLi3ziC757/r"
+  }
+}

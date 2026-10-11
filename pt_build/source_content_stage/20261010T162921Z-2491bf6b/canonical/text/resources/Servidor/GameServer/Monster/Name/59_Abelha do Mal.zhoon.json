@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.59_abelha_do_mal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/59_Abelha do Mal.zhoon",
+    "GameServer/Monster/Name/59_Abelha do Mal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/59_Abelha do Mal.zhoon",
+    "legacy_sha256": "ea292dd54fcba1191963c92d511aded93c94828de4022f2c79dc19d1fecef714",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Abelha do Mal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQWJlbGhhIGRvIE1hbCI="
+  }
+}

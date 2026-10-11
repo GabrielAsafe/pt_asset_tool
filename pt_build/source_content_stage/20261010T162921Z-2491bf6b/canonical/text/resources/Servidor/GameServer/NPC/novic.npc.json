@@ -1,0 +1,136 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.novic",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/novic.npc",
+    "GameServer/NPC/novic.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/novic.npc",
+    "legacy_sha256": "eddb86f239d7fe9a25a47472f8b9bd386eae313150c286aaa741c18d4f3c0995",
+    "legacy_size": 356
+  },
+  "semantic": {
+    "fields": {
+      "model_scale": 1.0,
+      "state": "NPC",
+      "model_file": "char\\monster\\Nihil\\Nihil_1.ini",
+      "name": "노비치",
+      "english_name": "Novic",
+      "unmapped.2ab7e9bdbac5e6c1b6c7d5": true,
+      "linked_file": "name\\novic.zhoon",
+      "model_config_id": "model.char.monster.nihil.nihil.1"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\Nihil\\Nihil_1.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c4e6968696c5c4e6968696c5f312e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "노비치"
+        ],
+        "raw_values_hex": [
+          "b3ebbaf1c4a1"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "english_name",
+        "legacy_token": "*NAME",
+        "legacy_token_hex": "2a4e414d45",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Novic"
+        ],
+        "raw_values_hex": [
+          "4e6f766963"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "unmapped.2ab7e9bdbac5e6c1b6c7d5",
+        "legacy_token": "*룬스톤조합",
+        "legacy_token_hex": "2ab7e9bdbac5e6c1b6c7d5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\novic.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e6f7669632e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {
+      "*룬스톤조합": 1
+    }
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KrjwtajFqbHiCQkxLjANCiq807y6CQkJTlBDDQoquPC+58bEwM8JCSJjaGFyXG1vbnN0ZXJcTmloaWxcTmloaWxfMS5pbmkiDQoqwMy4pwkJCSKz67rxxKEiDQoqTkFNRQkJIk5vdmljIg0KDQoqt+m9usXmwbbH1Q0KDQovLyq068itCQkJIr+pseK0wiC+7rXysKG/5D8iDQovLyq068itCQkJIrTnvcXAzCCwocH4ILHXILq4vK616cC7IMfVxKW89iDA1sC7sM0gsLC+xr/kLiINCi8vKrTryK0JCQkisdcguri8rrXpv6Egvsu89iC++LTCILHiv+7AzCDI5bijtMKxur/kLiINCi8vKrTryK0JCQkiv9jB9iC9x8bQx9IgsM0gsLC03CC7/bCiwMwgtemx4rW1IMfYv+QuLi4iDQoJDQoNCiq/rLDhxsTAzwkibmFtZVxub3ZpYy56aG9vbiI="
+  }
+}

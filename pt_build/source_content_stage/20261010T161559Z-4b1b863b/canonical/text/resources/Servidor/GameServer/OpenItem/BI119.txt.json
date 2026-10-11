@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi119",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI119.txt",
+    "GameServer/OpenItem/BI119.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI119.txt",
+    "legacy_sha256": "8f003641df6adc70c672ec7dd2c848a3d9abbccb1be6d1b85e26452b68ca569b",
+    "legacy_size": 180
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI119",
+      "name": "Presa de Vampiro 12h",
+      "english_name": "Presa de Vampiro 12h",
+      "weight": 1,
+      "linked_file": "Name\\BI119.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI119"
+        ],
+        "raw_values_hex": [
+          "4249313139"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Presa de Vampiro 12h"
+        ],
+        "raw_values_hex": [
+          "50726573612064652056616d7069726f20313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Presa de Vampiro 12h"
+        ],
+        "raw_values_hex": [
+          "50726573612064652056616d7069726f20313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI119.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493131392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTE5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUHJlc2EgZGUgVmFtcGlybyAxMmgiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUHJlc2EgZGUgVmFtcGlybyAxMmgiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxMTkuemhvb24i"
+  }
+}

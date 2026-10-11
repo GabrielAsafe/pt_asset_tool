@@ -1,0 +1,358 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wh104",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WH104.txt",
+    "GameServer/OpenItem/WH104.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WH104.txt",
+    "legacy_sha256": "4542e167b96bde08ca516834c82e32a29c5b6861d175e1c9baff371fff466518",
+    "legacy_size": 652
+  },
+  "semantic": {
+    "fields": {
+      "code": "WH104",
+      "name": "Martelo Gótico",
+      "english_name": "Martelo Gótico",
+      "attack_damage": [
+        4,
+        5,
+        8,
+        11
+      ],
+      "attack_rating": [
+        40,
+        50
+      ],
+      "attack_speed": 7,
+      "critical": 4,
+      "durability": [
+        40,
+        52
+      ],
+      "level": 9,
+      "strength": 42,
+      "talent": 30,
+      "job": "Mechanician",
+      "job_random": [
+        "Fighter",
+        "Pikeman",
+        "Knight"
+      ],
+      "special_damage": [
+        7,
+        7
+      ],
+      "special_attack_rating": [
+        1,
+        3
+      ],
+      "special_attack_speed": 1,
+      "special_critical": 5,
+      "weight": 13,
+      "price": 3100,
+      "linked_file": "Name\\WH104.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WH104"
+        ],
+        "raw_values_hex": [
+          "5748313034"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Martelo Gótico"
+        ],
+        "raw_values_hex": [
+          "4d617274656c6f2047f37469636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Martelo Gótico"
+        ],
+        "raw_values_hex": [
+          "4d617274656c6f2047f37469636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4,
+          5,
+          8,
+          11
+        ],
+        "raw_values_hex": [
+          "34",
+          "35",
+          "38",
+          "3131"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          40,
+          50
+        ],
+        "raw_values_hex": [
+          "3430",
+          "3530"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          40,
+          52
+        ],
+        "raw_values_hex": [
+          "3430",
+          "3532"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          42
+        ],
+        "raw_values_hex": [
+          "3432"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          30
+        ],
+        "raw_values_hex": [
+          "3330"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "job",
+        "legacy_token": "**Ưȭ",
+        "legacy_token_hex": "2a2ac6afc8ad",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mechanician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Fighter",
+          "Pikeman",
+          "Knight"
+        ],
+        "raw_values_hex": [
+          "46696768746572",
+          "50696b656d616e",
+          "4b6e69676874"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          7,
+          7
+        ],
+        "raw_values_hex": [
+          "37",
+          "37"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "special_attack_rating",
+        "legacy_token": "**명중력",
+        "legacy_token_hex": "2a2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_critical",
+        "legacy_token": "**크리티컬",
+        "legacy_token_hex": "2a2ac5a9b8aec6bcc4c3",
+        "loader_status": "supported_mapped",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          13
+        ],
+        "raw_values_hex": [
+          "3133"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          3100
+        ],
+        "raw_values_hex": [
+          "33313030"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WH104.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c57483130342e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldIMTA0Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiTWFydGVsbyBH83RpY28iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiTWFydGVsbyBH83RpY28iDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgNCA1IDggMTENCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgNDAgNTANCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDcNCg0KLy9BdHRhY2tDcml0aWNhbA0KKsWpuK7GvMTDIDQNCg0KLy9JbnRlZ3JpdHkNCiqzu7G4t8IgNDAgNTINCg0KLy9MZXZlbA0KKre5uqcgOQ0KDQovL1N0cmVuZ3RoDQoqyPsgNDINCg0KLy9UYWxlbnQNCirA57TJIDMwDQoNCi8vUHJpbWFyeVNwZWMNCioqxq/IrSBNZWNoYW5pY2lhbg0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gRmlnaHRlciBQaWtlbWFuIEtuaWdodA0KDQovL1NwZWNBdHRhY2tQb3dlcg0KKiqw+LDdt8IgNyA3DQoNCi8vU3BlY0F0dGFja1JhdGluZw0KKiq47cHft8IgMSAzDQoNCi8vU3BlY0F0dGFja1NwZWVkDQoqKrD4sN2807W1IDENCg0KLy9TcGVjQXR0YWNrQ3JpdGljYWwNCioqxam4rsa8xMMgNQ0KDQovL1dlaWdodA0KKrmrsNQgMTMNCg0KLy9QcmljZQ0KKrChsN0gMzEwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFdIMTA0Lnpob29uIg=="
+  }
+}

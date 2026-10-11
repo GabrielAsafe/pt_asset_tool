@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.yura_guard",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/yura-guard.zhoon",
+    "GameServer/NPC/name/yura-guard.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/yura-guard.zhoon",
+    "legacy_sha256": "7db5716073c5631ec5435739c9e129c4af4899fc30bc42e19e455f3f8aa3b84b",
+    "legacy_size": 392
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda de Eura"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você é um grande guerreiro. Mas, com esta neve, você não vai a lugar algum!"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Por causa da neve, você não pode ir adiante. Esta é uma área restrita!"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Há rumores de que os monstros dos Campos Gelados são muito mais fortes do que os da Estrada de Ferro do Caos..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Volte à vila Eura, ou vai acabar se perdendo na neve..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkYSBkZSBFdXJhIg0KDQoqSl9DSEFUCQkiVm9j6iDpIHVtIGdyYW5kZSBndWVycmVpcm8uIE1hcywgY29tIGVzdGEgbmV2ZSwgdm9j6iBu428gdmFpIGEgbHVnYXIgYWxndW0hIg0KKkpfQ0hBVAkJIlBvciBjYXVzYSBkYSBuZXZlLCB2b2PqIG7jbyBwb2RlIGlyIGFkaWFudGUuIEVzdGEg6SB1bWEg4XJlYSByZXN0cml0YSEiDQoqSl9DSEFUCQkiSOEgcnVtb3JlcyBkZSBxdWUgb3MgbW9uc3Ryb3MgZG9zIENhbXBvcyBHZWxhZG9zIHPjbyBtdWl0byBtYWlzIGZvcnRlcyBkbyBxdWUgb3MgZGEgRXN0cmFkYSBkZSBGZXJybyBkbyBDYW9zLi4uIg0KKkpfQ0hBVAkJIlZvbHRlIOAgdmlsYSBFdXJhLCBvdSB2YWkgYWNhYmFyIHNlIHBlcmRlbmRvIG5hIG5ldmUuLi4iDQo="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_c_u00e3o_zumbi",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_C#U00e3o Zumbi.zhoon",
+    "GameServer/Monster/Name/1_C#U00e3o Zumbi.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_C#U00e3o Zumbi.zhoon",
+    "legacy_sha256": "9c093ecb46d16c0009d9cfba9393632423887bbf7913d1f5e91f6d254e89912e",
+    "legacy_size": 19
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cão Zumbi"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ+NvIFp1bWJpIg=="
+  }
+}

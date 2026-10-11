@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv153",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV153.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV153.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV153.zhoon",
+    "legacy_sha256": "b4f3f7384fff1c7fc426fb944ede8dcce50ca5b196486313a68faf66f135a4d1",
+    "legacy_size": 47
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Support Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjE1My50eHQNCg0KKkpfTkFNRQkJIlN1cHBvcnQgU25ha2UgQnJhY2UiDQo="
+  }
+}

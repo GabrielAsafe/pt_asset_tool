@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r5_aranha_rainha",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R5 Aranha Rainha.zhoon",
+    "GameServer/Monster/Name/R5 Aranha Rainha.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R5 Aranha Rainha.zhoon",
+    "legacy_sha256": "f59618a4d55f4eb845747208d7980549b54d645809472ac1b7b6caa339fc2ed2",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R5 Aranha Rainha"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjUgQXJhbmhhIFJhaW5oYSI="
+  }
+}

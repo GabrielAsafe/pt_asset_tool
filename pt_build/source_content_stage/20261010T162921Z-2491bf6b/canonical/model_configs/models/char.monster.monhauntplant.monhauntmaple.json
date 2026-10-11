@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monhauntplant.monhauntmaple",
+  "logical_config": "char/monster/monhauntplant/monhauntmaple.ini",
+  "legacy_cache": "char/monster/monhauntplant/monhauntmaple.inx",
+  "consumers": [
+    {
+      "id": "monster.17_planta_mort_u00edfera",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/17_Planta Mort#U00edfera.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monhauntplant/Monhauntmaple.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monhauntplant/Monhauntmaple.inx"
+    }
+  }
+}

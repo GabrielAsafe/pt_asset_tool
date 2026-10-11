@@ -1,0 +1,34 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.lost_temple",
+  "logical_path": "GameServer/Field/lost_temple.ASE.spc",
+  "npcs": [
+    {
+      "slot": 0,
+      "npc_id": "npc.milter",
+      "x": -3153576,
+      "y": 122880,
+      "z": 2874624,
+      "ax": 0,
+      "ay": 2120,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 1,
+      "npc_id": "npc.loja_da_allya",
+      "x": -3062891,
+      "y": 143616,
+      "z": 2945792,
+      "ax": 0,
+      "ay": 1800,
+      "az": 0,
+      "state": 0
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/lost_temple.ASE.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "09dda43deb12120887c667287cf9f7c955f4dfa3cddc2ceeabe7db0ee21b0d20"
+  }
+}

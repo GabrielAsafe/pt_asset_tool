@@ -1,0 +1,256 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.dg226",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DG226.txt",
+    "GameServer/OpenItem/DG226.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DG226.txt",
+    "legacy_sha256": "0349c87d15e134125893585f5a17a7ba011612e690d17685485aebcb2102c62e",
+    "legacy_size": 1089
+  },
+  "semantic": {
+    "fields": {
+      "name": "Newbie Gauntlets",
+      "english_name": "Newbie Gauntlets",
+      "code": "dg226",
+      "weight": 1,
+      "bionic": [
+        1,
+        2
+      ],
+      "fire": [
+        1,
+        2
+      ],
+      "ice": [
+        1,
+        2
+      ],
+      "lightning": [
+        1,
+        2
+      ],
+      "poison": [
+        1,
+        2
+      ],
+      "absorb": [
+        3.3,
+        3.699
+      ],
+      "defence": [
+        64,
+        86
+      ],
+      "level": 10,
+      "linked_file": "name\\dg226.zhoon"
+    },
+    "directives": [
+      {
+        "line": 4,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Newbie Gauntlets"
+        ],
+        "raw_values_hex": [
+          "4e6577626965204761756e746c657473"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Newbie Gauntlets"
+        ],
+        "raw_values_hex": [
+          "4e6577626965204761756e746c657473"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "dg226"
+        ],
+        "raw_values_hex": [
+          "6467323236"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 19,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 34,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.3,
+          3.699
+        ],
+        "raw_values_hex": [
+          "332e33",
+          "332e363939"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          64,
+          86
+        ],
+        "raw_values_hex": [
+          "3634",
+          "3836"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 76,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\dg226.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c64673232362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8JCb7GwMzF2yDBpLq4CQkvLw0KDQoNCirAzLinCQkiTmV3YmllIEdhdW50bGV0cyINCipOYW1lCSJOZXdiaWUgR2F1bnRsZXRzIg0KKsTateUJCSJkZzIyNiINCg0KLy8vLy8vLy8vLy8vLy8vCbD4xeu758fXCQkgLy8vLy8vLy8vLy8vDQoNCi8vKrO7sbi3wgkNCiq5q7DUCQkxDQovLyqwobDdDQoNCi8vLy8vLy8vLy8vLy8vLwm/+LzSCQkvLy8vLy8vLy8vLy8vDQoNCiq7/cO8CQkxIDINCiq60gkJMSAyDQoqs8Ox4gkJMSAyDQoqufiwswkJMSAyDQoqtbYJCTEgMg0KDQovLy8vLy8vLy8vLy8vLy8JsPiw3by6tMkJCS8vLy8vLy8vLy8vLy8NCi8vIMPfsKG/5MDOCcPWvNIJw9a06wkNCg0KLy8qsPiw3bfCCQ0KLy8qu+fBpLDFuK4JDQovLyqw+LDdvNO1tQkNCi8vKrjtwd+3wgkNCi8vKsWpuK7GvMTDCQ0KDQovLy8vLy8vLy8vLy8vLwm55r7uvLq0yQkJLy8vLy8vLy8vLy8vLw0KLy8gw9+wob/kwM4NCg0KKsjtvPa3wgkzLjMgMy42OTkNCiq55r7ut8IJNjQgODYNCi8vKrrtt7DAsgkNCg0KLy8vLy8vLy8vLy8vLy8JvcW537y6tMkJCS8vLy8vLy8vLy8vLy8NCi8vIMPfsKG/5MDODQoNCi8vKsDMtb+807W1CQ0KDQovLy8vLy8vLy8vLy8vLwnA+sDlsPiwowkJLy8vLy8vLy8vLy8vLw0KLy8gvNLEz7D4sKPH0rTnDQoNCi8vKrq4wK+w+LCjCQ0KDQovLy8vLy8vLy8vLy8vLwnGr7z2tMm3wgkJLy8vLy8vLy8vLy8vLw0KLy8gw9+wob/kwM4NCg0KLy8qu/247bfCwOe7/QkNCi8vKrHit8LA57v9CQ0KLy8qsdm3wsDnu/0JDQovLyq7/bjtt8LD37ChCQ0KLy8qseK3wsPfsKEJDQovLyqx2bfCw9+woQkNCi8vKri2uf2x4rz6vPe3w7W1CQ0KDQovLy8vLy8vLy8vLy8vLwm/5LG4xq+8ugkJLy8vLy8vLy8vLy8vLw0KLy8gu+e/68Gmx9Egv+SxuMShDQoNCiq3ubqnCQkxMA0KLy8qyPsNCi8vKsGkvcW3wgkNCi8vKsDntMkJDQovLyq5zsO4vLoJDQovLyqwx7CtCQ0KDQovLy8vLy8vLy8vLy8vCci4urm+4AkJIC8vLy8vLy8vLy8vLw0KLy8gw9+wob/kwM4Jw9a80gnD1rTrDQoNCi8vKrv9uO23wrvzvcIJDQovLyqx4rfCu/O9wgkNCi8vKrHZt8K7873CCQ0KDQoqv6yw4cbEwM8gICAgICAgICJuYW1lXGRnMjI2Lnpob29uIg0K"
+  }
+}

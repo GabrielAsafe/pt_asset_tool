@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.cristais",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Cristais.zhoon",
+    "GameServer/NPC/name/Cristais.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Cristais.zhoon",
+    "legacy_sha256": "108e14b0f91ba8ec2ad3dad04cd05db8bb40d8ee8a4d55e23320149e5ab08d7a",
+    "legacy_size": 91
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Cristais"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Vendo Todos Os Tipos De Cristais."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9jcmlzdGFpcy5OUEMNCg0KDQoqSl9OYW1lCSJDcmlzdGFpcyINCg0KDQoqSl9DaGF0CSJWZW5kbyBUb2RvcyBPcyBUaXBvcyBEZSBDcmlzdGFpcy4iDQoNCg=="
+  }
+}

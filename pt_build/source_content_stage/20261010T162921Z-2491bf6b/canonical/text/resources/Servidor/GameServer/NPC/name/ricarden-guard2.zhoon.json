@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_guard2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ricarden-guard2.zhoon",
+    "GameServer/NPC/name/ricarden-guard2.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ricarden-guard2.zhoon",
+    "legacy_sha256": "4f7da2ff25e8aea6d196f16dd8fd8b9f00c29e8b0461c9688122e9667ab87e61",
+    "legacy_size": 350
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda de Ricarten"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Lembre-se que atrapalhar ou prejudicar o treinamento de outros guerreiros é uma verdadeira vergonha..."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ricarten fica ao extremo Sul do continente de Priston."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Cuidado! Muitos monstros o atacarão, após a ponte..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Acorde o guarda, logo ali, caso ele durma, por favor..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkYSBkZSBSaWNhcnRlbiINCg0KKkpfQ0hBVAkJIkxlbWJyZS1zZSBxdWUgYXRyYXBhbGhhciBvdSBwcmVqdWRpY2FyIG8gdHJlaW5hbWVudG8gZGUgb3V0cm9zIGd1ZXJyZWlyb3Mg6SB1bWEgdmVyZGFkZWlyYSB2ZXJnb25oYS4uLiINCipKX0NIQVQJCSJSaWNhcnRlbiBmaWNhIGFvIGV4dHJlbW8gU3VsIGRvIGNvbnRpbmVudGUgZGUgUHJpc3Rvbi4iDQoqSl9DSEFUCQkiQ3VpZGFkbyEgTXVpdG9zIG1vbnN0cm9zIG8gYXRhY2Fy428sIGFw83MgYSBwb250ZS4uLiINCipKX0NIQVQJCSJBY29yZGUgbyBndWFyZGEsIGxvZ28gYWxpLCBjYXNvIGVsZSBkdXJtYSwgcG9yIGZhdm9yLi4uIg0KDQo="
+  }
+}

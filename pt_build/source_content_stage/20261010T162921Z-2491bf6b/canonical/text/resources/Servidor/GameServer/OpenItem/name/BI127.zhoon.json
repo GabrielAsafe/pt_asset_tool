@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi127",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI127.zhoon",
+    "GameServer/OpenItem/name/BI127.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI127.zhoon",
+    "legacy_sha256": "0ebedd27d2d384927e32433202ab193bf15626c9fbad800738f819cdfecc2d40",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pedra da Gravidade 300 12h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVkcmEgZGEgR3JhdmlkYWRlIDMwMCAxMmgi"
+  }
+}

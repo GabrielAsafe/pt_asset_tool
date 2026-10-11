@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_3_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_3_End.sin",
+    "image/Sinimage/Quest/Boss_Quest_3_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_3_End.sin",
+    "legacy_sha256": "b2ccda257ec1c74d0fda69304855c9d1db296acf422caf91ef0c1c0e9b08833d",
+    "legacy_size": 163
+  },
+  "semantic": {
+    "lines": [
+      "Hmm... Ótimo. O cristal do Golem Ancião é muito bonito.",
+      "",
+      "Pela sua grande ajuda, por favor, aceite um pouco de",
+      "experiência e 10 Poções de HP e Mana Médias.",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SG1tLi4uINN0aW1vLiBPIGNyaXN0YWwgZG8gR29sZW0gQW5jaeNvIOkgbXVpdG8gYm9uaXRvLg0KDQpQZWxhIHN1YSBncmFuZGUgYWp1ZGEsIHBvciBmYXZvciwgYWNlaXRlIHVtIHBvdWNvIGRlDQpleHBlcmnqbmNpYSBlIDEwIFBv5/VlcyBkZSBIUCBlIE1hbmEgTelkaWFzLg0KDQoNCg=="
+  }
+}

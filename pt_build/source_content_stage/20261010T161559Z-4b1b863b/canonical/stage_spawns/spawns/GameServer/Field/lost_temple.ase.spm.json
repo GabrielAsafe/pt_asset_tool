@@ -1,0 +1,80 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.lost_temple",
+  "logical_path": "GameServer/Field/lost_temple.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/lost_temple.ase.spm",
+    "sha256": "80a6edfc35785478060c7191f4368e19017a5fb36fe178912289e8a1060fcca0"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.98_seto",
+      "legacy_name": "Seto",
+      "legacy_name_bytes_hex": "5365746f",
+      "weight": 14,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.99_quimera2",
+      "legacy_name": "Quimera2",
+      "legacy_name_bytes_hex": "5175696d65726132",
+      "weight": 21,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.99_inquisidor_negro2",
+      "legacy_name": "Inquisidor Negro2",
+      "legacy_name_bytes_hex": "496e7175697369646f72204e6567726f32",
+      "weight": 19,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.96_abomina_u00e7_u00e3o",
+      "legacy_name": "Abominacao",
+      "legacy_name_bytes_hex": "41626f6d696e6163616f",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.99_cavaleiro_sanguin_u00e1rio2",
+      "legacy_name": "Cavaleiro Sanguin?io2",
+      "legacy_name_bytes_hex": "436176616c6569726f2053616e6775696e3f696f32",
+      "weight": 8,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.97_guardi_u00e3o_do_templo",
+      "legacy_name": "Guardiao do Templo",
+      "legacy_name_bytes_hex": "477561726469616f20646f2054656d706c6f",
+      "weight": 20,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_120_mokova",
+      "slave_monster_id": "monster.92_quimera",
+      "master_legacy_name": "Mokova",
+      "slave_legacy_name": "Quimera",
+      "master_legacy_name_bytes_hex": "4d6f6b6f7661",
+      "slave_legacy_name_bytes_hex": "5175696d657261",
+      "slave_count": 2,
+      "open_hours": [
+        2,
+        7,
+        12,
+        17,
+        22
+      ],
+      "master_resolution": "exact",
+      "slave_resolution": "exact"
+    }
+  ]
+}

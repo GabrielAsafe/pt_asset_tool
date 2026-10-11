@@ -1,0 +1,47 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.24",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/24.msg",
+    "image/clanImage/Help/AutoHelp/24.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/24.msg",
+    "legacy_sha256": "62f756d0b25e131a2486025782200e9d0a8c43d5a74ba142b49f76c67934818d",
+    "legacy_size": 335
+  },
+  "semantic": {
+    "lines": [
+      "Congratulations!",
+      "You've reached level 20. Now it's time to rank-up.",
+      "Your rank-up process will be done ",
+      "only if you carry out rank-up quest presented by skill",
+      "master in Pillai.",
+      "After rank-up, your appearnace will change and you're",
+      "allowed to learn the 2nd skills. ",
+      "Now go and see the skill master.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29uZ3JhdHVsYXRpb25zIQ0KWW91J3ZlIHJlYWNoZWQgbGV2ZWwgMjAuIE5vdyBpdCdzIHRpbWUgdG8gcmFuay11cC4NCllvdXIgcmFuay11cCBwcm9jZXNzIHdpbGwgYmUgZG9uZSANCm9ubHkgaWYgeW91IGNhcnJ5IG91dCByYW5rLXVwIHF1ZXN0IHByZXNlbnRlZCBieSBza2lsbA0KbWFzdGVyIGluIFBpbGxhaS4NCkFmdGVyIHJhbmstdXAsIHlvdXIgYXBwZWFybmFjZSB3aWxsIGNoYW5nZSBhbmQgeW91J3JlDQphbGxvd2VkIHRvIGxlYXJuIHRoZSAybmQgc2tpbGxzLiANCk5vdyBnbyBhbmQgc2VlIHRoZSBza2lsbCBtYXN0ZXIuDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo="
+  }
+}

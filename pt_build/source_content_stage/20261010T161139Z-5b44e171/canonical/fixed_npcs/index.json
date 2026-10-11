@@ -1,0 +1,125 @@
+{
+  "schema": "summit.fixed-npcs-index/v1",
+  "documents": [
+    {
+      "id": "fixed_npcs.ba1",
+      "logical_path": "GameServer/Field/Ba1.ase.spc",
+      "json_path": "npcs/GameServer/Field/Ba1.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.castle",
+      "logical_path": "GameServer/Field/castle.ase.spc",
+      "json_path": "npcs/GameServer/Field/castle.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.dark_boss",
+      "logical_path": "GameServer/Field/dark_boss.ASE.spc",
+      "json_path": "npcs/GameServer/Field/dark_boss.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.de_3",
+      "logical_path": "GameServer/Field/De-3.ase.spc",
+      "json_path": "npcs/GameServer/Field/De-3.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.dun_5",
+      "logical_path": "GameServer/Field/dun-5.ase.spc",
+      "json_path": "npcs/GameServer/Field/dun-5.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.dun_6a",
+      "logical_path": "GameServer/Field/Dun-6a.ASE.spc",
+      "json_path": "npcs/GameServer/Field/Dun-6a.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.dun_7",
+      "logical_path": "GameServer/Field/dun-7.ASE.spc",
+      "json_path": "npcs/GameServer/Field/dun-7.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.fore_1",
+      "logical_path": "GameServer/Field/fore-1.ase.spc",
+      "json_path": "npcs/GameServer/Field/fore-1.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.fore_2",
+      "logical_path": "GameServer/Field/fore-2.ase.spc",
+      "json_path": "npcs/GameServer/Field/fore-2.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.fore_3",
+      "logical_path": "GameServer/Field/fore-3.ase.spc",
+      "json_path": "npcs/GameServer/Field/fore-3.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.forever_fall_03",
+      "logical_path": "GameServer/Field/forever-fall-03.ASE.spc",
+      "json_path": "npcs/GameServer/Field/forever-fall-03.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.ice_2",
+      "logical_path": "GameServer/Field/ice_2.ASE.spc",
+      "json_path": "npcs/GameServer/Field/ice_2.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.ice_ura",
+      "logical_path": "GameServer/Field/ice_ura.ase.spc",
+      "json_path": "npcs/GameServer/Field/ice_ura.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.iron_1",
+      "logical_path": "GameServer/Field/iron-1.ASE.spc",
+      "json_path": "npcs/GameServer/Field/iron-1.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.iron_2",
+      "logical_path": "GameServer/Field/iron-2.ASE.spc",
+      "json_path": "npcs/GameServer/Field/iron-2.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.lost_temple",
+      "logical_path": "GameServer/Field/lost_temple.ASE.spc",
+      "json_path": "npcs/GameServer/Field/lost_temple.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.mine_1",
+      "logical_path": "GameServer/Field/Mine-1.ASE.spc",
+      "json_path": "npcs/GameServer/Field/Mine-1.ASE.spc.json"
+    },
+    {
+      "id": "fixed_npcs.office",
+      "logical_path": "GameServer/Field/office.ase.spc",
+      "json_path": "npcs/GameServer/Field/office.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.pilai",
+      "logical_path": "GameServer/Field/pilai.ase.spc",
+      "json_path": "npcs/GameServer/Field/pilai.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.ruin_1",
+      "logical_path": "GameServer/Field/ruin-1.ase.spc",
+      "json_path": "npcs/GameServer/Field/ruin-1.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.ruin_2",
+      "logical_path": "GameServer/Field/ruin-2.ase.spc",
+      "json_path": "npcs/GameServer/Field/ruin-2.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.ruin_3",
+      "logical_path": "GameServer/Field/ruin-3.ase.spc",
+      "json_path": "npcs/GameServer/Field/ruin-3.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.village_1",
+      "logical_path": "GameServer/Field/village-1.ase.spc",
+      "json_path": "npcs/GameServer/Field/village-1.ase.spc.json"
+    },
+    {
+      "id": "fixed_npcs.village_2",
+      "logical_path": "GameServer/Field/village-2.ase.spc",
+      "json_path": "npcs/GameServer/Field/village-2.ase.spc.json"
+    }
+  ]
+}

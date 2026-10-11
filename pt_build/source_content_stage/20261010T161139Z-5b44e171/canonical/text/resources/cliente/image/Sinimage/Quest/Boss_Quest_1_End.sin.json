@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_1_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_1_End.sin",
+    "image/Sinimage/Quest/Boss_Quest_1_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_1_End.sin",
+    "legacy_sha256": "712b801ba1b3cda77080bdaffb6c971cdd1fb55543271e062c3de626114b92f6",
+    "legacy_size": 154
+  },
+  "semantic": {
+    "lines": [
+      "Muito bom. Devemos ampliar a atividade da nossa unidade de",
+      "escuteiros.",
+      "",
+      "Em troca da sua ajuda, receba essa experiência para",
+      "auxiliá-lo em sua jornada."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TXVpdG8gYm9tLiBEZXZlbW9zIGFtcGxpYXIgYSBhdGl2aWRhZGUgZGEgbm9zc2EgdW5pZGFkZSBkZQ0KZXNjdXRlaXJvcy4NCg0KRW0gdHJvY2EgZGEgc3VhIGFqdWRhLCByZWNlYmEgZXNzYSBleHBlcmnqbmNpYSBwYXJhDQphdXhpbGnhLWxvIGVtIHN1YSBqb3JuYWRhLg=="
+  }
+}

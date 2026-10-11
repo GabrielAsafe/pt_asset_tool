@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ec107",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/EC107.zhoon",
+    "GameServer/OpenItem/name/EC107.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/EC107.zhoon",
+    "legacy_sha256": "02fa65b9c9c460483c09c90e28215f3415a5b90c19a74951b1fe12632b279f56",
+    "legacy_size": 35
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pergaminho para Vila Eura"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGVyZ2FtaW5obyBwYXJhIFZpbGEgRXVyYSI="
+  }
+}

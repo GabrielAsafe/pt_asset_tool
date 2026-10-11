@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.73_sereia_profana",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/73_Sereia Profana.zhoon",
+    "GameServer/Monster/Name/73_Sereia Profana.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/73_Sereia Profana.zhoon",
+    "legacy_sha256": "f1b9d165ddb6d8d0923aa903787499b730f15eeeef14ec593344d2375869846b",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Sereia Profana"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiU2VyZWlhIFByb2ZhbmEi"
+  }
+}

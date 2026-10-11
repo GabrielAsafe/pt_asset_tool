@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.bal.crystal.bal.crystal",
+  "logical_config": "char/monster/bal_crystal/bal_crystal.ini",
+  "legacy_cache": "char/monster/bal_crystal/bal_crystal.inx",
+  "consumers": [
+    {
+      "id": "monster.bc_100_torre_de_valhalla",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/BC_100_Torre de Valhalla.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/bal_crystal/bal_crystal.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/bal_crystal/bal_crystal.inx"
+    }
+  }
+}

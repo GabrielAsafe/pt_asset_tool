@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.coldeye.coldeye",
+  "logical_config": "char/monster/coldeye/coldeye.ini",
+  "legacy_cache": "char/monster/coldeye/coldeye.inx",
+  "consumers": [
+    {
+      "id": "monster.89_olho_de_gelo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/89_Olho de Gelo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/coldeye/coldeye.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/coldeye/coldeye.inx"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi113",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI113.zhoon",
+    "GameServer/OpenItem/name/BI113.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI113.zhoon",
+    "legacy_sha256": "09cca4310dba2a8805028f7bbdee7e17413b0037bc650bc98b3177696da0f5f9",
+    "legacy_size": 38
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Poção da Experiência 30% 12h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUG/n428gZGEgRXhwZXJp6m5jaWEgMzAlIDEyaCI="
+  }
+}

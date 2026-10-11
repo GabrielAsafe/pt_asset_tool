@@ -1,0 +1,30 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.village_2",
+  "logical_path": "GameServer/Field/village-2.ase.spp",
+  "points": [
+    {
+      "slot": 0,
+      "state": 1,
+      "x": -148,
+      "z": -17666
+    },
+    {
+      "slot": 1,
+      "state": 1,
+      "x": -926,
+      "z": -17006
+    },
+    {
+      "slot": 2,
+      "state": 1,
+      "x": -575,
+      "z": -17264
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/village-2.ase.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "bcbd9d81914dca376ad6b5407f1603103934bf34a2d8b92fdba6a8bbab3e851f"
+  }
+}

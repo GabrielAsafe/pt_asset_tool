@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da267",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/da267.zhoon",
+    "GameServer/OpenItem/name/da267.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/da267.zhoon",
+    "legacy_sha256": "8ad2cc1fccad561005bbe1d59595c5eac16f22c09e13bc2e762f80962088fbee",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Uniforme Brasileiro F (30d)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIlVuaWZvcm1lIEJyYXNpbGVpcm8gRiAoMzBkKSINCg=="
+  }
+}

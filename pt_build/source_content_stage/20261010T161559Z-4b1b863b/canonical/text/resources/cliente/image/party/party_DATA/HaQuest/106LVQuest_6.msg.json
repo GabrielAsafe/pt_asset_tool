@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_6",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/106LVQuest_6.msg",
+    "image/party/party_DATA/HaQuest/106LVQuest_6.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/106LVQuest_6.msg",
+    "legacy_sha256": "745152cdccc5d3187a0f87f6432e51f2bf0d2686bca748df88ae45397bf44cb7",
+    "legacy_size": 128
+  },
+  "semantic": {
+    "lines": [
+      "Leve o Anel de Noivado",
+      "Purificado e derrote Valento no",
+      "Vale Gallubia e, em seguida,",
+      "fale com o Mestre da Força em",
+      "Vila Eura."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV2ZSBvIEFuZWwgZGUgTm9pdmFkbw0KUHVyaWZpY2FkbyBlIGRlcnJvdGUgVmFsZW50byBubw0KVmFsZSBHYWxsdWJpYSBlLCBlbSBzZWd1aWRhLA0KZmFsZSBjb20gbyBNZXN0cmUgZGEgRm9y52EgZW0NClZpbGEgRXVyYS4="
+  }
+}

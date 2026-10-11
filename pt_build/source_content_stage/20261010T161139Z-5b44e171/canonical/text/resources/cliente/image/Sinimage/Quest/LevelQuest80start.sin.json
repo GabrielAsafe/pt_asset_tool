@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest80start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest80start.sin",
+    "image/Sinimage/Quest/LevelQuest80start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest80start.sin",
+    "legacy_sha256": "3f947409ce0adc58141f5a60424340a5f86bfeb53f4bc75eb2f02f23a6940e67",
+    "legacy_size": 516
+  },
+  "semantic": {
+    "lines": [
+      "In the second floor of the cursed temple, ",
+      "it is the condition Pury get sealed. ",
+      "If the pury shows up, continents will be ",
+      "enveloped in darkness again.",
+      "",
+      "With Michelle's information, Ratus are trying to ",
+      "break Pury's seal in order to gain their ",
+      "powers back. I'll give a notice this every worrior ",
+      "including you who access the temple.",
+      "I will reward you for hunting five Ratus ",
+      "in the second floor of the cursed temple.",
+      "If you are a fearless worrior, how about try it?",
+      "",
+      "Whatever Can you try hunting Ratus?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SW4gdGhlIHNlY29uZCBmbG9vciBvZiB0aGUgY3Vyc2VkIHRlbXBsZSwgDQppdCBpcyB0aGUgY29uZGl0aW9uIFB1cnkgZ2V0IHNlYWxlZC4gDQpJZiB0aGUgcHVyeSBzaG93cyB1cCwgY29udGluZW50cyB3aWxsIGJlIA0KZW52ZWxvcGVkIGluIGRhcmtuZXNzIGFnYWluLg0KDQpXaXRoIE1pY2hlbGxlJ3MgaW5mb3JtYXRpb24sIFJhdHVzIGFyZSB0cnlpbmcgdG8gDQpicmVhayBQdXJ5J3Mgc2VhbCBpbiBvcmRlciB0byBnYWluIHRoZWlyIA0KcG93ZXJzIGJhY2suIEknbGwgZ2l2ZSBhIG5vdGljZSB0aGlzIGV2ZXJ5IHdvcnJpb3IgDQppbmNsdWRpbmcgeW91IHdobyBhY2Nlc3MgdGhlIHRlbXBsZS4NCkkgd2lsbCByZXdhcmQgeW91IGZvciBodW50aW5nIGZpdmUgUmF0dXMgDQppbiB0aGUgc2Vjb25kIGZsb29yIG9mIHRoZSBjdXJzZWQgdGVtcGxlLg0KSWYgeW91IGFyZSBhIGZlYXJsZXNzIHdvcnJpb3IsIGhvdyBhYm91dCB0cnkgaXQ/DQoNCldoYXRldmVyIENhbiB5b3UgdHJ5IGh1bnRpbmcgUmF0dXM/"
+  }
+}

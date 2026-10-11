@@ -1,0 +1,11 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.dark_boss",
+  "logical_path": "GameServer/Field/dark_boss.ASE.spc",
+  "npcs": [],
+  "provenance": {
+    "source": "GameServer/Field/dark_boss.ASE.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "981f5bba8e1c60c4fa82b3e39c1bba31b3dc4881406e229072c915020797fadc"
+  }
+}

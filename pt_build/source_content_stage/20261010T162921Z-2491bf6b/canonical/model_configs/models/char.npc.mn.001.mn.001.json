@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.mn.001.mn.001",
+  "logical_config": "char/npc/MN-001/MN-001.INI",
+  "legacy_cache": "char/npc/MN-001/MN-001.inx",
+  "consumers": [
+    {
+      "id": "npc.phillay_dragoman",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-dragoman.npc.json"
+    },
+    {
+      "id": "npc.phillay_dragoman1",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-dragoman1.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/MN-001/MN-001.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/MN-001/MN-001.inx"
+    }
+  }
+}

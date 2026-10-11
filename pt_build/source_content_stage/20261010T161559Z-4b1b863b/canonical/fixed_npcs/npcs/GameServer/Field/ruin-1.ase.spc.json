@@ -1,0 +1,23 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.ruin_1",
+  "logical_path": "GameServer/Field/ruin-1.ase.spc",
+  "npcs": [
+    {
+      "slot": 0,
+      "npc_id": "npc.dungeon_keeper",
+      "x": 4235537,
+      "y": 128396,
+      "z": 3878277,
+      "ax": 0,
+      "ay": 2608,
+      "az": 0,
+      "state": 0
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/ruin-1.ase.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "9d9ab2ed5c3c040130afbcb00048281441dc4972538b210b98e270800c939593"
+  }
+}

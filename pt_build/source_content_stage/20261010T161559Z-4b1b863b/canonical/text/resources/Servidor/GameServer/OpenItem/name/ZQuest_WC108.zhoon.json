@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.zquest_wc108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ZQuest_WC108.zhoon",
+    "GameServer/OpenItem/name/ZQuest_WC108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ZQuest_WC108.zhoon",
+    "legacy_sha256": "1ff41b1f0909bd08918a169295a41f43980632e45d3a40f2d3cb6c2e5a0f2e7d",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Garra da Vingança"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR2FycmEgZGEgVmluZ2Fu52Ei"
+  }
+}

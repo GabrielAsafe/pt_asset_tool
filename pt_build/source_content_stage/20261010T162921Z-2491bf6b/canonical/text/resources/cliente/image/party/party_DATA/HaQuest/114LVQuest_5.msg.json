@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/114LVQuest_5.msg",
+    "image/party/party_DATA/HaQuest/114LVQuest_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/114LVQuest_5.msg",
+    "legacy_sha256": "3b7faa4910122964f5a11375c0332bec0e14a4ae5b781c3a9b9913426b80fe75",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "lines": [
+      "Fale com a Sábia Celina."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmFsZSBjb20gYSBT4WJpYSBDZWxpbmEu"
+  }
+}

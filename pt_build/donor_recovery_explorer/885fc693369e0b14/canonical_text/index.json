@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.80_deadhopy",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/80_Deadhopy.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/80_Deadhopy.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/80_Deadhopy.inf",
+        "GameServer/Monster/80_Deadhopy.inf"
+      ],
+      "legacy_sha256": "515f356acc72265070810fb7c1894a3f55bc05dc15b5bf1d42d58a8e432993b7"
+    }
+  ]
+}

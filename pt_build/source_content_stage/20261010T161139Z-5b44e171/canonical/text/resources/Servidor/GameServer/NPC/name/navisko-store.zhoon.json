@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.navisko_store",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/navisko-store.zhoon",
+    "GameServer/NPC/name/navisko-store.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/navisko-store.zhoon",
+    "legacy_sha256": "062fe4b637fad37d48419a1f4636754e32a1a431ad226bb94276f8224649d4f4",
+    "legacy_size": 357
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Loja da Byant"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Sempre compre poções suficientes para cruzar o deserto. Evite ter que voltar aqui, a todo momento."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Os guerreiros compram muitas poções e isso deixa os monstros furiosos..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Estas poções são tão importantes quanto água no deserto."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Esta é a única loja do local, que vende poções."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkxvamEgZGEgQnlhbnQiDQoNCipKX0NIQVQJCSJTZW1wcmUgY29tcHJlIHBv5/VlcyBzdWZpY2llbnRlcyBwYXJhIGNydXphciBvIGRlc2VydG8uIEV2aXRlIHRlciBxdWUgdm9sdGFyIGFxdWksIGEgdG9kbyBtb21lbnRvLiINCipKX0NIQVQJCSJPcyBndWVycmVpcm9zIGNvbXByYW0gbXVpdGFzIHBv5/VlcyBlIGlzc28gZGVpeGEgb3MgbW9uc3Ryb3MgZnVyaW9zb3MuLi4iDQoqSl9DSEFUCQkiRXN0YXMgcG/n9WVzIHPjbyB0428gaW1wb3J0YW50ZXMgcXVhbnRvIOFndWEgbm8gZGVzZXJ0by4iDQoqSl9DSEFUCQkiRXN0YSDpIGEg+m5pY2EgbG9qYSBkbyBsb2NhbCwgcXVlIHZlbmRlIHBv5/Vlcy4iDQoNCg0K"
+  }
+}

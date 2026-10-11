@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.grotesque.grotesque",
+  "logical_config": "char/monster/grotesque/grotesque.ini",
+  "legacy_cache": "char/monster/grotesque/grotesque.inx",
+  "consumers": [
+    {
+      "id": "monster.83_grotesco",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/83_Grotesco.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Grotesque/grotesque.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Grotesque/grotesque.inx"
+    }
+  }
+}

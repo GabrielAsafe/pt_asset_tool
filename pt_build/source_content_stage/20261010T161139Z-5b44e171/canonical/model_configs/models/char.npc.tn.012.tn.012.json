@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.012.tn.012",
+  "logical_config": "char/npc/TN-012/TN-012.ini",
+  "legacy_cache": "char/npc/TN-012/TN-012.inx",
+  "consumers": [
+    {
+      "id": "npc.ricarden_imbue",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ricarden-imbue.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-012/TN-012.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-012/TN-012.inx"
+    }
+  }
+}

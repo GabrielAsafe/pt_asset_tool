@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.90_golem_de_gelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/90_Golem de Gelo.zhoon",
+    "GameServer/Monster/Name/90_Golem de Gelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/90_Golem de Gelo.zhoon",
+    "legacy_sha256": "82a7e5a3517b005d3d008fe2afe39afde8fa2b4a2a8be96085120348203358fc",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Golem de Gelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR29sZW0gZGUgR2VsbyI="
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.thelastgladiator",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Event/TheLastGladiator.sin",
+    "image/Sinimage/Event/TheLastGladiator.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Event/TheLastGladiator.sin",
+    "legacy_sha256": "7d2df146460acc98acb6ae5c1535c75f57c92e9f1b8663b7c695ded79cf32e5c",
+    "legacy_size": 816
+  },
+  "semantic": {
+    "lines": [
+      "Sou o Guarda Pretoriano, um dos responsáveis pelo ",
+      "treinamento de elite do Conselho Real.",
+      "",
+      "Passamos por um período tenebroso no continente. Muitos",
+      "perderam suas vidas. Vencemos, mas ao custo de muito sangue.",
+      "",
+      "Para que outra catástrofe como essa não se repita, temos",
+      "que estar preparados. Por isso, convoquei os mais poderosos",
+      "guerreiros que fazem parte do nosso Conselho para um treino",
+      "intensivo com aqueles que desejam evoluir. Os Game Masters",
+      "atenderam a convocação e estarão à espera dos desafiantes. ",
+      "",
+      "Se você acredita ser forte o suficiente para desafiá-los,",
+      "estarei lhe aguardando.",
+      "",
+      "O desafio aos Game Masters ocorrerá nos subservidores Beta",
+      "em 15/12/2018, nos seguintes horários:",
+      " ",
+      "• 20h00 - Awell, Migal e Midranda",
+      "• 21h00 - Valento e Cronus",
+      "",
+      "Você será capaz de sobreviver até o fim?  "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "U291IG8gR3VhcmRhIFByZXRvcmlhbm8sIHVtIGRvcyByZXNwb25z4XZlaXMgcGVsbyANCnRyZWluYW1lbnRvIGRlIGVsaXRlIGRvIENvbnNlbGhvIFJlYWwuDQoNClBhc3NhbW9zIHBvciB1bSBwZXLtb2RvIHRlbmVicm9zbyBubyBjb250aW5lbnRlLiBNdWl0b3MNCnBlcmRlcmFtIHN1YXMgdmlkYXMuIFZlbmNlbW9zLCBtYXMgYW8gY3VzdG8gZGUgbXVpdG8gc2FuZ3VlLg0KDQpQYXJhIHF1ZSBvdXRyYSBjYXThc3Ryb2ZlIGNvbW8gZXNzYSBu428gc2UgcmVwaXRhLCB0ZW1vcw0KcXVlIGVzdGFyIHByZXBhcmFkb3MuIFBvciBpc3NvLCBjb252b3F1ZWkgb3MgbWFpcyBwb2Rlcm9zb3MNCmd1ZXJyZWlyb3MgcXVlIGZhemVtIHBhcnRlIGRvIG5vc3NvIENvbnNlbGhvIHBhcmEgdW0gdHJlaW5vDQppbnRlbnNpdm8gY29tIGFxdWVsZXMgcXVlIGRlc2VqYW0gZXZvbHVpci4gT3MgR2FtZSBNYXN0ZXJzDQphdGVuZGVyYW0gYSBjb252b2Nh5+NvIGUgZXN0YXLjbyDgIGVzcGVyYSBkb3MgZGVzYWZpYW50ZXMuIA0KDQpTZSB2b2PqIGFjcmVkaXRhIHNlciBmb3J0ZSBvIHN1ZmljaWVudGUgcGFyYSBkZXNhZmnhLWxvcywNCmVzdGFyZWkgbGhlIGFndWFyZGFuZG8uDQoNCk8gZGVzYWZpbyBhb3MgR2FtZSBNYXN0ZXJzIG9jb3JyZXLhIG5vcyBzdWJzZXJ2aWRvcmVzIEJldGENCmVtIDE1LzEyLzIwMTgsIG5vcyBzZWd1aW50ZXMgaG9y4XJpb3M6DQogDQqVIDIwaDAwIC0gQXdlbGwsIE1pZ2FsIGUgTWlkcmFuZGENCpUgMjFoMDAgLSBWYWxlbnRvIGUgQ3JvbnVzDQoNClZvY+ogc2Vy4SBjYXBheiBkZSBzb2JyZXZpdmVyIGF06SBvIGZpbT8gIA0K"
+  }
+}

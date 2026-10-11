@@ -1,0 +1,47 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.village_1",
+  "logical_path": "GameServer/Field/village-1.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/village-1.ase.spm",
+    "sha256": "6241e0be434954627593ed7e737c080eb8e7d0044c603c8543acd5a55962a727"
+  },
+  "limit_max": 30,
+  "delay": {
+    "shift": 5,
+    "milliseconds": 19000
+  },
+  "open_limit": 2,
+  "actors": [
+    {
+      "monster_id": "monster.34_bargon",
+      "legacy_name": "Bargon",
+      "legacy_name_bytes_hex": "426172676f6e",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.35_ghoul",
+      "legacy_name": "Ghoul",
+      "legacy_name_bytes_hex": "47686f756c",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.35_minigue_prateado",
+      "legacy_name": "Minigue Prateado",
+      "legacy_name_bytes_hex": "4d696e6967756520507261746561646f",
+      "weight": 30,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.24_mephit",
+      "legacy_name": "Mephit",
+      "legacy_name_bytes_hex": "4d6570686974",
+      "weight": 15,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": []
+}

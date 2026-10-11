@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_3pass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob5_3Pass.sin",
+    "image/Sinimage/Quest/ChangeJob5_3Pass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob5_3Pass.sin",
+    "legacy_sha256": "456a15df3c66cc26f37a8764ceb80042244ff9268daf107f142b4985475a78b2",
+    "legacy_size": 280
+  },
+  "semantic": {
+    "lines": [
+      "O terceiro teste também não é fácil. Gerenciar",
+      "o tempo e a resistência é importante. Se está",
+      "difícil o teste sozinho, solicite ajude de amigos",
+      "e membros do clan para terminar de caçar",
+      "os monstros o mais breve possível.",
+      "",
+      "O tempo limitado está correndo! Portanto,",
+      "apresse-se!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TyB0ZXJjZWlybyB0ZXN0ZSB0YW1i6W0gbuNvIOkgZuFjaWwuIEdlcmVuY2lhcg0KbyB0ZW1wbyBlIGEgcmVzaXN06m5jaWEg6SBpbXBvcnRhbnRlLiBTZSBlc3ThDQpkaWbtY2lsIG8gdGVzdGUgc296aW5obywgc29saWNpdGUgYWp1ZGUgZGUgYW1pZ29zDQplIG1lbWJyb3MgZG8gY2xhbiBwYXJhIHRlcm1pbmFyIGRlIGNh52FyDQpvcyBtb25zdHJvcyBvIG1haXMgYnJldmUgcG9zc+12ZWwuDQoNCk8gdGVtcG8gbGltaXRhZG8gZXN04SBjb3JyZW5kbyEgUG9ydGFudG8sDQphcHJlc3NlLXNlIQ=="
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.001.tn.001",
+  "logical_config": "char/npc/TN-001/TN-001.INI",
+  "legacy_cache": "char/npc/TN-001/TN-001.inx",
+  "consumers": [
+    {
+      "id": "npc.blesscatle_guard",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/blesscatle-guard.npc.json"
+    },
+    {
+      "id": "npc.bridge_guard",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/bridge-guard.npc.json"
+    },
+    {
+      "id": "npc.dungeon_keeper",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/dungeon-keeper.npc.json"
+    },
+    {
+      "id": "npc.ricarden_guard",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ricarden-guard.npc.json"
+    },
+    {
+      "id": "npc.tmcave_keeper",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/tmcave-keeper.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-001/TN-001.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-001/TN-001.inx"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.mage.mage",
+  "logical_config": "char/npc/mage/mage.ini",
+  "legacy_cache": "char/npc/mage/mage.inx",
+  "consumers": [
+    {
+      "id": "monster.ad_60_mestre_raymon",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/AD_60_Mestre Raymon.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Mage/Mage.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Mage/Mage.inx"
+    }
+  }
+}

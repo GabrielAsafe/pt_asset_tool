@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bc110",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BC110.zhoon",
+    "GameServer/OpenItem/name/BC110.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BC110.zhoon",
+    "legacy_sha256": "2778d1924dbd3639fee01b961b5c473e0b00bedcf9c0dc1f6afab9e6b3f50cd4",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Sentença de Morte Mecânico"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiU2VudGVu52EgZGUgTW9ydGUgTWVj4m5pY28i"
+  }
+}

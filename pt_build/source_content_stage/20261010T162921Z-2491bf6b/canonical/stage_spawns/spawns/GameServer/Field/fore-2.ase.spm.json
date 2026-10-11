@@ -1,0 +1,61 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.fore_2",
+  "logical_path": "GameServer/Field/fore-2.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/fore-2.ase.spm",
+    "sha256": "aa991370ddb8630933d1c4ebfd19ccf5d8e27bba30982927817606c786f105a0"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 2,
+  "actors": [
+    {
+      "monster_id": "monster.6_minigue",
+      "legacy_name": "Minigue",
+      "legacy_name_bytes_hex": "4d696e69677565",
+      "weight": 35,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.10_imp",
+      "legacy_name": "Imp",
+      "legacy_name_bytes_hex": "496d70",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.25_fantasma",
+      "legacy_name": "Fantasma",
+      "legacy_name_bytes_hex": "46616e7461736d61",
+      "weight": 30,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.12_planta_assassina",
+      "legacy_name": "Planta Assassina",
+      "legacy_name_bytes_hex": "506c616e746120417373617373696e61",
+      "weight": 5,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.11_doral",
+      "legacy_name": "Doral",
+      "legacy_name_bytes_hex": "446f72616c",
+      "weight": 5,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.5_tatu",
+      "legacy_name": "Tatu",
+      "legacy_name_bytes_hex": "54617475",
+      "weight": 5,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": []
+}

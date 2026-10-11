@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.14_h_hobgoblin",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/_14_H_Hobgoblin.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/_14_H_Hobgoblin.inf.json",
+      "sha256": "df084313c01e7bdd9238a1fcc0441365558d6e8e341bc01f2339e8db8254e478"
+    }
+  ]
+}

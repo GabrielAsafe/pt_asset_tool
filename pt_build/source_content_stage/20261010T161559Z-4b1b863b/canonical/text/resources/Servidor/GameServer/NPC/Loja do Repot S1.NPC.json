@@ -1,0 +1,242 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.loja_do_repot_s1",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Loja do Repot S1.NPC",
+    "GameServer/NPC/Loja do Repot S1.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Loja do Repot S1.NPC",
+    "legacy_sha256": "935e32ce6934817c9d7b03edd496c6cec2cde718ed0f9cff3c953a0e54553b37",
+    "legacy_size": 814
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-005\\TN-005.ini",
+      "level": 100,
+      "name": "잡화점 알리아",
+      "english_name": "Mr Lim",
+      "class": 1001,
+      "sell_weapon": "없음",
+      "sell_defence": {
+        "$repeated": [
+          "없음",
+          "없음"
+        ]
+      },
+      "sell_etc": [
+        "PL101",
+        "PL102",
+        "PL103",
+        "PL104",
+        "PS101",
+        "PS102",
+        "PS103",
+        "PS104",
+        "ec101",
+        "ec104",
+        "ec102",
+        "fo106",
+        "fo126",
+        "fo107",
+        "fo127"
+      ],
+      "linked_file": "name\\Loja do Repot S1.zhoon",
+      "model_config_id": "model.char.npc.tn.005.tn.005"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-005\\TN-005.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030355c544e2d3030352e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "잡화점 알리아"
+        ],
+        "raw_values_hex": [
+          "c0e2c8adc1a120becbb8aebec6"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mr Lim"
+        ],
+        "raw_values_hex": [
+          "4d72204c696d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 16,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1001
+        ],
+        "raw_values_hex": [
+          "31303031"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 22,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 25,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "PL101",
+          "PL102",
+          "PL103",
+          "PL104",
+          "PS101",
+          "PS102",
+          "PS103",
+          "PS104",
+          "ec101",
+          "ec104",
+          "ec102",
+          "fo106",
+          "fo126",
+          "fo107",
+          "fo127"
+        ],
+        "raw_values_hex": [
+          "504c313031",
+          "504c313032",
+          "504c313033",
+          "504c313034",
+          "5053313031",
+          "5053313032",
+          "5053313033",
+          "5053313034",
+          "6563313031",
+          "6563313034",
+          "6563313032",
+          "666f313036",
+          "666f313236",
+          "666f313037",
+          "666f313237"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Loja do Repot S1.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4c6f6a6120646f205265706f742053312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJTlBDDQoquPC+58bEwM8JImNoYXJcbnBjXFROLTAwNVxUTi0wMDUuaW5pIg0KKre5uqcJCTEwMA0KDQoqwMy4pwkJIsDiyK3BoSC+y7iuvsYiDQoqTmFtZQkJIk1yIExpbSINCg0KLy8qtOvIrQkJIruhsKO+4MC6ILv9uO23wsC7IMPKt8++4MC6ILHZt8LAuyDIuLq5vcPE0SDB3bTPtNkuILmwvuDAzCCywCDHyr/kx9IgtqewoSDA1sC7IMXXtM8gwdi68cfYILXOvLy/5CINCi8vKrTryK0JCSK+xrmruK4gsK3H0SDA/LvntvO1tSC8+LCjwPvAuLfOILvzw7O4piDEobfhx8+w7SDIuLq5vcPE0SDB1rTCILmwvuC16cDMIL74wMy0wiCx1yCwrcfUwLsgwK/B9sfSILz2IL74wdIiDQovLyq068itCQkiwMyw97+hvK0gxse4xbXHtMIguPC15yC5sL7gwLogwaawoSDB98GiILi4temw7SDA1r3AtM+02S4gwNogvu62siC5sL7gwMwgx8q/5MfPvLy/5D8iDQovLyq068itCQkiubC+4MC7ILDtuKYgtqkgwNq9xcDHILv9uO23wr+hILjCsNQgvLHFw8fYvt8gx9W0z7TZLiINCg0KLy+w6LHevLPBpCDHyriuvsa/zSC89sfgIMT5vbrGrii067vnKbCwwL0NCg0KKrDosd4gMTAwMQ0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCiq5q7Hixse4xQm++MC9DQoNCiq55r7usbjGx7jFCb74wL0NCiq55r7usbjGx7jFCb74wL0NCg0KKsDiyK3Gx7jFCVBMMTAxIFBMMTAyIFBMMTAzIFBMMTA0CVBTMTAxIFBTMTAyIFBTMTAzIFBTMTA0ICBlYzEwMSBlYzEwNCBlYzEwMiBmbzEwNiBmbzEyNiBmbzEwNyBmbzEyNw0KDQoqv6yw4cbEwM8JIm5hbWVcTG9qYSBkbyBSZXBvdCBTMS56aG9vbiINCg0KDQoNCg0KDQoNCg=="
+  }
+}

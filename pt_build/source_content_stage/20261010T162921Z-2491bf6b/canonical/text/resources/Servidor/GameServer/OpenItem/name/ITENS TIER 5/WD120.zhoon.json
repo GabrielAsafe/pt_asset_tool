@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd120",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD120.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD120.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD120.zhoon",
+    "legacy_sha256": "e5f08e524d4f0c81d641f868d3d89b651b008ce8c7d37f909c2b4be361d1150c",
+    "legacy_size": 42
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Plunder Dagger"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDEyMC50eHQNCg0KKkpfTkFNRQkJIlBsdW5kZXIgRGFnZ2VyIg0K"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_7_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_7_Start.sin",
+    "image/Sinimage/Quest/155LVQuest_7_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_7_Start.sin",
+    "legacy_sha256": "6851c3822255238239d9f490d401569ead71f02b75da6c797ea393276a811f53",
+    "legacy_size": 652
+  },
+  "semantic": {
+    "lines": [
+      "O rio glacial foi destruido em terra e no fundo do mar.",
+      "Glacies venceu a Dama da Neve. Usei essa chance e prendi",
+      "a Dama da Neve na Prisão Mágica, para que Diana pudesse",
+      "entrar em sua mente, acalmá-la e conhecer sua história. ",
+      "Há muito tempo, o Dragão de Snowstorm, acidentalmente,",
+      "criou o rio glacial, que percorreu o Vale Gallubia. As",
+      "tribos locais fugiram, porém, uma família não escapou.",
+      "Apenas uma recém nascida sobreviveu, sofrendo uma mutação.",
+      "Ela foi abandonada por sua tribo e viveu solitária.",
+      "",
+      "Muito triste. Entregue esse relatório ao Comandante Derik.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Entregue o Relatório de Batalha ao Comandante Derik."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TyByaW8gZ2xhY2lhbCBmb2kgZGVzdHJ1aWRvIGVtIHRlcnJhIGUgbm8gZnVuZG8gZG8gbWFyLg0KR2xhY2llcyB2ZW5jZXUgYSBEYW1hIGRhIE5ldmUuIFVzZWkgZXNzYSBjaGFuY2UgZSBwcmVuZGkNCmEgRGFtYSBkYSBOZXZlIG5hIFByaXPjbyBN4WdpY2EsIHBhcmEgcXVlIERpYW5hIHB1ZGVzc2UNCmVudHJhciBlbSBzdWEgbWVudGUsIGFjYWxt4S1sYSBlIGNvbmhlY2VyIHN1YSBoaXN083JpYS4gDQpI4SBtdWl0byB0ZW1wbywgbyBEcmFn428gZGUgU25vd3N0b3JtLCBhY2lkZW50YWxtZW50ZSwNCmNyaW91IG8gcmlvIGdsYWNpYWwsIHF1ZSBwZXJjb3JyZXUgbyBWYWxlIEdhbGx1YmlhLiBBcw0KdHJpYm9zIGxvY2FpcyBmdWdpcmFtLCBwb3LpbSwgdW1hIGZhbe1saWEgbuNvIGVzY2Fwb3UuDQpBcGVuYXMgdW1hIHJlY+ltIG5hc2NpZGEgc29icmV2aXZldSwgc29mcmVuZG8gdW1hIG11dGHn428uDQpFbGEgZm9pIGFiYW5kb25hZGEgcG9yIHN1YSB0cmlibyBlIHZpdmV1IHNvbGl04XJpYS4NCg0KTXVpdG8gdHJpc3RlLiBFbnRyZWd1ZSBlc3NlIHJlbGF083JpbyBhbyBDb21hbmRhbnRlIERlcmlrLg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KRW50cmVndWUgbyBSZWxhdPNyaW8gZGUgQmF0YWxoYSBhbyBDb21hbmRhbnRlIERlcmlrLg=="
+  }
+}

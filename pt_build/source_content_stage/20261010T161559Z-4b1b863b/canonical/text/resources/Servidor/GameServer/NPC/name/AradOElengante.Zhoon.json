@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.aradoelengante",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/AradOElengante.Zhoon",
+    "GameServer/NPC/name/AradOElengante.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/AradOElengante.Zhoon",
+    "legacy_sha256": "cd1eb55035b09ba53b5ae587e55d57ed1e4ff003015c96dab73f03de119203ea",
+    "legacy_size": 108
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Arad, o Elengante"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Magia, combina com elegância, não ?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9BcmFkT0VsZW5nYW50ZS5OUEMNCg0KDQoqSl9OYW1lCSJBcmFkLCBvIEVsZW5nYW50ZSINCg0KDQoqSl9DaGF0CSJNYWdpYSwgY29tYmluYSBjb20gZWxlZ+JuY2lhLCBu428gPyINCg0K"
+  }
+}

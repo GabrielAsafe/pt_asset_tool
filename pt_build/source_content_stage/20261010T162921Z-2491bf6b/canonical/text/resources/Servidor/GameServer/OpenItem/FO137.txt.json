@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.fo137",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/FO137.txt",
+    "GameServer/OpenItem/FO137.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/FO137.txt",
+    "legacy_sha256": "10565248eab2dea72d3fc2a79efe565cc728d8538df54ccf1aa5acfae2357295",
+    "legacy_size": 64
+  },
+  "semantic": {
+    "fields": {
+      "code": "FO137",
+      "linked_file": "Name\\FO137.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "FO137"
+        ],
+        "raw_values_hex": [
+          "464f313337"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\FO137.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c464f3133372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkZPMTM3Ig0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEZPMTM3Lnpob29uIg=="
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.t.crystal.r.t.crystal.r",
+  "logical_config": "char/monster/t_crystal_r/t_crystal_r.ini",
+  "legacy_cache": "char/monster/t_crystal_r/t_crystal_r.inx",
+  "consumers": [
+    {
+      "id": "monster.bc_100_cristal_de_fogo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/BC_100_Cristal de Fogo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/t_crystal_r/t_crystal_r.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/t_crystal_r/t_crystal_r.inx"
+    }
+  }
+}

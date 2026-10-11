@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest55start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest55start.sin",
+    "image/Sinimage/Quest/LevelQuest55start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest55start.sin",
+    "legacy_sha256": "c4963909c56116712eb8dd5ff5c28426801e4aeb5ba4677838d6ad08c388ac10",
+    "legacy_size": 323
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "You are much stronger than you were when you came ",
+      "to learn the first skill, but now I still feel your",
+      "passion to be much more powerful.",
+      "",
+      "How about taking a test that I'm giving you now? ",
+      "Of course, you will be fairly rewarded after ",
+      "passing it.",
+      "",
+      "Go to Mushroom Cave to hunt 20 Muffins, and come ",
+      "back to me. ",
+      " "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpZb3UgYXJlIG11Y2ggc3Ryb25nZXIgdGhhbiB5b3Ugd2VyZSB3aGVuIHlvdSBjYW1lIA0KdG8gbGVhcm4gdGhlIGZpcnN0IHNraWxsLCBidXQgbm93IEkgc3RpbGwgZmVlbCB5b3VyDQpwYXNzaW9uIHRvIGJlIG11Y2ggbW9yZSBwb3dlcmZ1bC4NCg0KSG93IGFib3V0IHRha2luZyBhIHRlc3QgdGhhdCBJJ20gZ2l2aW5nIHlvdSBub3c/IA0KT2YgY291cnNlLCB5b3Ugd2lsbCBiZSBmYWlybHkgcmV3YXJkZWQgYWZ0ZXIgDQpwYXNzaW5nIGl0Lg0KDQpHbyB0byBNdXNocm9vbSBDYXZlIHRvIGh1bnQgMjAgTXVmZmlucywgYW5kIGNvbWUgDQpiYWNrIHRvIG1lLiANCiA="
+  }
+}

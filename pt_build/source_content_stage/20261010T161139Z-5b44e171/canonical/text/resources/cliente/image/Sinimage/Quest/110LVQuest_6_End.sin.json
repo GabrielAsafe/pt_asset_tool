@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_6_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_6_End.sin",
+    "image/Sinimage/Quest/110LVQuest_6_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_6_End.sin",
+    "legacy_sha256": "f7fba96a627d3fd9ed878a5b7904675ae96a2dcb9ce23353166900dd709abb83",
+    "legacy_size": 250
+  },
+  "semantic": {
+    "lines": [
+      "UAU! Esta também é a primeira vez que vejo esse cristal",
+      "perigoso!! Vai levar algum tempo para fazer o explosivo,",
+      "então, você poderia voltar mais tarde?",
+      "",
+      "Essa tarefa foi trabalhosa, receba 479.391.996 de",
+      "experiência em retribuição ao seu esforço."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VUFVISBFc3RhIHRhbWLpbSDpIGEgcHJpbWVpcmEgdmV6IHF1ZSB2ZWpvIGVzc2UgY3Jpc3RhbA0KcGVyaWdvc28hISBWYWkgbGV2YXIgYWxndW0gdGVtcG8gcGFyYSBmYXplciBvIGV4cGxvc2l2bywNCmVudONvLCB2b2PqIHBvZGVyaWEgdm9sdGFyIG1haXMgdGFyZGU/DQoNCkVzc2EgdGFyZWZhIGZvaSB0cmFiYWxob3NhLCByZWNlYmEgNDc5LjM5MS45OTYgZGUNCmV4cGVyaepuY2lhIGVtIHJldHJpYnVp5+NvIGFvIHNldSBlc2ZvcudvLg=="
+  }
+}

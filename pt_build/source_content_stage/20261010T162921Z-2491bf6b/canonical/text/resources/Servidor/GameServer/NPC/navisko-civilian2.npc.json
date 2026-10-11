@@ -1,0 +1,107 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.navisko_civilian2",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/navisko-civilian2.npc",
+    "GameServer/NPC/navisko-civilian2.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/navisko-civilian2.npc",
+    "legacy_sha256": "e2715e2202c53d1d99310601ccbeafc58e503e11b5da13497ec29562d91d759c",
+    "legacy_size": 689
+  },
+  "semantic": {
+    "fields": {
+      "name": "마을주민 미뉴렌",
+      "class": 1011,
+      "model_file": "char\\npc\\TN-006\\TN-006.ini",
+      "level": 100,
+      "linked_file": "name\\navisko-civilian2.zhoon",
+      "model_config_id": "model.char.npc.tn.006.tn.006"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "마을주민 미뉴렌"
+        ],
+        "raw_values_hex": [
+          "b8b6c0bbc1d6b9ce20b9ccb4bab7bb"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1011
+        ],
+        "raw_values_hex": [
+          "31303131"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-006\\TN-006.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030365c544e2d3030362e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\navisko-civilian2.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e617669736b6f2d636976696c69616e322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK4tsC7wda5ziC5zLS6t7siDQoqsOix3gkgICAgICAgMTAxMQ0KKrjwvufGxMDPCSJjaGFyXG5wY1xUTi0wMDZcVE4tMDA2LmluaSINCiq3ubqnCQkxMDANCi8vKrTryK0JCSKz17rxvbrE2rTCIMXbvbrFqbfQILTrt/rAxyDB377Tv6EgwKfEocfRIMDbwLogtbW9w8H2uLggwMy788fRIMDPwMwgwM++7rOttNm0wiC80rmuILanua6/oSC/3MH2wM616cDHILnfsebAzCC25MfPwfYiDQovLyq068itCQkiwMyw98C4t84gvPa4xsDMIMjluKO0wiCwx8H2IL7GxKe/oSDAz77us68gtqe4trTZIL/CuPbAzCC+pb3DsO0gsOG4rsH2IMGkuLsgseK60CCzqrvbILD3wMy287TPse4hIg0KLy8qtOvIrQkJIr7uwaYgst7AuyCy2bTCtaUgsdu96iC/2CC43sSrtM+8x8DMILOquKYgsPiw3cfPtPWxuiC+7sLus6ogvsbHwbT4wfYsILLewMzB9ri4IL7Gwfe1tSC9x8Gmw7O3syC7/bv9x9giDQovLyq068itCQkiU09EILDmseLA5cDMILXpvu4gvK246bytIMDMsPfAuyDDo7TCIMD8u+e16cDMILi5vsYgwfaw7SC4tsC7v6G1tSDBocGhILv9seKwoSC1ubDtIMDWvu4iDQovLyq068itCQkiuLbAuyDB377Tv6EgwNa0wiC/9sfBsNTAzMauuKYgusOzqiC8+L3EsKO/oSC02bilILD3wLi3ziDAzLW/x8+0wiC+xsHWIL3FseLH0SDA5cShtvOw7SINCg0KDQoqv6yw4cbEwM8JIm5hbWVcbmF2aXNrby1jaXZpbGlhbjIuemhvb24iDQo="
+  }
+}

@@ -1,0 +1,2760 @@
+{
+  "format": "SCFG",
+  "version": 1,
+  "profile": "server",
+  "definitions": 2352,
+  "directives": 41851,
+  "flattened_links": 1837,
+  "filtered_open_items": 132,
+  "filtered_open_item_rows": [
+    {
+      "id": "item.2_wd109",
+      "path": "GameServer/OpenItem/2_WD109.txt",
+      "code": "wd109",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.2_wn109",
+      "path": "GameServer/OpenItem/2_WN109.txt",
+      "code": "wn109",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.bi901",
+      "path": "GameServer/OpenItem/BI901.txt",
+      "code": "bi901",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.ca115",
+      "path": "GameServer/OpenItem/CA115.txt",
+      "code": "ca115",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.ca715",
+      "path": "GameServer/OpenItem/CA715.txt",
+      "code": "ca715",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.cx114",
+      "path": "GameServer/OpenItem/CX114.txt",
+      "code": "cx114",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.cx115",
+      "path": "GameServer/OpenItem/CX115.txt",
+      "code": "cx115",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da649",
+      "path": "GameServer/OpenItem/DA649.txt",
+      "code": "da649",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da650",
+      "path": "GameServer/OpenItem/DA650.txt",
+      "code": "da650",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da651",
+      "path": "GameServer/OpenItem/DA651.txt",
+      "code": "da651",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da652",
+      "path": "GameServer/OpenItem/DA652.txt",
+      "code": "da652",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da653",
+      "path": "GameServer/OpenItem/DA653.txt",
+      "code": "da653",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da654",
+      "path": "GameServer/OpenItem/DA654.txt",
+      "code": "da654",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da655",
+      "path": "GameServer/OpenItem/DA655.txt",
+      "code": "da655",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da656",
+      "path": "GameServer/OpenItem/DA656.txt",
+      "code": "da656",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da657",
+      "path": "GameServer/OpenItem/DA657.txt",
+      "code": "da657",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da658",
+      "path": "GameServer/OpenItem/DA658.txt",
+      "code": "da658",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da659",
+      "path": "GameServer/OpenItem/DA659.txt",
+      "code": "da659",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da660",
+      "path": "GameServer/OpenItem/DA660.txt",
+      "code": "da660",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da661",
+      "path": "GameServer/OpenItem/DA661.txt",
+      "code": "da661",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da662",
+      "path": "GameServer/OpenItem/DA662.txt",
+      "code": "da662",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da663",
+      "path": "GameServer/OpenItem/DA663.txt",
+      "code": "da663",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.da664",
+      "path": "GameServer/OpenItem/DA664.txt",
+      "code": "da664",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.db226",
+      "path": "GameServer/OpenItem/db226.txt",
+      "code": "db226",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.dg226",
+      "path": "GameServer/OpenItem/DG226.txt",
+      "code": "dg226",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv101",
+      "path": "GameServer/OpenItem/JV101.txt",
+      "code": "jv101",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv102",
+      "path": "GameServer/OpenItem/JV102.txt",
+      "code": "jv102",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv103",
+      "path": "GameServer/OpenItem/JV103.txt",
+      "code": "jv103",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv104",
+      "path": "GameServer/OpenItem/JV104.txt",
+      "code": "jv104",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv105",
+      "path": "GameServer/OpenItem/JV105.txt",
+      "code": "jv105",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv106",
+      "path": "GameServer/OpenItem/JV106.txt",
+      "code": "jv106",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv107",
+      "path": "GameServer/OpenItem/JV107.txt",
+      "code": "jv107",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.jv108",
+      "path": "GameServer/OpenItem/JV108.txt",
+      "code": "jv108",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.om226",
+      "path": "GameServer/OpenItem/OM226.txt",
+      "code": "om226",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd101",
+      "path": "GameServer/OpenItem/Tier5/WD101.txt",
+      "code": "wd101",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd102",
+      "path": "GameServer/OpenItem/Tier5/WD102.txt",
+      "code": "wd102",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd103",
+      "path": "GameServer/OpenItem/Tier5/WD103.txt",
+      "code": "wd103",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd104",
+      "path": "GameServer/OpenItem/Tier5/WD104.txt",
+      "code": "wd104",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd105",
+      "path": "GameServer/OpenItem/Tier5/WD105.txt",
+      "code": "wd105",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd106",
+      "path": "GameServer/OpenItem/Tier5/WD106.txt",
+      "code": "wd106",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd107",
+      "path": "GameServer/OpenItem/Tier5/WD107.txt",
+      "code": "wd107",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd108",
+      "path": "GameServer/OpenItem/Tier5/WD108.txt",
+      "code": "wd108",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd109",
+      "path": "GameServer/OpenItem/Tier5/WD109.txt",
+      "code": "wd109",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd110",
+      "path": "GameServer/OpenItem/Tier5/WD110.txt",
+      "code": "wd110",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd111",
+      "path": "GameServer/OpenItem/Tier5/WD111.txt",
+      "code": "wd111",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd112",
+      "path": "GameServer/OpenItem/Tier5/WD112.txt",
+      "code": "wd112",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd113",
+      "path": "GameServer/OpenItem/Tier5/WD113.txt",
+      "code": "wd113",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd114",
+      "path": "GameServer/OpenItem/Tier5/WD114.txt",
+      "code": "wd114",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd115",
+      "path": "GameServer/OpenItem/Tier5/WD115.txt",
+      "code": "wd115",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd116",
+      "path": "GameServer/OpenItem/Tier5/WD116.txt",
+      "code": "wd116",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd117",
+      "path": "GameServer/OpenItem/Tier5/WD117.txt",
+      "code": "wd117",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd118",
+      "path": "GameServer/OpenItem/Tier5/WD118.txt",
+      "code": "wd118",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd119",
+      "path": "GameServer/OpenItem/Tier5/WD119.txt",
+      "code": "wd119",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd120",
+      "path": "GameServer/OpenItem/Tier5/WD120.txt",
+      "code": "wd120",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd122",
+      "path": "GameServer/OpenItem/Tier5/WD122.txt",
+      "code": "wd122",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd123",
+      "path": "GameServer/OpenItem/Tier5/WD123.txt",
+      "code": "wd123",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd124",
+      "path": "GameServer/OpenItem/Tier5/WD124.txt",
+      "code": "wd124",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd125",
+      "path": "GameServer/OpenItem/Tier5/WD125.txt",
+      "code": "wd125",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd126",
+      "path": "GameServer/OpenItem/Tier5/WD126.txt",
+      "code": "wd126",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd127",
+      "path": "GameServer/OpenItem/Tier5/WD127.txt",
+      "code": "wd127",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd128",
+      "path": "GameServer/OpenItem/Tier5/WD128.txt",
+      "code": "wd128",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd129",
+      "path": "GameServer/OpenItem/Tier5/WD129.txt",
+      "code": "wd129",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd151",
+      "path": "GameServer/OpenItem/Tier5/WD151.txt",
+      "code": "wd151",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd152",
+      "path": "GameServer/OpenItem/Tier5/WD152.txt",
+      "code": "wd152",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wd153",
+      "path": "GameServer/OpenItem/Tier5/WD153.txt",
+      "code": "wd153",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn101",
+      "path": "GameServer/OpenItem/Tier5/WN101.txt",
+      "code": "wn101",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn102",
+      "path": "GameServer/OpenItem/Tier5/WN102.txt",
+      "code": "wn102",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn103",
+      "path": "GameServer/OpenItem/Tier5/WN103.txt",
+      "code": "wn103",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn104",
+      "path": "GameServer/OpenItem/Tier5/WN104.txt",
+      "code": "wn104",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn105",
+      "path": "GameServer/OpenItem/Tier5/WN105.txt",
+      "code": "wn105",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn106",
+      "path": "GameServer/OpenItem/Tier5/WN106.txt",
+      "code": "wn106",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn107",
+      "path": "GameServer/OpenItem/Tier5/WN107.txt",
+      "code": "wn107",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn108",
+      "path": "GameServer/OpenItem/Tier5/WN108.txt",
+      "code": "wn108",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn109",
+      "path": "GameServer/OpenItem/Tier5/WN109.txt",
+      "code": "wn109",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn110",
+      "path": "GameServer/OpenItem/Tier5/WN110.txt",
+      "code": "wn110",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn111",
+      "path": "GameServer/OpenItem/Tier5/WN111.txt",
+      "code": "wn111",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn112",
+      "path": "GameServer/OpenItem/Tier5/WN112.txt",
+      "code": "wn112",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn113",
+      "path": "GameServer/OpenItem/Tier5/WN113.txt",
+      "code": "wn113",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn114",
+      "path": "GameServer/OpenItem/Tier5/WN114.txt",
+      "code": "wn114",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn115",
+      "path": "GameServer/OpenItem/Tier5/WN115.txt",
+      "code": "wn115",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn116",
+      "path": "GameServer/OpenItem/Tier5/WN116.txt",
+      "code": "wn116",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn117",
+      "path": "GameServer/OpenItem/Tier5/WN117.txt",
+      "code": "wn117",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn118",
+      "path": "GameServer/OpenItem/Tier5/WN118.txt",
+      "code": "wn118",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn119",
+      "path": "GameServer/OpenItem/Tier5/WN119.txt",
+      "code": "wn119",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn120",
+      "path": "GameServer/OpenItem/Tier5/WN120.txt",
+      "code": "wn120",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn122",
+      "path": "GameServer/OpenItem/Tier5/WN122.txt",
+      "code": "wn122",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn123",
+      "path": "GameServer/OpenItem/Tier5/WN123.txt",
+      "code": "wn123",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn124",
+      "path": "GameServer/OpenItem/Tier5/WN124.txt",
+      "code": "wn124",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn125",
+      "path": "GameServer/OpenItem/Tier5/WN125.txt",
+      "code": "wn125",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn126",
+      "path": "GameServer/OpenItem/Tier5/WN126.txt",
+      "code": "wn126",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn127",
+      "path": "GameServer/OpenItem/Tier5/WN127.txt",
+      "code": "wn127",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn128",
+      "path": "GameServer/OpenItem/Tier5/WN128.txt",
+      "code": "wn128",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn129",
+      "path": "GameServer/OpenItem/Tier5/WN129.txt",
+      "code": "wn129",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn151",
+      "path": "GameServer/OpenItem/Tier5/WN151.txt",
+      "code": "wn151",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn152",
+      "path": "GameServer/OpenItem/Tier5/WN152.txt",
+      "code": "wn152",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wn153",
+      "path": "GameServer/OpenItem/Tier5/WN153.txt",
+      "code": "wn153",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv101",
+      "path": "GameServer/OpenItem/Tier5/WV101.txt",
+      "code": "wv101",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv102",
+      "path": "GameServer/OpenItem/Tier5/WV102.txt",
+      "code": "wv102",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv103",
+      "path": "GameServer/OpenItem/Tier5/WV103.txt",
+      "code": "wv103",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv104",
+      "path": "GameServer/OpenItem/Tier5/WV104.txt",
+      "code": "wv104",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv105",
+      "path": "GameServer/OpenItem/Tier5/WV105.txt",
+      "code": "wv105",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv106",
+      "path": "GameServer/OpenItem/Tier5/WV106.txt",
+      "code": "wv106",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv107",
+      "path": "GameServer/OpenItem/Tier5/WV107.txt",
+      "code": "wv107",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv108",
+      "path": "GameServer/OpenItem/Tier5/WV108.txt",
+      "code": "wv108",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv109",
+      "path": "GameServer/OpenItem/Tier5/WV109.txt",
+      "code": "wv109",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv110",
+      "path": "GameServer/OpenItem/Tier5/WV110.txt",
+      "code": "wv110",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv111",
+      "path": "GameServer/OpenItem/Tier5/WV111.txt",
+      "code": "wv111",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv112",
+      "path": "GameServer/OpenItem/Tier5/WV112.txt",
+      "code": "wv112",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv113",
+      "path": "GameServer/OpenItem/Tier5/WV113.txt",
+      "code": "wv113",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv114",
+      "path": "GameServer/OpenItem/Tier5/WV114.txt",
+      "code": "wv114",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv115",
+      "path": "GameServer/OpenItem/Tier5/WV115.txt",
+      "code": "wv115",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv116",
+      "path": "GameServer/OpenItem/Tier5/WV116.txt",
+      "code": "wv116",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv117",
+      "path": "GameServer/OpenItem/Tier5/WV117.txt",
+      "code": "wv117",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv118",
+      "path": "GameServer/OpenItem/Tier5/WV118.txt",
+      "code": "wv118",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv119",
+      "path": "GameServer/OpenItem/Tier5/WV119.txt",
+      "code": "wv119",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv120",
+      "path": "GameServer/OpenItem/Tier5/WV120.txt",
+      "code": "wv120",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv121",
+      "path": "GameServer/OpenItem/Tier5/WV121.txt",
+      "code": "wv121",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv122",
+      "path": "GameServer/OpenItem/Tier5/WV122.txt",
+      "code": "wv122",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv123",
+      "path": "GameServer/OpenItem/Tier5/WV123.txt",
+      "code": "wv123",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv124",
+      "path": "GameServer/OpenItem/Tier5/WV124.txt",
+      "code": "wv124",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv125",
+      "path": "GameServer/OpenItem/Tier5/WV125.txt",
+      "code": "wv125",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv126",
+      "path": "GameServer/OpenItem/Tier5/WV126.txt",
+      "code": "wv126",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv127",
+      "path": "GameServer/OpenItem/Tier5/WV127.txt",
+      "code": "wv127",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv128",
+      "path": "GameServer/OpenItem/Tier5/WV128.txt",
+      "code": "wv128",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv129",
+      "path": "GameServer/OpenItem/Tier5/WV129.txt",
+      "code": "wv129",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv130",
+      "path": "GameServer/OpenItem/Tier5/WV130.txt",
+      "code": "wv130",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv151",
+      "path": "GameServer/OpenItem/Tier5/WV151.txt",
+      "code": "wv151",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv152",
+      "path": "GameServer/OpenItem/Tier5/WV152.txt",
+      "code": "wv152",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.wv153",
+      "path": "GameServer/OpenItem/Tier5/WV153.txt",
+      "code": "wv153",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.tw160",
+      "path": "GameServer/OpenItem/TW160.txt",
+      "code": "tw160",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.uwd121_enigma_dagger",
+      "path": "GameServer/OpenItem/UWD121_Enigma Dagger.txt",
+      "code": "wd121",
+      "filter_source": "legacy_profile_fallback"
+    },
+    {
+      "id": "item.uwn121_kahsehtha_phantom",
+      "path": "GameServer/OpenItem/UWN121_Kahsehtha  Phantom.txt",
+      "code": "wn121",
+      "filter_source": "legacy_profile_fallback"
+    }
+  ],
+  "canonical_profile_overrides": 1,
+  "canonical_profile_override_rows": [
+    {
+      "id": "item.sp123",
+      "path": "GameServer/OpenItem/SP123.txt",
+      "code": "sp123",
+      "runtime_profiles": [
+        "client",
+        "server"
+      ],
+      "decision": "include"
+    }
+  ],
+  "filtered_shop_tokens": [
+    {
+      "id": "npc.bcn01",
+      "path": "GameServer/NPC/Bcn01.npc",
+      "key": "sell_etc",
+      "token": "bc101"
+    },
+    {
+      "id": "npc.donation_box",
+      "path": "GameServer/NPC/Donation Box.NPC",
+      "key": "sell_weapon",
+      "token": "WD113"
+    },
+    {
+      "id": "npc.donation_box",
+      "path": "GameServer/NPC/Donation Box.NPC",
+      "key": "sell_weapon",
+      "token": "WD114"
+    },
+    {
+      "id": "npc.donation_box",
+      "path": "GameServer/NPC/Donation Box.NPC",
+      "key": "sell_weapon",
+      "token": "WN113"
+    },
+    {
+      "id": "npc.donation_box",
+      "path": "GameServer/NPC/Donation Box.NPC",
+      "key": "sell_weapon",
+      "token": "WN114"
+    },
+    {
+      "id": "npc.premium",
+      "path": "GameServer/NPC/premium.npc",
+      "key": "sell_etc",
+      "token": "wq106"
+    },
+    {
+      "id": "npc.toolspilai",
+      "path": "GameServer/NPC/toolspilai.NPC",
+      "key": "sell_etc",
+      "token": "TW106"
+    },
+    {
+      "id": "npc.toolsric",
+      "path": "GameServer/NPC/toolsric.NPC",
+      "key": "sell_etc",
+      "token": "TW106"
+    }
+  ],
+  "legacy_missing_links": [
+    {
+      "id": "monster.100_arqueira_das_cinzas",
+      "path": "GameServer/Monster/100_Arqueira das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.100_esqueleto_de_rei_hopi",
+      "path": "GameServer/Monster/100_Esqueleto de Rei Hopi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.100_i_lena",
+      "path": "GameServer/Monster/100_I_Lena.inf",
+      "target": "gameserver/monster/name/100_i_lena.zhoon"
+    },
+    {
+      "id": "monster.100_lutador_das_cinzas",
+      "path": "GameServer/Monster/100_Lutador das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.100_mec_u00e2nico_das_cinzas",
+      "path": "GameServer/Monster/100_Mec#U00e2nico das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.100_pike_das_cinzas",
+      "path": "GameServer/Monster/100_Pike das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.101_golem_rob_u00f4",
+      "path": "GameServer/Monster/101_Golem Rob#U00f4.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.102_atalanta_das_cinzas",
+      "path": "GameServer/Monster/102_Atalanta das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.102_cavaleiro_das_cinzas",
+      "path": "GameServer/Monster/102_Cavaleiro das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.102_mago_das_cinzas",
+      "path": "GameServer/Monster/102_Mago das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.102_sacerdotisa_das_cinzas",
+      "path": "GameServer/Monster/102_Sacerdotisa das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.104_gorgon",
+      "path": "GameServer/Monster/104_Gorgon.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.105_naz_das_cinzas",
+      "path": "GameServer/Monster/105_Naz das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.105_ruca",
+      "path": "GameServer/Monster/105_Ruca.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.106_igolation",
+      "path": "GameServer/Monster/106_Igolation.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.106_kakoa",
+      "path": "GameServer/Monster/106_Kakoa.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.107_sprin",
+      "path": "GameServer/Monster/107_Sprin.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.108_u00c1rvore_das_cinzas",
+      "path": "GameServer/Monster/108_#U00c1rvore das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.109_xetan",
+      "path": "GameServer/Monster/109_Xetan.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.10_imp",
+      "path": "GameServer/Monster/10_Imp.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.10_planta_mutante",
+      "path": "GameServer/Monster/10_Planta Mutante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.111_mineiro_das_cinzas",
+      "path": "GameServer/Monster/111_Mineiro das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.112_capataz_das_cinzas",
+      "path": "GameServer/Monster/112_Capataz das Cinzas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.112_explos_u00e3o_selada",
+      "path": "GameServer/Monster/112_Explos#U00e3o Selada.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.113_verme_de_gelo",
+      "path": "GameServer/Monster/113_Verme de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.115_morcego_da_mina",
+      "path": "GameServer/Monster/115_Morcego da Mina.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.117_golem_minerador",
+      "path": "GameServer/Monster/117_Golem Minerador.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.118_tarantulika",
+      "path": "GameServer/Monster/118_Tarantulika.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.119_serpente_de_gelo",
+      "path": "GameServer/Monster/119_Serpente de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.11_u00d3rbita",
+      "path": "GameServer/Monster/11_#U00d3rbita.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.11_doral",
+      "path": "GameServer/Monster/11_Doral.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.120_nihil",
+      "path": "GameServer/Monster/120_Nihil.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.121_chalybs",
+      "path": "GameServer/Monster/121_Chalybs.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.129_bruxa_da_noite",
+      "path": "GameServer/Monster/129_Bruxa da Noite.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.12_u00c1rvore_mutante",
+      "path": "GameServer/Monster/12_#U00c1rvore Mutante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.12_planta_assassina",
+      "path": "GameServer/Monster/12_Planta Assassina.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.13_planta",
+      "path": "GameServer/Monster/13_Planta.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.13_wolverine_de_ouro",
+      "path": "GameServer/Monster/13_Wolverine de Ouro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.15_u00c1rvore",
+      "path": "GameServer/Monster/15_#U00c1rvore.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.15_c_u00e3o_abelha",
+      "path": "GameServer/Monster/15_C#U00e3o Abelha.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.17_esqueleto",
+      "path": "GameServer/Monster/17_Esqueleto.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.17_planta_mort_u00edfera",
+      "path": "GameServer/Monster/17_Planta Mort#U00edfera.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.19_esqueleto_do_mal",
+      "path": "GameServer/Monster/19_Esqueleto do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.19_zumbi",
+      "path": "GameServer/Monster/19_Zumbi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.1_coelho",
+      "path": "GameServer/Monster/1_Coelho.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.1_cuepi",
+      "path": "GameServer/Monster/1_Cuepi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.1_hopi",
+      "path": "GameServer/Monster/1_Hopi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.20_escorpi_u00e3o",
+      "path": "GameServer/Monster/20_Escorpi#U00e3o.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.22_barata_gigante",
+      "path": "GameServer/Monster/22_Barata Gigante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.24_mephit",
+      "path": "GameServer/Monster/24_Mephit.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.25_fantasma",
+      "path": "GameServer/Monster/25_Fantasma.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.27_decoy",
+      "path": "GameServer/Monster/27_Decoy.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.29_c_u00edclope",
+      "path": "GameServer/Monster/29_C#U00edclope.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.2_coelha",
+      "path": "GameServer/Monster/2_Coelha.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.2_cogumelo_fantasma",
+      "path": "GameServer/Monster/2_Cogumelo Fantasma.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.30_parasita",
+      "path": "GameServer/Monster/30_Parasita.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.32_arqueiro_do_mal",
+      "path": "GameServer/Monster/32_Arqueiro do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.34_bargon",
+      "path": "GameServer/Monster/34_Bargon.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.35_ghoul",
+      "path": "GameServer/Monster/35_Ghoul.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.35_minigue_prateado",
+      "path": "GameServer/Monster/35_Minigue Prateado.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.37_besouro_blindado",
+      "path": "GameServer/Monster/37_Besouro Blindado.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.39_buma",
+      "path": "GameServer/Monster/39_Buma.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.3_cogumelo",
+      "path": "GameServer/Monster/3_Cogumelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.3_duende_macabro",
+      "path": "GameServer/Monster/3_Duende Macabro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.40_aranha",
+      "path": "GameServer/Monster/40_Aranha.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.40_cripto",
+      "path": "GameServer/Monster/40_Cripto.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.40_duende_l_u00edder",
+      "path": "GameServer/Monster/40_Duende L#U00edder.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.40_guerreiro_do_mal",
+      "path": "GameServer/Monster/40_Guerreiro do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.41_patrulheiro_do_mal",
+      "path": "GameServer/Monster/41_Patrulheiro do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.42_m_u00famia",
+      "path": "GameServer/Monster/42_M#U00famia.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.42_tit_u00e3",
+      "path": "GameServer/Monster/42_Tit#U00e3.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.43_decapitador",
+      "path": "GameServer/Monster/43_Decapitador.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.45_cavaleiro_c_u00edclope",
+      "path": "GameServer/Monster/45_Cavaleiro C#U00edclope.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.47_griven",
+      "path": "GameServer/Monster/47_Griven.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.48_hunki",
+      "path": "GameServer/Monster/48_Hunki.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.49_centauro_s",
+      "path": "GameServer/Monster/49_Centauro-S.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.4_duende_selvagem",
+      "path": "GameServer/Monster/4_Duende Selvagem.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.4_wolverine_de_bronze",
+      "path": "GameServer/Monster/4_Wolverine de Bronze.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.50_cavaleiro_do_mal",
+      "path": "GameServer/Monster/50_Cavaleiro do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.51_golem_de_areia",
+      "path": "GameServer/Monster/51_Golem de Areia.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.52_carniceiro",
+      "path": "GameServer/Monster/52_Carniceiro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.52_centauro_l",
+      "path": "GameServer/Monster/52_Centauro-L.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.53_gigante_de_pedra",
+      "path": "GameServer/Monster/53_Gigante de Pedra.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.55_abelha_selvagem",
+      "path": "GameServer/Monster/55_Abelha Selvagem.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.55_caramujo_do_mal",
+      "path": "GameServer/Monster/55_Caramujo do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.55_golem_de_barro",
+      "path": "GameServer/Monster/55_Golem de Barro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.55_morcego_vampiro",
+      "path": "GameServer/Monster/55_Morcego Vampiro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.56_guardi_u00e3o_de_lama",
+      "path": "GameServer/Monster/56_Guardi#U00e3o de Lama.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.56_muffin",
+      "path": "GameServer/Monster/56_Muffin.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.57_caramujo_rijo",
+      "path": "GameServer/Monster/57_Caramujo Rijo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.57_cavaleiro_negro",
+      "path": "GameServer/Monster/57_Cavaleiro Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.58_u00c1rvore_das_trevas",
+      "path": "GameServer/Monster/58_#U00c1rvore das Trevas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.58_planta_das_trevas",
+      "path": "GameServer/Monster/58_Planta das Trevas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.59_abelha_do_mal",
+      "path": "GameServer/Monster/59_Abelha do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.59_caramujo_espinhoso",
+      "path": "GameServer/Monster/59_Caramujo Espinhoso.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.5_tatu",
+      "path": "GameServer/Monster/5_Tatu.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.5_zeldi",
+      "path": "GameServer/Monster/5_Zeldi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.60_cavaleiro_fantasma",
+      "path": "GameServer/Monster/60_Cavaleiro Fantasma.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.62_figon",
+      "path": "GameServer/Monster/62_Figon.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.64_rei_hopi",
+      "path": "GameServer/Monster/64_Rei Hopi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.65_pesadelo",
+      "path": "GameServer/Monster/65_Pesadelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.66_guardi_u00e3o_maldito",
+      "path": "GameServer/Monster/66_Guardi#U00e3o Maldito.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.67_bruxa",
+      "path": "GameServer/Monster/67_Bruxa.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.68_duende_guerreiro",
+      "path": "GameServer/Monster/68_Duende Guerreiro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.69_golem_de_pedra",
+      "path": "GameServer/Monster/69_Golem de Pedra.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.6_duende_m_u00e1gico",
+      "path": "GameServer/Monster/6_Duende M#U00e1gico.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.6_minigue",
+      "path": "GameServer/Monster/6_Minigue.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.70_grande_griven",
+      "path": "GameServer/Monster/70_Grande Griven.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.70_naz",
+      "path": "GameServer/Monster/70_Naz.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.70_omu",
+      "path": "GameServer/Monster/70_Omu.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.71_l_u00e2mina",
+      "path": "GameServer/Monster/71_L#U00e2mina.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.71_lorde_centauro",
+      "path": "GameServer/Monster/71_Lorde Centauro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.71_lorde_m_u00famia",
+      "path": "GameServer/Monster/71_Lorde M#U00famia.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.71_raia_venenosa",
+      "path": "GameServer/Monster/71_Raia Venenosa.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.72_lagarto_do_lago",
+      "path": "GameServer/Monster/72_Lagarto do Lago.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.72_stygian",
+      "path": "GameServer/Monster/72_Stygian.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.73_sereia_profana",
+      "path": "GameServer/Monster/73_Sereia Profana.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.73_sombra",
+      "path": "GameServer/Monster/73_Sombra.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.74_aranha_rainha",
+      "path": "GameServer/Monster/74_Aranha Rainha.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.75_dusk",
+      "path": "GameServer/Monster/75_Dusk.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.75_succubus",
+      "path": "GameServer/Monster/75_Succubus.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.76_dawlin",
+      "path": "GameServer/Monster/76_Dawlin.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.76_hulk",
+      "path": "GameServer/Monster/76_Hulk.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.76_omicron",
+      "path": "GameServer/Monster/76_Omicron.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.77_incubus",
+      "path": "GameServer/Monster/77_Incubus.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.78_espectro_negro",
+      "path": "GameServer/Monster/78_Espectro Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.79_ratoo",
+      "path": "GameServer/Monster/79_Ratoo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.7_barro",
+      "path": "GameServer/Monster/7_Barro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.7_sen",
+      "path": "GameServer/Monster/7_Sen.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.80_abelha_vampira",
+      "path": "GameServer/Monster/80_Abelha Vampira.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.80_besouro_gigante",
+      "path": "GameServer/Monster/80_Besouro Gigante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.80_centauro_arqueira",
+      "path": "GameServer/Monster/80_Centauro Arqueira.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.80_guardi_u00e3o_de_a_u00e7o",
+      "path": "GameServer/Monster/80_Guardi#U00e3o de A#U00e7o.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.80_niken",
+      "path": "GameServer/Monster/80_Niken.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.81_golem_de_a_u00e7o",
+      "path": "GameServer/Monster/81_Golem de A#U00e7o.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.81_golem_torre",
+      "path": "GameServer/Monster/81_Golem Torre.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.81_h_u00edper_m_u00e1quina",
+      "path": "GameServer/Monster/81_H#U00edper M#U00e1quina.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.81_imitador",
+      "path": "GameServer/Monster/81_Imitador.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.81_morcego_mutante",
+      "path": "GameServer/Monster/81_Morcego Mutante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.82_destruidor",
+      "path": "GameServer/Monster/82_Destruidor.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.82_duende_xam_u00e3",
+      "path": "GameServer/Monster/82_Duende Xam#U00e3.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.82_hest",
+      "path": "GameServer/Monster/82_Hest.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.82_m_u00e1quina_vampira",
+      "path": "GameServer/Monster/82_M#U00e1quina Vampira.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.82_morte_s_u00fabita",
+      "path": "GameServer/Monster/82_Morte S#U00fabita.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.83_grotesco",
+      "path": "GameServer/Monster/83_Grotesco.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.84_berserker",
+      "path": "GameServer/Monster/84_Berserker.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.84_centauro_guerreira",
+      "path": "GameServer/Monster/84_Centauro Guerreira.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.84_guardi_u00e3o_antigo",
+      "path": "GameServer/Monster/84_Guardi#U00e3o Antigo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.85_metron",
+      "path": "GameServer/Monster/85_Metron.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.85_morgon",
+      "path": "GameServer/Monster/85_Morgon.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.85_ogro_mec_u00e2nico",
+      "path": "GameServer/Monster/85_Ogro Mec#U00e2nico.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.85_tiphoon",
+      "path": "GameServer/Monster/85_Tiphoon.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.86_m_u00e1quina_d",
+      "path": "GameServer/Monster/86_M#U00e1quina-D.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.86_montanha",
+      "path": "GameServer/Monster/86_Montanha.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.86_omega",
+      "path": "GameServer/Monster/86_Omega.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.87_punhos_de_a_u00e7o",
+      "path": "GameServer/Monster/87_Punhos de A#U00e7o.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.88_conjuradora",
+      "path": "GameServer/Monster/88_Conjuradora.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.88_duende_de_gelo",
+      "path": "GameServer/Monster/88_Duende de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.88_guerreiro_c_u00edclope",
+      "path": "GameServer/Monster/88_Guerreiro C#U00edclope.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.88_m_u00edstico",
+      "path": "GameServer/Monster/88_M#U00edstico.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.89_congelado",
+      "path": "GameServer/Monster/89_Congelado.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.89_gelo",
+      "path": "GameServer/Monster/89_Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.89_olho_de_gelo",
+      "path": "GameServer/Monster/89_Olho de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.89_tartaruga_blindada",
+      "path": "GameServer/Monster/89_Tartaruga Blindada.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.8_coelho_mutante",
+      "path": "GameServer/Monster/8_Coelho Mutante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.8_wolverine_de_prata",
+      "path": "GameServer/Monster/8_Wolverine de Prata.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.90_caos_cara",
+      "path": "GameServer/Monster/90_Caos Cara.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.90_golem_de_gelo",
+      "path": "GameServer/Monster/90_Golem de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.90_nevasca",
+      "path": "GameServer/Monster/90_Nevasca.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.90_p_u00e1ssaro_demon_u00edaco",
+      "path": "GameServer/Monster/90_P#U00e1ssaro Demon#U00edaco.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.92_quimera",
+      "path": "GameServer/Monster/92_Quimera.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.92_verme_de_fogo",
+      "path": "GameServer/Monster/92_Verme de Fogo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.93_c_u00e3o_infernal",
+      "path": "GameServer/Monster/93_C#U00e3o Infernal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.93_guardi_u00e3o_negro",
+      "path": "GameServer/Monster/93_Guardi#U00e3o Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.94_mago_negro",
+      "path": "GameServer/Monster/94_Mago Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.96_abomina_u00e7_u00e3o",
+      "path": "GameServer/Monster/96_Abomina#U00e7#U00e3o.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.96_inquisidor_negro",
+      "path": "GameServer/Monster/96_Inquisidor Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.97_cavaleiro_sanguin_u00e1rio",
+      "path": "GameServer/Monster/97_Cavaleiro Sanguin#U00e1rio.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.97_guardi_u00e3o_do_templo",
+      "path": "GameServer/Monster/97_Guardi#U00e3o do Templo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.98_seto",
+      "path": "GameServer/Monster/98_Seto.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.99_cavaleiro_sanguin_u00e1rio2",
+      "path": "GameServer/Monster/99_Cavaleiro Sanguin#U00e1rio2.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.99_inquisidor_negro2",
+      "path": "GameServer/Monster/99_Inquisidor Negro2.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.99_quimera2",
+      "path": "GameServer/Monster/99_Quimera2.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.ad_60_mestre_raymon",
+      "path": "GameServer/Monster/AD_60_Mestre Raymon.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.ad_60_mestre_verkan",
+      "path": "GameServer/Monster/AD_60_Mestre Verkan.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.ad_80_hestian",
+      "path": "GameServer/Monster/AD_80_Hestian.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_100_arqueiro_do_castelo",
+      "path": "GameServer/Monster/BC_100_Arqueiro do Castelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_100_cristal_de_fogo",
+      "path": "GameServer/Monster/BC_100_Cristal de Fogo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_100_cristal_de_gelo",
+      "path": "GameServer/Monster/BC_100_Cristal de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_100_cristal_de_raio",
+      "path": "GameServer/Monster/BC_100_Cristal de Raio.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_100_cristal_do_castelo",
+      "path": "GameServer/Monster/BC_100_Cristal do Castelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_100_port_u00e3o_do_castelo",
+      "path": "GameServer/Monster/BC_100_Port#U00e3o do Castelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_100_torre_de_valhalla",
+      "path": "GameServer/Monster/BC_100_Torre de Valhalla.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_70_pol_u00edcia_do_castelo",
+      "path": "GameServer/Monster/BC_70_Pol#U00edcia do Castelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_80_mil_u00edcia_do_castelo",
+      "path": "GameServer/Monster/BC_80_Mil#U00edcia do Castelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.bc_90_guarda_do_castelo",
+      "path": "GameServer/Monster/BC_90_Guarda do Castelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_39_lun_u00e1tico",
+      "path": "GameServer/Monster/Cash Falta na pasta Monster/Chefe_39_Lun#U00e1tico.inf",
+      "target": "gameserver/monster/cash falta na pasta monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_44_apostasy",
+      "path": "GameServer/Monster/Cash Falta na pasta Monster/Chefe_44_Apostasy.inf",
+      "target": "gameserver/monster/cash falta na pasta monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_54_cripton",
+      "path": "GameServer/Monster/Cash Falta na pasta Monster/Chefe_54_Cripton.inf",
+      "target": "gameserver/monster/cash falta na pasta monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_9_coelha_mutante",
+      "path": "GameServer/Monster/Cash Falta na pasta Monster/Chefe_9_Coelha Mutante.inf",
+      "target": "gameserver/monster/cash falta na pasta monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_101_rob_u00f4_mutante",
+      "path": "GameServer/Monster/Chefe_101_Rob#U00f4 Mutante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_104_babel",
+      "path": "GameServer/Monster/Chefe_104_Babel.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_104_gorg_u00f4nia",
+      "path": "GameServer/Monster/Chefe_104_Gorg#U00f4nia.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_109_devilshy",
+      "path": "GameServer/Monster/Chefe_109_DevilShy.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_110_besourod",
+      "path": "GameServer/Monster/Chefe_110_BesouroD.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_110_cavaleirod",
+      "path": "GameServer/Monster/Chefe_110_CavaleiroD.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_110_hellsingd",
+      "path": "GameServer/Monster/Chefe_110_HellSingD.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_110_plantainfernald",
+      "path": "GameServer/Monster/Chefe_110_PlantaInfernalD.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_110_valento",
+      "path": "GameServer/Monster/Chefe_110_Valento.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_120_mokova",
+      "path": "GameServer/Monster/Chefe_120_Mokova.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_121_greedy",
+      "path": "GameServer/Monster/Chefe_121_Greedy.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_130_kelvezu",
+      "path": "GameServer/Monster/Chefe_130_Kelvezu.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_130_tulla",
+      "path": "GameServer/Monster/Chefe_130_Tulla.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_14_u00c1rvore_maldita",
+      "path": "GameServer/Monster/Chefe_14_#U00c1rvore Maldita.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_14_planta_infernal",
+      "path": "GameServer/Monster/Chefe_14_Planta Infernal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_19_esqueleto_l_u00edder",
+      "path": "GameServer/Monster/Chefe_19_Esqueleto L#U00edder.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_19_esqueletod",
+      "path": "GameServer/Monster/Chefe_19_EsqueletoD.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_19_lorde_das_u00c1rvores",
+      "path": "GameServer/Monster/Chefe_19_Lorde das #U00c1rvores.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_1_zzangpi",
+      "path": "GameServer/Monster/Chefe_1_Zzangpi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_24_mekhist",
+      "path": "GameServer/Monster/Chefe_24_Mekhist.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_29_ciclone",
+      "path": "GameServer/Monster/Chefe_29_Ciclone.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_29_decoy_evolu_u00eddo",
+      "path": "GameServer/Monster/Chefe_29_Decoy Evolu#U00eddo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_34_bauton",
+      "path": "GameServer/Monster/Chefe_34_Bauton.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_34_parasita_do_mal",
+      "path": "GameServer/Monster/Chefe_34_Parasita do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_39_grave_shakins",
+      "path": "GameServer/Monster/Chefe_39_Grave Shakins.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_44_m_u00famia_real",
+      "path": "GameServer/Monster/Chefe_44_M#U00famia Real.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_49_fright_nemyun",
+      "path": "GameServer/Monster/Chefe_49_Fright Nemyun.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_4_duende_chefe",
+      "path": "GameServer/Monster/Chefe_4_Duende Chefe.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_4_duende_do_norte",
+      "path": "GameServer/Monster/Chefe_4_Duende do Norte.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_54_cavaleiro_profano",
+      "path": "GameServer/Monster/Chefe_54_Cavaleiro Profano.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_54_lorde_de_areia",
+      "path": "GameServer/Monster/Chefe_54_Lorde de Areia.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_59_esp_u00edrito_do_mal",
+      "path": "GameServer/Monster/Chefe_59_Esp#U00edrito do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_59_hunki_reverso",
+      "path": "GameServer/Monster/Chefe_59_Hunki Reverso.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_64_hell_sing",
+      "path": "GameServer/Monster/Chefe_64_Hell Sing.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_64_rosa_sangrenta",
+      "path": "GameServer/Monster/Chefe_64_Rosa Sangrenta.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_69_guardi_u00e3o_do_mal",
+      "path": "GameServer/Monster/Chefe_69_Guardi#U00e3o do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_74_arqueiro_styx",
+      "path": "GameServer/Monster/Chefe_74_Arqueiro Styx.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_74_mestre_omu",
+      "path": "GameServer/Monster/Chefe_74_Mestre Omu.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_79_omicronos",
+      "path": "GameServer/Monster/Chefe_79_Omicronos.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_79_rashas",
+      "path": "GameServer/Monster/Chefe_79_Rashas.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_83_f_u00faria",
+      "path": "GameServer/Monster/Chefe_83_F#U00faria.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_83_golem_antigo",
+      "path": "GameServer/Monster/Chefe_83_Golem Antigo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_87_montanha_azul",
+      "path": "GameServer/Monster/Chefe_87_Montanha Azul.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_87_morg_u00f4nia",
+      "path": "GameServer/Monster/Chefe_87_Morg#U00f4nia.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_91_olho_de_fogo",
+      "path": "GameServer/Monster/Chefe_91_Olho de Fogo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_91_tartaruga_drag_u00e3o",
+      "path": "GameServer/Monster/Chefe_91_Tartaruga Drag#U00e3o.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_95_c_u00e3o_esqueleto",
+      "path": "GameServer/Monster/Chefe_95_C#U00e3o Esqueleto.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.chefe_9_eed",
+      "path": "GameServer/Monster/Chefe_9_Eed.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.coelh_u00e3o_de_p_u00e1scoa.path_3eb7ba2432",
+      "path": "GameServer/Monster/Coelh#U00e3o de P#U00e1scoa.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.coelho_de_p_u00e1scoa.path_0614136ed3",
+      "path": "GameServer/Monster/Coelho de P#U00e1scoa.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.cristal_80_guardi_u00e3o_santo",
+      "path": "GameServer/Monster/Cristal_80_Guardi#U00e3o Santo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.dentu_u00e7o_gigante.path_84a09dd58c",
+      "path": "GameServer/Monster/Dentu#U00e7o Gigante.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.desafio_118_f_u00faria",
+      "path": "GameServer/Monster/Desafio_118_ F#U00faria .inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.desafio_119_f_u00faria",
+      "path": "GameServer/Monster/Desafio_119_  F#U00faria  .inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.desafio_120_f_u00faria",
+      "path": "GameServer/Monster/Desafio_120_   F#U00faria   .inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.desafio_1_pedra_m_u00e1gica",
+      "path": "GameServer/Monster/Desafio_1_Pedra M#U00e1gica.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.coelh_u00e3o_de_p_u00e1scoa.path_ac821a78e3",
+      "path": "GameServer/Monster/Evento de P#U00e1scoa/Coelh#U00e3o de P#U00e1scoa.inf",
+      "target": "gameserver/monster/evento de p#u00e1scoa/name/name.zhoon"
+    },
+    {
+      "id": "monster.coelho_de_p_u00e1scoa.path_c39fe59b4a",
+      "path": "GameServer/Monster/Evento de P#U00e1scoa/Coelho de P#U00e1scoa.inf",
+      "target": "gameserver/monster/evento de p#u00e1scoa/name/name.zhoon"
+    },
+    {
+      "id": "monster.dentu_u00e7o_gigante.path_a50f07cd5c",
+      "path": "GameServer/Monster/Evento de P#U00e1scoa/Dentu#U00e7o Gigante.inf",
+      "target": "gameserver/monster/evento de p#u00e1scoa/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_billy",
+      "path": "GameServer/Monster/Evento_1_Billy.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_boitat_u00e1",
+      "path": "GameServer/Monster/Evento_1_Boitat#U00e1.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_boneco_de_neve",
+      "path": "GameServer/Monster/Evento_1_Boneco de Neve.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_cabe_u00e7a_de_ab_u00f3bora",
+      "path": "GameServer/Monster/Evento_1_Cabe#U00e7a de Ab#U00f3bora.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_duende_noel",
+      "path": "GameServer/Monster/Evento_1_Duende Noel.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_lobo_procurado",
+      "path": "GameServer/Monster/Evento_1_Lobo Procurado.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_moriph_procurado",
+      "path": "GameServer/Monster/Evento_1_Moriph Procurado.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_nego_ney",
+      "path": "GameServer/Monster/Evento_1_Nego Ney.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.evento_1_zidane",
+      "path": "GameServer/Monster/Evento_1_Zidane.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.pet_1_arcuda",
+      "path": "GameServer/Monster/Pet_1_Arcuda.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.pet_1_cavaleiro_sombrio",
+      "path": "GameServer/Monster/Pet_1_Cavaleiro Sombrio.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.pet_60_chama_elemental",
+      "path": "GameServer/Monster/Pet_60_Chama Elemental.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.pet_60_wolverine_sombrio",
+      "path": "GameServer/Monster/Pet_60_Wolverine Sombrio.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.pet_60_wolverine",
+      "path": "GameServer/Monster/Pet_60_Wolverine.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.pet_70_golem_de_metal",
+      "path": "GameServer/Monster/Pet_70_Golem de Metal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.premium_1_caravana",
+      "path": "GameServer/Monster/Premium_1_Caravana.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r1_caramujo_rijo",
+      "path": "GameServer/Monster/R1 Caramujo Rijo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r1_guardi_u00e3o_de_lama",
+      "path": "GameServer/Monster/R1 Guardi#U00e3o de Lama.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r1_muffin",
+      "path": "GameServer/Monster/R1 Muffin.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r1_patrulheiro_do_mal",
+      "path": "GameServer/Monster/R1 Patrulheiro do Mal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r2_cavaleiro_fantasma",
+      "path": "GameServer/Monster/R2 Cavaleiro Fantasma.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r2_figon",
+      "path": "GameServer/Monster/R2 Figon.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r2_m_u00famia",
+      "path": "GameServer/Monster/R2 M#U00famia.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r2_rei_hopi",
+      "path": "GameServer/Monster/R2 Rei Hopi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r3_cavaleiro_negro",
+      "path": "GameServer/Monster/R3 Cavaleiro Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r3_duende_guerreiro",
+      "path": "GameServer/Monster/R3 Duende Guerreiro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r3_golem_de_pedra",
+      "path": "GameServer/Monster/R3 Golem de Pedra.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r3_guardi_u00e3o_maldito",
+      "path": "GameServer/Monster/R3 Guardi#U00e3o Maldito.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r4_dawlin",
+      "path": "GameServer/Monster/R4 Dawlin.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r4_l_u00e2mina",
+      "path": "GameServer/Monster/R4 L#U00e2mina.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r4_lorde_centauro",
+      "path": "GameServer/Monster/R4 Lorde Centauro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r4_succubus",
+      "path": "GameServer/Monster/R4 Succubus.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r5_aranha_rainha",
+      "path": "GameServer/Monster/R5 Aranha Rainha.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r5_grande_griven",
+      "path": "GameServer/Monster/R5 Grande Griven.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r5_omu",
+      "path": "GameServer/Monster/R5 Omu.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r5_sereia_profana",
+      "path": "GameServer/Monster/R5 Sereia Profana.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r6_destruidor",
+      "path": "GameServer/Monster/R6 Destruidor.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r6_metron",
+      "path": "GameServer/Monster/R6 Metron.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r6_montanha",
+      "path": "GameServer/Monster/R6 Montanha.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r6_morte_s_u00fabita",
+      "path": "GameServer/Monster/R6 Morte S#U00fabita.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r7_conjuradora",
+      "path": "GameServer/Monster/R7 Conjuradora.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r7_duende_de_gelo",
+      "path": "GameServer/Monster/R7 Duende de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r7_golem_de_gelo",
+      "path": "GameServer/Monster/R7 Golem de Gelo.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r7_nevasca",
+      "path": "GameServer/Monster/R7 Nevasca.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r8_c_u00e3o_infernal",
+      "path": "GameServer/Monster/R8 C#U00e3o Infernal.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r8_guardi_u00e3o_negro",
+      "path": "GameServer/Monster/R8 Guardi#U00e3o Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r8_inquisidor_negro",
+      "path": "GameServer/Monster/R8 Inquisidor Negro.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.r8_quimera",
+      "path": "GameServer/Monster/R8 Quimera.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_114_engenheiro_do_laborat_u00f3rio",
+      "path": "GameServer/Monster/Slab_114_Engenheiro do Laborat#U00f3rio.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_114_t_u00e9cnico_do_laborat_u00f3rio",
+      "path": "GameServer/Monster/Slab_114_T#U00e9cnico do Laborat#U00f3rio.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_114_t_u00e9cnico_invasor",
+      "path": "GameServer/Monster/Slab_114_T#U00e9cnico Invasor.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_115_bombardeiro_invasor",
+      "path": "GameServer/Monster/Slab_115_Bombardeiro Invasor.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_115_soldado_invasor",
+      "path": "GameServer/Monster/Slab_115_Soldado Invasor.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_116_elite_invasor",
+      "path": "GameServer/Monster/Slab_116_Elite Invasor.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_116_guardi_u00e3o_do_laborat_u00f3rio",
+      "path": "GameServer/Monster/Slab_116_Guardi#U00e3o do Laborat#U00f3rio.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_118_soldado_zumbi",
+      "path": "GameServer/Monster/Slab_118_Soldado Zumbi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_118_t_u00e9cnico_zumbi",
+      "path": "GameServer/Monster/Slab_118_T#U00e9cnico Zumbi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_119_bombardeiro_zumbi",
+      "path": "GameServer/Monster/Slab_119_Bombardeiro Zumbi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "monster.slab_119_elite_zumbi",
+      "path": "GameServer/Monster/Slab_119_Elite Zumbi.inf",
+      "target": "gameserver/monster/name/name.zhoon"
+    },
+    {
+      "id": "npc.chocolate",
+      "path": "GameServer/NPC/Chocolate.npc",
+      "target": "gameserver/npc/name/chocolate.zhoon"
+    },
+    {
+      "id": "npc.coward",
+      "path": "GameServer/NPC/coward.npc",
+      "target": "gameserver/npc/name/coward.zhoon"
+    },
+    {
+      "id": "npc.enquete",
+      "path": "GameServer/NPC/enquete.npc",
+      "target": "gameserver/npc/name/tn-017.zhoon"
+    },
+    {
+      "id": "npc.eto",
+      "path": "GameServer/NPC/Eto.npc",
+      "target": "gameserver/npc/name/eto.zhoon"
+    },
+    {
+      "id": "npc.kamiyu",
+      "path": "GameServer/NPC/Kamiyu.npc",
+      "target": "gameserver/npc/name/kamiyu.zhoon"
+    },
+    {
+      "id": "npc.karastears",
+      "path": "GameServer/NPC/KarasTears.npc",
+      "target": "gameserver/npc/name/karastears.zhoon"
+    },
+    {
+      "id": "npc.magicalgreen",
+      "path": "GameServer/NPC/MagicalGreen.npc",
+      "target": "gameserver/npc/name/magicalgreen.zhoon"
+    },
+    {
+      "id": "npc.newter_o_s_u00e1bio",
+      "path": "GameServer/NPC/Newter, o S#U00e1bio.NPC",
+      "target": "gameserver/npc/name/newter, o sábio.zhoon"
+    },
+    {
+      "id": "npc.priston",
+      "path": "GameServer/NPC/PRISTON.npc",
+      "target": "gameserver/npc/name/priston.zhoon"
+    },
+    {
+      "id": "npc.pumpkin",
+      "path": "GameServer/NPC/Pumpkin.npc",
+      "target": "gameserver/npc/name/pumpkin.zhoon"
+    },
+    {
+      "id": "npc.resercher",
+      "path": "GameServer/NPC/Resercher.npc",
+      "target": "gameserver/npc/name/resercher.zhoon"
+    },
+    {
+      "id": "npc.sellquest",
+      "path": "GameServer/NPC/sellquest.NPC",
+      "target": "gameserver/npc/name/sellquest.zhoon"
+    },
+    {
+      "id": "item.default_da128",
+      "path": "GameServer/OpenItem/Backup/Default_DA128.txt",
+      "target": "gameserver/openitem/backup/name/da128.zhoon"
+    },
+    {
+      "id": "item.default_da129",
+      "path": "GameServer/OpenItem/Backup/Default_DA129.txt",
+      "target": "gameserver/openitem/backup/name/da129.zhoon"
+    },
+    {
+      "id": "item.default_gp109",
+      "path": "GameServer/OpenItem/Backup/Default_GP109.txt",
+      "target": "gameserver/openitem/backup/name/gp109.zhoon"
+    },
+    {
+      "id": "item.bc133",
+      "path": "GameServer/OpenItem/BC133.txt",
+      "target": "gameserver/openitem/name/bc133.zhoon"
+    },
+    {
+      "id": "item.bi200",
+      "path": "GameServer/OpenItem/BI200.txt",
+      "target": "gameserver/openitem/name/bi200.zhoon"
+    },
+    {
+      "id": "item.bi254",
+      "path": "GameServer/OpenItem/BI254.txt",
+      "target": "gameserver/openitem/name/bi254.zhoon"
+    },
+    {
+      "id": "item.ca551",
+      "path": "GameServer/OpenItem/CA551.txt",
+      "target": "gameserver/openitem/name/ca551.zhoon"
+    },
+    {
+      "id": "item.ca652",
+      "path": "GameServer/OpenItem/CA652.txt",
+      "target": "gameserver/openitem/name/ca652.zhoon"
+    },
+    {
+      "id": "item.db136",
+      "path": "GameServer/OpenItem/db136.txt",
+      "target": "gameserver/openitem/name/db136.zhoon"
+    },
+    {
+      "id": "item.db137",
+      "path": "GameServer/OpenItem/db137.txt",
+      "target": "gameserver/openitem/name/db137.zhoon"
+    },
+    {
+      "id": "item.dg131",
+      "path": "GameServer/OpenItem/DG131.txt",
+      "target": "gameserver/openitem/name/dg131.zhoon"
+    },
+    {
+      "id": "item.dg135",
+      "path": "GameServer/OpenItem/DG135.txt",
+      "target": "gameserver/openitem/name/dg135.zhoon"
+    },
+    {
+      "id": "item.dg136",
+      "path": "GameServer/OpenItem/DG136.txt",
+      "target": "gameserver/openitem/name/dg136.zhoon"
+    },
+    {
+      "id": "item.ds160",
+      "path": "GameServer/OpenItem/DS160.txt",
+      "target": "gameserver/openitem/name/ds160.zhoon"
+    },
+    {
+      "id": "item.gb105",
+      "path": "GameServer/OpenItem/GB105.txt",
+      "target": "gameserver/openitem/name/gb105.zhoon"
+    },
+    {
+      "id": "item.gb106",
+      "path": "GameServer/OpenItem/GB106.txt",
+      "target": "gameserver/openitem/name/gb106.zhoon"
+    },
+    {
+      "id": "item.oa230",
+      "path": "GameServer/OpenItem/oa230.txt",
+      "target": "gameserver/openitem/name/oa230.zhoon"
+    },
+    {
+      "id": "item.oa235",
+      "path": "GameServer/OpenItem/oa235.txt",
+      "target": "gameserver/openitem/name/oa235.zhoon"
+    },
+    {
+      "id": "item.oa237",
+      "path": "GameServer/OpenItem/oa237.txt",
+      "target": "gameserver/openitem/name/oa237.zhoon"
+    },
+    {
+      "id": "item.oe104",
+      "path": "GameServer/OpenItem/OE104.txt",
+      "target": "gameserver/openitem/name/oe104.zhoon"
+    },
+    {
+      "id": "item.oe105",
+      "path": "GameServer/OpenItem/OE105.txt",
+      "target": "gameserver/openitem/name/oe105.zhoon"
+    },
+    {
+      "id": "item.oe106",
+      "path": "GameServer/OpenItem/OE106.txt",
+      "target": "gameserver/openitem/name/oe106.zhoon"
+    },
+    {
+      "id": "item.oe107",
+      "path": "GameServer/OpenItem/OE107.txt",
+      "target": "gameserver/openitem/name/oe107.zhoon"
+    },
+    {
+      "id": "item.oe130",
+      "path": "GameServer/OpenItem/OE130.txt",
+      "target": "gameserver/openitem/name/oe130.zhoon"
+    },
+    {
+      "id": "item.oe131",
+      "path": "GameServer/OpenItem/OE131.txt",
+      "target": "gameserver/openitem/name/oe131.zhoon"
+    },
+    {
+      "id": "item.om131",
+      "path": "GameServer/OpenItem/OM131.txt",
+      "target": "gameserver/openitem/name/om131.zhoon"
+    },
+    {
+      "id": "item.qt117",
+      "path": "GameServer/OpenItem/QT117.txt",
+      "target": "gameserver/openitem/name/qt117.zhoon"
+    },
+    {
+      "id": "item.qt118",
+      "path": "GameServer/OpenItem/QT118.txt",
+      "target": "gameserver/openitem/name/qt118.zhoon"
+    },
+    {
+      "id": "item.qt119",
+      "path": "GameServer/OpenItem/QT119.txt",
+      "target": "gameserver/openitem/name/qt119.zhoon"
+    },
+    {
+      "id": "item.qt120",
+      "path": "GameServer/OpenItem/QT120.txt",
+      "target": "gameserver/openitem/name/qt120.zhoon"
+    },
+    {
+      "id": "item.qt121",
+      "path": "GameServer/OpenItem/QT121.txt",
+      "target": "gameserver/openitem/name/qt121.zhoon"
+    },
+    {
+      "id": "item.qt122",
+      "path": "GameServer/OpenItem/QT122.txt",
+      "target": "gameserver/openitem/name/qt122.zhoon"
+    },
+    {
+      "id": "item.qt123",
+      "path": "GameServer/OpenItem/QT123.txt",
+      "target": "gameserver/openitem/name/qt123.zhoon"
+    },
+    {
+      "id": "item.qt124",
+      "path": "GameServer/OpenItem/QT124.txt",
+      "target": "gameserver/openitem/name/qt124.zhoon"
+    },
+    {
+      "id": "item.qt125",
+      "path": "GameServer/OpenItem/QT125.txt",
+      "target": "gameserver/openitem/name/qt125.zhoon"
+    },
+    {
+      "id": "item.qt126",
+      "path": "GameServer/OpenItem/QT126.txt",
+      "target": "gameserver/openitem/name/qt126.zhoon"
+    },
+    {
+      "id": "item.qt127",
+      "path": "GameServer/OpenItem/QT127.txt",
+      "target": "gameserver/openitem/name/qt127.zhoon"
+    },
+    {
+      "id": "item.qt128",
+      "path": "GameServer/OpenItem/QT128.txt",
+      "target": "gameserver/openitem/name/qt128.zhoon"
+    },
+    {
+      "id": "item.qt129",
+      "path": "GameServer/OpenItem/QT129.txt",
+      "target": "gameserver/openitem/name/qt129.zhoon"
+    },
+    {
+      "id": "item.qt131",
+      "path": "GameServer/OpenItem/QT131.txt",
+      "target": "gameserver/openitem/name/qt131.zhoon"
+    },
+    {
+      "id": "item.qt132",
+      "path": "GameServer/OpenItem/QT132.txt",
+      "target": "gameserver/openitem/name/qt132.zhoon"
+    },
+    {
+      "id": "item.sp179",
+      "path": "GameServer/OpenItem/SP179.txt",
+      "target": "gameserver/openitem/name/sp179.zhoon"
+    },
+    {
+      "id": "item.wa160",
+      "path": "GameServer/OpenItem/WA160.txt",
+      "target": "gameserver/openitem/name/wa160.zhoon"
+    },
+    {
+      "id": "item.wc160",
+      "path": "GameServer/OpenItem/WC160.txt",
+      "target": "gameserver/openitem/name/wc160.zhoon"
+    },
+    {
+      "id": "item.wc161",
+      "path": "GameServer/OpenItem/WC161.txt",
+      "target": "gameserver/openitem/name/wc161.zhoon"
+    },
+    {
+      "id": "item.wh160",
+      "path": "GameServer/OpenItem/WH160.txt",
+      "target": "gameserver/openitem/name/wh160.zhoon"
+    },
+    {
+      "id": "item.wp160",
+      "path": "GameServer/OpenItem/WP160.txt",
+      "target": "gameserver/openitem/name/wp160.zhoon"
+    },
+    {
+      "id": "item.ws260",
+      "path": "GameServer/OpenItem/WS260.txt",
+      "target": "gameserver/openitem/name/ws260.zhoon"
+    }
+  ],
+  "bytes": 844266,
+  "sha256": "bcb0b2338c5ae971a49204f3d1c372d801952abd0f7a6bf92d24099afa1d9e92"
+}

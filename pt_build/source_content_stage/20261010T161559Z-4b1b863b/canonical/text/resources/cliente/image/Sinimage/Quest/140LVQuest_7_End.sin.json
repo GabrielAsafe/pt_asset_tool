@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_7_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_7_End.sin",
+    "image/Sinimage/Quest/140LVQuest_7_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_7_End.sin",
+    "legacy_sha256": "49f7899cd79943b132a7fd789a119d377931f58e57f130c9be6fc833b64ed4f7",
+    "legacy_size": 745
+  },
+  "semantic": {
+    "lines": [
+      "É o relatório de Celina? Muito obrigado. Também passamos",
+      "por maus momentos. Os espectros estavam contaminando a ",
+      "população e, para protegê-los, os isolamos em Pillai, que",
+      "ficou lotada. Criamos vários abrigos pelo continente e",
+      "barreiras mágicas foram criadas pelos Magos e Xamãs. Pillai",
+      "foi bombardeada por Espectros Malignos, oriundos da junção",
+      "dos Espectros Negros. Levamos a luta para o solo e quase ",
+      "perdemos. Mas guerreiros de toda parte vieram nos ajudar.",
+      "",
+      "Midranda despertou no Santuário do Abismo e sua tropa ",
+      "começou a se movimentar dentro da barreira do santuário.",
+      "Aaaah! Todo esse caos devido à Yagditha tê-lo ajudado.",
+      "Você fez o seu melhor! Agora, temos que nos preparar!",
+      "",
+      "Receba 2 EPs , como recompensa por seu esforço."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "ySBvIHJlbGF083JpbyBkZSBDZWxpbmE/IE11aXRvIG9icmlnYWRvLiBUYW1i6W0gcGFzc2Ftb3MNCnBvciBtYXVzIG1vbWVudG9zLiBPcyBlc3BlY3Ryb3MgZXN0YXZhbSBjb250YW1pbmFuZG8gYSANCnBvcHVsYefjbyBlLCBwYXJhIHByb3RlZ+otbG9zLCBvcyBpc29sYW1vcyBlbSBQaWxsYWksIHF1ZQ0KZmljb3UgbG90YWRhLiBDcmlhbW9zIHbhcmlvcyBhYnJpZ29zIHBlbG8gY29udGluZW50ZSBlDQpiYXJyZWlyYXMgbeFnaWNhcyBmb3JhbSBjcmlhZGFzIHBlbG9zIE1hZ29zIGUgWGFt43MuIFBpbGxhaQ0KZm9pIGJvbWJhcmRlYWRhIHBvciBFc3BlY3Ryb3MgTWFsaWdub3MsIG9yaXVuZG9zIGRhIGp1bufjbw0KZG9zIEVzcGVjdHJvcyBOZWdyb3MuIExldmFtb3MgYSBsdXRhIHBhcmEgbyBzb2xvIGUgcXVhc2UgDQpwZXJkZW1vcy4gTWFzIGd1ZXJyZWlyb3MgZGUgdG9kYSBwYXJ0ZSB2aWVyYW0gbm9zIGFqdWRhci4NCg0KTWlkcmFuZGEgZGVzcGVydG91IG5vIFNhbnR14XJpbyBkbyBBYmlzbW8gZSBzdWEgdHJvcGEgDQpjb21l5291IGEgc2UgbW92aW1lbnRhciBkZW50cm8gZGEgYmFycmVpcmEgZG8gc2FudHXhcmlvLg0KQWFhYWghIFRvZG8gZXNzZSBjYW9zIGRldmlkbyDgIFlhZ2RpdGhhIHTqLWxvIGFqdWRhZG8uDQpWb2PqIGZleiBvIHNldSBtZWxob3IhIEFnb3JhLCB0ZW1vcyBxdWUgbm9zIHByZXBhcmFyIQ0KDQpSZWNlYmEgMiBFUHMgLCBjb21vIHJlY29tcGVuc2EgcG9yIHNldSBlc2ZvcudvLg=="
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "summit.quest-guide-runtime-bindings/v1",
+  "description": "Conservative bindings between the supplied PT-BR quest guide and quest systems confirmed in the current Summit source. Entries without a confirmed binding stay in canonical data but are not exposed as supported Codex quests unless a live QuestDB title matches them.",
+  "bindings": [
+    {"guide_id": "instrutora-amanda", "supported": true, "runtime_tags": ["haquest.elementary"]},
+    {"guide_id": "level-20-1-desafio-classe", "supported": true, "runtime_ids": [11001, 11002]},
+    {"guide_id": "level-30-por-ela", "supported": true, "runtime_ids": [10030]},
+    {"guide_id": "level-40-2-desafio-classe-melee", "supported": true, "runtime_tags": ["classic.change_job_2"]},
+    {"guide_id": "level-40-2-desafio-classe-ranged", "supported": true, "runtime_tags": ["classic.change_job_2"]},
+    {"guide_id": "level-40-2-desafio-classe-casters", "supported": true, "runtime_tags": ["classic.change_job_2"]},
+    {"guide_id": "level-55-a-caverna", "supported": true, "runtime_ids": [10055, 10155]},
+    {"guide_id": "level-60-3-desafio-classe", "supported": true, "runtime_ids": [11004]},
+    {"guide_id": "level-70-amizade-de-michelle", "supported": true, "runtime_ids": [10070]},
+    {"guide_id": "level-80-quests", "supported": true, "runtime_ids": [10080, 10180]},
+    {"guide_id": "level-85-lagrimas-de-calliar", "supported": true, "runtime_ids": [10085]},
+    {"guide_id": "level-90-quests", "supported": true, "runtime_ids": [10090, 10190]},
+    {"guide_id": "level-100-fantasma-do-furia", "supported": true, "runtime_tags": ["haquest.fury_of_phantom"]},
+    {"guide_id": "level-80-4-desafio-classe", "supported": false, "runtime_tags": ["unverified.tier5.guide_mapping"], "note": "The current Summit Rank5/Tier5 chain is implemented but has not yet been proven equivalent to this PT-BR guide entry."}
+  ]
+}

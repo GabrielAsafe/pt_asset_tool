@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ricarden_guard",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ricarden-guard.npc",
+    "GameServer/NPC/ricarden-guard.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ricarden-guard.npc",
+    "legacy_sha256": "111ddd93eea5322c2c314a4129bcef61d10a75f43a45c7a12fbb456b3a4b0550",
+    "legacy_size": 495
+  },
+  "semantic": {
+    "fields": {
+      "name": "리카르텐 가드",
+      "model_file": "char\\npc\\TN-001\\TN-001.INI",
+      "level": 100,
+      "linked_file": "name\\ricarden-guard.zhoon",
+      "model_config_id": "model.char.npc.tn.001.tn.001"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "리카르텐 가드"
+        ],
+        "raw_values_hex": [
+          "b8aec4abb8a3c5d920b0a1b5e5"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-001\\TN-001.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030315c544e2d3030312e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 11,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ricarden-guard.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c726963617264656e2d67756172642e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK4rsSruKPF2SCwobXlIg0KKrjwvufGxMDPCSJjaGFyXG5wY1xUTi0wMDFcVE4tMDAxLklOSSINCiq3ubqnCQkxMDANCi8vKrTryK0JCSK41MC7sMkgtPjB9rDFs6ogw6K77CC527+hvK0gsau308j3tMIgwf7AuiDHz8H2ILi2vcq9w7/ALiCz4LyutenAzCDIrbChILOquOkguau9vCDB/sC7IMfSwfYguPS287/kISINCi8vKrTryK0JCSLAzCCz4LyutekgueO4trTZILvntvPB9rDvIL7GxKfAzCC1x7jpILTZvcMgs6rFuLOqsO8gx8/B0iDBpLi7ILmmx9Egs+C8rrXpIMDUtM+02S4iDQovLyq068itCQkixdu9usWpt9DAxyDA/L73IL3Dx+jAuiDAzCAzILPgvK7AuyDA4r7GIDOwocH2IMKhx6W4piC+8r7uIL/AtMIgsM3AzMHSIg0KLy8qtOvIrQkJIrChsvsgsOaw7bimILmrvcPHz7DtILCov8HAuLfOILXpvu6wobTCIMDMtem1tSDA1sHSIMGkuLsgwKfH6MfRIMDPwMywx7i4Li4uIg0KDQoNCg0KKr+ssOHGxMDPCSJuYW1lXHJpY2FyZGVuLWd1YXJkLnpob29uIg0K"
+  }
+}

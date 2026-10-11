@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.126_koon_venenoso",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/126_Koon Venenoso.zhoon",
+    "GameServer/Monster/Name/126_Koon Venenoso.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/126_Koon Venenoso.zhoon",
+    "legacy_sha256": "3915b07bd6950fae0b45ba9e85545016a19d369b3c70db55e2ba4e90f5e8ce1c",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Koon Venenoso"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiS29vbiBWZW5lbm9zbyI="
+  }
+}

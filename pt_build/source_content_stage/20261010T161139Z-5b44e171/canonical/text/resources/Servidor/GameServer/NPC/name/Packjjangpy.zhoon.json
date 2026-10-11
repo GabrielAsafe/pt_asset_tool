@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.packjjangpy",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Packjjangpy.zhoon",
+    "GameServer/NPC/name/Packjjangpy.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Packjjangpy.zhoon",
+    "legacy_sha256": "d966fe71faf4f2b491f688d766ae538383794e25e5f0a9fb73cd87c45979487c",
+    "legacy_size": 433
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Peddler Yampi"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Oh, you are amazing to find me in the continent of Priston."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "I usually sell items that are hard to find. Please, find me often because I sometimes sell very good items."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "I'm Yampi who sells items only for 5 min. Please, choose one."
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "This is the item you want. I'm selling it now. I have to go soon, so please hurry up"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9QYWNramphbmdweS5ucGMNCg0KKkpfTkFNRQkJIlBlZGRsZXIgWWFtcGkiDQoNCipKX0NIQVQJCQkiT2gsIHlvdSBhcmUgYW1hemluZyB0byBmaW5kIG1lIGluIHRoZSBjb250aW5lbnQgb2YgUHJpc3Rvbi4iIA0KKkpfQ0hBVAkJCSJJIHVzdWFsbHkgc2VsbCBpdGVtcyB0aGF0IGFyZSBoYXJkIHRvIGZpbmQuIFBsZWFzZSwgZmluZCBtZSBvZnRlbiBiZWNhdXNlIEkgc29tZXRpbWVzIHNlbGwgdmVyeSBnb29kIGl0ZW1zLiINCipKX0NIQVQJCQkiSSdtIFlhbXBpIHdobyBzZWxscyBpdGVtcyBvbmx5IGZvciA1IG1pbi4gUGxlYXNlLCBjaG9vc2Ugb25lLiINCipKX0NIQVQgICAgICAgICAgICAgICAgICJUaGlzIGlzIHRoZSBpdGVtIHlvdSB3YW50LiBJJ20gc2VsbGluZyBpdCBub3cuIEkgaGF2ZSB0byBnbyBzb29uLCBzbyBwbGVhc2UgaHVycnkgdXAiDQoNCg=="
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.009.tn.009",
+  "logical_config": "char/npc/TN-009/TN-009.INI",
+  "legacy_cache": "char/npc/TN-009/TN-009.inx",
+  "consumers": [
+    {
+      "id": "npc.sellquest",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/sellquest.NPC.json"
+    },
+    {
+      "id": "npc.sod_buma",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Sod_Buma.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-009/TN-009.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-009/TN-009.inx"
+    }
+  }
+}

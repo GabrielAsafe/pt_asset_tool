@@ -1,0 +1,97 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.iron_1",
+  "logical_path": "GameServer/Field/iron-1.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/iron-1.ase.spm",
+    "sha256": "2bf6f4c4655a21c857abad46e7db1e65a8e6ceae5bb57d0c1d88da8f9c9cd6b0"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.80_centauro_arqueira",
+      "legacy_name": "Centauro Arqueira",
+      "legacy_name_bytes_hex": "43656e746175726f204172717565697261",
+      "weight": 13,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.83_grotesco",
+      "legacy_name": "Grotesco",
+      "legacy_name_bytes_hex": "47726f746573636f",
+      "weight": 5,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.82_destruidor",
+      "legacy_name": "Destruidor",
+      "legacy_name_bytes_hex": "44657374727569646f72",
+      "weight": 17,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.80_guardi_u00e3o_de_a_u00e7o",
+      "legacy_name": "Guardiao de Aco",
+      "legacy_name_bytes_hex": "477561726469616f2064652041636f",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.81_golem_de_a_u00e7o",
+      "legacy_name": "Golem de Aco",
+      "legacy_name_bytes_hex": "476f6c656d2064652041636f",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.81_h_u00edper_m_u00e1quina",
+      "legacy_name": "Hiper Maquina",
+      "legacy_name_bytes_hex": "4869706572204d617175696e61",
+      "weight": 12,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.82_m_u00e1quina_vampira",
+      "legacy_name": "M?uina Vampira",
+      "legacy_name_bytes_hex": "4d3f75696e612056616d70697261",
+      "weight": 8,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.82_morte_s_u00fabita",
+      "legacy_name": "Morte Subita",
+      "legacy_name_bytes_hex": "4d6f72746520537562697461",
+      "weight": 12,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_104_babel",
+      "slave_monster_id": "monster.83_grotesco",
+      "master_legacy_name": "Babel",
+      "slave_legacy_name": "Grotesco",
+      "master_legacy_name_bytes_hex": "426162656c",
+      "slave_legacy_name_bytes_hex": "47726f746573636f",
+      "slave_count": 2,
+      "open_hours": [
+        1,
+        4,
+        7,
+        10,
+        13,
+        16,
+        19,
+        22
+      ],
+      "master_resolution": "exact",
+      "slave_resolution": "exact"
+    }
+  ]
+}

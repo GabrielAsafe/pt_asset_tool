@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.hateleport_field_4",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/haTeleport_Field[4].sin",
+    "image/Sinimage/help/haTeleport_Field[4].sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/haTeleport_Field[4].sin",
+    "legacy_sha256": "09aa668c7b4ca53d449ad60be7b8702765cc7257be2ea89a1ea226f9d7c41f96",
+    "legacy_size": 197
+  },
+  "semantic": {
+    "lines": [
+      "             [Field possible to transfer Page4]",
+      "=================================================",
+      "",
+      "30. Endless Tower 1F",
+      "31. Endless Tower 2F",
+      "32. Endless Tower 3F",
+      "33. Ice Mine 1F",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "ICAgICAgICAgICAgIFtGaWVsZCBwb3NzaWJsZSB0byB0cmFuc2ZlciBQYWdlNF0NCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCg0KMzAuIEVuZGxlc3MgVG93ZXIgMUYNCjMxLiBFbmRsZXNzIFRvd2VyIDJGDQozMi4gRW5kbGVzcyBUb3dlciAzRg0KMzMuIEljZSBNaW5lIDFGDQoNCg0KDQoNCg0KDQo="
+  }
+}

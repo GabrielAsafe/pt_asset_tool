@@ -1,0 +1,124 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.soul",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Soul.NPC",
+    "GameServer/NPC/Soul.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Soul.NPC",
+    "legacy_sha256": "2e819e751c1ec43f4add540a5d92ea8ba1dcfad5443762678b2903f1279871f6",
+    "legacy_size": 327
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\monster\\Nihil\\Nihil1.ini",
+      "name": "떠도는 영혼",
+      "english_name": "Wandering Soul",
+      "class": 2300,
+      "linked_file": "name\\Soul.zhoon",
+      "model_config_id": "model.char.monster.nihil.nihil1"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\Nihil\\Nihil1.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c4e6968696c5c4e6968696c312e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "떠도는 영혼"
+        ],
+        "raw_values_hex": [
+          "b6b0b5b5b4c220bfb5c8a5"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Wandering Soul"
+        ],
+        "raw_values_hex": [
+          "57616e646572696e6720536f756c"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          2300
+        ],
+        "raw_values_hex": [
+          "32333030"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Soul.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c536f756c2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxtb25zdGVyXE5paGlsXE5paGlsMS5pbmkiDQoNCirAzLinCQkJIrawtbW0wiC/tcilIg0KKk5hbWUJCQkiV2FuZGVyaW5nIFNvdWwiDQoqsOix3gkJCTIzMDANCg0KLy8qtOvIrQkJCSK/67vntNQuIMGmIL7qseK4piC16b7uwda8vL/kLiIgDQovLyq068itCQkJIr/suK7AxyDA07mrtMIguau9vCDAz8DMIMDWtPW287W1IL/PvPa1x77uvt8gx9W0z7TZLiINCi8vKrTryK0JCQkitOe9xcDHIMj7wLsguvS3wcHWvLy/5C4iDQoNCg0KDQoqv6yw4cbEwM8JIm5hbWVcU291bC56aG9vbiINCg0KDQoNCg0KDQoNCg0KDQoNCg0K"
+  }
+}

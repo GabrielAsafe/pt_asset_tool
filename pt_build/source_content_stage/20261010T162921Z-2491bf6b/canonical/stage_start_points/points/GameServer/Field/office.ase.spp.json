@@ -1,0 +1,18 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.office",
+  "logical_path": "GameServer/Field/office.ase.spp",
+  "points": [
+    {
+      "slot": 0,
+      "state": 1,
+      "x": -199554,
+      "z": 200501
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/office.ase.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "ddf49bddb6fd9c4a07b57aec066b611d72a287b3eda5896f43e49de8e11e4f70"
+  }
+}

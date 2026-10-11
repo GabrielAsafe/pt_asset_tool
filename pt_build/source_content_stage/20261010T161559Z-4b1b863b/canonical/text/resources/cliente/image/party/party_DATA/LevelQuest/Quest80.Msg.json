@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest80",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/LevelQuest/Quest80.Msg",
+    "image/party/party_DATA/LevelQuest/Quest80.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/LevelQuest/Quest80.Msg",
+    "legacy_sha256": "b2cf7173ff84c133fdd697eb7f0a8bab9ef16f7ac71e134fee4f3d8ae631b753",
+    "legacy_size": 81
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt five Ratoos in Cursed",
+      "Temple and go back to the ",
+      "Priest of the temple."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IGZpdmUgUmF0b29zIGluIEN1cnNlZA0KVGVtcGxlIGFuZCBnbyBiYWNrIHRvIHRoZSANClByaWVzdCBvZiB0aGUgdGVtcGxlLg0K"
+  }
+}

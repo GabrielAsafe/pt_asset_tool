@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monshadow.1.monshadow.1",
+  "logical_config": "char/monster/Monshadow-1/Monshadow-1.ini",
+  "legacy_cache": "char/monster/Monshadow-1/Monshadow-1.inx",
+  "consumers": [
+    {
+      "id": "monster.78_espectro_negro",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/78_Espectro Negro.inf.json"
+    },
+    {
+      "id": "monster.r5b_unseen",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R5B Unseen.inf.json"
+    },
+    {
+      "id": "monster.sod_unseen",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_unseen.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monshadow-1/Monshadow-1.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monshadow-1/Monshadow-1.inx"
+    }
+  }
+}

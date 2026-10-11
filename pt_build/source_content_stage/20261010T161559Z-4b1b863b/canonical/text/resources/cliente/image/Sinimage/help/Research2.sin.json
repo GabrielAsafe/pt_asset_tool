@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.research2",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/Research2.sin",
+    "image/Sinimage/help/Research2.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/Research2.sin",
+    "legacy_sha256": "7d0d6dbbd8217ff9033222960e443edc2068e313e1c8026060b36eff46857e71",
+    "legacy_size": 422
+  },
+  "semantic": {
+    "lines": [
+      "※ 고객님의 의견에 따라 서버 통합을 ",
+      "   위한 새로운 안을 제시합니다.",
+      " ",
+      "*서버 통합시 하위서버를 A,B 서버로 유지하겠습니다.",
+      "*신전 1,2층에 준하는 필드를 추가 하도록 하겠습니다.",
+      "*서버상태는 현재 보다 더욱 안정될 것입니다.",
+      " ",
+      "1>위 제안과 함께 서버 통합을 실시하려 합니다. ",
+      "  고객님의 의견은?",
+      " ",
+      "1) 찬성",
+      "2) 반대",
+      " ",
+      "*반대 의견은 자세한 말씀과 함께 게시판에 남겨 주세요. ",
+      "*더욱 정성을 다하는 프리스톤 테일이 되겠습니다."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "odggsO2wtLTUwMcgwMew37+hILX7tvMgvK259iDF68fVwLsgDQogICDAp8fRILv1t86/7iC+yMC7IMGmvcPH1bTPtNkuDQogDQoqvK259iDF68fVvcMgx8/Ap7ytufa4piBBLEIgvK259rfOIMCvwfbHz7DavcC0z7TZLg0KKr3FwPwgMSwyw/6/oSDB2MfPtMIgx8q15bimIMPfsKEgx8+1tbfPIMfPsNq9wLTPtNkuDQoqvK259rvzxcK0wiDH9sDnILq4tNkgtPW/7SC+yMGktckgsM3A1LTPtNkuDQogDQoxPsCnIMGmvsiw+iDH1LKyILytufYgxevH1cC7IL3HvcPHz7fBIMfVtM+02S4gDQogILDtsLS01MDHIMDHsN/Auj8NCiANCjEpIML5vLoNCjIpILndtOsNCiANCiq53bTrIMDHsN/AuiDA2ry8x9EguLu+uLD6IMfUsrIgsNS9w8bHv6Egs7Kw3CDB1ry8v+QuIA0KKrT1v+0gwaS8usC7ILTZx8+0wiDHwbiuvbrF5iDF18DPwMwgtcew2r3AtM+02S4="
+  }
+}

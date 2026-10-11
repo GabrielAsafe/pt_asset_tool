@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sp110",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SP110.txt",
+    "GameServer/OpenItem/SP110.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SP110.txt",
+    "legacy_sha256": "247c66a745df487e7ec0b7764e1db5d571616005f93d23092e8e3ac4e0fb9120",
+    "legacy_size": 174
+  },
+  "semantic": {
+    "fields": {
+      "code": "SP110",
+      "name": "Ovo de Páscoa (F)",
+      "english_name": "Ovo de Páscoa (F)",
+      "weight": 1,
+      "linked_file": "Name\\SP110.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SP110"
+        ],
+        "raw_values_hex": [
+          "5350313130"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Ovo de Páscoa (F)"
+        ],
+        "raw_values_hex": [
+          "4f766f2064652050e173636f6120284629"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Ovo de Páscoa (F)"
+        ],
+        "raw_values_hex": [
+          "4f766f2064652050e173636f6120284629"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\SP110.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c53503131302e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlNQMTEwIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiT3ZvIGRlIFDhc2NvYSAoRikiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiT3ZvIGRlIFDhc2NvYSAoRikiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcU1AxMTAuemhvb24i"
+  }
+}

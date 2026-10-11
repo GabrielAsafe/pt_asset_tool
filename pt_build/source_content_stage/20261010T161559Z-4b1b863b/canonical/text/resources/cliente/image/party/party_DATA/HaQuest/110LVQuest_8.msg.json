@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_8",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/110LVQuest_8.msg",
+    "image/party/party_DATA/HaQuest/110LVQuest_8.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/110LVQuest_8.msg",
+    "legacy_sha256": "c5d56f76ac9e271ed76882e551c4b391541016129b681e8bd4908c772b9eb0ed",
+    "legacy_size": 127
+  },
+  "semantic": {
+    "lines": [
+      "Destrua as armas na Sala das",
+      "Máquinas do Laboratório",
+      "Secreto, derrote o Draxos, e ",
+      "reporte ao Comandante Derik",
+      "em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVzdHJ1YSBhcyBhcm1hcyBuYSBTYWxhIGRhcw0KTeFxdWluYXMgZG8gTGFib3JhdPNyaW8NClNlY3JldG8sIGRlcnJvdGUgbyBEcmF4b3MsIGUgDQpyZXBvcnRlIGFvIENvbWFuZGFudGUgRGVyaWsNCmVtIFJpY2FydGVuLg=="
+  }
+}

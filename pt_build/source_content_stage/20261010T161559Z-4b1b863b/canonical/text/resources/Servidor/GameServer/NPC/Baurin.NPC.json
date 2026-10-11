@@ -1,0 +1,135 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.baurin",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Baurin.NPC",
+    "GameServer/NPC/Baurin.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Baurin.NPC",
+    "legacy_sha256": "b2a5651cfa5b4cc0b7f9a3ad268bed4c33cdf95266bca059184f61fc21437b65",
+    "legacy_size": 291
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\Baurin\\Baurin.ini",
+      "level": 100,
+      "name": "바우린",
+      "size": "중형",
+      "quest_event": 13,
+      "linked_file": "name\\Baurin.zhoon",
+      "model_config_id": "model.char.npc.baurin.baurin"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\Baurin\\Baurin.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c42617572696e5c42617572696e2e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "바우린"
+        ],
+        "raw_values_hex": [
+          "b9d9bfecb8b0"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중형"
+        ],
+        "raw_values_hex": [
+          "c1dfc7fc"
+        ]
+      },
+      {
+        "line": 9,
+        "key": "quest_event",
+        "legacy_token": "*퀘스트이벤트",
+        "legacy_token_hex": "2ac4f9bdbac6aec0ccbaa5c6ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          13
+        ],
+        "raw_values_hex": [
+          "3133"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Baurin.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c42617572696e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcQmF1cmluXEJhdXJpbi5pbmkiDQoqt7m6pwkJCTEwMA0KKsDMuKcJCQkiudm/7LiwIg0KKsWpseIJCQnB38f8DQoNCg0KKsT5vbrGrsDMuqXGrgkJMTMNCg0KLy8qtOvIrQkJCSIyMDEys+Igu/XH2CC6uSC4ucDMILnewLi8vL/kLiINCi8vKrTryK0JCQkiwPq/obDUIL/rIMS4vbbAuyCwocGutNkgwda9w7jpILyxubC3ziCxs8ivx9ggteW4rrDtIMDWvu6/5C4iDQoNCg0KKr+ssOHGxMDPIAkJIm5hbWVcQmF1cmluLnpob29uIg0KDQoNCg0KDQoNCg0K"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_5_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_5_Path.sin",
+    "image/Sinimage/Quest/Boss_Quest_5_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_5_Path.sin",
+    "legacy_sha256": "8d5c65579e2a05e72995b416791472b0fca0dd77c310859164d650f6c0a8b5af",
+    "legacy_size": 53
+  },
+  "semantic": {
+    "lines": [
+      "Derrote o Perseguidor Sombrio no Santuário Sombrio."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBvIFBlcnNlZ3VpZG9yIFNvbWJyaW8gbm8gU2FudHXhcmlvIFNvbWJyaW8uDQo="
+  }
+}

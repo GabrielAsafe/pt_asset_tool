@@ -1,0 +1,486 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.mage",
+  "kind": "ini_config",
+  "selection_reason": "immutable_gameplay_config",
+  "runtime_paths": [
+    "Servidor/Configs/Skill/Mage.ini",
+    "Configs/Skill/Mage.ini"
+  ],
+  "source": {
+    "legacy_path": "Servidor/Configs/Skill/Mage.ini",
+    "legacy_sha256": "205eb54fee837b0240ed2491d1cb65285148827e31237d47a5109644ca3e6f8b",
+    "legacy_size": 4852
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 1 _______________________"
+      },
+      {
+        "line": 3,
+        "section": "",
+        "key": "",
+        "value": "// Agonia"
+      },
+      {
+        "line": 4,
+        "section": "",
+        "key": "Agony_UseMana",
+        "value": "5, 6, 7, 8, 9, 10, 11, 12, 13, 14;"
+      },
+      {
+        "line": 5,
+        "section": "",
+        "key": "Agony_ConvLife",
+        "value": "4, 8, 12, 16, 20, 24, 28, 32, 36, 38;"
+      },
+      {
+        "line": 6,
+        "section": "",
+        "key": "Agony_RecoveryMana",
+        "value": "4, 8, 12, 16, 20, 24, 28, 32, 36, 38;"
+      },
+      {
+        "line": 8,
+        "section": "",
+        "key": "",
+        "value": "// Fagulha"
+      },
+      {
+        "line": 9,
+        "section": "",
+        "key": "FireBolt_UseMana",
+        "value": "16, 18, 20, 22, 25, 28, 31, 34, 38, 42;"
+      },
+      {
+        "line": 10,
+        "section": "",
+        "key": "FireBolt_DamagePercent",
+        "value": "2, 4, 6, 8, 10, 12, 14, 16, 18, 20 ;"
+      },
+      {
+        "line": 12,
+        "section": "",
+        "key": "",
+        "value": "// Zenith"
+      },
+      {
+        "line": 13,
+        "section": "",
+        "key": "Zenith_UseMana",
+        "value": "18, 20, 22, 25, 28, 31, 35, 39, 43, 50;"
+      },
+      {
+        "line": 14,
+        "section": "",
+        "key": "Zenith_Element",
+        "value": "8, 12, 16, 20, 24, 28, 32 ,36, 40, 44;"
+      },
+      {
+        "line": 15,
+        "section": "",
+        "key": "Zenith_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300;"
+      },
+      {
+        "line": 17,
+        "section": "",
+        "key": "",
+        "value": "// Bola de Fogo"
+      },
+      {
+        "line": 18,
+        "section": "",
+        "key": "FireBall_UseMana",
+        "value": "22, 24, 26, 28, 31, 34, 38, 42, 46, 50;"
+      },
+      {
+        "line": 19,
+        "section": "",
+        "key": "FireBall_DamagePercent",
+        "value": "2, 4, 6, 8, 10, 12, 14, 16, 18, 20 ;"
+      },
+      {
+        "line": 20,
+        "section": "",
+        "key": "FireBall_Area",
+        "value": "70, 72, 74, 76, 78, 80, 82, 84, 86, 88;"
+      },
+      {
+        "line": 21,
+        "section": "",
+        "key": "FireBall_Range",
+        "value": "163, 166, 169, 172, 175, 178, 181, 184, 187, 190;"
+      },
+      {
+        "line": 23,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 2 _______________________"
+      },
+      {
+        "line": 25,
+        "section": "",
+        "key": "",
+        "value": "// Mestre da Mente"
+      },
+      {
+        "line": 26,
+        "section": "",
+        "key": "Mental_Mastery_Mana",
+        "value": "4, 8, 12, 16, 20, 24, 28, 32, 36, 50 ;"
+      },
+      {
+        "line": 28,
+        "section": "",
+        "key": "",
+        "value": "// Watornado"
+      },
+      {
+        "line": 29,
+        "section": "",
+        "key": "Watornado_DamagePercent",
+        "value": "20, 25, 30, 35, 40, 45, 50, 58, 67, 70 ;"
+      },
+      {
+        "line": 30,
+        "section": "",
+        "key": "Watornado_Area",
+        "value": "70, 72, 74, 76, 78, 80, 82, 84, 86, 88;"
+      },
+      {
+        "line": 31,
+        "section": "",
+        "key": "Watornado_Range",
+        "value": "170, 174, 178, 182, 186, 190, 194, 198, 202, 206;"
+      },
+      {
+        "line": 32,
+        "section": "",
+        "key": "Watornado_Mana",
+        "value": "25, 27, 29, 32, 35, 38, 42, 46, 50, 80;"
+      },
+      {
+        "line": 34,
+        "section": "",
+        "key": "",
+        "value": "// Encanto"
+      },
+      {
+        "line": 35,
+        "section": "",
+        "key": "Enchant_Weapon_Damage_Ice",
+        "value": "( 12, 12 ), ( 16, 16 ), ( 20, 20 ), ( 24, 24 ), ( 28, 28 ), ( 32, 32 ), ( 36, 36 ), ( 40, 40 ), ( 44, 44 ), ( 48, 48 );"
+      },
+      {
+        "line": 36,
+        "section": "",
+        "key": "Enchant_Weapon_Damage_Fire",
+        "value": "( 10, 10 ), ( 20, 20 ), ( 30, 30 ), ( 40, 40 ), ( 50, 50 ), ( 55, 55 ), ( 60, 60 ), ( 65, 65 ), ( 70, 70 ), ( 80, 80 );"
+      },
+      {
+        "line": 37,
+        "section": "",
+        "key": "Enchant_Weapon_Damage_Lightning",
+        "value": "( 16, 16 ), ( 22, 22 ), ( 28, 28 ), ( 34, 34 ), ( 40, 40 ), ( 46, 46 ), ( 52, 52 ), ( 58, 58 ), ( 64, 64 ), ( 70, 70 );"
+      },
+      {
+        "line": 38,
+        "section": "",
+        "key": "Enchant_Weapon_Damage",
+        "value": "1, 1, 1, 1, 1, 1, 1, 1, 1, 1;"
+      },
+      {
+        "line": 39,
+        "section": "",
+        "key": "Enchant_Weapon_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300;"
+      },
+      {
+        "line": 40,
+        "section": "",
+        "key": "Enchant_Weapon_Mana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 58, 65;"
+      },
+      {
+        "line": 42,
+        "section": "",
+        "key": "",
+        "value": "// Raio da Morte"
+      },
+      {
+        "line": 43,
+        "section": "",
+        "key": "Dead_Ray_Damage_Percent",
+        "value": "50, 75, 100, 145, 185, 200, 210, 220, 260, 300 ;"
+      },
+      {
+        "line": 44,
+        "section": "",
+        "key": "Dead_Ray_Range",
+        "value": "185, 190, 195, 200, 205, 210, 215, 220, 225, 280;"
+      },
+      {
+        "line": 45,
+        "section": "",
+        "key": "Dead_Ray_Mana",
+        "value": "26, 29, 32, 35, 39, 43, 47, 51, 75, 105;"
+      },
+      {
+        "line": 47,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 3 _______________________"
+      },
+      {
+        "line": 49,
+        "section": "",
+        "key": "",
+        "value": "// Escudo Energetico"
+      },
+      {
+        "line": 50,
+        "section": "",
+        "key": "Energy_Shield_DecDamage",
+        "value": "14, 15, 16, 17, 18, 19, 23, 27, 35, 40;"
+      },
+      {
+        "line": 51,
+        "section": "",
+        "key": "Energy_Shield_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300;"
+      },
+      {
+        "line": 52,
+        "section": "",
+        "key": "Energy_Shield_UseMana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 58, 65;"
+      },
+      {
+        "line": 54,
+        "section": "",
+        "key": "",
+        "value": "// Terremoto"
+      },
+      {
+        "line": 55,
+        "section": "",
+        "key": "Diastrophism_Damage_Percent",
+        "value": "4, 8, 12, 16, 20, 24, 28, 32, 46, 60;"
+      },
+      {
+        "line": 56,
+        "section": "",
+        "key": "Diastrophism_Area",
+        "value": "80, 85, 90, 95, 100, 105, 110, 115, 120, 135;"
+      },
+      {
+        "line": 57,
+        "section": "",
+        "key": "Diastrophism_UseMana",
+        "value": "30, 33, 36, 39, 43, 47, 60, 65, 70, 75;"
+      },
+      {
+        "line": 59,
+        "section": "",
+        "key": "",
+        "value": "// Espirito Elemental"
+      },
+      {
+        "line": 60,
+        "section": "",
+        "key": "Spirit_Elemental_RegenMana",
+        "value": "1.2, 2.4, 3.6, 4.8, 5.0, 6.2, 7.4, 8.6, 9.8, 11.0;"
+      },
+      {
+        "line": 61,
+        "section": "",
+        "key": "Spirit_Elemental_Damage",
+        "value": "4, 8, 12, 16, 20, 34, 48, 52, 56, 60;"
+      },
+      {
+        "line": 62,
+        "section": "",
+        "key": "Spirit_Elemental_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300;"
+      },
+      {
+        "line": 63,
+        "section": "",
+        "key": "Spirit_Elemental_UseMana",
+        "value": "36, 39, 42, 45, 48, 51, 54, 57, 60, 75;"
+      },
+      {
+        "line": 65,
+        "section": "",
+        "key": "",
+        "value": "// Espada Dancante\t"
+      },
+      {
+        "line": 66,
+        "section": "",
+        "key": "Dancing_Sword_IceDamage",
+        "value": "( 5, 5 ), ( 10, 10 ), ( 15, 15 ), ( 20, 20 ), ( 25, 25 ), ( 30, 30 ), ( 35, 35 ), ( 40, 40 ), ( 45, 45 ), ( 50, 50 );"
+      },
+      {
+        "line": 67,
+        "section": "",
+        "key": "Dancing_Sword_FireDamage",
+        "value": "( 10, 10 ), ( 20, 20 ), ( 30, 30 ), ( 40, 40 ), ( 50, 50 ), ( 60, 60 ), ( 70, 70 ), ( 80, 80 ), ( 90, 90 ), ( 100, 100);"
+      },
+      {
+        "line": 68,
+        "section": "",
+        "key": "Dancing_Sword_Damage",
+        "value": "( 16, 16 ), ( 22, 22 ), ( 28, 28 ), ( 34, 34 ), ( 40, 40 ), ( 46, 46 ), ( 52, 52 ), ( 58, 58 ), ( 64, 64 ), ( 70, 70 );"
+      },
+      {
+        "line": 69,
+        "section": "",
+        "key": "Dancing_Sword_AttackDelay",
+        "value": "5, 5, 5, 5, 4, 4, 4, 4, 3, 3;"
+      },
+      {
+        "line": 70,
+        "section": "",
+        "key": "Dancing_Sword_Time",
+        "value": "300, 300, 300, 300, 300, 300, 300, 300, 300, 300;"
+      },
+      {
+        "line": 71,
+        "section": "",
+        "key": "Dancing_Sword_UseMana",
+        "value": "35, 37, 39, 42, 45, 48, 52, 56, 60, 64;"
+      },
+      {
+        "line": 73,
+        "section": "",
+        "key": "",
+        "value": "// _______________________ TIER 4 _______________________"
+      },
+      {
+        "line": 75,
+        "section": "",
+        "key": "",
+        "value": "// Chama Elemental"
+      },
+      {
+        "line": 76,
+        "section": "",
+        "key": "Fire_Elemental_Damage",
+        "value": "( 280, 295 ), ( 285, 300 ), ( 290, 305 ), ( 295, 310 ), ( 300, 315 ), ( 305, 320 ), ( 310, 325 ), ( 315, 330 ), ( 320, 335 ), ( 340, 440 );"
+      },
+      {
+        "line": 77,
+        "section": "",
+        "key": "Fire_Elemental_Hit",
+        "value": "500, 550, 600, 650, 700, 750, 800, 850, 900, 950;"
+      },
+      {
+        "line": 78,
+        "section": "",
+        "key": "Fire_Elemental_Life",
+        "value": "12000, 12200, 12400, 12600, 12800, 13000, 19000, 20000, 21000, 24000;"
+      },
+      {
+        "line": 79,
+        "section": "",
+        "key": "Fire_Elemental_UseMana",
+        "value": "52, 56, 60, 64, 68, 72, 76, 100, 120, 130;"
+      },
+      {
+        "line": 81,
+        "section": "",
+        "key": "",
+        "value": "// Ondas de Fogo"
+      },
+      {
+        "line": 82,
+        "section": "",
+        "key": "Flame_Wave_FireDamage_Percent",
+        "value": "135, 155, 185, 200, 225, 265, 290, 330, 360, 400;"
+      },
+      {
+        "line": 83,
+        "section": "",
+        "key": "Flame_Wave_Area",
+        "value": "110, 120, 130, 140, 150, 160, 170, 180, 190, 200;"
+      },
+      {
+        "line": 84,
+        "section": "",
+        "key": "Flame_Wave_UseMana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 78, 105;"
+      },
+      {
+        "line": 86,
+        "section": "",
+        "key": "",
+        "value": "// Distorcao"
+      },
+      {
+        "line": 87,
+        "section": "",
+        "key": "Distortion_SpeedSubPercent",
+        "value": "6, 6, 8, 10, 12, 13, 14, 15, 16, 22;"
+      },
+      {
+        "line": 88,
+        "section": "",
+        "key": "Distortion_DamageSubPercent",
+        "value": "5, 6, 7, 8, 9, 10, 10, 10, 15, 20;"
+      },
+      {
+        "line": 89,
+        "section": "",
+        "key": "Distortion_Area",
+        "value": "120, 125, 130, 135, 140, 145, 150, 155, 160, 165;"
+      },
+      {
+        "line": 90,
+        "section": "",
+        "key": "Distortion_Time",
+        "value": "2, 2, 2, 3, 3, 4, 5, 6, 7, 8;"
+      },
+      {
+        "line": 91,
+        "section": "",
+        "key": "Distortion_UseMana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 58, 85;"
+      },
+      {
+        "line": 93,
+        "section": "",
+        "key": "",
+        "value": "// Meteoro"
+      },
+      {
+        "line": 94,
+        "section": "",
+        "key": "Meteo_Damage_Percent",
+        "value": "20, 25, 30, 35, 40, 55, 60, 75, 80, 90 ;"
+      },
+      {
+        "line": 95,
+        "section": "",
+        "key": "Meteo_Area",
+        "value": "100, 105, 110, 115, 120, 125, 130, 135, 145, 205;"
+      },
+      {
+        "line": 96,
+        "section": "",
+        "key": "Meteo_UseMana",
+        "value": "30, 32, 34, 37, 40, 44, 48, 53, 78, 95;"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gX19fX19fX19fX19fX19fX19fX19fX18gVElFUiAxIF9fX19fX19fX19fX19fX19fX19fX19fDQoNCi8vIEFnb25pYQ0KQWdvbnlfVXNlTWFuYSA9IDUsIDYsIDcsIDgsIDksIDEwLCAxMSwgMTIsIDEzLCAxNDsNCkFnb255X0NvbnZMaWZlID0gNCwgOCwgMTIsIDE2LCAyMCwgMjQsIDI4LCAzMiwgMzYsIDM4Ow0KQWdvbnlfUmVjb3ZlcnlNYW5hID0gNCwgOCwgMTIsIDE2LCAyMCwgMjQsIDI4LCAzMiwgMzYsIDM4Ow0KDQovLyBGYWd1bGhhDQpGaXJlQm9sdF9Vc2VNYW5hID0gMTYsIDE4LCAyMCwgMjIsIDI1LCAyOCwgMzEsIDM0LCAzOCwgNDI7DQpGaXJlQm9sdF9EYW1hZ2VQZXJjZW50ID0gMiwgNCwgNiwgOCwgMTAsIDEyLCAxNCwgMTYsIDE4LCAyMCA7DQoNCi8vIFplbml0aA0KWmVuaXRoX1VzZU1hbmEgPSAxOCwgMjAsIDIyLCAyNSwgMjgsIDMxLCAzNSwgMzksIDQzLCA1MDsNClplbml0aF9FbGVtZW50ID0gOCwgMTIsIDE2LCAyMCwgMjQsIDI4LCAzMiAsMzYsIDQwLCA0NDsNClplbml0aF9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwOw0KDQovLyBCb2xhIGRlIEZvZ28NCkZpcmVCYWxsX1VzZU1hbmEgPSAyMiwgMjQsIDI2LCAyOCwgMzEsIDM0LCAzOCwgNDIsIDQ2LCA1MDsNCkZpcmVCYWxsX0RhbWFnZVBlcmNlbnQgPSAyLCA0LCA2LCA4LCAxMCwgMTIsIDE0LCAxNiwgMTgsIDIwIDsNCkZpcmVCYWxsX0FyZWEgPSA3MCwgNzIsIDc0LCA3NiwgNzgsIDgwLCA4MiwgODQsIDg2LCA4ODsNCkZpcmVCYWxsX1JhbmdlID0gMTYzLCAxNjYsIDE2OSwgMTcyLCAxNzUsIDE3OCwgMTgxLCAxODQsIDE4NywgMTkwOw0KDQovLyBfX19fX19fX19fX19fX19fX19fX19fXyBUSUVSIDIgX19fX19fX19fX19fX19fX19fX19fX18NCg0KLy8gTWVzdHJlIGRhIE1lbnRlDQpNZW50YWxfTWFzdGVyeV9NYW5hID0gNCwgOCwgMTIsIDE2LCAyMCwgMjQsIDI4LCAzMiwgMzYsIDUwIDsNCg0KLy8gV2F0b3JuYWRvDQpXYXRvcm5hZG9fRGFtYWdlUGVyY2VudCA9IDIwLCAyNSwgMzAsIDM1LCA0MCwgNDUsIDUwLCA1OCwgNjcsIDcwIDsNCldhdG9ybmFkb19BcmVhID0gNzAsIDcyLCA3NCwgNzYsIDc4LCA4MCwgODIsIDg0LCA4NiwgODg7DQpXYXRvcm5hZG9fUmFuZ2UgPSAxNzAsIDE3NCwgMTc4LCAxODIsIDE4NiwgMTkwLCAxOTQsIDE5OCwgMjAyLCAyMDY7DQpXYXRvcm5hZG9fTWFuYSA9IDI1LCAyNywgMjksIDMyLCAzNSwgMzgsIDQyLCA0NiwgNTAsIDgwOw0KDQovLyBFbmNhbnRvDQpFbmNoYW50X1dlYXBvbl9EYW1hZ2VfSWNlID0gKCAxMiwgMTIgKSwgKCAxNiwgMTYgKSwgKCAyMCwgMjAgKSwgKCAyNCwgMjQgKSwgKCAyOCwgMjggKSwgKCAzMiwgMzIgKSwgKCAzNiwgMzYgKSwgKCA0MCwgNDAgKSwgKCA0NCwgNDQgKSwgKCA0OCwgNDggKTsNCkVuY2hhbnRfV2VhcG9uX0RhbWFnZV9GaXJlID0gKCAxMCwgMTAgKSwgKCAyMCwgMjAgKSwgKCAzMCwgMzAgKSwgKCA0MCwgNDAgKSwgKCA1MCwgNTAgKSwgKCA1NSwgNTUgKSwgKCA2MCwgNjAgKSwgKCA2NSwgNjUgKSwgKCA3MCwgNzAgKSwgKCA4MCwgODAgKTsNCkVuY2hhbnRfV2VhcG9uX0RhbWFnZV9MaWdodG5pbmcgPSAoIDE2LCAxNiApLCAoIDIyLCAyMiApLCAoIDI4LCAyOCApLCAoIDM0LCAzNCApLCAoIDQwLCA0MCApLCAoIDQ2LCA0NiApLCAoIDUyLCA1MiApLCAoIDU4LCA1OCApLCAoIDY0LCA2NCApLCAoIDcwLCA3MCApOw0KRW5jaGFudF9XZWFwb25fRGFtYWdlID0gMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMTsNCkVuY2hhbnRfV2VhcG9uX1RpbWUgPSAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDA7DQpFbmNoYW50X1dlYXBvbl9NYW5hID0gMzAsIDMyLCAzNCwgMzcsIDQwLCA0NCwgNDgsIDUzLCA1OCwgNjU7DQoNCi8vIFJhaW8gZGEgTW9ydGUNCkRlYWRfUmF5X0RhbWFnZV9QZXJjZW50ID0gNTAsIDc1LCAxMDAsIDE0NSwgMTg1LCAyMDAsIDIxMCwgMjIwLCAyNjAsIDMwMCA7DQpEZWFkX1JheV9SYW5nZSA9IDE4NSwgMTkwLCAxOTUsIDIwMCwgMjA1LCAyMTAsIDIxNSwgMjIwLCAyMjUsIDI4MDsNCkRlYWRfUmF5X01hbmEgPSAyNiwgMjksIDMyLCAzNSwgMzksIDQzLCA0NywgNTEsIDc1LCAxMDU7DQoNCi8vIF9fX19fX19fX19fX19fX19fX19fX19fIFRJRVIgMyBfX19fX19fX19fX19fX19fX19fX19fXw0KDQovLyBFc2N1ZG8gRW5lcmdldGljbw0KRW5lcmd5X1NoaWVsZF9EZWNEYW1hZ2UgPSAxNCwgMTUsIDE2LCAxNywgMTgsIDE5LCAyMywgMjcsIDM1LCA0MDsNCkVuZXJneV9TaGllbGRfVGltZSA9IDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMDsNCkVuZXJneV9TaGllbGRfVXNlTWFuYSA9IDMwLCAzMiwgMzQsIDM3LCA0MCwgNDQsIDQ4LCA1MywgNTgsIDY1Ow0KDQovLyBUZXJyZW1vdG8NCkRpYXN0cm9waGlzbV9EYW1hZ2VfUGVyY2VudCA9IDQsIDgsIDEyLCAxNiwgMjAsIDI0LCAyOCwgMzIsIDQ2LCA2MDsNCkRpYXN0cm9waGlzbV9BcmVhID0gODAsIDg1LCA5MCwgOTUsIDEwMCwgMTA1LCAxMTAsIDExNSwgMTIwLCAxMzU7DQpEaWFzdHJvcGhpc21fVXNlTWFuYSA9IDMwLCAzMywgMzYsIDM5LCA0MywgNDcsIDYwLCA2NSwgNzAsIDc1Ow0KDQovLyBFc3Bpcml0byBFbGVtZW50YWwNClNwaXJpdF9FbGVtZW50YWxfUmVnZW5NYW5hID0gMS4yLCAyLjQsIDMuNiwgNC44LCA1LjAsIDYuMiwgNy40LCA4LjYsIDkuOCwgMTEuMDsNClNwaXJpdF9FbGVtZW50YWxfRGFtYWdlID0gNCwgOCwgMTIsIDE2LCAyMCwgMzQsIDQ4LCA1MiwgNTYsIDYwOw0KU3Bpcml0X0VsZW1lbnRhbF9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwOw0KU3Bpcml0X0VsZW1lbnRhbF9Vc2VNYW5hID0gMzYsIDM5LCA0MiwgNDUsIDQ4LCA1MSwgNTQsIDU3LCA2MCwgNzU7DQoNCi8vIEVzcGFkYSBEYW5jYW50ZQkNCkRhbmNpbmdfU3dvcmRfSWNlRGFtYWdlID0gKCA1LCA1ICksICggMTAsIDEwICksICggMTUsIDE1ICksICggMjAsIDIwICksICggMjUsIDI1ICksICggMzAsIDMwICksICggMzUsIDM1ICksICggNDAsIDQwICksICggNDUsIDQ1ICksICggNTAsIDUwICk7DQpEYW5jaW5nX1N3b3JkX0ZpcmVEYW1hZ2UgPSAoIDEwLCAxMCApLCAoIDIwLCAyMCApLCAoIDMwLCAzMCApLCAoIDQwLCA0MCApLCAoIDUwLCA1MCApLCAoIDYwLCA2MCApLCAoIDcwLCA3MCApLCAoIDgwLCA4MCApLCAoIDkwLCA5MCApLCAoIDEwMCwgMTAwKTsNCkRhbmNpbmdfU3dvcmRfRGFtYWdlID0gKCAxNiwgMTYgKSwgKCAyMiwgMjIgKSwgKCAyOCwgMjggKSwgKCAzNCwgMzQgKSwgKCA0MCwgNDAgKSwgKCA0NiwgNDYgKSwgKCA1MiwgNTIgKSwgKCA1OCwgNTggKSwgKCA2NCwgNjQgKSwgKCA3MCwgNzAgKTsNCkRhbmNpbmdfU3dvcmRfQXR0YWNrRGVsYXkgPSA1LCA1LCA1LCA1LCA0LCA0LCA0LCA0LCAzLCAzOw0KRGFuY2luZ19Td29yZF9UaW1lID0gMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwLCAzMDAsIDMwMCwgMzAwOw0KRGFuY2luZ19Td29yZF9Vc2VNYW5hID0gMzUsIDM3LCAzOSwgNDIsIDQ1LCA0OCwgNTIsIDU2LCA2MCwgNjQ7DQoNCi8vIF9fX19fX19fX19fX19fX19fX19fX19fIFRJRVIgNCBfX19fX19fX19fX19fX19fX19fX19fXw0KDQovLyBDaGFtYSBFbGVtZW50YWwNCkZpcmVfRWxlbWVudGFsX0RhbWFnZSA9ICggMjgwLCAyOTUgKSwgKCAyODUsIDMwMCApLCAoIDI5MCwgMzA1ICksICggMjk1LCAzMTAgKSwgKCAzMDAsIDMxNSApLCAoIDMwNSwgMzIwICksICggMzEwLCAzMjUgKSwgKCAzMTUsIDMzMCApLCAoIDMyMCwgMzM1ICksICggMzQwLCA0NDAgKTsNCkZpcmVfRWxlbWVudGFsX0hpdCA9IDUwMCwgNTUwLCA2MDAsIDY1MCwgNzAwLCA3NTAsIDgwMCwgODUwLCA5MDAsIDk1MDsNCkZpcmVfRWxlbWVudGFsX0xpZmUgPSAxMjAwMCwgMTIyMDAsIDEyNDAwLCAxMjYwMCwgMTI4MDAsIDEzMDAwLCAxOTAwMCwgMjAwMDAsIDIxMDAwLCAyNDAwMDsNCkZpcmVfRWxlbWVudGFsX1VzZU1hbmEgPSA1MiwgNTYsIDYwLCA2NCwgNjgsIDcyLCA3NiwgMTAwLCAxMjAsIDEzMDsNCg0KLy8gT25kYXMgZGUgRm9nbw0KRmxhbWVfV2F2ZV9GaXJlRGFtYWdlX1BlcmNlbnQgPSAxMzUsIDE1NSwgMTg1LCAyMDAsIDIyNSwgMjY1LCAyOTAsIDMzMCwgMzYwLCA0MDA7DQpGbGFtZV9XYXZlX0FyZWEgPSAxMTAsIDEyMCwgMTMwLCAxNDAsIDE1MCwgMTYwLCAxNzAsIDE4MCwgMTkwLCAyMDA7DQpGbGFtZV9XYXZlX1VzZU1hbmEgPSAzMCwgMzIsIDM0LCAzNywgNDAsIDQ0LCA0OCwgNTMsIDc4LCAxMDU7DQoNCi8vIERpc3RvcmNhbw0KRGlzdG9ydGlvbl9TcGVlZFN1YlBlcmNlbnQgPSA2LCA2LCA4LCAxMCwgMTIsIDEzLCAxNCwgMTUsIDE2LCAyMjsNCkRpc3RvcnRpb25fRGFtYWdlU3ViUGVyY2VudCA9IDUsIDYsIDcsIDgsIDksIDEwLCAxMCwgMTAsIDE1LCAyMDsNCkRpc3RvcnRpb25fQXJlYSA9IDEyMCwgMTI1LCAxMzAsIDEzNSwgMTQwLCAxNDUsIDE1MCwgMTU1LCAxNjAsIDE2NTsNCkRpc3RvcnRpb25fVGltZSA9IDIsIDIsIDIsIDMsIDMsIDQsIDUsIDYsIDcsIDg7DQpEaXN0b3J0aW9uX1VzZU1hbmEgPSAzMCwgMzIsIDM0LCAzNywgNDAsIDQ0LCA0OCwgNTMsIDU4LCA4NTsNCg0KLy8gTWV0ZW9ybw0KTWV0ZW9fRGFtYWdlX1BlcmNlbnQgPSAyMCwgMjUsIDMwLCAzNSwgNDAsIDU1LCA2MCwgNzUsIDgwLCA5MCA7DQpNZXRlb19BcmVhID0gMTAwLCAxMDUsIDExMCwgMTE1LCAxMjAsIDEyNSwgMTMwLCAxMzUsIDE0NSwgMjA1Ow0KTWV0ZW9fVXNlTWFuYSA9IDMwLCAzMiwgMzQsIDM3LCA0MCwgNDQsIDQ4LCA1MywgNzgsIDk1Ow=="
+  }
+}

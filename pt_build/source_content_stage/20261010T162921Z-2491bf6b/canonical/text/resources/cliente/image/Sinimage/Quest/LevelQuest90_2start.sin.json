@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest90_2start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest90_2start.sin",
+    "image/Sinimage/Quest/LevelQuest90_2start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest90_2start.sin",
+    "legacy_sha256": "18bffa57a23c00e8f9795756da1dd637cdd101aba1dbbaffe2d27f493a4d664e",
+    "legacy_size": 304
+  },
+  "semantic": {
+    "lines": [
+      "Are you ready for the second test?",
+      " ",
+      "When you succeed in it, you will know that your",
+      "abilities have risen one step.",
+      "",
+      "Find the Royal Mage Ray and talk with him and try",
+      "to get the test, he recommended to you.",
+      "",
+      "The Royal Mage Ray is somewhere in pillai area.",
+      "",
+      "[Quest]",
+      "",
+      "Find the Royal Mage Ray."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QXJlIHlvdSByZWFkeSBmb3IgdGhlIHNlY29uZCB0ZXN0Pw0KIA0KV2hlbiB5b3Ugc3VjY2VlZCBpbiBpdCwgeW91IHdpbGwga25vdyB0aGF0IHlvdXINCmFiaWxpdGllcyBoYXZlIHJpc2VuIG9uZSBzdGVwLg0KDQpGaW5kIHRoZSBSb3lhbCBNYWdlIFJheSBhbmQgdGFsayB3aXRoIGhpbSBhbmQgdHJ5DQp0byBnZXQgdGhlIHRlc3QsIGhlIHJlY29tbWVuZGVkIHRvIHlvdS4NCg0KVGhlIFJveWFsIE1hZ2UgUmF5IGlzIHNvbWV3aGVyZSBpbiBwaWxsYWkgYXJlYS4NCg0KW1F1ZXN0XQ0KDQpGaW5kIHRoZSBSb3lhbCBNYWdlIFJheS4NCg=="
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_6_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_6_Start.sin",
+    "image/Sinimage/Quest/140LVQuest_6_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_6_Start.sin",
+    "legacy_sha256": "6e6928fc410943a8bc2c071c80f5e2b9994e0879cfcb7f5aeac2e52b41a67859",
+    "legacy_size": 635
+  },
+  "semantic": {
+    "lines": [
+      "Os Shogoth acreditavam que um dia iríamos encontrá-los e",
+      "ajudá-los a se libertar. Espero que estejam em paz!",
+      "",
+      "O Comandante Derik informou que os Espectro Negros estão",
+      "tomando os corpos vazios dos Shogoth e seu líder tomou o ",
+      "corpo de Yagditha. Os Aquarians querem vingança. Yagditha,",
+      "possuído, iniciou uma violenta batalha. ",
+      "O povo das águas se uniu à Zarad, como seu novo líder. ",
+      "Preciso exorcizar Yagditha. Levarei a da Jóia da Vida.",
+      "Me ajude, levando a Prisão Mágica para o Abismo do Mar.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Leve a Prisão Mágica e derrote Yagditha em Abismo do Mar.",
+      "Ao terminar, fale com a Sábia Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T3MgU2hvZ290aCBhY3JlZGl0YXZhbSBxdWUgdW0gZGlhIGly7WFtb3MgZW5jb250cuEtbG9zIGUNCmFqdWThLWxvcyBhIHNlIGxpYmVydGFyLiBFc3Blcm8gcXVlIGVzdGVqYW0gZW0gcGF6IQ0KDQpPIENvbWFuZGFudGUgRGVyaWsgaW5mb3Jtb3UgcXVlIG9zIEVzcGVjdHJvIE5lZ3JvcyBlc3Tjbw0KdG9tYW5kbyBvcyBjb3Jwb3MgdmF6aW9zIGRvcyBTaG9nb3RoIGUgc2V1IGztZGVyIHRvbW91IG8gDQpjb3JwbyBkZSBZYWdkaXRoYS4gT3MgQXF1YXJpYW5zIHF1ZXJlbSB2aW5nYW7nYS4gWWFnZGl0aGEsDQpwb3Nzde1kbywgaW5pY2lvdSB1bWEgdmlvbGVudGEgYmF0YWxoYS4gDQpPIHBvdm8gZGFzIOFndWFzIHNlIHVuaXUg4CBaYXJhZCwgY29tbyBzZXUgbm92byBs7WRlci4gDQpQcmVjaXNvIGV4b3JjaXphciBZYWdkaXRoYS4gTGV2YXJlaSBhIGRhIErzaWEgZGEgVmlkYS4NCk1lIGFqdWRlLCBsZXZhbmRvIGEgUHJpc+NvIE3hZ2ljYSBwYXJhIG8gQWJpc21vIGRvIE1hci4NCg0KW09iamV0aXZvIGRvIERlc2FmaW9dDQoNCkxldmUgYSBQcmlz428gTeFnaWNhIGUgZGVycm90ZSBZYWdkaXRoYSBlbSBBYmlzbW8gZG8gTWFyLg0KQW8gdGVybWluYXIsIGZhbGUgY29tIGEgU+FiaWEgQ2VsaW5hIGVtIFBpbGxhaS4="
+  }
+}

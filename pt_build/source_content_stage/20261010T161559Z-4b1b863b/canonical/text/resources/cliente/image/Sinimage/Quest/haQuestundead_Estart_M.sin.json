@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestundead_estart_m.path_5bd3e269cc",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestundead_Estart_M.sin",
+    "image/Sinimage/Quest/haQuestundead_Estart_M.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestundead_Estart_M.sin",
+    "legacy_sha256": "0bc78781a35d6ca5ae0217533fc41849f5c564d9f50caa8ec7de44bc5a65a466",
+    "legacy_size": 486
+  },
+  "semantic": {
+    "lines": [
+      "Ao norte desta região existe uma antiga cidade chamada Ruinen.",
+      "Lá, comerciantes compram produtos de Pillai e os revendem.",
+      "Há algum tempo, monstros começaram a atacar a rota até Ruinen,",
+      "dificultando muito o trabalho dos mercadores.",
+      "",
+      "Eles precisam de ajuda com urgência.",
+      "Vá à Floresta dos Espíritos, cace 10 Corruptos e depois",
+      "fale com o ferreiro Ruga em Ruinen.",
+      "",
+      "[Objetivo da Missão]",
+      "",
+      "Cace 10 Corruptos na Floresta dos Espíritos e depois",
+      "fale com o ferreiro Ruga em Ruinen."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QW8gbm9ydGUgZGVzdGEgcmVnaeNvIGV4aXN0ZSB1bWEgYW50aWdhIGNpZGFkZSBjaGFtYWRhIFJ1aW5lbi4NCkzhLCBjb21lcmNpYW50ZXMgY29tcHJhbSBwcm9kdXRvcyBkZSBQaWxsYWkgZSBvcyByZXZlbmRlbS4NCkjhIGFsZ3VtIHRlbXBvLCBtb25zdHJvcyBjb21l52FyYW0gYSBhdGFjYXIgYSByb3RhIGF06SBSdWluZW4sDQpkaWZpY3VsdGFuZG8gbXVpdG8gbyB0cmFiYWxobyBkb3MgbWVyY2Fkb3Jlcy4NCg0KRWxlcyBwcmVjaXNhbSBkZSBhanVkYSBjb20gdXJn6m5jaWEuDQpW4SDgIEZsb3Jlc3RhIGRvcyBFc3Dtcml0b3MsIGNhY2UgMTAgQ29ycnVwdG9zIGUgZGVwb2lzDQpmYWxlIGNvbSBvIGZlcnJlaXJvIFJ1Z2EgZW0gUnVpbmVuLg0KDQpbT2JqZXRpdm8gZGEgTWlzc+NvXQ0KDQpDYWNlIDEwIENvcnJ1cHRvcyBuYSBGbG9yZXN0YSBkb3MgRXNw7XJpdG9zIGUgZGVwb2lzDQpmYWxlIGNvbSBvIGZlcnJlaXJvIFJ1Z2EgZW0gUnVpbmVuLg0K"
+  }
+}

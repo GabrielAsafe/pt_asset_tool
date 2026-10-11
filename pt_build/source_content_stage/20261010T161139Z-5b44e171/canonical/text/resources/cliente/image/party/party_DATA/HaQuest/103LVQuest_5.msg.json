@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/103LVQuest_5.msg",
+    "image/party/party_DATA/HaQuest/103LVQuest_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/103LVQuest_5.msg",
+    "legacy_sha256": "d2acb0ae207231c738e642176aac6c4fda6c1efa7894402aca3e293077497b25",
+    "legacy_size": 229
+  },
+  "semantic": {
+    "lines": [
+      "Install a C-stone at Acacia Grove, ",
+      "Acacia Grove, Land of Dusk, Castle of",
+      "the Lost, Battlefield ",
+      "the Ancient, ",
+      "Heart of Perum, ",
+      "Greedy Lake, ",
+      "Frozen sanctuary, ",
+      "and Lost Temple by order,",
+      "then go back to ",
+      "the messenger."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SW5zdGFsbCBhIEMtc3RvbmUgYXQgQWNhY2lhIEdyb3ZlLCANCkFjYWNpYSBHcm92ZSwgTGFuZCBvZiBEdXNrLCBDYXN0bGUgb2YNCnRoZSBMb3N0LCBCYXR0bGVmaWVsZCANCnRoZSBBbmNpZW50LCANCkhlYXJ0IG9mIFBlcnVtLCANCkdyZWVkeSBMYWtlLCANCkZyb3plbiBzYW5jdHVhcnksIA0KYW5kIExvc3QgVGVtcGxlIGJ5IG9yZGVyLA0KdGhlbiBnbyBiYWNrIHRvIA0KdGhlIG1lc3Nlbmdlci4NCg=="
+  }
+}

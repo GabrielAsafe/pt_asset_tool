@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_6",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/165LVQuest_6.msg",
+    "image/party/party_DATA/HaQuest/165LVQuest_6.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/165LVQuest_6.msg",
+    "legacy_sha256": "b290b36d44b064f197841efc7f740402f0c139af76ec37304ac9bc8a9e430656",
+    "legacy_size": 90
+  },
+  "semantic": {
+    "lines": [
+      "Cace 30 Bruxas Insanas",
+      "em Santuário do Abismo.",
+      "Após, fale com a Sábia",
+      "Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FjZSAzMCBCcnV4YXMgSW5zYW5hcw0KZW0gU2FudHXhcmlvIGRvIEFiaXNtby4NCkFw83MsIGZhbGUgY29tIGEgU+FiaWENCkNlbGluYSBlbSBQaWxsYWku"
+  }
+}

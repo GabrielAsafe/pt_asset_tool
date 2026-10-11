@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.100_i_lena",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/100_I_Lena.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/100_I_Lena.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/100_I_Lena.inf",
+        "GameServer/Monster/100_I_Lena.inf"
+      ],
+      "legacy_sha256": "c757154a4a7647eb09e5db53473dad507158c16d1fad3e4e00f4d362696513a7"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.pilai",
+  "logical_path": "GameServer/Field/pilai.ASE.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/pilai.ASE.spm",
+    "sha256": "b6061f8f3a79c1d97672701e373aa97d8b01ed2ae214d07d3a0228549f105080"
+  },
+  "limit_max": 120,
+  "delay": {
+    "shift": 10
+  },
+  "open_limit": 2,
+  "actors": [],
+  "bosses": []
+}

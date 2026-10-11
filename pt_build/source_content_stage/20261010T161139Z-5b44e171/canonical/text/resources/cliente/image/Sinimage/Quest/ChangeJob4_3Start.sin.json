@@ -1,0 +1,40 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_3start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob4_3Start.sin",
+    "image/Sinimage/Quest/ChangeJob4_3Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob4_3Start.sin",
+    "legacy_sha256": "ee94683545808c447ca54a899c9ab5d6bfcbaba9196e242adcef6d7c44640f4c",
+    "legacy_size": 651
+  },
+  "semantic": {
+    "lines": [
+      "You have to compete with me for the final test.",
+      "If you win, I will recognize that your skill have ",
+      "been matured enough. After that I will teach ",
+      "you the next skill set.",
+      "The fight part of this challenge is to have the ",
+      "Royal Amulet. We will battle in a secret place in ",
+      "the Kingdom where general fighting is forbidden.",
+      "Only a person with Royal Amulet can be allowed ",
+      "to enter at there.  ",
+      "Unfortunately, you don't have Royal Amulet.",
+      "Fortunately, I heard a rumor some warriors have",
+      "got Royal Amulet already. I can hint that ",
+      "a special monster has Royal Amulet. ",
+      "So, hunt the monsters until you get one.",
+      "[Job Quest 3th]",
+      "Find Royal Amulet."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91IGhhdmUgdG8gY29tcGV0ZSB3aXRoIG1lIGZvciB0aGUgZmluYWwgdGVzdC4NCklmIHlvdSB3aW4sIEkgd2lsbCByZWNvZ25pemUgdGhhdCB5b3VyIHNraWxsIGhhdmUgDQpiZWVuIG1hdHVyZWQgZW5vdWdoLiBBZnRlciB0aGF0IEkgd2lsbCB0ZWFjaCANCnlvdSB0aGUgbmV4dCBza2lsbCBzZXQuDQpUaGUgZmlnaHQgcGFydCBvZiB0aGlzIGNoYWxsZW5nZSBpcyB0byBoYXZlIHRoZSANClJveWFsIEFtdWxldC4gV2Ugd2lsbCBiYXR0bGUgaW4gYSBzZWNyZXQgcGxhY2UgaW4gDQp0aGUgS2luZ2RvbSB3aGVyZSBnZW5lcmFsIGZpZ2h0aW5nIGlzIGZvcmJpZGRlbi4NCk9ubHkgYSBwZXJzb24gd2l0aCBSb3lhbCBBbXVsZXQgY2FuIGJlIGFsbG93ZWQgDQp0byBlbnRlciBhdCB0aGVyZS4gIA0KVW5mb3J0dW5hdGVseSwgeW91IGRvbid0IGhhdmUgUm95YWwgQW11bGV0Lg0KRm9ydHVuYXRlbHksIEkgaGVhcmQgYSBydW1vciBzb21lIHdhcnJpb3JzIGhhdmUNCmdvdCBSb3lhbCBBbXVsZXQgYWxyZWFkeS4gSSBjYW4gaGludCB0aGF0IA0KYSBzcGVjaWFsIG1vbnN0ZXIgaGFzIFJveWFsIEFtdWxldC4gDQpTbywgaHVudCB0aGUgbW9uc3RlcnMgdW50aWwgeW91IGdldCBvbmUuDQpbSm9iIFF1ZXN0IDN0aF0NCkZpbmQgUm95YWwgQW11bGV0Lg0K"
+  }
+}

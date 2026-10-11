@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.desert_guard",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/desert-guard.zhoon",
+    "GameServer/NPC/name/desert-guard.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/desert-guard.zhoon",
+    "legacy_sha256": "955f9d79ee057a64d05f6cb157c5b3a38f160f4da9990d354e21e327a508a4ce",
+    "legacy_size": 327
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda do Deserto"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Matenha distância. Esta área é perigosa e somente os guerreiros mais poderosos podem passar."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Esta é uma área restrita. Muitos monstros poderosos circulam no deserto."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Somente guerreiros acima do Nível 50 podem entrar."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "O Templo Maldito fica ao Norte do Deserto. Não vá lá. É muito perigoso!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkYSBkbyBEZXNlcnRvIg0KDQoqSl9DSEFUCQkiU29tZW50ZSBndWVycmVpcm9zIGFjaW1hIGRvIE7tdmVsIDUwIHBvZGVtIGVudHJhci4iDQoqSl9DSEFUCQkiRXN0YSDpIHVtYSDhcmVhIHJlc3RyaXRhLiBNdWl0b3MgbW9uc3Ryb3MgcG9kZXJvc29zIGNpcmN1bGFtIG5vIGRlc2VydG8uIg0KKkpfQ0hBVAkJIlNvbWVudGUgZ3VlcnJlaXJvcyBhY2ltYSBkbyBOaXZlbCA1MCBwb2RlbSBlbnRyYXIuIg0KKkpfQ0hBVAkJIk8gVGVtcGxvIE1hbGRpdG8gZmljYSBhbyBOb3J0ZSBkbyBEZXNlcnRvLiBO428gduEgbOEuIMkgbXVpdG8gcGVyaWdvc28hIg0K"
+  }
+}

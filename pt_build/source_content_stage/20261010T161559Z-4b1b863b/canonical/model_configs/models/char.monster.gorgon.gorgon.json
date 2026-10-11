@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.gorgon.gorgon",
+  "logical_config": "char/monster/gorgon/gorgon.ini",
+  "legacy_cache": "char/monster/gorgon/gorgon.inx",
+  "consumers": [
+    {
+      "id": "monster.104_gorgon",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/104_Gorgon.inf.json"
+    },
+    {
+      "id": "monster.chefe_104_gorg_u00f4nia",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_104_Gorg#U00f4nia.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/gorgon/gorgon.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/gorgon/gorgon.inx"
+    }
+  }
+}

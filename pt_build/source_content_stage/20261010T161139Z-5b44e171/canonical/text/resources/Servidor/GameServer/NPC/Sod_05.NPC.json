@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.sod_05",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Sod_05.NPC",
+    "GameServer/NPC/Sod_05.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Sod_05.NPC",
+    "legacy_sha256": "ab45365bad531e43250af571d6d3eba074a50fa3cb981ce6cbc2897f7f789750",
+    "legacy_size": 645
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\bt03\\battleportal.INI",
+      "name": "Secretaria Karina",
+      "rank": true,
+      "linked_file": "name\\Sod_05.zhoon",
+      "model_config_id": "model.char.npc.bt03.battleportal"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 4,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\bt03\\battleportal.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c627430335c626174746c65706f7274616c2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Secretaria Karina"
+        ],
+        "raw_values_hex": [
+          "53656372657461726961204b6172696e61"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 9,
+        "key": "rank",
+        "legacy_token": "*Rank",
+        "legacy_token_hex": "2a52616e6b",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 19,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Sod_05.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c536f645f30352e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KLy8quPC+58bEwM8JCSJjaGFyXG5wY1xTTi0wMDFcU04tMDAxLmluaSINCiq48L7nxsTAzwkJImNoYXJcbnBjXGJ0MDNcYmF0dGxlcG9ydGFsLklOSQ0KDQoqwMy4pwkJCSJTZWNyZXRhcmlhIEthcmluYSINCg0KLy8qUmFua2luZw0KKlJhbmsNCg0KLy+/7r+1uvG8rSDAzrvnuLsNCi8vKrTryK0JCQkivsiz58fPvLy/5C4guau++cC7ILW1v8215bixse6/5D8gwPq0wiC6p7bzxq628yC/7r+1wLsgsPy4rsfPtMIgxKu4rrOqtvOw7cfVtM+02S4iDQovLyq068itCQkJIr7uwabAxyC6p7bzxq6287TCIMGkuLsgtOu03Mffvu6/5C4gtOu3+r+hvK0gwMy4p8C7ILOvuK60wiDA/LvntenAzCC4ucDMIML8sKEgx9+09bG6v+QuIg0KLy8qtOvIrQkJCSK6p7bzxq628yC/7r+1scfAuiC/+LfOv/i/obytILDhwaTH0SDIxL+hILyzwaS1y7TPtNkuIg0KLy8qtOvIrQkJCSK6p7bzxq628yC/7r+1IMWst6O/obDUIMH2sd61x7TCILz2wM2x3cC6IMfYtOcgxay3o8DHIMWst6MgxKi4uCDDo8C7ILz2IMDWvcC0z7TZLiINCi8vKrTryK0JCQkiuqe288autvPAxyC/7r+1scfAuyC+8rHiIMCnx9ggtNm4pSDFrLejtenAxyDC/L+ptbWwoSCz9L7Gwfaw7SDA1r7uv+QuIg0KDQoNCiq/rLDhxsTAzyAibmFtZVxTb2RfMDUuemhvb24i"
+  }
+}

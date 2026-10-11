@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.fireworm.fireworm",
+  "logical_config": "char/monster/fireworm/fireworm.ini",
+  "legacy_cache": "char/monster/fireworm/fireworm.inx",
+  "consumers": [
+    {
+      "id": "monster.92_verme_de_fogo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/92_Verme de Fogo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Fireworm/fireworm.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Fireworm/fireworm.inx"
+    }
+  }
+}

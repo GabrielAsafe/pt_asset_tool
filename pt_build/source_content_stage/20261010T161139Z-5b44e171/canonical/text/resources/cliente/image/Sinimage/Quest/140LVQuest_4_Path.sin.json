@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_4_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_4_Path.sin",
+    "image/Sinimage/Quest/140LVQuest_4_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_4_Path.sin",
+    "legacy_sha256": "8a79f0d449cdb408ca60722c2ddaf9a7e53856b5aea0718365c9a77ca7391aa6",
+    "legacy_size": 506
+  },
+  "semantic": {
+    "lines": [
+      "Você levou a paz aos nossos companheiros? ",
+      "Sei que é algo difícil, mas precisamos fazer isso por",
+      "eles. Arteres passou por algo semelhante, quando foi",
+      "controlada por Yaten. É horrível ser forçado a fazer o",
+      "que não deseja, ainda mais contra seus semelhantes.",
+      "",
+      "Preciso que use essas Pedras Mágicas da Quintessência",
+      "para capturar a Alma Manipulada dos Shogoth. Eles querem",
+      "nos dizer algo. Temos que libertá-los desse tormento!",
+      "",
+      "Por favor, traga a Alma Manipulada, caçando o Shogoth em",
+      "Abismo do Mar."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBsZXZvdSBhIHBheiBhb3Mgbm9zc29zIGNvbXBhbmhlaXJvcz8gDQpTZWkgcXVlIOkgYWxnbyBkaWbtY2lsLCBtYXMgcHJlY2lzYW1vcyBmYXplciBpc3NvIHBvcg0KZWxlcy4gQXJ0ZXJlcyBwYXNzb3UgcG9yIGFsZ28gc2VtZWxoYW50ZSwgcXVhbmRvIGZvaQ0KY29udHJvbGFkYSBwb3IgWWF0ZW4uIMkgaG9ycu12ZWwgc2VyIGZvcudhZG8gYSBmYXplciBvDQpxdWUgbuNvIGRlc2VqYSwgYWluZGEgbWFpcyBjb250cmEgc2V1cyBzZW1lbGhhbnRlcy4NCg0KUHJlY2lzbyBxdWUgdXNlIGVzc2FzIFBlZHJhcyBN4WdpY2FzIGRhIFF1aW50ZXNz6m5jaWENCnBhcmEgY2FwdHVyYXIgYSBBbG1hIE1hbmlwdWxhZGEgZG9zIFNob2dvdGguIEVsZXMgcXVlcmVtDQpub3MgZGl6ZXIgYWxnby4gVGVtb3MgcXVlIGxpYmVydOEtbG9zIGRlc3NlIHRvcm1lbnRvIQ0KDQpQb3IgZmF2b3IsIHRyYWdhIGEgQWxtYSBNYW5pcHVsYWRhLCBjYedhbmRvIG8gU2hvZ290aCBlbQ0KQWJpc21vIGRvIE1hci4="
+  }
+}

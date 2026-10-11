@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.102_cavaleiro_das_cinzas",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/102_Cavaleiro das Cinzas.zhoon",
+    "GameServer/Monster/Name/102_Cavaleiro das Cinzas.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/102_Cavaleiro das Cinzas.zhoon",
+    "legacy_sha256": "4ea007d137f86b94c95e6d42cde159d69015a600bae627bae2ab448ed2a0a84b",
+    "legacy_size": 30
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cavaleiro das Cinzas"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2F2YWxlaXJvIGRhcyBDaW56YXMi"
+  }
+}

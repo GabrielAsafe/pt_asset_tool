@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.17",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/17.msg",
+    "image/clanImage/Help/AutoHelp/17.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/17.msg",
+    "legacy_sha256": "df530cea7edb35917299c2bd2ac8888dbdd225aea8f1cabc82cd0da89d094d62",
+    "legacy_size": 165
+  },
+  "semantic": {
+    "lines": [
+      "Congratulations!",
+      "You've reached level 40.",
+      "You're allowed to enter the 1st floor of the Ancient Dungeon",
+      "located in the Cursed Land in the wilderness.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29uZ3JhdHVsYXRpb25zIQ0KWW91J3ZlIHJlYWNoZWQgbGV2ZWwgNDAuDQpZb3UncmUgYWxsb3dlZCB0byBlbnRlciB0aGUgMXN0IGZsb29yIG9mIHRoZSBBbmNpZW50IER1bmdlb24NCmxvY2F0ZWQgaW4gdGhlIEN1cnNlZCBMYW5kIGluIHRoZSB3aWxkZXJuZXNzLg0KDQoNCg0KDQoNCg0K"
+  }
+}

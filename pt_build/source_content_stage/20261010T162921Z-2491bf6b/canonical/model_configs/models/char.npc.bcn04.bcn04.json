@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.bcn04.bcn04",
+  "logical_config": "char/npc/Bcn04/Bcn04.INI",
+  "legacy_cache": "char/npc/Bcn04/Bcn04.inx",
+  "consumers": [
+    {
+      "id": "npc.bcn04",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Bcn04.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Bcn04/Bcn04.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Bcn04/Bcn04.inx"
+    }
+  }
+}

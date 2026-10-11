@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wfzone",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/wfzone.zhoon",
+    "GameServer/NPC/name/wfzone.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/wfzone.zhoon",
+    "legacy_sha256": "b80f1d0d0aa35ade1d389cf54c993e6d8b37d9fff693603a1f8f61995cb73f09",
+    "legacy_size": 283
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Inventor dos Portais"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Você vai mesmo experimentar o Teletransporte de Pillai?"
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Você conhece o Sábio Newtor? Eu acho que ele copiou minha invenção..."
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Os Portais são muito mais eficientes do que o Teletransporte..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly93ZnpvbmUubnBjDQoNCg0KKkpfTmFtZQkiSW52ZW50b3IgZG9zIFBvcnRhaXMiDQoNCg0KKkpfQ2hhdAkiVm9j6iB2YWkgbWVzbW8gZXhwZXJpbWVudGFyIG8gVGVsZXRyYW5zcG9ydGUgZGUgUGlsbGFpPyINCg0KKkpfQ2hhdAkiVm9j6iBjb25oZWNlIG8gU+FiaW8gTmV3dG9yPyBFdSBhY2hvIHF1ZSBlbGUgY29waW91IG1pbmhhIGludmVu5+NvLi4uIg0KDQoqSl9DaGF0CSJPcyBQb3J0YWlzIHPjbyBtdWl0byBtYWlzIGVmaWNpZW50ZXMgZG8gcXVlIG8gVGVsZXRyYW5zcG9ydGUuLi4iDQoNCg=="
+  }
+}

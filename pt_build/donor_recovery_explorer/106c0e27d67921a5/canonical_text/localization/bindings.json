@@ -1,0 +1,12 @@
+{
+  "schema": "summit.localization-bindings/v1",
+  "bindings": [
+    {
+      "content_id": "monster.lizard_doctor_2",
+      "kind": "monster_definition",
+      "name_key": "monster.lizard_doctor_2.name",
+      "chat_keys": [],
+      "linked_resource_id": null
+    }
+  ]
+}

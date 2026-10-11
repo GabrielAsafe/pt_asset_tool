@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monnazz.monnazz",
+  "logical_config": "char/monster/monnazz/monnazz.ini",
+  "legacy_cache": "char/monster/monnazz/monnazz.inx",
+  "consumers": [
+    {
+      "id": "monster.70_naz",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/70_Naz.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monnazz/Monnazz.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monnazz/Monnazz.inx"
+    }
+  }
+}

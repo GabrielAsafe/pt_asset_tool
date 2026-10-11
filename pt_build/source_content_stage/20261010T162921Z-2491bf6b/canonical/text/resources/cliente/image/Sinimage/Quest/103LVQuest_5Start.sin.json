@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_5start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_5Start.sin",
+    "image/Sinimage/Quest/103LVQuest_5Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_5Start.sin",
+    "legacy_sha256": "9f4ae9130cfe31d2cfcb5cba9a534216becdff81fb32302edfa36fe85dac0ad9",
+    "legacy_size": 512
+  },
+  "semantic": {
+    "lines": [
+      "Welcome back. We finally finished installing C-stone",
+      "at Royal Mage. However, the effective range ",
+      "of this C-stone is not far enough, so it needs to ",
+      "be installed in many places acroos the continent. ",
+      "Kingdom of Temskron and Morion are united in",
+      "hunting monsters, and give the order to install",
+      "C-stones.",
+      "",
+      "One more time, we need your help. You can ",
+      "leave anytime when you are ready for this.",
+      "Since you have to travel all over the",
+      "continent, it will take a long time.",
+      "Ask me again, when you are ready."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "V2VsY29tZSBiYWNrLiBXZSBmaW5hbGx5IGZpbmlzaGVkIGluc3RhbGxpbmcgQy1zdG9uZQ0KYXQgUm95YWwgTWFnZS4gSG93ZXZlciwgdGhlIGVmZmVjdGl2ZSByYW5nZSANCm9mIHRoaXMgQy1zdG9uZSBpcyBub3QgZmFyIGVub3VnaCwgc28gaXQgbmVlZHMgdG8gDQpiZSBpbnN0YWxsZWQgaW4gbWFueSBwbGFjZXMgYWNyb29zIHRoZSBjb250aW5lbnQuIA0KS2luZ2RvbSBvZiBUZW1za3JvbiBhbmQgTW9yaW9uIGFyZSB1bml0ZWQgaW4NCmh1bnRpbmcgbW9uc3RlcnMsIGFuZCBnaXZlIHRoZSBvcmRlciB0byBpbnN0YWxsDQpDLXN0b25lcy4NCg0KT25lIG1vcmUgdGltZSwgd2UgbmVlZCB5b3VyIGhlbHAuIFlvdSBjYW4gDQpsZWF2ZSBhbnl0aW1lIHdoZW4geW91IGFyZSByZWFkeSBmb3IgdGhpcy4NClNpbmNlIHlvdSBoYXZlIHRvIHRyYXZlbCBhbGwgb3ZlciB0aGUNCmNvbnRpbmVudCwgaXQgd2lsbCB0YWtlIGEgbG9uZyB0aW1lLg0KQXNrIG1lIGFnYWluLCB3aGVuIHlvdSBhcmUgcmVhZHkuDQo="
+  }
+}

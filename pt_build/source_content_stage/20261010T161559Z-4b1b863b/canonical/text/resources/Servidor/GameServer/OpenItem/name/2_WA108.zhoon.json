@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.2_wa108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/2_WA108.zhoon",
+    "GameServer/OpenItem/name/2_WA108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/2_WA108.zhoon",
+    "legacy_sha256": "8471ad992b5a9a8991bf0497e01f72bdf208c964afab4fc8fc1c9da51abac035",
+    "legacy_size": 49
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Caçador de Demônios"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8yX1dBMTA4LnR4dA0KDQoqSl9OYW1lCQkiQ2HnYWRvciBkZSBEZW30bmlvcyINCg=="
+  }
+}

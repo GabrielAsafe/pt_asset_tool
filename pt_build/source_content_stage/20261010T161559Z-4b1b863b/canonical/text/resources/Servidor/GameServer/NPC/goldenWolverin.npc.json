@@ -1,0 +1,149 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.goldenwolverin",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/goldenWolverin.npc",
+    "GameServer/NPC/goldenWolverin.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/goldenWolverin.npc",
+    "legacy_sha256": "547b55024f511d89fa28a7d096010d04fcd5371a6774121551ec89cc41784979",
+    "legacy_size": 258
+  },
+  "semantic": {
+    "fields": {
+      "name": "골덴 울버린",
+      "model_file": "char\\monster\\MonWolverin\\MonWolverin-02.ini",
+      "level": 100,
+      "size": "중대형",
+      "effect_sound": "WOLVERLIN",
+      "event_code": 100,
+      "event_info": 1,
+      "linked_file": "name\\goldenWolverin.zhoon",
+      "model_config_id": "model.char.monster.monwolverin.monwolverin.02"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "골덴 울버린"
+        ],
+        "raw_values_hex": [
+          "b0f1b5a720bfefb9f6b8b0"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\MonWolverin\\MonWolverin-02.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c4d6f6e576f6c766572696e5c4d6f6e576f6c766572696e2d30322e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 7,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중대형"
+        ],
+        "raw_values_hex": [
+          "c1dfb4ebc7fc"
+        ]
+      },
+      {
+        "line": 9,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "WOLVERLIN"
+        ],
+        "raw_values_hex": [
+          "574f4c5645524c494e"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "event_code",
+        "legacy_token": "*이벤트코드",
+        "legacy_token_hex": "2ac0ccbaa5c6aec4dab5e5",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 11,
+        "key": "event_info",
+        "legacy_token": "*이벤트정보",
+        "legacy_token_hex": "2ac0ccbaa5c6aec1a4bab8",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\goldenWolverin.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c676f6c64656e576f6c766572696e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSKw8bWnIL/vufa4sCINCiq48L7nxsTAzwkiY2hhclxtb25zdGVyXE1vbldvbHZlcmluXE1vbldvbHZlcmluLTAyLmluaSINCiq3ubqnCQkxMDANCi8vKrTryK0JCSLEvL/Av8C/wC4uIS4iDQovLyq068itCQkiwLi4o7ijuKO4o7e3Li4iDQoNCirFqbHiCQnB37Trx/wNCg0KKsi/sPrAvQkJCVdPTFZFUkxJTg0KKsDMuqXGrsTateUJCTEwMA0KKsDMuqXGrsGkurgJCTENCg0KDQoqv6yw4cbEwM8JIm5hbWVcZ29sZGVuV29sdmVyaW4uemhvb24i"
+  }
+}

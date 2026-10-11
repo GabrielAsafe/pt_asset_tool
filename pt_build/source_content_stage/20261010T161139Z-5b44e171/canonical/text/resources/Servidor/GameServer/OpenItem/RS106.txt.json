@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.rs106",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/RS106.txt",
+    "GameServer/OpenItem/RS106.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/RS106.txt",
+    "legacy_sha256": "d7b60bce4d4055e4b9d19982ae3f6f5b00ea9d899009adbdf1b6b48f8ad44dde",
+    "legacy_size": 202
+  },
+  "semantic": {
+    "fields": {
+      "code": "RS106",
+      "name": "Pedra de Respec ATS",
+      "english_name": "Pedra de Respec ATS",
+      "weight": 1,
+      "price": 50000,
+      "linked_file": "Name\\RS106.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "RS106"
+        ],
+        "raw_values_hex": [
+          "5253313036"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra de Respec ATS"
+        ],
+        "raw_values_hex": [
+          "50656472612064652052657370656320415453"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra de Respec ATS"
+        ],
+        "raw_values_hex": [
+          "50656472612064652052657370656320415453"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50000
+        ],
+        "raw_values_hex": [
+          "3530303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\RS106.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c52533130362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlJTMTA2Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUGVkcmEgZGUgUmVzcGVjIEFUUyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJQZWRyYSBkZSBSZXNwZWMgQVRTIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SA1MDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFJTMTA2Lnpob29uIg=="
+  }
+}

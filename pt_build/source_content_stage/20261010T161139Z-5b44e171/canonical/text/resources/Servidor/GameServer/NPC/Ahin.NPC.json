@@ -1,0 +1,144 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ahin",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Ahin.NPC",
+    "GameServer/NPC/Ahin.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Ahin.NPC",
+    "legacy_sha256": "7c34a61c2e6e51c6994103ff9f65a5b6ccf8f439b5524de0e35625e2a475bb5a",
+    "legacy_size": 181
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\Ahin\\Ahin.INI",
+      "name": "아힌",
+      "english_name": "Ahin",
+      "unmapped.2abaa7b6f3c6aeb6f3": true,
+      "sell_etc": [
+        "ps105",
+        "pl105",
+        "pm105"
+      ],
+      "linked_file": "name\\Ahin.zhoon",
+      "model_config_id": "model.char.npc.ahin.ahin"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\Ahin\\Ahin.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4168696e5c4168696e2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "아힌"
+        ],
+        "raw_values_hex": [
+          "bec6c8f9"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Ahin"
+        ],
+        "raw_values_hex": [
+          "4168696e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "unmapped.2abaa7b6f3c6aeb6f3",
+        "legacy_token": "*벨라트라",
+        "legacy_token_hex": "2abaa7b6f3c6aeb6f3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 10,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "ps105",
+          "pl105",
+          "pm105"
+        ],
+        "raw_values_hex": [
+          "7073313035",
+          "706c313035",
+          "706d313035"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Ahin.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4168696e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {
+      "*벨라트라": 1
+    }
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcQWhpblxBaGluLklOSSINCg0KKsDMuKcJCQkivsbI+SINCipOYW1lCQkJIkFoaW4iDQoquqe288autvMNCg0KDQoqwOLIrcbHuMUJcHMxMDUgcGwxMDUgcG0xMDUNCg0KKr+ssOHGxMDPCSJuYW1lXEFoaW4uemhvb24iDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg=="
+  }
+}

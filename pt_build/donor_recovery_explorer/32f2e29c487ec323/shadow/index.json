@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.lizard_doctor_3",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/Lizard_Doctor_3.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/Lizard_Doctor_3.inf.json",
+      "sha256": "95da65f6aa501c9b1ad96475c0bc9639b8f5f882f011509b71baf0fc21a9efc9"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_4start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob5_4Start.sin",
+    "image/Sinimage/Quest/ChangeJob5_4Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob5_4Start.sin",
+    "legacy_sha256": "21469b9e881c677f3faeda591e00fa57faeff6370914ddcfb97287be1bdec159",
+    "legacy_size": 571
+  },
+  "semantic": {
+    "lines": [
+      "Ah, Oi! Eu sou o Ancião Hosean.",
+      "Eu estou aposentado e vivo no interior.",
+      "Eu queria viver em paz, mas o mundo não me",
+      "deixa sozinho... Ouvi bastante de você. Parece-me",
+      "que você tem os atributos necessários que te darão",
+      "o direito de enfrentar o Desafio de Classe.",
+      "",
+      "Estou movendo-lhe para o local onde você fará",
+      "o teste. Você vai descobrir o que os testes são",
+      "enquanto lhe movo. Estou com pressa, portanto, não",
+      "conseguirei te dar tempo para arrumar seus equipamentos.",
+      "Vamos lá.",
+      "",
+      "",
+      "[ Cuidado ]",
+      "",
+      "     Ao clicar em 'OK', você será teleportado",
+      "     para o local."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QWgsIE9pISBFdSBzb3UgbyBBbmNp428gSG9zZWFuLg0KRXUgZXN0b3UgYXBvc2VudGFkbyBlIHZpdm8gbm8gaW50ZXJpb3IuDQpFdSBxdWVyaWEgdml2ZXIgZW0gcGF6LCBtYXMgbyBtdW5kbyBu428gbWUNCmRlaXhhIHNvemluaG8uLi4gT3V2aSBiYXN0YW50ZSBkZSB2b2PqLiBQYXJlY2UtbWUNCnF1ZSB2b2PqIHRlbSBvcyBhdHJpYnV0b3MgbmVjZXNz4XJpb3MgcXVlIHRlIGRhcuNvDQpvIGRpcmVpdG8gZGUgZW5mcmVudGFyIG8gRGVzYWZpbyBkZSBDbGFzc2UuDQoNCkVzdG91IG1vdmVuZG8tbGhlIHBhcmEgbyBsb2NhbCBvbmRlIHZvY+ogZmFy4Q0KbyB0ZXN0ZS4gVm9j6iB2YWkgZGVzY29icmlyIG8gcXVlIG9zIHRlc3RlcyBz428NCmVucXVhbnRvIGxoZSBtb3ZvLiBFc3RvdSBjb20gcHJlc3NhLCBwb3J0YW50bywgbuNvDQpjb25zZWd1aXJlaSB0ZSBkYXIgdGVtcG8gcGFyYSBhcnJ1bWFyIHNldXMgZXF1aXBhbWVudG9zLg0KVmFtb3MgbOEuDQoNCg0KWyBDdWlkYWRvIF0NCg0KICAgICBBbyBjbGljYXIgZW0gJ09LJywgdm9j6iBzZXLhIHRlbGVwb3J0YWRvDQogICAgIHBhcmEgbyBsb2NhbC4NCg=="
+  }
+}

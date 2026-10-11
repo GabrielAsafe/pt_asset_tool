@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.milter.milter",
+  "logical_config": "char/npc/milter/milter.INI",
+  "legacy_cache": "char/npc/milter/milter.inx",
+  "consumers": [
+    {
+      "id": "npc.milter",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/milter.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/milter/milter.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/milter/milter.inx"
+    }
+  }
+}

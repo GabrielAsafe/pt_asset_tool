@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dungeon_keeper",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/dungeon-keeper.zhoon",
+    "GameServer/NPC/name/dungeon-keeper.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/dungeon-keeper.zhoon",
+    "legacy_sha256": "e415bddf1948e15677199a1ad3112fb7270c67d786b6dd52098f4702c5cccde3",
+    "legacy_size": 359
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guardião"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "O Rei Hoppie arrebentou uma parede da último andar do calabouço e revelou uma nova área. O que será que há nela?"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Somente guerreiros acima do Nível 40 podem entrar aqui."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "O Rei Hoppie, lider do exército dos Hoppies, perambula pelo Calabouço. Eu morro de medo só de pensar..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Este Calabouço Antigo foi construído para aprisionar alguma criatura..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkaeNvIg0KDQoqSl9DSEFUCQkiU29tZW50ZSBndWVycmVpcm9zIGFjaW1hIGRvIE7tdmVsIDQwIHBvZGVtIGVudHJhciBhcXVpLiINCipKX0NIQVQJCSJTb21lbnRlIGd1ZXJyZWlyb3MgYWNpbWEgZG8gTml2ZWwgNDAgcG9kZW0gZW50cmFyIGFxdWkuIg0KKkpfQ0hBVAkJIk8gUmVpIEhvcHBpZSwgbGlkZXIgZG8gZXjpcmNpdG8gZG9zIEhvcHBpZXMsIHBlcmFtYnVsYSBwZWxvIENhbGFib3Xnby4gRXUgbW9ycm8gZGUgbWVkbyBz8yBkZSBwZW5zYXIuLi4iDQoqSl9DSEFUCQkiRXN0ZSBDYWxhYm91528gQW50aWdvIGZvaSBjb25zdHJ17WRvIHBhcmEgYXByaXNpb25hciBhbGd1bWEgY3JpYXR1cmEuLi4iDQo="
+  }
+}

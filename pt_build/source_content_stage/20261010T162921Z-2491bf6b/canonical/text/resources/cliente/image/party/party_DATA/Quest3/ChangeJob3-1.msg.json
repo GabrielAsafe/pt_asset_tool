@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_1.path_d90444a968",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest3/ChangeJob3-1.msg",
+    "image/party/party_DATA/Quest3/ChangeJob3-1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest3/ChangeJob3-1.msg",
+    "legacy_sha256": "798fef867cd7fc1703465566c5e16243b5dea46d148c4882a2b53dd0c60652bb",
+    "legacy_size": 126
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Let's get 3 Vamp sheltoms",
+      "from Minigue silver who",
+      "wanders in Navisko every",
+      "night and bring them to",
+      "skill/magic master."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpMZXQncyBnZXQgMyBWYW1wIHNoZWx0b21zDQpmcm9tIE1pbmlndWUgc2lsdmVyIHdobw0Kd2FuZGVycyBpbiBOYXZpc2tvIGV2ZXJ5DQpuaWdodCBhbmQgYnJpbmcgdGhlbSB0bw0Kc2tpbGwvbWFnaWMgbWFzdGVyLg0K"
+  }
+}

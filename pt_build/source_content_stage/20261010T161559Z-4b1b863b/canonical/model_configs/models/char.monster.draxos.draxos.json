@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.draxos.draxos",
+  "logical_config": "char/monster/Draxos/Draxos.ini",
+  "legacy_cache": "char/monster/Draxos/Draxos.inx",
+  "consumers": [
+    {
+      "id": "monster.130_draxos",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/130_Draxos.inf.json"
+    },
+    {
+      "id": "monster.mini_draxos",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Mini_Draxos.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Draxos/Draxos.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Draxos/Draxos.inx"
+    }
+  }
+}

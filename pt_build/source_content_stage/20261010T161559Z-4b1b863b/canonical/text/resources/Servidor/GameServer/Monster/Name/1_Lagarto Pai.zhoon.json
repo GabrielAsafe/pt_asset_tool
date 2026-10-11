@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_lagarto_pai",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Lagarto Pai.zhoon",
+    "GameServer/Monster/Name/1_Lagarto Pai.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Lagarto Pai.zhoon",
+    "legacy_sha256": "8d32cf48f72ad6ce4d993e0f715f0850d82f0fee09d2ceaf1d683fa85269d9da",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lagarto Pai"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTGFnYXJ0byBQYWki"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.84_centauro_guerreira",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/84_Centauro Guerreira.zhoon",
+    "GameServer/Monster/Name/84_Centauro Guerreira.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/84_Centauro Guerreira.zhoon",
+    "legacy_sha256": "c5c73d0b37015e1525c5b0cd500ce84e57cec6abab3a4144c8be106821889cf5",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Centauro Guerreira"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2VudGF1cm8gR3VlcnJlaXJhIg=="
+  }
+}

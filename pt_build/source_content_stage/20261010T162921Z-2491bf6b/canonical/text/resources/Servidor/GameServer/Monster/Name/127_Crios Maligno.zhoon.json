@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.127_crios_maligno",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/127_Crios Maligno.zhoon",
+    "GameServer/Monster/Name/127_Crios Maligno.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/127_Crios Maligno.zhoon",
+    "legacy_sha256": "d69be4a7362c9db3bb38a8e095109365ed47cdc3b81a348c1fbf918420bccd84",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Crios Maligno"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ3Jpb3MgTWFsaWdubyI="
+  }
+}

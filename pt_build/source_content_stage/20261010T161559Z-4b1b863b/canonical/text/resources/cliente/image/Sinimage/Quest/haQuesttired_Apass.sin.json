@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquesttired_apass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuesttired_Apass.sin",
+    "image/Sinimage/Quest/haQuesttired_Apass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuesttired_Apass.sin",
+    "legacy_sha256": "2f40c8fd8909bb782fc5f832f0d0a41387d004ce221c6d63bab7d128937b1c21",
+    "legacy_size": 305
+  },
+  "semantic": {
+    "lines": [
+      "Bem-vindo! O que é isso?",
+      "Esse é o bolo que Amanda fez, não é?",
+      "",
+      "Eu não tive tempo para comer com tantos guerreiros",
+      "vindo guardar seus equipamentos. Amanda soube que eu",
+      "estava reclamando e começou a me mandar comida.",
+      "",
+      "Como poderei retribuir esse favor...",
+      "",
+      "Por favor, agradeça a ela quando voltar."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QmVtLXZpbmRvISBPIHF1ZSDpIGlzc28/DQpFc3NlIOkgbyBib2xvIHF1ZSBBbWFuZGEgZmV6LCBu428g6T8NCg0KRXUgbuNvIHRpdmUgdGVtcG8gcGFyYSBjb21lciBjb20gdGFudG9zIGd1ZXJyZWlyb3MNCnZpbmRvIGd1YXJkYXIgc2V1cyBlcXVpcGFtZW50b3MuIEFtYW5kYSBzb3ViZSBxdWUgZXUNCmVzdGF2YSByZWNsYW1hbmRvIGUgY29tZedvdSBhIG1lIG1hbmRhciBjb21pZGEuDQoNCkNvbW8gcG9kZXJlaSByZXRyaWJ1aXIgZXNzZSBmYXZvci4uLg0KDQpQb3IgZmF2b3IsIGFncmFkZedhIGEgZWxhIHF1YW5kbyB2b2x0YXIuDQo="
+  }
+}

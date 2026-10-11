@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_2_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_2_Start.sin",
+    "image/Sinimage/Quest/140LVQuest_2_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_2_Start.sin",
+    "legacy_sha256": "55633d9c8824bfcbdc40e75f54b6123191c42e2a680b012e3a0c6d3d60ddc3bb",
+    "legacy_size": 652
+  },
+  "semantic": {
+    "lines": [
+      "Muita coisa aconteceu. Enquanto Leusen era derrotado e ",
+      "Arteres atacava a superfície com Octulhus, Yagditha tentou",
+      "tomar o tridente de Yaten e foi ferido por ela. Midranda a",
+      "matou e enfeitiçou Yagditha, tomando o trono. ",
+      "Com a Concha Mágica de Zarad, meu canto despertou Arteres.",
+      "E, após se livrar do controle de Midranda, Yagditha propôs",
+      "uma aliança ao Príncipe Zarad. Mas Hermit e eu fomos feitos",
+      "reféns por ele, para forçar Zarad a se entregar.",
+      "",
+      "Ele se sacrificou por mim. Me ajude a encontrar meu Zarad.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Ache a Escama 햟pera, caçando Dey ou Koon no Abismo do Mar.",
+      "Ao terminar, fale com Marina em Abismo do Mar."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TXVpdGEgY29pc2EgYWNvbnRlY2V1LiBFbnF1YW50byBMZXVzZW4gZXJhIGRlcnJvdGFkbyBlIA0KQXJ0ZXJlcyBhdGFjYXZhIGEgc3VwZXJm7WNpZSBjb20gT2N0dWxodXMsIFlhZ2RpdGhhIHRlbnRvdQ0KdG9tYXIgbyB0cmlkZW50ZSBkZSBZYXRlbiBlIGZvaSBmZXJpZG8gcG9yIGVsYS4gTWlkcmFuZGEgYQ0KbWF0b3UgZSBlbmZlaXRp5291IFlhZ2RpdGhhLCB0b21hbmRvIG8gdHJvbm8uIA0KQ29tIGEgQ29uY2hhIE3hZ2ljYSBkZSBaYXJhZCwgbWV1IGNhbnRvIGRlc3BlcnRvdSBBcnRlcmVzLg0KRSwgYXDzcyBzZSBsaXZyYXIgZG8gY29udHJvbGUgZGUgTWlkcmFuZGEsIFlhZ2RpdGhhIHByb3D0cw0KdW1hIGFsaWFu52EgYW8gUHLtbmNpcGUgWmFyYWQuIE1hcyBIZXJtaXQgZSBldSBmb21vcyBmZWl0b3MNCnJlZulucyBwb3IgZWxlLCBwYXJhIGZvcudhciBaYXJhZCBhIHNlIGVudHJlZ2FyLg0KDQpFbGUgc2Ugc2FjcmlmaWNvdSBwb3IgbWltLiBNZSBhanVkZSBhIGVuY29udHJhciBtZXUgWmFyYWQuDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpBY2hlIGEgRXNjYW1hIMFzcGVyYSwgY2HnYW5kbyBEZXkgb3UgS29vbiBubyBBYmlzbW8gZG8gTWFyLg0KQW8gdGVybWluYXIsIGZhbGUgY29tIE1hcmluYSBlbSBBYmlzbW8gZG8gTWFyLg=="
+  }
+}

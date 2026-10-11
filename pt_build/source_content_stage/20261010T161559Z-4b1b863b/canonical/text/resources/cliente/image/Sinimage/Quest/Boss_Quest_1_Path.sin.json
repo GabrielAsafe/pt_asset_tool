@@ -1,0 +1,25 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_1_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_1_Path.sin",
+    "image/Sinimage/Quest/Boss_Quest_1_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_1_Path.sin",
+    "legacy_sha256": "87bf033084f8b46252b6e311c317ba2ee395282a74e2a30cfc6e3de11bb67d14",
+    "legacy_size": 56
+  },
+  "semantic": {
+    "lines": [
+      "Vá até a Mata das Acácias e derrote a Planta Infernal."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VuEgYXTpIGEgTWF0YSBkYXMgQWPhY2lhcyBlIGRlcnJvdGUgYSBQbGFudGEgSW5mZXJuYWwuDQo="
+  }
+}

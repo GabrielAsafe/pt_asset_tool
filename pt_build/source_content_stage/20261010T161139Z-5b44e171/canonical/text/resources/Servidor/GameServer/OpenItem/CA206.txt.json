@@ -1,0 +1,134 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ca206",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CA206.txt",
+    "GameServer/OpenItem/CA206.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CA206.txt",
+    "legacy_sha256": "9c9541a57e43aaf7b0b5bc6b80b7d8be4fe5e0e81d70da77f307b8ed6d0e4520",
+    "legacy_size": 314
+  },
+  "semantic": {
+    "fields": {
+      "name": "Alumnus Costume (F)",
+      "code": "CA206",
+      "weight": 1,
+      "absorb": 10.0,
+      "defence": 550,
+      "move_speed": 2.0,
+      "linked_file": "name\\ca206.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Alumnus Costume (F)"
+        ],
+        "raw_values_hex": [
+          "416c756d6e757320436f7374756d6520284629"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CA206"
+        ],
+        "raw_values_hex": [
+          "4341323036"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          10.0
+        ],
+        "raw_values_hex": [
+          "31302e30"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          550
+        ],
+        "raw_values_hex": [
+          "353530"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "move_speed",
+        "legacy_token": "*이동속도",
+        "legacy_token_hex": "2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          2.0
+        ],
+        "raw_values_hex": [
+          "322e30"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ca206.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c63613230362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRElHTyBETyBJVEVNDQoqwMy4pyAiQWx1bW51cyBDb3N0dW1lIChGKSINCirE2rXlICJDQTIwNiINCg0KLy8gUEVTTyBOTyBJTlZFVEFSSU8NCiq5q7DUIDENCi8vIEFCU09SQ0FPDQoqyO289rfCIDEwLjANCi8vIFRBWEEgREUgREVGRVNBDQoquea+7rfCIDU1MA0KLy8gVkVMT0NJREFERQ0KKsDMtb+807W1IDIuMA0KLy8gQUREIEhQDQovLyq7/bjtt8LD37ChCTEwMA0KLy8gQUREIE1QDQovLyqx4rfCw9+woQk4MA0KLy8gQUREIFJFUw0KLy8qsdm3wsPfsKEJODANCg0KKr+ssOHGxMDPICAgICAgICAibmFtZVxjYTIwNi56aG9vbiI="
+  }
+}

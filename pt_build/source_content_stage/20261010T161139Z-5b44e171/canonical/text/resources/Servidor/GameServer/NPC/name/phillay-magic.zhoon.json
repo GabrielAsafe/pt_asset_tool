@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.phillay_magic",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/phillay-magic.zhoon",
+    "GameServer/NPC/name/phillay-magic.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/phillay-magic.zhoon",
+    "legacy_sha256": "92b46fd13ae7f66225fff26d8580bdf0d8821744227d955d91f8ac87effb5fce",
+    "legacy_size": 403
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Loja do Maron"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "A maioria dos artefatos místicos de Priston Tale foi desenhado por mim."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Bem-vindo. Esta loja fornece equipamentos místicos. Escolha o seu!"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu vendo artefatos mágicos aqui. Mago ou Sacerdotisa, você encontrará tudo que precisar..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Temos filiais em Navisko e Ruinen. Se precisar de artefatos mais fortes, visite esses lugares..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkxvamEgZG8gTWFyb24iDQoNCipKX0NIQVQJCSJBIG1haW9yaWEgZG9zIGFydGVmYXRvcyBt7XN0aWNvcyBkZSBQcmlzdG9uIFRhbGUgZm9pIGRlc2VuaGFkbyBwb3IgbWltLiINCipKX0NIQVQJCSJCZW0tdmluZG8uIEVzdGEgbG9qYSBmb3JuZWNlIGVxdWlwYW1lbnRvcyBt7XN0aWNvcy4gRXNjb2xoYSBvIHNldSEiDQoqSl9DSEFUCQkiRXUgdmVuZG8gYXJ0ZWZhdG9zIG3hZ2ljb3MgYXF1aS4gTWFnbyBvdSBTYWNlcmRvdGlzYSwgdm9j6iBlbmNvbnRyYXLhIHR1ZG8gcXVlIHByZWNpc2FyLi4uIg0KKkpfQ0hBVAkJIlRlbW9zIGZpbGlhaXMgZW0gTmF2aXNrbyBlIFJ1aW5lbi4gU2UgcHJlY2lzYXIgZGUgYXJ0ZWZhdG9zIG1haXMgZm9ydGVzLCB2aXNpdGUgZXNzZXMgbHVnYXJlcy4uLiINCg=="
+  }
+}

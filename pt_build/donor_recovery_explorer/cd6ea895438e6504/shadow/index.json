@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.107_i_undead_stalker",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/107_I_Undead Stalker.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/107_I_Undead Stalker.inf.json",
+      "sha256": "a6ba432427c79d066fc52ce73e52134f2427ad5cee9bdb5e2794a7efa54b02cf"
+    }
+  ]
+}

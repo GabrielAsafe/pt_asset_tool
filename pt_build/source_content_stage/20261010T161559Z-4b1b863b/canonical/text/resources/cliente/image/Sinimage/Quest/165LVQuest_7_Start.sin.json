@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_7_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_7_Start.sin",
+    "image/Sinimage/Quest/165LVQuest_7_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_7_Start.sin",
+    "legacy_sha256": "218d4ec2e2fe92e3372131756d673f79d93804789fbbcc865905802179d2fb3e",
+    "legacy_size": 572
+  },
+  "semantic": {
+    "lines": [
+      "Despertei o Incensário Mágico. É incrível, os tentáculos",
+      "estão queimando. A substância extraída está se tornando",
+      "uma essência com um aroma leve e se dissipando como uma",
+      "fumaça. Sinto o grande poder vindo dessas brasas. ",
+      "",
+      "O combate está violento, estamos tendo muitas baixas.",
+      "",
+      "Agora, o Incensário Mágico está pegando fogo. É chegada",
+      "a hora. Temos que partir. Vamos dar um fim a essa batalha.",
+      "Leve o Incensário Mágico Despertado com você.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Derrote Midranda Ressurgido no Santuário do Abismo.",
+      "Ao terminar, fale com Sábia Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVzcGVydGVpIG8gSW5jZW5z4XJpbyBN4WdpY28uIMkgaW5jcu12ZWwsIG9zIHRlbnThY3Vsb3MNCmVzdONvIHF1ZWltYW5kby4gQSBzdWJzdOJuY2lhIGV4dHJh7WRhIGVzdOEgc2UgdG9ybmFuZG8NCnVtYSBlc3PqbmNpYSBjb20gdW0gYXJvbWEgbGV2ZSBlIHNlIGRpc3NpcGFuZG8gY29tbyB1bWENCmZ1bWHnYS4gU2ludG8gbyBncmFuZGUgcG9kZXIgdmluZG8gZGVzc2FzIGJyYXNhcy4gDQoNCk8gY29tYmF0ZSBlc3ThIHZpb2xlbnRvLCBlc3RhbW9zIHRlbmRvIG11aXRhcyBiYWl4YXMuDQoNCkFnb3JhLCBvIEluY2Vuc+FyaW8gTeFnaWNvIGVzdOEgcGVnYW5kbyBmb2dvLiDJIGNoZWdhZGENCmEgaG9yYS4gVGVtb3MgcXVlIHBhcnRpci4gVmFtb3MgZGFyIHVtIGZpbSBhIGVzc2EgYmF0YWxoYS4NCkxldmUgbyBJbmNlbnPhcmlvIE3hZ2ljbyBEZXNwZXJ0YWRvIGNvbSB2b2PqLg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KRGVycm90ZSBNaWRyYW5kYSBSZXNzdXJnaWRvIG5vIFNhbnR14XJpbyBkbyBBYmlzbW8uDQpBbyB0ZXJtaW5hciwgZmFsZSBjb20gU+FiaWEgQ2VsaW5hIGVtIFBpbGxhaS4="
+  }
+}

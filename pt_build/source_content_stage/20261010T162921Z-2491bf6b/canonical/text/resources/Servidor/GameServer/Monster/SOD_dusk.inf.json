@@ -1,0 +1,613 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.sod_dusk",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/SOD_dusk.inf",
+    "GameServer/Monster/SOD_dusk.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/SOD_dusk.inf",
+    "legacy_sha256": "5081178d33f66a90900c3ea3503f355502e81f431259fc5f28e5fa31da5c1fe8",
+    "legacy_size": 1880
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\Monnazz-1\\Monnazz-1.ini",
+      "class_code": 39,
+      "name": "SoD Dusk",
+      "english_name": "SoD Dusk",
+      "level": 75,
+      "active_hour": "제한없음",
+      "generate_group": [
+        1,
+        2
+      ],
+      "iq": 9,
+      "nature": "Evil",
+      "sight": 400,
+      "life": 1500,
+      "skill_rating": 20,
+      "skill_range": 110,
+      "skill_damage": [
+        110,
+        120
+      ],
+      "attack_damage": [
+        80,
+        90
+      ],
+      "absorption": 12,
+      "block": 10,
+      "defence": 530,
+      "attack_speed": 9,
+      "attack_rating": 1300,
+      "special_attack_rate": 15,
+      "size": "중형",
+      "attack_range": 150,
+      "bionic": 30,
+      "lightning": 0,
+      "ice": 40,
+      "fire": 15,
+      "poison": 40,
+      "unmapped.2ab8c5c1f7": -10,
+      "monster_race": "디먼",
+      "unmapped.2ac0ccb5bfbcd3b5b5": 4,
+      "move_type": 0,
+      "effect_sound": "Naz",
+      "potion_count": 0,
+      "potion_percent": 0,
+      "experience": 44000,
+      "unmapped.2ab0f1b5e5": [
+        200,
+        220,
+        80
+      ],
+      "linked_file": "name\\new_sod_dusk.zhoon",
+      "model_config_id": "model.char.monster.monnazz.1.monnazz.1"
+    },
+    "directives": [
+      {
+        "line": 3,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 4,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\Monnazz-1\\Monnazz-1.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c4d6f6e6e617a7a2d315c4d6f6e6e617a7a2d312e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "class_code",
+        "legacy_token": "*구별코드",
+        "legacy_token_hex": "2ab1b8bab0c4dab5e5",
+        "loader_status": "supported_mapped",
+        "values": [
+          39
+        ],
+        "raw_values_hex": [
+          "3339"
+        ]
+      },
+      {
+        "line": 7,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "SoD Dusk"
+        ],
+        "raw_values_hex": [
+          "536f44204475736b"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SoD Dusk"
+        ],
+        "raw_values_hex": [
+          "536f44204475736b"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 10,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          75
+        ],
+        "raw_values_hex": [
+          "3735"
+        ]
+      },
+      {
+        "line": 13,
+        "key": "active_hour",
+        "legacy_token": "*활동시간",
+        "legacy_token_hex": "2ac8b0b5bfbdc3b0a3",
+        "loader_status": "supported_mapped",
+        "values": [
+          "제한없음"
+        ],
+        "raw_values_hex": [
+          "c1a6c7d1bef8c0bd"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 19,
+        "key": "iq",
+        "legacy_token": "*지능",
+        "legacy_token_hex": "2ac1f6b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 22,
+        "key": "nature",
+        "legacy_token": "*품성",
+        "legacy_token_hex": "2ac7b0bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Evil"
+        ],
+        "raw_values_hex": [
+          "4576696c"
+        ]
+      },
+      {
+        "line": 25,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          400
+        ],
+        "raw_values_hex": [
+          "343030"
+        ]
+      },
+      {
+        "line": 28,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1500
+        ],
+        "raw_values_hex": [
+          "31353030"
+        ]
+      },
+      {
+        "line": 31,
+        "key": "skill_rating",
+        "legacy_token": "*기술공격률",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "skill_range",
+        "legacy_token": "*기술공격범위",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          110
+        ],
+        "raw_values_hex": [
+          "313130"
+        ]
+      },
+      {
+        "line": 33,
+        "key": "skill_damage",
+        "legacy_token": "*기술공격력",
+        "legacy_token_hex": "2ab1e2bcfab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          110,
+          120
+        ],
+        "raw_values_hex": [
+          "313130",
+          "313230"
+        ]
+      },
+      {
+        "line": 34,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          80,
+          90
+        ],
+        "raw_values_hex": [
+          "3830",
+          "3930"
+        ]
+      },
+      {
+        "line": 37,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          12
+        ],
+        "raw_values_hex": [
+          "3132"
+        ]
+      },
+      {
+        "line": 40,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 43,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          530
+        ],
+        "raw_values_hex": [
+          "353330"
+        ]
+      },
+      {
+        "line": 46,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          9
+        ],
+        "raw_values_hex": [
+          "39"
+        ]
+      },
+      {
+        "line": 49,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1300
+        ],
+        "raw_values_hex": [
+          "31333030"
+        ]
+      },
+      {
+        "line": 52,
+        "key": "special_attack_rate",
+        "legacy_token": "*특수공격률",
+        "legacy_token_hex": "2ac6afbcf6b0f8b0ddb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 55,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중형"
+        ],
+        "raw_values_hex": [
+          "c1dfc7fc"
+        ]
+      },
+      {
+        "line": 58,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          150
+        ],
+        "raw_values_hex": [
+          "313530"
+        ]
+      },
+      {
+        "line": 63,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          30
+        ],
+        "raw_values_hex": [
+          "3330"
+        ]
+      },
+      {
+        "line": 64,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          0
+        ],
+        "raw_values_hex": [
+          "30"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "ice",
+        "legacy_token": "*얼음",
+        "legacy_token_hex": "2abef3c0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          40
+        ],
+        "raw_values_hex": [
+          "3430"
+        ]
+      },
+      {
+        "line": 66,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 67,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          40
+        ],
+        "raw_values_hex": [
+          "3430"
+        ]
+      },
+      {
+        "line": 68,
+        "key": "unmapped.2ab8c5c1f7",
+        "legacy_token": "*매직",
+        "legacy_token_hex": "2ab8c5c1f7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          -10
+        ],
+        "raw_values_hex": [
+          "2d3130"
+        ]
+      },
+      {
+        "line": 71,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "디먼"
+        ],
+        "raw_values_hex": [
+          "b5f0b8d5"
+        ]
+      },
+      {
+        "line": 74,
+        "key": "unmapped.2ac0ccb5bfbcd3b5b5",
+        "legacy_token": "*이동속도",
+        "legacy_token_hex": "2ac0ccb5bfbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 77,
+        "key": "move_type",
+        "legacy_token": "*이동타입",
+        "legacy_token_hex": "2ac0ccb5bfc5b8c0d4",
+        "loader_status": "supported_mapped",
+        "values": [
+          0
+        ],
+        "raw_values_hex": [
+          "30"
+        ]
+      },
+      {
+        "line": 80,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Naz"
+        ],
+        "raw_values_hex": [
+          "4e617a"
+        ]
+      },
+      {
+        "line": 83,
+        "key": "potion_count",
+        "legacy_token": "*물약보유수",
+        "legacy_token_hex": "2ab9b0bee0bab8c0afbcf6",
+        "loader_status": "supported_mapped",
+        "values": [
+          0
+        ],
+        "raw_values_hex": [
+          "30"
+        ]
+      },
+      {
+        "line": 86,
+        "key": "potion_percent",
+        "legacy_token": "*물약보유률",
+        "legacy_token_hex": "2ab9b0bee0bab8c0afb7fc",
+        "loader_status": "supported_mapped",
+        "values": [
+          0
+        ],
+        "raw_values_hex": [
+          "30"
+        ]
+      },
+      {
+        "line": 89,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          44000
+        ],
+        "raw_values_hex": [
+          "3434303030"
+        ]
+      },
+      {
+        "line": 92,
+        "key": "unmapped.2ab0f1b5e5",
+        "legacy_token": "*골드",
+        "legacy_token_hex": "2ab0f1b5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          200,
+          220,
+          80
+        ],
+        "raw_values_hex": [
+          "323030",
+          "323230",
+          "3830"
+        ]
+      },
+      {
+        "line": 101,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\new_sod_dusk.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e65775f736f645f6475736b2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {
+      "*매직": 1,
+      "*이동속도": 1,
+      "*골드": 1
+    }
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoNCiq807y6CQkJwPsNCiq48L7nxsTAzwkJImNoYXJcbW9uc3RlclxNb25uYXp6LTFcTW9ubmF6ei0xLmluaSINCiqxuLqwxNq15QkJMzkNCg0KKsDMuKcJCQkiU29EIER1c2siDQoqTmFtZQkJCSJTb0QgRHVzayINCg0KKre5uqcJCQk3NQ0KDQovL7jzvbrFzbChIMiwtb/Hz7TCIL3DsKMNCirIsLW/vcOwowkJwabH0b74wL0NCg0KLy+5q7iusKEgx8q/5MfRILjzvbrFzcDHILz2IMPWvNJYLcPWtOtYDQoqwbbB9wkJCTEgMg0KDQovL8H2tMnAxyCxuLrQwLogMS0xMCCx7sH2wMcgSVEgDQoqwfa0yQkJCTkNCg0KLy+48726xc3AxyC8usfiIEdvb2QsIE5ldXRyYWwsIEV2aWwNCirHsLy6CQkJRXZpbA0KDQovL7jzvbrFzbChIMSzuK/FzbimIMDOvcTHz7TCILDFuK4gMU0gPSAyNw0KKr3Dvt8JCQk0MDANCg0KLy+48726xc3AxyBIUA0KKrv9uO23wgkJCTE1MDANCg0KLy+48726xc3AxyCw+LDdt8INCiqx4rz6sPiw3bf8CQkyMA0KKrHivPqw+LDdufzApwkJMTEwDQoqseK8+rD4sN23wgkJMTEwIDEyMA0KKrD4sN23wgkJCTgwIDkwDQoNCi8vuPO9usXNwMcgsPiw3SDI7bz2wLIgWFglILi4xa0gtaW5zMH2uKYgyO289sfRtNkuIA0KKsjtvPbAsgkJCTEyDQoNCi8vuebG0LimILXnILjzvbrFzcDHILDmv+wguu23sMCywMwgwbjA5w0KKrrtt7DAsgkJCTEwDQoNCi8vuPO9usXNwMcguea+7rfCIA0KKrnmvu63wgkJCTUzMA0KDQovL7D4sN0gvNO1tcDHILr8uKOx4iDD1rzSIDUgLSDD1rTrIDkNCiqw+LDdvNO1tQkJOQ0KDQovL7D4sN29wyCw+LDdwMcguO3B37fCICg5NCkNCiq47cHft8IJCQkxMzAwDQoNCi8vuPO9usXNsKEgsKHB9rDtIMDWtMIgsPiw3SDG0MXPwMcgyK63/CCxuLrQICjD1rzSILWluczB9iAvIMPWtOsgtaW5zMH2ID0gbSAvIG0gKCtYKQ0KKsavvPaw+LDdt/wJCTE1DQoNCi8vuPO9usXNwMcgsde4ssDaIMWpseIgvNLH/Cwgwd/H/Cwgwd+068f8LCC068f8LCC++MC9DQoqxamx4gkJCcHfx/wNCg0KLy+w+LDdufzApyC48726xc2woSCw+LDdIMfSILanILD4sN0gufzAp7imIMelvcMgDQoqsPiw3bn8wKcJCTE1MA0KDQovL7zTvLoNCi8vLy8vLy8vLy8gvNO8uiDA+sfXt8IgLy8vLy8vLy8vLw0KDQoqu/3DvAkJCTMwDQoqufiwswkJCTANCiq+88C9CQkJNDANCiq60gkJCTE1DQoqtbYJCQk0MA0KKrjFwfcJCQktMTANCg0KLy++8LWlteUgwK+5qyANCiq48726xc3BvsG3CQm18LjVDQoNCi8vuPO9usXNwMcgwMy1vyC807W1IDEtNsDHILn8wKcgDQoqwMy1v7zTtbUJCTQNCg0KLy/AzLW/xbjA1A0KKsDMtb/FuMDUCQkwDQoNCi8vsbi60CAoIENZQ0xPUFMgLyBIT0JHT0JMSU4gLyBJTVAgLyBNSU5JRyAvIFBMQU5UIC8gU0tFTEVUT04gLyBaT01CSSAvIE9CSVQgKQ0KKsi/sPrAvQkJCU5heg0KDQovL7mwvuAgsLm89iAouPO9usXNsKEgubC+4MC7ILChwfaw7SDA1rTCILz2KQ0KKrmwvuC6uMCvvPYJCTANCg0KLy+5sL7gILvnv+u3/CAouPO9usXNILnfu/29wyC5sL7gwLsgsKHB9rDtILOqv8MgyK63/CkNCiq5sL7gurjAr7f8CQkwDQoNCi8vuPO9usXNILvnuMG9wyDAr8D6tem/obDUILW5vsawobTCILDmx+jEocDHIL7nDQoqsObH6MShCTQ0MDAwDQoNCi8vuPO9usXNILvnuMG9wyDA/MCvubC3ziC2s77uILbfuK60wiBHb2xkwMcgvucgw9a80nh4LcPWtOt4eCDIrsCyIHh4DQoqsPG15QkJCTIwMCAyMjAgODANCg0KLy+48726xc2woSC2s77utt+4rrTCIL7GwMzF2yC8s8GkILrtt7ANCi8vKr7GwMzF28Srv+7FzQkJMQ0KLy8qwMy6pcauvsbAzMXbCVFUMTEzDQovLyq+xsDMxdsJCTIxMDAJvvjAvQ0KLy8qvsbAzMXbCQk0MDAwCbW3CTk2CTExNA0KLy8qvsbAzMXbCQkxODAwCXBsMTAzIHBzMTAzIHBsMTAzIHBtMTAzIHBtMTAyDQoNCiq/rLDhxsTAzwkibmFtZVxuZXdfc29kX2R1c2suemhvb24iDQo="
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.hermit",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Hermit.NPC",
+    "GameServer/NPC/Hermit.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Hermit.NPC",
+    "legacy_sha256": "a37888e1167a6b09c6e78b7af4e0589f516bc3ba5b42d4c21ce80e67a50ec4fe",
+    "legacy_size": 217
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\Hermit\\Hermit.INI",
+      "name": "겁쟁이 헤밋",
+      "warehouse": true,
+      "linked_file": "name\\Hermit.zhoon",
+      "model_config_id": "model.char.npc.hermit.hermit"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\Hermit\\Hermit.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4865726d69745c4865726d69742e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "겁쟁이 헤밋"
+        ],
+        "raw_values_hex": [
+          "b0ccc0efc0cc20c7ecb9d4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 12,
+        "key": "warehouse",
+        "legacy_token": "*아이템보관",
+        "legacy_token_hex": "2abec6c0ccc5dbbab8b0fc",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Hermit.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4865726d69742e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCSJjaGFyXG5wY1xIZXJtaXRcSGVybWl0LklOSSINCg0KKsDMuKcJCSKwzMDvwMwgx+y51CINCg0KDQovLyq068itCQkivsa5q7W1Li4gvvjB9j8iDQovLyq068itICAgICAgIAkiv6mx4iC8+77uwNbAuLjpIL7IwPzH0rKovt8uLiINCg0KDQoqvsbAzMXburiw/A0KDQoqv6yw4cbEwM8JIm5hbWVcSGVybWl0Lnpob29uIg0KDQoNCi8vw6Kw7Q=="
+  }
+}

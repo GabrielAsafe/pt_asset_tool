@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_terrified_1end",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_terrified_1end.msg",
+    "image/party/party_DATA/HaQuest/Quest_terrified_1end.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_terrified_1end.msg",
+    "legacy_sha256": "199c7177633e6d04ddcaf5eeb303e8c70363b5d65afcd6f6926e8012ff2f924e",
+    "legacy_size": 61
+  },
+  "semantic": {
+    "lines": [
+      "After finishing the quest, ",
+      "get a long armlet as ",
+      "a reward."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QWZ0ZXIgZmluaXNoaW5nIHRoZSBxdWVzdCwgDQpnZXQgYSBsb25nIGFybWxldCBhcyANCmEgcmV3YXJkLg=="
+  }
+}

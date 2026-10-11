@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.15_c_u00e3o_abelha",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/15_C#U00e3o Abelha.zhoon",
+    "GameServer/Monster/Name/15_C#U00e3o Abelha.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/15_C#U00e3o Abelha.zhoon",
+    "legacy_sha256": "d90f2cc3061abd05d9fc9182420bac1bd281f717f90a44ea899dfcd4ec905494",
+    "legacy_size": 20
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cão Abelha"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ+NvIEFiZWxoYSI="
+  }
+}

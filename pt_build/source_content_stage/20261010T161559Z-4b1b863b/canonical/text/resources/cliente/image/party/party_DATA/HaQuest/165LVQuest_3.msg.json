@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_3",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/165LVQuest_3.msg",
+    "image/party/party_DATA/HaQuest/165LVQuest_3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/165LVQuest_3.msg",
+    "legacy_sha256": "86d00bc486aaf8c9ac44b79507666f3e57ff913358d67e3957df4abab68b4dfe",
+    "legacy_size": 115
+  },
+  "semantic": {
+    "lines": [
+      "Cace o Crios Insano em",
+      "Santuário do Abismo e",
+      "colete 3 Lâminas Afiadas.",
+      "Após, fale com a Sábia",
+      "Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FjZSBvIENyaW9zIEluc2FubyBlbQ0KU2FudHXhcmlvIGRvIEFiaXNtbyBlDQpjb2xldGUgMyBM4m1pbmFzIEFmaWFkYXMuDQpBcPNzLCBmYWxlIGNvbSBhIFPhYmlhDQpDZWxpbmEgZW0gUGlsbGFpLg=="
+  }
+}

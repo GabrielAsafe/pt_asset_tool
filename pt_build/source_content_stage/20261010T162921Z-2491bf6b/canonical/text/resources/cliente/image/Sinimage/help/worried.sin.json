@@ -1,0 +1,40 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.worried",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/worried.sin",
+    "image/Sinimage/help/worried.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/worried.sin",
+    "legacy_sha256": "9320656d4050c61b2fa48762e8296c03d8f68f6d43cf4cf7dcf3f23d7f456c2f",
+    "legacy_size": 1385
+  },
+  "semantic": {
+    "lines": [
+      "O Amuleto Yagditha do membro da Guarda Real, Cepheus, sumiu.",
+      "",
+      "Desde então, aconteceram diversos comportamentos ainda mais estranhos pelo continente.",
+      "Pelas informações que conseguimos coletar, foi encontrada uma marreta faltando espinhos em cima, uma lança de cor ametista quebrada, diversos tentáculos acizentados desconexos, um machado acizentado pela metade e uma espada longa e fina jogada, todos em diferentes locais. Não sabemos quais, e nem o que ocorreu.",
+      "Cepheus estava em ronda nos arredores do Campo de Batalha dos Anciões e não se recorda de nada. Foi encontrado pelo Oberon horas depois de não conseguirmos mais contactá-lo.",
+      "Sabemos que há mais testemunhas de situações igualmente estranhas pelo continente. Precisamos urgentemente resolver o caso.",
+      "O Amuleto em questão é de suma importância, já que se configura como um dos primeiros a serem conquistados, e possui benção especial pertencente apenas à Guarda Real.",
+      "Precisamos saber o autor do crime, o motivo e onde o amuleto está escondido. Toda ajuda possível é bem vinda, e estamos oferecendo uma recompensa a quem resolver o caso.",
+      "As dicas podem vir em forma de testemunhos ou enigmas, separados em partes. Fique atento!",
+      "Temos um Guarda à Paisana escondido. Desvende o Mistério, encontre o Guarda à Paisana, responda-o corretamente e será recompensado pelo seu esforço! ",
+      "Conto com sua colaboração.",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TyBBbXVsZXRvIFlhZ2RpdGhhIGRvIG1lbWJybyBkYSBHdWFyZGEgUmVhbCwgQ2VwaGV1cywgc3VtaXUuDQoNCkRlc2RlIGVudONvLCBhY29udGVjZXJhbSBkaXZlcnNvcyBjb21wb3J0YW1lbnRvcyBhaW5kYSBtYWlzIGVzdHJhbmhvcyBwZWxvIGNvbnRpbmVudGUuDQpQZWxhcyBpbmZvcm1h5/VlcyBxdWUgY29uc2VndWltb3MgY29sZXRhciwgZm9pIGVuY29udHJhZGEgdW1hIG1hcnJldGEgZmFsdGFuZG8gZXNwaW5ob3MgZW0gY2ltYSwgdW1hIGxhbudhIGRlIGNvciBhbWV0aXN0YSBxdWVicmFkYSwgZGl2ZXJzb3MgdGVudOFjdWxvcyBhY2l6ZW50YWRvcyBkZXNjb25leG9zLCB1bSBtYWNoYWRvIGFjaXplbnRhZG8gcGVsYSBtZXRhZGUgZSB1bWEgZXNwYWRhIGxvbmdhIGUgZmluYSBqb2dhZGEsIHRvZG9zIGVtIGRpZmVyZW50ZXMgbG9jYWlzLiBO428gc2FiZW1vcyBxdWFpcywgZSBuZW0gbyBxdWUgb2NvcnJldS4NCkNlcGhldXMgZXN0YXZhIGVtIHJvbmRhIG5vcyBhcnJlZG9yZXMgZG8gQ2FtcG8gZGUgQmF0YWxoYSBkb3MgQW5jafVlcyBlIG7jbyBzZSByZWNvcmRhIGRlIG5hZGEuIEZvaSBlbmNvbnRyYWRvIHBlbG8gT2Jlcm9uIGhvcmFzIGRlcG9pcyBkZSBu428gY29uc2VndWlybW9zIG1haXMgY29udGFjdOEtbG8uDQpTYWJlbW9zIHF1ZSBo4SBtYWlzIHRlc3RlbXVuaGFzIGRlIHNpdHVh5/VlcyBpZ3VhbG1lbnRlIGVzdHJhbmhhcyBwZWxvIGNvbnRpbmVudGUuIFByZWNpc2Ftb3MgdXJnZW50ZW1lbnRlIHJlc29sdmVyIG8gY2Fzby4NCk8gQW11bGV0byBlbSBxdWVzdONvIOkgZGUgc3VtYSBpbXBvcnTibmNpYSwgauEgcXVlIHNlIGNvbmZpZ3VyYSBjb21vIHVtIGRvcyBwcmltZWlyb3MgYSBzZXJlbSBjb25xdWlzdGFkb3MsIGUgcG9zc3VpIGJlbufjbyBlc3BlY2lhbCBwZXJ0ZW5jZW50ZSBhcGVuYXMg4CBHdWFyZGEgUmVhbC4NClByZWNpc2Ftb3Mgc2FiZXIgbyBhdXRvciBkbyBjcmltZSwgbyBtb3Rpdm8gZSBvbmRlIG8gYW11bGV0byBlc3ThIGVzY29uZGlkby4gVG9kYSBhanVkYSBwb3Nz7XZlbCDpIGJlbSB2aW5kYSwgZSBlc3RhbW9zIG9mZXJlY2VuZG8gdW1hIHJlY29tcGVuc2EgYSBxdWVtIHJlc29sdmVyIG8gY2Fzby4NCkFzIGRpY2FzIHBvZGVtIHZpciBlbSBmb3JtYSBkZSB0ZXN0ZW11bmhvcyBvdSBlbmlnbWFzLCBzZXBhcmFkb3MgZW0gcGFydGVzLiBGaXF1ZSBhdGVudG8hDQpUZW1vcyB1bSBHdWFyZGEg4CBQYWlzYW5hIGVzY29uZGlkby4gRGVzdmVuZGUgbyBNaXN06XJpbywgZW5jb250cmUgbyBHdWFyZGEg4CBQYWlzYW5hLCByZXNwb25kYS1vIGNvcnJldGFtZW50ZSBlIHNlcuEgcmVjb21wZW5zYWRvIHBlbG8gc2V1IGVzZm9y528hIA0KQ29udG8gY29tIHN1YSBjb2xhYm9yYefjby4NCg0KDQoNCg0KDQo="
+  }
+}

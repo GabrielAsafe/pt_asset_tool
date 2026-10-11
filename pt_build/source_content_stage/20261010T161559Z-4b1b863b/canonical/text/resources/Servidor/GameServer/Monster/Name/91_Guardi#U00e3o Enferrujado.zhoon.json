@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.91_guardi_u00e3o_enferrujado",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/91_Guardi#U00e3o Enferrujado.zhoon",
+    "GameServer/Monster/Name/91_Guardi#U00e3o Enferrujado.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/91_Guardi#U00e3o Enferrujado.zhoon",
+    "legacy_sha256": "ac9ba829f9f3223eeb6b34c4ddf007d15a8db13331a54b629c34c279bf67aa56",
+    "legacy_size": 30
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guardião Enferrujado"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR3VhcmRp428gRW5mZXJydWphZG8i"
+  }
+}

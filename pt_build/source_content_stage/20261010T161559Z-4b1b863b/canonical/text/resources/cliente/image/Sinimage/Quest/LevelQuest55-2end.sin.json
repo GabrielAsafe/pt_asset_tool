@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest55_2end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest55-2end.sin",
+    "image/Sinimage/Quest/LevelQuest55-2end.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest55-2end.sin",
+    "legacy_sha256": "e440ad3a501fc8529733a71ba24f356e7a7ff8bc707cfced2d1ad47f06d4e2ae",
+    "legacy_size": 231
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "You're back earlier than I expected~",
+      "",
+      "Since you've passed a difficult test, I want to ",
+      "give you some Skill Points I saved.",
+      "",
+      "By now, you must have one skill in mind you'd like",
+      "to improve, for which you can use this points.  "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpZb3UncmUgYmFjayBlYXJsaWVyIHRoYW4gSSBleHBlY3RlZH4NCg0KU2luY2UgeW91J3ZlIHBhc3NlZCBhIGRpZmZpY3VsdCB0ZXN0LCBJIHdhbnQgdG8gDQpnaXZlIHlvdSBzb21lIFNraWxsIFBvaW50cyBJIHNhdmVkLg0KDQpCeSBub3csIHlvdSBtdXN0IGhhdmUgb25lIHNraWxsIGluIG1pbmQgeW91J2QgbGlrZQ0KdG8gaW1wcm92ZSwgZm9yIHdoaWNoIHlvdSBjYW4gdXNlIHRoaXMgcG9pbnRzLiAg"
+  }
+}

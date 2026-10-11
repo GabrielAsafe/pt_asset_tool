@@ -1,0 +1,88 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.lostisland",
+  "logical_path": "GameServer/Field/lostisland.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/lostisland.ase.spm",
+    "sha256": "82b31577237ec89926ec69fbf105c95717c9c81bc34874663b397f93f5be5a61"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 9000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.94_mago_negro",
+      "legacy_name": "Mago Negro",
+      "legacy_name_bytes_hex": "4d61676f204e6567726f",
+      "weight": 17,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.96_inquisidor_negro",
+      "legacy_name": "Inquisidor Negro",
+      "legacy_name_bytes_hex": "496e7175697369646f72204e6567726f",
+      "weight": 19,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.92_verme_de_fogo",
+      "legacy_name": "Verme de Fogo",
+      "legacy_name_bytes_hex": "5665726d6520646520466f676f",
+      "weight": 12,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.92_quimera",
+      "legacy_name": "Quimera",
+      "legacy_name_bytes_hex": "5175696d657261",
+      "weight": 14,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.97_cavaleiro_sanguin_u00e1rio",
+      "legacy_name": "Cavaleiro Sanguin?io",
+      "legacy_name_bytes_hex": "436176616c6569726f2053616e6775696e3f696f",
+      "weight": 2,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.93_guardi_u00e3o_negro",
+      "legacy_name": "Guardiao Negro",
+      "legacy_name_bytes_hex": "477561726469616f204e6567726f",
+      "weight": 18,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.93_c_u00e3o_infernal",
+      "legacy_name": "Cao Infernal",
+      "legacy_name_bytes_hex": "43616f20496e6665726e616c",
+      "weight": 16,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_95_c_u00e3o_esqueleto",
+      "slave_monster_id": "monster.93_guardi_u00e3o_negro",
+      "master_legacy_name": "Cão Esqueleto",
+      "slave_legacy_name": "Guardiao Negro",
+      "master_legacy_name_bytes_hex": "43e36f2045737175656c65746f",
+      "slave_legacy_name_bytes_hex": "477561726469616f204e6567726f",
+      "slave_count": 7,
+      "open_hours": [
+        2,
+        6,
+        10,
+        14,
+        18,
+        22
+      ],
+      "master_resolution": "exact",
+      "slave_resolution": "exact"
+    }
+  ]
+}

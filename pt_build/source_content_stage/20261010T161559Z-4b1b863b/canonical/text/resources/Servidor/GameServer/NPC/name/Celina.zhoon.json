@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.celina",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Celina.zhoon",
+    "GameServer/NPC/name/Celina.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Celina.zhoon",
+    "legacy_sha256": "3b0d84ac1b156e1c58c4b7052cd5f8dfe0ae2c3e4f5536d3226bba330658f3f2",
+    "legacy_size": 266
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Sábia Celina"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Usarei meu conhecimento pelo continente de Priston e por sua paz duradoura."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você consegue dedicar sua força ao continente de Priston?"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Será que o bem e o mal absolutos realmente existem?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9DZWxpbmEubnBjDQoNCipKX05BTUUJCSJT4WJpYSBDZWxpbmEiDQoNCipKX0NIQVQJCSJVc2FyZWkgbWV1IGNvbmhlY2ltZW50byBwZWxvIGNvbnRpbmVudGUgZGUgUHJpc3RvbiBlIHBvciBzdWEgcGF6IGR1cmFkb3VyYS4iIA0KKkpfQ0hBVAkJIlZvY+ogY29uc2VndWUgZGVkaWNhciBzdWEgZm9y52EgYW8gY29udGluZW50ZSBkZSBQcmlzdG9uPyINCipKX0NIQVQJCSJTZXLhIHF1ZSBvIGJlbSBlIG8gbWFsIGFic29sdXRvcyByZWFsbWVudGUgZXhpc3RlbT8iDQo="
+  }
+}

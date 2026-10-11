@@ -1,0 +1,49 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_7_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_7_Path.sin",
+    "image/Sinimage/Quest/114LVQuest_7_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_7_Path.sin",
+    "legacy_sha256": "d8ba502fa32ff844a90a28ba4d2f9eca44ad3919506df5f5215ef974bcc4b514",
+    "legacy_size": 967
+  },
+  "semantic": {
+    "lines": [
+      "Não consigo deixar de pensar nos horrores que vivenciamos",
+      "nesta terrível guerra...",
+      "As imagens continuam voltando à minha mente...",
+      "Ver os pristonianos se digladiando entre si, os Morions e",
+      "Tempskrons segregados como tribos inimigas e regredindo à",
+      "época em que Wyzens e Thaions se odiavam, antes de se",
+      "unificarem para enfrentar o inimigo comum, é inconcebível!",
+      "A Héres foi a pior e mais cruel inimiga que já enfrentamos.",
+      "O seu fim foi terrível, mas merecido!",
+      "Kithius... Oh, Kithius!",
+      "Sinto muito a sua falta...",
+      "Snif!... Snif!... Snif!...",
+      "Desculpe-me...",
+      "",
+      "Agora, tenho tido esse nefasto pesadelo recorrente, em que",
+      "Midranda consegue escapar no último minuto da Prisão Mágica",
+      "e do seu banimento eterno!",
+      "Alguma força externa interferiu na minha magia naquele",
+      "exato momento...",
+      "",
+      "Por favor, entregue esse Documento Secreto ao ",
+      "Comandante Derik.",
+      "O Documento contém informações vitais sobre o",
+      "paradeiro de Midranda.",
+      "É muito importante!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TsOjbyBjb25zaWdvIGRlaXhhciBkZSBwZW5zYXIgbm9zIGhvcnJvcmVzIHF1ZSB2aXZlbmNpYW1vcw0KbmVzdGEgdGVycsOtdmVsIGd1ZXJyYS4uLg0KQXMgaW1hZ2VucyBjb250aW51YW0gdm9sdGFuZG8gw6AgbWluaGEgbWVudGUuLi4NClZlciBvcyBwcmlzdG9uaWFub3Mgc2UgZGlnbGFkaWFuZG8gZW50cmUgc2ksIG9zIE1vcmlvbnMgZQ0KVGVtcHNrcm9ucyBzZWdyZWdhZG9zIGNvbW8gdHJpYm9zIGluaW1pZ2FzIGUgcmVncmVkaW5kbyDDoA0Kw6lwb2NhIGVtIHF1ZSBXeXplbnMgZSBUaGFpb25zIHNlIG9kaWF2YW0sIGFudGVzIGRlIHNlDQp1bmlmaWNhcmVtIHBhcmEgZW5mcmVudGFyIG8gaW5pbWlnbyBjb211bSwgw6kgaW5jb25jZWLDrXZlbCENCkEgSMOpcmVzIGZvaSBhIHBpb3IgZSBtYWlzIGNydWVsIGluaW1pZ2EgcXVlIGrDoSBlbmZyZW50YW1vcy4NCk8gc2V1IGZpbSBmb2kgdGVycsOtdmVsLCBtYXMgbWVyZWNpZG8hDQpLaXRoaXVzLi4uIE9oLCBLaXRoaXVzIQ0KU2ludG8gbXVpdG8gYSBzdWEgZmFsdGEuLi4NClNuaWYhLi4uIFNuaWYhLi4uIFNuaWYhLi4uDQpEZXNjdWxwZS1tZS4uLg0KDQpBZ29yYSwgdGVuaG8gdGlkbyBlc3NlIG5lZmFzdG8gcGVzYWRlbG8gcmVjb3JyZW50ZSwgZW0gcXVlDQpNaWRyYW5kYSBjb25zZWd1ZSBlc2NhcGFyIG5vIMO6bHRpbW8gbWludXRvIGRhIFByaXPDo28gTcOhZ2ljYQ0KZSBkbyBzZXUgYmFuaW1lbnRvIGV0ZXJubyENCkFsZ3VtYSBmb3LDp2EgZXh0ZXJuYSBpbnRlcmZlcml1IG5hIG1pbmhhIG1hZ2lhIG5hcXVlbGUNCmV4YXRvIG1vbWVudG8uLi4NCg0KUG9yIGZhdm9yLCBlbnRyZWd1ZSBlc3NlIERvY3VtZW50byBTZWNyZXRvIGFvIA0KQ29tYW5kYW50ZSBEZXJpay4NCk8gRG9jdW1lbnRvIGNvbnTDqW0gaW5mb3JtYcOnw7VlcyB2aXRhaXMgc29icmUgbw0KcGFyYWRlaXJvIGRlIE1pZHJhbmRhLg0Kw4kgbXVpdG8gaW1wb3J0YW50ZSENCg=="
+  }
+}

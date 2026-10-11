@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest5/ChangeJob5_5.Msg",
+    "image/party/party_DATA/Quest5/ChangeJob5_5.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest5/ChangeJob5_5.Msg",
+    "legacy_sha256": "e70329ec635488422f66e60238e8f5da809f251e7136b25f2c1020388aa5e510",
+    "legacy_size": 76
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Você passou o quinto",
+      "teste, então seu Desafio de Classe",
+      "está finalizado."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpWb2PqIHBhc3NvdSBvIHF1aW50bw0KdGVzdGUsIGVudONvIHNldSBEZXNhZmlvIGRlIENsYXNzZQ0KZXN04SBmaW5hbGl6YWRvLg=="
+  }
+}

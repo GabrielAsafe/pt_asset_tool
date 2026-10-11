@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r4_lorde_centauro",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R4 Lorde Centauro.zhoon",
+    "GameServer/Monster/Name/R4 Lorde Centauro.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R4 Lorde Centauro.zhoon",
+    "legacy_sha256": "af7392a4373a9ae0d51b92c780c8f7902a0c1323fcc57f511bd73246aa49932a",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R4 Lorde Centauro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjQgTG9yZGUgQ2VudGF1cm8i"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.gp127",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/GP127.txt",
+    "GameServer/OpenItem/GP127.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/GP127.txt",
+    "legacy_sha256": "99c0eacdc908d090b1633037b48cc9cac7c8e6b9bf23f30ed1e3959c56b35bec",
+    "legacy_size": 203
+  },
+  "semantic": {
+    "fields": {
+      "code": "GP127",
+      "name": "Cristal dos Guardiões",
+      "english_name": "Cristal dos Guardiões",
+      "level": 20,
+      "weight": 1,
+      "linked_file": "Name\\GP127.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "GP127"
+        ],
+        "raw_values_hex": [
+          "4750313237"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal dos Guardiões"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646f7320477561726469f56573"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal dos Guardiões"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646f7320477561726469f56573"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\GP127.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c47503132372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkdQMTI3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ3Jpc3RhbCBkb3MgR3VhcmRp9WVzIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkNyaXN0YWwgZG9zIEd1YXJkafVlcyINCg0KLy9MZXZlbA0KKre5uqcgMjANCg0KLy9XZWlnaHQNCiq5q7DUIDENCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxHUDEyNy56aG9vbiI="
+  }
+}

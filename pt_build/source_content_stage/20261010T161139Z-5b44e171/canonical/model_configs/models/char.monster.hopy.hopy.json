@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.hopy.hopy",
+  "logical_config": "char/monster/hopy/hopy.ini",
+  "legacy_cache": "char/monster/hopy/hopy.inx",
+  "consumers": [
+    {
+      "id": "monster.1_hopi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/1_Hopi.inf.json"
+    },
+    {
+      "id": "monster.chefe_1_zzangpi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_1_Zzangpi.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/hopy/hopy.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/hopy/hopy.inx"
+    }
+  }
+}

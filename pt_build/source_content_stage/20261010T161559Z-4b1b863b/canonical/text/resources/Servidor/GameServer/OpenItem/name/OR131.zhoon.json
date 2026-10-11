@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or131",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR131.zhoon",
+    "GameServer/OpenItem/name/OR131.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR131.zhoon",
+    "legacy_sha256": "a76c632063e6af8b326fd947f004aed03a04ded804b256c87f9c0c1920a71aa6",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel de Trono"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9PUjEzMS50eHQNCg0KKkpfTmFtZQkJIkFuZWwgZGUgVHJvbm8iDQo="
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_1_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_1_Path.sin",
+    "image/Sinimage/Quest/114LVQuest_1_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_1_Path.sin",
+    "legacy_sha256": "698e38534895c28143edd83efc775c9ad1cae176b322616a468d409495fb2636",
+    "legacy_size": 67
+  },
+  "semantic": {
+    "lines": [
+      "Por favor, derrote meus companheiros Nihil para",
+      "trazer-lhes a paz."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UG9yIGZhdm9yLCBkZXJyb3RlIG1ldXMgY29tcGFuaGVpcm9zIE5paGlsIHBhcmENCnRyYXplci1saGVzIGEgcGF6Lg=="
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monkingspider.ks",
+  "logical_config": "char/monster/monkingspider/ks.ini",
+  "legacy_cache": "char/monster/monkingspider/ks.inx",
+  "consumers": [
+    {
+      "id": "monster.96_abomina_u00e7_u00e3o",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/96_Abomina#U00e7#U00e3o.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/MonKingspider/ks.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/MonKingspider/ks.inx"
+    }
+  }
+}

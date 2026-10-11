@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest85path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest85Path.sin",
+    "image/Sinimage/Quest/LevelQuest85Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest85Path.sin",
+    "legacy_sha256": "86d757f0150c92e083dddbde21fa4e903d3a87ec40dbe574cb8f1e09047670a3",
+    "legacy_size": 224
+  },
+  "semantic": {
+    "lines": [
+      "Long time ago, a God's creature 'Grotesque' was ",
+      "made by Midranda, so hunting it may be hard.",
+      "If you wish to obtain Caliar's tear, you must ",
+      "prove that you are the strongest fighter. ",
+      "",
+      "Please hunt 10 grotesques again."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TG9uZyB0aW1lIGFnbywgYSBHb2QncyBjcmVhdHVyZSAnR3JvdGVzcXVlJyB3YXMgDQptYWRlIGJ5IE1pZHJhbmRhLCBzbyBodW50aW5nIGl0IG1heSBiZSBoYXJkLg0KSWYgeW91IHdpc2ggdG8gb2J0YWluIENhbGlhcidzIHRlYXIsIHlvdSBtdXN0IA0KcHJvdmUgdGhhdCB5b3UgYXJlIHRoZSBzdHJvbmdlc3QgZmlnaHRlci4gDQoNClBsZWFzZSBodW50IDEwIGdyb3Rlc3F1ZXMgYWdhaW4uDQo="
+  }
+}

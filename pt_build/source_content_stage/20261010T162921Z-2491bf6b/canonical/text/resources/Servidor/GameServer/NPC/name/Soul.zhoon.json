@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.soul",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Soul.zhoon",
+    "GameServer/NPC/name/Soul.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Soul.zhoon",
+    "legacy_sha256": "daad6f647957d7f26b8410ad5a11fb59a34549165747e1bfeed23f412bb7f25c",
+    "legacy_size": 209
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Alma Errante"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Majestade, por favor, escute-me."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Nossa missão precisa ser concluída, custe o que custar."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Por favor, compartilhe sua força conosco."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Tb3VsLm5wYw0KDQoqSl9OQU1FCQkiQWxtYSBFcnJhbnRlIg0KDQoqSl9DSEFUCQkiTWFqZXN0YWRlLCBwb3IgZmF2b3IsIGVzY3V0ZS1tZS4iIA0KKkpfQ0hBVAkJIk5vc3NhIG1pc3PjbyBwcmVjaXNhIHNlciBjb25jbHXtZGEsIGN1c3RlIG8gcXVlIGN1c3Rhci4iDQoqSl9DSEFUCQkiUG9yIGZhdm9yLCBjb21wYXJ0aWxoZSBzdWEgZm9y52EgY29ub3Njby4iDQo="
+  }
+}

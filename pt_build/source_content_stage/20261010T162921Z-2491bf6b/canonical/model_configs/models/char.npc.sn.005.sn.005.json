@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.sn.005.sn.005",
+  "logical_config": "char/npc/SN-005/SN-005.ini",
+  "legacy_cache": "char/npc/SN-005/SN-005.inx",
+  "consumers": [
+    {
+      "id": "npc.sod_03",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Sod_03.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/SN-005/sn-005.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/SN-005/sn-005.inx"
+    }
+  }
+}

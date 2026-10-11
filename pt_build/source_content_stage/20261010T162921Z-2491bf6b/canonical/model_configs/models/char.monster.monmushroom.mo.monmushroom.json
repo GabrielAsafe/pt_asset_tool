@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monmushroom.mo.monmushroom",
+  "logical_config": "char/monster/monmushroom-mo/monmushroom.ini",
+  "legacy_cache": "char/monster/monmushroom-mo/monmushroom.inx",
+  "consumers": [
+    {
+      "id": "monster.3_cogumelo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/3_Cogumelo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monmushroom-mo/Monmushroom.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monmushroom-mo/Monmushroom.inx"
+    }
+  }
+}

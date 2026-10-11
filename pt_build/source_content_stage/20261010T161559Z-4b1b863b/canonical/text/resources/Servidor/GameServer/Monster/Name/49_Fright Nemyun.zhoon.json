@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.49_fright_nemyun",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/49_Fright Nemyun.zhoon",
+    "GameServer/Monster/Name/49_Fright Nemyun.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/49_Fright Nemyun.zhoon",
+    "legacy_sha256": "35ebfa73dda01e0370ef8def478701574c783bddeeca962c873f0b9ef90b49a5",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Fright Nemyun"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRnJpZ2h0IE5lbXl1biI="
+  }
+}

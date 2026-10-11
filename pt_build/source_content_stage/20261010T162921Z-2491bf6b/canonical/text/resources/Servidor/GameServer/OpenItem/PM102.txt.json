@@ -1,0 +1,142 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.pm102",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PM102.txt",
+    "GameServer/OpenItem/PM102.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PM102.txt",
+    "legacy_sha256": "9bfc41f8c8c701b7bf1e47dbba93d243cc86f3a2ccbca07326b27c4baf245abc",
+    "legacy_size": 235
+  },
+  "semantic": {
+    "fields": {
+      "code": "PM102",
+      "name": "Poção Média de Mana",
+      "english_name": "Poção Média de Mana",
+      "mana_alt": [
+        130,
+        150
+      ],
+      "weight": 1,
+      "price": 500,
+      "linked_file": "Name\\PM102.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PM102"
+        ],
+        "raw_values_hex": [
+          "504d313032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Média de Mana"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204de9646961206465204d616e61"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Média de Mana"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204de9646961206465204d616e61"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "mana_alt",
+        "legacy_token": "*기력상승",
+        "legacy_token_hex": "2ab1e2b7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [
+          130,
+          150
+        ],
+        "raw_values_hex": [
+          "313330",
+          "313530"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          500
+        ],
+        "raw_values_hex": [
+          "353030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PM102.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c504d3130322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBNMTAyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gTelkaWEgZGUgTWFuYSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJQb+fjbyBN6WRpYSBkZSBNYW5hIg0KDQovL01QUmVjb3ZlcnkNCiqx4rfCu/O9wiAxMzAgMTUwDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDUwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFBNMTAyLnpob29uIg=="
+  }
+}

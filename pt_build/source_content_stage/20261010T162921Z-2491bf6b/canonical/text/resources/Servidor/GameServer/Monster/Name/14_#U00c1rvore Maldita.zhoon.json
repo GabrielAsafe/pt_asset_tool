@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.14_u00c1rvore_maldita",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/14_#U00c1rvore Maldita.zhoon",
+    "GameServer/Monster/Name/14_#U00c1rvore Maldita.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/14_#U00c1rvore Maldita.zhoon",
+    "legacy_sha256": "7dcc01cf6de203c06ce994b093fd61b40e0c617df4f2f04f0c0599b037fe23f5",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "햞vore Maldita"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiwXJ2b3JlIE1hbGRpdGEi"
+  }
+}

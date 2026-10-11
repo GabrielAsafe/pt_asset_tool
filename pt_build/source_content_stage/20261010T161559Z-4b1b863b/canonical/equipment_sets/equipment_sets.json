@@ -1,0 +1,84 @@
+{
+  "schema": "summit.equipment-sets/v1",
+  "schema_version": 1,
+  "sets": [
+    {
+      "id": "set.boss.valento_kelvezu",
+      "display_name": "Valento / Kelvezu",
+      "migration": "preserve_legacy_behavior",
+      "pieces": [
+        {
+          "item_id": "item.or125",
+          "slot": "ring_left_or_right",
+          "required_copies": 2
+        },
+        {
+          "item_id": "item.oa125",
+          "slot": "amulet",
+          "required_copies": 1
+        }
+      ],
+      "bonuses": [
+        {
+          "required_piece_count": 2,
+          "modifiers": [
+            {
+              "stat_key": "character.defence",
+              "operation": "flat",
+              "value_source": "legacy.SetBoss1Bonus1"
+            }
+          ]
+        },
+        {
+          "required_piece_count": 3,
+          "modifiers": [
+            {
+              "stat_key": "character.life",
+              "operation": "flat",
+              "value_source": "legacy.SetBoss1Bonus2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set.boss.shy_tulla",
+      "display_name": "Shy / Tulla",
+      "migration": "preserve_legacy_behavior",
+      "pieces": [
+        {
+          "item_id": "item.or126",
+          "slot": "ring_left_or_right",
+          "required_copies": 2
+        },
+        {
+          "item_id": "item.oa126",
+          "slot": "amulet",
+          "required_copies": 1
+        }
+      ],
+      "bonuses": [
+        {
+          "required_piece_count": 2,
+          "modifiers": [
+            {
+              "stat_key": "character.defence",
+              "operation": "flat",
+              "value_source": "legacy.SetBoss2Bonus1"
+            }
+          ]
+        },
+        {
+          "required_piece_count": 3,
+          "modifiers": [
+            {
+              "stat_key": "character.life",
+              "operation": "flat",
+              "value_source": "legacy.SetBoss2Bonus2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

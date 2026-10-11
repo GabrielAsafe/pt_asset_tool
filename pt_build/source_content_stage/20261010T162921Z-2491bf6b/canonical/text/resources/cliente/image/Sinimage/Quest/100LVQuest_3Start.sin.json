@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.100lvquest_3start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/100LVQuest_3Start.sin",
+    "image/Sinimage/Quest/100LVQuest_3Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/100LVQuest_3Start.sin",
+    "legacy_sha256": "f91b88990d93ec2e8aaf842cc5e2081e0eb7b6af2b34f94801010d414ee1947e",
+    "legacy_size": 474
+  },
+  "semantic": {
+    "lines": [
+      "I'll give you 2nd quest.",
+      "You need to fight Fury that I will summon.",
+      "",
+      "Too bad, it's not the Fury that is sealed in Cursed ",
+      "Temple. It just an illusion made by my willpower.",
+      "However it is more powerful and defensive than",
+      "any other normal monsters so you better look sharp! ",
+      "",
+      "Once you moved to the training stage, you can't use ",
+      "core to come out. So you better be prepare for death",
+      "to fight in this battle.",
+      "",
+      "I'll move you to the training stage if you are ready.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SSdsbCBnaXZlIHlvdSAybmQgcXVlc3QuDQpZb3UgbmVlZCB0byBmaWdodCBGdXJ5IHRoYXQgSSB3aWxsIHN1bW1vbi4NCg0KVG9vIGJhZCwgaXQncyBub3QgdGhlIEZ1cnkgdGhhdCBpcyBzZWFsZWQgaW4gQ3Vyc2VkIA0KVGVtcGxlLiBJdCBqdXN0IGFuIGlsbHVzaW9uIG1hZGUgYnkgbXkgd2lsbHBvd2VyLg0KSG93ZXZlciBpdCBpcyBtb3JlIHBvd2VyZnVsIGFuZCBkZWZlbnNpdmUgdGhhbg0KYW55IG90aGVyIG5vcm1hbCBtb25zdGVycyBzbyB5b3UgYmV0dGVyIGxvb2sgc2hhcnAhIA0KDQpPbmNlIHlvdSBtb3ZlZCB0byB0aGUgdHJhaW5pbmcgc3RhZ2UsIHlvdSBjYW4ndCB1c2UgDQpjb3JlIHRvIGNvbWUgb3V0LiBTbyB5b3UgYmV0dGVyIGJlIHByZXBhcmUgZm9yIGRlYXRoDQp0byBmaWdodCBpbiB0aGlzIGJhdHRsZS4NCg0KSSdsbCBtb3ZlIHlvdSB0byB0aGUgdHJhaW5pbmcgc3RhZ2UgaWYgeW91IGFyZSByZWFkeS4NCg0K"
+  }
+}

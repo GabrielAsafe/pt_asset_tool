@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob1a.path_825af93752",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/ChangeJob1a.Msg",
+    "image/party/party_DATA/ChangeJob1a.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/ChangeJob1a.Msg",
+    "legacy_sha256": "c311131bbc1d64cd7443221f13d92ba32692a72fa63c810a8d1e7bb5298af167",
+    "legacy_size": 178
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "For the rank-up quest, you",
+      "need to defeat 3 different",
+      "type of wolverines. Each ",
+      "will drop a horn, a claw,",
+      "and a tail. Then bring ",
+      "them back to me as an ",
+      "evidence.",
+      " ",
+      "",
+      " "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpGb3IgdGhlIHJhbmstdXAgcXVlc3QsIHlvdQ0KbmVlZCB0byBkZWZlYXQgMyBkaWZmZXJlbnQNCnR5cGUgb2Ygd29sdmVyaW5lcy4gRWFjaCANCndpbGwgZHJvcCBhIGhvcm4sIGEgY2xhdywNCmFuZCBhIHRhaWwuIFRoZW4gYnJpbmcgDQp0aGVtIGJhY2sgdG8gbWUgYXMgYW4gDQpldmlkZW5jZS4NCiANCg0KIA=="
+  }
+}

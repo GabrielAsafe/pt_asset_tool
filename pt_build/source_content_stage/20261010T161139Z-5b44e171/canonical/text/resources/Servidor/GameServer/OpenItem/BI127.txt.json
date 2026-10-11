@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi127",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI127.txt",
+    "GameServer/OpenItem/BI127.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI127.txt",
+    "legacy_sha256": "ddf14f4f43e5e91ae0733ed1ab3189b80df61ac704de257586879fbcde747bd2",
+    "legacy_size": 192
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI127",
+      "name": "Pedra da Gravidade 300 12h",
+      "english_name": "Pedra da Gravidade 300 12h",
+      "weight": 1,
+      "linked_file": "Name\\BI127.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI127"
+        ],
+        "raw_values_hex": [
+          "4249313237"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra da Gravidade 300 12h"
+        ],
+        "raw_values_hex": [
+          "5065647261206461204772617669646164652033303020313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra da Gravidade 300 12h"
+        ],
+        "raw_values_hex": [
+          "5065647261206461204772617669646164652033303020313268"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI127.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493132372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTI3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUGVkcmEgZGEgR3JhdmlkYWRlIDMwMCAxMmgiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUGVkcmEgZGEgR3JhdmlkYWRlIDMwMCAxMmgiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxMjcuemhvb24i"
+  }
+}

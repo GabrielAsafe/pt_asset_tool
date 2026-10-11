@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_undead_1end",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_undead_1end.msg",
+    "image/party/party_DATA/HaQuest/Quest_undead_1end.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_undead_1end.msg",
+    "legacy_sha256": "e7340805b61a2b75ebda3d82cafaf6fbfb798ddec1ebc22d5d72ee2fa99acd05",
+    "legacy_size": 86
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "",
+      "After finishing the quest,",
+      "you've received 2 sparky forces ",
+      "as a reward.",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoNCkFmdGVyIGZpbmlzaGluZyB0aGUgcXVlc3QsDQp5b3UndmUgcmVjZWl2ZWQgMiBzcGFya3kgZm9yY2VzIA0KYXMgYSByZXdhcmQuDQoNCg0KDQo="
+  }
+}

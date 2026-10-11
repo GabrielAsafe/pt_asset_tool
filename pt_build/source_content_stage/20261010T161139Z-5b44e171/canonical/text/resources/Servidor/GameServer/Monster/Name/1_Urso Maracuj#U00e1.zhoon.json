@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_urso_maracuj_u00e1",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Urso Maracuj#U00e1.zhoon",
+    "GameServer/Monster/Name/1_Urso Maracuj#U00e1.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Urso Maracuj#U00e1.zhoon",
+    "legacy_sha256": "81a82c04e21d3195e8728167871e28d23076a2f664e6d502db7a924e40e7025f",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Urso Maracujá"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVXJzbyBNYXJhY3Vq4SI="
+  }
+}

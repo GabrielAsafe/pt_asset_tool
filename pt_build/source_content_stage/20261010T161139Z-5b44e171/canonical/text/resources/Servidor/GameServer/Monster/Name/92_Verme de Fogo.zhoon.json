@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.92_verme_de_fogo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/92_Verme de Fogo.zhoon",
+    "GameServer/Monster/Name/92_Verme de Fogo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/92_Verme de Fogo.zhoon",
+    "legacy_sha256": "ad6e726b4bd2fd4547af6549a9e8d7ae2970713a791c781747de2fba09cc8f0f",
+    "legacy_size": 23
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Verme de Fogo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVmVybWUgZGUgRm9nbyI="
+  }
+}

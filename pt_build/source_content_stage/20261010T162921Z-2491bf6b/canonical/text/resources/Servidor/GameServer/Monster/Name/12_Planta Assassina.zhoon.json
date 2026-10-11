@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.12_planta_assassina",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/12_Planta Assassina.zhoon",
+    "GameServer/Monster/Name/12_Planta Assassina.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/12_Planta Assassina.zhoon",
+    "legacy_sha256": "98c70a1fb1681428e151be35a84b9b02d6af9b9f5b30b68c6b10756d3040aa73",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Planta Assassina"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGxhbnRhIEFzc2Fzc2luYSI="
+  }
+}

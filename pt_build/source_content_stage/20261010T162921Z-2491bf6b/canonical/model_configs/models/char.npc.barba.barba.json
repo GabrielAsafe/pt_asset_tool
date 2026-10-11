@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.barba.barba",
+  "logical_config": "char/npc/Barba/barba.ini",
+  "legacy_cache": "char/npc/Barba/barba.inx",
+  "consumers": [
+    {
+      "id": "npc.barba",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Barba.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Barba/barba.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Barba/barba.inx"
+    }
+  }
+}

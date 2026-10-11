@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.v.bee.v.bee",
+  "logical_config": "char/monster/v_bee/v_bee.ini",
+  "legacy_cache": "char/monster/v_bee/v_bee.inx",
+  "consumers": [
+    {
+      "id": "monster.80_abelha_vampira",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/80_Abelha Vampira.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/V_bee/V_bee.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/V_bee/V_bee.inx"
+    }
+  }
+}

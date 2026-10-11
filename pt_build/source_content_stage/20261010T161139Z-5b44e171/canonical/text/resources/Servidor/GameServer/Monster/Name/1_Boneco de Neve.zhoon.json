@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_boneco_de_neve",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Boneco de Neve.zhoon",
+    "GameServer/Monster/Name/1_Boneco de Neve.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Boneco de Neve.zhoon",
+    "legacy_sha256": "e58a199abcdd37c97f0c6beaea9dbe7d7c8e0af92485da2a2146c500929b2380",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Boneco de Neve"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQm9uZWNvIGRlIE5ldmUi"
+  }
+}

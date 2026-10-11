@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r8_inquisidor_negro",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R8 Inquisidor Negro.zhoon",
+    "GameServer/Monster/Name/R8 Inquisidor Negro.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R8 Inquisidor Negro.zhoon",
+    "legacy_sha256": "1ca0b0f5af5a9af598a81f96cefccaaf08f105767a6469f0a6696f0839187e9f",
+    "legacy_size": 29
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R8 Inquisidor Negro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjggSW5xdWlzaWRvciBOZWdybyI="
+  }
+}

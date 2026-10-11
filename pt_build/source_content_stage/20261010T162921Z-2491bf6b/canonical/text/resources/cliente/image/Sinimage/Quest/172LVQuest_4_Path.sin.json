@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_4_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_4_Path.sin",
+    "image/Sinimage/Quest/172LVQuest_4_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_4_Path.sin",
+    "legacy_sha256": "263a08f00cdde27b80db044ace4d80ea90dc8decbaf41dedcb4e29f5c953ce6a",
+    "legacy_size": 524
+  },
+  "semantic": {
+    "lines": [
+      "Assim como seu coração, a alma do Deus do Fogo ganhou",
+      "a forma física de um belo cristal escarlate, chamado de",
+      "Alma de Fogo. Tempos depois, a Alma de Fogo explodiu e",
+      "seus fragmentos voaram por todo continente, dando origem",
+      "aos vários vulcões que existem em nossa terra.",
+      "",
+      "Deus do Fogo... ",
+      "Subordinados de confiança...",
+      "Kelvezu...",
+      "Dama Flamejante...",
+      "",
+      "Parece que Kelvezu fez aquela caverna de seu covil para ",
+      "proteger a passagem que leva ao Coração de Fogo.",
+      "",
+      "Só mais um pouco, já estou terminando. Volte mais tarde."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QXNzaW0gY29tbyBzZXUgY29yYefjbywgYSBhbG1hIGRvIERldXMgZG8gRm9nbyBnYW5ob3UNCmEgZm9ybWEgZu1zaWNhIGRlIHVtIGJlbG8gY3Jpc3RhbCBlc2NhcmxhdGUsIGNoYW1hZG8gZGUNCkFsbWEgZGUgRm9nby4gVGVtcG9zIGRlcG9pcywgYSBBbG1hIGRlIEZvZ28gZXhwbG9kaXUgZQ0Kc2V1cyBmcmFnbWVudG9zIHZvYXJhbSBwb3IgdG9kbyBjb250aW5lbnRlLCBkYW5kbyBvcmlnZW0NCmFvcyB24XJpb3MgdnVsY/VlcyBxdWUgZXhpc3RlbSBlbSBub3NzYSB0ZXJyYS4NCg0KRGV1cyBkbyBGb2dvLi4uIA0KU3Vib3JkaW5hZG9zIGRlIGNvbmZpYW7nYS4uLg0KS2VsdmV6dS4uLg0KRGFtYSBGbGFtZWphbnRlLi4uDQoNClBhcmVjZSBxdWUgS2VsdmV6dSBmZXogYXF1ZWxhIGNhdmVybmEgZGUgc2V1IGNvdmlsIHBhcmEgDQpwcm90ZWdlciBhIHBhc3NhZ2VtIHF1ZSBsZXZhIGFvIENvcmHn428gZGUgRm9nby4NCg0KU/MgbWFpcyB1bSBwb3VjbywgauEgZXN0b3UgdGVybWluYW5kby4gVm9sdGUgbWFpcyB0YXJkZS4="
+  }
+}

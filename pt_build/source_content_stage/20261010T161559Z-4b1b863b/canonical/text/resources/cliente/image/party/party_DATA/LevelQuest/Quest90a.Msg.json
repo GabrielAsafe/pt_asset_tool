@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest90a",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/LevelQuest/Quest90a.Msg",
+    "image/party/party_DATA/LevelQuest/Quest90a.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/LevelQuest/Quest90a.Msg",
+    "legacy_sha256": "a8a02a4f615c2899f349931ecf08da78d36862dbca55c8a5dfc47f94d598696f",
+    "legacy_size": 58
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Completed the Quest and",
+      "Received sheltom named",
+      "Roitra."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpDb21wbGV0ZWQgdGhlIFF1ZXN0IGFuZA0KUmVjZWl2ZWQgc2hlbHRvbSBuYW1lZA0KUm9pdHJhLg=="
+  }
+}

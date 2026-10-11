@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monwolverin.monwolverin.02",
+  "logical_config": "char/monster/monwolverin/monwolverin-02.ini",
+  "legacy_cache": "char/monster/monwolverin/monwolverin-02.inx",
+  "consumers": [
+    {
+      "id": "monster.13_wolverine_de_ouro",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/13_Wolverine de Ouro.inf.json"
+    },
+    {
+      "id": "npc.goldenwolverin",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/goldenWolverin.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/MonWolverin/MonWolverin-02.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/MonWolverin/MonWolverin-02.inx"
+    }
+  }
+}

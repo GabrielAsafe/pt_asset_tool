@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.shunter.shunter",
+  "logical_config": "char/npc/SHunter/SHunter.ini",
+  "legacy_cache": "char/npc/SHunter/SHunter.inx",
+  "consumers": [
+    {
+      "id": "npc.shunter",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/SHunter.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/SHunter/shunter.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/SHunter/shunter.inx"
+    }
+  }
+}

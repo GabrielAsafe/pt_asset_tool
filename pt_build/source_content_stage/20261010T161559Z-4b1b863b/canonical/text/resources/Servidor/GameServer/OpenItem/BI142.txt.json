@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi142",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI142.txt",
+    "GameServer/OpenItem/BI142.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI142.txt",
+    "legacy_sha256": "ee8f0135bc9780b36f9915f4c5691feb1658693a927e81c9c3bda45dc7924be2",
+    "legacy_size": 216
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI142",
+      "name": "Pedra do Acesso - Ferreiro",
+      "english_name": "Pedra do Acesso - Ferreiro",
+      "weight": 1,
+      "price": 45000,
+      "linked_file": "Name\\BI142.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI142"
+        ],
+        "raw_values_hex": [
+          "4249313432"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra do Acesso - Ferreiro"
+        ],
+        "raw_values_hex": [
+          "506564726120646f2041636573736f202d20466572726569726f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra do Acesso - Ferreiro"
+        ],
+        "raw_values_hex": [
+          "506564726120646f2041636573736f202d20466572726569726f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          45000
+        ],
+        "raw_values_hex": [
+          "3435303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI142.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493134322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTQyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUGVkcmEgZG8gQWNlc3NvIC0gRmVycmVpcm8iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUGVkcmEgZG8gQWNlc3NvIC0gRmVycmVpcm8iDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDQ1MDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxNDIuemhvb24i"
+  }
+}

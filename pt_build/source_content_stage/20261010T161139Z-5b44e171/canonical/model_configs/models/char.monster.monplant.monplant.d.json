@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monplant.monplant.d",
+  "logical_config": "char/monster/monplant/monplant-d.ini",
+  "legacy_cache": "char/monster/monplant/monplant-d.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_14_u00c1rvore_maldita",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_14_#U00c1rvore Maldita.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monplant/MonPlant-d.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monplant/MonPlant-d.inx"
+    }
+  }
+}

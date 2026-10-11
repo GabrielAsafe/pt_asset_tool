@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_urso_ginkgo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Urso Ginkgo.zhoon",
+    "GameServer/Monster/Name/1_Urso Ginkgo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Urso Ginkgo.zhoon",
+    "legacy_sha256": "bf27b376d85e287b7333b34b85b955ce4ee96d5995a901f7459d263ce58826be",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Urso Ginkgo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVXJzbyBHaW5rZ28i"
+  }
+}

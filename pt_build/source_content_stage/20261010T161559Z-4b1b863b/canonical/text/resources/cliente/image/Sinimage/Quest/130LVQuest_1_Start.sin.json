@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_1_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/130LVQuest_1_Start.sin",
+    "image/Sinimage/Quest/130LVQuest_1_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/130LVQuest_1_Start.sin",
+    "legacy_sha256": "209478795fa47f607043f57401b6fddf401665b3440449fc941e5b684355fcfb",
+    "legacy_size": 612
+  },
+  "semantic": {
+    "lines": [
+      "A destruição gerada pela Arma Antiga, disparada por Greedy,",
+      "permitiu que Midranda invadisse o continente e tomasse o",
+      "controle de Pillai. Após uma longa batalha, ele foi",
+      "derrotado. Porém, no último instante, algo interferiu na",
+      "magia de Idhas, salvando Midranda do banimento eterno. ",
+      "Essa interferência causou rupturas na malha dimensional.",
+      "Greedy confessou que Midranda foi salvo pelo seu aliado do",
+      "povo das águas.",
+      "",
+      "Brechas dimensionais começaram a se abrir por toda a parte.",
+      "Magos e Xamãs foram enviados para fechar essas brechas.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Fale com o Xamã Real na Estrada dos Ventos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSBkZXN0cnVp5+NvIGdlcmFkYSBwZWxhIEFybWEgQW50aWdhLCBkaXNwYXJhZGEgcG9yIEdyZWVkeSwNCnBlcm1pdGl1IHF1ZSBNaWRyYW5kYSBpbnZhZGlzc2UgbyBjb250aW5lbnRlIGUgdG9tYXNzZSBvDQpjb250cm9sZSBkZSBQaWxsYWkuIEFw83MgdW1hIGxvbmdhIGJhdGFsaGEsIGVsZSBmb2kNCmRlcnJvdGFkby4gUG9y6W0sIG5vIPpsdGltbyBpbnN0YW50ZSwgYWxnbyBpbnRlcmZlcml1IG5hDQptYWdpYSBkZSBJZGhhcywgc2FsdmFuZG8gTWlkcmFuZGEgZG8gYmFuaW1lbnRvIGV0ZXJuby4gDQpFc3NhIGludGVyZmVy6m5jaWEgY2F1c291IHJ1cHR1cmFzIG5hIG1hbGhhIGRpbWVuc2lvbmFsLg0KR3JlZWR5IGNvbmZlc3NvdSBxdWUgTWlkcmFuZGEgZm9pIHNhbHZvIHBlbG8gc2V1IGFsaWFkbyBkbw0KcG92byBkYXMg4Wd1YXMuDQoNCkJyZWNoYXMgZGltZW5zaW9uYWlzIGNvbWXnYXJhbSBhIHNlIGFicmlyIHBvciB0b2RhIGEgcGFydGUuDQpNYWdvcyBlIFhhbeNzIGZvcmFtIGVudmlhZG9zIHBhcmEgZmVjaGFyIGVzc2FzIGJyZWNoYXMuDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpGYWxlIGNvbSBvIFhhbeMgUmVhbCBuYSBFc3RyYWRhIGRvcyBWZW50b3Mu"
+  }
+}

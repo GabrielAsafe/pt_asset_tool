@@ -1,0 +1,137 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.fo132",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/FO132.txt",
+    "GameServer/OpenItem/FO132.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/FO132.txt",
+    "legacy_sha256": "c0ef1a62c3be9ccbd7d0f6c08e82cc968e271ebe0571d4e079d7acc5de47e879",
+    "legacy_size": 222
+  },
+  "semantic": {
+    "fields": {
+      "code": "FO132",
+      "name": "Força Mágica Enigma",
+      "english_name": "Força Mágica Enigma",
+      "weight": 2,
+      "price": 1000,
+      "level": 90,
+      "linked_file": "Name\\FO132.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "FO132"
+        ],
+        "raw_values_hex": [
+          "464f313332"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Força Mágica Enigma"
+        ],
+        "raw_values_hex": [
+          "466f72e761204de16769636120456e69676d61"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Força Mágica Enigma"
+        ],
+        "raw_values_hex": [
+          "466f72e761204de16769636120456e69676d61"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1000
+        ],
+        "raw_values_hex": [
+          "31303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          90
+        ],
+        "raw_values_hex": [
+          "3930"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\FO132.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c464f3133322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkZPMTMyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiRm9y52EgTeFnaWNhIEVuaWdtYSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJGb3LnYSBN4WdpY2EgRW5pZ21hIg0KDQovL1dlaWdodA0KKrmrsNQgMg0KDQovL1ByaWNlDQoqsKGw3SAxMDAwDQoNCi8vTGV2ZWwNCiq3ubqnIDkwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcRk8xMzIuemhvb24i"
+  }
+}

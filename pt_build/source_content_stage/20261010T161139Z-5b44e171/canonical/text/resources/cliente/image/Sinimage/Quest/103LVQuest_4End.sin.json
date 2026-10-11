@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_4end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_4End.sin",
+    "image/Sinimage/Quest/103LVQuest_4End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_4End.sin",
+    "legacy_sha256": "2a8d12200c3bd37c86e49792536768fe99e451c740f0fd6ce7dc78ffcc86b535",
+    "legacy_size": 228
+  },
+  "semantic": {
+    "lines": [
+      "Welcome back! Finally, you have finished discarding.",
+      "Thank you. The King will honor your help. ",
+      "We will also work hard to install C-stone at ",
+      "Royal Mage.",
+      "",
+      "It is not done yet, so come back later. ",
+      "Thank you for your help."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "V2VsY29tZSBiYWNrISBGaW5hbGx5LCB5b3UgaGF2ZSBmaW5pc2hlZCBkaXNjYXJkaW5nLg0KVGhhbmsgeW91LiBUaGUgS2luZyB3aWxsIGhvbm9yIHlvdXIgaGVscC4gDQpXZSB3aWxsIGFsc28gd29yayBoYXJkIHRvIGluc3RhbGwgQy1zdG9uZSBhdCANClJveWFsIE1hZ2UuDQoNCkl0IGlzIG5vdCBkb25lIHlldCwgc28gY29tZSBiYWNrIGxhdGVyLiANClRoYW5rIHlvdSBmb3IgeW91ciBoZWxwLg0K"
+  }
+}

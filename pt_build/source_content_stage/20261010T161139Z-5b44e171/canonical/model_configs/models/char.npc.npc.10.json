@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.npc.10",
+  "logical_config": "char/npc/npc-10.ini",
+  "legacy_cache": "char/npc/npc-10.inx",
+  "consumers": [
+    {
+      "id": "npc.navisko_warehouse",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/navisko-warehouse.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": false,
+      "path": ""
+    },
+    "client": {
+      "present": false,
+      "path": ""
+    }
+  }
+}

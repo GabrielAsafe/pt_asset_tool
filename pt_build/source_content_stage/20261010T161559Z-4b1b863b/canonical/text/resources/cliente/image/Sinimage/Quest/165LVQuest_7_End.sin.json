@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_7_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_7_End.sin",
+    "image/Sinimage/Quest/165LVQuest_7_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_7_End.sin",
+    "legacy_sha256": "a212aa8cc624217fb6e7bd082f5f09e45d562ff717f250ac9a7e1bb8accd243c",
+    "legacy_size": 632
+  },
+  "semantic": {
+    "lines": [
+      "Finalmente, a guerra acabou. Você foi incrível.",
+      "Mesmo aos cacos, você se esforçou para se manter de pé ao",
+      "lado dos Líderes de Esquadrão e dos guerreiros do mar.",
+      "",
+      "Infelizmente, Midranda fez milhares de vítimas e, os que",
+      "sobreviveram, sofreram muitas tribulações.",
+      "Sou muito agradecida por todo seu apoio.",
+      "",
+      "A Alma de Fogo me preocupa. Mas temos grupos coletando os",
+      "fragmentos pelo continente. Não deixo de pensar na fala",
+      "de Gaponyeon \"Algo terrível está pra acontecer\" e não é ",
+      "Midranda. O que teremos pela frente?",
+      "",
+      "Vou preparar um documento para o Comandante Derik.",
+      "Por favor, volte daqui a pouco para pegar o documento."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmluYWxtZW50ZSwgYSBndWVycmEgYWNhYm91LiBWb2PqIGZvaSBpbmNy7XZlbC4NCk1lc21vIGFvcyBjYWNvcywgdm9j6iBzZSBlc2ZvcudvdSBwYXJhIHNlIG1hbnRlciBkZSBw6SBhbw0KbGFkbyBkb3MgTO1kZXJlcyBkZSBFc3F1YWRy428gZSBkb3MgZ3VlcnJlaXJvcyBkbyBtYXIuDQoNCkluZmVsaXptZW50ZSwgTWlkcmFuZGEgZmV6IG1pbGhhcmVzIGRlIHbtdGltYXMgZSwgb3MgcXVlDQpzb2JyZXZpdmVyYW0sIHNvZnJlcmFtIG11aXRhcyB0cmlidWxh5/Vlcy4NClNvdSBtdWl0byBhZ3JhZGVjaWRhIHBvciB0b2RvIHNldSBhcG9pby4NCg0KQSBBbG1hIGRlIEZvZ28gbWUgcHJlb2N1cGEuIE1hcyB0ZW1vcyBncnVwb3MgY29sZXRhbmRvIG9zDQpmcmFnbWVudG9zIHBlbG8gY29udGluZW50ZS4gTuNvIGRlaXhvIGRlIHBlbnNhciBuYSBmYWxhDQpkZSBHYXBvbnllb24gIkFsZ28gdGVycu12ZWwgZXN04SBwcmEgYWNvbnRlY2VyIiBlIG7jbyDpIA0KTWlkcmFuZGEuIE8gcXVlIHRlcmVtb3MgcGVsYSBmcmVudGU/DQoNClZvdSBwcmVwYXJhciB1bSBkb2N1bWVudG8gcGFyYSBvIENvbWFuZGFudGUgRGVyaWsuDQpQb3IgZmF2b3IsIHZvbHRlIGRhcXVpIGEgcG91Y28gcGFyYSBwZWdhciBvIGRvY3VtZW50by4="
+  }
+}

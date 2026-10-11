@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_morgonyte",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_morgonyte.zhoon",
+    "GameServer/Monster/Name/new_sod_morgonyte.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_morgonyte.zhoon",
+    "legacy_sha256": "8e2c046fc88a1d4079195dd6aee2a693afecfce91a9708013e83f8c6b8705342",
+    "legacy_size": 32
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Morgonyte do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJNb3Jnb255dGUgZG8gU29EIg0KDQo="
+  }
+}

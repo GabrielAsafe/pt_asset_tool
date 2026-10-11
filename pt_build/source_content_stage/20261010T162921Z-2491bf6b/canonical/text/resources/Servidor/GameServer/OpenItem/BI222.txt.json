@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi222",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI222.txt",
+    "GameServer/OpenItem/BI222.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI222.txt",
+    "legacy_sha256": "8551aaf64469fd46f7bceeafe6641a7204b31e3c724b4fcb9f7f5c3508e9e4a4",
+    "legacy_size": 199
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI222",
+      "name": "Poção de Cabelo M",
+      "english_name": "Poção de Cabelo M",
+      "weight": 1,
+      "price": 100000,
+      "linked_file": "Name\\BI222.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI222"
+        ],
+        "raw_values_hex": [
+          "4249323232"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção de Cabelo M"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f20646520436162656c6f204d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção de Cabelo M"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f20646520436162656c6f204d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI222.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493232322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMjIyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gZGUgQ2FiZWxvIE0iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUG/n428gZGUgQ2FiZWxvIE0iDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDEwMDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJJMjIyLnpob29uIg=="
+  }
+}

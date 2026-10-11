@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r6_morte_s_u00fabita",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R6 Morte S#U00fabita.zhoon",
+    "GameServer/Monster/Name/R6 Morte S#U00fabita.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R6 Morte S#U00fabita.zhoon",
+    "legacy_sha256": "3ddc2416f6a1575f48ce5bce925519cbf77cfde93f3528142368b3ca46cf1ad3",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R6 Morte Súbita"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjYgTW9ydGUgU8O6Yml0YSI="
+  }
+}

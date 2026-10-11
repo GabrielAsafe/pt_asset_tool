@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_5_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_5_Start.sin",
+    "image/Sinimage/Quest/114LVQuest_5_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_5_Start.sin",
+    "legacy_sha256": "d17d7b1893b949e3dcd198e83d9bf3b3f24eab61d065b0c5b3a29b2aadc5d5c8",
+    "legacy_size": 520
+  },
+  "semantic": {
+    "lines": [
+      "A Arma Antiga foi criada pelos pristonianos que decidiram",
+      "se voltar contra os deuses no passado.",
+      "",
+      "Na Segunda Guerra dos Deuses, os pristonianos a usaram",
+      "contra o maligno deus Midranda.",
+      "O continente foi devastado e os deuses se afastaram.",
+      "",
+      "Hoje, os pristonianos estão pagando o preço pela violência",
+      "de seus atos.",
+      "Midranda não parará até conseguir a sua vingança...",
+      "",
+      "Vocês precisam se reconciliar com os deuses, se quiserem",
+      "vencer a guerra mais uma vez.",
+      "",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Fale com a Sábia Celina."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSBBcm1hIEFudGlnYSBmb2kgY3JpYWRhIHBlbG9zIHByaXN0b25pYW5vcyBxdWUgZGVjaWRpcmFtDQpzZSB2b2x0YXIgY29udHJhIG9zIGRldXNlcyBubyBwYXNzYWRvLg0KDQpOYSBTZWd1bmRhIEd1ZXJyYSBkb3MgRGV1c2VzLCBvcyBwcmlzdG9uaWFub3MgYSB1c2FyYW0NCmNvbnRyYSBvIG1hbGlnbm8gZGV1cyBNaWRyYW5kYS4NCk8gY29udGluZW50ZSBmb2kgZGV2YXN0YWRvIGUgb3MgZGV1c2VzIHNlIGFmYXN0YXJhbS4NCg0KSG9qZSwgb3MgcHJpc3Rvbmlhbm9zIGVzdONvIHBhZ2FuZG8gbyBwcmXnbyBwZWxhIHZpb2zqbmNpYQ0KZGUgc2V1cyBhdG9zLg0KTWlkcmFuZGEgbuNvIHBhcmFy4SBhdOkgY29uc2VndWlyIGEgc3VhIHZpbmdhbudhLi4uDQoNClZvY+pzIHByZWNpc2FtIHNlIHJlY29uY2lsaWFyIGNvbSBvcyBkZXVzZXMsIHNlIHF1aXNlcmVtDQp2ZW5jZXIgYSBndWVycmEgbWFpcyB1bWEgdmV6Lg0KDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpGYWxlIGNvbSBhIFPhYmlhIENlbGluYS4NCg=="
+  }
+}

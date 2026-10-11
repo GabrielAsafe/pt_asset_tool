@@ -1,0 +1,66 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.blesscatle_guard",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/blesscatle-guard.zhoon",
+    "GameServer/NPC/name/blesscatle-guard.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/blesscatle-guard.zhoon",
+    "legacy_sha256": "203953f283b0e9083eb0a51efeff73c4cf836d88e25ad02a9613679fee9af003",
+    "legacy_size": 548
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda do Castelo"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Quando o cerco ao Castelo começa, eu saio correndo! Mas não pense que sou um covarde..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você não pode entrar no Castelo agora!"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ninguém pode entrar no Castelo, neste instante."
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se você ver minha amada Cecília, diga a ela que estou bem."
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Quando o Castelo abre suas portas, grandes guerras acontecem."
+      },
+      {
+        "line": 10,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Fiz um teste para entrar na Guarda Imperial, mas disseram que estou meio gordinho..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9ibGVzc2NhdGxlLWd1YXJkLm5wYw0KDQoqSl9OQU1FCQkiR3VhcmRhIGRvIENhc3RlbG8iDQoNCipKX0NIQVQJCSJRdWFuZG8gbyBjZXJjbyBhbyBDYXN0ZWxvIGNvbWXnYSwgZXUgc2FpbyBjb3JyZW5kbyEgTWFzIG7jbyBwZW5zZSBxdWUgc291IHVtIGNvdmFyZGUuLi4iDQoqSl9DSEFUCQkiVm9j6iBu428gcG9kZSBlbnRyYXIgbm8gQ2FzdGVsbyBhZ29yYSEiDQoqSl9DSEFUICAgICAgICAgICAiTmluZ3XpbSBwb2RlIGVudHJhciBubyBDYXN0ZWxvLCBuZXN0ZSBpbnN0YW50ZS4iDQoqSl9DSEFUICAgICAgICAgICAiU2Ugdm9j6iB2ZXIgbWluaGEgYW1hZGEgQ2Vj7WxpYSwgZGlnYSBhIGVsYSBxdWUgZXN0b3UgYmVtLiINCipKX0NIQVQgICAgICAgICAgICJRdWFuZG8gbyBDYXN0ZWxvIGFicmUgc3VhcyBwb3J0YXMsIGdyYW5kZXMgZ3VlcnJhcyBhY29udGVjZW0uIg0KKkpfQ0hBVCAgICAgICAgICAgIkZpeiB1bSB0ZXN0ZSBwYXJhIGVudHJhciBuYSBHdWFyZGEgSW1wZXJpYWwsIG1hcyBkaXNzZXJhbSBxdWUgZXN0b3UgbWVpbyBnb3JkaW5oby4uLiIgDQo="
+  }
+}

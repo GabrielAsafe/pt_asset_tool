@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dos",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Dos.zhoon",
+    "GameServer/NPC/name/Dos.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Dos.zhoon",
+    "legacy_sha256": "183dcda56371855e556e4fc183cd9e770744e1a36033a772edc9a5dccf7ea0f7",
+    "legacy_size": 224
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Dos"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu trabalho no Laboratório Secreto."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Aprendi a perfurar encaixes coloridos em seus equipamentos."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Minhas brocas atravessam até as armaduras mais resistentes."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Eb3MubnBjDQoNCipKX05BTUUJCSJEb3MiDQoNCipKX0NIQVQJCSJFdSB0cmFiYWxobyBubyBMYWJvcmF083JpbyBTZWNyZXRvLiIgDQoqSl9DSEFUCQkiQXByZW5kaSBhIHBlcmZ1cmFyIGVuY2FpeGVzIGNvbG9yaWRvcyBlbSBzZXVzIGVxdWlwYW1lbnRvcy4iDQoqSl9DSEFUCQkiTWluaGFzIGJyb2NhcyBhdHJhdmVzc2FtIGF06SBhcyBhcm1hZHVyYXMgbWFpcyByZXNpc3RlbnRlcy4iDQo="
+  }
+}

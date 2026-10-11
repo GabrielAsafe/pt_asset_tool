@@ -1,0 +1,308 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.itens_60",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Itens 60.NPC",
+    "GameServer/NPC/Itens 60.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Itens 60.NPC",
+    "legacy_sha256": "3e549f2690e3eac74ccc7b6dc0c1a60e6ff546e47f0fd9f5dbeb6bdd7707053d",
+    "legacy_size": 965
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-003\\TN-003.ini",
+      "name": "대장장이 엄프",
+      "english_name": "Abaranbo",
+      "class": 1022,
+      "sell_weapon": [
+        "ws108",
+        "ws109",
+        "ws110",
+        "ws111",
+        "WS208",
+        "ws209",
+        "ws210",
+        "ws211",
+        "WA106",
+        "wa107",
+        "wa108",
+        "wa109",
+        "WH107",
+        "wh108",
+        "wh109",
+        "wh110",
+        "WP107",
+        "wp108",
+        "wp109",
+        "wp110",
+        "WC106",
+        "wc107",
+        "wc108",
+        "wc109",
+        "WT107",
+        "wt108",
+        "wt109",
+        "wt110"
+      ],
+      "sell_defence": [
+        "DA107",
+        "DA108",
+        "da109",
+        "da110",
+        "DB106",
+        "DB107",
+        "db108",
+        "db109",
+        "DG106",
+        "DG107",
+        "dg108",
+        "dg109",
+        "DS106",
+        "DS107",
+        "ds108",
+        "ds109",
+        "OA206",
+        "OA207",
+        "oa208",
+        "oa209"
+      ],
+      "sell_etc": "없음",
+      "linked_file": "name\\Itens 60.zhoon",
+      "model_config_id": "model.char.npc.tn.003.tn.003"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-003\\TN-003.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030335c544e2d3030332e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "대장장이 엄프"
+        ],
+        "raw_values_hex": [
+          "b4ebc0e5c0e5c0cc20bef6c7c1"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Abaranbo"
+        ],
+        "raw_values_hex": [
+          "41626172616e626f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1022
+        ],
+        "raw_values_hex": [
+          "31303232"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "ws108",
+          "ws109",
+          "ws110",
+          "ws111",
+          "WS208",
+          "ws209",
+          "ws210",
+          "ws211",
+          "WA106",
+          "wa107",
+          "wa108",
+          "wa109",
+          "WH107",
+          "wh108",
+          "wh109",
+          "wh110",
+          "WP107",
+          "wp108",
+          "wp109",
+          "wp110",
+          "WC106",
+          "wc107",
+          "wc108",
+          "wc109",
+          "WT107",
+          "wt108",
+          "wt109",
+          "wt110"
+        ],
+        "raw_values_hex": [
+          "7773313038",
+          "7773313039",
+          "7773313130",
+          "7773313131",
+          "5753323038",
+          "7773323039",
+          "7773323130",
+          "7773323131",
+          "5741313036",
+          "7761313037",
+          "7761313038",
+          "7761313039",
+          "5748313037",
+          "7768313038",
+          "7768313039",
+          "7768313130",
+          "5750313037",
+          "7770313038",
+          "7770313039",
+          "7770313130",
+          "5743313036",
+          "7763313037",
+          "7763313038",
+          "7763313039",
+          "5754313037",
+          "7774313038",
+          "7774313039",
+          "7774313130"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "DA107",
+          "DA108",
+          "da109",
+          "da110",
+          "DB106",
+          "DB107",
+          "db108",
+          "db109",
+          "DG106",
+          "DG107",
+          "dg108",
+          "dg109",
+          "DS106",
+          "DS107",
+          "ds108",
+          "ds109",
+          "OA206",
+          "OA207",
+          "oa208",
+          "oa209"
+        ],
+        "raw_values_hex": [
+          "4441313037",
+          "4441313038",
+          "6461313039",
+          "6461313130",
+          "4442313036",
+          "4442313037",
+          "6462313038",
+          "6462313039",
+          "4447313036",
+          "4447313037",
+          "6467313038",
+          "6467313039",
+          "4453313036",
+          "4453313037",
+          "6473313038",
+          "6473313039",
+          "4f41323036",
+          "4f41323037",
+          "6f61323038",
+          "6f61323039"
+        ]
+      },
+      {
+        "line": 22,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 25,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Itens 60.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4974656e732036302e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDAzXFROLTAwMy5pbmkiDQoNCirAzLinCQkJIrTrwOXA5cDMIL72x8EiDQoqTmFtZQkJCSJBYmFyYW5ibyINCg0KKrDosd4gMTAyMg0KDQovLyq068itCQkJIsDMsM216cC6ILPXuvG9usTawMcgxq+76sewwMy/5CCzqiC4u7DttMIgvsa5q7W1ILi4tem+7iCzviC89iC++LTCILHNx9EgsM216SC708DMtM8gtdG3ryC6uL3Dsbi3wSINCi8vKrTryK0JCQkiwMwgtOu3+r+hvK0gs6q6uLTZILCtx9Eguaux4r/NILnmvu6xuLimILv9u+rH2CCzu7TCILvntvfAuiC++MC4tM8gwN8gsPG28yC6uL20Ig0KLy8qtOvIrQkJCSJTT0S/oSDC/LChx8+0wiDA/LvntenAuiC+87i2s6ogsK3H0SDA5brxtenAuyCwocH2sO0gwNax5rehILO7ILChsNS/obTCIL7zvsC1tSC+yCDHz7TCwfYgsMXC/CINCi8vKrTryK0JCQkiwNogxsggsM3AzCDA1sC4uOkgvu68rSCzu7P1sO0gu+wgsM3AzCDA1sC4uOkgwN8gsPG28yC6uLbzsO0gtOu3+iDD1rCtwMcgwOW68bXpuLggxsiw7SDA1sC4tM+x7i4iDQoNCg0KLy/Gx7jFILmrseK3+Swguea+7rG4LCDA4sitILf5sKEgxse4xbXKLA0KDQoquaux4sbHuMUJd3MxMDggd3MxMDkgd3MxMTAgd3MxMTEJCVdTMjA4IHdzMjA5IHdzMjEwIHdzMjExCQlXQTEwNiB3YTEwNyB3YTEwOCB3YTEwOQkJV0gxMDcgd2gxMDggd2gxMDkgd2gxMTAJCVdQMTA3IHdwMTA4IHdwMTA5IHdwMTEwCQlXQzEwNiB3YzEwNyB3YzEwOCB3YzEwOQkJV1QxMDcgd3QxMDggd3QxMDkgd3QxMTANCg0KKrnmvu6xuMbHuMUJREExMDcgREExMDggZGExMDkgZGExMTAJCURCMTA2IERCMTA3IGRiMTA4IGRiMTA5CQlERzEwNiBERzEwNyBkZzEwOCBkZzEwOQkJRFMxMDYgRFMxMDcgZHMxMDggZHMxMDkJCU9BMjA2IE9BMjA3IG9hMjA4IG9hMjA5DQoNCirA4sitxse4xQm++MC9DQoNCg0KKr+ssOHGxMDPCSJuYW1lXEl0ZW5zIDYwLnpob29uIg0KDQo="
+  }
+}

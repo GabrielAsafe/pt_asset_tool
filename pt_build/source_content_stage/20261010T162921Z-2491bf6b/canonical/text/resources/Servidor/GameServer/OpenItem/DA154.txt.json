@@ -1,0 +1,308 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da154",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA154.txt",
+    "GameServer/OpenItem/DA154.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA154.txt",
+    "legacy_sha256": "9c9f1225e827f83f64d8e46a65ae69775395af4badaf5cb3d56f40b973d8899a",
+    "legacy_size": 510
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA154",
+      "name": "Roupa de Natação M (3d)",
+      "english_name": "Roupa de Natação M (3d)",
+      "defence": [
+        260,
+        260
+      ],
+      "absorb": [
+        3.9,
+        3.9
+      ],
+      "bionic": [
+        5,
+        5
+      ],
+      "fire": [
+        5,
+        5
+      ],
+      "ice": [
+        5,
+        5
+      ],
+      "lightning": [
+        5,
+        5
+      ],
+      "poison": [
+        5,
+        5
+      ],
+      "life_add_alt": [
+        10,
+        10
+      ],
+      "mana_add_alt": [
+        20,
+        20
+      ],
+      "level": 20,
+      "weight": 50,
+      "price": 100000,
+      "linked_file": "Name\\DA154.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA154"
+        ],
+        "raw_values_hex": [
+          "4441313534"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Roupa de Natação M (3d)"
+        ],
+        "raw_values_hex": [
+          "526f757061206465204e617461e7e36f204d2028336429"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Roupa de Natação M (3d)"
+        ],
+        "raw_values_hex": [
+          "526f757061206465204e617461e7e36f204d2028336429"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          260,
+          260
+        ],
+        "raw_values_hex": [
+          "323630",
+          "323630"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.9,
+          3.9
+        ],
+        "raw_values_hex": [
+          "332e39",
+          "332e39"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          10,
+          10
+        ],
+        "raw_values_hex": [
+          "3130",
+          "3130"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          20,
+          20
+        ],
+        "raw_values_hex": [
+          "3230",
+          "3230"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA154.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413135342e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMTU0Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUm91cGEgZGUgTmF0YefjbyBNICgzZCkiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUm91cGEgZGUgTmF0YefjbyBNICgzZCkiDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiAyNjAgMjYwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiAzLjkgMy45DQoNCi8vT3JnYW5pY1Jlc2lzdGFuY2UNCiq7/cO8IDUgNQ0KDQovL0ZpcmVSZXNpc3RhbmNlDQoqutIgNSA1DQoNCi8vRnJvc3RSZXNpc3RhbmNlDQoqs8Ox4iA1IDUNCg0KLy9MaWdodG5pbmdSZXNpc3RhbmNlDQoqufiwsyA1IDUNCg0KLy9Qb2lzb25SZXNpc3RhbmNlDQoqtbYgNSA1DQoNCi8vSFANCiq7/bjtt8LD37ChIDEwIDEwDQoNCi8vTVANCiqx4rfCw9+woSAyMCAyMA0KDQovL0xldmVsDQoqt7m6pyAyMA0KDQovL1dlaWdodA0KKrmrsNQgNTANCg0KLy9QcmljZQ0KKrChsN0gMTAwMDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcREExNTQuemhvb24i"
+  }
+}

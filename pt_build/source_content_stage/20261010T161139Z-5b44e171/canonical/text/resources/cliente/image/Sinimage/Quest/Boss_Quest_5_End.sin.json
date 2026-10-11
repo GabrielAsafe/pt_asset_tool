@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_5_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_5_End.sin",
+    "image/Sinimage/Quest/Boss_Quest_5_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_5_End.sin",
+    "legacy_sha256": "549f1160be459d11e5a2ab17e1cc5a508707e00b959c66e095e15bbe39b22c1e",
+    "legacy_size": 143
+  },
+  "semantic": {
+    "lines": [
+      "Uau.. Sua habilidade é realmente incrível!",
+      "",
+      "Como agradecimento por sua ajuda, aceite um pouco de",
+      "experiência e 1 Caixa de Aventura Inferior."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VWF1Li4gU3VhIGhhYmlsaWRhZGUg6SByZWFsbWVudGUgaW5jcu12ZWwhDQoNCkNvbW8gYWdyYWRlY2ltZW50byBwb3Igc3VhIGFqdWRhLCBhY2VpdGUgdW0gcG91Y28gZGUNCmV4cGVyaepuY2lhIGUgMSBDYWl4YSBkZSBBdmVudHVyYSBJbmZlcmlvci4="
+  }
+}

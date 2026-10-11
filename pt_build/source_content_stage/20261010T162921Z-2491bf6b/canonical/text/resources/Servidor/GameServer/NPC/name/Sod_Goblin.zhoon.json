@@ -1,0 +1,60 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sod_goblin",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Sod_Goblin.zhoon",
+    "GameServer/NPC/name/Sod_Goblin.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Sod_Goblin.zhoon",
+    "legacy_sha256": "ba779b4bce387d51667f10697b2f340c463b60fb08584f1691de0c67ceb32679",
+    "legacy_size": 423
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Hobgoblin"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Entre em fila, por favor."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ei, você aí furando a fila! O que está fazendo? Entre na fila direito."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "O SoD acontece todos os dias ao amanhecer. Respeite o horário."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "A pontuação obtida no SoD pode ser convertida em prêmio depois. Tente alcançar a maior pontuação!"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "A entrada na arena do SoD possui restrições de nível. Prepare-se com antecedência."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkhvYmdvYmxpbiINCg0KKkpfQ0hBVAkJIkVudHJlIGVtIGZpbGEsIHBvciBmYXZvci4iDQoqSl9DSEFUCQkiRWksIHZvY+ogYe0gZnVyYW5kbyBhIGZpbGEhIE8gcXVlIGVzdOEgZmF6ZW5kbz8gRW50cmUgbmEgZmlsYSBkaXJlaXRvLiINCipKX0NIQVQJCSJPIFNvRCBhY29udGVjZSB0b2RvcyBvcyBkaWFzIGFvIGFtYW5oZWNlci4gUmVzcGVpdGUgbyBob3LhcmlvLiINCipKX0NIQVQJCSJBIHBvbnR1YefjbyBvYnRpZGEgbm8gU29EIHBvZGUgc2VyIGNvbnZlcnRpZGEgZW0gcHLqbWlvIGRlcG9pcy4gVGVudGUgYWxjYW7nYXIgYSBtYWlvciBwb250dWHn428hIg0KKkpfQ0hBVAkJIkEgZW50cmFkYSBuYSBhcmVuYSBkbyBTb0QgcG9zc3VpIHJlc3Ryaef1ZXMgZGUgbu12ZWwuIFByZXBhcmUtc2UgY29tIGFudGVjZWTqbmNpYS4i"
+  }
+}

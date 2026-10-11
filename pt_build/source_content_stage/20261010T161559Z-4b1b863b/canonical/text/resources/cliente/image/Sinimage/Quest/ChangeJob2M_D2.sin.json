@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob2m_d2",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob2M_D2.sin",
+    "image/Sinimage/Quest/ChangeJob2M_D2.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob2M_D2.sin",
+    "legacy_sha256": "f6b5871e755828763b5e6fa14e1fa67d2305a8c8672217b37536481ca45e519c",
+    "legacy_size": 189
+  },
+  "semantic": {
+    "lines": [
+      "There are no freebies! Bring the hair loss",
+      "treatment now! You can make treatments by ",
+      "aging 7 drops of oil from the devilish ",
+      "tree. Don't you remember what I have told ",
+      "you last time?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhlcmUgYXJlIG5vIGZyZWViaWVzISBCcmluZyB0aGUgaGFpciBsb3NzDQp0cmVhdG1lbnQgbm93ISBZb3UgY2FuIG1ha2UgdHJlYXRtZW50cyBieSANCmFnaW5nIDcgZHJvcHMgb2Ygb2lsIGZyb20gdGhlIGRldmlsaXNoIA0KdHJlZS4gRG9uJ3QgeW91IHJlbWVtYmVyIHdoYXQgSSBoYXZlIHRvbGQgDQp5b3UgbGFzdCB0aW1lPw0K"
+  }
+}

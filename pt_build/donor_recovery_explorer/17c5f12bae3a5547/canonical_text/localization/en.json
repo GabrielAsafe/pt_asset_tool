@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "en",
+  "fallback_locale": null,
+  "entries": [
+    {
+      "key": "monster.105_i_marionette.name",
+      "text": "V-Marionette",
+      "quality": "translated",
+      "source": "monster.105_i_marionette"
+    }
+  ]
+}

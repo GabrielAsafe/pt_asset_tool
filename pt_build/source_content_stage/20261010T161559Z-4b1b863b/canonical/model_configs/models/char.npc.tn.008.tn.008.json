@@ -1,0 +1,53 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.008.tn.008",
+  "logical_config": "char/npc/TN-008/TN-008.INI",
+  "legacy_cache": "char/npc/TN-008/TN-008.inx",
+  "consumers": [
+    {
+      "id": "npc.babelquest",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/BABELQUEST.NPC.json"
+    },
+    {
+      "id": "npc.coward",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/coward.npc.json"
+    },
+    {
+      "id": "npc.cristais",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Cristais.npc.json"
+    },
+    {
+      "id": "npc.cristal",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/cristal.NPC.json"
+    },
+    {
+      "id": "npc.loja_de_cristais",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Loja de Cristais.NPC.json"
+    },
+    {
+      "id": "npc.sod_goblin",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Sod_Goblin.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-008/TN-008.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-008/TN-008.inx"
+    }
+  }
+}

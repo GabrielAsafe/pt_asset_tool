@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wm153",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WM153.zhoon",
+    "GameServer/OpenItem/name/WM153.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WM153.zhoon",
+    "legacy_sha256": "9b887d10864cff279afa95e2514424c24ebefc593e4498d7bdd1b5f60fa0926c",
+    "legacy_size": 45
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Cajado de Suporte"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTTE1My50eHQNCg0KKkpfTmFtZQkJIkNhamFkbyBkZSBTdXBvcnRlIg0K"
+  }
+}

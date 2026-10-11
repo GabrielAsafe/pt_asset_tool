@@ -1,0 +1,74 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.dun_3",
+  "logical_path": "GameServer/Field/dun-3.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/dun-3.ase.spm",
+    "sha256": "5227ed7d14ac07a5aad656c8d28076717f30cd5ad522253f97646a5925b353dd"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.52_carniceiro",
+      "legacy_name": "Carniceiro",
+      "legacy_name_bytes_hex": "4361726e69636569726f",
+      "weight": 22,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.64_rei_hopi",
+      "legacy_name": "Rei Hopi",
+      "legacy_name_bytes_hex": "52656920486f7069",
+      "weight": 3,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.62_figon",
+      "legacy_name": "Figon",
+      "legacy_name_bytes_hex": "4669676f6e",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.60_cavaleiro_fantasma",
+      "legacy_name": "Cavaleiro Fantasma",
+      "legacy_name_bytes_hex": "436176616c6569726f2046616e7461736d61",
+      "weight": 22,
+      "resolution": "explicit_compatibility_override"
+    },
+    {
+      "monster_id": "monster.50_cavaleiro_do_mal",
+      "legacy_name": "Cavaleiro do Mal",
+      "legacy_name_bytes_hex": "436176616c6569726f20646f204d616c",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.42_m_u00famia",
+      "legacy_name": "M?ia",
+      "legacy_name_bytes_hex": "4d3f6961",
+      "weight": 20,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_64_rosa_sangrenta",
+      "slave_monster_id": "monster.60_cavaleiro_fantasma",
+      "master_legacy_name": "Rosa Sangrenta",
+      "slave_legacy_name": "Cavaleiro Fantasma",
+      "master_legacy_name_bytes_hex": "526f73612053616e6772656e7461",
+      "slave_legacy_name_bytes_hex": "436176616c6569726f2046616e7461736d61",
+      "slave_count": 6,
+      "open_hours": [],
+      "master_resolution": "exact",
+      "slave_resolution": "explicit_compatibility_override"
+    }
+  ]
+}

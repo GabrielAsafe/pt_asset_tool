@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.hopyking.hopyking",
+  "logical_config": "char/monster/hopyking/hopyking.ini",
+  "legacy_cache": "char/monster/hopyking/hopyking.inx",
+  "consumers": [
+    {
+      "id": "monster.64_rei_hopi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/64_Rei Hopi.inf.json"
+    },
+    {
+      "id": "monster.r2_rei_hopi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R2 Rei Hopi.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/hopyking/hopyking.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/hopyking/hopyking.inx"
+    }
+  }
+}

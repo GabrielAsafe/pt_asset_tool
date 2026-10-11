@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.soccer.path_ce4d61f4fe",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Soccer.zhoon",
+    "GameServer/NPC/name/Soccer.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Soccer.zhoon",
+    "legacy_sha256": "631bfebc506b1ba0ad308dde462fa7cb2b923a8599a0ed55240638df4bd2a7c5",
+    "legacy_size": 172
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Chris"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "I will give you a gift if you bring me 7 soccer balls."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "I love soccer so much that I collect many scoccer balls."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9Tb2NjZXIubnBjDQoNCipKX05BTUUJCSJDaHJpcyINCg0KKkpfQ0hBVAkJIkkgd2lsbCBnaXZlIHlvdSBhIGdpZnQgaWYgeW91IGJyaW5nIG1lIDcgc29jY2VyIGJhbGxzLiINCipKX0NIQVQJCSJJIGxvdmUgc29jY2VyIHNvIG11Y2ggdGhhdCBJIGNvbGxlY3QgbWFueSBzY29jY2VyIGJhbGxzLiINCg=="
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.pandorapilla",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Pandorapilla.Zhoon",
+    "GameServer/NPC/name/Pandorapilla.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Pandorapilla.Zhoon",
+    "legacy_sha256": "c62fcf87e99c443f78d4f96470bcd559a3abc129e975547f3744ecea5ac69929",
+    "legacy_size": 214
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Pandora, a Estilista"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "E ai, o que achou ? Aproveite!"
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Conheça o novo Sistema de Trajes"
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Estarei aqui por pouco tempo, portanto, Aproveite!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9QYW5kb3JhcGlsbGEuTlBDDQoNCg0KKkpfTmFtZQkiUGFuZG9yYSwgYSBFc3RpbGlzdGEiDQoNCg0KKkpfQ2hhdAkiRSBhaSwgbyBxdWUgYWNob3UgPyBBcHJvdmVpdGUhIg0KDQoqSl9DaGF0CSJDb25oZedhIG8gbm92byBTaXN0ZW1hIGRlIFRyYWplcyINCg0KKkpfQ2hhdAkiRXN0YXJlaSBhcXVpIHBvciBwb3VjbyB0ZW1wbywgcG9ydGFudG8sIEFwcm92ZWl0ZSEiDQoNCg=="
+  }
+}

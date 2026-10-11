@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.bridge_guard",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/bridge-guard.npc",
+    "GameServer/NPC/bridge-guard.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/bridge-guard.npc",
+    "legacy_sha256": "2bcf789e91bf08357f1ce3d66527b752ec9af295d22d6755936cc37f9e1601e6",
+    "legacy_size": 400
+  },
+  "semantic": {
+    "fields": {
+      "name": "다리 경비병",
+      "model_file": "char\\npc\\TN-001\\TN-001.INI",
+      "level": 100,
+      "linked_file": "name\\bridge-guard.zhoon",
+      "model_config_id": "model.char.npc.tn.001.tn.001"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "다리 경비병"
+        ],
+        "raw_values_hex": [
+          "b4d9b8ae20b0e6baf1bab4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-001\\TN-001.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030315c544e2d3030312e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 9,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\bridge-guard.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6272696467652d67756172642e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK02biuILDmuvG6tCINCiq48L7nxsTAzwkiY2hhclxucGNcVE4tMDAxXFROLTAwMS5JTkkiDQoqt7m6pwkJMTAwDQovLyq068itCQkiwMwgtNm4riCzyrjTv6G0wiCwrbfCx9EguPO9usXNtenAzCCzqsW4s6q0zyCworqwyPcgwba9ycfPvcO/wC4iDQovLyq068itCQkivvDBpiC5q7PKwfrB9iC48LijtMIgv8C3obXIILTZuK60zyDBtr3Jx8+9w7/ALg0KLy8qtOvIrQkJIsDMILTZuK4gs8q407fOtMIgwKfH6MfRIMDPwMwgseK02biusO0gwNbAuLTPILTctNzI9yCwor/Ax8+9w7/ALiINCi8vKrTryK0JCSKz17rxvbrE2iDCysC4t84gsKG9w7/APyC757i3ILDmuvG6tMC7ILq4sMW16bb7IL7Ius6zqiDA/MfYwda9w7/ALiINCg0KKr+ssOHGxMDPCSJuYW1lXGJyaWRnZS1ndWFyZC56aG9vbiINCg=="
+  }
+}

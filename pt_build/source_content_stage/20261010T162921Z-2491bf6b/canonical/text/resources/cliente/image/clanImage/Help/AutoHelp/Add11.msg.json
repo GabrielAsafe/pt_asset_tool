@@ -1,0 +1,43 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.add11",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/Add11.msg",
+    "image/clanImage/Help/AutoHelp/Add11.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/Add11.msg",
+    "legacy_sha256": "6bbb677ddeb01fbe7503678abf2088753453f4fa05663c835b3a10d22e2f329b",
+    "legacy_size": 816
+  },
+  "semantic": {
+    "lines": [
+      "Have you ever heard the Force Orb? it is the ATK reinforcement",
+      "system raised great power when in battle after refining sheltom",
+      "through Force Master.",
+      "however you may have to aware of Force Orb well-matched to",
+      "your level. it is the reason that sort, capacity, and time of",
+      "maintenance are adopted differently according to your",
+      "character's level.",
+      "Lucidy    500  Lucidy force    1-19    added ATK POW  +2 300sec",
+      "Sereno   1000  Sereno force    1-29    added ATK POW  +4 300sec",
+      "Fadeo    2000  Fadeo force     1-39    added ATK POW  +7 300sec",
+      "Sparky   4000  Sparky force    1-49    added ATK POW +10 300sec",
+      "Raident  7000  Raident force   over 50 added ATK POW +15 500sec",
+      "Transparo 10K  Transparo force over 50 added ATK POW +25 700sec",
+      "Murky     20K  Murky force     over 50 added ATK POW +40 1800sec",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SGF2ZSB5b3UgZXZlciBoZWFyZCB0aGUgRm9yY2UgT3JiPyBpdCBpcyB0aGUgQVRLIHJlaW5mb3JjZW1lbnQNCnN5c3RlbSByYWlzZWQgZ3JlYXQgcG93ZXIgd2hlbiBpbiBiYXR0bGUgYWZ0ZXIgcmVmaW5pbmcgc2hlbHRvbQ0KdGhyb3VnaCBGb3JjZSBNYXN0ZXIuDQpob3dldmVyIHlvdSBtYXkgaGF2ZSB0byBhd2FyZSBvZiBGb3JjZSBPcmIgd2VsbC1tYXRjaGVkIHRvDQp5b3VyIGxldmVsLiBpdCBpcyB0aGUgcmVhc29uIHRoYXQgc29ydCwgY2FwYWNpdHksIGFuZCB0aW1lIG9mDQptYWludGVuYW5jZSBhcmUgYWRvcHRlZCBkaWZmZXJlbnRseSBhY2NvcmRpbmcgdG8geW91cg0KY2hhcmFjdGVyJ3MgbGV2ZWwuDQpMdWNpZHkgICAgNTAwICBMdWNpZHkgZm9yY2UgICAgMS0xOSAgICBhZGRlZCBBVEsgUE9XICArMiAzMDBzZWMNClNlcmVubyAgIDEwMDAgIFNlcmVubyBmb3JjZSAgICAxLTI5ICAgIGFkZGVkIEFUSyBQT1cgICs0IDMwMHNlYw0KRmFkZW8gICAgMjAwMCAgRmFkZW8gZm9yY2UgICAgIDEtMzkgICAgYWRkZWQgQVRLIFBPVyAgKzcgMzAwc2VjDQpTcGFya3kgICA0MDAwICBTcGFya3kgZm9yY2UgICAgMS00OSAgICBhZGRlZCBBVEsgUE9XICsxMCAzMDBzZWMNClJhaWRlbnQgIDcwMDAgIFJhaWRlbnQgZm9yY2UgICBvdmVyIDUwIGFkZGVkIEFUSyBQT1cgKzE1IDUwMHNlYw0KVHJhbnNwYXJvIDEwSyAgVHJhbnNwYXJvIGZvcmNlIG92ZXIgNTAgYWRkZWQgQVRLIFBPVyArMjUgNzAwc2VjDQpNdXJreSAgICAgMjBLICBNdXJreSBmb3JjZSAgICAgb3ZlciA1MCBhZGRlZCBBVEsgUE9XICs0MCAxODAwc2VjDQoNCg0KDQoNCg0K"
+  }
+}

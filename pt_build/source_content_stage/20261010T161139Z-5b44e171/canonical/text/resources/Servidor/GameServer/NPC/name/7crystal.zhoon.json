@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.7crystal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/7crystal.zhoon",
+    "GameServer/NPC/name/7crystal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/7crystal.zhoon",
+    "legacy_sha256": "c86302e68c07c970d09293ec39f9e3c719a6c3d08e09f52c6588d59f70b18990",
+    "legacy_size": 624
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Dela, a Viajante"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkRlbGEsIGEgVmlhamFudGUiDQoNCi8vKkpfQ0hBVAkJIlRoaXMgcG90aW9uIGlzIG1hZGUgZnJvbSBuYXR1cmFsIHNwcmluZyB3YXRlci4gUHJpZXN0ZXNzZXMgd2FzaCB0aGVtc2VsdmVzIGluIHRoZSBzcHJpbmcgZnJvbSB0aW1lIHRvIHRpbWUsIGFuZCBpdCdzIHZlcnkgZWZmZWN0aXZlISINCi8vKkpfQ0hBVAkJIlZpdGFsIHdhdGVyIGZyb20gdGhpcyBzcHJpbmcgaXMgZm9yIHNhbGUuIElmIHlvdSBuZWVkIHZpdGFsIHdhdGVyIG9yIGhhdmUgaXRlbXMgdG8gc2VsbCwgbGV0IG1lIGtub3cuIg0KLy8qSl9DSEFUCQkiTm90IGV2ZXJ5b25lIGNhbiBlbnRlciB0aGUgQmVlaGl2ZSBDYXZlIGluIHRoZSB3ZXN0c2lkZSBvZiB0aGUgTGFuZCBvZiBEdXNrLiAiDQovLypKX0NIQVQJCSJCZWUgZG9ncyBhbmQgRGV2aWxpc2ggVHJlZXMgaW4gdGhlIEZvcmVzdCBvZiBTcGlyaXRzIG9uIHRoZSBzb3V0aCBvZiBMYW5kIG9mIER1c2sgcHJvZHVjZSBob25leSBhbmQgbXlzdGVyaW91cyBvaWwuIFdoYXQgYXJlIHRoZXkgZm9yPyINCi8vKkpfQ0hBVAkJIlBsZWFzZSB2aXNpdCB3d3cubmV0cGxheS5waCBmb3IgbW9yZSBpbmZvcm1hdGlvbiBvbiBldmVudHMgYW5kIGluLWdhbWUgaGVscC4i"
+  }
+}

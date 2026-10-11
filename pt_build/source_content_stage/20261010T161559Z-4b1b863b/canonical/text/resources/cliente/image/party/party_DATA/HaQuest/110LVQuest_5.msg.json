@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/110LVQuest_5.msg",
+    "image/party/party_DATA/HaQuest/110LVQuest_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/110LVQuest_5.msg",
+    "legacy_sha256": "f3492b913157e1a1c39fc264843b9293e47180c108406855cd367add9ed03d09",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "lines": [
+      "Fale com Newter, o Sábio, em",
+      "Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmFsZSBjb20gTmV3dGVyLCBvIFPhYmlvLCBlbQ0KUGlsbGFpLg=="
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.os131",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OS131.txt",
+    "GameServer/OpenItem/OS131.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OS131.txt",
+    "legacy_sha256": "aa3a4feafd6dc8218ec915cf83ddaa56c1335973d93561b9d857a9a406b00d5a",
+    "legacy_size": 191
+  },
+  "semantic": {
+    "fields": {
+      "code": "OS131",
+      "name": "Inferna Mágico",
+      "english_name": "Inferna Mágico",
+      "weight": 2,
+      "price": 1000,
+      "linked_file": "Name\\OS131.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OS131"
+        ],
+        "raw_values_hex": [
+          "4f53313331"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Inferna Mágico"
+        ],
+        "raw_values_hex": [
+          "496e6665726e61204de16769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Inferna Mágico"
+        ],
+        "raw_values_hex": [
+          "496e6665726e61204de16769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1000
+        ],
+        "raw_values_hex": [
+          "31303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OS131.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f533133312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9TMTMxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiSW5mZXJuYSBN4WdpY28iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiSW5mZXJuYSBN4WdpY28iDQoNCi8vV2VpZ2h0DQoquauw1CAyDQoNCi8vUHJpY2UNCiqwobDdIDEwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxPUzEzMS56aG9vbiI="
+  }
+}

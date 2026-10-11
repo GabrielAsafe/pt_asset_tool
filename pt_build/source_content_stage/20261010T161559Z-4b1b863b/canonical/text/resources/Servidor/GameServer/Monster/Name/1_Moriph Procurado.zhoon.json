@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_moriph_procurado",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Moriph Procurado.zhoon",
+    "GameServer/Monster/Name/1_Moriph Procurado.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Moriph Procurado.zhoon",
+    "legacy_sha256": "411e5f02b66a7d3118c2d48b9ecda8d001a9a99d3dd118352d825b1980969035",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Moriph Procurado"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTW9yaXBoIFByb2N1cmFkbyI="
+  }
+}

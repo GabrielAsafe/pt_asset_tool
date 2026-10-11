@@ -1,0 +1,43 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest80_2start2",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest80_2start2.sin",
+    "image/Sinimage/Quest/LevelQuest80_2start2.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest80_2start2.sin",
+    "legacy_sha256": "47fc80e67da458b39ff195de8c92a152f5e201519b0550aceba05e30a70ecf2e",
+    "legacy_size": 700
+  },
+  "semantic": {
+    "lines": [
+      "I don't have any memories after sunset. As ",
+      "travelers' talk, the Sheltoms of Golden, Silver ",
+      "and Bronze Vamps can help me to bring back my ",
+      "memories. But I can¡¯t get those things easily. ",
+      "I've heard that the clan chief monsters in ",
+      "Priston land had them. Can you bring them to me?",
+      "",
+      "[Quest]",
+      "",
+      "Hunt the clan chief monsters. And bring a Golden ",
+      "Vamp, a Silver Vamp, and a Bronze Vamp to Minuren.",
+      "The Golden Vamp from: STYX Archon, Ra¡¯shas.",
+      "The Silver Vamp from: Slayon, HellSing, ",
+      "Vermun Actarun, Vega Demitri, Unholy Knight, ",
+      "Bloody Rose.",
+      "The Bronze Vamp from: Apostasy, Vega Demir, ",
+      "El Rasi Kun, ZZangPy, Eed, Platin Mav, ",
+      "Guilty Gorden, Grave Shakins, Bauton, Cyclone, ",
+      "Mekhist. "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SSBkb24ndCBoYXZlIGFueSBtZW1vcmllcyBhZnRlciBzdW5zZXQuIEFzIA0KdHJhdmVsZXJzJyB0YWxrLCB0aGUgU2hlbHRvbXMgb2YgR29sZGVuLCBTaWx2ZXIgDQphbmQgQnJvbnplIFZhbXBzIGNhbiBoZWxwIG1lIHRvIGJyaW5nIGJhY2sgbXkgDQptZW1vcmllcy4gQnV0IEkgY2Fuoa90IGdldCB0aG9zZSB0aGluZ3MgZWFzaWx5LiANCkkndmUgaGVhcmQgdGhhdCB0aGUgY2xhbiBjaGllZiBtb25zdGVycyBpbiANClByaXN0b24gbGFuZCBoYWQgdGhlbS4gQ2FuIHlvdSBicmluZyB0aGVtIHRvIG1lPw0KDQpbUXVlc3RdDQoNCkh1bnQgdGhlIGNsYW4gY2hpZWYgbW9uc3RlcnMuIEFuZCBicmluZyBhIEdvbGRlbiANClZhbXAsIGEgU2lsdmVyIFZhbXAsIGFuZCBhIEJyb256ZSBWYW1wIHRvIE1pbnVyZW4uDQpUaGUgR29sZGVuIFZhbXAgZnJvbTogU1RZWCBBcmNob24sIFJhoa9zaGFzLg0KVGhlIFNpbHZlciBWYW1wIGZyb206IFNsYXlvbiwgSGVsbFNpbmcsIA0KVmVybXVuIEFjdGFydW4sIFZlZ2EgRGVtaXRyaSwgVW5ob2x5IEtuaWdodCwgDQpCbG9vZHkgUm9zZS4NClRoZSBCcm9uemUgVmFtcCBmcm9tOiBBcG9zdGFzeSwgVmVnYSBEZW1pciwgDQpFbCBSYXNpIEt1biwgWlphbmdQeSwgRWVkLCBQbGF0aW4gTWF2LCANCkd1aWx0eSBHb3JkZW4sIEdyYXZlIFNoYWtpbnMsIEJhdXRvbiwgQ3ljbG9uZSwgDQpNZWtoaXN0LiANCg=="
+  }
+}

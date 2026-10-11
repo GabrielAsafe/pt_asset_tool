@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_lagarto_m_u00e3e",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Lagarto M#U00e3e.zhoon",
+    "GameServer/Monster/Name/1_Lagarto M#U00e3e.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Lagarto M#U00e3e.zhoon",
+    "legacy_sha256": "0c1845289af3e1d16822c147fb600462dcc321280cad30d686d45b69151876e8",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lagarto Mãe"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTGFnYXJ0byBN42Ui"
+  }
+}

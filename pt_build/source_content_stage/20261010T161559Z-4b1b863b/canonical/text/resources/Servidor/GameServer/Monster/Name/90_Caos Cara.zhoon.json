@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.90_caos_cara",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/90_Caos Cara.zhoon",
+    "GameServer/Monster/Name/90_Caos Cara.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/90_Caos Cara.zhoon",
+    "legacy_sha256": "35fbc9fdedbc822cde65d62a8f654066e7b415d34c8fe026860d6686251a3ea5",
+    "legacy_size": 19
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Caos Cara"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2FvcyBDYXJhIg=="
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_5_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/106LVQuest_5_Path.sin",
+    "image/Sinimage/Quest/106LVQuest_5_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/106LVQuest_5_Path.sin",
+    "legacy_sha256": "de106e7594c35b214d0996879246beb1f22b72907fd45f02d884826196680286",
+    "legacy_size": 82
+  },
+  "semantic": {
+    "lines": [
+      "Por favor, leve o Anel de Noivado Purificado para o Mestre",
+      "da Força em Vila Eura."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UG9yIGZhdm9yLCBsZXZlIG8gQW5lbCBkZSBOb2l2YWRvIFB1cmlmaWNhZG8gcGFyYSBvIE1lc3RyZQ0KZGEgRm9y52EgZW0gVmlsYSBFdXJhLg=="
+  }
+}

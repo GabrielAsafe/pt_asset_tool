@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.121_faugn",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/121_Faugn.zhoon",
+    "GameServer/Monster/Name/121_Faugn.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/121_Faugn.zhoon",
+    "legacy_sha256": "09c2d32b70ecd952549625272d6a4bb5b794b475f03ac6cbcdbbf805457c7626",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Faugn"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8xMjFfRmF1Z24uaW5mDQoNCipKX05BTUUgIkZhdWduIg0K"
+  }
+}

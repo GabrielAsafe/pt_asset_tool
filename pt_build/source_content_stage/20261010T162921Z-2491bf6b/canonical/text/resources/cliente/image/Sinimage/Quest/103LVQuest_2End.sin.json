@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_2end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_2End.sin",
+    "image/Sinimage/Quest/103LVQuest_2End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_2End.sin",
+    "legacy_sha256": "5c95d34b23051078bfc9c2b9b8b5c03b2f9a2466e540fcb9bb7823a58bd780cc",
+    "legacy_size": 279
+  },
+  "semantic": {
+    "lines": [
+      "Finally, you have gathered all the specimens.",
+      "Thank you for your bravery. Thanks to",
+      "your help, we are closer to nearing a time of peace.",
+      "",
+      "I will deliver these samples to ",
+      "Royal Mage to manufacture into C-stone.",
+      "Thank you. It will take some time. ",
+      "Visit me after a while."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmluYWxseSwgeW91IGhhdmUgZ2F0aGVyZWQgYWxsIHRoZSBzcGVjaW1lbnMuDQpUaGFuayB5b3UgZm9yIHlvdXIgYnJhdmVyeS4gVGhhbmtzIHRvDQp5b3VyIGhlbHAsIHdlIGFyZSBjbG9zZXIgdG8gbmVhcmluZyBhIHRpbWUgb2YgcGVhY2UuDQoNCkkgd2lsbCBkZWxpdmVyIHRoZXNlIHNhbXBsZXMgdG8gDQpSb3lhbCBNYWdlIHRvIG1hbnVmYWN0dXJlIGludG8gQy1zdG9uZS4NClRoYW5rIHlvdS4gSXQgd2lsbCB0YWtlIHNvbWUgdGltZS4gDQpWaXNpdCBtZSBhZnRlciBhIHdoaWxlLg0K"
+  }
+}

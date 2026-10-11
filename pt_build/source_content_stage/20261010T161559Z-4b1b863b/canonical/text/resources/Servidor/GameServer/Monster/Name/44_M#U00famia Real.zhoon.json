@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.44_m_u00famia_real",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/44_M#U00famia Real.zhoon",
+    "GameServer/Monster/Name/44_M#U00famia Real.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/44_M#U00famia Real.zhoon",
+    "legacy_sha256": "046171431fdf9a37a1d6b9a75ec5046d74fa4e95a676789259f77938a0f56806",
+    "legacy_size": 20
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Múmia Real"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTfptaWEgUmVhbCI="
+  }
+}

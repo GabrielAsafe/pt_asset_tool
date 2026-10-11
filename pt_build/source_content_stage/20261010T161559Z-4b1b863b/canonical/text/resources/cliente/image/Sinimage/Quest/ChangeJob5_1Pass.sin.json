@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob5_1pass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob5_1Pass.sin",
+    "image/Sinimage/Quest/ChangeJob5_1Pass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob5_1Pass.sin",
+    "legacy_sha256": "9a1ece47c493bfd0434f3ab2070efb30ed1b5340d522560a55f97bd8033c8bf8",
+    "legacy_size": 367
+  },
+  "semantic": {
+    "lines": [
+      "Mais uma vez, neste teste é necessário usar",
+      "o tempo de forma eficiente para passar. O tempo",
+      "é mais curto do que você imagina, então tente",
+      "utilizar a melhor arma para reduzir o tempo.",
+      "",
+      "Volte após você caçar todos os monstros",
+      "a tempo. Se você não voltar a tempo, eu",
+      "acredito que você não passará no teste.",
+      "",
+      "Não se preocupe, porque você pode tentar novamente."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TWFpcyB1bWEgdmV6LCBuZXN0ZSB0ZXN0ZSDpIG5lY2Vzc+FyaW8gdXNhcg0KbyB0ZW1wbyBkZSBmb3JtYSBlZmljaWVudGUgcGFyYSBwYXNzYXIuIE8gdGVtcG8NCukgbWFpcyBjdXJ0byBkbyBxdWUgdm9j6iBpbWFnaW5hLCBlbnTjbyB0ZW50ZQ0KdXRpbGl6YXIgYSBtZWxob3IgYXJtYSBwYXJhIHJlZHV6aXIgbyB0ZW1wby4NCg0KVm9sdGUgYXDzcyB2b2PqIGNh52FyIHRvZG9zIG9zIG1vbnN0cm9zDQphIHRlbXBvLiBTZSB2b2PqIG7jbyB2b2x0YXIgYSB0ZW1wbywgZXUNCmFjcmVkaXRvIHF1ZSB2b2PqIG7jbyBwYXNzYXLhIG5vIHRlc3RlLg0KDQpO428gc2UgcHJlb2N1cGUsIHBvcnF1ZSB2b2PqIHBvZGUgdGVudGFyIG5vdmFtZW50ZS4NCg=="
+  }
+}

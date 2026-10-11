@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.jv104",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/JV104.zhoon",
+    "GameServer/OpenItem/name/JV104.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/JV104.zhoon",
+    "legacy_sha256": "b1d8f12b7914a0ffbee8e2a62021ece9502d2f11c747ee3dbf9799abb54b094c",
+    "legacy_size": 50
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Especialização de Pike"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRTEwMS50eHQNCg0KKkpfTmFtZQkJIkVzcGVjaWFsaXph5+NvIGRlIFBpa2UiDQo="
+  }
+}

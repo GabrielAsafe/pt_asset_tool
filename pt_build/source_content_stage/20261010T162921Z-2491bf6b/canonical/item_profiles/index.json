@@ -1,0 +1,7 @@
+{
+  "schema": "summit.item-profile-index/v1",
+  "profiles": {
+    "client": "client.items.json",
+    "server": "server.items.json"
+  }
+}

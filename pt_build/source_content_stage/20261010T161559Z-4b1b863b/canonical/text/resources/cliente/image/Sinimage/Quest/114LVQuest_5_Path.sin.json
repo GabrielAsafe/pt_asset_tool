@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_5_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_5_Path.sin",
+    "image/Sinimage/Quest/114LVQuest_5_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_5_Path.sin",
+    "legacy_sha256": "782013866761d2933cfe1f5a4d22122bbcdad7b3b21427e22fba7e3a6f53debf",
+    "legacy_size": 81
+  },
+  "semantic": {
+    "lines": [
+      "Fale com a Sábia Celina a respeito da verdade",
+      "sobre a Segunda Guerra dos Deuses."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RmFsZSBjb20gYSBT4WJpYSBDZWxpbmEgYSByZXNwZWl0byBkYSB2ZXJkYWRlDQpzb2JyZSBhIFNlZ3VuZGEgR3VlcnJhIGRvcyBEZXVzZXMu"
+  }
+}

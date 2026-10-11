@@ -1,0 +1,18 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.quest_iv",
+  "logical_path": "GameServer/Field/quest_IV.ASE.spp",
+  "points": [
+    {
+      "slot": 0,
+      "state": 1,
+      "x": 22996,
+      "z": 8556
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/quest_IV.ASE.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "0ac5daab876c01fa4b71f5b19ec44cd8b60ae7ae78e692d51ba72ce12d060ccd"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.kadomatsu",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Kadomatsu.zhoon",
+    "GameServer/NPC/name/Kadomatsu.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Kadomatsu.zhoon",
+    "legacy_sha256": "d74815c0342f8850b4c0879a15b94b14656bb01a4330f5849e78610a095026cc",
+    "legacy_size": 284
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "뽩뤌"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "¡NÍÑNI@LNÍiÉ¢ÀÅ·EEE"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "¨è¢Å·B@lÉà¨NÊð­¾³[¢III"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": " ¯ÜµÄ¨ßÅÆ¤I¡NàvXge[ðæëµ­¨è¢µÜ·I"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "궓궧궭궸궓랦롉ⅴ쪇@륣귊됡궗궶궋귝궎궸뭾댰궢귏궢귛궎갃 "
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSKW5Y+8Ig0KDQoqSl9DSEFUCQkJIo2hlE6CzZPRlE6BSYFAlEyUToLNiWmJk4LJlqKOwJGVgsWCt4FFgUWBRSINCipKX0NIQVQJCQkigqiK6IKigsWCt4FCgUCWbILJguCCqJROi8qC8IKtgr6Cs4FbgqKBSYFJgUkiDQoqSl9DSEFUCQkJIoKggq+C3IK1gsSCqILfgsWCxoKkgUmNoZROguCDdoOKg1iDZ4OTg2WBW4OLgvCC5oLrgrWCrYKoiuiCooK1gtyCt4FJIg0KKkpfQ0hBVAkJCSKCqIK5gr+CyYKojkeOz6WlpYFAkEiC14nfgqyCyIKiguaCpILJko2I04K1gtyCtYLlgqSBQiAiDQo="
+  }
+}

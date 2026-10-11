@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.npc.04",
+  "logical_config": "char/npc/npc-04.ini",
+  "legacy_cache": "char/npc/npc-04.inx",
+  "consumers": [
+    {
+      "id": "npc.ricarden_civilian3",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ricarden-civilian3.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": false,
+      "path": ""
+    },
+    "client": {
+      "present": false,
+      "path": ""
+    }
+  }
+}

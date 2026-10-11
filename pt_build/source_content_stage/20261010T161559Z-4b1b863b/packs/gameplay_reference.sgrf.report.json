@@ -1,0 +1,22 @@
+{
+  "format": "SGRF",
+  "version": 2,
+  "quests": 88,
+  "supported_quests": 13,
+  "list_entries": 1683,
+  "quest_categories": {
+    "progression": 23,
+    "daily": 35,
+    "daily_aline": 24,
+    "weekly": 6
+  },
+  "mix_recipes": 127,
+  "mix_categories": {
+    "weapon": 35,
+    "armor_or_robe": 32,
+    "shield": 30,
+    "orbital": 30
+  },
+  "bytes": 71792,
+  "sha256": "50cc01ef5d6f3911011f163a9e39c7aac97ef4c8d334d7400bd46d85300f445f"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.stella",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/stella.zhoon",
+    "GameServer/NPC/name/stella.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/stella.zhoon",
+    "legacy_sha256": "06f331b170ef5335d0b2737d8f28c3ec098d739fdbfc9bc967c14b24d46e2b42",
+    "legacy_size": 154
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Stella"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ghost Castle turned into 'Crossways Scroll' field."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Please, save priston Continent from evil!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9zdGVsbGEubnBjDQoNCipKX05BTUUJCSJTdGVsbGEiDQoNCipKX0NIQVQJCSJHaG9zdCBDYXN0bGUgdHVybmVkIGludG8gJ0Nyb3Nzd2F5cyBTY3JvbGwnIGZpZWxkLiINCipKX0NIQVQJCSJQbGVhc2UsIHNhdmUgcHJpc3RvbiBDb250aW5lbnQgZnJvbSBldmlsISINCg=="
+  }
+}

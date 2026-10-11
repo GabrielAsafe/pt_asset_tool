@@ -1,0 +1,84 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.ancientw",
+  "logical_path": "GameServer/Field/ancientw.ase.spm",
+  "legacy_source": {
+    "path": "reconstructed/PATCH_207/ancientw.ase.spm",
+    "sha256": "e58d3f52fbb19b56fbb279bf126fc7a539f2d006a0034533ccc775b3e198d9e3"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.slab_118_t_u00e9cnico_zumbi",
+      "legacy_name": "Técnico Zumbi",
+      "legacy_name_bytes_hex": "54e9636e69636f205a756d6269",
+      "weight": 15,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.slab_118_soldado_zumbi",
+      "legacy_name": "Soldado Zumbi",
+      "legacy_name_bytes_hex": "536f6c6461646f205a756d6269",
+      "weight": 15,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.slab_119_bombardeiro_zumbi",
+      "legacy_name": "Bombardeiro Zumbi",
+      "legacy_name_bytes_hex": "426f6d626172646569726f205a756d6269",
+      "weight": 14,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.slab_119_elite_zumbi",
+      "legacy_name": "Elite Zumbi",
+      "legacy_name_bytes_hex": "456c697465205a756d6269",
+      "weight": 14,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.120_nihil",
+      "legacy_name": "Nihil",
+      "legacy_name_bytes_hex": "4e6968696c",
+      "weight": 15,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.acero",
+      "legacy_name": "Acero",
+      "legacy_name_bytes_hex": "416365726f",
+      "weight": 12,
+      "resolution": "source_monster_signature"
+    },
+    {
+      "monster_id": "monster.121_chalybs",
+      "legacy_name": "Chalybs",
+      "legacy_name_bytes_hex": "4368616c796273",
+      "weight": 15,
+      "resolution": "source_monster_signature"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_121_greedy",
+      "slave_monster_id": "monster.121_chalybs",
+      "master_legacy_name": "Greedy",
+      "slave_legacy_name": "Chalybs",
+      "master_legacy_name_bytes_hex": "477265656479",
+      "slave_legacy_name_bytes_hex": "4368616c796273",
+      "slave_count": 4,
+      "open_hours": [
+        12,
+        21
+      ],
+      "master_resolution": "source_monster_signature",
+      "slave_resolution": "source_monster_signature"
+    }
+  ]
+}

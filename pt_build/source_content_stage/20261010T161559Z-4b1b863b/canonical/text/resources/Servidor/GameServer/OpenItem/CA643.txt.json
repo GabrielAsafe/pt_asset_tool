@@ -1,0 +1,232 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ca643",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CA643.txt",
+    "GameServer/OpenItem/CA643.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CA643.txt",
+    "legacy_sha256": "5e1c8c440a30baf390ea54731254f3c32dde69ae0b24b37196914afc1ca123ec",
+    "legacy_size": 382
+  },
+  "semantic": {
+    "fields": {
+      "code": "CA643",
+      "name": "Traje Mágico Comandante 7d",
+      "english_name": "Traje Mágico Comandante 7d",
+      "defence": [
+        150,
+        150
+      ],
+      "absorb": [
+        7.0,
+        7.0
+      ],
+      "life_add_alt": [
+        150,
+        150
+      ],
+      "mana_add_alt": [
+        150,
+        150
+      ],
+      "stamina_add_alt": [
+        150,
+        150
+      ],
+      "level": 1,
+      "weight": 1,
+      "price": 1000,
+      "linked_file": "Name\\CA643.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CA643"
+        ],
+        "raw_values_hex": [
+          "4341363433"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Mágico Comandante 7d"
+        ],
+        "raw_values_hex": [
+          "5472616a65204de16769636f20436f6d616e64616e7465203764"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Mágico Comandante 7d"
+        ],
+        "raw_values_hex": [
+          "5472616a65204de16769636f20436f6d616e64616e7465203764"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          150,
+          150
+        ],
+        "raw_values_hex": [
+          "313530",
+          "313530"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          7.0,
+          7.0
+        ],
+        "raw_values_hex": [
+          "372e30",
+          "372e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          150,
+          150
+        ],
+        "raw_values_hex": [
+          "313530",
+          "313530"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          150,
+          150
+        ],
+        "raw_values_hex": [
+          "313530",
+          "313530"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          150,
+          150
+        ],
+        "raw_values_hex": [
+          "313530",
+          "313530"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1000
+        ],
+        "raw_values_hex": [
+          "31303030"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\CA643.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c43413634332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkNBNjQzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiVHJhamUgTeFnaWNvIENvbWFuZGFudGUgN2QiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiVHJhamUgTeFnaWNvIENvbWFuZGFudGUgN2QiDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiAxNTAgMTUwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiA3LjAgNy4wDQoNCi8vSFANCiq7/bjtt8LD37ChIDE1MCAxNTANCg0KLy9NUA0KKrHit8LD37ChIDE1MCAxNTANCg0KLy9TVE0NCiqx2bfCw9+woSAxNTAgMTUwDQoNCi8vTGV2ZWwNCiq3ubqnIDENCg0KLy9XZWlnaHQNCiq5q7DUIDENCg0KLy9QcmljZQ0KKrChsN0gMTAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXENBNjQzLnpob29uIg=="
+  }
+}

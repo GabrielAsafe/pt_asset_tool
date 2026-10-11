@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_5_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_5_Path.sin",
+    "image/Sinimage/Quest/172LVQuest_5_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_5_Path.sin",
+    "legacy_sha256": "ab14864bb7758b88419db6e620ac2f19adcc6b125cc5db79bf3789c745f94e78",
+    "legacy_size": 281
+  },
+  "semantic": {
+    "lines": [
+      "Você derrotou a Dama Flamejante?",
+      "",
+      "Sei que é difícil. Mas preciso interrogá-la para termos",
+      "todas as informações sobre o Coração de Fogo.",
+      "",
+      "Por favor, apresse-se, use a Prisão Mágica para capturar",
+      "a Dama Flamejante.",
+      "",
+      "Derrote a Dama Flamejante e traga a Prisão Mágica de volta."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBkZXJyb3RvdSBhIERhbWEgRmxhbWVqYW50ZT8NCg0KU2VpIHF1ZSDpIGRpZu1jaWwuIE1hcyBwcmVjaXNvIGludGVycm9n4S1sYSBwYXJhIHRlcm1vcw0KdG9kYXMgYXMgaW5mb3JtYef1ZXMgc29icmUgbyBDb3Jh5+NvIGRlIEZvZ28uDQoNClBvciBmYXZvciwgYXByZXNzZS1zZSwgdXNlIGEgUHJpc+NvIE3hZ2ljYSBwYXJhIGNhcHR1cmFyDQphIERhbWEgRmxhbWVqYW50ZS4NCg0KRGVycm90ZSBhIERhbWEgRmxhbWVqYW50ZSBlIHRyYWdhIGEgUHJpc+NvIE3hZ2ljYSBkZSB2b2x0YS4="
+  }
+}

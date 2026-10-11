@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_3path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob4_3Path.sin",
+    "image/Sinimage/Quest/ChangeJob4_3Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob4_3Path.sin",
+    "legacy_sha256": "066feaa3c07d807ae6928a73df9415a151ddc997aa54c64603b0fe9243d69afb",
+    "legacy_size": 228
+  },
+  "semantic": {
+    "lines": [
+      "Haven't you received Royal Amulet yet? ",
+      "This is only the key to enter Royal Arena.",
+      "According to warriors's rumor and Royal guard, ",
+      "one of monsters has Royal Amulet which one ",
+      "you're fighting.",
+      "",
+      "Please be patient and hunt."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SGF2ZW4ndCB5b3UgcmVjZWl2ZWQgUm95YWwgQW11bGV0IHlldD8gDQpUaGlzIGlzIG9ubHkgdGhlIGtleSB0byBlbnRlciBSb3lhbCBBcmVuYS4NCkFjY29yZGluZyB0byB3YXJyaW9ycydzIHJ1bW9yIGFuZCBSb3lhbCBndWFyZCwgDQpvbmUgb2YgbW9uc3RlcnMgaGFzIFJveWFsIEFtdWxldCB3aGljaCBvbmUgDQp5b3UncmUgZmlnaHRpbmcuDQoNClBsZWFzZSBiZSBwYXRpZW50IGFuZCBodW50Lg0K"
+  }
+}

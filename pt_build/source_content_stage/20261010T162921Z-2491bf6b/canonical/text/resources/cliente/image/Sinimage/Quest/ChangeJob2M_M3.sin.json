@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob2m_m3",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob2M_M3.sin",
+    "image/Sinimage/Quest/ChangeJob2M_M3.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob2M_M3.sin",
+    "legacy_sha256": "6b5ad54f2812198cb5e3ac68d54e1413edcb8f2caa2081584c15af7b9f8f5329",
+    "legacy_size": 280
+  },
+  "semantic": {
+    "lines": [
+      "Thank you for the royal jelly. It really ",
+      "tastes great! You must be a skilled warrior!",
+      "I will tell magic master that you have ",
+      "completed the rank-up quest.",
+      "Then, you will be eligible for your next tier skills.",
+      "Good luck!!",
+      "",
+      "[Quest Completed]",
+      "",
+      "  1st rank-up quest completed"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhhbmsgeW91IGZvciB0aGUgcm95YWwgamVsbHkuIEl0IHJlYWxseSANCnRhc3RlcyBncmVhdCEgWW91IG11c3QgYmUgYSBza2lsbGVkIHdhcnJpb3IhDQpJIHdpbGwgdGVsbCBtYWdpYyBtYXN0ZXIgdGhhdCB5b3UgaGF2ZSANCmNvbXBsZXRlZCB0aGUgcmFuay11cCBxdWVzdC4NClRoZW4sIHlvdSB3aWxsIGJlIGVsaWdpYmxlIGZvciB5b3VyIG5leHQgdGllciBza2lsbHMuDQpHb29kIGx1Y2shIQ0KDQpbUXVlc3QgQ29tcGxldGVkXQ0KDQogIDFzdCByYW5rLXVwIHF1ZXN0IGNvbXBsZXRlZA=="
+  }
+}

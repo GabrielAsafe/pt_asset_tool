@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.71_l_u00e2mina",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/71_L#U00e2mina.zhoon",
+    "GameServer/Monster/Name/71_L#U00e2mina.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/71_L#U00e2mina.zhoon",
+    "legacy_sha256": "ad6a7bc1b488d91ac2444ad2ad300a33726c0895aa9677d567be58e94578ff44",
+    "legacy_size": 16
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lâmina"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTOJtaW5hIg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.112_tarantulika",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/112_Tarantulika.zhoon",
+    "GameServer/Monster/Name/112_Tarantulika.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/112_Tarantulika.zhoon",
+    "legacy_sha256": "a722777eac0f8bfd6644271d5c1ff76f493c0aa6827254cfd3c1689af1936e9e",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Tarantulika"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVGFyYW50dWxpa2Ei"
+  }
+}

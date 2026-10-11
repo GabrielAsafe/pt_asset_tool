@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_7_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_7_End.sin",
+    "image/Sinimage/Quest/110LVQuest_7_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_7_End.sin",
+    "legacy_sha256": "bdd3d576d6bf4a2ecde01166e488f89dbfb25aecd4c261e115386e6c5ada7006",
+    "legacy_size": 166
+  },
+  "semantic": {
+    "lines": [
+      "UAU! Isso é mesmo uma bomba? É muito bonita.",
+      "As habilidades de Newter são realmente incríveis. ",
+      "",
+      "Muito obrigado pela ajuda. Preciso pensar em nosso próximo",
+      "passo."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VUFVISBJc3NvIOkgbWVzbW8gdW1hIGJvbWJhPyDJIG11aXRvIGJvbml0YS4NCkFzIGhhYmlsaWRhZGVzIGRlIE5ld3RlciBz428gcmVhbG1lbnRlIGluY3LtdmVpcy4gDQoNCk11aXRvIG9icmlnYWRvIHBlbGEgYWp1ZGEuIFByZWNpc28gcGVuc2FyIGVtIG5vc3NvIHBy83hpbW8NCnBhc3NvLg=="
+  }
+}

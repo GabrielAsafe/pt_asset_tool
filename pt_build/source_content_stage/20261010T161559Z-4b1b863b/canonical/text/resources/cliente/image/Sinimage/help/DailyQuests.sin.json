@@ -1,0 +1,44 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dailyquests",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/DailyQuests.sin",
+    "image/Sinimage/help/DailyQuests.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/DailyQuests.sin",
+    "legacy_sha256": "102087c72d0d1e4ef885e2df13c475ff970e002a3ca57b2ba495e6ba68ce1396",
+    "legacy_size": 982
+  },
+  "semantic": {
+    "lines": [
+      "Olá!",
+      "",
+      "Sou Aline, a instrutora da Tropa de Elite do Conselho Real.",
+      "A minha irmã, Amanda, ficou impressionada com você no tempo em que era ela",
+      "quem lhe instruía.",
+      "A batalha no fundo do mar foi difícil, mas vencemos Yagditha. E com a ajuda ",
+      "do povo das águas, finalmente derrotamos Midranda. Porém, não sabemos todos",
+      "os perigos que nos esperam no desconhecido Coração de Fogo.",
+      "",
+      "Por isso, o Conselho Real ordenou a intensificação dos treinos para aqueles",
+      "que possuam a vontade e a determinação para suportá-los.",
+      "Você tem força e coragem suficiente para isso?",
+      "Se passar pelos desafios, informarei ao Conselho que está apto para a batalha.",
+      "Eu confio que você se tornará um guerreiro de elite, mas somente se dispuser-se",
+      "a pagar o preço.",
+      "Retorne, aqui, todos os dias e prepare-se para o desafio!",
+      "",
+      "DICA: Lembre-se de que você só pode realizar cada uma das quests uma vez por",
+      "dia no servidor Cronus, e até duas vezes por dia nos servidores Awell, Migal,",
+      "Midranda e Idhas."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhIQ0KDQpTb3UgQWxpbmUsIGEgaW5zdHJ1dG9yYSBkYSBUcm9wYSBkZSBFbGl0ZSBkbyBDb25zZWxobyBSZWFsLg0KQSBtaW5oYSBpcm3jLCBBbWFuZGEsIGZpY291IGltcHJlc3Npb25hZGEgY29tIHZvY+ogbm8gdGVtcG8gZW0gcXVlIGVyYSBlbGENCnF1ZW0gbGhlIGluc3Ryde1hLg0KQSBiYXRhbGhhIG5vIGZ1bmRvIGRvIG1hciBmb2kgZGlm7WNpbCwgbWFzIHZlbmNlbW9zIFlhZ2RpdGhhLiBFIGNvbSBhIGFqdWRhIA0KZG8gcG92byBkYXMg4Wd1YXMsIGZpbmFsbWVudGUgZGVycm90YW1vcyBNaWRyYW5kYS4gUG9y6W0sIG7jbyBzYWJlbW9zIHRvZG9zDQpvcyBwZXJpZ29zIHF1ZSBub3MgZXNwZXJhbSBubyBkZXNjb25oZWNpZG8gQ29yYefjbyBkZSBGb2dvLg0KDQpQb3IgaXNzbywgbyBDb25zZWxobyBSZWFsIG9yZGVub3UgYSBpbnRlbnNpZmljYefjbyBkb3MgdHJlaW5vcyBwYXJhIGFxdWVsZXMNCnF1ZSBwb3NzdWFtIGEgdm9udGFkZSBlIGEgZGV0ZXJtaW5h5+NvIHBhcmEgc3Vwb3J04S1sb3MuDQpWb2PqIHRlbSBmb3LnYSBlIGNvcmFnZW0gc3VmaWNpZW50ZSBwYXJhIGlzc28/DQpTZSBwYXNzYXIgcGVsb3MgZGVzYWZpb3MsIGluZm9ybWFyZWkgYW8gQ29uc2VsaG8gcXVlIGVzdOEgYXB0byBwYXJhIGEgYmF0YWxoYS4NCkV1IGNvbmZpbyBxdWUgdm9j6iBzZSB0b3JuYXLhIHVtIGd1ZXJyZWlybyBkZSBlbGl0ZSwgbWFzIHNvbWVudGUgc2UgZGlzcHVzZXItc2UNCmEgcGFnYXIgbyBwcmXnby4NClJldG9ybmUsIGFxdWksIHRvZG9zIG9zIGRpYXMgZSBwcmVwYXJlLXNlIHBhcmEgbyBkZXNhZmlvIQ0KDQpESUNBOiBMZW1icmUtc2UgZGUgcXVlIHZvY+ogc/MgcG9kZSByZWFsaXphciBjYWRhIHVtYSBkYXMgcXVlc3RzIHVtYSB2ZXogcG9yDQpkaWEgbm8gc2Vydmlkb3IgQ3JvbnVzLCBlIGF06SBkdWFzIHZlemVzIHBvciBkaWEgbm9zIHNlcnZpZG9yZXMgQXdlbGwsIE1pZ2FsLA0KTWlkcmFuZGEgZSBJZGhhcy4NCg=="
+  }
+}

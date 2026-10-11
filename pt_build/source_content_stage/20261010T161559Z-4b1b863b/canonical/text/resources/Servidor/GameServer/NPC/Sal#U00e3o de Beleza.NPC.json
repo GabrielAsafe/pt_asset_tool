@@ -1,0 +1,191 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.sal_u00e3o_de_beleza",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Sal#U00e3o de Beleza.NPC",
+    "GameServer/NPC/Sal#U00e3o de Beleza.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Sal#U00e3o de Beleza.NPC",
+    "legacy_sha256": "cad6d709b5246c27e08c8bfab296728355a668524a3f3921017348988a28c358",
+    "legacy_size": 300
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\maskedwoman\\maskedwoman.INI",
+      "name": "Nadia",
+      "sell_weapon": "없음",
+      "sell_defence": "없음",
+      "sell_etc": [
+        "BI116",
+        "BI117",
+        "BI118",
+        "BI213",
+        "BI214",
+        "BI215",
+        "BI216",
+        "BI217",
+        "BI218",
+        "BI219",
+        "BI220",
+        "BI221",
+        "BI222",
+        "BI240",
+        "BI241",
+        "BI242",
+        "BI243",
+        "BI244",
+        "BI247"
+      ],
+      "linked_file": "name\\Salao de Beleza.zhoon",
+      "model_config_id": "model.char.npc.maskedwoman.maskedwoman"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\maskedwoman\\maskedwoman.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c6d61736b6564776f6d616e5c6d61736b6564776f6d616e2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Nadia"
+        ],
+        "raw_values_hex": [
+          "4e61646961"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "BI116",
+          "BI117",
+          "BI118",
+          "BI213",
+          "BI214",
+          "BI215",
+          "BI216",
+          "BI217",
+          "BI218",
+          "BI219",
+          "BI220",
+          "BI221",
+          "BI222",
+          "BI240",
+          "BI241",
+          "BI242",
+          "BI243",
+          "BI244",
+          "BI247"
+        ],
+        "raw_values_hex": [
+          "4249313136",
+          "4249313137",
+          "4249313138",
+          "4249323133",
+          "4249323134",
+          "4249323135",
+          "4249323136",
+          "4249323137",
+          "4249323138",
+          "4249323139",
+          "4249323230",
+          "4249323231",
+          "4249323232",
+          "4249323430",
+          "4249323431",
+          "4249323432",
+          "4249323433",
+          "4249323434",
+          "4249323437"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Salao de Beleza.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c53616c616f2064652042656c657a612e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KrzTvLoJCQlOUEMNCg0KKrjwvufGxMDPCQkiY2hhclxucGNcbWFza2Vkd29tYW5cbWFza2Vkd29tYW4uSU5JIg0KKsDMuKcJCQkiTmFkaWEiDQoNCiq5q7Hixse4xQm++MC9DQoNCiq55r7usbjGx7jFCb74wL0NCg0KKsDiyK3Gx7jFCUJJMTE2IEJJMTE3IEJJMTE4IEJJMjEzIEJJMjE0IEJJMjE1IEJJMjE2IEJJMjE3IEJJMjE4IEJJMjE5IEJJMjIwIEJJMjIxIEJJMjIyIEJJMjQwIEJJMjQxIEJJMjQyIEJJMjQzIEJJMjQ0IEJJMjQ3DQoNCiq/rLDhxsTAzwkibmFtZVxTYWxhbyBkZSBCZWxlemEuemhvb24iDQoNCi8vwM+53Q0K"
+  }
+}

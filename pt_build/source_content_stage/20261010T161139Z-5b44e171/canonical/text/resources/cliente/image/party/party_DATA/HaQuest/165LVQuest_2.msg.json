@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/165LVQuest_2.msg",
+    "image/party/party_DATA/HaQuest/165LVQuest_2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/165LVQuest_2.msg",
+    "legacy_sha256": "688817b5466564896bcaa0e94cece80bfac0e8024f9436ef7936931a009528c5",
+    "legacy_size": 118
+  },
+  "semantic": {
+    "lines": [
+      "Cace o Faugn Insano em",
+      "Santuário do Abismo e",
+      "colete o Tentáculo de Faugn.",
+      "Após, fale com a Sábia",
+      "Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FjZSBvIEZhdWduIEluc2FubyBlbQ0KU2FudHXhcmlvIGRvIEFiaXNtbyBlDQpjb2xldGUgbyBUZW504WN1bG8gZGUgRmF1Z24uDQpBcPNzLCBmYWxlIGNvbSBhIFPhYmlhDQpDZWxpbmEgZW0gUGlsbGFpLg=="
+  }
+}

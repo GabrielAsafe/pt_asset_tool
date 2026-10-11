@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestterrified_bpass_t",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestterrified_Bpass_T.sin",
+    "image/Sinimage/Quest/haQuestterrified_Bpass_T.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestterrified_Bpass_T.sin",
+    "legacy_sha256": "0e08dd643c4def9637fb3851f33d8422cc183a43443f3696361c933a58686594",
+    "legacy_size": 168
+  },
+  "semantic": {
+    "lines": [
+      "Você ainda não caçou todos os Hopis.",
+      "Compre poções na cidade e prepare-se antes de voltar",
+      "para a caçada.",
+      "",
+      "Abra o minimapa para localizar a loja de itens variados."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBhaW5kYSBu428gY2Hnb3UgdG9kb3Mgb3MgSG9waXMuDQpDb21wcmUgcG/n9WVzIG5hIGNpZGFkZSBlIHByZXBhcmUtc2UgYW50ZXMgZGUgdm9sdGFyDQpwYXJhIGEgY2HnYWRhLg0KDQpBYnJhIG8gbWluaW1hcGEgcGFyYSBsb2NhbGl6YXIgYSBsb2phIGRlIGl0ZW5zIHZhcmlhZG9zLg0K"
+  }
+}

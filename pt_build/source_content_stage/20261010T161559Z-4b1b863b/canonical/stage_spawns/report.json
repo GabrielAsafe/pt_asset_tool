@@ -1,0 +1,20 @@
+{
+  "spawns": 57,
+  "relations": {
+    "actor_exact": 237,
+    "actor_explicit_compatibility_override": 1,
+    "actor_legacy_skip_if_missing": 1,
+    "actor_source_monster_signature": 72,
+    "boss_master_exact": 16,
+    "boss_master_source_monster_signature": 5,
+    "boss_slave_exact": 15,
+    "boss_slave_explicit_compatibility_override": 1,
+    "boss_slave_source_monster_signature": 5
+  },
+  "unresolved_ambiguous": [],
+  "explicit_overrides": {
+    "Cavaleiro Fantasma": "monster.60_cavaleiro_fantasma",
+    "Itens 165": "legacy_skip_if_missing"
+  },
+  "patch207_reconstruction": "recovery_patch_207.json"
+}

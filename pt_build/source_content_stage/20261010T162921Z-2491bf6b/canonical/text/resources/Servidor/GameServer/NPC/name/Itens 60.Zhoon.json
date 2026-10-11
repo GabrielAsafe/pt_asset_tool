@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.itens_60",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Itens 60.Zhoon",
+    "GameServer/NPC/name/Itens 60.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Itens 60.Zhoon",
+    "legacy_sha256": "141d7f903770c15b12ed2765a1dfcf256b406583c8d5578ffb818183c4cd8390",
+    "legacy_size": 59
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Itens 60"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Do que estou falando?!?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkiSXRlbnMgNjAiDQoNCg0KKkpfQ2hhdAkiRG8gcXVlIGVzdG91IGZhbGFuZG8/IT8iDQo="
+  }
+}

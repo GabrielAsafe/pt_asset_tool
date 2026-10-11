@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_equip1",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ricarden-equip1.zhoon",
+    "GameServer/NPC/name/ricarden-equip1.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ricarden-equip1.zhoon",
+    "legacy_sha256": "856c762ecd4653d0966d4153c7c004931d583ed25b98808c75c4b2ebfa18ed39",
+    "legacy_size": 385
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Ferreiro Goden"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se você procura algo mais, visite o 'Ferreiro Gus', depois da ponte..."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Bem-vindo à minha Loja. Acabei de abrir. Eu vendo equipamentos para os novatos."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Bem, existem vários equipamentos para os guerreiros iniciantes..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Nossa maior qualidade é a perfeição. Não deixe de olhar todos os Itens que oferecemos."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkZlcnJlaXJvIEdvZGVuIg0KDQoqSl9DSEFUCQkiU2Ugdm9j6iBwcm9jdXJhIGFsZ28gbWFpcywgdmlzaXRlIG8gJ0ZlcnJlaXJvIEd1cycsIGRlcG9pcyBkYSBwb250ZS4uLiINCipKX0NIQVQJCSJCZW0tdmluZG8g4CBtaW5oYSBMb2phLiBBY2FiZWkgZGUgYWJyaXIuIEV1IHZlbmRvIGVxdWlwYW1lbnRvcyBwYXJhIG9zIG5vdmF0b3MuIg0KKkpfQ0hBVAkJIkJlbSwgZXhpc3RlbSB24XJpb3MgZXF1aXBhbWVudG9zIHBhcmEgb3MgZ3VlcnJlaXJvcyBpbmljaWFudGVzLi4uIg0KKkpfQ0hBVAkJIk5vc3NhIG1haW9yIHF1YWxpZGFkZSDpIGEgcGVyZmVp5+NvLiBO428gZGVpeGUgZGUgb2xoYXIgdG9kb3Mgb3MgSXRlbnMgcXVlIG9mZXJlY2Vtb3MuIg0KDQoNCg=="
+  }
+}

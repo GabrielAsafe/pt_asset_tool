@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.2_wp109",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/2_WP109.zhoon",
+    "GameServer/OpenItem/name/2_WP109.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/2_WP109.zhoon",
+    "legacy_sha256": "b7c80716055b8c0aa0789a1f6d194176f66bc2b2df598f0f843d1addb55969bd",
+    "legacy_size": 45
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Foice Demoníaca"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8yX1dQMTA5LnR4dA0KDQoqSl9OYW1lCQkiRm9pY2UgRGVtb27tYWNhIg0K"
+  }
+}

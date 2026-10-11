@@ -1,0 +1,142 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ps103",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PS103.txt",
+    "GameServer/OpenItem/PS103.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PS103.txt",
+    "legacy_sha256": "f9617856d2fcff1b2cc3a5e7bd62f4a368c5af9d883d881f332f6246fefdc87c",
+    "legacy_size": 236
+  },
+  "semantic": {
+    "fields": {
+      "code": "PS103",
+      "name": "Poção Grande de RES",
+      "english_name": "Poção Grande de RES",
+      "stamina_alt": [
+        500,
+        600
+      ],
+      "weight": 1,
+      "price": 250,
+      "linked_file": "Name\\PS103.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PS103"
+        ],
+        "raw_values_hex": [
+          "5053313033"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Grande de RES"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204772616e646520646520524553"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Grande de RES"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204772616e646520646520524553"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "stamina_alt",
+        "legacy_token": "*근력상승",
+        "legacy_token_hex": "2ab1d9b7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [
+          500,
+          600
+        ],
+        "raw_values_hex": [
+          "353030",
+          "363030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          250
+        ],
+        "raw_values_hex": [
+          "323530"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PS103.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c50533130332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBTMTAzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gR3JhbmRlIGRlIFJFUyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJQb+fjbyBHcmFuZGUgZGUgUkVTIg0KDQovL1NUTVJlY292ZXJ5DQoqsdm3wrvzvcIgNTAwIDYwMA0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SAyNTANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxQUzEwMy56aG9vbiI="
+  }
+}

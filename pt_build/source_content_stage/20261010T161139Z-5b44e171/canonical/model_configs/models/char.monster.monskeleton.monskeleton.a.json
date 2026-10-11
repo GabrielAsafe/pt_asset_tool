@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monskeleton.monskeleton.a",
+  "logical_config": "char/monster/monskeleton/monskeleton-a.ini",
+  "legacy_cache": "char/monster/monskeleton/monskeleton-a.inx",
+  "consumers": [
+    {
+      "id": "monster.17_esqueleto",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/17_Esqueleto.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monskeleton/MonSkeleton-a.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monskeleton/MonSkeleton-a.inx"
+    }
+  }
+}

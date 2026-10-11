@@ -1,0 +1,124 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.skadi",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Skadi.NPC",
+    "GameServer/NPC/Skadi.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Skadi.NPC",
+    "legacy_sha256": "56bdfc5840232c8fffb0c8902fdb777ec6ca3a682824afe08e108fcdd9e24e4b",
+    "legacy_size": 489
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\Skadi\\Skadi.ini",
+      "name": "모험가 스카디",
+      "english_name": "Adventurer Skadi",
+      "class": 2000,
+      "linked_file": "name\\Skadi.zhoon",
+      "model_config_id": "model.char.npc.skadi.skadi"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\Skadi\\Skadi.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c536b6164695c536b6164692e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "모험가 스카디"
+        ],
+        "raw_values_hex": [
+          "b8f0c7e8b0a120bdbac4abb5f0"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Adventurer Skadi"
+        ],
+        "raw_values_hex": [
+          "416476656e747572657220536b616469"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          2000
+        ],
+        "raw_values_hex": [
+          "32303030"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Skadi.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c536b6164692e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcU2thZGlcU2thZGkuaW5pIg0KDQoqwMy4pwkJCSK48MfosKEgvbrEq7XwIg0KKk5hbWUJCQkiQWR2ZW50dXJlciBTa2FkaSINCiqw6LHeCQkJMjAwMA0KDQovLyq068itCQkJIr7Is+fHz7y8v+QhIMD8IMfBuK69usXmtOu3+sC7ILjwx+jHz7DtIMDWtMIgvbrEq7XwtvOw7SDH2L/kLiIgDQovLyq068itCQkJIsD8ILjwx+iwoSDB/b7Iv6G8rSDFwr7us60gvda11cDMtvi0z7TZLiC/+LehtMIgx8G4rr26xea067f6wMcgse3AuiCw98C7ILjwx+jHz7DtIMDWvvrB9ri4IMH2sd3AuiDAp8fox9EgvcOx4rbzILi2wLu/obytILrAu+fIsLW/wLsgx8+w7SDA1r3AtM+02S4iDQovLyq068itCQkJIsikvcOzqiDBpiC1v7v9wLsguLizqrDUILXHvcW02bjpIL7Ius4gwbsgwPzH2MHWvcOw2r7uv+Q/IF4wXiINCg0KDQoNCiq/rLDhxsTAzwkibmFtZVxTa2FkaS56aG9vbiINCg0KDQoNCg0KDQoNCg0KDQoNCg0K"
+  }
+}

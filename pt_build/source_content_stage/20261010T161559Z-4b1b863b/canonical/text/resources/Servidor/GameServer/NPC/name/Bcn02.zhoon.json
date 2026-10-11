@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bcn02",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Bcn02.zhoon",
+    "GameServer/NPC/name/Bcn02.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Bcn02.zhoon",
+    "legacy_sha256": "4a037b97f8b01ac1e521e1c826db233d3d6f3d63ac91082f7bf4d800a6117c8d",
+    "legacy_size": 309
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Vendedora Selbi"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu sou a irmã mais velha das vendedoras do local."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Alguém me disse que somente com os Cores você poderá voltar às cidades."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Sosarine, Rosa e eu gostaríamos de abrir uma grande loja em Ricarten."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9CY24wMi5ucGMNCg0KKkpfTkFNRQkJCSJWZW5kZWRvcmEgU2VsYmkiDQoNCipKX0NIQVQJCQkiRXUgc291IGEgaXJt4yBtYWlzIHZlbGhhIGRhcyB2ZW5kZWRvcmFzIGRvIGxvY2FsLiINCipKX0NIQVQgICAgICAgICAgICAgICAgICAgIkFsZ3XpbSBtZSBkaXNzZSBxdWUgc29tZW50ZSBjb20gb3MgQ29yZXMgdm9j6iBwb2RlcuEgdm9sdGFyIOBzIGNpZGFkZXMuIg0KKkpfQ0hBVCAgICAgICAgICAgICAgICAgICAiU29zYXJpbmUsIFJvc2EgZSBldSBnb3N0YXLtYW1vcyBkZSBhYnJpciB1bWEgZ3JhbmRlIGxvamEgZW0gUmljYXJ0ZW4uIg0K"
+  }
+}

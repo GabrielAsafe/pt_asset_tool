@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_2_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_2_Path.sin",
+    "image/Sinimage/Quest/114LVQuest_2_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_2_Path.sin",
+    "legacy_sha256": "49acc9aff46a197e9a0a7c0e58e9a3b86818d1fb99627343b8770ec9cacd633e",
+    "legacy_size": 111
+  },
+  "semantic": {
+    "lines": [
+      "Entregue o Concentrado de Almas para a Sábia Celina.",
+      "Ela saberá o que fazer com esse precioso e raro material."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RW50cmVndWUgbyBDb25jZW50cmFkbyBkZSBBbG1hcyBwYXJhIGEgU+FiaWEgQ2VsaW5hLg0KRWxhIHNhYmVy4SBvIHF1ZSBmYXplciBjb20gZXNzZSBwcmVjaW9zbyBlIHJhcm8gbWF0ZXJpYWwu"
+  }
+}

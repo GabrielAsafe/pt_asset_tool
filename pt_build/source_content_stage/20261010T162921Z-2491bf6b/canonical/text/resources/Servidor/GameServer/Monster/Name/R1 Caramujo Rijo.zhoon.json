@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r1_caramujo_rijo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R1 Caramujo Rijo.zhoon",
+    "GameServer/Monster/Name/R1 Caramujo Rijo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R1 Caramujo Rijo.zhoon",
+    "legacy_sha256": "b15dbc7296f1916fb3ba29421da6b1a21abf1f55c417faa18c60bebec114c61d",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R1 Caramujo Rijo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjEgQ2FyYW11am8gUmlqbyI="
+  }
+}

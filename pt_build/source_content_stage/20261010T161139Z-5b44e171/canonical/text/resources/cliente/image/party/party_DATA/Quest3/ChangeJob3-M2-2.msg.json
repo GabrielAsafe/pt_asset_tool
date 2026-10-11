@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_m2_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest3/ChangeJob3-M2-2.msg",
+    "image/party/party_DATA/Quest3/ChangeJob3-M2-2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest3/ChangeJob3-M2-2.msg",
+    "legacy_sha256": "2deb33efaec4e463386b3532e425c39e8d9e8c12abf69664a4074d2809c6df15",
+    "legacy_size": 60
+  },
+  "semantic": {
+    "lines": [
+      "Let's mature the weapon",
+      "by hunting 70 monsters",
+      "in Oasis."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV0J3MgbWF0dXJlIHRoZSB3ZWFwb24NCmJ5IGh1bnRpbmcgNzAgbW9uc3RlcnMNCmluIE9hc2lzLg0K"
+  }
+}

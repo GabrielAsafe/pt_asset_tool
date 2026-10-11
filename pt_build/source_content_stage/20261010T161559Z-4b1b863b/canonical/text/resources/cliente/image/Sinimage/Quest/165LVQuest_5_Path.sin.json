@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_5_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_5_Path.sin",
+    "image/Sinimage/Quest/165LVQuest_5_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_5_Path.sin",
+    "legacy_sha256": "6f2b742f578218dc82a3fdd547695eeed88b3553f63a11e52da4804d52d990ae",
+    "legacy_size": 364
+  },
+  "semantic": {
+    "lines": [
+      "Você ainda não entregou o Incensário Mágico para Celina?",
+      "",
+      "Não temos tempo a perder. Essa é a nossa chance de ",
+      "extrair o poder que permite aos Faugn se livrar da",
+      "insanidade de Midranda. Essa é a fraqueza do deus",
+      "maligno. Vamos explorá-la e usá-la contra ele.",
+      "",
+      "Celina está lhe esperando. Apresse-se.",
+      "",
+      "Por favor, leve o Incensário Mágico para a Sábia Celina."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBhaW5kYSBu428gZW50cmVnb3UgbyBJbmNlbnPhcmlvIE3hZ2ljbyBwYXJhIENlbGluYT8NCg0KTuNvIHRlbW9zIHRlbXBvIGEgcGVyZGVyLiBFc3NhIOkgYSBub3NzYSBjaGFuY2UgZGUgDQpleHRyYWlyIG8gcG9kZXIgcXVlIHBlcm1pdGUgYW9zIEZhdWduIHNlIGxpdnJhciBkYQ0KaW5zYW5pZGFkZSBkZSBNaWRyYW5kYS4gRXNzYSDpIGEgZnJhcXVlemEgZG8gZGV1cw0KbWFsaWduby4gVmFtb3MgZXhwbG9y4S1sYSBlIHVz4S1sYSBjb250cmEgZWxlLg0KDQpDZWxpbmEgZXN04SBsaGUgZXNwZXJhbmRvLiBBcHJlc3NlLXNlLg0KDQpQb3IgZmF2b3IsIGxldmUgbyBJbmNlbnPhcmlvIE3hZ2ljbyBwYXJhIGEgU+FiaWEgQ2VsaW5hLg=="
+  }
+}

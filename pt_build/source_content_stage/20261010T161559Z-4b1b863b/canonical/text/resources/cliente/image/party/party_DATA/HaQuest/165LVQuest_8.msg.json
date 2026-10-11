@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_8",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/165LVQuest_8.msg",
+    "image/party/party_DATA/HaQuest/165LVQuest_8.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/165LVQuest_8.msg",
+    "legacy_sha256": "18d5b67ccf72f95484c78550f6c73e359a7f9c42b7fc9a3757512261972540ec",
+    "legacy_size": 69
+  },
+  "semantic": {
+    "lines": [
+      "Leve o Documento Ultra",
+      "Secreto para o Comandante",
+      "Derik em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV2ZSBvIERvY3VtZW50byBVbHRyYQ0KU2VjcmV0byBwYXJhIG8gQ29tYW5kYW50ZQ0KRGVyaWsgZW0gUmljYXJ0ZW4u"
+  }
+}

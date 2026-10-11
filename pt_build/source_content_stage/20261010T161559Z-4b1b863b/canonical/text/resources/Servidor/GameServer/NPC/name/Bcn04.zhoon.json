@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bcn04",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Bcn04.zhoon",
+    "GameServer/NPC/name/Bcn04.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Bcn04.zhoon",
+    "legacy_sha256": "efe13d40d7c239f6a98087c0641b5c55eb2dbdf782c1b970b4792b3753a4de52",
+    "legacy_size": 331
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Vendedora Rosa"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu sou a irmã mais nova das vendedoras do local."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Compre sempre comigo!"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu tenho poções suficientes à venda. Dê uma olhada."
+      },
+      {
+        "line": 8,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Minhas irmãs e eu pretendemos abrir uma grande loja na cidade."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9CY24wNC5ucGMNCg0KKkpfTkFNRQkJCSJWZW5kZWRvcmEgUm9zYSINCg0KKkpfQ0hBVAkJCSJFdSBzb3UgYSBpcm3jIG1haXMgbm92YSBkYXMgdmVuZGVkb3JhcyBkbyBsb2NhbC4iDQoqSl9DSEFUICAgICAgICAgICAgICAgICAgICJDb21wcmUgc2VtcHJlIGNvbWlnbyEiDQoqSl9DSEFUICAgICAgICAgICAgICAgICAgICJFdSB0ZW5obyBwb+f1ZXMgc3VmaWNpZW50ZXMg4CB2ZW5kYS4gROogdW1hIG9saGFkYS4iDQoqSl9DSEFUICAgICAgICAgICAgICAgICAgICJNaW5oYXMgaXJt43MgZSBldSBwcmV0ZW5kZW1vcyBhYnJpciB1bWEgZ3JhbmRlIGxvamEgbmEgY2lkYWRlLiINCg=="
+  }
+}

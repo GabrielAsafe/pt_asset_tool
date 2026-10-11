@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_7state_end",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/LevelQuest/Quest_7State_end.msg",
+    "image/party/party_DATA/LevelQuest/Quest_7State_end.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/LevelQuest/Quest_7State_end.msg",
+    "legacy_sha256": "90c5f865968f5b158bfc7065321a108e380e24b3fb16ade50a970bc38a9424f3",
+    "legacy_size": 52
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Completed the Quest",
+      "and received",
+      "stat points +7."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpDb21wbGV0ZWQgdGhlIFF1ZXN0DQphbmQgcmVjZWl2ZWQNCnN0YXQgcG9pbnRzICs3Lg=="
+  }
+}

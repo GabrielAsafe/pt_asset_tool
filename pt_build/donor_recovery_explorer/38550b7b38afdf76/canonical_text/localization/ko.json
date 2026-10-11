@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "ko",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "monster.lizard_bigmama_1.name",
+      "text": "리자드 빅마마",
+      "quality": "legacy_source",
+      "source": "monster.lizard_bigmama_1"
+    }
+  ]
+}

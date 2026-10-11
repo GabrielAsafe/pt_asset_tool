@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.da155",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/DA155.zhoon",
+    "GameServer/OpenItem/name/DA155.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/DA155.zhoon",
+    "legacy_sha256": "64388f9fe00ca9127807d6552e1db62237c41b16092f9813f63c5bc1f728945e",
+    "legacy_size": 33
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Roupa de Natação F (3d)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUm91cGEgZGUgTmF0YefjbyBGICgzZCki"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi129",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI129.txt",
+    "GameServer/OpenItem/BI129.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI129.txt",
+    "legacy_sha256": "04787ba33eef88aa4f3da258472f3a896ecd59e76b7e09064113feabce13580d",
+    "legacy_size": 198
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI129",
+      "name": "Poção Redutora de Mana 30% 1d",
+      "english_name": "Poção Redutora de Mana 30% 1d",
+      "weight": 1,
+      "linked_file": "Name\\BI129.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI129"
+        ],
+        "raw_values_hex": [
+          "4249313239"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Redutora de Mana 30% 1d"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f2052656475746f7261206465204d616e6120333025203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Redutora de Mana 30% 1d"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f2052656475746f7261206465204d616e6120333025203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI129.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493132392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTI5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gUmVkdXRvcmEgZGUgTWFuYSAzMCUgMWQiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUG/n428gUmVkdXRvcmEgZGUgTWFuYSAzMCUgMWQiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxMjkuemhvb24i"
+  }
+}

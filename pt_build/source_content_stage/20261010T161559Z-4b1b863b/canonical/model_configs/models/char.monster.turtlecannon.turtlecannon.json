@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.turtlecannon.turtlecannon",
+  "logical_config": "char/monster/turtlecannon/turtlecannon.ini",
+  "legacy_cache": "char/monster/turtlecannon/turtlecannon.inx",
+  "consumers": [
+    {
+      "id": "monster.89_tartaruga_blindada",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/89_Tartaruga Blindada.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/turtlecannon/turtlecannon.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/turtlecannon/turtlecannon.inx"
+    }
+  }
+}

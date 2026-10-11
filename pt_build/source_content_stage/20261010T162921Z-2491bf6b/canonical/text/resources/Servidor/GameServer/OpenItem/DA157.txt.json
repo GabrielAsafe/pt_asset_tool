@@ -1,0 +1,213 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da157",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA157.txt",
+    "GameServer/OpenItem/DA157.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA157.txt",
+    "legacy_sha256": "80a1109df06044e635ab7bf0ca8d41f3703e8c6481a2da99cdf20937fdc4bbdd",
+    "legacy_size": 338
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA157",
+      "name": "Armadura de Noiva",
+      "english_name": "Armadura de Noiva",
+      "defence": [
+        400,
+        400
+      ],
+      "absorb": [
+        11.6,
+        11.6
+      ],
+      "life_add_alt": [
+        30,
+        30
+      ],
+      "mana_add_alt": [
+        30,
+        30
+      ],
+      "level": 20,
+      "weight": 50,
+      "price": 100000,
+      "linked_file": "Name\\DA157.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA157"
+        ],
+        "raw_values_hex": [
+          "4441313537"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura de Noiva"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261206465204e6f697661"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura de Noiva"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261206465204e6f697661"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          400,
+          400
+        ],
+        "raw_values_hex": [
+          "343030",
+          "343030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          11.6,
+          11.6
+        ],
+        "raw_values_hex": [
+          "31312e36",
+          "31312e36"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          30,
+          30
+        ],
+        "raw_values_hex": [
+          "3330",
+          "3330"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          30,
+          30
+        ],
+        "raw_values_hex": [
+          "3330",
+          "3330"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA157.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413135372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMTU3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQXJtYWR1cmEgZGUgTm9pdmEiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQXJtYWR1cmEgZGUgTm9pdmEiDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA0MDAgNDAwDQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiAxMS42IDExLjYNCg0KLy9IUA0KKrv9uO23wsPfsKEgMzAgMzANCg0KLy9NUA0KKrHit8LD37ChIDMwIDMwDQoNCi8vTGV2ZWwNCiq3ubqnIDIwDQoNCi8vV2VpZ2h0DQoquauw1CA1MA0KDQovL1ByaWNlDQoqsKGw3SAxMDAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxEQTE1Ny56aG9vbiI="
+  }
+}

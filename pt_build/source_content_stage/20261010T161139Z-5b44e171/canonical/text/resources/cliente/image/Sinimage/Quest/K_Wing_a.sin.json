@@ -1,0 +1,41 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.k_wing_a",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/K_Wing_a.sin",
+    "image/Sinimage/Quest/K_Wing_a.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/K_Wing_a.sin",
+    "legacy_sha256": "524f574c5396751d60dac0f6a89835be27d72421d736139db1584f72f694bd0f",
+    "legacy_size": 362
+  },
+  "semantic": {
+    "lines": [
+      "Do you still have the Dia Wing?",
+      "You can go almost anywhere with the Diamond Wing.",
+      " ",
+      "I just made the Chaos wing with my harder effort. ",
+      "Do you want to get it?",
+      "",
+      "If so,",
+      "1 Diamond wing ",
+      "1 Figon crystal",
+      "1 King Hoppie crystal",
+      " 40000 money",
+      " ",
+      "",
+      "Give me those items and then, ",
+      "I'll upgrade it to Chaos wing.",
+      " ",
+      "How about this deal? Can you bring them to me?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RG8geW91IHN0aWxsIGhhdmUgdGhlIERpYSBXaW5nPw0KWW91IGNhbiBnbyBhbG1vc3QgYW55d2hlcmUgd2l0aCB0aGUgRGlhbW9uZCBXaW5nLg0KIA0KSSBqdXN0IG1hZGUgdGhlIENoYW9zIHdpbmcgd2l0aCBteSBoYXJkZXIgZWZmb3J0LiANCkRvIHlvdSB3YW50IHRvIGdldCBpdD8NCg0KSWYgc28sDQoxIERpYW1vbmQgd2luZyANCjEgRmlnb24gY3J5c3RhbA0KMSBLaW5nIEhvcHBpZSBjcnlzdGFsDQogNDAwMDAgbW9uZXkNCiANCg0KR2l2ZSBtZSB0aG9zZSBpdGVtcyBhbmQgdGhlbiwgDQpJJ2xsIHVwZ3JhZGUgaXQgdG8gQ2hhb3Mgd2luZy4NCiANCkhvdyBhYm91dCB0aGlzIGRlYWw/IENhbiB5b3UgYnJpbmcgdGhlbSB0byBtZT8="
+  }
+}

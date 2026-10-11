@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.mrcave_keeper",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/mrcave-keeper.npc",
+    "GameServer/NPC/mrcave-keeper.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/mrcave-keeper.npc",
+    "legacy_sha256": "66b3e11ec5f9c4e07acf3f32e6d6ec7460b9604012f456fcfe54368e5c7e11d9",
+    "legacy_size": 708
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-002\\MN-002.INI",
+      "name": "동굴 경비병",
+      "linked_file": "name\\mrcave-keeper.zhoon",
+      "model_config_id": "model.char.npc.mn.002.mn.002"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-002\\MN-002.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030325c4d4e2d3030322e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "동굴 경비병"
+        ],
+        "raw_values_hex": [
+          "b5bfb1bc20b0e6baf1bab4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 16,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\mrcave-keeper.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6d72636176652d6b65657065722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDAyXE1OLTAwMi5JTkkNCg0KKsDMuKcJCQkitb+xvCCw5rrxurQiDQoNCi8vKrTryK0JCQkiv/i3oSC5+rXpwMwguLm+xiC5+sH9ILW/sbzAzLbzILrSuK60+CCw98DMvvrB9ri4IL7utdLAxyC8usD8wLi3ziDF68fPtMIguq7AzCDH47mwvu4gwfa46bytIMD6wdbAxyCx4r/uwMwgxtvBriC48726xc3AxyC80rG8t84guq/H2CC59rfIvcC0z7TZLiINCi8vKrTryK0JCQkiwMyw98DMILn6wf21v7G8wNS0z7TZLiDHz8H2uLggtb+xvCCzu7rOv6EgwNa0wiC48726xc0gtenAzCC5zMOzILOvttm0wiC52bb3v6Egvu60wCDBpLW1IL3Ht8LAzCDA1rTCIMD8u+ewoSC+xrTPuOkgw+LA1CDH0iC89iC++L3AtM+02S4iDQovLyq068itCQkJIrn6wf21v7G8wLsgxevH2LytIL7utdLAxyC8usD8wLsgwfazqiC59ry4tb+xvMC7IMXrx9ggs6qwobjpIMXbvbrFqbfQIL+1v6rAziC+xsSrvcO+xiC9o8C4t84gs6qwpSC89iDA1r3AtM+02S4iDQovLyq068itCQkJIrW/sbwgse2898fRILD3v6G0wiC+7rXSwMcgvLrA/MC4t84gxevHz7TCILHmwMwgwNa9wLTPtNkuILHXILW/sbzAuyC7577Hx9EgseK/7sC4t84gv8C/sLXIILD3wMy0zyDA/bTrt84gsKGx7sDMILChvLEgvsi1y7TPtNkuIg0KDQoNCg0KDQoNCiq/rLDhxsTAzyAibmFtZVxtcmNhdmUta2VlcGVyLnpob29uIg0KDQoNCi8vsOa68Q0K"
+  }
+}

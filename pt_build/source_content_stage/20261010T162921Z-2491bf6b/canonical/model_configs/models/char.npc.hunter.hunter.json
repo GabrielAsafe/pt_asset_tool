@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.hunter.hunter",
+  "logical_config": "char/npc/Hunter/Hunter.ini",
+  "legacy_cache": "char/npc/Hunter/Hunter.inx",
+  "consumers": [
+    {
+      "id": "npc.hunter",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Hunter.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Hunter/hunter.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Hunter/hunter.inx"
+    }
+  }
+}

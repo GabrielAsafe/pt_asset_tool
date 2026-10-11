@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest90end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest90end.sin",
+    "image/Sinimage/Quest/LevelQuest90end.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest90end.sin",
+    "legacy_sha256": "3a6aa862b316d669e9e26b73d82efa2e5cb2118ccb7a891bddf2d6863c67b947",
+    "legacy_size": 218
+  },
+  "semantic": {
+    "lines": [
+      "Thank you very much to give us comfort ",
+      "without monsters for a while.",
+      "",
+      "This is a sheltom which the legendary ArcMage ",
+      "\"Loytra\" sealed himself on.",
+      "",
+      "I give you Loytra for my gratitude.",
+      "Take it. It will help you."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhhbmsgeW91IHZlcnkgbXVjaCB0byBnaXZlIHVzIGNvbWZvcnQgDQp3aXRob3V0IG1vbnN0ZXJzIGZvciBhIHdoaWxlLg0KDQpUaGlzIGlzIGEgc2hlbHRvbSB3aGljaCB0aGUgbGVnZW5kYXJ5IEFyY01hZ2UgDQoiTG95dHJhIiBzZWFsZWQgaGltc2VsZiBvbi4NCg0KSSBnaXZlIHlvdSBMb3l0cmEgZm9yIG15IGdyYXRpdHVkZS4NClRha2UgaXQuIEl0IHdpbGwgaGVscCB5b3UuDQo="
+  }
+}

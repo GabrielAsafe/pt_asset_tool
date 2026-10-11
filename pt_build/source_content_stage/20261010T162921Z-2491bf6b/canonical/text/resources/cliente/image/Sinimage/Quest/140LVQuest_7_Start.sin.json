@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_7_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_7_Start.sin",
+    "image/Sinimage/Quest/140LVQuest_7_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_7_Start.sin",
+    "legacy_sha256": "44ccb9bbf036f73de9984845181db8838c94379af4dcc737462eae1f1595074a",
+    "legacy_size": 706
+  },
+  "semantic": {
+    "lines": [
+      "De posse do Tridente Lendário, Zarad enfrentou Yagditha.",
+      "Mas se conteve, quando estava prestes a matá-lo. O deus",
+      "Zairweus surgiu da Esfera da Vida, confessando que deuses",
+      "também erram e que se arrependia das decisões do passado.",
+      "Ele abriu um portal, levando os espíritos Aquarians e",
+      "Yagditha para terem uma nova chance, em um novo mundo. ",
+      "O, agora, Rei Zarad, finalmente encontrou sua mãe. Graças",
+      "a ela aperfeiçoei a técnica da Fusão.",
+      "Midranda despertou! Ele se recuperou na Fonte de Zairweus,",
+      "no Santuário do Abismo. Seu exército já está em movimento.",
+      "Leve esse documento até o Derik!  Não temos tempo a perder!",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Leve o Documento Ultra Secreto para o Comandante Derik."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGUgcG9zc2UgZG8gVHJpZGVudGUgTGVuZOFyaW8sIFphcmFkIGVuZnJlbnRvdSBZYWdkaXRoYS4NCk1hcyBzZSBjb250ZXZlLCBxdWFuZG8gZXN0YXZhIHByZXN0ZXMgYSBtYXThLWxvLiBPIGRldXMNClphaXJ3ZXVzIHN1cmdpdSBkYSBFc2ZlcmEgZGEgVmlkYSwgY29uZmVzc2FuZG8gcXVlIGRldXNlcw0KdGFtYultIGVycmFtIGUgcXVlIHNlIGFycmVwZW5kaWEgZGFzIGRlY2lz9WVzIGRvIHBhc3NhZG8uDQpFbGUgYWJyaXUgdW0gcG9ydGFsLCBsZXZhbmRvIG9zIGVzcO1yaXRvcyBBcXVhcmlhbnMgZQ0KWWFnZGl0aGEgcGFyYSB0ZXJlbSB1bWEgbm92YSBjaGFuY2UsIGVtIHVtIG5vdm8gbXVuZG8uIA0KTywgYWdvcmEsIFJlaSBaYXJhZCwgZmluYWxtZW50ZSBlbmNvbnRyb3Ugc3VhIG3jZS4gR3Jh52FzDQphIGVsYSBhcGVyZmVp529laSBhIHTpY25pY2EgZGEgRnVz428uDQpNaWRyYW5kYSBkZXNwZXJ0b3UhIEVsZSBzZSByZWN1cGVyb3UgbmEgRm9udGUgZGUgWmFpcndldXMsDQpubyBTYW50deFyaW8gZG8gQWJpc21vLiBTZXUgZXjpcmNpdG8gauEgZXN04SBlbSBtb3ZpbWVudG8uDQpMZXZlIGVzc2UgZG9jdW1lbnRvIGF06SBvIERlcmlrISAgTuNvIHRlbW9zIHRlbXBvIGEgcGVyZGVyIQ0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KTGV2ZSBvIERvY3VtZW50byBVbHRyYSBTZWNyZXRvIHBhcmEgbyBDb21hbmRhbnRlIERlcmlrLg=="
+  }
+}

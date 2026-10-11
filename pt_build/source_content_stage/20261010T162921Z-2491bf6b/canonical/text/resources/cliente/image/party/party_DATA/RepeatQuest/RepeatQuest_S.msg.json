@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.repeatquest_s",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/RepeatQuest/RepeatQuest_S.msg",
+    "image/party/party_DATA/RepeatQuest/RepeatQuest_S.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/RepeatQuest/RepeatQuest_S.msg",
+    "legacy_sha256": "3a12fd7b2a100109d8c9af8b389aa74660c738da5385e7a0e6b74093611704d7",
+    "legacy_size": 93
+  },
+  "semantic": {
+    "lines": [
+      "Let's go back to the village",
+      "after hunting the monsters ",
+      "that Traveler Scady ",
+      "specified."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV0J3MgZ28gYmFjayB0byB0aGUgdmlsbGFnZQ0KYWZ0ZXIgaHVudGluZyB0aGUgbW9uc3RlcnMgDQp0aGF0IFRyYXZlbGVyIFNjYWR5IA0Kc3BlY2lmaWVkLg0K"
+  }
+}

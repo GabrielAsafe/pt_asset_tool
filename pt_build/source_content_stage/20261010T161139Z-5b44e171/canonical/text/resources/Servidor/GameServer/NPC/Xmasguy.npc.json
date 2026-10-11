@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.xmasguy",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Xmasguy.npc",
+    "GameServer/NPC/Xmasguy.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Xmasguy.npc",
+    "legacy_sha256": "780d9a1e95d0e18b8f644c76f479073b7fab9ab1ae9655db5250ca617a103f5c",
+    "legacy_size": 116
+  },
+  "semantic": {
+    "fields": {
+      "name": "크리스 마스 롱보",
+      "model_file": "char\\npcXms\\ChTree_Longbo.ini",
+      "level": 100,
+      "linked_file": "name\\Xmasguy.zhoon",
+      "model_config_id": "model.char.npcxms.chtree.longbo"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "크리스 마스 롱보"
+        ],
+        "raw_values_hex": [
+          "c5a9b8aebdba20b8b6bdba20b7d5bab8"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npcXms\\ChTree_Longbo.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e7063586d735c4368547265655f4c6f6e67626f2e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Xmasguy.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c586d61736775792e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSLFqbiuvboguLa9uiC31bq4Ig0KKrjwvufGxMDPCSJjaGFyXG5wY1htc1xDaFRyZWVfTG9uZ2JvLmluaSINCiq3ubqnCQkxMDANCg0KKr+ssOHGxMDPCSJuYW1lXFhtYXNndXkuemhvb24iDQo="
+  }
+}

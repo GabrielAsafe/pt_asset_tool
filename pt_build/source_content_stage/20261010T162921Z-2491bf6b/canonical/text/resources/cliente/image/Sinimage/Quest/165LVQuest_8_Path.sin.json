@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_8_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_8_Path.sin",
+    "image/Sinimage/Quest/165LVQuest_8_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_8_Path.sin",
+    "legacy_sha256": "ddefe7e0c14c19ed60407d5e861145d2991e4b11dfb981510abb0962b081a012",
+    "legacy_size": 446
+  },
+  "semantic": {
+    "lines": [
+      "Você já levou o documento ao Comandante Derik?",
+      "Sei que sua energia está esgotada, mas peço só mais esse",
+      "favor.",
+      "",
+      "Foi uma longa jornada até aqui. Você foi fundamental nessa",
+      "conquista. O continente pristoniano está agradecido por ",
+      "toda sua bravura.",
+      "",
+      "A aliança entre os pristonianos e povo das águas está mais",
+      "forte. Zarad será um ótimo líder para o povo das águas.",
+      "",
+      "Entregue o Documento Ultra Secreto para o Comandante",
+      "Derik em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBq4SBsZXZvdSBvIGRvY3VtZW50byBhbyBDb21hbmRhbnRlIERlcmlrPw0KU2VpIHF1ZSBzdWEgZW5lcmdpYSBlc3ThIGVzZ290YWRhLCBtYXMgcGXnbyBz8yBtYWlzIGVzc2UNCmZhdm9yLg0KDQpGb2kgdW1hIGxvbmdhIGpvcm5hZGEgYXTpIGFxdWkuIFZvY+ogZm9pIGZ1bmRhbWVudGFsIG5lc3NhDQpjb25xdWlzdGEuIE8gY29udGluZW50ZSBwcmlzdG9uaWFubyBlc3ThIGFncmFkZWNpZG8gcG9yIA0KdG9kYSBzdWEgYnJhdnVyYS4NCg0KQSBhbGlhbudhIGVudHJlIG9zIHByaXN0b25pYW5vcyBlIHBvdm8gZGFzIOFndWFzIGVzdOEgbWFpcw0KZm9ydGUuIFphcmFkIHNlcuEgdW0g83RpbW8gbO1kZXIgcGFyYSBvIHBvdm8gZGFzIOFndWFzLg0KDQpFbnRyZWd1ZSBvIERvY3VtZW50byBVbHRyYSBTZWNyZXRvIHBhcmEgbyBDb21hbmRhbnRlDQpEZXJpayBlbSBSaWNhcnRlbi4="
+  }
+}

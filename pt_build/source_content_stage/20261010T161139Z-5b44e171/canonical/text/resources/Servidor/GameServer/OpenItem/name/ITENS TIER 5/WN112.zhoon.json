@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn112",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN112.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN112.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN112.zhoon",
+    "legacy_sha256": "0905ae7b4e8c006f91d39969ab4bf13fbd432310f0c260e3d8fa54cef5d91e70",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Siha Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjExMi50eHQNCg0KKkpfTkFNRQkJIlNpaGEgUGhhbnRvbSINCg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn151",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN151.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN151.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN151.zhoon",
+    "legacy_sha256": "90f2e24dfaa33bf0aedddffb31a7edfd7733b2a0d75d058cdf8dfacc7f2f1229",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Natanh Phantom(5H)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjE1MS50eHQNCg0KKkpfTkFNRQkJIk5hdGFuaCBQaGFudG9tKDVIKSINCg=="
+  }
+}

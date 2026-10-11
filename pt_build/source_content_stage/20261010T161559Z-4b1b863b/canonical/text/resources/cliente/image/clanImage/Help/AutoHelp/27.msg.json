@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.27",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/27.msg",
+    "image/clanImage/Help/AutoHelp/27.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/27.msg",
+    "legacy_sha256": "bb2159e178b3e77250a69bc4cc2526c17a97f6890fc6cb826a53d83f0d72575c",
+    "legacy_size": 197
+  },
+  "semantic": {
+    "lines": [
+      "Now you've reached level 39.",
+      "You can establish your own clan independently when",
+      "you reach level 40.",
+      "You can also enter the 1st floor of the",
+      "Ancient Dungeon now.",
+      "Fight up and go for level 40!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Tm93IHlvdSd2ZSByZWFjaGVkIGxldmVsIDM5Lg0KWW91IGNhbiBlc3RhYmxpc2ggeW91ciBvd24gY2xhbiBpbmRlcGVuZGVudGx5IHdoZW4NCnlvdSByZWFjaCBsZXZlbCA0MC4NCllvdSBjYW4gYWxzbyBlbnRlciB0aGUgMXN0IGZsb29yIG9mIHRoZQ0KQW5jaWVudCBEdW5nZW9uIG5vdy4NCkZpZ2h0IHVwIGFuZCBnbyBmb3IgbGV2ZWwgNDAhDQo="
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monhobgoblin.monhobgoblin.b",
+  "logical_config": "char/monster/monhobgoblin/monhobgoblin-b.ini",
+  "legacy_cache": "char/monster/monhobgoblin/monhobgoblin-b.inx",
+  "consumers": [
+    {
+      "id": "monster.4_duende_selvagem",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/4_Duende Selvagem.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monhobgoblin/Monhobgoblin-b.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monhobgoblin/Monhobgoblin-b.inx"
+    }
+  }
+}

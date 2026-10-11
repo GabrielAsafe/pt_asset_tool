@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi188",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI188.txt",
+    "GameServer/OpenItem/BI188.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI188.txt",
+    "legacy_sha256": "3fd1871e87a87d85c2b84507d66e3a0a45579b95d29272a840db8ff2ede10182",
+    "legacy_size": 190
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI188",
+      "name": "Super Presa de Vampiro 1d",
+      "english_name": "Super Presa de Vampiro 1d",
+      "weight": 1,
+      "linked_file": "Name\\BI188.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI188"
+        ],
+        "raw_values_hex": [
+          "4249313838"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Super Presa de Vampiro 1d"
+        ],
+        "raw_values_hex": [
+          "53757065722050726573612064652056616d7069726f203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Super Presa de Vampiro 1d"
+        ],
+        "raw_values_hex": [
+          "53757065722050726573612064652056616d7069726f203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI188.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493138382e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTg4Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiU3VwZXIgUHJlc2EgZGUgVmFtcGlybyAxZCINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJTdXBlciBQcmVzYSBkZSBWYW1waXJvIDFkIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJJMTg4Lnpob29uIg=="
+  }
+}

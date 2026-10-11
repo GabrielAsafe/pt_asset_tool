@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "en",
+  "fallback_locale": null,
+  "entries": [
+    {
+      "key": "monster.lizard_soldier_3.name",
+      "text": "Lizard Brave",
+      "quality": "translated",
+      "source": "monster.lizard_soldier_3"
+    }
+  ]
+}

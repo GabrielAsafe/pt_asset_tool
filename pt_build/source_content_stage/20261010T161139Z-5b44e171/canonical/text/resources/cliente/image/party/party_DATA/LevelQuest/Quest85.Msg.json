@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest85",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/LevelQuest/Quest85.Msg",
+    "image/party/party_DATA/LevelQuest/Quest85.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/LevelQuest/Quest85.Msg",
+    "legacy_sha256": "b6c55a519e85bf0a8a519c14278acad299fbb8ed78fffee0af0695cdc742c6a5",
+    "legacy_size": 60
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt ten Grotesques that ",
+      "appear in Railway of ",
+      "Chaos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IHRlbiBHcm90ZXNxdWVzIHRoYXQgDQphcHBlYXIgaW4gUmFpbHdheSBvZiANCkNoYW9zLg0K"
+  }
+}

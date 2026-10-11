@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi233",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI233.zhoon",
+    "GameServer/OpenItem/name/BI233.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI233.zhoon",
+    "legacy_sha256": "5f862f4fb767c95f2c4d6d69bfa3b93ccca8c00d3e99b9c2f0e9aaf9c39a10d3",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Baú de Ouro Aprimorado 12h"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQmH6IGRlIE91cm8gQXByaW1vcmFkbyAxMmgi"
+  }
+}

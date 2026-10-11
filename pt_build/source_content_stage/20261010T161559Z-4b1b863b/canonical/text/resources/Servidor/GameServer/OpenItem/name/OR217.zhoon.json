@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.or217",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OR217.zhoon",
+    "GameServer/OpenItem/name/OR217.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OR217.zhoon",
+    "legacy_sha256": "f13b633c46bed9f989a21f909c44bfccc0271ea3a5b1b96df0fa9955a2422f81",
+    "legacy_size": 195
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 6,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Anel de Profano Cavaleiro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQovLwlQVCBJVEVNIFRFTVBMQVRFIEJZIFdPUk1ZCS8vDQovLwlFTkRMRVNTIFRPV0VSIDNGIElURU0gUEFDSwkvLw0KLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vDQoNCipKX05hbWUJCSJBbmVsIGRlIFByb2Zhbm8gQ2F2YWxlaXJvIg0K"
+  }
+}

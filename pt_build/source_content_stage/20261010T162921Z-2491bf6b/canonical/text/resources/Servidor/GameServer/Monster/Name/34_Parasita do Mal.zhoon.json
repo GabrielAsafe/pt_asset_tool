@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.34_parasita_do_mal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/34_Parasita do Mal.zhoon",
+    "GameServer/Monster/Name/34_Parasita do Mal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/34_Parasita do Mal.zhoon",
+    "legacy_sha256": "44ed4a5d05cbf404d4b4ef346057b9dd73c8f25f1859e5022e8cef6b904e7af1",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Parasita do Mal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGFyYXNpdGEgZG8gTWFsIg=="
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.nyquest_end_2",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/NYQuest_End_2.sin",
+    "image/Sinimage/Quest/NYQuest_End_2.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/NYQuest_End_2.sin",
+    "legacy_sha256": "996c483ae0fd23e7a3ab61a2acfd7171fafa8a6afc52c1612f208af2ddb5dca6",
+    "legacy_size": 80
+  },
+  "semantic": {
+    "lines": [
+      "Parabéns! Você conseguiu!",
+      "Aceite essa recompensa por capturar tantas serpentes."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UGFyYWLpbnMhIFZvY+ogY29uc2VndWl1IQ0KQWNlaXRlIGVzc2EgcmVjb21wZW5zYSBwb3IgY2FwdHVyYXIgdGFudGFzIHNlcnBlbnRlcy4="
+  }
+}

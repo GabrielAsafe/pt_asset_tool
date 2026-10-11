@@ -1,0 +1,341 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "monster.r1_guardi_u00e3o_de_lama",
+  "kind": "monster_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/R1 Guardi#U00e3o de Lama.inf",
+    "GameServer/Monster/R1 Guardi#U00e3o de Lama.inf"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/R1 Guardi#U00e3o de Lama.inf",
+    "legacy_sha256": "d5a4cbdec076cf92cd6e07c06fc48b3ffa3a81e2af435178a7a621265b839a99",
+    "legacy_size": 636
+  },
+  "semantic": {
+    "fields": {
+      "state": "적",
+      "model_file": "char\\monster\\mirekeeper\\mirekeeper.ini",
+      "name": "R1 Guardião de Lama",
+      "level": 56,
+      "model_scale": 1.0,
+      "generate_group": [
+        1,
+        1
+      ],
+      "sight": 360,
+      "life": 1040,
+      "attack_damage": [
+        57,
+        66
+      ],
+      "attack_rating": 750,
+      "attack_speed": 6,
+      "attack_range": 70,
+      "defence": 440,
+      "absorption": 12,
+      "block": 15,
+      "move_speed": 3,
+      "monster_race": "디먼",
+      "size": "중형",
+      "experience": 18000,
+      "effect_sound": "MIREKEEPER",
+      "linked_file": "Name\\Name.zhoon",
+      "model_config_id": "model.char.monster.mirekeeper.mirekeeper"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "적"
+        ],
+        "raw_values_hex": [
+          "c0fb"
+        ]
+      },
+      {
+        "line": 5,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\mirekeeper\\mirekeeper.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c6d6972656b65657065725c6d6972656b65657065722e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "R1 Guardi? de Lama"
+        ],
+        "raw_values_hex": [
+          "5231204775617264693f206465204c616d61"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          56
+        ],
+        "raw_values_hex": [
+          "3536"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "model_scale",
+        "legacy_token": "*모델크기",
+        "legacy_token_hex": "2ab8f0b5a8c5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.0
+        ],
+        "raw_values_hex": [
+          "312e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "generate_group",
+        "legacy_token": "*조직",
+        "legacy_token_hex": "2ac1b6c1f7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          1
+        ],
+        "raw_values_hex": [
+          "31",
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sight",
+        "legacy_token": "*시야",
+        "legacy_token_hex": "2abdc3bedf",
+        "loader_status": "supported_mapped",
+        "values": [
+          360
+        ],
+        "raw_values_hex": [
+          "333630"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life",
+        "legacy_token": "*생명력",
+        "legacy_token_hex": "2abbfdb8edb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1040
+        ],
+        "raw_values_hex": [
+          "31303430"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          57,
+          66
+        ],
+        "raw_values_hex": [
+          "3537",
+          "3636"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          750
+        ],
+        "raw_values_hex": [
+          "373530"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          6
+        ],
+        "raw_values_hex": [
+          "36"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "attack_range",
+        "legacy_token": "*공격범위",
+        "legacy_token_hex": "2ab0f8b0ddb9fcc0a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          440
+        ],
+        "raw_values_hex": [
+          "343430"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "absorption",
+        "legacy_token": "*흡수율",
+        "legacy_token_hex": "2ac8edbcf6c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          12
+        ],
+        "raw_values_hex": [
+          "3132"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          15
+        ],
+        "raw_values_hex": [
+          "3135"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "move_speed",
+        "legacy_token": "*이동력",
+        "legacy_token_hex": "2ac0ccb5bfb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "monster_race",
+        "legacy_token": "*몬스터종족",
+        "legacy_token_hex": "2ab8f3bdbac5cdc1bec1b7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "디먼"
+        ],
+        "raw_values_hex": [
+          "b5f0b8d5"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "size",
+        "legacy_token": "*크기",
+        "legacy_token_hex": "2ac5a9b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          "중형"
+        ],
+        "raw_values_hex": [
+          "c1dfc7fc"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "experience",
+        "legacy_token": "*경험치",
+        "legacy_token_hex": "2ab0e6c7e8c4a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          18000
+        ],
+        "raw_values_hex": [
+          "3138303030"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "effect_sound",
+        "legacy_token": "*효과음",
+        "legacy_token_hex": "2ac8bfb0fac0bd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "MIREKEEPER"
+        ],
+        "raw_values_hex": [
+          "4d4952454b4545504552"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\Name.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4e616d652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9GaWxlVHlwZQ0KKrzTvLogwPsNCg0KLy9Nb2RlbA0KKrjwvufGxMDPICJjaGFyXG1vbnN0ZXJcbWlyZWtlZXBlclxtaXJla2VlcGVyLmluaSINCg0KLy9OYW1lDQoqwMy4pyAiUjEgR3VhcmRpPyBkZSBMYW1hIg0KDQovL0xldmVsDQoqt7m6pyA1Ng0KDQovL1NpemUNCiq48LWoxamx4iAxLjANCg0KLy9TcGF3blF1YW50aXR5DQoqwbbB9yAxIDENCg0KLy9WaWV3UmFuZ2UNCiq9w77fIDM2MA0KDQovL0hQDQoqu/247bfCIDEwNDANCg0KLy9BdHRhY2tQb3dlcg0KKrD4sN23wiA1NyA2Ng0KDQovL0F0dGFja1JhdGluZw0KKrjtwd+3wiA3NTANCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDYNCg0KLy9BdHRhY2tSYW5nZQ0KKrD4sN25/MCnIDcwDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA0NDANCg0KLy9BYnNvcnB0aW9uDQoqyO289sCyIDEyDQoNCi8vQmxvY2sNCiq67bewwLIgMTUNCg0KLy9Nb3ZlU3BlZWQNCirAzLW/t8IgMw0KDQovL1JhY2UNCiq48726xc3BvsG3ILXwuNUNCg0KLy9TaGFkb3dTaXplDQoqxamx4iDB38f8DQoNCi8vRXhwZXJpZW5jZQ0KKrDmx+jEoSAxODAwMA0KDQovL1NvdW5kDQoqyL+w+sC9IE1JUkVLRUVQRVINCg0KLy9FeHRlcm4gRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE5hbWUuemhvb24i"
+  }
+}

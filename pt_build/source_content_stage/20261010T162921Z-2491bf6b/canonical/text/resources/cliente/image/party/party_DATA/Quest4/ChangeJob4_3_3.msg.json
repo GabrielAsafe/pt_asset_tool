@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob4_3_3",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_3.msg",
+    "image/party/party_DATA/Quest4/ChangeJob4_3_3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest4/ChangeJob4_3_3.msg",
+    "legacy_sha256": "1bccb3bfcdc4bff36734691ee2b5bf2a70decdd47e22e20d1d411ede9ee0d711",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Hunt Avelisk Lord",
+      "appointed by master",
+      "to get royal amulet,",
+      "and go back to him.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpIdW50IEF2ZWxpc2sgTG9yZA0KYXBwb2ludGVkIGJ5IG1hc3Rlcg0KdG8gZ2V0IHJveWFsIGFtdWxldCwNCmFuZCBnbyBiYWNrIHRvIGhpbS4NCg0K"
+  }
+}

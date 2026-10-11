@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarten",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Ricarten.sin",
+    "image/Sinimage/WarpGateDoc/Ricarten.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Ricarten.sin",
+    "legacy_sha256": "1264945e84116dd5988b95e971d00dc4dd31f5c0a500fc7bb3f21e622d75a67e",
+    "legacy_size": 298
+  },
+  "semantic": {
+    "lines": [
+      "Ricarten is located in the south of Priston Land.",
+      "It is crowded with novice trainees who brush up",
+      "their skills in the wilderness and forest.",
+      "It is also the Mecca of business and trade, ",
+      "which brings in a lot of merchants from the",
+      "entire continent.",
+      "It is known for Mixture system, too.",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UmljYXJ0ZW4gaXMgbG9jYXRlZCBpbiB0aGUgc291dGggb2YgUHJpc3RvbiBMYW5kLg0KSXQgaXMgY3Jvd2RlZCB3aXRoIG5vdmljZSB0cmFpbmVlcyB3aG8gYnJ1c2ggdXANCnRoZWlyIHNraWxscyBpbiB0aGUgd2lsZGVybmVzcyBhbmQgZm9yZXN0Lg0KSXQgaXMgYWxzbyB0aGUgTWVjY2Egb2YgYnVzaW5lc3MgYW5kIHRyYWRlLCANCndoaWNoIGJyaW5ncyBpbiBhIGxvdCBvZiBtZXJjaGFudHMgZnJvbSB0aGUNCmVudGlyZSBjb250aW5lbnQuDQpJdCBpcyBrbm93biBmb3IgTWl4dHVyZSBzeXN0ZW0sIHRvby4NCg0KDQoNCg=="
+  }
+}

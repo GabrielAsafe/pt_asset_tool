@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.2_wc108",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/2_WC108.zhoon",
+    "GameServer/OpenItem/name/2_WC108.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/2_WC108.zhoon",
+    "legacy_sha256": "72ae9cb737b69f91ce23d7480331bce0876a75485110636ba49a5fb19683e3ae",
+    "legacy_size": 48
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Vingança Ancestral"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8yX1dDMTA4LnR4dA0KDQoqSl9OYW1lCQkiVmluZ2Fu52EgQW5jZXN0cmFsIg0K"
+  }
+}

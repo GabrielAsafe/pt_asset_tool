@@ -1,0 +1,65 @@
+{
+  "schema": "summit.canonical-content-build/v1",
+  "inputs": {
+    "canonical_text": "Content/canonical/text",
+    "canonical_spawns": "Content/canonical/stage_spawns",
+    "canonical_maps": "Content/canonical/maps",
+    "canonical_start_points": "Content/canonical/stage_start_points",
+    "canonical_fixed_npcs": "Content/canonical/fixed_npcs",
+    "canonical_item_profiles": "Content/canonical/item_profiles",
+    "canonical_gameplay_reference": "Content/canonical/gameplay_reference",
+    "canonical_commerce": "Content/canonical/commerce"
+  },
+  "packs": {
+    "text_resources": {
+      "path": "packs/text_resources.sres",
+      "bytes": 2963460,
+      "sha256": "631bb8de85d2cfe8b3c0368dfbcbb6bb1d3fa083892fdb528bf44b275b9606c8"
+    },
+    "definitions_client": {
+      "path": "packs/definitions_client.scfg",
+      "bytes": 755186,
+      "sha256": "4a08be911969aa7c385931551d0ed90eef97358dcfd6069c34b264519f144d44"
+    },
+    "definitions_server": {
+      "path": "packs/definitions_server.scfg",
+      "bytes": 838219,
+      "sha256": "bcb0b2338c5ae971a49204f3d1c372d801952abd0f7a6bf92d24099afa1d9e92"
+    },
+    "localization": {
+      "path": "packs/localization.sloc",
+      "bytes": 356762,
+      "sha256": "9860ca6b00f3c2eef159e4bb532b3fa8f84c12061495beb1a20fa63502f229bd"
+    },
+    "gameplay_config": {
+      "path": "packs/gameplay_config.sgcf",
+      "bytes": 37187,
+      "sha256": "55067c012579aa34011eaf3a9839395b501ccce42c8e87e0b9607001124b1f77"
+    },
+    "gameplay_reference": {
+      "path": "packs/gameplay_reference.sgrf",
+      "bytes": 71792,
+      "sha256": "50cc01ef5d6f3911011f163a9e39c7aac97ef4c8d334d7400bd46d85300f445f"
+    },
+    "coin_shop": {
+      "path": "packs/coin_shop.scsp",
+      "bytes": 6312,
+      "sha256": "e33e40e27d716084535ad2f0a40521f4167289cd20a2d36f2389ff0f53e67378"
+    },
+    "field_runtime": {
+      "path": "packs/field_runtime.sfld",
+      "bytes": 140155,
+      "sha256": "16646ef97409727098efe9a5660c3662c1b498255026cb46bfbd6d01bb9ebb58"
+    },
+    "maps_client": {
+      "path": "packs/maps_client.smap",
+      "bytes": 28365,
+      "sha256": "90f928416d844c291c5f47fcf08d012bf7cee78225c2bd0a3f53a4bd697bd7cc"
+    },
+    "maps_server": {
+      "path": "packs/maps_server.smap",
+      "bytes": 28365,
+      "sha256": "9aad78031a1ee066954de956f151c95887cb867e182c135577c5cc0d2b0ef3c0"
+    }
+  }
+}

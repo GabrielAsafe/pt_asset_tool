@@ -1,0 +1,121 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.lista_mix",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Lista_mix.NPC",
+    "GameServer/NPC/Lista_mix.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Lista_mix.NPC",
+    "legacy_sha256": "89a50f9d3ea5c18485ad80d55b17115094ff1a57157e838590ac675f2949fd4c",
+    "legacy_size": 546
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "CHAR\\NPC\\TEACHER\\TEACHER03.INI",
+      "level": 100,
+      "english_name": "Mr Lim",
+      "event_code": 1001,
+      "linked_file": "name\\Lista_mix.zhoon",
+      "model_config_id": "model.char.npc.teacher.teacher03"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "CHAR\\NPC\\TEACHER\\TEACHER03.INI"
+        ],
+        "raw_values_hex": [
+          "434841525c4e50435c544541434845525c5445414348455230332e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mr Lim"
+        ],
+        "raw_values_hex": [
+          "4d72204c696d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "event_code",
+        "legacy_token": "*이벤트코드",
+        "legacy_token_hex": "2ac0ccbaa5c6aec4dab5e5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1001
+        ],
+        "raw_values_hex": [
+          "31303031"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Lista_mix.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4c697374615f6d69782e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJTlBDDQoquPC+58bEwM8JIkNIQVJcTlBDXFRFQUNIRVJcVEVBQ0hFUjAzLklOSSINCiq3ubqnCQkxMDANCg0KKk5hbWUJCSJNciBMaW0iDQoNCirAzLqlxq7E2rXlIDEwMDENCg0KLy8qtOvIrQkJIruhsKO+4MC6ILv9uO23wsC7IMPKt8++4MC6ILHZt8LAuyDIuLq5vcPE0SDB3bTPtNkuILmwvuDAzCCywCDHyr/kx9IgtqewoSDA1sC7IMXXtM8gwdi68cfYILXOvLy/5CINCi8vKrTryK0JCSK+xrmruK4gsK3H0SDA/LvntvO1tSC8+LCjwPvAuLfOILvzw7O4piDEobfhx8+w7SDIuLq5vcPE0SDB1rTCILmwvuC16cDMIL74wMy0wiCx1yCwrcfUwLsgwK/B9sfSILz2IL74wdIiDQovLyq068itCQkiwMyw97+hvK0gxse4xbXHtMIguPC15yC5sL7gwLogwaawoSDB98GiILi4temw7SDA1r3AtM+02S4gwNogvu62siC5sL7gwMwgx8q/5MfPvLy/5D8iDQovLyq068itCQkiubC+4MC7ILDtuKYgtqkgwNq9xcDHILv9uO23wr+hILjCsNQgvLHFw8fYvt8gx9W0z7TZLiINCg0KDQoqv6yw4cbEwM8JIm5hbWVcTGlzdGFfbWl4Lnpob29uIg0KDQoNCg0KDQoNCg0K"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.sk404",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/SK404.txt",
+    "GameServer/OpenItem/SK404.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/SK404.txt",
+    "legacy_sha256": "2f99e2f9189134b46fb4ca239fda43a2f57b3e08c081d0a2e714d555b48aa2ee",
+    "legacy_size": 57
+  },
+  "semantic": {
+    "fields": {
+      "name": "Skin Roupão",
+      "code": "SK404"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Skin Roupão"
+        ],
+        "raw_values_hex": [
+          "536b696e20526f7570e36f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "SK404"
+        ],
+        "raw_values_hex": [
+          "534b343034"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkiU2tpbiBSb3Vw428iDQoqxNq15QkiU0s0MDQi"
+  }
+}

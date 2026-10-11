@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_2_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_2_Start.sin",
+    "image/Sinimage/Quest/155LVQuest_2_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_2_Start.sin",
+    "legacy_sha256": "1ef3682390f421cdf0e0c39d50cc60b0bb5fb4b82eda910a2a44e733c4fbc3ab",
+    "legacy_size": 605
+  },
+  "semantic": {
+    "lines": [
+      "A explosão de energia foi decorrente da Chama de Gelo no",
+      "coração da Dama da Neve despertando a Chama de Gelo no",
+      "coração do lendário Dragão de Snowstorm, que voltou à vida.",
+      "",
+      "Eis a Esfera do Fogo, que criei com o poder da deusa Idhas,",
+      "canalizado pelo Tridente Lendário do Rei Zarad. Temos que",
+      "parar o rio glacial em suas origens: em terra e no mar.",
+      "",
+      "Por favor, leve a Esfera do Fogo até o Vale Snowstorm.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Derrote 150 monstros em Vale Gallubia e invoque a Esfera",
+      "do Fogo no Vale Snowstorm, na área determinada.",
+      "Ao acabar, fale com Rubi, a Sacerdotisa do Fogo, em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QSBleHBsb3PjbyBkZSBlbmVyZ2lhIGZvaSBkZWNvcnJlbnRlIGRhIENoYW1hIGRlIEdlbG8gbm8NCmNvcmHn428gZGEgRGFtYSBkYSBOZXZlIGRlc3BlcnRhbmRvIGEgQ2hhbWEgZGUgR2VsbyBubw0KY29yYefjbyBkbyBsZW5k4XJpbyBEcmFn428gZGUgU25vd3N0b3JtLCBxdWUgdm9sdG91IOAgdmlkYS4NCg0KRWlzIGEgRXNmZXJhIGRvIEZvZ28sIHF1ZSBjcmllaSBjb20gbyBwb2RlciBkYSBkZXVzYSBJZGhhcywNCmNhbmFsaXphZG8gcGVsbyBUcmlkZW50ZSBMZW5k4XJpbyBkbyBSZWkgWmFyYWQuIFRlbW9zIHF1ZQ0KcGFyYXIgbyByaW8gZ2xhY2lhbCBlbSBzdWFzIG9yaWdlbnM6IGVtIHRlcnJhIGUgbm8gbWFyLg0KDQpQb3IgZmF2b3IsIGxldmUgYSBFc2ZlcmEgZG8gRm9nbyBhdOkgbyBWYWxlIFNub3dzdG9ybS4NCg0KW09iamV0aXZvIGRvIERlc2FmaW9dDQoNCkRlcnJvdGUgMTUwIG1vbnN0cm9zIGVtIFZhbGUgR2FsbHViaWEgZSBpbnZvcXVlIGEgRXNmZXJhDQpkbyBGb2dvIG5vIFZhbGUgU25vd3N0b3JtLCBuYSDhcmVhIGRldGVybWluYWRhLg0KQW8gYWNhYmFyLCBmYWxlIGNvbSBSdWJpLCBhIFNhY2VyZG90aXNhIGRvIEZvZ28sIGVtIFBpbGxhaS4="
+  }
+}

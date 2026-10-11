@@ -1,0 +1,12 @@
+{
+  "schema": "summit.localization-bindings/v1",
+  "bindings": [
+    {
+      "content_id": "monster.s92_crow",
+      "kind": "monster_definition",
+      "name_key": "monster.s92_crow.name",
+      "chat_keys": [],
+      "linked_resource_id": null
+    }
+  ]
+}

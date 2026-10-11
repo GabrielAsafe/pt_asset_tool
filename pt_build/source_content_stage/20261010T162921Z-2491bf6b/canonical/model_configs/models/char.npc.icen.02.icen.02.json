@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.icen.02.icen.02",
+  "logical_config": "char/npc/IceN-02/IceN-02.ini",
+  "legacy_cache": "char/npc/IceN-02/IceN-02.inx",
+  "consumers": [
+    {
+      "id": "npc.yura_store",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/yura-store.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/IceN-02/IceN-02.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/IceN-02/IceN-02.inx"
+    }
+  }
+}

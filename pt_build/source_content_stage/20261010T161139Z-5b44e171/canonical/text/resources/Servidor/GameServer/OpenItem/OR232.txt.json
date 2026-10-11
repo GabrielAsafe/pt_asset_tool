@@ -1,0 +1,95 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.or232",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OR232.txt",
+    "GameServer/OpenItem/OR232.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OR232.txt",
+    "legacy_sha256": "4f8f7e7d0cc15e5fb242eddf54e44c2386da476d134cc0fdba172f826f0de13f",
+    "legacy_size": 145
+  },
+  "semantic": {
+    "fields": {
+      "code": "OR232",
+      "name": "Anel do Fúria",
+      "english_name": "Anel do Fúria",
+      "linked_file": "Name\\OR232.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OR232"
+        ],
+        "raw_values_hex": [
+          "4f52323332"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel do Fúria"
+        ],
+        "raw_values_hex": [
+          "416e656c20646f2046fa726961"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Anel do Fúria"
+        ],
+        "raw_values_hex": [
+          "416e656c20646f2046fa726961"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OR232.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f523233322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9SMjMyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQW5lbCBkbyBG+nJpYSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJBbmVsIGRvIEb6cmlhIg0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE9SMjMyLnpob29uIg=="
+  }
+}

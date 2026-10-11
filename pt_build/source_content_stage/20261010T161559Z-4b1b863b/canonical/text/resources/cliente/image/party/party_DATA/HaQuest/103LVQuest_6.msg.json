@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_6",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/103LVQuest_6.msg",
+    "image/party/party_DATA/HaQuest/103LVQuest_6.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/103LVQuest_6.msg",
+    "legacy_sha256": "7ddbc9ee6fccb5b219dfb32099ff2317ebd30c78a8c26a86fa1f2e12037e7a97",
+    "legacy_size": 70
+  },
+  "semantic": {
+    "lines": [
+      "All of the C-stones are",
+      "installed. Let's go back",
+      "to the messenger."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QWxsIG9mIHRoZSBDLXN0b25lcyBhcmUNCmluc3RhbGxlZC4gTGV0J3MgZ28gYmFjaw0KdG8gdGhlIG1lc3Nlbmdlci4NCg=="
+  }
+}

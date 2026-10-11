@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.nadia2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/nadia2.Zhoon",
+    "GameServer/NPC/name/nadia2.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/nadia2.Zhoon",
+    "legacy_sha256": "a78e4747d09d3ca020eeada449072ad9e3cc63ad30d078f53c2955e56d855217",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Lunia"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Venham comprar itens raros comigo!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9uYWRpYTIuTlBDDQoNCg0KKkpfTmFtZQkiTHVuaWEiDQoNCg0KKkpfQ2hhdAkiVmVuaGFtIGNvbXByYXIgaXRlbnMgcmFyb3MgY29taWdvISINCg0K"
+  }
+}

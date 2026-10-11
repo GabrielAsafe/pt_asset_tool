@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110_capataz_das_cinzas",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/110_Capataz das Cinzas.zhoon",
+    "GameServer/Monster/Name/110_Capataz das Cinzas.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/110_Capataz das Cinzas.zhoon",
+    "legacy_sha256": "8c558ee2986649f9bd1378747ff1bc1acd4f86068573ad6c5eadefeba70ab545",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Capataz das Cinzas"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2FwYXRheiBkYXMgQ2luemFzIg=="
+  }
+}

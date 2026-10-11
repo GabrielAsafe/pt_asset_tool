@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.m.lord.m.load",
+  "logical_config": "char/monster/m_lord/m_load.ini",
+  "legacy_cache": "char/monster/m_lord/m_load.inx",
+  "consumers": [
+    {
+      "id": "monster.71_lorde_m_u00famia",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/71_Lorde M#U00famia.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/m_lord/m_load.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/m_lord/m_load.inx"
+    }
+  }
+}

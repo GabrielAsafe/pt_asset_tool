@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monbagon.monbagon.c",
+  "logical_config": "char/monster/monbagon/monbagon-c.ini",
+  "legacy_cache": "char/monster/monbagon/monbagon-c.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_44_apostasy",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Cash Falta na pasta Monster/Chefe_44_Apostasy.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monbagon/Monbagon-C.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monbagon/Monbagon-C.inx"
+    }
+  }
+}

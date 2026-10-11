@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_2_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_2_End.sin",
+    "image/Sinimage/Quest/110LVQuest_2_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_2_End.sin",
+    "legacy_sha256": "7681958e6124daf68ec993114607f6854841c223d711801bde12c0f2fdd1e702",
+    "legacy_size": 177
+  },
+  "semantic": {
+    "lines": [
+      "Posso ajudá-lo?",
+      "",
+      "Ah, se o Comandante Derik me pede um favor, é claro que vou",
+      "ajudar.",
+      "",
+      "Levará algum tempo para analisar os documentos, então você",
+      "poderia voltar mais tarde?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UG9zc28gYWp1ZOEtbG8/DQoNCkFoLCBzZSBvIENvbWFuZGFudGUgRGVyaWsgbWUgcGVkZSB1bSBmYXZvciwg6SBjbGFybyBxdWUgdm91DQphanVkYXIuDQoNCkxldmFy4SBhbGd1bSB0ZW1wbyBwYXJhIGFuYWxpc2FyIG9zIGRvY3VtZW50b3MsIGVudONvIHZvY+oNCnBvZGVyaWEgdm9sdGFyIG1haXMgdGFyZGU/"
+  }
+}

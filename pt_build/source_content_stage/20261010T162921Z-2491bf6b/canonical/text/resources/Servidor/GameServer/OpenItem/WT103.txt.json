@@ -1,0 +1,336 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wt103",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WT103.txt",
+    "GameServer/OpenItem/WT103.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WT103.txt",
+    "legacy_sha256": "471890f76ef48fffaf1263cb55ea63e9fac5e3c28cbd0087a4a6696030e06fa5",
+    "legacy_size": 628
+  },
+  "semantic": {
+    "fields": {
+      "code": "WT103",
+      "name": "Lança Afiada",
+      "english_name": "Lança Afiada",
+      "attack_damage": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "shooting_range": 190,
+      "attack_speed": 7,
+      "attack_rating": [
+        36,
+        45
+      ],
+      "critical": 4,
+      "durability": [
+        27,
+        33
+      ],
+      "talent": 26,
+      "job": "Atalanta",
+      "job_random": [
+        "Mechanician",
+        "Archer"
+      ],
+      "special_damage": [
+        6,
+        6
+      ],
+      "special_attack_speed": 1,
+      "special_critical": 3,
+      "special_range": 10,
+      "weight": 2,
+      "price": 500,
+      "linked_file": "Name\\WT103.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WT103"
+        ],
+        "raw_values_hex": [
+          "5754313033"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Lança Afiada"
+        ],
+        "raw_values_hex": [
+          "4c616ee76120416669616461"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Lança Afiada"
+        ],
+        "raw_values_hex": [
+          "4c616ee76120416669616461"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "raw_values_hex": [
+          "33",
+          "34",
+          "35",
+          "36"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "shooting_range",
+        "legacy_token": "*사정거리",
+        "legacy_token_hex": "2abbe7c1a4b0c5b8ae",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          190
+        ],
+        "raw_values_hex": [
+          "313930"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          36,
+          45
+        ],
+        "raw_values_hex": [
+          "3336",
+          "3435"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4
+        ],
+        "raw_values_hex": [
+          "34"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          27,
+          33
+        ],
+        "raw_values_hex": [
+          "3237",
+          "3333"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          26
+        ],
+        "raw_values_hex": [
+          "3236"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "job",
+        "legacy_token": "**Ưȭ",
+        "legacy_token_hex": "2a2ac6afc8ad",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Archer"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "417263686572"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          6
+        ],
+        "raw_values_hex": [
+          "36",
+          "36"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "special_critical",
+        "legacy_token": "**크리티컬",
+        "legacy_token_hex": "2a2ac5a9b8aec6bcc4c3",
+        "loader_status": "supported_mapped",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_range",
+        "legacy_token": "**사정거리",
+        "legacy_token_hex": "2a2abbe7c1a4b0c5b8ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          500
+        ],
+        "raw_values_hex": [
+          "353030"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WT103.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c57543130332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldUMTAzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiTGFu52EgQWZpYWRhIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkxhbudhIEFmaWFkYSINCg0KLy9BdHRhY2tQb3dlcg0KKrD4sN23wiAzIDQgNSA2DQoNCi8vQXR0YWNrUmFuZ2UNCiq758GksMW4riAxOTANCg0KLy9BdHRhY2tTcGVlZA0KKrD4sN2807W1IDcNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgMzYgNDUNCg0KLy9BdHRhY2tDcml0aWNhbA0KKsWpuK7GvMTDIDQNCg0KLy9JbnRlZ3JpdHkNCiqzu7G4t8IgMjcgMzMNCg0KLy9UYWxlbnQNCirA57TJIDI2DQoNCi8vUHJpbWFyeVNwZWMNCioqxq/IrSBBdGFsYW50YQ0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gTWVjaGFuaWNpYW4gQXJjaGVyDQoNCi8vU3BlY0F0dGFja1Bvd2VyDQoqKrD4sN23wiA2IDYNCg0KLy9TcGVjQXR0YWNrU3BlZWQNCioqsPiw3bzTtbUgMQ0KDQovL1NwZWNBdHRhY2tDcml0aWNhbA0KKirFqbiuxrzEwyAzDQoNCi8vU3BlY0F0dGFja1JhbmdlDQoqKrvnwaSwxbiuIDEwDQoNCi8vV2VpZ2h0DQoquauw1CAyDQoNCi8vUHJpY2UNCiqwobDdIDUwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXFdUMTAzLnpob29uIg=="
+  }
+}

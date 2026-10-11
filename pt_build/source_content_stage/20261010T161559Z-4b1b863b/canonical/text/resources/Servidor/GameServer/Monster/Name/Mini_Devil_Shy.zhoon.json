@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.mini_devil_shy",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/Mini_Devil_Shy.zhoon",
+    "GameServer/Monster/Name/Mini_Devil_Shy.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/Mini_Devil_Shy.zhoon",
+    "legacy_sha256": "10a49ac8203c9b8ffd5173e12aec00524737014a9d6b0bbab8995ee1149f7e7d",
+    "legacy_size": 50
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mini Devil Shy"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9NaW5pX0RldmlsX1NoeS5pbmYNCg0KKkpfTkFNRSAiTWluaSBEZXZpbCBTaHkiDQo="
+  }
+}

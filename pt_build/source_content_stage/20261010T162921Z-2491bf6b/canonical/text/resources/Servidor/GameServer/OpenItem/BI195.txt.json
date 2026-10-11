@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi195",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI195.txt",
+    "GameServer/OpenItem/BI195.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI195.txt",
+    "legacy_sha256": "c59638a18b2ae3fe2e1ef97b9415212082fdd6c2ef9fc7a4dd2e04b7ed74d816",
+    "legacy_size": 172
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI195",
+      "name": "Poção do Sorriso",
+      "english_name": "Poção do Sorriso",
+      "weight": 1,
+      "linked_file": "Name\\BI195.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI195"
+        ],
+        "raw_values_hex": [
+          "4249313935"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção do Sorriso"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f20646f20536f727269736f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção do Sorriso"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f20646f20536f727269736f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI195.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493139352e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTk1Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gZG8gU29ycmlzbyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJQb+fjbyBkbyBTb3JyaXNvIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJJMTk1Lnpob29uIg=="
+  }
+}

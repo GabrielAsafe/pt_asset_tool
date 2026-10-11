@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_4.path_a1551f2c86",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob3_4.sin",
+    "image/Sinimage/Quest/ChangeJob3_4.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob3_4.sin",
+    "legacy_sha256": "fc792f729c2becb6ba7bb1feec1eab303e3c91623cbd2b41cc9fc920264d0f23",
+    "legacy_size": 283
+  },
+  "semantic": {
+    "lines": [
+      "Well done. Your weapon is all matured.",
+      "Now you're qualified to learn new skills because",
+      "you passed the rank-up quest.",
+      "I'll lend you specialized Missile ring and the",
+      "weapon for 5 days as a mark of your good performance.",
+      "Come and see me again when the ring and weapon disappear."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "V2VsbCBkb25lLiBZb3VyIHdlYXBvbiBpcyBhbGwgbWF0dXJlZC4NCk5vdyB5b3UncmUgcXVhbGlmaWVkIHRvIGxlYXJuIG5ldyBza2lsbHMgYmVjYXVzZQ0KeW91IHBhc3NlZCB0aGUgcmFuay11cCBxdWVzdC4NCkknbGwgbGVuZCB5b3Ugc3BlY2lhbGl6ZWQgTWlzc2lsZSByaW5nIGFuZCB0aGUNCndlYXBvbiBmb3IgNSBkYXlzIGFzIGEgbWFyayBvZiB5b3VyIGdvb2QgcGVyZm9ybWFuY2UuDQpDb21lIGFuZCBzZWUgbWUgYWdhaW4gd2hlbiB0aGUgcmluZyBhbmQgd2VhcG9uIGRpc2FwcGVhci4NCg=="
+  }
+}

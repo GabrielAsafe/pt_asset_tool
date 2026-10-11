@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.21",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/21.msg",
+    "image/clanImage/Help/AutoHelp/21.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/21.msg",
+    "legacy_sha256": "db36c97a0fceef923ff85a6d0b3bd5501c7f2cc37a98b6a10f7f21246b1b1a51",
+    "legacy_size": 169
+  },
+  "semantic": {
+    "lines": [
+      "At level 65, you can pass the Temple of Darkness ",
+      "anywhere from Beehive Cave till Mushroom Cave.",
+      "Beware of deadly monsters wandering about in the temple.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QXQgbGV2ZWwgNjUsIHlvdSBjYW4gcGFzcyB0aGUgVGVtcGxlIG9mIERhcmtuZXNzIA0KYW55d2hlcmUgZnJvbSBCZWVoaXZlIENhdmUgdGlsbCBNdXNocm9vbSBDYXZlLg0KQmV3YXJlIG9mIGRlYWRseSBtb25zdGVycyB3YW5kZXJpbmcgYWJvdXQgaW4gdGhlIHRlbXBsZS4NCg0KDQoNCg0KDQoNCg=="
+  }
+}

@@ -6,11 +6,11 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `c64673929abdd4fd3c1be5eb612fa08b90c5a7b4740c0904cfd6af9f6e16bf8e`
-- Maintained Python modules/scripts: **301**
+- Source SHA-256: `a6d7eb9a3fe5ea85b8f69893f51035927a9b0b53ddc4396e409037baac86cda5`
+- Maintained Python modules/scripts: **302**
 - Classes: **66**
 - Class methods: **291**
-- Module-level functions: **3144**
+- Module-level functions: **3164**
 
 A summary of `—` means the symbol has no Python docstring; the signature and source location remain documented here. This reference documents private helpers too because they are part of the maintained source surface, not only public API.
 
@@ -1815,200 +1815,202 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `make_context` | `make_context(a)` | 135 | — |
-| function | `table` | `table(rows, headers)` | 143 | — |
-| function | `cmd_doctor` | `cmd_doctor(a)` | 160 | — |
-| function | `cmd_audit_physique` | `cmd_audit_physique(a)` | 297 | — |
-| function | `cmd_audit_animation_certification_plan` | `cmd_audit_animation_certification_plan(a)` | 315 | — |
-| function | `cmd_audit_object_local` | `cmd_audit_object_local(a)` | 328 | — |
-| function | `cmd_audit_object_local_corpus` | `cmd_audit_object_local_corpus(a)` | 345 | — |
-| function | `cmd_audit_texlink_corpus` | `cmd_audit_texlink_corpus(a)` | 367 | — |
-| function | `cmd_audit_stage072_corpus` | `cmd_audit_stage072_corpus(a)` | 390 | — |
-| function | `cmd_audit_stage072_stagearea` | `cmd_audit_stage072_stagearea(a)` | 418 | — |
-| function | `cmd_audit_stage072_textures` | `cmd_audit_stage072_textures(a)` | 442 | — |
-| function | `cmd_audit_rare_support` | `cmd_audit_rare_support(a)` | 470 | — |
-| function | `cmd_audit_rare_outliers` | `cmd_audit_rare_outliers(a)` | 495 | — |
-| function | `cmd_audit_rare_rigid_context` | `cmd_audit_rare_rigid_context(a)` | 523 | — |
-| function | `cmd_audit_rare_rigid_binding` | `cmd_audit_rare_rigid_binding(a)` | 551 | — |
-| function | `cmd_audit_rare_rigid_preview` | `cmd_audit_rare_rigid_preview(a)` | 577 | — |
-| function | `cmd_audit_rare_rigid_geometry` | `cmd_audit_rare_rigid_geometry(a)` | 607 | — |
-| function | `cmd_audit_rare_rigid_roundtrip` | `cmd_audit_rare_rigid_roundtrip(a)` | 634 | — |
-| function | `cmd_audit_rare_rigid_normal_roundtrip` | `cmd_audit_rare_rigid_normal_roundtrip(a)` | 659 | — |
-| function | `cmd_audit_rare_rigid_extent_roundtrip` | `cmd_audit_rare_rigid_extent_roundtrip(a)` | 684 | — |
-| function | `cmd_audit_rare_rigid_multibone` | `cmd_audit_rare_rigid_multibone(a)` | 710 | — |
-| function | `cmd_audit_rare_rigid_multibone_roundtrip` | `cmd_audit_rare_rigid_multibone_roundtrip(a)` | 743 | — |
-| function | `cmd_view_rare_model` | `cmd_view_rare_model(a)` | 770 | — |
-| function | `_print_asset_table_legend` | `_print_asset_table_legend()` | 780 | — |
-| function | `cmd_assets_list` | `cmd_assets_list(a)` | 793 | — |
-| function | `_profile_registry` | `_profile_registry(s)` | 818 | — |
-| function | `cmd_profiles_list` | `cmd_profiles_list(a)` | 822 | — |
-| function | `cmd_profiles_inspect` | `cmd_profiles_inspect(a)` | 833 | — |
-| function | `cmd_profiles_lod` | `cmd_profiles_lod(a)` | 840 | — |
-| function | `cmd_profiles_discover` | `cmd_profiles_discover(a)` | 858 | — |
-| function | `cmd_profiles_authoring_plan` | `cmd_profiles_authoring_plan(a)` | 870 | — |
-| function | `cmd_profiles_verify` | `cmd_profiles_verify(a)` | 878 | — |
-| function | `_entity_catalog_context` | `_entity_catalog_context(s, reg)` | 909 | — |
-| function | `cmd_entities_list` | `cmd_entities_list(a)` | 917 | — |
-| function | `cmd_entities_inspect` | `cmd_entities_inspect(a)` | 950 | — |
-| function | `cmd_audit_binding_coverage` | `cmd_audit_binding_coverage(a)` | 973 | — |
-| function | `_write_read_only_audit_result` | `_write_read_only_audit_result(s, result: dict, raw_output: str \| None) -> None` | 992 | — |
-| function | `cmd_audit_inx_writer_corpus` | `cmd_audit_inx_writer_corpus(a)` | 1008 | — |
-| function | `cmd_audit_smb_writer_corpus` | `cmd_audit_smb_writer_corpus(a)` | 1017 | — |
-| function | `cmd_audit_inx_writer_edit_corpus` | `cmd_audit_inx_writer_edit_corpus(a)` | 1026 | — |
-| function | `cmd_audit_smb_writer_edit_corpus` | `cmd_audit_smb_writer_edit_corpus(a)` | 1035 | — |
-| function | `cmd_audit_motion_writer_semantic_edit_corpus` | `cmd_audit_motion_writer_semantic_edit_corpus(a)` | 1044 | — |
-| function | `cmd_audit_object_local_writer_corpus` | `cmd_audit_object_local_writer_corpus(a)` | 1055 | — |
-| function | `cmd_audit_rigid_model_info_contexts` | `cmd_audit_rigid_model_info_contexts(a)` | 1063 | — |
-| function | `cmd_audit_development_readiness` | `cmd_audit_development_readiness(a)` | 1071 | — |
-| function | `cmd_deploy_prepare` | `cmd_deploy_prepare(a)` | 1085 | — |
-| function | `cmd_deploy_verify` | `cmd_deploy_verify(a)` | 1092 | — |
-| function | `cmd_deploy_simulate` | `cmd_deploy_simulate(a)` | 1098 | — |
-| function | `cmd_deploy_state` | `cmd_deploy_state(a)` | 1104 | — |
-| function | `cmd_deploy_restore_plan` | `cmd_deploy_restore_plan(a)` | 1110 | — |
-| function | `cmd_deploy_workspace_prepare` | `cmd_deploy_workspace_prepare(a)` | 1116 | — |
-| function | `cmd_deploy_workspace_apply` | `cmd_deploy_workspace_apply(a)` | 1126 | — |
-| function | `cmd_deploy_workspace_verify` | `cmd_deploy_workspace_verify(a)` | 1132 | — |
-| function | `cmd_deploy_workspace_state` | `cmd_deploy_workspace_state(a)` | 1138 | — |
-| function | `cmd_deploy_workspace_restore` | `cmd_deploy_workspace_restore(a)` | 1144 | — |
-| function | `cmd_deploy_workspace_history` | `cmd_deploy_workspace_history(a)` | 1150 | — |
-| function | `cmd_deploy_workspace_publish` | `cmd_deploy_workspace_publish(a)` | 1159 | — |
-| function | `cmd_deploy_workspace_check` | `cmd_deploy_workspace_check(a)` | 1170 | — |
-| function | `cmd_deploy_workspace_restore_latest` | `cmd_deploy_workspace_restore_latest(a)` | 1178 | — |
-| function | `cmd_deploy_workspace_restore_model_latest` | `cmd_deploy_workspace_restore_model_latest(a)` | 1186 | — |
-| function | `cmd_asset_authoring` | `cmd_asset_authoring(a)` | 1195 | — |
-| function | `cmd_audit_model062_authoring` | `cmd_audit_model062_authoring(a)` | 1214 | — |
-| function | `cmd_families` | `cmd_families(a)` | 1224 | — |
-| function | `cmd_asset_inspect` | `cmd_asset_inspect(a)` | 1230 | — |
-| function | `choose_next` | `choose_next(reg, cert, resolver, category = None)` | 1293 | — |
-| function | `cmd_audit_texlink_semantics` | `cmd_audit_texlink_semantics(a)` | 1305 | — |
-| function | `cmd_asset_texlink_semantics` | `cmd_asset_texlink_semantics(a)` | 1332 | — |
-| function | `cmd_validate_texlinks` | `cmd_validate_texlinks(a)` | 1347 | — |
-| function | `cmd_validate_texlink_roundtrip` | `cmd_validate_texlink_roundtrip(a)` | 1358 | — |
-| function | `cmd_validate_stage072_preview` | `cmd_validate_stage072_preview(a)` | 1369 | — |
-| function | `cmd_view_stage072` | `cmd_view_stage072(a)` | 1380 | — |
-| function | `cmd_paint_stage072` | `cmd_paint_stage072(a)` | 1397 | — |
-| function | `cmd_validate_stage072_roundtrip` | `cmd_validate_stage072_roundtrip(a)` | 1433 | — |
-| function | `cmd_validate_stage072_geometry_roundtrip` | `cmd_validate_stage072_geometry_roundtrip(a)` | 1444 | — |
-| function | `cmd_validate_structural` | `cmd_validate_structural(a)` | 1455 | — |
-| function | `cmd_validate_visual` | `cmd_validate_visual(a)` | 1464 | — |
-| function | `cmd_validate_roundtrip` | `cmd_validate_roundtrip(a)` | 1475 | — |
-| function | `cmd_asset_object_local` | `cmd_asset_object_local(a)` | 1487 | — |
-| function | `cmd_asset_texlinks` | `cmd_asset_texlinks(a)` | 1501 | — |
-| function | `cmd_validate_object_local` | `cmd_validate_object_local(a)` | 1516 | — |
-| function | `_normalize_head_tier` | `_normalize_head_tier(value: str) -> tuple[str, int \| None]` | 1526 | — |
-| function | `cmd_asset_heads` | `cmd_asset_heads(a)` | 1542 | — |
-| function | `cmd_asset_head_tiers` | `cmd_asset_head_tiers(a)` | 1554 | — |
-| function | `_resolve_head_option` | `_resolve_head_option(reg, asset, value: str, tier_value: str = "auto")` | 1566 | — |
-| function | `_resolved_motion_context` | `_resolved_motion_context(asset, resolver)` | 1620 | — |
-| function | `cmd_asset_motions` | `cmd_asset_motions(a)` | 1626 | — |
-| function | `_resolve_inx_source` | `_resolve_inx_source(a, s, resolver)` | 1641 | — |
-| function | `_pt_build_output` | `_pt_build_output(s, raw, *, default_rel)` | 1648 | — |
-| function | `_resolve_smb_source` | `_resolve_smb_source(a, s, resolver)` | 1663 | — |
-| function | `cmd_validate_smb_track_roundtrip` | `cmd_validate_smb_track_roundtrip(a)` | 1670 | — |
-| function | `cmd_write_smb_key` | `cmd_write_smb_key(a)` | 1679 | — |
-| function | `cmd_validate_inx_roundtrip` | `cmd_validate_inx_roundtrip(a)` | 1693 | — |
-| function | `cmd_write_inx_motion` | `cmd_write_inx_motion(a)` | 1702 | — |
-| function | `cmd_write_object_local_key_candidate` | `cmd_write_object_local_key_candidate(a)` | 1718 | — |
-| function | `cmd_validate_animation` | `cmd_validate_animation(a)` | 1749 | — |
-| function | `choose_next_animation` | `choose_next_animation(reg, cert, resolver, category = None)` | 1770 | — |
-| function | `cmd_audit_animation_source` | `cmd_audit_animation_source(a)` | 1781 | — |
-| function | `cmd_audit_animation_corpus` | `cmd_audit_animation_corpus(a)` | 1799 | — |
-| function | `cmd_diagnose_animation` | `cmd_diagnose_animation(a)` | 1814 | — |
-| function | `cmd_diagnose_motion_source` | `cmd_diagnose_motion_source(a)` | 1824 | — |
-| function | `cmd_diagnose_motion_segment` | `cmd_diagnose_motion_segment(a)` | 1835 | — |
-| function | `_load_root_binding_cache` | `_load_root_binding_cache(path: pathlib.Path) -> dict` | 1847 | — |
-| function | `_atomic_json` | `_atomic_json(path: pathlib.Path, data: dict)` | 1860 | — |
-| function | `_signature_for_passing_smb` | `_signature_for_passing_smb(s, smb_path: pathlib.Path) -> dict` | 1865 | Best-effort skeleton identity for an SMB that already passed the structural gate. |
-| function | `_error_bucket` | `_error_bucket(exc: Exception) -> str` | 1878 | — |
-| function | `_physique_subset_resolution` | `_physique_subset_resolution(a, s, reg, resolver, asset, src, tested, work)` | 1893 | Resolve full-skeleton ambiguity by the mesh's actually weighted bone closure. |
-| function | `_extract_config_binary_refs` | `_extract_config_binary_refs(blob: bytes) -> dict` | 2022 | Extract explicit asset references from opaque/fixed-field INX bytes. |
-| function | `_resolve_literal_config_ref` | `_resolve_literal_config_ref(token: str, inx_rel: str, reg, resolver) -> dict` | 2063 | Resolve one literal config token without fuzzy basename guessing. |
-| function | `_config_context_resolution` | `_config_context_resolution(a, s, reg, resolver, asset, tested, work)` | 2113 | Use explicit config references to discriminate full-skeleton ambiguity. |
-| function | `_assembly_graph_resolution` | `_assembly_graph_resolution(a, s, reg, resolver, asset, tested, work)` | 2267 | Resolve a config-only skeleton through explicit pairing graph connectivity. |
-| function | `cmd_binding_discover` | `cmd_binding_discover(a, s, reg, resolver)` | 2414 | — |
-| function | `cmd_bindings` | `cmd_bindings(a)` | 2746 | — |
-| function | `cmd_view_rigid_candidate` | `cmd_view_rigid_candidate(a)` | 2776 | — |
-| function | `cmd_audit_rigid_authoring_certification_plan` | `cmd_audit_rigid_authoring_certification_plan(a)` | 2789 | — |
-| function | `cmd_cert_rigid_candidate_review` | `cmd_cert_rigid_candidate_review(a)` | 2800 | — |
-| function | `cmd_cert_list` | `cmd_cert_list(a)` | 2907 | — |
-| function | `cmd_cert_record` | `cmd_cert_record(a)` | 2923 | — |
-| function | `cmd_audit_release_1_coverage` | `cmd_audit_release_1_coverage(a)` | 2941 | — |
-| function | `cmd_validate_environment_auto` | `cmd_validate_environment_auto(a)` | 2959 | — |
-| function | `cmd_validate_server_environment_auto` | `cmd_validate_server_environment_auto(a)` | 2968 | — |
-| function | `cmd_audit_server_inventory` | `cmd_audit_server_inventory(a)` | 2975 | — |
-| function | `cmd_audit_server_bundles` | `cmd_audit_server_bundles(a)` | 2991 | — |
-| function | `cmd_audit_server_fields` | `cmd_audit_server_fields(a)` | 3007 | — |
-| function | `cmd_audit_server_items` | `cmd_audit_server_items(a)` | 3022 | — |
-| function | `cmd_legacy_management_summary` | `cmd_legacy_management_summary(a)` | 3041 | — |
-| function | `cmd_legacy_management_verify` | `cmd_legacy_management_verify(a)` | 3046 | — |
-| function | `cmd_legacy_management_item_code` | `cmd_legacy_management_item_code(a)` | 3052 | — |
-| function | `cmd_audit_legacy_management` | `cmd_audit_legacy_management(a)` | 3060 | — |
-| function | `cmd_legacy_authoring_capabilities` | `cmd_legacy_authoring_capabilities(a)` | 3077 | — |
-| function | `_legacy_authoring_context` | `_legacy_authoring_context(a)` | 3083 | — |
-| function | `cmd_legacy_authoring_inspect` | `cmd_legacy_authoring_inspect(a)` | 3090 | — |
-| function | `cmd_legacy_authoring_stage` | `cmd_legacy_authoring_stage(a)` | 3097 | — |
-| function | `cmd_legacy_authoring_publish` | `cmd_legacy_authoring_publish(a)` | 3107 | — |
-| function | `cmd_legacy_authoring_restore` | `cmd_legacy_authoring_restore(a)` | 3117 | — |
-| function | `_canonical_context` | `_canonical_context(a)` | 3126 | — |
-| function | `cmd_canonical_status` | `cmd_canonical_status(a)` | 3133 | — |
-| function | `cmd_canonical_catalog` | `cmd_canonical_catalog(a)` | 3140 | — |
-| function | `cmd_canonical_capabilities` | `cmd_canonical_capabilities(a)` | 3147 | — |
-| function | `cmd_canonical_domains` | `cmd_canonical_domains(a)` | 3153 | — |
-| function | `cmd_canonical_stage` | `cmd_canonical_stage(a)` | 3159 | — |
-| function | `cmd_canonical_publish_source` | `cmd_canonical_publish_source(a)` | 3169 | — |
-| function | `cmd_canonical_publish_packs` | `cmd_canonical_publish_packs(a)` | 3176 | — |
-| function | `cmd_canonical_restore` | `cmd_canonical_restore(a)` | 3183 | — |
-| function | `cmd_contracts_registry_list` | `cmd_contracts_registry_list(a)` | 3190 | — |
-| function | `cmd_contracts_registry_show` | `cmd_contracts_registry_show(a)` | 3200 | — |
-| function | `cmd_asset_compiler_capabilities` | `cmd_asset_compiler_capabilities(a)` | 3212 | — |
-| function | `cmd_asset_compiler_plan` | `cmd_asset_compiler_plan(a)` | 3217 | — |
-| function | `cmd_asset_compiler_build` | `cmd_asset_compiler_build(a)` | 3224 | — |
-| function | `_asset_bundle_manifest_arg` | `_asset_bundle_manifest_arg(s, value)` | 3233 | — |
-| function | `cmd_asset_compiler_status` | `cmd_asset_compiler_status(a)` | 3242 | — |
-| function | `cmd_asset_compiler_publish` | `cmd_asset_compiler_publish(a)` | 3249 | — |
-| function | `cmd_asset_compiler_restore` | `cmd_asset_compiler_restore(a)` | 3259 | — |
-| function | `cmd_audit_client_enrichment` | `cmd_audit_client_enrichment(a)` | 3269 | — |
-| function | `cmd_audit_source_contracts` | `cmd_audit_source_contracts(a)` | 3284 | — |
-| function | `cmd_audit_class_ui_aliases` | `cmd_audit_class_ui_aliases(a)` | 3295 | — |
-| function | `cmd_recover_class_ui_alias_only` | `cmd_recover_class_ui_alias_only(a)` | 3302 | — |
-| function | `cmd_audit_cooked_textures` | `cmd_audit_cooked_textures(a)` | 3315 | — |
-| function | `cmd_audit_effect_runtime_coverage` | `cmd_audit_effect_runtime_coverage(a)` | 3326 | — |
-| function | `cmd_audit_asset_retention` | `cmd_audit_asset_retention(a)` | 3339 | Run the normal census and return its fail-closed retention slice. |
-| function | `cmd_query_asset_retention` | `cmd_query_asset_retention(a)` | 3364 | Query the persisted retention report without rerunning the census. |
-| function | `cmd_audit_quarantine_plan` | `cmd_audit_quarantine_plan(a)` | 3381 | — |
-| function | `cmd_quarantine_status` | `cmd_quarantine_status(a)` | 3397 | — |
-| function | `cmd_quarantine_review` | `cmd_quarantine_review(a)` | 3404 | — |
-| function | `cmd_quarantine_apply` | `cmd_quarantine_apply(a)` | 3417 | — |
-| function | `cmd_quarantine_apply_component` | `cmd_quarantine_apply_component(a)` | 3428 | — |
-| function | `cmd_quarantine_restore` | `cmd_quarantine_restore(a)` | 3440 | — |
-| function | `cmd_audit_general_asset_census` | `cmd_audit_general_asset_census(a)` | 3451 | — |
-| function | `cmd_audit_t5_effects` | `cmd_audit_t5_effects(a)` | 3469 | Run a fresh General Census and print the Tier-5 effect+audio asset slice. |
-| function | `cmd_audit_t5_assets` | `cmd_audit_t5_assets(a)` | 3521 | — |
-| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3525 | — |
-| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3545 | — |
-| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3562 | — |
-| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3581 | — |
-| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3593 | — |
-| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3607 | — |
-| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3625 | — |
-| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3638 | — |
-| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3652 | — |
-| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3662 | — |
-| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3675 | — |
-| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3712 | — |
-| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3814 | — |
-| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 3854 | — |
-| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 3878 | — |
-| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 3906 | — |
-| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 3928 | Fail closed when a candidate workflow explicitly requires an observed edit. |
-| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 3949 | — |
-| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 3971 | — |
-| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4018 | Prepare/open a reusable Blender workspace for a supported asset. |
-| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4107 | — |
-| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4390 | — |
-| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4397 | — |
-| function | `build_parser` | `build_parser()` | 4420 | — |
-| function | `main` | `main(argv = None)` | 4907 | — |
+| function | `make_context` | `make_context(a)` | 136 | — |
+| function | `table` | `table(rows, headers)` | 144 | — |
+| function | `cmd_doctor` | `cmd_doctor(a)` | 161 | — |
+| function | `cmd_audit_physique` | `cmd_audit_physique(a)` | 298 | — |
+| function | `cmd_audit_animation_certification_plan` | `cmd_audit_animation_certification_plan(a)` | 316 | — |
+| function | `cmd_audit_object_local` | `cmd_audit_object_local(a)` | 329 | — |
+| function | `cmd_audit_object_local_corpus` | `cmd_audit_object_local_corpus(a)` | 346 | — |
+| function | `cmd_audit_texlink_corpus` | `cmd_audit_texlink_corpus(a)` | 368 | — |
+| function | `cmd_audit_stage072_corpus` | `cmd_audit_stage072_corpus(a)` | 391 | — |
+| function | `cmd_audit_stage072_stagearea` | `cmd_audit_stage072_stagearea(a)` | 419 | — |
+| function | `cmd_audit_stage072_textures` | `cmd_audit_stage072_textures(a)` | 443 | — |
+| function | `cmd_audit_rare_support` | `cmd_audit_rare_support(a)` | 471 | — |
+| function | `cmd_audit_rare_outliers` | `cmd_audit_rare_outliers(a)` | 496 | — |
+| function | `cmd_audit_rare_rigid_context` | `cmd_audit_rare_rigid_context(a)` | 524 | — |
+| function | `cmd_audit_rare_rigid_binding` | `cmd_audit_rare_rigid_binding(a)` | 552 | — |
+| function | `cmd_audit_rare_rigid_preview` | `cmd_audit_rare_rigid_preview(a)` | 578 | — |
+| function | `cmd_audit_rare_rigid_geometry` | `cmd_audit_rare_rigid_geometry(a)` | 608 | — |
+| function | `cmd_audit_rare_rigid_roundtrip` | `cmd_audit_rare_rigid_roundtrip(a)` | 635 | — |
+| function | `cmd_audit_rare_rigid_normal_roundtrip` | `cmd_audit_rare_rigid_normal_roundtrip(a)` | 660 | — |
+| function | `cmd_audit_rare_rigid_extent_roundtrip` | `cmd_audit_rare_rigid_extent_roundtrip(a)` | 685 | — |
+| function | `cmd_audit_rare_rigid_multibone` | `cmd_audit_rare_rigid_multibone(a)` | 711 | — |
+| function | `cmd_audit_rare_rigid_multibone_roundtrip` | `cmd_audit_rare_rigid_multibone_roundtrip(a)` | 744 | — |
+| function | `cmd_view_rare_model` | `cmd_view_rare_model(a)` | 771 | — |
+| function | `_print_asset_table_legend` | `_print_asset_table_legend()` | 781 | — |
+| function | `cmd_assets_list` | `cmd_assets_list(a)` | 794 | — |
+| function | `_profile_registry` | `_profile_registry(s)` | 819 | — |
+| function | `cmd_profiles_list` | `cmd_profiles_list(a)` | 823 | — |
+| function | `cmd_profiles_inspect` | `cmd_profiles_inspect(a)` | 834 | — |
+| function | `cmd_profiles_lod` | `cmd_profiles_lod(a)` | 841 | — |
+| function | `cmd_profiles_discover` | `cmd_profiles_discover(a)` | 859 | — |
+| function | `cmd_profiles_authoring_plan` | `cmd_profiles_authoring_plan(a)` | 871 | — |
+| function | `cmd_profiles_verify` | `cmd_profiles_verify(a)` | 879 | — |
+| function | `_entity_catalog_context` | `_entity_catalog_context(s, reg)` | 910 | — |
+| function | `cmd_entities_list` | `cmd_entities_list(a)` | 918 | — |
+| function | `cmd_entities_inspect` | `cmd_entities_inspect(a)` | 951 | — |
+| function | `cmd_audit_binding_coverage` | `cmd_audit_binding_coverage(a)` | 974 | — |
+| function | `_write_read_only_audit_result` | `_write_read_only_audit_result(s, result: dict, raw_output: str \| None) -> None` | 993 | — |
+| function | `cmd_audit_inx_writer_corpus` | `cmd_audit_inx_writer_corpus(a)` | 1009 | — |
+| function | `cmd_audit_smb_writer_corpus` | `cmd_audit_smb_writer_corpus(a)` | 1018 | — |
+| function | `cmd_audit_inx_writer_edit_corpus` | `cmd_audit_inx_writer_edit_corpus(a)` | 1027 | — |
+| function | `cmd_audit_smb_writer_edit_corpus` | `cmd_audit_smb_writer_edit_corpus(a)` | 1036 | — |
+| function | `cmd_audit_motion_writer_semantic_edit_corpus` | `cmd_audit_motion_writer_semantic_edit_corpus(a)` | 1045 | — |
+| function | `cmd_audit_object_local_writer_corpus` | `cmd_audit_object_local_writer_corpus(a)` | 1056 | — |
+| function | `cmd_audit_rigid_model_info_contexts` | `cmd_audit_rigid_model_info_contexts(a)` | 1064 | — |
+| function | `cmd_audit_development_readiness` | `cmd_audit_development_readiness(a)` | 1072 | — |
+| function | `cmd_deploy_prepare` | `cmd_deploy_prepare(a)` | 1086 | — |
+| function | `cmd_deploy_verify` | `cmd_deploy_verify(a)` | 1093 | — |
+| function | `cmd_deploy_simulate` | `cmd_deploy_simulate(a)` | 1099 | — |
+| function | `cmd_deploy_state` | `cmd_deploy_state(a)` | 1105 | — |
+| function | `cmd_deploy_restore_plan` | `cmd_deploy_restore_plan(a)` | 1111 | — |
+| function | `cmd_deploy_workspace_prepare` | `cmd_deploy_workspace_prepare(a)` | 1117 | — |
+| function | `cmd_deploy_workspace_apply` | `cmd_deploy_workspace_apply(a)` | 1127 | — |
+| function | `cmd_deploy_workspace_verify` | `cmd_deploy_workspace_verify(a)` | 1133 | — |
+| function | `cmd_deploy_workspace_state` | `cmd_deploy_workspace_state(a)` | 1139 | — |
+| function | `cmd_deploy_workspace_restore` | `cmd_deploy_workspace_restore(a)` | 1145 | — |
+| function | `cmd_deploy_workspace_history` | `cmd_deploy_workspace_history(a)` | 1151 | — |
+| function | `cmd_deploy_workspace_publish` | `cmd_deploy_workspace_publish(a)` | 1160 | — |
+| function | `cmd_deploy_workspace_check` | `cmd_deploy_workspace_check(a)` | 1171 | — |
+| function | `cmd_deploy_workspace_restore_latest` | `cmd_deploy_workspace_restore_latest(a)` | 1179 | — |
+| function | `cmd_deploy_workspace_restore_model_latest` | `cmd_deploy_workspace_restore_model_latest(a)` | 1187 | — |
+| function | `cmd_asset_authoring` | `cmd_asset_authoring(a)` | 1196 | — |
+| function | `cmd_audit_model062_authoring` | `cmd_audit_model062_authoring(a)` | 1215 | — |
+| function | `cmd_families` | `cmd_families(a)` | 1225 | — |
+| function | `cmd_asset_inspect` | `cmd_asset_inspect(a)` | 1231 | — |
+| function | `choose_next` | `choose_next(reg, cert, resolver, category = None)` | 1294 | — |
+| function | `cmd_audit_texlink_semantics` | `cmd_audit_texlink_semantics(a)` | 1306 | — |
+| function | `cmd_asset_texlink_semantics` | `cmd_asset_texlink_semantics(a)` | 1333 | — |
+| function | `cmd_validate_texlinks` | `cmd_validate_texlinks(a)` | 1348 | — |
+| function | `cmd_validate_texlink_roundtrip` | `cmd_validate_texlink_roundtrip(a)` | 1359 | — |
+| function | `cmd_validate_stage072_preview` | `cmd_validate_stage072_preview(a)` | 1370 | — |
+| function | `cmd_view_stage072` | `cmd_view_stage072(a)` | 1381 | — |
+| function | `cmd_paint_stage072` | `cmd_paint_stage072(a)` | 1398 | — |
+| function | `cmd_validate_stage072_roundtrip` | `cmd_validate_stage072_roundtrip(a)` | 1434 | — |
+| function | `cmd_validate_stage072_geometry_roundtrip` | `cmd_validate_stage072_geometry_roundtrip(a)` | 1445 | — |
+| function | `cmd_validate_structural` | `cmd_validate_structural(a)` | 1456 | — |
+| function | `cmd_validate_visual` | `cmd_validate_visual(a)` | 1465 | — |
+| function | `cmd_validate_roundtrip` | `cmd_validate_roundtrip(a)` | 1476 | — |
+| function | `cmd_asset_object_local` | `cmd_asset_object_local(a)` | 1488 | — |
+| function | `cmd_asset_texlinks` | `cmd_asset_texlinks(a)` | 1502 | — |
+| function | `cmd_validate_object_local` | `cmd_validate_object_local(a)` | 1517 | — |
+| function | `_normalize_head_tier` | `_normalize_head_tier(value: str) -> tuple[str, int \| None]` | 1527 | — |
+| function | `cmd_asset_heads` | `cmd_asset_heads(a)` | 1543 | — |
+| function | `cmd_asset_head_tiers` | `cmd_asset_head_tiers(a)` | 1555 | — |
+| function | `_resolve_head_option` | `_resolve_head_option(reg, asset, value: str, tier_value: str = "auto")` | 1567 | — |
+| function | `_resolved_motion_context` | `_resolved_motion_context(asset, resolver)` | 1621 | — |
+| function | `cmd_asset_motions` | `cmd_asset_motions(a)` | 1627 | — |
+| function | `_resolve_inx_source` | `_resolve_inx_source(a, s, resolver)` | 1642 | — |
+| function | `_pt_build_output` | `_pt_build_output(s, raw, *, default_rel)` | 1649 | — |
+| function | `_resolve_smb_source` | `_resolve_smb_source(a, s, resolver)` | 1664 | — |
+| function | `cmd_validate_smb_track_roundtrip` | `cmd_validate_smb_track_roundtrip(a)` | 1671 | — |
+| function | `cmd_write_smb_key` | `cmd_write_smb_key(a)` | 1680 | — |
+| function | `cmd_validate_inx_roundtrip` | `cmd_validate_inx_roundtrip(a)` | 1694 | — |
+| function | `cmd_write_inx_motion` | `cmd_write_inx_motion(a)` | 1703 | — |
+| function | `cmd_write_object_local_key_candidate` | `cmd_write_object_local_key_candidate(a)` | 1719 | — |
+| function | `cmd_validate_animation` | `cmd_validate_animation(a)` | 1750 | — |
+| function | `choose_next_animation` | `choose_next_animation(reg, cert, resolver, category = None)` | 1771 | — |
+| function | `cmd_audit_animation_source` | `cmd_audit_animation_source(a)` | 1782 | — |
+| function | `cmd_audit_animation_corpus` | `cmd_audit_animation_corpus(a)` | 1800 | — |
+| function | `cmd_diagnose_animation` | `cmd_diagnose_animation(a)` | 1815 | — |
+| function | `cmd_diagnose_motion_source` | `cmd_diagnose_motion_source(a)` | 1825 | — |
+| function | `cmd_diagnose_motion_segment` | `cmd_diagnose_motion_segment(a)` | 1836 | — |
+| function | `_load_root_binding_cache` | `_load_root_binding_cache(path: pathlib.Path) -> dict` | 1848 | — |
+| function | `_atomic_json` | `_atomic_json(path: pathlib.Path, data: dict)` | 1861 | — |
+| function | `_signature_for_passing_smb` | `_signature_for_passing_smb(s, smb_path: pathlib.Path) -> dict` | 1866 | Best-effort skeleton identity for an SMB that already passed the structural gate. |
+| function | `_error_bucket` | `_error_bucket(exc: Exception) -> str` | 1879 | — |
+| function | `_physique_subset_resolution` | `_physique_subset_resolution(a, s, reg, resolver, asset, src, tested, work)` | 1894 | Resolve full-skeleton ambiguity by the mesh's actually weighted bone closure. |
+| function | `_extract_config_binary_refs` | `_extract_config_binary_refs(blob: bytes) -> dict` | 2023 | Extract explicit asset references from opaque/fixed-field INX bytes. |
+| function | `_resolve_literal_config_ref` | `_resolve_literal_config_ref(token: str, inx_rel: str, reg, resolver) -> dict` | 2064 | Resolve one literal config token without fuzzy basename guessing. |
+| function | `_config_context_resolution` | `_config_context_resolution(a, s, reg, resolver, asset, tested, work)` | 2114 | Use explicit config references to discriminate full-skeleton ambiguity. |
+| function | `_assembly_graph_resolution` | `_assembly_graph_resolution(a, s, reg, resolver, asset, tested, work)` | 2268 | Resolve a config-only skeleton through explicit pairing graph connectivity. |
+| function | `cmd_binding_discover` | `cmd_binding_discover(a, s, reg, resolver)` | 2415 | — |
+| function | `cmd_bindings` | `cmd_bindings(a)` | 2747 | — |
+| function | `cmd_view_rigid_candidate` | `cmd_view_rigid_candidate(a)` | 2777 | — |
+| function | `cmd_audit_rigid_authoring_certification_plan` | `cmd_audit_rigid_authoring_certification_plan(a)` | 2790 | — |
+| function | `cmd_cert_rigid_candidate_review` | `cmd_cert_rigid_candidate_review(a)` | 2801 | — |
+| function | `cmd_cert_list` | `cmd_cert_list(a)` | 2908 | — |
+| function | `cmd_cert_record` | `cmd_cert_record(a)` | 2924 | — |
+| function | `cmd_audit_release_1_coverage` | `cmd_audit_release_1_coverage(a)` | 2942 | — |
+| function | `cmd_validate_environment_auto` | `cmd_validate_environment_auto(a)` | 2960 | — |
+| function | `cmd_validate_server_environment_auto` | `cmd_validate_server_environment_auto(a)` | 2969 | — |
+| function | `cmd_audit_server_inventory` | `cmd_audit_server_inventory(a)` | 2976 | — |
+| function | `cmd_audit_server_bundles` | `cmd_audit_server_bundles(a)` | 2992 | — |
+| function | `cmd_audit_server_fields` | `cmd_audit_server_fields(a)` | 3008 | — |
+| function | `cmd_audit_server_items` | `cmd_audit_server_items(a)` | 3023 | — |
+| function | `cmd_legacy_management_summary` | `cmd_legacy_management_summary(a)` | 3042 | — |
+| function | `cmd_legacy_management_verify` | `cmd_legacy_management_verify(a)` | 3047 | — |
+| function | `cmd_legacy_management_item_code` | `cmd_legacy_management_item_code(a)` | 3053 | — |
+| function | `cmd_audit_legacy_management` | `cmd_audit_legacy_management(a)` | 3061 | — |
+| function | `cmd_legacy_authoring_capabilities` | `cmd_legacy_authoring_capabilities(a)` | 3078 | — |
+| function | `_legacy_authoring_context` | `_legacy_authoring_context(a)` | 3084 | — |
+| function | `cmd_legacy_authoring_inspect` | `cmd_legacy_authoring_inspect(a)` | 3091 | — |
+| function | `cmd_legacy_authoring_stage` | `cmd_legacy_authoring_stage(a)` | 3098 | — |
+| function | `cmd_legacy_authoring_publish` | `cmd_legacy_authoring_publish(a)` | 3108 | — |
+| function | `cmd_legacy_authoring_restore` | `cmd_legacy_authoring_restore(a)` | 3118 | — |
+| function | `_canonical_context` | `_canonical_context(a)` | 3127 | — |
+| function | `cmd_canonical_status` | `cmd_canonical_status(a)` | 3134 | — |
+| function | `cmd_canonical_catalog` | `cmd_canonical_catalog(a)` | 3141 | — |
+| function | `cmd_canonical_capabilities` | `cmd_canonical_capabilities(a)` | 3148 | — |
+| function | `cmd_canonical_domains` | `cmd_canonical_domains(a)` | 3154 | — |
+| function | `cmd_canonical_stage` | `cmd_canonical_stage(a)` | 3160 | — |
+| function | `cmd_canonical_publish_source` | `cmd_canonical_publish_source(a)` | 3170 | — |
+| function | `cmd_canonical_publish_packs` | `cmd_canonical_publish_packs(a)` | 3177 | — |
+| function | `cmd_canonical_restore` | `cmd_canonical_restore(a)` | 3184 | — |
+| function | `cmd_contracts_registry_list` | `cmd_contracts_registry_list(a)` | 3191 | — |
+| function | `cmd_contracts_registry_show` | `cmd_contracts_registry_show(a)` | 3201 | — |
+| function | `cmd_asset_compiler_capabilities` | `cmd_asset_compiler_capabilities(a)` | 3213 | — |
+| function | `cmd_asset_compiler_plan` | `cmd_asset_compiler_plan(a)` | 3218 | — |
+| function | `cmd_asset_compiler_build` | `cmd_asset_compiler_build(a)` | 3225 | — |
+| function | `_asset_bundle_manifest_arg` | `_asset_bundle_manifest_arg(s, value)` | 3234 | — |
+| function | `cmd_asset_compiler_status` | `cmd_asset_compiler_status(a)` | 3243 | — |
+| function | `cmd_asset_compiler_publish` | `cmd_asset_compiler_publish(a)` | 3250 | — |
+| function | `cmd_asset_compiler_restore` | `cmd_asset_compiler_restore(a)` | 3260 | — |
+| function | `cmd_audit_client_enrichment` | `cmd_audit_client_enrichment(a)` | 3270 | — |
+| function | `cmd_audit_source_contracts` | `cmd_audit_source_contracts(a)` | 3285 | — |
+| function | `cmd_audit_class_ui_aliases` | `cmd_audit_class_ui_aliases(a)` | 3296 | — |
+| function | `cmd_recover_class_ui_alias_only` | `cmd_recover_class_ui_alias_only(a)` | 3303 | — |
+| function | `cmd_audit_cooked_textures` | `cmd_audit_cooked_textures(a)` | 3316 | — |
+| function | `cmd_audit_effect_runtime_coverage` | `cmd_audit_effect_runtime_coverage(a)` | 3327 | — |
+| function | `cmd_audit_summit_canonical_assets` | `cmd_audit_summit_canonical_assets(a)` | 3340 | — |
+| function | `cmd_audit_summit_asset_migration` | `cmd_audit_summit_asset_migration(a)` | 3353 | — |
+| function | `cmd_audit_asset_retention` | `cmd_audit_asset_retention(a)` | 3366 | Run the normal census and return its fail-closed retention slice. |
+| function | `cmd_query_asset_retention` | `cmd_query_asset_retention(a)` | 3391 | Query the persisted retention report without rerunning the census. |
+| function | `cmd_audit_quarantine_plan` | `cmd_audit_quarantine_plan(a)` | 3408 | — |
+| function | `cmd_quarantine_status` | `cmd_quarantine_status(a)` | 3424 | — |
+| function | `cmd_quarantine_review` | `cmd_quarantine_review(a)` | 3431 | — |
+| function | `cmd_quarantine_apply` | `cmd_quarantine_apply(a)` | 3444 | — |
+| function | `cmd_quarantine_apply_component` | `cmd_quarantine_apply_component(a)` | 3455 | — |
+| function | `cmd_quarantine_restore` | `cmd_quarantine_restore(a)` | 3467 | — |
+| function | `cmd_audit_general_asset_census` | `cmd_audit_general_asset_census(a)` | 3478 | — |
+| function | `cmd_audit_t5_effects` | `cmd_audit_t5_effects(a)` | 3496 | Run a fresh General Census and print the Tier-5 effect+audio asset slice. |
+| function | `cmd_audit_t5_assets` | `cmd_audit_t5_assets(a)` | 3548 | — |
+| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3552 | — |
+| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3572 | — |
+| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3589 | — |
+| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3608 | — |
+| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3620 | — |
+| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3634 | — |
+| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3652 | — |
+| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3665 | — |
+| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3679 | — |
+| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3689 | — |
+| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3702 | — |
+| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3739 | — |
+| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3841 | — |
+| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 3881 | — |
+| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 3905 | — |
+| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 3933 | — |
+| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 3955 | Fail closed when a candidate workflow explicitly requires an observed edit. |
+| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 3976 | — |
+| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 3998 | — |
+| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4045 | Prepare/open a reusable Blender workspace for a supported asset. |
+| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4134 | — |
+| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4417 | — |
+| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4424 | — |
+| function | `build_parser` | `build_parser()` | 4447 | — |
+| function | `main` | `main(argv = None)` | 4942 | — |
 
 ## `app/pt_asset_tool/client_enrichment.py`
 
@@ -2274,25 +2276,25 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `_norm` | `_norm(value: str) -> str` | 37 | — |
-| function | `_read_tsv` | `_read_tsv(path: pathlib.Path) -> list[dict[str, str]]` | 44 | — |
-| function | `_write_tsv` | `_write_tsv(path: pathlib.Path, rows: list[dict[str, Any]], columns: list[str]) -> None` | 51 | — |
-| function | `_walk_index` | `_walk_index(root: pathlib.Path) -> dict[str, pathlib.Path]` | 58 | — |
-| function | `_physical_rel` | `_physical_rel(path: str \| pathlib.Path, roots: list[tuple[str, pathlib.Path]]) -> tuple[str \| None, str \| None]` | 75 | — |
-| function | `_server_definition_names` | `_server_definition_names(server_root: pathlib.Path) -> dict[str, list[str]]` | 91 | Index monster/NPC definition paths by runtime name and filename stem. |
-| function | `_spm_actor_names` | `_spm_actor_names(path: pathlib.Path) -> list[tuple[str, str]]` | 129 | — |
-| function | `_spc_server_npc_rel` | `_spc_server_npc_rel(value: str) -> str` | 170 | Normalize an SPC server_npc field to a server-relative NPC definition. |
-| function | `_load_player_graph` | `_load_player_graph(path: pathlib.Path) -> dict[str, Any]` | 189 | — |
-| function | `_field_source_stage_witness` | `_field_source_stage_witness(row: dict[str, Any], source_literal_paths: set[str]) -> tuple[str \| None, str]` | 209 | Return one current-source-proven physical stage candidate, if unique. |
-| function | `_bundle_ref_candidates` | `_bundle_ref_candidates(ref: str, parent_rel: str) -> list[str]` | 242 | — |
-| function | `_resolve_bundle_reference` | `_resolve_bundle_reference(ref: str, parent_rel: str, *, parent_ext: str, target_idx: dict[str, pathlib.Path], donor_idx: dict[str, pathlib.Path]) -> dict[str, Any]` | 271 | — |
-| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 304 | — |
-| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 430 | — |
-| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 462 | Summarize Tier-5 effect+audio asset readiness. |
-| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 766 | Diagnostic-only T5 reference parity matrix. |
-| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 946 | Separate physical particle preload from proven T5 effect activation. |
-| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1074 | Build a plan-only, fail-closed client/server reachability census. |
-| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2214 | — |
+| function | `_norm` | `_norm(value: str) -> str` | 38 | — |
+| function | `_read_tsv` | `_read_tsv(path: pathlib.Path) -> list[dict[str, str]]` | 45 | — |
+| function | `_write_tsv` | `_write_tsv(path: pathlib.Path, rows: list[dict[str, Any]], columns: list[str]) -> None` | 52 | — |
+| function | `_walk_index` | `_walk_index(root: pathlib.Path) -> dict[str, pathlib.Path]` | 59 | — |
+| function | `_physical_rel` | `_physical_rel(path: str \| pathlib.Path, roots: list[tuple[str, pathlib.Path]]) -> tuple[str \| None, str \| None]` | 76 | — |
+| function | `_server_definition_names` | `_server_definition_names(server_root: pathlib.Path) -> dict[str, list[str]]` | 92 | Index monster/NPC definition paths by runtime name and filename stem. |
+| function | `_spm_actor_names` | `_spm_actor_names(path: pathlib.Path) -> list[tuple[str, str]]` | 130 | — |
+| function | `_spc_server_npc_rel` | `_spc_server_npc_rel(value: str) -> str` | 171 | Normalize an SPC server_npc field to a server-relative NPC definition. |
+| function | `_load_player_graph` | `_load_player_graph(path: pathlib.Path) -> dict[str, Any]` | 190 | — |
+| function | `_field_source_stage_witness` | `_field_source_stage_witness(row: dict[str, Any], source_literal_paths: set[str]) -> tuple[str \| None, str]` | 210 | Return one current-source-proven physical stage candidate, if unique. |
+| function | `_bundle_ref_candidates` | `_bundle_ref_candidates(ref: str, parent_rel: str) -> list[str]` | 243 | — |
+| function | `_resolve_bundle_reference` | `_resolve_bundle_reference(ref: str, parent_rel: str, *, parent_ext: str, target_idx: dict[str, pathlib.Path], donor_idx: dict[str, pathlib.Path]) -> dict[str, Any]` | 272 | — |
+| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 305 | — |
+| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 431 | — |
+| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 463 | Summarize Tier-5 effect+audio asset readiness. |
+| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 767 | Diagnostic-only T5 reference parity matrix. |
+| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 947 | Separate physical particle preload from proven T5 effect activation. |
+| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1075 | Build a plan-only, fail-closed client/server reachability census. |
+| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2236 | — |
 
 ## `app/pt_asset_tool/general_asset_recovery.py`
 
@@ -4999,6 +5001,31 @@ _No top-level functions or classes._
 | function | `_count` | `_count(rows: list[dict[str, str]], key: str, value: str) -> int` | 971 | — |
 | function | `audit_summit_asset_refinement` | `audit_summit_asset_refinement(baseline_dir: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None = None, canonical_root: str \| pathlib.Path \| None = None, output_dir: str \| pathlib.Path \| None = None) -> dict[str, Any]` | 975 | — |
 | function | `_main` | `_main(argv: list[str] \| None = None) -> int` | 1210 | — |
+
+## `app/pt_asset_tool/summit_asset_migration_audit.py`
+
+—
+
+| Kind | Symbol | Signature | Line | Summary |
+|---|---|---|---:|---|
+| function | `_norm` | `_norm(value: str) -> str` | 48 | — |
+| function | `_json` | `_json(path: pathlib.Path) -> Any` | 57 | — |
+| function | `_write_tsv` | `_write_tsv(path: pathlib.Path, rows: list[dict[str, Any]], columns: list[str]) -> None` | 64 | — |
+| function | `_walk_client` | `_walk_client(root: pathlib.Path) -> dict[str, str]` | 72 | — |
+| function | `_path_side_and_client_rel` | `_path_side_and_client_rel(raw: str) -> tuple[str, str]` | 89 | — |
+| function | `_looks_asset` | `_looks_asset(value: str) -> bool` | 114 | — |
+| function | `_json_pointer` | `_json_pointer(parts: list[str]) -> str` | 125 | — |
+| function | `_doc_id` | `_doc_id(data: Any, rel: str) -> str` | 129 | — |
+| function | `_strength_for` | `_strength_for(json_file: pathlib.Path, pointer_parts: list[str], side: str) -> tuple[str, str]` | 138 | — |
+| function | `_iter_strings` | `_iter_strings(value: Any, parts: list[str] \| None = None)` | 155 | — |
+| function | `audit_canonical_asset_relations` | `audit_canonical_asset_relations(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, source_root: str \| pathlib.Path) -> dict[str, Any]` | 167 | — |
+| function | `_is_ui_source` | `_is_ui_source(rel: str) -> bool` | 273 | — |
+| function | `_human_text_candidate` | `_human_text_candidate(value: str) -> bool` | 278 | — |
+| function | `_ui_text_rows` | `_ui_text_rows(tree: SourceTree) -> list[dict[str, Any]]` | 297 | — |
+| function | `_resolve_runtime_alias` | `_resolve_runtime_alias(path: str, client_idx: dict[str, str]) -> tuple[str, str]` | 328 | — |
+| function | `_scope` | `_scope(source_file: str, path: str) -> str` | 346 | — |
+| function | `_cook_action` | `_cook_action(path: str, cook: dict[str, Any] \| None) -> tuple[str, str]` | 361 | — |
+| function | `audit_summit_asset_migration_gap` | `audit_summit_asset_migration_gap(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, current_tree: SourceTree) -> dict[str, Any]` | 380 | — |
 
 ## `app/pt_asset_tool/summit_canonical.py`
 

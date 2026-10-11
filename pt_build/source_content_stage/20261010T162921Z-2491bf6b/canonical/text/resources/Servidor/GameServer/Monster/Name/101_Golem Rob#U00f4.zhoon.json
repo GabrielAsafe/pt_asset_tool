@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.101_golem_rob_u00f4",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/101_Golem Rob#U00f4.zhoon",
+    "GameServer/Monster/Name/101_Golem Rob#U00f4.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/101_Golem Rob#U00f4.zhoon",
+    "legacy_sha256": "1e432bd9980c4d0cf9a1e949e962d11a98e41f9138869d5bf9fa3b1708268bd2",
+    "legacy_size": 20
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Golem Robô"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiR29sZW0gUm9i9CI="
+  }
+}

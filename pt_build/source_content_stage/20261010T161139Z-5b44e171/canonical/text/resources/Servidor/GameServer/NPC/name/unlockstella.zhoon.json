@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.unlockstella",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/unlockstella.zhoon",
+    "GameServer/NPC/name/unlockstella.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/unlockstella.zhoon",
+    "legacy_sha256": "9e031608eefc4036319ee71729fcbbdbe52758d5908dfa15ef2d23b76d669259",
+    "legacy_size": 183
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Stella"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "You brought Kahn's treasure that I was looking for"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "It can be mixed with a mysterious key, so this can open the box."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly91bmxvY2tzdGVsbGEubnBjDQoNCipKX05BTUUJCSJTdGVsbGEiDQoNCipKX0NIQVQJCSJZb3UgYnJvdWdodCBLYWhuJ3MgdHJlYXN1cmUgdGhhdCBJIHdhcyBsb29raW5nIGZvciINCipKX0NIQVQJCSJJdCBjYW4gYmUgbWl4ZWQgd2l0aCBhIG15c3RlcmlvdXMga2V5LCBzbyB0aGlzIGNhbiBvcGVuIHRoZSBib3guIg0K"
+  }
+}

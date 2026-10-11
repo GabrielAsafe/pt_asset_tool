@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD101.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD101.zhoon",
+    "legacy_sha256": "619fbd2977d22fe603df87aa64665b6df3467faf3c8314cb9751043c7d653a16",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Normal Dagger"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDEwMS50eHQNCg0KKkpfTkFNRQkJIk5vcm1hbCBEYWdnZXIiDQo="
+  }
+}

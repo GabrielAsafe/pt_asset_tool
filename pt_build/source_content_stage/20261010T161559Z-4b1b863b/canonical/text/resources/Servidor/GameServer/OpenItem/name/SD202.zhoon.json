@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sd202",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SD202.zhoon",
+    "GameServer/OpenItem/name/SD202.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SD202.zhoon",
+    "legacy_sha256": "fc78ff40773069e9d1930baf0d2bc95b350dcffe57088bbc61108d98bc15148a",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Stun Seal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRDIwMi50eHQNCg0KKkpfTmFtZSAgICAgICAgICAgIlN0dW4gU2VhbCINCg=="
+  }
+}

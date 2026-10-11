@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_7_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_7_Path.sin",
+    "image/Sinimage/Quest/140LVQuest_7_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_7_Path.sin",
+    "legacy_sha256": "ecaa4cc2fed3541b79235cae2992a92c6957fe8f5196c3ccbcdd0b31ce1406b4",
+    "legacy_size": 665
+  },
+  "semantic": {
+    "lines": [
+      "O combate foi muito intenso, muitos dos nossos companheiros",
+      "se feriram para que eu alcançasse Yagditha e entrasse em",
+      "sua mente. O empenho dos pristonianos na superfície foi",
+      "fundamental. Graças a eles, que canalizaram sua energia",
+      "para Arteres, através da Benção de Idhas, ela disparou",
+      "aquele ataque certeiro que desestabilizou Vomori Yagditha.",
+      "",
+      "O continente também passou por um combate intenso para ",
+      "defender Pillai e os demais abrigos, protegendo o povo da",
+      "infecção dos espectros. As Máscaras Mágicas do Espírito ",
+      "da Esmeralda ajudaram a não propagar a contaminação.",
+      "",
+      "Por favor, entregue o Documentos Ultra Secreto para o",
+      "Comandante Derik em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TyBjb21iYXRlIGZvaSBtdWl0byBpbnRlbnNvLCBtdWl0b3MgZG9zIG5vc3NvcyBjb21wYW5oZWlyb3MNCnNlIGZlcmlyYW0gcGFyYSBxdWUgZXUgYWxjYW7nYXNzZSBZYWdkaXRoYSBlIGVudHJhc3NlIGVtDQpzdWEgbWVudGUuIE8gZW1wZW5obyBkb3MgcHJpc3Rvbmlhbm9zIG5hIHN1cGVyZu1jaWUgZm9pDQpmdW5kYW1lbnRhbC4gR3Jh52FzIGEgZWxlcywgcXVlIGNhbmFsaXphcmFtIHN1YSBlbmVyZ2lhDQpwYXJhIEFydGVyZXMsIGF0cmF26XMgZGEgQmVu5+NvIGRlIElkaGFzLCBlbGEgZGlzcGFyb3UNCmFxdWVsZSBhdGFxdWUgY2VydGVpcm8gcXVlIGRlc2VzdGFiaWxpem91IFZvbW9yaSBZYWdkaXRoYS4NCg0KTyBjb250aW5lbnRlIHRhbWLpbSBwYXNzb3UgcG9yIHVtIGNvbWJhdGUgaW50ZW5zbyBwYXJhIA0KZGVmZW5kZXIgUGlsbGFpIGUgb3MgZGVtYWlzIGFicmlnb3MsIHByb3RlZ2VuZG8gbyBwb3ZvIGRhDQppbmZlY+fjbyBkb3MgZXNwZWN0cm9zLiBBcyBN4XNjYXJhcyBN4WdpY2FzIGRvIEVzcO1yaXRvIA0KZGEgRXNtZXJhbGRhIGFqdWRhcmFtIGEgbuNvIHByb3BhZ2FyIGEgY29udGFtaW5h5+NvLg0KDQpQb3IgZmF2b3IsIGVudHJlZ3VlIG8gRG9jdW1lbnRvcyBVbHRyYSBTZWNyZXRvIHBhcmEgbw0KQ29tYW5kYW50ZSBEZXJpayBlbSBSaWNhcnRlbi4="
+  }
+}

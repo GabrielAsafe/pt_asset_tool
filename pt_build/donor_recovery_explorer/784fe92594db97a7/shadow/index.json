@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.107_i_skullnette",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/107_I_Skullnette.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/107_I_Skullnette.inf.json",
+      "sha256": "ca26e7f70d9388b874cee325971cd6f224c8949cb5f5d773cc6a17525e4ee877"
+    }
+  ]
+}

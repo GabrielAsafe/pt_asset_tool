@@ -1,0 +1,251 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da654",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA654.txt",
+    "GameServer/OpenItem/DA654.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA654.txt",
+    "legacy_sha256": "456610f05a68ca30c293be45df0b17b0fd90f9bd6ab273843eeda4631e326b17",
+    "legacy_size": 408
+  },
+  "semantic": {
+    "fields": {
+      "name": "Uniforme",
+      "code": "DA654",
+      "weight": 70,
+      "price": 100000,
+      "bionic": [
+        5,
+        5
+      ],
+      "fire": [
+        5,
+        5
+      ],
+      "ice": [
+        5,
+        5
+      ],
+      "lightning": [
+        5,
+        5
+      ],
+      "poison": [
+        5,
+        5
+      ],
+      "absorb": [
+        6,
+        6
+      ],
+      "defence": [
+        200,
+        200
+      ],
+      "block": [
+        2,
+        2
+      ],
+      "level": true
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Uniforme"
+        ],
+        "raw_values_hex": [
+          "556e69666f726d65"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA654"
+        ],
+        "raw_values_hex": [
+          "4441363534"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          5,
+          5
+        ],
+        "raw_values_hex": [
+          "35",
+          "35"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          6
+        ],
+        "raw_values_hex": [
+          "36",
+          "36"
+        ]
+      },
+      {
+        "line": 22,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          200,
+          200
+        ],
+        "raw_values_hex": [
+          "323030",
+          "323030"
+        ]
+      },
+      {
+        "line": 24,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          2
+        ],
+        "raw_values_hex": [
+          "32",
+          "32"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8gTk9NRSBFIENPRCBETyBJVEVNDQoqwMy4pwkJIlVuaWZvcm1lIg0KKsTateUJCSJEQTY1NCINCg0KLy8gUEVTTyBOTyBJTlZFVEFSSU8NCiq5q7DUCTcwDQovLyBQUkVDTyBETyBJVEVNDQoqsKGw3QkxMDAwMDANCi8vIFJFU0lTVEVOQ0lBIE9SR0FOSUNBDQoqu/3DvAk1IDUNCi8vIFJFU0lTVEVOQ0lBIEEgRk9HTw0KKrrSCTUgNQ0KLy8gUkVTSVNURU5DSUEgQSBHRUxPDQoqs8Ox4gk1IDUNCi8vIFJFU0lTVEVOQ0lBIEEgUkFJTw0KKrn4sLMJNSA1DQovLyBSRVNJU1RFTkNJQSBBIFZFTkVOTw0KKrW2CTUgNQ0KLy8gQUJTT1JDQU8NCirI7bz2t8IJNiA2DQovLyBUQVhBIERFIERFRkVTQQ0KKrnmvu63wgkyMDAgMjAwDQovLyBCTE9RVUVJTw0KKrrtt7DAsgkyIDINCg0KLy8gTEVWRUwgRE8gSVRFTQ0KKre5uqcJ"
+  }
+}

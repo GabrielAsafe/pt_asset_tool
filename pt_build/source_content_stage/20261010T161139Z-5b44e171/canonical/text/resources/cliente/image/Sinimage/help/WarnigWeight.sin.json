@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.warnigweight",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/WarnigWeight.sin",
+    "image/Sinimage/help/WarnigWeight.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/WarnigWeight.sin",
+    "legacy_sha256": "fd85e371e9fab20783956262a6938f377d5a0f650f6e6d0da558b2ce7e1c4114",
+    "legacy_size": 131
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Be sure to distribute points",
+      "",
+      "after the ability configuration.",
+      "",
+      "Otherwise, you may drop the item",
+      "",
+      "on the floor and lose it."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpCZSBzdXJlIHRvIGRpc3RyaWJ1dGUgcG9pbnRzDQoNCmFmdGVyIHRoZSBhYmlsaXR5IGNvbmZpZ3VyYXRpb24uDQoNCk90aGVyd2lzZSwgeW91IG1heSBkcm9wIHRoZSBpdGVtDQoNCm9uIHRoZSBmbG9vciBhbmQgbG9zZSBpdC4="
+  }
+}

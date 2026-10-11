@@ -1,0 +1,44 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestfuryitem5",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestFuryItem5.sin",
+    "image/Sinimage/Quest/haQuestFuryItem5.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestFuryItem5.sin",
+    "legacy_sha256": "1a33fbbee55f65d0eb3da3dc0881a66fbb5759a363a6f90d691483dcfa45ce4d",
+    "legacy_size": 314
+  },
+  "semantic": {
+    "lines": [
+      "[Revenge Bow]",
+      "                               ",
+      "                                 ",
+      "                             ",
+      "",
+      "",
+      "",
+      "",
+      "[Option]",
+      "",
+      "Attack Power  : 60-81     Add. HP : 50     ",
+      "Weapon Speed  : 8         Add. MP : 50",
+      "Attack Rating : 270       Add.STM : 50",
+      "Critical      : 25%   ",
+      "Block Rating  : 240",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "W1JldmVuZ2UgQm93XQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KDQoNCg0KDQpbT3B0aW9uXQ0KDQpBdHRhY2sgUG93ZXIgIDogNjAtODEgICAgIEFkZC4gSFAgOiA1MCAgICAgDQpXZWFwb24gU3BlZWQgIDogOCAgICAgICAgIEFkZC4gTVAgOiA1MA0KQXR0YWNrIFJhdGluZyA6IDI3MCAgICAgICBBZGQuU1RNIDogNTANCkNyaXRpY2FsICAgICAgOiAyNSUgICANCkJsb2NrIFJhdGluZyAgOiAyNDANCg0KDQoNCg0KDQo="
+  }
+}

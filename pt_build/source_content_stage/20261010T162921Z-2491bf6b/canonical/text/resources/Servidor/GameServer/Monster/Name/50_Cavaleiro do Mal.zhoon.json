@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.50_cavaleiro_do_mal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/50_Cavaleiro do Mal.zhoon",
+    "GameServer/Monster/Name/50_Cavaleiro do Mal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/50_Cavaleiro do Mal.zhoon",
+    "legacy_sha256": "28951589bbe35b3d0a0055741570bf765ff2e2034c8fdd2bec15925467143c8d",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cavaleiro do Mal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2F2YWxlaXJvIGRvIE1hbCI="
+  }
+}

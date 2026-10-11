@@ -1,0 +1,93 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.tmcave_keeper",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/tmcave-keeper.npc",
+    "GameServer/NPC/tmcave-keeper.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/tmcave-keeper.npc",
+    "legacy_sha256": "71b8573c8d67701f2a18db807b62efe6a6e45ca22e23e382daee1e6f7350e4ee",
+    "legacy_size": 545
+  },
+  "semantic": {
+    "fields": {
+      "name": "동굴 경비병",
+      "model_file": "char\\npc\\TN-001\\TN-001.INI",
+      "level": 100,
+      "linked_file": "name\\tmcave-keeper.zhoon",
+      "model_config_id": "model.char.npc.tn.001.tn.001"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "동굴 경비병"
+        ],
+        "raw_values_hex": [
+          "b5bfb1bc20b0e6baf1bab4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-001\\TN-001.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030315c544e2d3030312e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 11,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\tmcave-keeper.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c746d636176652d6b65657065722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSK1v7G8ILDmuvG6tCINCiq48L7nxsTAzwkiY2hhclxucGNcVE4tMDAxXFROLTAwMS5JTkkiDQoqt7m6pwkJMTAwDQovLyq068itIAkJIsDMsPfAuiC+7rXSwMcgvLrA/MC4t84gxevHz7TCILn2vLi1v7G8wMcgwNSxuMDUtM+02S4gvu610sDHILy6wPy/obytIMjqt6+zqr/AtMIgwPrB1sDHILHiv+7AuLfOILW/sbwgvNPAxyC48LXnILDNtenAzCC48726xc23ziC6r8fYufa4sCCw98DMwdIhIg0KLy8qtOvIrQkJIrn2vLi1v7G8wLsgwfazqiC+7rXSwMcgvLrA/MC7IMXrx9i8rSC5+sH9tb+xvLfOILClILz2IMDWvcC0z7TZLiC5+sH9tb+xvMC6ILjwtvPAzL/CILTrt/q/oSDA1rTCILW/sbzA1LTPtNkuIg0KLy8qtOvIrQkJIsDMsPfAuiC3ubqnIDU1IMDMu/PAxyDA/LvnuLggtem+7iCwpSC89iDA1r3AtM+02S4iDQovLyq068itCQkivu610sDHILy6wPy/oSCwob3HILantMIgwPrB1sDHILHiv+6/oSDI7bz2tcfB9iC+yrW1t88gwaS9xcC7IMH9wd/H2L7fIMfVtM+02S4iDQoNCg0KDQoqv6yw4cbEwM8JIm5hbWVcdG1jYXZlLWtlZXBlci56aG9vbiI="
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.s_wing_a",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/S_Wing_a.sin",
+    "image/Sinimage/Quest/S_Wing_a.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/S_Wing_a.sin",
+    "legacy_sha256": "c87713f8b1d007f3d9dbc228a1f6bf3be8c9d13399c6afdea200ba36f8267a9c",
+    "legacy_size": 337
+  },
+  "semantic": {
+    "lines": [
+      "Now you want the better wing than the metal wing?",
+      "Yeah...the metal wing does not fit to your level.",
+      "",
+      "Have you heard about a silver wing?",
+      "It has much greater teleport ability.",
+      "",
+      "Bring me a metal wing, hob goblin crystal, decoy ",
+      "crystal, and 5000 gold, then I will trade you with ",
+      "the silver wing.",
+      "",
+      "What do you think? Wanna do it?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Tm93IHlvdSB3YW50IHRoZSBiZXR0ZXIgd2luZyB0aGFuIHRoZSBtZXRhbCB3aW5nPw0KWWVhaC4uLnRoZSBtZXRhbCB3aW5nIGRvZXMgbm90IGZpdCB0byB5b3VyIGxldmVsLg0KDQpIYXZlIHlvdSBoZWFyZCBhYm91dCBhIHNpbHZlciB3aW5nPw0KSXQgaGFzIG11Y2ggZ3JlYXRlciB0ZWxlcG9ydCBhYmlsaXR5Lg0KDQpCcmluZyBtZSBhIG1ldGFsIHdpbmcsIGhvYiBnb2JsaW4gY3J5c3RhbCwgZGVjb3kgDQpjcnlzdGFsLCBhbmQgNTAwMCBnb2xkLCB0aGVuIEkgd2lsbCB0cmFkZSB5b3Ugd2l0aCANCnRoZSBzaWx2ZXIgd2luZy4NCg0KV2hhdCBkbyB5b3UgdGhpbms/IFdhbm5hIGRvIGl0Pw=="
+  }
+}

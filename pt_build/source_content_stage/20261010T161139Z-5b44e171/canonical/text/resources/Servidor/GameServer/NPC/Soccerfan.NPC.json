@@ -1,0 +1,143 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.soccerfan",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Soccerfan.NPC",
+    "GameServer/NPC/Soccerfan.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Soccerfan.NPC",
+    "legacy_sha256": "edb0fda71e21f32b0d039f55d6c32cf5b16a4877bf2840327f3e4bade28a8916",
+    "legacy_size": 616
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\monster\\Ziddane\\world_fran.INI",
+      "level": 100,
+      "sell_weapon": "없음",
+      "sell_defence": "없음",
+      "sell_etc": [
+        "DA247",
+        "DA253",
+        "DA147",
+        "DA153"
+      ],
+      "linked_file": "name\\Soccerfan.zhoon",
+      "model_config_id": "model.char.monster.ziddane.world.fran"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\Ziddane\\world_fran.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c5a696464616e655c776f726c645f6672616e2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 13,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "DA247",
+          "DA253",
+          "DA147",
+          "DA153"
+        ],
+        "raw_values_hex": [
+          "4441323437",
+          "4441323533",
+          "4441313437",
+          "4441313533"
+        ]
+      },
+      {
+        "line": 19,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Soccerfan.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c536f6363657266616e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxtb25zdGVyXFppZGRhbmVcd29ybGRfZnJhbi5JTkkiDQoNCiq3ubqnCQkxMDANCi8vKrTryK0JCSK41MC7sMkgtPjB9rDFs6ogw6K77CC527+hvK0gsau308j3tMIgwf7AuiDHz8H2ILi2vcq9w7/ALiCz4LyutenAzCDIrbChILOquOkguau9vCDB/sC7IMfSwfYguPS287/kISINCi8vKrTryK0JCSLAzCCz4LyutekgueO4trTZILvntvPB9rDvIL7GxKfAzCC1x7jpILTZvcMgs6rFuLOqsO8gx8/B0iDBpLi7ILmmx9Egs+C8rrXpIMDUtM+02S4iDQovLyq068itCQkixdu9usWpt9DAxyDA/L73IL3Dx+jAuiDAzCAzILPgvK7AuyDA4r7GIDOwocH2IMKhx6W4piC+8r7uIL/AtMIgsM3AzMHSIg0KLy8qtOvIrQkJIrChsvsgsOaw7bimILmrvcPHz7DtILCov8HAuLfOILXpvu6wobTCIMDMtem1tSDA1sHSIMGkuLsgwKfH6MfRIMDPwMywx7i4Li4uIg0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCiq5q7Hixse4xQm++MC9DQoNCiq55r7usbjGx7jFCb74wL0NCg0KKsDiyK3Gx7jFCURBMjQ3IERBMjUzIERBMTQ3IERBMTUzDQoNCiq/rLDhxsTAzwkibmFtZVxTb2NjZXJmYW4uemhvb24iDQoNCg0KDQoNCg=="
+  }
+}

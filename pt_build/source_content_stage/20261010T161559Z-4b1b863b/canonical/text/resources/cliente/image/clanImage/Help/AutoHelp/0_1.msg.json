@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.0_1",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/0_1.msg",
+    "image/clanImage/Help/AutoHelp/0_1.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/0_1.msg",
+    "legacy_sha256": "c26b06221197912b4951f09141f712eac48282081f5a8672dd1e0760c4d8008c",
+    "legacy_size": 191
+  },
+  "semantic": {
+    "lines": [
+      "we have provided you basic weapon",
+      "It is not very fancy or strong weapon but very useful.",
+      "we will get stronger weapon gradully by hunting mosters.",
+      "Why don't we have look around town first"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "d2UgaGF2ZSBwcm92aWRlZCB5b3UgYmFzaWMgd2VhcG9uDQpJdCBpcyBub3QgdmVyeSBmYW5jeSBvciBzdHJvbmcgd2VhcG9uIGJ1dCB2ZXJ5IHVzZWZ1bC4NCndlIHdpbGwgZ2V0IHN0cm9uZ2VyIHdlYXBvbiBncmFkdWxseSBieSBodW50aW5nIG1vc3RlcnMuDQpXaHkgZG9uJ3Qgd2UgaGF2ZSBsb29rIGFyb3VuZCB0b3duIGZpcnN0DQo="
+  }
+}

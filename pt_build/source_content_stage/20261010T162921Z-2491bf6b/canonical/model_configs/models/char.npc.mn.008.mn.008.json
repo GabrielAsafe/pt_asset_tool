@@ -1,0 +1,53 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.mn.008.mn.008",
+  "logical_config": "char/npc/MN-008/MN-008.INI",
+  "legacy_cache": "char/npc/MN-008/MN-008.inx",
+  "consumers": [
+    {
+      "id": "npc.navisko_magic",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/navisko-magic.npc.json"
+    },
+    {
+      "id": "npc.nevisko_magic",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/nevisko-magic.npc.json"
+    },
+    {
+      "id": "npc.newter_o_s_u00e1bio",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Newter, o S#U00e1bio.NPC.json"
+    },
+    {
+      "id": "npc.phillay_civilian2",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-civilian2.npc.json"
+    },
+    {
+      "id": "npc.phillay_civilian3",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-civilian3.NPC.json"
+    },
+    {
+      "id": "npc.ruiden_magic",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ruiden-magic.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/MN-008/MN-008.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/MN-008/MN-008.inx"
+    }
+  }
+}

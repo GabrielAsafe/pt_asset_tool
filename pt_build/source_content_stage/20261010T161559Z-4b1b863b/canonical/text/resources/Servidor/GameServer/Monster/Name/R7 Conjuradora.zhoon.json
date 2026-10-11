@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r7_conjuradora",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R7 Conjuradora.zhoon",
+    "GameServer/Monster/Name/R7 Conjuradora.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R7 Conjuradora.zhoon",
+    "legacy_sha256": "29376b018a0b54008a13998130d69c061e8032177d3bf09e28376d957fca2576",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R7 Conjuradora"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjcgQ29uanVyYWRvcmEi"
+  }
+}

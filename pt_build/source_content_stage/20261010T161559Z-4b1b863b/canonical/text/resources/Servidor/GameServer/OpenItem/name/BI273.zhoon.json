@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi273",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI273.zhoon",
+    "GameServer/OpenItem/name/BI273.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI273.zhoon",
+    "legacy_sha256": "54c496dfcd4bd3b9bbc3ebb41d4ad6ac7a12df7952ba423cd2000076fb23372a",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Aprimoramento Direto +10"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXByaW1vcmFtZW50byBEaXJldG8gKzEwIg=="
+  }
+}

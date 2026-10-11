@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_5",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob3_5.sin",
+    "image/Sinimage/Quest/ChangeJob3_5.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob3_5.sin",
+    "legacy_sha256": "951873168f992f090f478032c751b38850156c9959d9f96bebb5e9c45875618d",
+    "legacy_size": 570
+  },
+  "semantic": {
+    "lines": [
+      "You've changed good deal in a few days.",
+      "The ring and weapon that I gave you have",
+      "disappeared by now, haven't they?",
+      "I told you to come and see me again after they had",
+      "disappeared because I wanted to return HP generated",
+      "from Vamps back to you.",
+      "HP is absorbed in your weapon.",
+      "The weapon is aged by Vamp and absorbed HP.",
+      "When HP extinguishes, it transfroms into the",
+      "user's body.",
+      "I summoned you again to empower you with super HP.",
+      "Close you eyes and try to feel the energy soaring",
+      "inside your body.",
+      "When you open your eyes, you can possess the energy",
+      "in person."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91J3ZlIGNoYW5nZWQgZ29vZCBkZWFsIGluIGEgZmV3IGRheXMuDQpUaGUgcmluZyBhbmQgd2VhcG9uIHRoYXQgSSBnYXZlIHlvdSBoYXZlDQpkaXNhcHBlYXJlZCBieSBub3csIGhhdmVuJ3QgdGhleT8NCkkgdG9sZCB5b3UgdG8gY29tZSBhbmQgc2VlIG1lIGFnYWluIGFmdGVyIHRoZXkgaGFkDQpkaXNhcHBlYXJlZCBiZWNhdXNlIEkgd2FudGVkIHRvIHJldHVybiBIUCBnZW5lcmF0ZWQNCmZyb20gVmFtcHMgYmFjayB0byB5b3UuDQpIUCBpcyBhYnNvcmJlZCBpbiB5b3VyIHdlYXBvbi4NClRoZSB3ZWFwb24gaXMgYWdlZCBieSBWYW1wIGFuZCBhYnNvcmJlZCBIUC4NCldoZW4gSFAgZXh0aW5ndWlzaGVzLCBpdCB0cmFuc2Zyb21zIGludG8gdGhlDQp1c2VyJ3MgYm9keS4NCkkgc3VtbW9uZWQgeW91IGFnYWluIHRvIGVtcG93ZXIgeW91IHdpdGggc3VwZXIgSFAuDQpDbG9zZSB5b3UgZXllcyBhbmQgdHJ5IHRvIGZlZWwgdGhlIGVuZXJneSBzb2FyaW5nDQppbnNpZGUgeW91ciBib2R5Lg0KV2hlbiB5b3Ugb3BlbiB5b3VyIGV5ZXMsIHlvdSBjYW4gcG9zc2VzcyB0aGUgZW5lcmd5DQppbiBwZXJzb24u"
+  }
+}

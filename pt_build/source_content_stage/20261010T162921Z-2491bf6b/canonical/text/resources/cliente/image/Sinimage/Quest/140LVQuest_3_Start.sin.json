@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_3_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_3_Start.sin",
+    "image/Sinimage/Quest/140LVQuest_3_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_3_Start.sin",
+    "legacy_sha256": "0c24f5545616212bfc9416ab66f35f14493d3e5c7b27e0e83b3b2112319f7d74",
+    "legacy_size": 636
+  },
+  "semantic": {
+    "lines": [
+      "Perdoe Marina, ela está fora de si. O Comandante Derik",
+      "assumiu as operações do posto de controle da aliança, até",
+      "Zarad retornar. Antes de partir, na missão de resgate, ele",
+      "deixou essas Pedras da Alma, entregues por Celina. Elas",
+      "podem capturar a essência da alma. ",
+      "",
+      "Os Shogoth são criados a partir dos pristonianos mortos ou",
+      "capturados pelos Cristais Negros. A energia da alma dos",
+      "Sathla e Arhdyra mantém as almas dos Shogoth sob controle.",
+      "Capture a alma dos opressores, para Celina estudá-las. ",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Cace Sathla e Arhdyra e obtenha a Alma Azul e Vermelha.",
+      "Ao terminar, fale com a Sábia Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UGVyZG9lIE1hcmluYSwgZWxhIGVzdOEgZm9yYSBkZSBzaS4gTyBDb21hbmRhbnRlIERlcmlrDQphc3N1bWl1IGFzIG9wZXJh5/VlcyBkbyBwb3N0byBkZSBjb250cm9sZSBkYSBhbGlhbudhLCBhdOkNClphcmFkIHJldG9ybmFyLiBBbnRlcyBkZSBwYXJ0aXIsIG5hIG1pc3PjbyBkZSByZXNnYXRlLCBlbGUNCmRlaXhvdSBlc3NhcyBQZWRyYXMgZGEgQWxtYSwgZW50cmVndWVzIHBvciBDZWxpbmEuIEVsYXMNCnBvZGVtIGNhcHR1cmFyIGEgZXNz6m5jaWEgZGEgYWxtYS4gDQoNCk9zIFNob2dvdGggc+NvIGNyaWFkb3MgYSBwYXJ0aXIgZG9zIHByaXN0b25pYW5vcyBtb3J0b3Mgb3UNCmNhcHR1cmFkb3MgcGVsb3MgQ3Jpc3RhaXMgTmVncm9zLiBBIGVuZXJnaWEgZGEgYWxtYSBkb3MNClNhdGhsYSBlIEFyaGR5cmEgbWFudOltIGFzIGFsbWFzIGRvcyBTaG9nb3RoIHNvYiBjb250cm9sZS4NCkNhcHR1cmUgYSBhbG1hIGRvcyBvcHJlc3NvcmVzLCBwYXJhIENlbGluYSBlc3R1ZOEtbGFzLiANCg0KW09iamV0aXZvIGRvIERlc2FmaW9dDQoNCkNhY2UgU2F0aGxhIGUgQXJoZHlyYSBlIG9idGVuaGEgYSBBbG1hIEF6dWwgZSBWZXJtZWxoYS4NCkFvIHRlcm1pbmFyLCBmYWxlIGNvbSBhIFPhYmlhIENlbGluYSBlbSBQaWxsYWku"
+  }
+}

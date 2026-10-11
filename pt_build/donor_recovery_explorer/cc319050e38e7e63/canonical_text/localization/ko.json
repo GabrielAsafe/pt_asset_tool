@@ -1,0 +1,14 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "ko",
+  "fallback_locale": "en",
+  "entries": [
+    {
+      "key": "monster.lizard_elder_1.name",
+      "text": "리자드 장로",
+      "quality": "legacy_source",
+      "source": "monster.lizard_elder_1"
+    }
+  ]
+}

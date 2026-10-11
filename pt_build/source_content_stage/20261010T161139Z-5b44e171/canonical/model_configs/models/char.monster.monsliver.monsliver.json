@@ -1,0 +1,38 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monsliver.monsliver",
+  "logical_config": "char/monster/monsliver/monsliver.ini",
+  "legacy_cache": "char/monster/monsliver/monsliver.inx",
+  "consumers": [
+    {
+      "id": "monster.71_l_u00e2mina",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/71_L#U00e2mina.inf.json"
+    },
+    {
+      "id": "monster.r4_l_u00e2mina",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R4 L#U00e2mina.inf.json"
+    },
+    {
+      "id": "monster.sod_sliver",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_sliver.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monsliver/Monsliver.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monsliver/Monsliver.inx"
+    }
+  }
+}

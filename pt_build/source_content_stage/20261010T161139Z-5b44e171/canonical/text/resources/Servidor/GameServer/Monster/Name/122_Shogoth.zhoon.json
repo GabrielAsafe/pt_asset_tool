@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.122_shogoth",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/122_Shogoth.zhoon",
+    "GameServer/Monster/Name/122_Shogoth.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/122_Shogoth.zhoon",
+    "legacy_sha256": "980782ca6ce43d845b0a4c000f87057b9622875ebf10c62baefb6af68f6868bc",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Shogoth"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8xMjJfU2hvZ290aC5pbmYNCg0KKkpfTkFNRSAiU2hvZ290aCINCg=="
+  }
+}

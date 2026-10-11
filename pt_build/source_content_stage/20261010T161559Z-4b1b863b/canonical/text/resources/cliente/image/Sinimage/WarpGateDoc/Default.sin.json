@@ -1,0 +1,41 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.default",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Default.sin",
+    "image/Sinimage/WarpGateDoc/Default.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Default.sin",
+    "legacy_sha256": "44f22a26c67ce77cb28375bec6d7ae18f27677e9c398ad74f0fa5f1a083c7247",
+    "legacy_size": 494
+  },
+  "semantic": {
+    "lines": [
+      "Welcome to the [Warp Gate].",
+      "Can move to the selected place from the",
+      "map on right side.",
+      "Select the region you want to move to!",
+      "",
+      "When you use warp gate,",
+      "there're some charges for using warp gates",
+      "going to the other regions except Pillai",
+      "and Ricarten.",
+      "",
+      "------ Warp Gate fees ------",
+      "*Metal Wing    :         %dGold      ",
+      "*Silver Wing   :         %dGold",
+      "*Gold Wing     :         %dGold",
+      "*Dia Wing      :         %dGold",
+      "*Chaos Wing    :         %dGold",
+      "*Extreme Wing  :         %dGold"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "V2VsY29tZSB0byB0aGUgW1dhcnAgR2F0ZV0uDQpDYW4gbW92ZSB0byB0aGUgc2VsZWN0ZWQgcGxhY2UgZnJvbSB0aGUNCm1hcCBvbiByaWdodCBzaWRlLg0KU2VsZWN0IHRoZSByZWdpb24geW91IHdhbnQgdG8gbW92ZSB0byENCg0KV2hlbiB5b3UgdXNlIHdhcnAgZ2F0ZSwNCnRoZXJlJ3JlIHNvbWUgY2hhcmdlcyBmb3IgdXNpbmcgd2FycCBnYXRlcw0KZ29pbmcgdG8gdGhlIG90aGVyIHJlZ2lvbnMgZXhjZXB0IFBpbGxhaQ0KYW5kIFJpY2FydGVuLg0KDQotLS0tLS0gV2FycCBHYXRlIGZlZXMgLS0tLS0tDQoqTWV0YWwgV2luZyAgICA6ICAgICAgICAgJWRHb2xkICAgICAgDQoqU2lsdmVyIFdpbmcgICA6ICAgICAgICAgJWRHb2xkDQoqR29sZCBXaW5nICAgICA6ICAgICAgICAgJWRHb2xkDQoqRGlhIFdpbmcgICAgICA6ICAgICAgICAgJWRHb2xkDQoqQ2hhb3MgV2luZyAgICA6ICAgICAgICAgJWRHb2xkDQoqRXh0cmVtZSBXaW5nICA6ICAgICAgICAgJWRHb2xkDQo="
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.gp101",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/GP101.txt",
+    "GameServer/OpenItem/GP101.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/GP101.txt",
+    "legacy_sha256": "0904faa5dd78b02e3bb46d176d742c84eea99986499e3083e61379318752f116",
+    "legacy_size": 212
+  },
+  "semantic": {
+    "fields": {
+      "code": "GP101",
+      "name": "Cristal de Hopi",
+      "english_name": "Cristal de Hopi",
+      "level": 1,
+      "weight": 1,
+      "price": 500,
+      "linked_file": "Name\\GP101.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "GP101"
+        ],
+        "raw_values_hex": [
+          "4750313031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal de Hopi"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646520486f7069"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cristal de Hopi"
+        ],
+        "raw_values_hex": [
+          "4372697374616c20646520486f7069"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          500
+        ],
+        "raw_values_hex": [
+          "353030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\GP101.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c47503130312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkdQMTAxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ3Jpc3RhbCBkZSBIb3BpIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkNyaXN0YWwgZGUgSG9waSINCg0KLy9MZXZlbA0KKre5uqcgMQ0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SA1MDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxHUDEwMS56aG9vbiI="
+  }
+}

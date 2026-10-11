@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.nyquest_3",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/RepeatQuest/NYQuest_3.msg",
+    "image/party/party_DATA/RepeatQuest/NYQuest_3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/RepeatQuest/NYQuest_3.msg",
+    "legacy_sha256": "9431108403d849a2abc6483e3e3e8de48f2c030293b6dc3f1dacf1c17ee1f56f",
+    "legacy_size": 68
+  },
+  "semantic": {
+    "lines": [
+      "Capture 100 Serpentes Negras",
+      "e leve-as para o Caçador de Serpentes."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FwdHVyZSAxMDAgU2VycGVudGVzIE5lZ3Jhcw0KZSBsZXZlLWFzIHBhcmEgbyBDYedhZG9yIGRlIFNlcnBlbnRlcy4="
+  }
+}

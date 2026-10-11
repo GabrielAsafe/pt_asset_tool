@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.natal1",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Natal1.Zhoon",
+    "GameServer/NPC/name/Natal1.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Natal1.Zhoon",
+    "legacy_sha256": "e372f1429fc035e555cd51359ea77e626f74e357da10ac1ffd07510212c931b7",
+    "legacy_size": 117
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Event Christmas"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Feliz natal!"
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Tenho um presente para voce!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9OYXRhbDEuTlBDDQoNCg0KKkpfTmFtZQkiRXZlbnQgQ2hyaXN0bWFzIg0KDQoNCipKX0NoYXQJIkZlbGl6IG5hdGFsISINCg0KKkpfQ2hhdAkiVGVuaG8gdW0gcHJlc2VudGUgcGFyYSB2b2NlISINCg0K"
+  }
+}

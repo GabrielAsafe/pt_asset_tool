@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.hopy.mopy",
+  "logical_config": "char/monster/hopy/mopy.ini",
+  "legacy_cache": "char/monster/hopy/mopy.inx",
+  "consumers": [
+    {
+      "id": "monster.1_cuepi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/1_Cuepi.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/hopy/mopy.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/hopy/mopy.inx"
+    }
+  }
+}

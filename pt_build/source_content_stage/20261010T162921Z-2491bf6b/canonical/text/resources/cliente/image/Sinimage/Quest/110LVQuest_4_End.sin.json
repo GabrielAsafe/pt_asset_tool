@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_4_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_4_End.sin",
+    "image/Sinimage/Quest/110LVQuest_4_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_4_End.sin",
+    "legacy_sha256": "84d46d51be2654e221ff409ff5d30aa75609cc871305d2d2997e1b425620ca06",
+    "legacy_size": 248
+  },
+  "semantic": {
+    "lines": [
+      "Bom trabalho!",
+      "",
+      "Eles ficarão desorientados por um tempo.",
+      "Nesse meio tempo, precisamos preparar um plano para",
+      "destruir a arma secreta que eles estão construindo.",
+      "",
+      "Obrigado, receba 479.391.996 de experiência por ter ",
+      "ajudado nessa árdua tarefa."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Qm9tIHRyYWJhbGhvIQ0KDQpFbGVzIGZpY2Fy428gZGVzb3JpZW50YWRvcyBwb3IgdW0gdGVtcG8uDQpOZXNzZSBtZWlvIHRlbXBvLCBwcmVjaXNhbW9zIHByZXBhcmFyIHVtIHBsYW5vIHBhcmENCmRlc3RydWlyIGEgYXJtYSBzZWNyZXRhIHF1ZSBlbGVzIGVzdONvIGNvbnN0cnVpbmRvLg0KDQpPYnJpZ2FkbywgcmVjZWJhIDQ3OS4zOTEuOTk2IGRlIGV4cGVyaepuY2lhIHBvciB0ZXIgDQphanVkYWRvIG5lc3NhIOFyZHVhIHRhcmVmYS4="
+  }
+}

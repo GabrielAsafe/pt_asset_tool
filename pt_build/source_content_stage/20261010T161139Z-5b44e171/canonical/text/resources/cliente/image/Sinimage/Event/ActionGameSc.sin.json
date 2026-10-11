@@ -1,0 +1,41 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.actiongamesc",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Event/ActionGameSc.sin",
+    "image/Sinimage/Event/ActionGameSc.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Event/ActionGameSc.sin",
+    "legacy_sha256": "294e01bba4d440f9fef2f4d2b67924010830dade841d077ab0567ebf01c56382",
+    "legacy_size": 584
+  },
+  "semantic": {
+    "lines": [
+      "---------------------------------------------------------",
+      " PARABÉNS, VOCÊ CONCLUIU O DESAFIO!                  ",
+      "---------------------------------------------------------",
+      "                 1º Round         %d:%d                    ",
+      "                 2º Round         %d:%d",
+      "                 3º Round         %d:%d",
+      "                 4º Round         %d:%d",
+      "                 5º Round         %d:%d",
+      "---------------------------------------------------------",
+      "                 TOTAL            %d:%d       VITÓRIA!",
+      "---------------------------------------------------------",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQogUEFSQULJTlMsIFZPQ8ogQ09OQ0xVSVUgTyBERVNBRklPISAgICAgICAgICAgICAgICAgIA0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQogICAgICAgICAgICAgICAgIDG6IFJvdW5kICAgICAgICAgJWQ6JWQgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAyuiBSb3VuZCAgICAgICAgICVkOiVkDQogICAgICAgICAgICAgICAgIDO6IFJvdW5kICAgICAgICAgJWQ6JWQNCiAgICAgICAgICAgICAgICAgNLogUm91bmQgICAgICAgICAlZDolZA0KICAgICAgICAgICAgICAgICA1uiBSb3VuZCAgICAgICAgICVkOiVkDQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCiAgICAgICAgICAgICAgICAgVE9UQUwgICAgICAgICAgICAlZDolZCAgICAgICBWSVTTUklBIQ0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQoNCg0KDQoNCg0KDQo="
+  }
+}

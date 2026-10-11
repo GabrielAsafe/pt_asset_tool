@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/106LVQuest_5.msg",
+    "image/party/party_DATA/HaQuest/106LVQuest_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/106LVQuest_5.msg",
+    "legacy_sha256": "657c4facdbcb4cdb335752ee0ce365a1053501ef01ad5a4e304546313abeeb61",
+    "legacy_size": 72
+  },
+  "semantic": {
+    "lines": [
+      "Leve o Anel de Noivado",
+      "Purificado para o Mestre da",
+      "Força em Vila Eura."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV2ZSBvIEFuZWwgZGUgTm9pdmFkbw0KUHVyaWZpY2FkbyBwYXJhIG8gTWVzdHJlIGRhDQpGb3LnYSBlbSBWaWxhIEV1cmEu"
+  }
+}

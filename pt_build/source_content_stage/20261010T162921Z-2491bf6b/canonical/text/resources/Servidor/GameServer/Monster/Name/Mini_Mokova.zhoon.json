@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.mini_mokova",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/Mini_Mokova.zhoon",
+    "GameServer/Monster/Name/Mini_Mokova.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/Mini_Mokova.zhoon",
+    "legacy_sha256": "b04bfbc9bd1d80b3770eeb9b86ddf47df4da49937f9203948e06c2c5bbd02e36",
+    "legacy_size": 42
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mini Mokova"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9NaW5pX01va292YS5pbmYNCg0KKkpfTkFNRSAiTWluaSBNb2tvdmEi"
+  }
+}

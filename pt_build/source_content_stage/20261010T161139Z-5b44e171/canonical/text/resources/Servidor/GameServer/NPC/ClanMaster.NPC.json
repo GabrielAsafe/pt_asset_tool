@@ -1,0 +1,120 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.clanmaster",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ClanMaster.NPC",
+    "GameServer/NPC/ClanMaster.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ClanMaster.NPC",
+    "legacy_sha256": "628a551dfe908d637e0c421f1f77faf6637e4c1993105ba6e7057b2645712aad",
+    "legacy_size": 237
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\monster\\Buma\\buma.ini",
+      "name": "미스터 부마",
+      "english_name": "",
+      "clan_npc": true,
+      "linked_file": "name\\ClanMaster.zhoon",
+      "model_config_id": "model.char.monster.buma.buma"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\Buma\\buma.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c42756d615c62756d612e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "미스터 부마"
+        ],
+        "raw_values_hex": [
+          "b9ccbdbac5cd20baceb8b6"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          ""
+        ],
+        "raw_values_hex": [
+          ""
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 10,
+        "key": "clan_npc",
+        "legacy_token": "*클랜기능",
+        "legacy_token_hex": "2ac5acb7a3b1e2b4c9",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 12,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ClanMaster.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c436c616e4d61737465722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxtb25zdGVyXEJ1bWFcYnVtYS5pbmkiDQoNCirAzLinCQkJIrnMvbrFzSC6zri2Ig0KKk5hbWUJCQkiIg0KDQovLyq068itCQkJIrOquKYgxay3o8DHIMO1wOcgJ7nMvbrFzSC6zri2tNQnwMy287DtILrOuKO1tbfPIMfYtvMuIMTwt7AuLsTwt7AuLiINCg0KKsWst6Ox4rTJDQoNCiq/rLDhxsTAzwkibmFtZVxDbGFuTWFzdGVyLnpob29uIg0KDQoNCg0KDQoNCg0K"
+  }
+}

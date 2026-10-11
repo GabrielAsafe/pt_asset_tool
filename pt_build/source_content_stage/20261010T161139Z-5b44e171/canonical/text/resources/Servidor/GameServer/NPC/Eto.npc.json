@@ -1,0 +1,121 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.eto",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Eto.npc",
+    "GameServer/NPC/Eto.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Eto.npc",
+    "legacy_sha256": "ade27a3ae6dd25707093c339045771b1c2ad9b3ee26b94ea3819c461063ccdd0",
+    "legacy_size": 285
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-006\\TN-006.ini",
+      "name": "조사원 에토",
+      "level": 100,
+      "quest_event": 16,
+      "linked_file": "name\\Eto.zhoon",
+      "model_config_id": "model.char.npc.tn.006.tn.006"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-006\\TN-006.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030365c544e2d3030362e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "조사원 에토"
+        ],
+        "raw_values_hex": [
+          "c1b6bbe7bff820bfa1c5e4"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 8,
+        "key": "quest_event",
+        "legacy_token": "*퀘스트이벤트",
+        "legacy_token_hex": "2ac4f9bdbac6aec0ccbaa5c6ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          16
+        ],
+        "raw_values_hex": [
+          "3136"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Eto.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c45746f2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCSJjaGFyXG5wY1xUTi0wMDZcVE4tMDA2LmluaSINCg0KDQoqwMy4pwkJIsG2u+e/+CC/ocXkIg0KKre5uqcJCTEwMA0KKsT5vbrGrsDMuqXGrgkxNg0KDQoNCi8vKrTryK0JCSLAzLe4sNQgv9zB+LD3v6G8rbW1IMDMsPG287PrvbrAxyC4trfCwMwgwbjA58fPtNm0zyEhIg0KLy8qtOvIrQkJIsDMsPG287PrvbrAxyC4trfCwLsgsdezySC1zr7uvK20wiC+yLXFLiC+7ra7sNS15yC4t77Gvt/H2C4iDQoNCg0KDQoqv6yw4cbEwM8JIm5hbWVcRXRvLnpob29uIg0K"
+  }
+}

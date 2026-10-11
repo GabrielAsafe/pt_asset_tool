@@ -1,0 +1,67 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.forever_fall_02",
+  "logical_path": "GameServer/Field/forever-fall-02.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/forever-fall-02.ase.spm",
+    "sha256": "1dcde08645710bb1b373735dd15fbd1dda31fd2318acd852cc873c96b52c6556"
+  },
+  "limit_max": 90,
+  "delay": {
+    "shift": 5,
+    "milliseconds": 14000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.7_sen",
+      "legacy_name": "쎈",
+      "legacy_name_bytes_hex": "bdeb",
+      "weight": 35,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Sen"
+    },
+    {
+      "monster_id": "monster.17_planta_mort_u00edfera",
+      "legacy_name": "헌팅 메이플",
+      "legacy_name_bytes_hex": "c7e5c6c320b8dec0ccc7c3",
+      "weight": 5,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Planta Mort?era"
+    },
+    {
+      "monster_id": "monster.6_duende_m_u00e1gico",
+      "legacy_name": "이간",
+      "legacy_name_bytes_hex": "c0ccb0a3",
+      "weight": 20,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Duende M?ico"
+    },
+    {
+      "monster_id": "monster.12_u00c1rvore_mutante",
+      "legacy_name": "뮤턴트 트리",
+      "legacy_name_bytes_hex": "b9c2c5cfc6ae20c6aeb8ae",
+      "weight": 5,
+      "resolution": "source_monster_signature",
+      "canonical_name": "?vore Mutante"
+    },
+    {
+      "monster_id": "monster.10_planta_mutante",
+      "legacy_name": "변이식물",
+      "legacy_name_bytes_hex": "baafc0ccbdc4b9b0",
+      "weight": 25,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Planta Mutante"
+    },
+    {
+      "monster_id": "monster.11_doral",
+      "legacy_name": "도랄",
+      "legacy_name_bytes_hex": "b5b5b6f6",
+      "weight": 10,
+      "resolution": "source_monster_signature",
+      "canonical_name": "Doral"
+    }
+  ],
+  "bosses": []
+}

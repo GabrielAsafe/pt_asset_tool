@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd117",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD117.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD117.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD117.zhoon",
+    "legacy_sha256": "3856545da4e8035d30d572ae24f5c29c5e323e783e185a8d358371292ffc01d2",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Arcana Dagger"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDExNy50eHQNCg0KKkpfTkFNRQkJIkFyY2FuYSBEYWdnZXIiDQo="
+  }
+}

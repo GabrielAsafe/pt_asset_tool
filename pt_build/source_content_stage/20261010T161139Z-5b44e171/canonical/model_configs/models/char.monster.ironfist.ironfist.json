@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.ironfist.ironfist",
+  "logical_config": "char/monster/ironfist/ironfist.ini",
+  "legacy_cache": "char/monster/ironfist/ironfist.inx",
+  "consumers": [
+    {
+      "id": "monster.87_punhos_de_a_u00e7o",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/87_Punhos de A#U00e7o.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/ironfist/ironfist.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/ironfist/ironfist.inx"
+    }
+  }
+}

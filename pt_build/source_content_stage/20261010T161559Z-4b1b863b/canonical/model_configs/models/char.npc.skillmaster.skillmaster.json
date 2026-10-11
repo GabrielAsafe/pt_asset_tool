@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.skillmaster.skillmaster",
+  "logical_config": "char/npc/skillmaster/skillmaster.ini",
+  "legacy_cache": "char/npc/skillmaster/skillmaster.inx",
+  "consumers": [
+    {
+      "id": "monster.ad_60_mestre_verkan",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/AD_60_Mestre Verkan.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/SkillMaster/SkillMaster.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/SkillMaster/SkillMaster.inx"
+    }
+  }
+}

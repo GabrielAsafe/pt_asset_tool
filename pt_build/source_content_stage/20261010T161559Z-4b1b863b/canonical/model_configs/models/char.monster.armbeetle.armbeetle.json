@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.armbeetle.armbeetle",
+  "logical_config": "char/monster/ArmBeetle/ArmBeetle.ini",
+  "legacy_cache": "char/monster/ArmBeetle/ArmBeetle.inx",
+  "consumers": [
+    {
+      "id": "monster.37_besouro_blindado",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/37_Besouro Blindado.inf.json"
+    },
+    {
+      "id": "monster.sod_armored_beetle",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_armored_beetle.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/ArmBeetle/ArmBeetle.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/ArmBeetle/ArmBeetle.inx"
+    }
+  }
+}

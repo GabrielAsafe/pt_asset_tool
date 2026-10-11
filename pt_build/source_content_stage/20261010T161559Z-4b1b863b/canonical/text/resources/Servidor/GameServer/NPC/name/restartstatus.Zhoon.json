@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.restartstatus",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/restartstatus.Zhoon",
+    "GameServer/NPC/name/restartstatus.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/restartstatus.Zhoon",
+    "legacy_sha256": "cecdf72a8f373f835b8007b7f5b18f79686e55cac6f2be2a9e77a6f0c4ad7e87",
+    "legacy_size": 419
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Minie - Status Girl"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Resete todas suas skills e seus pontos de status aqui comigo!"
+      },
+      {
+        "line": 9,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Você é tão lindo(a), parabéns por ser assim tão forte..."
+      },
+      {
+        "line": 11,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Quando eu te vejo passar por aqui, eu fico deslumbrada! Quanta beleza em apenas um guerreiro(a)..."
+      },
+      {
+        "line": 13,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Eu gosto de dançar, pode observar, toda vez que você passa por aqui eu estou dançando..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9yZXN0YXJ0c3RhdHVzLk5QQw0KDQoNCipKX05hbWUJIk1pbmllIC0gU3RhdHVzIEdpcmwiDQoNCg0KKkpfQ2hhdAkiUmVzZXRlIHRvZGFzIHN1YXMgc2tpbGxzIGUgc2V1cyBwb250b3MgZGUgc3RhdHVzIGFxdWkgY29taWdvISINCg0KKkpfQ2hhdAkiVm9j6iDpIHTjbyBsaW5kbyhhKSwgcGFyYWLpbnMgcG9yIHNlciBhc3NpbSB0428gZm9ydGUuLi4iDQoNCipKX0NoYXQJIlF1YW5kbyBldSB0ZSB2ZWpvIHBhc3NhciBwb3IgYXF1aSwgZXUgZmljbyBkZXNsdW1icmFkYSEgUXVhbnRhIGJlbGV6YSBlbSBhcGVuYXMgdW0gZ3VlcnJlaXJvKGEpLi4uIg0KDQoqSl9DaGF0CSJFdSBnb3N0byBkZSBkYW7nYXIsIHBvZGUgb2JzZXJ2YXIsIHRvZGEgdmV6IHF1ZSB2b2PqIHBhc3NhIHBvciBhcXVpIGV1IGVzdG91IGRhbudhbmRvLi4uIg0KDQo="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/172LVQuest_2.msg",
+    "image/party/party_DATA/HaQuest/172LVQuest_2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/172LVQuest_2.msg",
+    "legacy_sha256": "4671cca0fb9cb336a28ea825e7ee4c0e0d22ee3b0157c1bd0e4c89391374e25e",
+    "legacy_size": 131
+  },
+  "semantic": {
+    "lines": [
+      "Cace Igniculus, Guardião ",
+      "de Lava ou Arqueiro de ",
+      "Lava e colete 5 Fragmentos",
+      "de Fogo.",
+      "Após, fale com a Sábia",
+      "Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q2FjZSBJZ25pY3VsdXMsIEd1YXJkaeNvIA0KZGUgTGF2YSBvdSBBcnF1ZWlybyBkZSANCkxhdmEgZSBjb2xldGUgNSBGcmFnbWVudG9zDQpkZSBGb2dvLg0KQXDzcywgZmFsZSBjb20gYSBT4WJpYQ0KQ2VsaW5hIGVtIFBpbGxhaS4="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bi159",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/BI159.zhoon",
+    "GameServer/OpenItem/name/BI159.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/BI159.zhoon",
+    "legacy_sha256": "2362ec10af92689a6e5827168cc5a727dd5e6726e5055cc528fc63ff8a945438",
+    "legacy_size": 36
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Mana Reduce Potion (3h)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIk1hbmEgUmVkdWNlIFBvdGlvbiAoM2gpIg0K"
+  }
+}

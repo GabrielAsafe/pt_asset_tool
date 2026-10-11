@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.lizard_elder_1",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/Lizard_Elder_1.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/Lizard_Elder_1.inf.json",
+      "sha256": "c9fe30f01aa72bf891d41f0c4aa9cffc5e0c619a5c8f0ac07e3f621e2c31c228"
+    }
+  ]
+}

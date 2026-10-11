@@ -1,0 +1,142 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.pl102",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PL102.txt",
+    "GameServer/OpenItem/PL102.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PL102.txt",
+    "legacy_sha256": "774e2ef216de74d53ecaced49da0b0a21ff153af8bc6df9561f9a4c7b0771d55",
+    "legacy_size": 233
+  },
+  "semantic": {
+    "fields": {
+      "code": "PL102",
+      "name": "Poção Média de HP",
+      "english_name": "Poção Média de HP",
+      "life_alt": [
+        330,
+        450
+      ],
+      "weight": 1,
+      "price": 100,
+      "linked_file": "Name\\PL102.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PL102"
+        ],
+        "raw_values_hex": [
+          "504c313032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Média de HP"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204de9646961206465204850"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Média de HP"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204de9646961206465204850"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "life_alt",
+        "legacy_token": "*생명력상승",
+        "legacy_token_hex": "2abbfdb8edb7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [
+          330,
+          450
+        ],
+        "raw_values_hex": [
+          "333330",
+          "343530"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PL102.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c504c3130322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBMMTAyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gTelkaWEgZGUgSFAiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiUG/n428gTelkaWEgZGUgSFAiDQoNCi8vSFBSZWNvdmVyeQ0KKrv9uO23wrvzvcIgMzMwIDQ1MA0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SAxMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxQTDEwMi56aG9vbiI="
+  }
+}

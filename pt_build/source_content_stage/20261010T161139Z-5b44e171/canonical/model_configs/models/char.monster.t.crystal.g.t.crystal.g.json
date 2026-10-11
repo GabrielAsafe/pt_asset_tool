@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.t.crystal.g.t.crystal.g",
+  "logical_config": "char/monster/t_crystal_g/t_crystal_g.ini",
+  "legacy_cache": "char/monster/t_crystal_g/t_crystal_g.inx",
+  "consumers": [
+    {
+      "id": "monster.bc_100_cristal_de_raio",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/BC_100_Cristal de Raio.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/t_crystal_g/t_crystal_g.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/t_crystal_g/t_crystal_g.inx"
+    }
+  }
+}

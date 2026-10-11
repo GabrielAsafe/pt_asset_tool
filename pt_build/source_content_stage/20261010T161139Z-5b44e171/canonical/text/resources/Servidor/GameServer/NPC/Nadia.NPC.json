@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.nadia",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Nadia.NPC",
+    "GameServer/NPC/Nadia.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Nadia.NPC",
+    "legacy_sha256": "e5068e28bc4061cd2cd25a7b535d2216832b4fa5c123af54e5b04e239b7bd737",
+    "legacy_size": 762
+  },
+  "semantic": {
+    "fields": {
+      "name": "착한소년 롱보",
+      "model_file": "char\\monster\\d_fi\\dfi.ini",
+      "class": 1019,
+      "battle_pass": true,
+      "linked_file": "name\\nadia.zhoon",
+      "model_config_id": "model.char.monster.d.fi.dfi"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "착한소년 롱보"
+        ],
+        "raw_values_hex": [
+          "c2f8c7d1bcd2b3e220b7d5bab8"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\monster\\d_fi\\dfi.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6d6f6e737465725c645f66695c6466692e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 3,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1019
+        ],
+        "raw_values_hex": [
+          "31303139"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "battle_pass",
+        "legacy_token": "*BattlePass",
+        "legacy_token_hex": "2a426174746c6550617373",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 12,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\nadia.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e616469612e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KsDMuKcJCSLC+MfRvNKz4iC31bq4Ig0KKrjwvufGxMDPCSJjaGFyXG1vbnN0ZXJcZF9maVxkZmkuaW5pIg0KKrDosd4gMTAxOQ0KLy8qtOvIrQkJIsDMsPfAuiC4rsSruKPF2SDA1LTPtNkuIMXbvbrFqbfQIMH2v6ogs7LCyr+hIMCnxKHH0SC1tb3DwdIiDQovLyq068itCQkiwPrI8SC1tb3DtMIgtOu3+iDD1rTrwMcgu/Oxx8C7IMDatvvHz7TCILW1vcO3ziCx17i4xa0guLnAuiC757b3tenAzCC/1behx8+w7SDA1r3AtM+02SINCi8vKrTryK0JCSK/oT8gtbW9wyDAzLinwMwgubmzxLDtv+Q/IMDMsPfAuiDF2726xam30MDHIMHfvckgtbW9w8DOILiuxKu4o8XZIMDUtM+02S4gwN8gseK+78fYILXOvLy/5CINCi8vKrTryK0JCSK4ucC6ILvntve16cDMIMDWwfa4uCDFqyC80rb1IL74wMwgxvLIrbfOv+4gtbW9w8DUtM+02S4iDQovLyq068itCQkiw7PAvSC757PJwLsgs6qwob3FtNm46SC02biusMezyr+hIMijx8e4piC757PJx8+9w7DtIMG2sd0gtMm898fPvcO02bjpILytwsq/oSC+xsSrvcO+xiC9o7HuwfYgsKG8xbytIMipsO267biwwLsgu+ezycfPvcO0wiCwzcDMIMHBwLsgsMy0z7TZLiINCg0KKkJhdHRsZVBhc3MNCg0KKr+ssOHGxMDPCSJuYW1lXG5hZGlhLnpob29uIg0KDQovLyK5uSC/ocDMwqHAuyDHz7DatNmw7T8gwMy3sSCwo7W1IMWpsbosIL3HxtAgx8+46SC+xsDMxdssILW3IMD8us4gwNK+7rn2uLEgvPYgwNbAuLTPIL7Lvsa8rSDHz7bzsO0uLiDHyrbzwMzAxyC48Liux8G287TCIL7nud3AzCC1tb/NwdkgsMW+3yEhICINCg0K"
+  }
+}

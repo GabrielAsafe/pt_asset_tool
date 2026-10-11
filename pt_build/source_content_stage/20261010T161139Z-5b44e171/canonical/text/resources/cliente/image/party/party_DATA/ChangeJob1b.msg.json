@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob1b.path_c86cab7f59",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/ChangeJob1b.msg",
+    "image/party/party_DATA/ChangeJob1b.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/ChangeJob1b.msg",
+    "legacy_sha256": "e527e4678cfef7ab37f3a2370786c2304af9a7df3133b58ca906b36352902f20",
+    "legacy_size": 81
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "For you have acomplished",
+      "all requirements, the ",
+      "rank-up quest is ",
+      "completed."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpGb3IgeW91IGhhdmUgYWNvbXBsaXNoZWQNCmFsbCByZXF1aXJlbWVudHMsIHRoZSANCnJhbmstdXAgcXVlc3QgaXMgDQpjb21wbGV0ZWQu"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.moncavemummy.moncavemummy",
+  "logical_config": "char/monster/moncavemummy/moncavemummy.ini",
+  "legacy_cache": "char/monster/moncavemummy/moncavemummy.inx",
+  "consumers": [
+    {
+      "id": "monster.65_pesadelo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/65_Pesadelo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Moncavemummy/moncavemummy.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Moncavemummy/moncavemummy.inx"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.dun_9",
+  "logical_path": "GameServer/Field/dun-9.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/dun-9.ase.spm",
+    "sha256": "b1d840faca38a0179b9496bce4634a0d63d7fd34c2427d9da9ce90972fc5dc2d"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.105_ruca",
+      "legacy_name": "Ruca",
+      "legacy_name_bytes_hex": "52756361",
+      "weight": 15,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.105_naz_das_cinzas",
+      "legacy_name": "Naz das Cinzas",
+      "legacy_name_bytes_hex": "4e617a206461732043696e7a6173",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.106_kakoa",
+      "legacy_name": "Kakoa",
+      "legacy_name_bytes_hex": "4b616b6f61",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.106_igolation",
+      "legacy_name": "Igolation",
+      "legacy_name_bytes_hex": "49676f6c6174696f6e",
+      "weight": 8,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.107_sprin",
+      "legacy_name": "Sprin",
+      "legacy_name_bytes_hex": "537072696e",
+      "weight": 8,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.109_xetan",
+      "legacy_name": "Xetan",
+      "legacy_name_bytes_hex": "586574616e",
+      "weight": 8,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.108_u00c1rvore_das_cinzas",
+      "legacy_name": "Arvore das Cinzas",
+      "legacy_name_bytes_hex": "4172766f7265206461732043696e7a6173",
+      "weight": 8,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": [
+    {
+      "master_monster_id": "monster.chefe_109_devilshy",
+      "slave_monster_id": "monster.109_xetan",
+      "master_legacy_name": "DevilShy",
+      "slave_legacy_name": "Xetan",
+      "master_legacy_name_bytes_hex": "446576696c536879",
+      "slave_legacy_name_bytes_hex": "586574616e",
+      "slave_count": 4,
+      "open_hours": [
+        2,
+        10,
+        18
+      ],
+      "master_resolution": "exact",
+      "slave_resolution": "exact"
+    }
+  ]
+}

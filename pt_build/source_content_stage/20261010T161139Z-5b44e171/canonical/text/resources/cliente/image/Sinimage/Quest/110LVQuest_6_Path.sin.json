@@ -1,0 +1,26 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_6_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/110LVQuest_6_Path.sin",
+    "image/Sinimage/Quest/110LVQuest_6_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/110LVQuest_6_Path.sin",
+    "legacy_sha256": "f2dc2b788b8c2052b36058540954c12308ed07b3c37bf7e9837fc563295248db",
+    "legacy_size": 80
+  },
+  "semantic": {
+    "lines": [
+      "Por favor, derrote Tulla na Mina de Gelo (1º Andar) e traga o",
+      "Cristal Instável."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UG9yIGZhdm9yLCBkZXJyb3RlIFR1bGxhIG5hIE1pbmEgZGUgR2VsbyAoMbogQW5kYXIpIGUgdHJhZ2Egbw0KQ3Jpc3RhbCBJbnN04XZlbC4="
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.rebuild_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Rebuild_Start.sin",
+    "image/Sinimage/Quest/Rebuild_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Rebuild_Start.sin",
+    "legacy_sha256": "68024854ea692ffcccd62e123afb6b7b24519d7df8bf16dfa83853128f9d0164",
+    "legacy_size": 594
+  },
+  "semantic": {
+    "lines": [
+      "Olá, sou a Confeiteira Myu! ",
+      "",
+      "Mais uma vez a Gangue da Zoeira invadiu a cidade e levou",
+      "todos os doces e os presentes da Festa das Crianças.",
+      "Eu poderia tentar  preparar outros bolos, mas eles também",
+      "levaram todos os meus ingredientes. Está uma confusão. ",
+      "Não sobrou nada de Trigo, nem uma colher de Chantilly ou",
+      "das minhas saborosas Cerejas. Está uma confusão.",
+      "",
+      "O Minigue Arteiro, o Yampi Festeiro e o Hopi Festeiro estão",
+      "procurando pelos ingredientes. Você pode nos ajudar?",
+      " ",
+      "[Objetivo do Desafio]",
+      "",
+      "Colete 2x Cerejas, 2x Chantilly e 2x Trigo e entregue-os",
+      "para a Confeiteira Myu."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhLCBzb3UgYSBDb25mZWl0ZWlyYSBNeXUhIA0KDQpNYWlzIHVtYSB2ZXogYSBHYW5ndWUgZGEgWm9laXJhIGludmFkaXUgYSBjaWRhZGUgZSBsZXZvdQ0KdG9kb3Mgb3MgZG9jZXMgZSBvcyBwcmVzZW50ZXMgZGEgRmVzdGEgZGFzIENyaWFu52FzLg0KRXUgcG9kZXJpYSB0ZW50YXIgIHByZXBhcmFyIG91dHJvcyBib2xvcywgbWFzIGVsZXMgdGFtYultDQpsZXZhcmFtIHRvZG9zIG9zIG1ldXMgaW5ncmVkaWVudGVzLiBFc3ThIHVtYSBjb25mdXPjby4gDQpO428gc29icm91IG5hZGEgZGUgVHJpZ28sIG5lbSB1bWEgY29saGVyIGRlIENoYW50aWxseSBvdQ0KZGFzIG1pbmhhcyBzYWJvcm9zYXMgQ2VyZWphcy4gRXN04SB1bWEgY29uZnVz428uDQoNCk8gTWluaWd1ZSBBcnRlaXJvLCBvIFlhbXBpIEZlc3RlaXJvIGUgbyBIb3BpIEZlc3RlaXJvIGVzdONvDQpwcm9jdXJhbmRvIHBlbG9zIGluZ3JlZGllbnRlcy4gVm9j6iBwb2RlIG5vcyBhanVkYXI/DQogDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KQ29sZXRlIDJ4IENlcmVqYXMsIDJ4IENoYW50aWxseSBlIDJ4IFRyaWdvIGUgZW50cmVndWUtb3MNCnBhcmEgYSBDb25mZWl0ZWlyYSBNeXUu"
+  }
+}

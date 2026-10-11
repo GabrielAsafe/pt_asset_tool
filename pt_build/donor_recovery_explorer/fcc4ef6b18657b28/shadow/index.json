@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.lizard_bigmama_2",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/Lizard_Bigmama_2.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/Lizard_Bigmama_2.inf.json",
+      "sha256": "e59563ccb4d346e877158698db3e013aa9758f8221afd99d5aeda6f248ade767"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.phillay_guard3",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/phillay-guard3.zhoon",
+    "GameServer/NPC/name/phillay-guard3.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/phillay-guard3.zhoon",
+    "legacy_sha256": "281be9646dbd1c7fee4018900eb5e6622e98032363b85724436c92243d581ea4",
+    "legacy_size": 400
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda da Prisão"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Alguns guerreiros tentam pular, aí dentro, para chamar a atenção... mas, que vergonha!"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ouvi dizer que os Tempskrons guardam Wolverines em suas celas... mas, que desperdício!"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Esta é a cela para os criminosos da cidade. Tente não parar aqui..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Não! Não adianta insistir! Não irei deixa-lo entrar! Céus! Mais um maluco..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkd1YXJkYSBkYSBQcmlz428iDQoNCipKX0NIQVQJCSJBbGd1bnMgZ3VlcnJlaXJvcyB0ZW50YW0gcHVsYXIsIGHtIGRlbnRybywgcGFyYSBjaGFtYXIgYSBhdGVu5+NvLi4uIG1hcywgcXVlIHZlcmdvbmhhISINCipKX0NIQVQJCSJPdXZpIGRpemVyIHF1ZSBvcyBUZW1wc2tyb25zIGd1YXJkYW0gV29sdmVyaW5lcyBlbSBzdWFzIGNlbGFzLi4uIG1hcywgcXVlIGRlc3BlcmTtY2lvISINCipKX0NIQVQJCSJFc3RhIOkgYSBjZWxhIHBhcmEgb3MgY3JpbWlub3NvcyBkYSBjaWRhZGUuIFRlbnRlIG7jbyBwYXJhciBhcXVpLi4uIg0KKkpfQ0hBVAkJIk7jbyEgTuNvIGFkaWFudGEgaW5zaXN0aXIhIE7jbyBpcmVpIGRlaXhhLWxvIGVudHJhciEgQ+l1cyEgTWFpcyB1bSBtYWx1Y28uLi4iDQoNCg=="
+  }
+}

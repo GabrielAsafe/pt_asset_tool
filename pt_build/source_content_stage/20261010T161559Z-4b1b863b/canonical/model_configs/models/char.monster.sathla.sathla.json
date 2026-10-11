@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.sathla.sathla",
+  "logical_config": "char/monster/Sathla/Sathla.ini",
+  "legacy_cache": "char/monster/Sathla/Sathla.inx",
+  "consumers": [
+    {
+      "id": "monster.124_sathla",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/124_Sathla.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Sathla/Sathla.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Sathla/Sathla.inx"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.lizard_soldier_2",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/Lizard_Soldier_2.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/Lizard_Soldier_2.inf.json",
+      "sha256": "531277fecc478e27b1ee2aa21214c4f0a962fead3e1e8419a95cb82c85929a32"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.jin.path_1f1aa5fee2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Jin.zhoon",
+    "GameServer/NPC/name/Jin.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Jin.zhoon",
+    "legacy_sha256": "cfd43b0ea69f58626b3a951eb1c61284dfff9d9aa5cd138ccb3d556aca3fbc25",
+    "legacy_size": 331
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Aventureiro Jin"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Olá! Sou Jin. Viajei por todo o continente de Priston."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Viajei durante alguns anos, mas agora faço trabalho voluntário desde que os monstros começaram a aparecer."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Tenho uma irmã gêmea. Somos viajantes, mas agora estamos separados. Será que ela está bem?"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9KaW4ubnBjDQoNCipKX05BTUUJCSJBdmVudHVyZWlybyBKaW4iDQoNCipKX0NIQVQJCSJPbOEhIFNvdSBKaW4uIFZpYWplaSBwb3IgdG9kbyBvIGNvbnRpbmVudGUgZGUgUHJpc3Rvbi4iIA0KKkpfQ0hBVAkJIlZpYWplaSBkdXJhbnRlIGFsZ3VucyBhbm9zLCBtYXMgYWdvcmEgZmHnbyB0cmFiYWxobyB2b2x1bnThcmlvIGRlc2RlIHF1ZSBvcyBtb25zdHJvcyBjb21l52FyYW0gYSBhcGFyZWNlci4iDQoqSl9DSEFUCQkiVGVuaG8gdW1hIGlybeMgZ+ptZWEuIFNvbW9zIHZpYWphbnRlcywgbWFzIGFnb3JhIGVzdGFtb3Mgc2VwYXJhZG9zLiBTZXLhIHF1ZSBlbGEgZXN04SBiZW0/Ig=="
+  }
+}

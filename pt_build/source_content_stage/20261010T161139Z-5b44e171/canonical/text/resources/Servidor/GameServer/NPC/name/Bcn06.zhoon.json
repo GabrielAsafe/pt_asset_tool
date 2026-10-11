@@ -1,0 +1,48 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.bcn06",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Bcn06.zhoon",
+    "GameServer/NPC/name/Bcn06.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Bcn06.zhoon",
+    "legacy_sha256": "94716322740892198eef369c29e78e9c92e70448cee2d840901dbb9e0b4e91d6",
+    "legacy_size": 339
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Armazém do Castelo"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Não sei porque ainda estou aqui, nunca recebi nenhum dinheiro pelo que faço..."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Mais eu gosto do que faço, faço amor, e por carinho com vocês, amo vocês, mais não leve pro lado pessoal"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu não guardo poções, elas ocupam muito espaço em meu armázem, e muito peso também..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkFybWF66W0gZG8gQ2FzdGVsbyINCg0KKkpfQ0hBVAkJIk7jbyBzZWkgcG9ycXVlIGFpbmRhIGVzdG91IGFxdWksIG51bmNhIHJlY2ViaSBuZW5odW0gZGluaGVpcm8gcGVsbyBxdWUgZmHnby4uLiINCipKX0NIQVQJCSJNYWlzIGV1IGdvc3RvIGRvIHF1ZSBmYedvLCBmYedvIGFtb3IsIGUgcG9yIGNhcmluaG8gY29tIHZvY+pzLCBhbW8gdm9j6nMsIG1haXMgbuNvIGxldmUgcHJvIGxhZG8gcGVzc29hbCINCipKX0NIQVQJCSJFdSBu428gZ3VhcmRvIHBv5/VlcywgZWxhcyBvY3VwYW0gbXVpdG8gZXNwYedvIGVtIG1ldSBhcm3hemVtLCBlIG11aXRvIHBlc28gdGFtYultLi4uIg0K"
+  }
+}

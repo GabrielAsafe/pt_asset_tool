@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.navisko_dragoman",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/navisko-dragoman.zhoon",
+    "GameServer/NPC/name/navisko-dragoman.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/navisko-dragoman.zhoon",
+    "legacy_sha256": "8abd4cb3e3edacb33a08fc828bacc6686b21bde2f789aa94b025438cc596db21",
+    "legacy_size": 482
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 2,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Guarda de Navisko"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Existem rumoes de que muitos monstros aparecem à noite, mais eu nunca vi nenhum deles... Que estranho!"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "As pessoas que vêm pelo Portal me deixam louco. Não posso controlá-los, a menos que usem o Portão de entrada..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Muitas pessoas vêm aqui para participar ou assistir ao desafio de Bellatra. Não é fácil proteger a cidade, sozinho."
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Eu juro que vi um Bargon, aqui, ontem à noite... Algo está errado..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqSl9OQU1FCQkiR3VhcmRhIGRlIE5hdmlza28iDQoNCipKX0NIQVQJCSJFeGlzdGVtIHJ1bW9lcyBkZSBxdWUgbXVpdG9zIG1vbnN0cm9zIGFwYXJlY2VtIOAgbm9pdGUsIG1haXMgZXUgbnVuY2EgdmkgbmVuaHVtIGRlbGVzLi4uIFF1ZSBlc3RyYW5obyEiDQoqSl9DSEFUCQkiQXMgcGVzc29hcyBxdWUgduptIHBlbG8gUG9ydGFsIG1lIGRlaXhhbSBsb3Vjby4gTuNvIHBvc3NvIGNvbnRyb2zhLWxvcywgYSBtZW5vcyBxdWUgdXNlbSBvIFBvcnTjbyBkZSBlbnRyYWRhLi4uIg0KKkpfQ0hBVAkJIk11aXRhcyBwZXNzb2FzIHbqbSBhcXVpIHBhcmEgcGFydGljaXBhciBvdSBhc3Npc3RpciBhbyBkZXNhZmlvIGRlIEJlbGxhdHJhLiBO428g6SBm4WNpbCBwcm90ZWdlciBhIGNpZGFkZSwgc296aW5oby4iDQoqSl9DSEFUCQkiRXUganVybyBxdWUgdmkgdW0gQmFyZ29uLCBhcXVpLCBvbnRlbSDgIG5vaXRlLi4uIEFsZ28gZXN04SBlcnJhZG8uLi4iDQo="
+  }
+}

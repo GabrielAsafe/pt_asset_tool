@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.coelh_u00e3o_de_p_u00e1scoa.path_4ab0c912bf",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Evento de P#U00e1scoa/Name/Coelh#U00e3o de P#U00e1scoa.zhoon",
+    "GameServer/Monster/Evento de P#U00e1scoa/Name/Coelh#U00e3o de P#U00e1scoa.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Evento de P#U00e1scoa/Name/Coelh#U00e3o de P#U00e1scoa.zhoon",
+    "legacy_sha256": "749b503cca8d19068c245f741b67dcab7b6224a66a8f772c9e03345992ad0ef8",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Coelhão de Páscoa"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ29lbGjjbyBkZSBQ4XNjb2Ei"
+  }
+}

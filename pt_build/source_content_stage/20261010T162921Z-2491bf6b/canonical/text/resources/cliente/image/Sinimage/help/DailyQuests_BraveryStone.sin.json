@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.dailyquests_braverystone",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/DailyQuests_BraveryStone.sin",
+    "image/Sinimage/help/DailyQuests_BraveryStone.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/DailyQuests_BraveryStone.sin",
+    "legacy_sha256": "02c667d81cd1fc6466a46bd60f5a76203fa69187e592ffdde035bf231653905d",
+    "legacy_size": 785
+  },
+  "semantic": {
+    "lines": [
+      "Olá, eu sou uma Ferreira Aprendiz!",
+      "",
+      "Você provavelmente já está sabendo sobre a competição dos Ferreiros",
+      "Aprendizes. Como a demanda pela produção de novos equipamentos ",
+      "ainda é grande, os Mestres Ferreiros decidiram escolher o aprendiz com",
+      "o melhor desempenho para ser nomeado como Ferreiro.",
+      "",
+      "No mutirão passado, minhas primeiras armaduras não passaram nos testes.",
+      "Mas com o auxílio do Ferreiro Especialista melhorei minhas habilidades",
+      "e consegui materiais muito raros.",
+      "",
+      "Continuarei me aperfeiçoando e criarei as melhores armaduras do reino.",
+      "E, assim, serei reconhecida como uma grande Ferreira.",
+      "",
+      "Você pode me ajudar a testar alguns materiais? Acredito que conseguirei",
+      "forjar a armadura perfeita.",
+      "",
+      "Talvez o Ferreiro Especialista também pode nos dar algumas orientações."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhLCBldSBzb3UgdW1hIEZlcnJlaXJhIEFwcmVuZGl6IQ0KDQpWb2PqIHByb3ZhdmVsbWVudGUgauEgZXN04SBzYWJlbmRvIHNvYnJlIGEgY29tcGV0aefjbyBkb3MgRmVycmVpcm9zDQpBcHJlbmRpemVzLiBDb21vIGEgZGVtYW5kYSBwZWxhIHByb2R15+NvIGRlIG5vdm9zIGVxdWlwYW1lbnRvcyANCmFpbmRhIOkgZ3JhbmRlLCBvcyBNZXN0cmVzIEZlcnJlaXJvcyBkZWNpZGlyYW0gZXNjb2xoZXIgbyBhcHJlbmRpeiBjb20NCm8gbWVsaG9yIGRlc2VtcGVuaG8gcGFyYSBzZXIgbm9tZWFkbyBjb21vIEZlcnJlaXJvLg0KDQpObyBtdXRpcuNvIHBhc3NhZG8sIG1pbmhhcyBwcmltZWlyYXMgYXJtYWR1cmFzIG7jbyBwYXNzYXJhbSBub3MgdGVzdGVzLg0KTWFzIGNvbSBvIGF1eO1saW8gZG8gRmVycmVpcm8gRXNwZWNpYWxpc3RhIG1lbGhvcmVpIG1pbmhhcyBoYWJpbGlkYWRlcw0KZSBjb25zZWd1aSBtYXRlcmlhaXMgbXVpdG8gcmFyb3MuDQoNCkNvbnRpbnVhcmVpIG1lIGFwZXJmZWnnb2FuZG8gZSBjcmlhcmVpIGFzIG1lbGhvcmVzIGFybWFkdXJhcyBkbyByZWluby4NCkUsIGFzc2ltLCBzZXJlaSByZWNvbmhlY2lkYSBjb21vIHVtYSBncmFuZGUgRmVycmVpcmEuDQoNClZvY+ogcG9kZSBtZSBhanVkYXIgYSB0ZXN0YXIgYWxndW5zIG1hdGVyaWFpcz8gQWNyZWRpdG8gcXVlIGNvbnNlZ3VpcmVpDQpmb3JqYXIgYSBhcm1hZHVyYSBwZXJmZWl0YS4NCg0KVGFsdmV6IG8gRmVycmVpcm8gRXNwZWNpYWxpc3RhIHRhbWLpbSBwb2RlIG5vcyBkYXIgYWxndW1hcyBvcmllbnRh5/Vlcy4="
+  }
+}

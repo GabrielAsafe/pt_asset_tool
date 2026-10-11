@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monratoo.monaratoo",
+  "logical_config": "char/monster/monratoo/monaratoo.ini",
+  "legacy_cache": "char/monster/monratoo/monaratoo.inx",
+  "consumers": [
+    {
+      "id": "monster.79_ratoo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/79_Ratoo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monratoo/Monaratoo.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monratoo/Monaratoo.inx"
+    }
+  }
+}

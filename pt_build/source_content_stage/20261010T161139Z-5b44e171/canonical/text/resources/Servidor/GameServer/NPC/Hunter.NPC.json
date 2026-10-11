@@ -1,0 +1,124 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.hunter",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Hunter.NPC",
+    "GameServer/NPC/Hunter.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Hunter.NPC",
+    "legacy_sha256": "f792dd69a01eba290dbad3fb4b81e58cd2e4c91aaad12548ebf2fa0ef1e0403a",
+    "legacy_size": 411
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\Hunter\\Hunter.ini",
+      "name": "사냥꾼 오웬",
+      "english_name": "Hunter Owen",
+      "class": 2002,
+      "linked_file": "name\\Hunter.zhoon",
+      "model_config_id": "model.char.npc.hunter.hunter"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\Hunter\\Hunter.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c48756e7465725c48756e7465722e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "사냥꾼 오웬"
+        ],
+        "raw_values_hex": [
+          "bbe7b3c9b2db20bfc0c0a2"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Hunter Owen"
+        ],
+        "raw_values_hex": [
+          "48756e746572204f77656e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          2002
+        ],
+        "raw_values_hex": [
+          "32303032"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Hunter.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c48756e7465722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcSHVudGVyXEh1bnRlci5pbmkiDQoNCirAzLinCQkJIrvns8my2yC/wMCiIg0KKk5hbWUJCQkiSHVudGVyIE93ZW4iDQoqsOix3gkJCTIwMDINCg0KLy8qtOvIrQkJCSK/wH4gtOu3+sDHIL/ru+e9w7G4uNUuILndsKm80sDMtNkuIiANCi8vKrTryK0JCQkis60gtOu3+sC7IL/AsKG45yC48726xc24piC757PJx8+0wiC757PJstsgv8DAosDMtvO/wC4gvce3wsDMIL7GwdYgwcHAurDHIL7GtM/B9ri4IL/YuLjH0SC48726xc20wiC757PJx9IgvPYgwNbB9iEiDQovLyq068itCQkJIsfXu/Mgwba9ycfPvcOw1C4guPO9usXNtenAuiC+xsHWILOtxvjHz7TPse4uIg0KDQoNCg0KKr+ssOHGxMDPCSJuYW1lXEh1bnRlci56aG9vbiINCg0KDQoNCg0KDQoNCg0KDQoNCg0K"
+  }
+}

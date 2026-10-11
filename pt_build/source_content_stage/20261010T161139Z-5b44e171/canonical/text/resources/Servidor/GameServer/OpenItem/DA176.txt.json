@@ -1,0 +1,409 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.da176",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DA176.txt",
+    "GameServer/OpenItem/DA176.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DA176.txt",
+    "legacy_sha256": "290cc31a392ec4b5ebbc2d899b07e68d4eab4b572bda2a7d0e6804f95d48de74",
+    "legacy_size": 709
+  },
+  "semantic": {
+    "fields": {
+      "code": "DA176",
+      "name": "Armadura Noel Verde",
+      "english_name": "Armadura Noel Verde",
+      "defence": [
+        220,
+        230
+      ],
+      "absorb": [
+        10.0,
+        10.5
+      ],
+      "bionic": [
+        11,
+        11
+      ],
+      "fire": [
+        11,
+        11
+      ],
+      "ice": [
+        11,
+        11
+      ],
+      "lightning": [
+        11,
+        11
+      ],
+      "poison": [
+        11,
+        11
+      ],
+      "durability": [
+        140,
+        140
+      ],
+      "life_add_alt": [
+        50,
+        50
+      ],
+      "mana_add_alt": [
+        50,
+        50
+      ],
+      "stamina_add_alt": [
+        50,
+        50
+      ],
+      "level": 20,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Knight"
+      ],
+      "special_defence": [
+        35,
+        35
+      ],
+      "special_absorb": [
+        3.0,
+        3.0
+      ],
+      "weight": 50,
+      "price": 100000,
+      "linked_file": "Name\\DA176.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DA176"
+        ],
+        "raw_values_hex": [
+          "4441313736"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Noel Verde"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261204e6f656c205665726465"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Noel Verde"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261204e6f656c205665726465"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          220,
+          230
+        ],
+        "raw_values_hex": [
+          "323230",
+          "323330"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          10.0,
+          10.5
+        ],
+        "raw_values_hex": [
+          "31302e30",
+          "31302e35"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          11,
+          11
+        ],
+        "raw_values_hex": [
+          "3131",
+          "3131"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          11,
+          11
+        ],
+        "raw_values_hex": [
+          "3131",
+          "3131"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          11,
+          11
+        ],
+        "raw_values_hex": [
+          "3131",
+          "3131"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          11,
+          11
+        ],
+        "raw_values_hex": [
+          "3131",
+          "3131"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          11,
+          11
+        ],
+        "raw_values_hex": [
+          "3131",
+          "3131"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          140,
+          140
+        ],
+        "raw_values_hex": [
+          "313430",
+          "313430"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          50
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3530"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          50
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3530"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "stamina_add_alt",
+        "legacy_token": "*근력추가",
+        "legacy_token_hex": "2ab1d9b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          50
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3530"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Knight"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "4b6e69676874"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_defence",
+        "legacy_token": "**방어력",
+        "legacy_token_hex": "2a2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          35,
+          35
+        ],
+        "raw_values_hex": [
+          "3335",
+          "3335"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          3.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "332e30"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DA176.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44413137362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRBMTc2Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQXJtYWR1cmEgTm9lbCBWZXJkZSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJBcm1hZHVyYSBOb2VsIFZlcmRlIg0KDQovL0RlZmVuc2UNCiq55r7ut8IgMjIwIDIzMA0KDQovL0Fic29ycHRpb24NCirI7bz2t8IgMTAuMCAxMC41DQoNCi8vT3JnYW5pY1Jlc2lzdGFuY2UNCiq7/cO8IDExIDExDQoNCi8vRmlyZVJlc2lzdGFuY2UNCiq60iAxMSAxMQ0KDQovL0Zyb3N0UmVzaXN0YW5jZQ0KKrPDseIgMTEgMTENCg0KLy9MaWdodG5pbmdSZXNpc3RhbmNlDQoqufiwsyAxMSAxMQ0KDQovL1BvaXNvblJlc2lzdGFuY2UNCiq1tiAxMSAxMQ0KDQovL0ludGVncml0eQ0KKrO7sbi3wiAxNDAgMTQwDQoNCi8vSFANCiq7/bjtt8LD37ChIDUwIDUwDQoNCi8vTVANCiqx4rfCw9+woSA1MCA1MA0KDQovL1NUTQ0KKrHZt8LD37ChIDUwIDUwDQoNCi8vTGV2ZWwNCiq3ubqnIDIwDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBGaWdodGVyIFBpa2VtYW4gS25pZ2h0DQoNCi8vU3BlY0RlZmVuc2UNCioquea+7rfCIDM1IDM1DQoNCi8vU3BlY0Fic29ycHRpb24NCioqyO289rfCIDMuMCAzLjANCg0KLy9XZWlnaHQNCiq5q7DUIDUwDQoNCi8vUHJpY2UNCiqwobDdIDEwMDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXERBMTc2Lnpob29uIg=="
+  }
+}

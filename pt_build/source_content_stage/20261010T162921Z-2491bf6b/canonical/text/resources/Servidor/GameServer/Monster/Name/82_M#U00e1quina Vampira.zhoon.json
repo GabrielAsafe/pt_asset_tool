@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.82_m_u00e1quina_vampira",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/82_M#U00e1quina Vampira.zhoon",
+    "GameServer/Monster/Name/82_M#U00e1quina Vampira.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/82_M#U00e1quina Vampira.zhoon",
+    "legacy_sha256": "fd02cd587d6a9c0c61d6b6609cd814765c3ba06873065089c09c9b63981b1fca",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Máquina Vampira"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTeFxdWluYSBWYW1waXJhIg=="
+  }
+}

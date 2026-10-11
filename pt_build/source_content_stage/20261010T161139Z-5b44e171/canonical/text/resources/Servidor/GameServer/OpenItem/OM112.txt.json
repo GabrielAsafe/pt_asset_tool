@@ -1,0 +1,417 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.om112",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OM112.txt",
+    "GameServer/OpenItem/OM112.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OM112.txt",
+    "legacy_sha256": "fcd3855e8e8478ba883d031672005a9cc8de93d3ddad4acf8d0c154f4ecde171",
+    "legacy_size": 703
+  },
+  "semantic": {
+    "fields": {
+      "code": "OM112",
+      "name": "Orbital Harmônico",
+      "english_name": "Orbital Harmônico",
+      "bionic": [
+        4,
+        7
+      ],
+      "fire": [
+        4,
+        7
+      ],
+      "ice": [
+        4,
+        7
+      ],
+      "lightning": [
+        4,
+        7
+      ],
+      "poison": [
+        4,
+        7
+      ],
+      "defence": [
+        38,
+        68
+      ],
+      "absorb": [
+        1.7,
+        2.2
+      ],
+      "block": [
+        7.0,
+        9.0
+      ],
+      "life_add_alt": [
+        37,
+        49
+      ],
+      "mana_add_alt": [
+        25,
+        33
+      ],
+      "durability": [
+        60,
+        70
+      ],
+      "level": 55,
+      "spirit": 100,
+      "job_random": [
+        "Priestess",
+        "Magician"
+      ],
+      "special_absorb": [
+        0.9,
+        1.1
+      ],
+      "special_mana_regen_alt": [
+        0.7,
+        0.9
+      ],
+      "weight": 13,
+      "price": 47000,
+      "linked_file": "Name\\OM112.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OM112"
+        ],
+        "raw_values_hex": [
+          "4f4d313132"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Orbital Harmônico"
+        ],
+        "raw_values_hex": [
+          "4f72626974616c204861726df46e69636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Orbital Harmônico"
+        ],
+        "raw_values_hex": [
+          "4f72626974616c204861726df46e69636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          4,
+          7
+        ],
+        "raw_values_hex": [
+          "34",
+          "37"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "fire",
+        "legacy_token": "*불",
+        "legacy_token_hex": "2abad2",
+        "loader_status": "supported_mapped",
+        "values": [
+          4,
+          7
+        ],
+        "raw_values_hex": [
+          "34",
+          "37"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          4,
+          7
+        ],
+        "raw_values_hex": [
+          "34",
+          "37"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          4,
+          7
+        ],
+        "raw_values_hex": [
+          "34",
+          "37"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          4,
+          7
+        ],
+        "raw_values_hex": [
+          "34",
+          "37"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          38,
+          68
+        ],
+        "raw_values_hex": [
+          "3338",
+          "3638"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1.7,
+          2.2
+        ],
+        "raw_values_hex": [
+          "312e37",
+          "322e32"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          7.0,
+          9.0
+        ],
+        "raw_values_hex": [
+          "372e30",
+          "392e30"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          37,
+          49
+        ],
+        "raw_values_hex": [
+          "3337",
+          "3439"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          25,
+          33
+        ],
+        "raw_values_hex": [
+          "3235",
+          "3333"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          60,
+          70
+        ],
+        "raw_values_hex": [
+          "3630",
+          "3730"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          55
+        ],
+        "raw_values_hex": [
+          "3535"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.9,
+          1.1
+        ],
+        "raw_values_hex": [
+          "302e39",
+          "312e31"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "special_mana_regen_alt",
+        "legacy_token": "**기력재생",
+        "legacy_token_hex": "2a2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.7,
+          0.9
+        ],
+        "raw_values_hex": [
+          "302e37",
+          "302e39"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          13
+        ],
+        "raw_values_hex": [
+          "3133"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          47000
+        ],
+        "raw_values_hex": [
+          "3437303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\OM112.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c4f4d3131322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIk9NMTEyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiT3JiaXRhbCBIYXJt9G5pY28iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiT3JiaXRhbCBIYXJt9G5pY28iDQoNCi8vT3JnYW5pY1Jlc2lzdGFuY2UNCiq7/cO8IDQgNw0KDQovL0ZpcmVSZXNpc3RhbmNlDQoqutIgNCA3DQoNCi8vRnJvc3RSZXNpc3RhbmNlDQoqs8Ox4iA0IDcNCg0KLy9MaWdodG5pbmdSZXNpc3RhbmNlDQoqufiwsyA0IDcNCg0KLy9Qb2lzb25SZXNpc3RhbmNlDQoqtbYgNCA3DQoNCi8vRGVmZW5zZQ0KKrnmvu63wiAzOCA2OA0KDQovL0Fic29ycHRpb24NCirI7bz2t8IgMS43IDIuMg0KDQovL0Jsb2NrDQoquu23sMCyIDcuMCA5LjANCg0KLy9IUA0KKrv9uO23wsPfsKEgMzcgNDkNCg0KLy9NUA0KKrHit8LD37ChIDI1IDMzDQoNCi8vSW50ZWdyaXR5DQoqs7uxuLfCIDYwIDcwDQoNCi8vTGV2ZWwNCiq3ubqnIDU1DQoNCi8vU3Bpcml0DQoqwaS9xbfCIDEwMA0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gUHJpZXN0ZXNzIE1hZ2ljaWFuDQoNCi8vU3BlY0Fic29ycHRpb24NCioqyO289rfCIDAuOSAxLjENCg0KLy9TcGVjTVBSZWdlbg0KKiqx4rfCwOe7/SAwLjcgMC45DQoNCi8vV2VpZ2h0DQoquauw1CAxMw0KDQovL1ByaWNlDQoqsKGw3SA0NzAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXE9NMTEyLnpob29uIg=="
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.zinjya",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Zinjya.zhoon",
+    "GameServer/NPC/name/Zinjya.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Zinjya.zhoon",
+    "legacy_sha256": "2deb8d67626a36c18931c534668ce11a313ab49b23e490318c305f752192436b",
+    "legacy_size": 345
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "_Ð"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "MûÌ¡NÌ^ÍcgÅ·ËIKKs«Üµå¤I"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "궇귞갎뜞봏궻딲뺴궻롧뚯쀬궼뮧럔궕궥궞귆귡쀇궋귞궢궋궳궥궺갏묈땑갏딀뮗궯궲갏"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "¡NÌbL[J[Ízs[FBbL[NPCÍvÅ·Igc©ÈH"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "뼎땑궳궥갃돺럷궸귖릈뺱궕묈먛궳궥궺갃뗪궢궋궴궖궼궋궰귏궳귖뫏궔궶궋귖궻궳궥갃"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSKQX47QIg0KDQoqSl9DSEFUCQkJIotNlfuCzI2hlE6CzIlegs2BY5KGi2eCxYK3gsuBSYNLg5ODS4OTjXOCq4LcgrWC5YKkgUkiDQoqSl9DSEFUCQkJIoKggueBSI2hlE6CzItNlfuCzI7njOyX7ILNkrKOcYKqgreCsYLUgumXx4KigueCtYKigsWCt4LLgUmR5YtngUmK5pKjgsGCxIFJIg0KKkpfQ0hBVAkJCSKNoZROgsyDiYNig0yBW4NKg4mBW4LNg3qDc4FbkEaBQoOJg2KDTIFbTlBDgs2DgoOKg3aCxYK3gUmShotngWOCqYLIgUgiDQoqSl9DSEFUCQkJIpaWi2eCxYK3gUKJvY6WgsmC4JBolfiCqpHlkNiCxYK3gsuBQovqgrWCooLGgquCzYKigsKC3ILFguCRsYKpgsiCooLggsyCxYK3gUIi"
+  }
+}

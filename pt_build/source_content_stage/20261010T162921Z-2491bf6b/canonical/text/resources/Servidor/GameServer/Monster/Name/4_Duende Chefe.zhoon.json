@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.4_duende_chefe",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/4_Duende Chefe.zhoon",
+    "GameServer/Monster/Name/4_Duende Chefe.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/4_Duende Chefe.zhoon",
+    "legacy_sha256": "0fa00bc8d0a131a99d2f65c0dff4b7a0f411010c162b39ac20a65244b0249f44",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Duende Chefe"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRHVlbmRlIENoZWZlIg=="
+  }
+}

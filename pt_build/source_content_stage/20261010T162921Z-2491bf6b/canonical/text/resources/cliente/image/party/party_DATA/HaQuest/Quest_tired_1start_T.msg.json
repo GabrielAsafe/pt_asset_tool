@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_tired_1start_t",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_tired_1start_T.msg",
+    "image/party/party_DATA/HaQuest/Quest_tired_1start_T.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_tired_1start_T.msg",
+    "legacy_sha256": "f151bb7516fae45cc05e0a53152faf77818327ac2d6a234996479dab4635cc21",
+    "legacy_size": 107
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Deliver the cake to warehouse ",
+      "keeper Arent which is made by Ran, ",
+      "then go back to Ran to get a reward."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpEZWxpdmVyIHRoZSBjYWtlIHRvIHdhcmVob3VzZSANCmtlZXBlciBBcmVudCB3aGljaCBpcyBtYWRlIGJ5IFJhbiwgDQp0aGVuIGdvIGJhY2sgdG8gUmFuIHRvIGdldCBhIHJld2FyZC4="
+  }
+}

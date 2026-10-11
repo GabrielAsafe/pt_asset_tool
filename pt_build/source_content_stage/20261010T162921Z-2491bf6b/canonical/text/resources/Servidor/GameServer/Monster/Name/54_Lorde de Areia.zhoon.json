@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.54_lorde_de_areia",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/54_Lorde de Areia.zhoon",
+    "GameServer/Monster/Name/54_Lorde de Areia.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/54_Lorde de Areia.zhoon",
+    "legacy_sha256": "552030ff1d7a5da4b13395f02e6fe660e7f4e1bbd7f827a31c54ec50d8908774",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lorde de Areia"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTG9yZGUgZGUgQXJlaWEi"
+  }
+}

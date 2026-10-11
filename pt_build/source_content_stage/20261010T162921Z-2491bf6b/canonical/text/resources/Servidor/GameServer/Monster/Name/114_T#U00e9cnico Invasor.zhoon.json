@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114_t_u00e9cnico_invasor",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/114_T#U00e9cnico Invasor.zhoon",
+    "GameServer/Monster/Name/114_T#U00e9cnico Invasor.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/114_T#U00e9cnico Invasor.zhoon",
+    "legacy_sha256": "a29bd4d251bd5472366e73a3118d0cacb12f734eb48bff776e626c9092d9461d",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Técnico Invasor"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiVOljbmljbyBJbnZhc29yIg=="
+  }
+}

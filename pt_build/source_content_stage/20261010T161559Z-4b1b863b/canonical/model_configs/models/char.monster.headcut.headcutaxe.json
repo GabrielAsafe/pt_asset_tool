@@ -1,0 +1,43 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.headcut.headcutaxe",
+  "logical_config": "char/monster/headcut/headcutaxe.ini",
+  "legacy_cache": "char/monster/headcut/headcutaxe.inx",
+  "consumers": [
+    {
+      "id": "monster.52_carniceiro",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/52_Carniceiro.inf.json"
+    },
+    {
+      "id": "monster.r4b_slayon",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R4B Slayon.inf.json"
+    },
+    {
+      "id": "monster.sod_slaughter",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_slaughter.inf.json"
+    },
+    {
+      "id": "monster.sod_slayon",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/SOD_slayon.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/headcut/headcutaxe.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/headcut/headcutaxe.inx"
+    }
+  }
+}

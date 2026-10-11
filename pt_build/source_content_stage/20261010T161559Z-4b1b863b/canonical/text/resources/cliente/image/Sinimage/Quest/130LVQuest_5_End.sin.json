@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_5_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/130LVQuest_5_End.sin",
+    "image/Sinimage/Quest/130LVQuest_5_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/130LVQuest_5_End.sin",
+    "legacy_sha256": "473818bb6b3509780ea90774526ebd343ce38d614504d26e3efb5ce78281e433",
+    "legacy_size": 569
+  },
+  "semantic": {
+    "lines": [
+      "Não é possível... Esse cristal é um tipo de transporte. ",
+      "Eles estavam enviando pristonianos para o fundo do mar,",
+      "para serem transformados em marionetes de Yagditha.",
+      "Ele é mesmo desprezível.",
+      "",
+      "Vamos destruir todos eles... Hã? O que foi isso? Senti ",
+      "uma presença atravessando o portal para a Estrada Sombria.",
+      "Você não sentiu? ...Não?",
+      "",
+      "Então deve ter sido impressão minha. Obrigado novamente.",
+      "Me encarregarei de destruir o resto dos Cristais Negros.",
+      "",
+      "Temos que proteger essa área, ainda há muito a ser feito. ",
+      "",
+      "Procure o Mago Real, ele precisa falar com você."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TuNvIOkgcG9zc+12ZWwuLi4gRXNzZSBjcmlzdGFsIOkgdW0gdGlwbyBkZSB0cmFuc3BvcnRlLiANCkVsZXMgZXN0YXZhbSBlbnZpYW5kbyBwcmlzdG9uaWFub3MgcGFyYSBvIGZ1bmRvIGRvIG1hciwNCnBhcmEgc2VyZW0gdHJhbnNmb3JtYWRvcyBlbSBtYXJpb25ldGVzIGRlIFlhZ2RpdGhhLg0KRWxlIOkgbWVzbW8gZGVzcHJleu12ZWwuDQoNClZhbW9zIGRlc3RydWlyIHRvZG9zIGVsZXMuLi4gSOM/IE8gcXVlIGZvaSBpc3NvPyBTZW50aSANCnVtYSBwcmVzZW7nYSBhdHJhdmVzc2FuZG8gbyBwb3J0YWwgcGFyYSBhIEVzdHJhZGEgU29tYnJpYS4NClZvY+ogbuNvIHNlbnRpdT8gLi4uTuNvPw0KDQpFbnTjbyBkZXZlIHRlciBzaWRvIGltcHJlc3PjbyBtaW5oYS4gT2JyaWdhZG8gbm92YW1lbnRlLg0KTWUgZW5jYXJyZWdhcmVpIGRlIGRlc3RydWlyIG8gcmVzdG8gZG9zIENyaXN0YWlzIE5lZ3Jvcy4NCg0KVGVtb3MgcXVlIHByb3RlZ2VyIGVzc2Eg4XJlYSwgYWluZGEgaOEgbXVpdG8gYSBzZXIgZmVpdG8uIA0KDQpQcm9jdXJlIG8gTWFnbyBSZWFsLCBlbGUgcHJlY2lzYSBmYWxhciBjb20gdm9j6i4="
+  }
+}

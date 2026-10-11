@@ -1,0 +1,270 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ca108",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CA108.txt",
+    "GameServer/OpenItem/CA108.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CA108.txt",
+    "legacy_sha256": "c2ed91a7012bd722ca280451b189a83f79f9155e184ea29eb0027e6b0ee7f8a9",
+    "legacy_size": 466
+  },
+  "semantic": {
+    "fields": {
+      "code": "CA108",
+      "name": "Armadura Noel Vermelha",
+      "english_name": "Armadura Noel Vermelha",
+      "defence": [
+        200,
+        200
+      ],
+      "absorb": [
+        12.0,
+        12.0
+      ],
+      "life_add_alt": [
+        30,
+        30
+      ],
+      "mana_add_alt": [
+        30,
+        30
+      ],
+      "level": 20,
+      "job_random": [
+        "Archer",
+        "Atalanta"
+      ],
+      "special_defence": [
+        50,
+        50
+      ],
+      "special_absorb": [
+        5.0,
+        5.0
+      ],
+      "weight": 50,
+      "price": 100000,
+      "linked_file": "Name\\CA108.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CA108"
+        ],
+        "raw_values_hex": [
+          "4341313038"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Noel Vermelha"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261204e6f656c205665726d656c6861"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Armadura Noel Vermelha"
+        ],
+        "raw_values_hex": [
+          "41726d6164757261204e6f656c205665726d656c6861"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          200,
+          200
+        ],
+        "raw_values_hex": [
+          "323030",
+          "323030"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          12.0,
+          12.0
+        ],
+        "raw_values_hex": [
+          "31322e30",
+          "31322e30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          30,
+          30
+        ],
+        "raw_values_hex": [
+          "3330",
+          "3330"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          30,
+          30
+        ],
+        "raw_values_hex": [
+          "3330",
+          "3330"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          20
+        ],
+        "raw_values_hex": [
+          "3230"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Archer",
+          "Atalanta"
+        ],
+        "raw_values_hex": [
+          "417263686572",
+          "4174616c616e7461"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "special_defence",
+        "legacy_token": "**방어력",
+        "legacy_token_hex": "2a2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          50
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3530"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5.0,
+          5.0
+        ],
+        "raw_values_hex": [
+          "352e30",
+          "352e30"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50
+        ],
+        "raw_values_hex": [
+          "3530"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\CA108.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c43413130382e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkNBMTA4Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQXJtYWR1cmEgTm9lbCBWZXJtZWxoYSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJBcm1hZHVyYSBOb2VsIFZlcm1lbGhhIg0KDQovL0RlZmVuc2UNCiq55r7ut8IgMjAwIDIwMA0KDQovL0Fic29ycHRpb24NCirI7bz2t8IgMTIuMCAxMi4wDQoNCi8vSFANCiq7/bjtt8LD37ChIDMwIDMwDQoNCi8vTVANCiqx4rfCw9+woSAzMCAzMA0KDQovL0xldmVsDQoqt7m6pyAyMA0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gQXJjaGVyIEF0YWxhbnRhDQoNCi8vU3BlY0RlZmVuc2UNCioquea+7rfCIDUwIDUwDQoNCi8vU3BlY0Fic29ycHRpb24NCioqyO289rfCIDUuMCA1LjANCg0KLy9XZWlnaHQNCiq5q7DUIDUwDQoNCi8vUHJpY2UNCiqwobDdIDEwMDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXENBMTA4Lnpob29uIg=="
+  }
+}

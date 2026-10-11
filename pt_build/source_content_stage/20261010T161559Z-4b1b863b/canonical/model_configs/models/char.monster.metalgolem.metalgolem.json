@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.metalgolem.metalgolem",
+  "logical_config": "char/monster/metalgolem/metalgolem.ini",
+  "legacy_cache": "char/monster/metalgolem/metalgolem.inx",
+  "consumers": [
+    {
+      "id": "monster.pet_70_golem_de_metal",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Pet_70_Golem de Metal.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Metalgolem/metalgolem.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Metalgolem/metalgolem.inx"
+    }
+  }
+}

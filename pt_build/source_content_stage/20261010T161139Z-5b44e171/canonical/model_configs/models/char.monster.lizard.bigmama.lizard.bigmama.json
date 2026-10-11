@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.lizard.bigmama.lizard.bigmama",
+  "logical_config": "char/monster/Lizard_Bigmama/Lizard_Bigmama.ini",
+  "legacy_cache": "char/monster/Lizard_Bigmama/Lizard_Bigmama.inx",
+  "consumers": [
+    {
+      "id": "npc.dzari",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Dzari.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Lizard_bigmama/Lizard_Bigmama.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Lizard_bigmama/Lizard_Bigmama.inx"
+    }
+  }
+}

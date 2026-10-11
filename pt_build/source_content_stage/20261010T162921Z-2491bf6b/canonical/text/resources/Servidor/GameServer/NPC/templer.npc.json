@@ -1,0 +1,107 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.templer",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/templer.npc",
+    "GameServer/NPC/templer.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/templer.npc",
+    "legacy_sha256": "fcfe07b5f8ede0fb68212a34020434020b322cb63784f31a5e96d620ff4e6881",
+    "legacy_size": 507
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-006\\MN-006.INI",
+      "name": "신전사제",
+      "class": 1005,
+      "linked_file": "name\\templer.zhoon",
+      "model_config_id": "model.char.npc.mn.006.mn.006"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-006\\MN-006.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030365c4d4e2d3030362e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "신전사제"
+        ],
+        "raw_values_hex": [
+          "bdc5c0fcbbe7c1a6"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1005
+        ],
+        "raw_values_hex": [
+          "31303035"
+        ]
+      },
+      {
+        "line": 16,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\templer.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c74656d706c65722e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDA2XE1OLTAwNi5JTkkNCg0KKsDMuKcJCQkivcXA/LvnwaYiDQoNCi8vsOix3ryzwaQgNzAvODC3ubqnxPm9usauDQoqsOix3iAxMDA1DQoNCg0KLy8qtOvIrQkJCSK6wMDOILXHvu4gwNa0+CC9xcD8wMcgx8/D/sDMIL+tt8i9wLTPtNkuILHXIL7IwLogwKfH6MfRILD3wMy0zyDA/bTrt84gtem+7rChwfYguLa9yr3Dv8AhIg0KLy8qtOvIrQkJCSK9xcD8IDLD/sC6IDHD/rD6ILrxsbO1tSC1x8H2IL7KwLsguLjFrSCwrcfRILjzvbrFzbXpwMwgw+LH9sfPtM8gwba9ycfPvcOx4iC52bb4tM+02S4iDQovLyq068itCQkJIsDMsPfAuiC3ubqnIDcwIMDMu/PAxyDA/LvnuLggw+LA1CDH0iC89iDA1rW1t88guf3AuLfOIMGmx9HHz7DtIMDWvcC0z7TZLiINCi8vKrTryK0JCQkivcXA/CAyw/6/oSCwobHiIMCnx9i8sSC3ubqnIDc1IMDMu/PAzCC1xb7fuLggx9W0z7TZLiINCg0KKr+ssOHGxMDPCSJuYW1lXHRlbXBsZXIuemhvb24i"
+  }
+}

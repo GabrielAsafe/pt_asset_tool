@@ -1,0 +1,121 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.pumpkin",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Pumpkin.npc",
+    "GameServer/NPC/Pumpkin.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Pumpkin.npc",
+    "legacy_sha256": "28a1184d1c6fd959dc333474f100cb7b997c16174a1998dc42c9906d70b483e5",
+    "legacy_size": 356
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-005\\MN-005.INI",
+      "name": "호박 상인",
+      "quest_event": 8,
+      "class": 0,
+      "linked_file": "name\\Pumpkin.zhoon",
+      "model_config_id": "model.char.npc.mn.005.mn.005"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-005\\MN-005.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030355c4d4e2d3030352e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "호박 상인"
+        ],
+        "raw_values_hex": [
+          "c8a3b9da20bbf3c0ce"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 9,
+        "key": "quest_event",
+        "legacy_token": "*퀘스트이벤트",
+        "legacy_token_hex": "2ac4f9bdbac6aec0ccbaa5c6ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 10,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          0
+        ],
+        "raw_values_hex": [
+          "30"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Pumpkin.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c50756d706b696e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDA1XE1OLTAwNS5JTkkiDQoNCirAzLinCQkJIsijudogu/PAziINCi8vKrjwsd3H1A0KLy8qseK6zsfUDQoNCirE+b26xq7AzLqlxq4JCTgNCiqw6LHeCQkJMA0KDQoNCi8vKrTryK0JCQkis7sgyKO52sC7ILjzvbrFzbXpwMwguPC1ziDIycPEsKEgufa3yL7uv+QhIg0KLy8qtOvIrQkJCSLIo7nawLsgyMnDxLCjILjzvbrFzbimIL7Gwfcgw6PB9iC4+MfPvMyzqr/kPyINCi8vKrTryK0JCQkiyKO52iA3sLO4piCwocGuv8C9w7jpILyxubDAuyC15bixsrK/5C4iDQoNCiq/rLDhxsTAzwkibmFtZVxQdW1wa2luLnpob29uIg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo="
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.castlewin",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/CastleWin.sin",
+    "image/Sinimage/help/CastleWin.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/CastleWin.sin",
+    "legacy_sha256": "8d28c2cb62ee7e704065bc066f19bd8a1ae13e28e1011e712801f2e301c0c5c5",
+    "legacy_size": 210
+  },
+  "semantic": {
+    "lines": [
+      "¢ÂCongratulations on your Victory.¢Â",
+      "",
+      "The Siege War is over. ",
+      "",
+      "You will own the Bless Castle until the next Siege War.",
+      "",
+      "The Clan Chief may set the tax rate ",
+      "and clan skill through the steward Anders.",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "osJDb25ncmF0dWxhdGlvbnMgb24geW91ciBWaWN0b3J5LqLCDQoNClRoZSBTaWVnZSBXYXIgaXMgb3Zlci4gDQoNCllvdSB3aWxsIG93biB0aGUgQmxlc3MgQ2FzdGxlIHVudGlsIHRoZSBuZXh0IFNpZWdlIFdhci4NCg0KVGhlIENsYW4gQ2hpZWYgbWF5IHNldCB0aGUgdGF4IHJhdGUgDQphbmQgY2xhbiBza2lsbCB0aHJvdWdoIHRoZSBzdGV3YXJkIEFuZGVycy4NCg0K"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bc106",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BC106.txt",
+    "GameServer/OpenItem/BC106.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BC106.txt",
+    "legacy_sha256": "3ed01ed21d36fdbf8bb9f10b2917b76ae565c2355034ecaf30c3be68e03cd86a",
+    "legacy_size": 206
+  },
+  "semantic": {
+    "fields": {
+      "code": "BC106",
+      "name": "Pedra da Revolta Fogo",
+      "english_name": "Pedra da Revolta Fogo",
+      "weight": 1,
+      "price": 10000,
+      "linked_file": "Name\\BC106.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BC106"
+        ],
+        "raw_values_hex": [
+          "4243313036"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra da Revolta Fogo"
+        ],
+        "raw_values_hex": [
+          "5065647261206461205265766f6c746120466f676f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pedra da Revolta Fogo"
+        ],
+        "raw_values_hex": [
+          "5065647261206461205265766f6c746120466f676f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          10000
+        ],
+        "raw_values_hex": [
+          "3130303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BC106.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42433130362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJDMTA2Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUGVkcmEgZGEgUmV2b2x0YSBGb2dvIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIlBlZHJhIGRhIFJldm9sdGEgRm9nbyINCg0KLy9XZWlnaHQNCiq5q7DUIDENCg0KLy9QcmljZQ0KKrChsN0gMTAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxCQzEwNi56aG9vbiI="
+  }
+}

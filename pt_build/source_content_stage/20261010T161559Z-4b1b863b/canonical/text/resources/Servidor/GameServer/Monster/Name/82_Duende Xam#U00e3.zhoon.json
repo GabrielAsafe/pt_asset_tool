@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.82_duende_xam_u00e3",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/82_Duende Xam#U00e3.zhoon",
+    "GameServer/Monster/Name/82_Duende Xam#U00e3.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/82_Duende Xam#U00e3.zhoon",
+    "legacy_sha256": "63285f61e93f0b95adaf3e4bb40d0db80f9baf19774ac3f6e2e308eb979fc734",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Duende Xamã"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRHVlbmRlIFhhbeMi"
+  }
+}

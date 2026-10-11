@@ -1,0 +1,54 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.fore_1",
+  "logical_path": "GameServer/Field/fore-1.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/fore-1.ase.spm",
+    "sha256": "97763f96acbbe31c70c53e29366dbc87467359672be9dbb4eed806871c8abfc1"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 2,
+  "actors": [
+    {
+      "monster_id": "monster.1_hopi",
+      "legacy_name": "Hopi",
+      "legacy_name_bytes_hex": "486f7069",
+      "weight": 35,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.1_cuepi",
+      "legacy_name": "Cuepi",
+      "legacy_name_bytes_hex": "4375657069",
+      "weight": 12,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.5_tatu",
+      "legacy_name": "Tatu",
+      "legacy_name_bytes_hex": "54617475",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.2_cogumelo_fantasma",
+      "legacy_name": "Cogumelo Fantasma",
+      "legacy_name_bytes_hex": "436f67756d656c6f2046616e7461736d61",
+      "weight": 25,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.3_duende_macabro",
+      "legacy_name": "Duende Macabro",
+      "legacy_name_bytes_hex": "4475656e6465204d61636162726f",
+      "weight": 8,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": []
+}

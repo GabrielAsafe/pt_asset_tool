@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestcyclops_fpass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestcyclops_Fpass.sin",
+    "image/Sinimage/Quest/haQuestcyclops_Fpass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestcyclops_Fpass.sin",
+    "legacy_sha256": "fb129ad1cdcf283fcdfff483af3a035357bf08c8923342d121e8e63cca6db8b7",
+    "legacy_size": 213
+  },
+  "semantic": {
+    "lines": [
+      "Os Cíclopes são monstros assustadores, com grande poder",
+      "de ataque e muita resistência.",
+      "",
+      "Você precisa derrotá-los e proteger nossa terra.",
+      "Melhore seus equipamentos na cidade e volte para",
+      "a Terra Amaldiçoada."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T3MgQ+1jbG9wZXMgc+NvIG1vbnN0cm9zIGFzc3VzdGFkb3JlcywgY29tIGdyYW5kZSBwb2Rlcg0KZGUgYXRhcXVlIGUgbXVpdGEgcmVzaXN06m5jaWEuDQoNClZvY+ogcHJlY2lzYSBkZXJyb3ThLWxvcyBlIHByb3RlZ2VyIG5vc3NhIHRlcnJhLg0KTWVsaG9yZSBzZXVzIGVxdWlwYW1lbnRvcyBuYSBjaWRhZGUgZSB2b2x0ZSBwYXJhDQphIFRlcnJhIEFtYWxkaedvYWRhLg0K"
+  }
+}

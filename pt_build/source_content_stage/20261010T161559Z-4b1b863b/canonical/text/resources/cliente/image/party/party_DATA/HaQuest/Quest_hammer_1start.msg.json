@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_hammer_1start",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_hammer_1start.msg",
+    "image/party/party_DATA/HaQuest/Quest_hammer_1start.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_hammer_1start.msg",
+    "legacy_sha256": "6ffded8cef87a75b27b895192c46fb1103945cc54a5375630c52a8a22fed13a9",
+    "legacy_size": 120
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "",
+      "After hunting Bargons",
+      "in the continent and getting ",
+      "Ump's hammer, go back to Ump",
+      "in the Navisko and get a reward."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoNCkFmdGVyIGh1bnRpbmcgQmFyZ29ucw0KaW4gdGhlIGNvbnRpbmVudCBhbmQgZ2V0dGluZyANClVtcCdzIGhhbW1lciwgZ28gYmFjayB0byBVbXANCmluIHRoZSBOYXZpc2tvIGFuZCBnZXQgYSByZXdhcmQu"
+  }
+}

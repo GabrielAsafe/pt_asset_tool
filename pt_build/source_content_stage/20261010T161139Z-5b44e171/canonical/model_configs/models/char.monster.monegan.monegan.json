@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monegan.monegan",
+  "logical_config": "char/monster/monegan/monegan.ini",
+  "legacy_cache": "char/monster/monegan/monegan.inx",
+  "consumers": [
+    {
+      "id": "monster.6_duende_m_u00e1gico",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/6_Duende M#U00e1gico.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monegan/Monegan.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monegan/Monegan.inx"
+    }
+  }
+}

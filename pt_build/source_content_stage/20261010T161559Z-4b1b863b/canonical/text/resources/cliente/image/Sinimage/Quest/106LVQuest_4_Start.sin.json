@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.106lvquest_4_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/106LVQuest_4_Start.sin",
+    "image/Sinimage/Quest/106LVQuest_4_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/106LVQuest_4_Start.sin",
+    "legacy_sha256": "966fd87192772332941d5592b0bde1ebc4eb5a07275876e3a6cd6aebd933d2f3",
+    "legacy_size": 449
+  },
+  "semantic": {
+    "lines": [
+      "É necessário muita energia para livrar o anel da maldição dos",
+      "Igolanos.",
+      "",
+      "Ouvi dizer que na Mina de Gelo (1º Andar) existe um monstro ",
+      "chamado Golem Minerador, composto de vários minerais e",
+      "forte energia maligna concentrada.",
+      "",
+      "Por favor, derrote-o e traga um Cristal Mágico Concentrado.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Cace o Golem Minerador na Mina de Gelo (1º Andar), encontre",
+      "o Cristal Mágico Concentrado e entregue ao Mago Real Ray",
+      "em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "ySBuZWNlc3PhcmlvIG11aXRhIGVuZXJnaWEgcGFyYSBsaXZyYXIgbyBhbmVsIGRhIG1hbGRp5+NvIGRvcw0KSWdvbGFub3MuDQoNCk91dmkgZGl6ZXIgcXVlIG5hIE1pbmEgZGUgR2VsbyAoMbogQW5kYXIpIGV4aXN0ZSB1bSBtb25zdHJvIA0KY2hhbWFkbyBHb2xlbSBNaW5lcmFkb3IsIGNvbXBvc3RvIGRlIHbhcmlvcyBtaW5lcmFpcyBlDQpmb3J0ZSBlbmVyZ2lhIG1hbGlnbmEgY29uY2VudHJhZGEuDQoNClBvciBmYXZvciwgZGVycm90ZS1vIGUgdHJhZ2EgdW0gQ3Jpc3RhbCBN4WdpY28gQ29uY2VudHJhZG8uDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpDYWNlIG8gR29sZW0gTWluZXJhZG9yIG5hIE1pbmEgZGUgR2VsbyAoMbogQW5kYXIpLCBlbmNvbnRyZQ0KbyBDcmlzdGFsIE3hZ2ljbyBDb25jZW50cmFkbyBlIGVudHJlZ3VlIGFvIE1hZ28gUmVhbCBSYXkNCmVtIFBpbGxhaS4="
+  }
+}

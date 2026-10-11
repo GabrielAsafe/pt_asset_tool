@@ -1,0 +1,56 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.ice_ura",
+  "logical_path": "GameServer/Field/ice_ura.ase.spc",
+  "npcs": [
+    {
+      "slot": 0,
+      "npc_id": "npc.yura_force_master",
+      "x": 7966720,
+      "y": 247808,
+      "z": 5966848,
+      "ax": 0,
+      "ay": 3929,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 1,
+      "npc_id": "npc.yura_store",
+      "x": 7856655,
+      "y": 254393,
+      "z": 6157996,
+      "ax": 0,
+      "ay": 5394,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 2,
+      "npc_id": "npc.yura_warehouse",
+      "x": 7730594,
+      "y": 282458,
+      "z": 6040821,
+      "ax": 0,
+      "ay": 4064,
+      "az": 0,
+      "state": 0
+    },
+    {
+      "slot": 3,
+      "npc_id": "npc.yura_guard",
+      "x": 7945675,
+      "y": 264990,
+      "z": 6674501,
+      "ax": 0,
+      "ay": 2156,
+      "az": 0,
+      "state": 0
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/ice_ura.ase.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "ee7a5061812b647adbba509ac52fdcda263dea19d401414b2fbec8adbbd47157"
+  }
+}

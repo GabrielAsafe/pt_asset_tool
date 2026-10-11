@@ -1,0 +1,44 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_2_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_2_Start.sin",
+    "image/Sinimage/Quest/114LVQuest_2_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_2_Start.sin",
+    "legacy_sha256": "9b5262f493ab958daf485e6bc149fbbb2abeb1201ca9d7c7d109d6db04a6fa5b",
+    "legacy_size": 607
+  },
+  "semantic": {
+    "lines": [
+      "- Graças a você, consegui salvar as almas de todos os",
+      "Nihil que você derrotou.",
+      "A força telúrica das almas de Nihil é a fonte de energia",
+      "da Arma Antiga.",
+      "Por consequência, as almas de Nihil são a chave para",
+      "destruí-la também.",
+      "",
+      "- E como cumprirei a minha missão usando somente esse",
+      "Concentrado de Almas?",
+      "",
+      "- Você precisa encontrar alguém que domine a antiga",
+      "técnica proibida da \"Fusão\".",
+      "Nos dias de hoje, isso será muito difícil.",
+      "Mas, ouvi rumores de que a Sábia Celina está estudando",
+      "e aprendendo sobre essa arte.",
+      "",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Entregue o Concentrado de Almas para a Sábia Celina."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "LSBHcmHnYXMgYSB2b2PqLCBjb25zZWd1aSBzYWx2YXIgYXMgYWxtYXMgZGUgdG9kb3Mgb3MNCk5paGlsIHF1ZSB2b2PqIGRlcnJvdG91Lg0KQSBmb3LnYSB0ZWz6cmljYSBkYXMgYWxtYXMgZGUgTmloaWwg6SBhIGZvbnRlIGRlIGVuZXJnaWENCmRhIEFybWEgQW50aWdhLg0KUG9yIGNvbnNlcXXqbmNpYSwgYXMgYWxtYXMgZGUgTmloaWwgc+NvIGEgY2hhdmUgcGFyYQ0KZGVzdHJ17S1sYSB0YW1i6W0uDQoNCi0gRSBjb21vIGN1bXByaXJlaSBhIG1pbmhhIG1pc3PjbyB1c2FuZG8gc29tZW50ZSBlc3NlDQpDb25jZW50cmFkbyBkZSBBbG1hcz8NCg0KLSBWb2PqIHByZWNpc2EgZW5jb250cmFyIGFsZ3XpbSBxdWUgZG9taW5lIGEgYW50aWdhDQp06WNuaWNhIHByb2liaWRhIGRhICJGdXPjbyIuDQpOb3MgZGlhcyBkZSBob2plLCBpc3NvIHNlcuEgbXVpdG8gZGlm7WNpbC4NCk1hcywgb3V2aSBydW1vcmVzIGRlIHF1ZSBhIFPhYmlhIENlbGluYSBlc3ThIGVzdHVkYW5kbw0KZSBhcHJlbmRlbmRvIHNvYnJlIGVzc2EgYXJ0ZS4NCg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KRW50cmVndWUgbyBDb25jZW50cmFkbyBkZSBBbG1hcyBwYXJhIGEgU+FiaWEgQ2VsaW5hLg=="
+  }
+}

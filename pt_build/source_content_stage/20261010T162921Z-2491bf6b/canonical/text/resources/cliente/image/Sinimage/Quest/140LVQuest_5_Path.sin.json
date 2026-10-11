@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_5_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_5_Path.sin",
+    "image/Sinimage/Quest/140LVQuest_5_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_5_Path.sin",
+    "legacy_sha256": "217b9d45ccf493f901aa5906c0b0c5cbe47d57504212d00f06cd491e14171f50",
+    "legacy_size": 555
+  },
+  "semantic": {
+    "lines": [
+      "Estou usando a Quintessência para realizar o ritual de",
+      "libertação das almas. Eu sinto toda a dor e sofrimento que",
+      "eles passaram, sendo forçados a atacar seus antigos amigos,",
+      "de quando ainda eram pristonianos, e lutavam lado a lado.",
+      "",
+      "A situação no Abismo do Mar está bem intensa. Yagditha se",
+      "revoltou com a traição de Deykoon e começou a destruir",
+      "tudo e desapareceu. Parte da fortaleza desmoronou.",
+      "",
+      "Por favor, espere só mais um momento. ",
+      "Já se preparou? O próximo desafio será difícil. ",
+      "",
+      "Verifique seus suprimentos e volte aqui quando terminar."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RXN0b3UgdXNhbmRvIGEgUXVpbnRlc3PqbmNpYSBwYXJhIHJlYWxpemFyIG8gcml0dWFsIGRlDQpsaWJlcnRh5+NvIGRhcyBhbG1hcy4gRXUgc2ludG8gdG9kYSBhIGRvciBlIHNvZnJpbWVudG8gcXVlDQplbGVzIHBhc3NhcmFtLCBzZW5kbyBmb3LnYWRvcyBhIGF0YWNhciBzZXVzIGFudGlnb3MgYW1pZ29zLA0KZGUgcXVhbmRvIGFpbmRhIGVyYW0gcHJpc3Rvbmlhbm9zLCBlIGx1dGF2YW0gbGFkbyBhIGxhZG8uDQoNCkEgc2l0dWHn428gbm8gQWJpc21vIGRvIE1hciBlc3ThIGJlbSBpbnRlbnNhLiBZYWdkaXRoYSBzZQ0KcmV2b2x0b3UgY29tIGEgdHJhaefjbyBkZSBEZXlrb29uIGUgY29tZedvdSBhIGRlc3RydWlyDQp0dWRvIGUgZGVzYXBhcmVjZXUuIFBhcnRlIGRhIGZvcnRhbGV6YSBkZXNtb3Jvbm91Lg0KDQpQb3IgZmF2b3IsIGVzcGVyZSBz8yBtYWlzIHVtIG1vbWVudG8uIA0KSuEgc2UgcHJlcGFyb3U/IE8gcHLzeGltbyBkZXNhZmlvIHNlcuEgZGlm7WNpbC4gDQoNClZlcmlmaXF1ZSBzZXVzIHN1cHJpbWVudG9zIGUgdm9sdGUgYXF1aSBxdWFuZG8gdGVybWluYXIu"
+  }
+}

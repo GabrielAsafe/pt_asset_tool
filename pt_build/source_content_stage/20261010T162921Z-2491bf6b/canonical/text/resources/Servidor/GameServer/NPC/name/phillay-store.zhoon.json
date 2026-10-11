@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.phillay_store",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/phillay-store.zhoon",
+    "GameServer/NPC/name/phillay-store.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/phillay-store.zhoon",
+    "legacy_sha256": "7c9b3d4c906aefc33572cc8969bb8140ee7fc923b131de9b4f374a05c38b2f26",
+    "legacy_size": 345
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Loja da Phillya"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Fraco ou forte, você precisa destas poções para sobreviver!"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Não podemos fabricar poções de MP com nossa tecnologia atual..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Até os guerreiros mais poderosos serão derrotados, sem estas poções..."
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "A regra número 1 de todo guerreiro é trazer consigo poções suficientes..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkxvamEgZGEgUGhpbGx5YSINCg0KKkpfQ0hBVAkJIkZyYWNvIG91IGZvcnRlLCB2b2PqIHByZWNpc2EgZGVzdGFzIHBv5/VlcyBwYXJhIHNvYnJldml2ZXIhIg0KKkpfQ0hBVAkJIk7jbyBwb2RlbW9zIGZhYnJpY2FyIHBv5/VlcyBkZSBNUCBjb20gbm9zc2EgdGVjbm9sb2dpYSBhdHVhbC4uLiINCipKX0NIQVQJCSJBdOkgb3MgZ3VlcnJlaXJvcyBtYWlzIHBvZGVyb3NvcyBzZXLjbyBkZXJyb3RhZG9zLCBzZW0gZXN0YXMgcG/n9WVzLi4uIg0KKkpfQ0hBVAkJIkEgcmVncmEgbvptZXJvIDEgZGUgdG9kbyBndWVycmVpcm8g6SB0cmF6ZXIgY29uc2lnbyBwb+f1ZXMgc3VmaWNpZW50ZXMuLi4i"
+  }
+}

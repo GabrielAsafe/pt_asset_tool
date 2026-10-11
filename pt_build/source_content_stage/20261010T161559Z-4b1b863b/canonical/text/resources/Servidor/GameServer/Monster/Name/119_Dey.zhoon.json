@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.119_dey",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/119_Dey.zhoon",
+    "GameServer/Monster/Name/119_Dey.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/119_Dey.zhoon",
+    "legacy_sha256": "43c8b331ae7c9fd66d586613a868edeecee33a960a6b855cb95d9f8d342b685b",
+    "legacy_size": 32
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Dey"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8xMTlfRGV5LmluZg0KDQoqSl9OQU1FICJEZXkiDQo="
+  }
+}

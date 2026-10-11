@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.e_wing_b",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/E_Wing_b.sin",
+    "image/Sinimage/Quest/E_Wing_b.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/E_Wing_b.sin",
+    "legacy_sha256": "d2b9dc49dfcb1324b34988545694734a63125b8ae47aed49013b0ab81c0a0fe7",
+    "legacy_size": 300
+  },
+  "semantic": {
+    "lines": [
+      "Thanks for gathering all items.",
+      "",
+      "No worry for shift if you have an extreme",
+      "wing.",
+      "",
+      "That's the most powerful wing and can go ",
+      "everywhere through warpgate.",
+      "",
+      "Well, you'll be needed to have another kind of",
+      "wing if some other warpgates are discoverd later.",
+      "",
+      "Until then, enjoy your trip safely."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhhbmtzIGZvciBnYXRoZXJpbmcgYWxsIGl0ZW1zLg0KDQpObyB3b3JyeSBmb3Igc2hpZnQgaWYgeW91IGhhdmUgYW4gZXh0cmVtZQ0Kd2luZy4NCg0KVGhhdCdzIHRoZSBtb3N0IHBvd2VyZnVsIHdpbmcgYW5kIGNhbiBnbyANCmV2ZXJ5d2hlcmUgdGhyb3VnaCB3YXJwZ2F0ZS4NCg0KV2VsbCwgeW91J2xsIGJlIG5lZWRlZCB0byBoYXZlIGFub3RoZXIga2luZCBvZg0Kd2luZyBpZiBzb21lIG90aGVyIHdhcnBnYXRlcyBhcmUgZGlzY292ZXJkIGxhdGVyLg0KDQpVbnRpbCB0aGVuLCBlbmpveSB5b3VyIHRyaXAgc2FmZWx5Lg0K"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_1_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/172LVQuest_1_Path.sin",
+    "image/Sinimage/Quest/172LVQuest_1_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/172LVQuest_1_Path.sin",
+    "legacy_sha256": "88f64a5247f602f1f7724a48f6e7806197f415dc219b568d8462f0176d2e1afa",
+    "legacy_size": 362
+  },
+  "semantic": {
+    "lines": [
+      "Após os últimos tremores, uma passagem antiga foi",
+      "revelada no Covil do Kelvezu.",
+      "",
+      "O grupo de exploração, liderado por Praya, está",
+      "investigando.",
+      "",
+      "Vá até a passagem descoberta no Covil do Kelvezu e ajude",
+      "o grupo de Praya na exploração do local.",
+      "",
+      "Uma marcação iluminará o chão no local determinado.",
+      "",
+      "Quando terminar, volte aqui com as informações obtidas."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QXDzcyBvcyD6bHRpbW9zIHRyZW1vcmVzLCB1bWEgcGFzc2FnZW0gYW50aWdhIGZvaQ0KcmV2ZWxhZGEgbm8gQ292aWwgZG8gS2VsdmV6dS4NCg0KTyBncnVwbyBkZSBleHBsb3Jh5+NvLCBsaWRlcmFkbyBwb3IgUHJheWEsIGVzdOENCmludmVzdGlnYW5kby4NCg0KVuEgYXTpIGEgcGFzc2FnZW0gZGVzY29iZXJ0YSBubyBDb3ZpbCBkbyBLZWx2ZXp1IGUgYWp1ZGUNCm8gZ3J1cG8gZGUgUHJheWEgbmEgZXhwbG9yYefjbyBkbyBsb2NhbC4NCg0KVW1hIG1hcmNh5+NvIGlsdW1pbmFy4SBvIGNo428gbm8gbG9jYWwgZGV0ZXJtaW5hZG8uDQoNClF1YW5kbyB0ZXJtaW5hciwgdm9sdGUgYXF1aSBjb20gYXMgaW5mb3JtYef1ZXMgb2J0aWRhcy4="
+  }
+}

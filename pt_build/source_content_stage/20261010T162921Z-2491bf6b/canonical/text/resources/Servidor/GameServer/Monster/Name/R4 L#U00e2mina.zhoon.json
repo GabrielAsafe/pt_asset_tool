@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r4_l_u00e2mina",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R4 L#U00e2mina.zhoon",
+    "GameServer/Monster/Name/R4 L#U00e2mina.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R4 L#U00e2mina.zhoon",
+    "legacy_sha256": "582801a6b55ab4de8ddf867738e5930bbdd00ccc48c661b3a65e47ac55e85f88",
+    "legacy_size": 20
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R4 Lâmina"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjQgTMOibWluYSI="
+  }
+}

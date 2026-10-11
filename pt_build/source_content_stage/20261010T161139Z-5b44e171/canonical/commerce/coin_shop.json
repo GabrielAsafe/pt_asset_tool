@@ -1,0 +1,728 @@
+{
+  "schema": "summit.coin-shop-catalog/v1",
+  "authority": "canonical_static_catalog",
+  "wallet_storage": "CoinShopDB.UserInfo / CoinShopDB.UserInfo_T remain mutable database state",
+  "shops": {
+    "coin": [
+      {
+        "code": "SK181",
+        "section": 2,
+        "price": 1000
+      },
+      {
+        "code": "SK182",
+        "section": 2,
+        "price": 1000
+      },
+      {
+        "code": "SK183",
+        "section": 2,
+        "price": 1000
+      },
+      {
+        "code": "SK184",
+        "section": 2,
+        "price": 1000
+      },
+      {
+        "code": "SK185",
+        "section": 2,
+        "price": 1000
+      },
+      {
+        "code": "SK186",
+        "section": 2,
+        "price": 1000
+      },
+      {
+        "code": "SK187",
+        "section": 2,
+        "price": 1000
+      },
+      {
+        "code": "SK101",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK102",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK103",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK106",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK117",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK107",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK108",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK109",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK110",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK111",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK112",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK113",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK114",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK115",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK116",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK242",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK243",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK244",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK245",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK246",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK247",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK248",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK249",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK201",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK202",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK203",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK204",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK205",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK265",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK266",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK267",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK268",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK269",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK221",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK222",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK223",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK224",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK172",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK173",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK174",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK175",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK176",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK253",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK254",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK255",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK256",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK259",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK231",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK232",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK233",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "SK234",
+        "section": 1,
+        "price": 1000
+      },
+      {
+        "code": "CA509",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA511",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA609",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA611",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA543",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA545",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA643",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA645",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA507",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA508",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA607",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "CA608",
+        "section": 3,
+        "price": 1000
+      },
+      {
+        "code": "oa151",
+        "section": 4,
+        "price": 1700
+      },
+      {
+        "code": "oa150",
+        "section": 4,
+        "price": 1000
+      },
+      {
+        "code": "OA231",
+        "section": 4,
+        "price": 1000
+      },
+      {
+        "code": "db131",
+        "section": 4,
+        "price": 1000
+      },
+      {
+        "code": "or251",
+        "section": 4,
+        "price": 1000
+      },
+      {
+        "code": "or250",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "CX113",
+        "section": 4,
+        "price": 2000
+      },
+      {
+        "code": "os108",
+        "section": 5,
+        "price": 100
+      },
+      {
+        "code": "os109",
+        "section": 5,
+        "price": 200
+      },
+      {
+        "code": "os110",
+        "section": 5,
+        "price": 300
+      },
+      {
+        "code": "se101",
+        "section": 5,
+        "price": 500
+      },
+      {
+        "code": "fo111",
+        "section": 5,
+        "price": 600
+      },
+      {
+        "code": "fo131",
+        "section": 5,
+        "price": 600
+      },
+      {
+        "code": "fo112",
+        "section": 5,
+        "price": 800
+      },
+      {
+        "code": "fo132",
+        "section": 5,
+        "price": 800
+      },
+      {
+        "code": "BI302",
+        "section": 6,
+        "price": 1500
+      },
+      {
+        "code": "BI303",
+        "section": 6,
+        "price": 2000
+      },
+      {
+        "code": "BI180",
+        "section": 6,
+        "price": 1000
+      },
+      {
+        "code": "BI150",
+        "section": 6,
+        "price": 2000
+      },
+      {
+        "code": "BI330",
+        "section": 6,
+        "price": 1000
+      },
+      {
+        "code": "BI309",
+        "section": 6,
+        "price": 1000
+      },
+      {
+        "code": "BI283",
+        "section": 6,
+        "price": 500
+      },
+      {
+        "code": "BI184",
+        "section": 6,
+        "price": 400
+      },
+      {
+        "code": "bi189",
+        "section": 6,
+        "price": 2000
+      },
+      {
+        "code": "bi109",
+        "section": 6,
+        "price": 1000
+      },
+      {
+        "code": "BI108",
+        "section": 6,
+        "price": 50
+      },
+      {
+        "code": "BI104",
+        "section": 6,
+        "price": 50
+      },
+      {
+        "code": "BI304",
+        "section": 7,
+        "price": 600
+      },
+      {
+        "code": "BI305",
+        "section": 7,
+        "price": 1000
+      },
+      {
+        "code": "BI306",
+        "section": 7,
+        "price": 2000
+      },
+      {
+        "code": "BI190",
+        "section": 7,
+        "price": 2000
+      },
+      {
+        "code": "RS101",
+        "section": 7,
+        "price": 200
+      },
+      {
+        "code": "RS102",
+        "section": 7,
+        "price": 200
+      },
+      {
+        "code": "RS103",
+        "section": 7,
+        "price": 200
+      },
+      {
+        "code": "RS104",
+        "section": 7,
+        "price": 200
+      },
+      {
+        "code": "RS105",
+        "section": 7,
+        "price": 200
+      },
+      {
+        "code": "RS106",
+        "section": 7,
+        "price": 200
+      },
+      {
+        "code": "RS107",
+        "section": 7,
+        "price": 200
+      },
+      {
+        "code": "RS108",
+        "section": 7,
+        "price": 200
+      }
+    ],
+    "time": [
+      {
+        "code": "BI223",
+        "section": 1,
+        "price": 120
+      },
+      {
+        "code": "BI224",
+        "section": 1,
+        "price": 200
+      },
+      {
+        "code": "BI225",
+        "section": 1,
+        "price": 350
+      },
+      {
+        "code": "fo109",
+        "section": 2,
+        "price": 200
+      },
+      {
+        "code": "fo129",
+        "section": 2,
+        "price": 200
+      },
+      {
+        "code": "bi109",
+        "section": 3,
+        "price": 600
+      },
+      {
+        "code": "os108",
+        "section": 2,
+        "price": 150
+      },
+      {
+        "code": "BI142",
+        "section": 3,
+        "price": 120
+      },
+      {
+        "code": "BI104",
+        "section": 3,
+        "price": 120
+      },
+      {
+        "code": "CA539",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "CA541",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "CA639",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "CA641",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "BI138",
+        "section": 5,
+        "price": 300
+      },
+      {
+        "code": "BI137",
+        "section": 5,
+        "price": 300
+      },
+      {
+        "code": "BI136",
+        "section": 5,
+        "price": 300
+      },
+      {
+        "code": "BI110",
+        "section": 5,
+        "price": 200
+      },
+      {
+        "code": "BI190",
+        "section": 6,
+        "price": 1800
+      },
+      {
+        "code": "BI189",
+        "section": 6,
+        "price": 1800
+      },
+      {
+        "code": "se101",
+        "section": 6,
+        "price": 300
+      },
+      {
+        "code": "BI184",
+        "section": 6,
+        "price": 900
+      },
+      {
+        "code": "RS101",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "RS102",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "RS103",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "RS104",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "RS105",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "RS106",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "RS107",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "RS108",
+        "section": 6,
+        "price": 100
+      },
+      {
+        "code": "CA193",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "CA195",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "CA293",
+        "section": 4,
+        "price": 600
+      },
+      {
+        "code": "CA295",
+        "section": 4,
+        "price": 600
+      }
+    ]
+  },
+  "policy": {
+    "quest_only_item_codes": [
+      "QW103",
+      "QW106"
+    ],
+    "reason": "Wing progression is owned by the legacy Portal Inventor quest chain; premium shops must not sell these rewards."
+  }
+}

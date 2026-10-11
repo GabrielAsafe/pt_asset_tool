@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.cp101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/cp101.zhoon",
+    "GameServer/OpenItem/name/cp101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/cp101.zhoon",
+    "legacy_sha256": "91fd265306d7a5f5a56c2c6576ce153839e5cad0b343ae6cadf26f1373c51ad5",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Christmas Package (A)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIkNocmlzdG1hcyBQYWNrYWdlIChBKSINCg=="
+  }
+}

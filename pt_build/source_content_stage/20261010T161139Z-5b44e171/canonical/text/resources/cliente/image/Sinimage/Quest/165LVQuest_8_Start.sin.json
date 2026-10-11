@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_8_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_8_Start.sin",
+    "image/Sinimage/Quest/165LVQuest_8_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_8_Start.sin",
+    "legacy_sha256": "3aae2f87fa2b43416ea7da4f9a075f0eef2e6a2cdfdf7f4b2f5c41dcea1fcdff",
+    "legacy_size": 600
+  },
+  "semantic": {
+    "lines": [
+      "Essa foi uma longa batalha, você teve muitas dificuldades.",
+      "Muito obrigada por todo seu empenho e bravura.",
+      "",
+      "Finalmente colocamos um fim na tirania de Midranda. Agora,",
+      "os pristonianos e o povo das águas poderão viver em paz.",
+      "Os tremores constantes, causados pela Alma de Fogo, tem me",
+      "preocupado muito. As palavras do Cavalo Azul estão na minha",
+      "mente. Mas vamos nos empenhar em ajudar os pristonianos e o",
+      "povo das águas a se recuperar.",
+      "Por favor, leve as boas notícias para o Comandante Derik.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Entregue o Documento Ultra Secreto para o Comandante",
+      "Derik em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RXNzYSBmb2kgdW1hIGxvbmdhIGJhdGFsaGEsIHZvY+ogdGV2ZSBtdWl0YXMgZGlmaWN1bGRhZGVzLg0KTXVpdG8gb2JyaWdhZGEgcG9yIHRvZG8gc2V1IGVtcGVuaG8gZSBicmF2dXJhLg0KDQpGaW5hbG1lbnRlIGNvbG9jYW1vcyB1bSBmaW0gbmEgdGlyYW5pYSBkZSBNaWRyYW5kYS4gQWdvcmEsDQpvcyBwcmlzdG9uaWFub3MgZSBvIHBvdm8gZGFzIOFndWFzIHBvZGVy428gdml2ZXIgZW0gcGF6Lg0KT3MgdHJlbW9yZXMgY29uc3RhbnRlcywgY2F1c2Fkb3MgcGVsYSBBbG1hIGRlIEZvZ28sIHRlbSBtZQ0KcHJlb2N1cGFkbyBtdWl0by4gQXMgcGFsYXZyYXMgZG8gQ2F2YWxvIEF6dWwgZXN0428gbmEgbWluaGENCm1lbnRlLiBNYXMgdmFtb3Mgbm9zIGVtcGVuaGFyIGVtIGFqdWRhciBvcyBwcmlzdG9uaWFub3MgZSBvDQpwb3ZvIGRhcyDhZ3VhcyBhIHNlIHJlY3VwZXJhci4NClBvciBmYXZvciwgbGV2ZSBhcyBib2FzIG5vdO1jaWFzIHBhcmEgbyBDb21hbmRhbnRlIERlcmlrLg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KRW50cmVndWUgbyBEb2N1bWVudG8gVWx0cmEgU2VjcmV0byBwYXJhIG8gQ29tYW5kYW50ZQ0KRGVyaWsgZW0gUmljYXJ0ZW4u"
+  }
+}

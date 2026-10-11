@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob2a.path_3d1ae0bfe2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/ChangeJob2a.Msg",
+    "image/party/party_DATA/ChangeJob2a.Msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/ChangeJob2a.Msg",
+    "legacy_sha256": "e99f12c80ba4bcb43e71802c961d982221a0534482bf4d69e6b365eb56837824",
+    "legacy_size": 233
+  },
+  "semantic": {
+    "lines": [
+      "    [Royal Jelly]",
+      "",
+      "For the rank-up quest, you ",
+      "have to extract 9 drops of ",
+      "honey out of Beedog after ",
+      "you defeat him.  By ",
+      "letting them age, you can ",
+      "make royal jelly with ",
+      "them. Then, you may take ",
+      "it to Molly the Granny."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "ICAgIFtSb3lhbCBKZWxseV0NCg0KRm9yIHRoZSByYW5rLXVwIHF1ZXN0LCB5b3UgDQpoYXZlIHRvIGV4dHJhY3QgOSBkcm9wcyBvZiANCmhvbmV5IG91dCBvZiBCZWVkb2cgYWZ0ZXIgDQp5b3UgZGVmZWF0IGhpbS4gIEJ5IA0KbGV0dGluZyB0aGVtIGFnZSwgeW91IGNhbiANCm1ha2Ugcm95YWwgamVsbHkgd2l0aCANCnRoZW0uIFRoZW4sIHlvdSBtYXkgdGFrZSANCml0IHRvIE1vbGx5IHRoZSBHcmFubnkuDQo="
+  }
+}

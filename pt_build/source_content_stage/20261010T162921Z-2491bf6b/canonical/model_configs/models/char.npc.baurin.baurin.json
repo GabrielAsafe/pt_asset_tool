@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.baurin.baurin",
+  "logical_config": "char/npc/Baurin/Baurin.ini",
+  "legacy_cache": "char/npc/Baurin/Baurin.inx",
+  "consumers": [
+    {
+      "id": "npc.baurin",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Baurin.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Baurin/baurin.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Baurin/baurin.inx"
+    }
+  }
+}

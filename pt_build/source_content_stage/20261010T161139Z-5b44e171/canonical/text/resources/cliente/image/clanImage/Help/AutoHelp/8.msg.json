@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.8",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/clanImage/Help/AutoHelp/8.msg",
+    "image/clanImage/Help/AutoHelp/8.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/clanImage/Help/AutoHelp/8.msg",
+    "legacy_sha256": "d2522587eb749a120fdd1331268776e33ad19bacb34054bf4e52e258d221534e",
+    "legacy_size": 343
+  },
+  "semantic": {
+    "lines": [
+      "Congratulations!!",
+      "You have reached level 10. Now, you can learn a skill.",
+      "Please visit the skill master in Ricarten. You will be",
+      "receiving 1 skill point for every 2 level increased. Every",
+      "time you earn a skill point, you can go see the skill",
+      "master to level up your skills. As you increase your skill",
+      "levels, they will be more powerful."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29uZ3JhdHVsYXRpb25zISENCllvdSBoYXZlIHJlYWNoZWQgbGV2ZWwgMTAuIE5vdywgeW91IGNhbiBsZWFybiBhIHNraWxsLg0KUGxlYXNlIHZpc2l0IHRoZSBza2lsbCBtYXN0ZXIgaW4gUmljYXJ0ZW4uIFlvdSB3aWxsIGJlDQpyZWNlaXZpbmcgMSBza2lsbCBwb2ludCBmb3IgZXZlcnkgMiBsZXZlbCBpbmNyZWFzZWQuIEV2ZXJ5DQp0aW1lIHlvdSBlYXJuIGEgc2tpbGwgcG9pbnQsIHlvdSBjYW4gZ28gc2VlIHRoZSBza2lsbA0KbWFzdGVyIHRvIGxldmVsIHVwIHlvdXIgc2tpbGxzLiBBcyB5b3UgaW5jcmVhc2UgeW91ciBza2lsbA0KbGV2ZWxzLCB0aGV5IHdpbGwgYmUgbW9yZSBwb3dlcmZ1bC4NCg=="
+  }
+}

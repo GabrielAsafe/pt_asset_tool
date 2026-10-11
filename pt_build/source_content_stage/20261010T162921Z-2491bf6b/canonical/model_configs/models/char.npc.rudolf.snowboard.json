@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.rudolf.snowboard",
+  "logical_config": "char/npc/Rudolf/snowboard.ini",
+  "legacy_cache": "char/npc/Rudolf/snowboard.inx",
+  "consumers": [
+    {
+      "id": "npc.toolspilai",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/toolspilai.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Rudolf/snowboard.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Rudolf/snowboard.inx"
+    }
+  }
+}

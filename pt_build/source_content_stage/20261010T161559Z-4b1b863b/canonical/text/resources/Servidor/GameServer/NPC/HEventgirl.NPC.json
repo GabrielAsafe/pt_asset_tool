@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.heventgirl",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/HEventgirl.NPC",
+    "GameServer/NPC/HEventgirl.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/HEventgirl.NPC",
+    "legacy_sha256": "f683b75156a0c7a33cc9de3b276176f89c79f556e099e282d68505b03b5dd65e",
+    "legacy_size": 204
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-016\\TN-016.ini",
+      "name": "입장권 판매원",
+      "event_npc": true,
+      "linked_file": "name\\HEventgirl.zhoon",
+      "model_config_id": "model.char.npc.tn.016.tn.016"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-016\\TN-016.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3031365c544e2d3031362e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "입장권 판매원"
+        ],
+        "raw_values_hex": [
+          "c0d4c0e5b1c720c6c7b8c5bff8"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "event_npc",
+        "legacy_token": "*이벤트매표소",
+        "legacy_token_hex": "2ac0ccbaa5c6aeb8c5c7a5bcd2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 13,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\HEventgirl.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c484576656e746769726c2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDE2XFROLTAxNi5pbmkiDQoNCirAzLinCQkJIsDUwOWxxyDGx7jFv/giDQoqwMy6pcauuMXHpbzSDQoNCi8vKrTryK0JCQkiuPO9usXNILzSsby/oSDA37/AvMy+7r/kISEgfiC/wMijyKMiDQoNCg0KDQoNCiq/rLDhxsTAzwkibmFtZVxIRXZlbnRnaXJsLnpob29uIg0KDQoNCg0KDQoNCg0K"
+  }
+}

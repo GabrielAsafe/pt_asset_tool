@@ -1,0 +1,142 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ps102",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/PS102.txt",
+    "GameServer/OpenItem/PS102.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/PS102.txt",
+    "legacy_sha256": "aaf7e63c698adad2a22ca47fcee041acca5867198997dadc76aa36e6c3686b83",
+    "legacy_size": 234
+  },
+  "semantic": {
+    "fields": {
+      "code": "PS102",
+      "name": "Poção Média de RES",
+      "english_name": "Poção Média de RES",
+      "stamina_alt": [
+        130,
+        150
+      ],
+      "weight": 1,
+      "price": 100,
+      "linked_file": "Name\\PS102.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "PS102"
+        ],
+        "raw_values_hex": [
+          "5053313032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Média de RES"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204de964696120646520524553"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Poção Média de RES"
+        ],
+        "raw_values_hex": [
+          "506fe7e36f204de964696120646520524553"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "stamina_alt",
+        "legacy_token": "*근력상승",
+        "legacy_token_hex": "2ab1d9b7c2bbf3bdc2",
+        "loader_status": "supported_mapped",
+        "values": [
+          130,
+          150
+        ],
+        "raw_values_hex": [
+          "313330",
+          "313530"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\PS102.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c50533130322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIlBTMTAyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUG/n428gTelkaWEgZGUgUkVTIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIlBv5+NvIE3pZGlhIGRlIFJFUyINCg0KLy9TVE1SZWNvdmVyeQ0KKrHZt8K7873CIDEzMCAxNTANCg0KLy9XZWlnaHQNCiq5q7DUIDENCg0KLy9QcmljZQ0KKrChsN0gMTAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcUFMxMDIuemhvb24i"
+  }
+}

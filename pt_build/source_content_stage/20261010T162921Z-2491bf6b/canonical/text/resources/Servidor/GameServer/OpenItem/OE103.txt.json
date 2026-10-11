@@ -1,0 +1,256 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.oe103",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/OE103.txt",
+    "GameServer/OpenItem/OE103.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/OE103.txt",
+    "legacy_sha256": "021df8fb3f62f83f0540bafdadd66cd409749f9b62c6d0cb47f8886c35f39157",
+    "legacy_size": 470
+  },
+  "semantic": {
+    "fields": {
+      "name": "Brinco Summit",
+      "english_name": "Brinco Summit",
+      "code": "OE103",
+      "attack_damage": [
+        4,
+        7,
+        9,
+        12
+      ],
+      "critical": 5,
+      "life_add_alt": [
+        80,
+        80
+      ],
+      "life_regen_alt": [
+        3.0,
+        4.0
+      ],
+      "level": 100,
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_life_regen_alt": [
+        3.0,
+        4.0
+      ],
+      "weight": 5,
+      "linked_file": "name\\OE103.zhoon"
+    },
+    "directives": [
+      {
+        "line": 4,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Brinco Summit"
+        ],
+        "raw_values_hex": [
+          "4272696e636f2053756d6d6974"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Brinco Summit"
+        ],
+        "raw_values_hex": [
+          "4272696e636f2053756d6d6974"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "OE103"
+        ],
+        "raw_values_hex": [
+          "4f45313033"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 9,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          4,
+          7,
+          9,
+          12
+        ],
+        "raw_values_hex": [
+          "34",
+          "37",
+          "39",
+          "3132"
+        ]
+      },
+      {
+        "line": 12,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          80,
+          80
+        ],
+        "raw_values_hex": [
+          "3830",
+          "3830"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "life_regen_alt",
+        "legacy_token": "*생명력재생",
+        "legacy_token_hex": "2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          4.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "342e30"
+        ]
+      },
+      {
+        "line": 21,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 30,
+        "key": "special_life_regen_alt",
+        "legacy_token": "**생명력재생",
+        "legacy_token_hex": "2a2abbfdb8edb7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          4.0
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "342e30"
+        ]
+      },
+      {
+        "line": 33,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          5
+        ],
+        "raw_values_hex": [
+          "35"
+        ]
+      },
+      {
+        "line": 36,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\OE103.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c4f453130332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8JCb7GwMzF2yDBpLq4CQkvLw0KDQoNCirAzLinCQkiQnJpbmNvIFN1bW1pdCINCipOYW1lCQkiQnJpbmNvIFN1bW1pdCINCirE2rXlCQkiT0UxMDMiDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgNCA3IDkgMTINCg0KLy9BdHRhY2tDcml0aWNhbA0KKsWpuK7GvMTDIDUNCg0KLy9IUA0KKrv9uO23wsPfsKEgODAgODANCg0KLy9IUFJlZ2VuDQoqu/247bfCwOe7/SAzLjAgNC4wDQoNCi8vTGV2ZWwNCiq3ubqnIDEwMA0KDQovL1NwaXJpdA0KLy8qwaS9xbfCIDUwDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBGaWdodGVyIFBpa2VtYW4gQXJjaGVyIEtuaWdodCBBdGFsYW50YSBQcmllc3Rlc3MgTWFnaWNpYW4NCg0KLy9TcGVjSFBSZWdlbg0KKiq7/bjtt8LA57v9IDMuMCA0LjANCg0KLy9XZWlnaHQNCiq5q7DUIDUNCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzwkibmFtZVxPRTEwMy56aG9vbiI="
+  }
+}

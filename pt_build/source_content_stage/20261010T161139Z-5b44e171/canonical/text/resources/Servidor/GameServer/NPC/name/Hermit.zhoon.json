@@ -1,0 +1,42 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.hermit",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Hermit.zhoon",
+    "GameServer/NPC/name/Hermit.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Hermit.zhoon",
+    "legacy_sha256": "b39bc8183264b7fe972f60b695b071649966cfdeb8c4067ace0dd84f1bdd81db",
+    "legacy_size": 128
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Eremita"
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Não tem ninguém aqui... certo?"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ficaremos seguros escondidos aqui..."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9IZXJtaXQubnBjDQoNCipKX05BTUUJCSJFcmVtaXRhIg0KDQoqSl9DSEFUCQkiTuNvIHRlbSBuaW5ndeltIGFxdWkuLi4gY2VydG8/Ig0KKkpfQ0hBVAkJIkZpY2FyZW1vcyBzZWd1cm9zIGVzY29uZGlkb3MgYXF1aS4uLiI="
+  }
+}

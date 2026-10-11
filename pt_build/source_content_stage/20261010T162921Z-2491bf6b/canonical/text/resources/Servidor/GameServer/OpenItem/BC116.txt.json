@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bc116",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BC116.txt",
+    "GameServer/OpenItem/BC116.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BC116.txt",
+    "legacy_sha256": "e04b2233196230542dd0700ef22e4c2f476cfe37bc6e9af3a815e6d5ee2c3bd9",
+    "legacy_size": 223
+  },
+  "semantic": {
+    "fields": {
+      "code": "BC116",
+      "name": "Sentença de Morte Sacerdotisa",
+      "english_name": "Sentença de Morte Sacerdotisa",
+      "weight": 1,
+      "price": 100000,
+      "linked_file": "Name\\BC116.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BC116"
+        ],
+        "raw_values_hex": [
+          "4243313136"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Sentença de Morte Sacerdotisa"
+        ],
+        "raw_values_hex": [
+          "53656e74656ee761206465204d6f727465205361636572646f74697361"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Sentença de Morte Sacerdotisa"
+        ],
+        "raw_values_hex": [
+          "53656e74656ee761206465204d6f727465205361636572646f74697361"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100000
+        ],
+        "raw_values_hex": [
+          "313030303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BC116.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42433131362e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJDMTE2Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiU2VudGVu52EgZGUgTW9ydGUgU2FjZXJkb3Rpc2EiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiU2VudGVu52EgZGUgTW9ydGUgU2FjZXJkb3Rpc2EiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDEwMDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJDMTE2Lnpob29uIg=="
+  }
+}

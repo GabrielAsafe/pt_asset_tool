@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.g_wing_a",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/G_Wing_a.sin",
+    "image/Sinimage/Quest/G_Wing_a.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/G_Wing_a.sin",
+    "legacy_sha256": "a313e35b22579695d1dfc70004e21945c85b4eb9fb9d226a65348159f5e40744",
+    "legacy_size": 364
+  },
+  "semantic": {
+    "lines": [
+      "Oh, you have the silver wing.  Don't you need my ",
+      "gold wing? Obvioulsy, this is better than yours.",
+      "",
+      "I assume you are here to look for a better one since ",
+      "you know your silver wing is not strong enough.",
+      "",
+      "If so, bring me a silver wing, decoy crystal, bargon ",
+      "crystal, and 10000 gold.",
+      "Then I will trade with my gold wing.",
+      "",
+      "What do you think?  Wanna try?",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2gsIHlvdSBoYXZlIHRoZSBzaWx2ZXIgd2luZy4gIERvbid0IHlvdSBuZWVkIG15IA0KZ29sZCB3aW5nPyBPYnZpb3Vsc3ksIHRoaXMgaXMgYmV0dGVyIHRoYW4geW91cnMuDQoNCkkgYXNzdW1lIHlvdSBhcmUgaGVyZSB0byBsb29rIGZvciBhIGJldHRlciBvbmUgc2luY2UgDQp5b3Uga25vdyB5b3VyIHNpbHZlciB3aW5nIGlzIG5vdCBzdHJvbmcgZW5vdWdoLg0KDQpJZiBzbywgYnJpbmcgbWUgYSBzaWx2ZXIgd2luZywgZGVjb3kgY3J5c3RhbCwgYmFyZ29uIA0KY3J5c3RhbCwgYW5kIDEwMDAwIGdvbGQuDQpUaGVuIEkgd2lsbCB0cmFkZSB3aXRoIG15IGdvbGQgd2luZy4NCg0KV2hhdCBkbyB5b3UgdGhpbms/ICBXYW5uYSB0cnk/DQoNCg=="
+  }
+}

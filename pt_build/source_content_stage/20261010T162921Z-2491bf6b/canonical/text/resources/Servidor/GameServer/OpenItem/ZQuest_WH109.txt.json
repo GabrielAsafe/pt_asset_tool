@@ -1,0 +1,242 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.zquest_wh109",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/ZQuest_WH109.txt",
+    "GameServer/OpenItem/ZQuest_WH109.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/ZQuest_WH109.txt",
+    "legacy_sha256": "4e8eb0676cbd1547d1e2a7b1dea4c5a50bac891983183cf7203b878156bac598",
+    "legacy_size": 415
+  },
+  "semantic": {
+    "fields": {
+      "code": "WH109",
+      "name": "Martelo Meteoro",
+      "english_name": "Martelo Meteoro",
+      "display_effect": 1,
+      "unique": 2,
+      "attack_damage": [
+        19,
+        19,
+        25,
+        25
+      ],
+      "attack_rating": [
+        125,
+        125
+      ],
+      "attack_speed": 8,
+      "critical": 7,
+      "durability": [
+        100,
+        100
+      ],
+      "level": 40,
+      "weight": 1,
+      "linked_file": "Name\\ZQuest_WH109.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WH109"
+        ],
+        "raw_values_hex": [
+          "5748313039"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Martelo Meteoro"
+        ],
+        "raw_values_hex": [
+          "4d617274656c6f204d6574656f726f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Martelo Meteoro"
+        ],
+        "raw_values_hex": [
+          "4d617274656c6f204d6574656f726f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "display_effect",
+        "legacy_token": "*이펙트설정",
+        "legacy_token_hex": "2ac0ccc6e5c6aebcb3c1a4",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "unique",
+        "legacy_token": "*유니크",
+        "legacy_token_hex": "2ac0afb4cfc5a9",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          19,
+          19,
+          25,
+          25
+        ],
+        "raw_values_hex": [
+          "3139",
+          "3139",
+          "3235",
+          "3235"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          125,
+          125
+        ],
+        "raw_values_hex": [
+          "313235",
+          "313235"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          100,
+          100
+        ],
+        "raw_values_hex": [
+          "313030",
+          "313030"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          40
+        ],
+        "raw_values_hex": [
+          "3430"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\ZQuest_WH109.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c5a51756573745f57483130392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldIMTA5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiTWFydGVsbyBNZXRlb3JvIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIk1hcnRlbG8gTWV0ZW9ybyINCg0KLy9FZmZlY3QNCirAzMblxq68s8GkIDENCg0KLy9RdWVzdA0KKsCvtM/FqSAyDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgMTkgMTkgMjUgMjUNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgMTI1IDEyNQ0KDQovL0F0dGFja1NwZWVkDQoqsPiw3bzTtbUgOA0KDQovL0F0dGFja0NyaXRpY2FsDQoqxam4rsa8xMMgNw0KDQovL0ludGVncml0eQ0KKrO7sbi3wiAxMDAgMTAwDQoNCi8vTGV2ZWwNCiq3ubqnIDQwDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcWlF1ZXN0X1dIMTA5Lnpob29uIg=="
+  }
+}

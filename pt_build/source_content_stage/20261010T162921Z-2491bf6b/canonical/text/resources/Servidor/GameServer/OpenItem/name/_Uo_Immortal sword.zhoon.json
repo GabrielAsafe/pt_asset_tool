@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uo_immortal_sword",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uo_Immortal sword.zhoon",
+    "GameServer/OpenItem/name/_Uo_Immortal sword.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uo_Immortal sword.zhoon",
+    "legacy_sha256": "dd15ff93dd70df55defef4d4bbcfa9c510496ffa9b3b9b574cf80e073bcb608b",
+    "legacy_size": 58
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Espada Imortal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9VV1MyMjNfSW1tb3J0YWwgc3dvcmQudHh0DQoNCipKX05hbWUJCSJFc3BhZGEgSW1vcnRhbCINCg=="
+  }
+}

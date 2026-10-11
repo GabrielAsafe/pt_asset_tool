@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r7_golem_de_gelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R7 Golem de Gelo.zhoon",
+    "GameServer/Monster/Name/R7 Golem de Gelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R7 Golem de Gelo.zhoon",
+    "legacy_sha256": "28079e195c28672ca9c327a8b66aae4d5b4e087ff4201b2cc963f52863307e45",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R7 Golem de Gelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjcgR29sZW0gZGUgR2VsbyI="
+  }
+}

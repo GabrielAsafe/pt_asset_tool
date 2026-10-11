@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.repeatquest_end_o",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/RepeatQuest_End_O.sin",
+    "image/Sinimage/Quest/RepeatQuest_End_O.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/RepeatQuest_End_O.sin",
+    "legacy_sha256": "79fb1cfa1d4c5f100bafdc1b5db974735140e895958d7cca79c1d71e220132c8",
+    "legacy_size": 179
+  },
+  "semantic": {
+    "lines": [
+      "You are back after finishing suppressing.",
+      "Welcome and thank you again. I have",
+      "prepared awards for you. Please, take these.",
+      "Come back to me tomorrow for another ",
+      "suppressing."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91IGFyZSBiYWNrIGFmdGVyIGZpbmlzaGluZyBzdXBwcmVzc2luZy4NCldlbGNvbWUgYW5kIHRoYW5rIHlvdSBhZ2Fpbi4gSSBoYXZlDQpwcmVwYXJlZCBhd2FyZHMgZm9yIHlvdS4gUGxlYXNlLCB0YWtlIHRoZXNlLg0KQ29tZSBiYWNrIHRvIG1lIHRvbW9ycm93IGZvciBhbm90aGVyIA0Kc3VwcHJlc3NpbmcuDQo="
+  }
+}

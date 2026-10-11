@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.155lvquest_7_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/155LVQuest_7_End.sin",
+    "image/Sinimage/Quest/155LVQuest_7_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/155LVQuest_7_End.sin",
+    "legacy_sha256": "43aaef48a1ee0e16c085e54d59ccaf30471271ed3c1f92f24fabcc764ecede5b",
+    "legacy_size": 702
+  },
+  "semantic": {
+    "lines": [
+      "Foi uma dura batalha, não é mesmo? Você foi muito bem.",
+      "Conseguimos impedir que o mundo entrasse em uma nova era",
+      "glacial e salvamos a 햞vore da Vida.",
+      "O rio glacial foi criado, originalmente, pela Chama de Gelo",
+      "do Dragão de Snowstorm, que fugia de caçadores. Após ser ",
+      "abandonada, a menina vagou até encontrar outros mutantes e",
+      "passou a viver com eles, recebendo o nome de Dama da Neve.",
+      "Essa era a Tribo da Neve, que se escondia do dragão, até a",
+      "jovem menina o encontrar e se tornar sua amiga.",
+      "",
+      "Agora, eles poderão se reencontrar e viver em paz.",
+      "Espero que a Dama da Neve não seja manipulada por mais",
+      "ninguém. Ela já sofreu demais.",
+      "",
+      "Receba a Roitra Superior como recompensa por seu esforço."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Rm9pIHVtYSBkdXJhIGJhdGFsaGEsIG7jbyDpIG1lc21vPyBWb2PqIGZvaSBtdWl0byBiZW0uDQpDb25zZWd1aW1vcyBpbXBlZGlyIHF1ZSBvIG11bmRvIGVudHJhc3NlIGVtIHVtYSBub3ZhIGVyYQ0KZ2xhY2lhbCBlIHNhbHZhbW9zIGEgwXJ2b3JlIGRhIFZpZGEuDQpPIHJpbyBnbGFjaWFsIGZvaSBjcmlhZG8sIG9yaWdpbmFsbWVudGUsIHBlbGEgQ2hhbWEgZGUgR2Vsbw0KZG8gRHJhZ+NvIGRlIFNub3dzdG9ybSwgcXVlIGZ1Z2lhIGRlIGNh52Fkb3Jlcy4gQXDzcyBzZXIgDQphYmFuZG9uYWRhLCBhIG1lbmluYSB2YWdvdSBhdOkgZW5jb250cmFyIG91dHJvcyBtdXRhbnRlcyBlDQpwYXNzb3UgYSB2aXZlciBjb20gZWxlcywgcmVjZWJlbmRvIG8gbm9tZSBkZSBEYW1hIGRhIE5ldmUuDQpFc3NhIGVyYSBhIFRyaWJvIGRhIE5ldmUsIHF1ZSBzZSBlc2NvbmRpYSBkbyBkcmFn428sIGF06SBhDQpqb3ZlbSBtZW5pbmEgbyBlbmNvbnRyYXIgZSBzZSB0b3JuYXIgc3VhIGFtaWdhLg0KDQpBZ29yYSwgZWxlcyBwb2RlcuNvIHNlIHJlZW5jb250cmFyIGUgdml2ZXIgZW0gcGF6Lg0KRXNwZXJvIHF1ZSBhIERhbWEgZGEgTmV2ZSBu428gc2VqYSBtYW5pcHVsYWRhIHBvciBtYWlzDQpuaW5ndeltLiBFbGEgauEgc29mcmV1IGRlbWFpcy4NCg0KUmVjZWJhIGEgUm9pdHJhIFN1cGVyaW9yIGNvbW8gcmVjb21wZW5zYSBwb3Igc2V1IGVzZm9y528u"
+  }
+}

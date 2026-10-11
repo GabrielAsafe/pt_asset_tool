@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.pi101",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/PI101.zhoon",
+    "GameServer/OpenItem/name/PI101.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/PI101.zhoon",
+    "legacy_sha256": "dfa8f716bcbcf69c2525f2df810e5137d1452b636a1f59932dbd150db0af1cac",
+    "legacy_size": 39
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Phoenix Egg"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9CQzEwOC50eHQNCg0KKkpfTmFtZQkJIlBob2VuaXggRWdnIg0K"
+  }
+}

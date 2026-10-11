@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.107_i_undead_stalker",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/107_I_Undead Stalker.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/107_I_Undead Stalker.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/107_I_Undead Stalker.inf",
+        "GameServer/Monster/107_I_Undead Stalker.inf"
+      ],
+      "legacy_sha256": "a6ba432427c79d066fc52ce73e52134f2427ad5cee9bdb5e2794a7efa54b02cf"
+    }
+  ]
+}

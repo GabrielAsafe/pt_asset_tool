@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monzombi.monzombi.b",
+  "logical_config": "char/monster/monzombi/monzombi-b.ini",
+  "legacy_cache": "char/monster/monzombi/monzombi-b.inx",
+  "consumers": [
+    {
+      "id": "monster.35_ghoul",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/35_Ghoul.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monzombi/Monzombi-b.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monzombi/Monzombi-b.inx"
+    }
+  }
+}

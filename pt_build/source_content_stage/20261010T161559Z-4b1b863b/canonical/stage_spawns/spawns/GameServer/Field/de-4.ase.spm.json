@@ -1,0 +1,61 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.de_4",
+  "logical_path": "GameServer/Field/de-4.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/de-4.ase.spm",
+    "sha256": "6d826b5915ebfcb4b268d1f558f2c725f14ce4fd299739963d28f9ae7da7bcbe"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 1,
+  "actors": [
+    {
+      "monster_id": "monster.53_gigante_de_pedra",
+      "legacy_name": "Gigante de Pedra",
+      "legacy_name_bytes_hex": "476967616e7465206465205065647261",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.51_golem_de_areia",
+      "legacy_name": "Golem de Areia",
+      "legacy_name_bytes_hex": "476f6c656d206465204172656961",
+      "weight": 25,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.40_cripto",
+      "legacy_name": "Cripto",
+      "legacy_name_bytes_hex": "43726970746f",
+      "weight": 25,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.52_centauro_l",
+      "legacy_name": "Centauro-L",
+      "legacy_name_bytes_hex": "43656e746175726f2d4c",
+      "weight": 10,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.52_carniceiro",
+      "legacy_name": "Carniceiro",
+      "legacy_name_bytes_hex": "4361726e69636569726f",
+      "weight": 20,
+      "resolution": "exact"
+    },
+    {
+      "monster_id": "monster.62_figon",
+      "legacy_name": "Figon",
+      "legacy_name_bytes_hex": "4669676f6e",
+      "weight": 10,
+      "resolution": "exact"
+    }
+  ],
+  "bosses": []
+}

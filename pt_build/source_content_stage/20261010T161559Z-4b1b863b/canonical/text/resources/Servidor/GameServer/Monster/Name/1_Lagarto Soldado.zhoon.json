@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_lagarto_soldado",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Lagarto Soldado.zhoon",
+    "GameServer/Monster/Name/1_Lagarto Soldado.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Lagarto Soldado.zhoon",
+    "legacy_sha256": "cb46ab22fa5a53d32d1c8cf60551006a8357ffb6ea423416d1d3c5589101a785",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Lagarto Soldado"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTGFnYXJ0byBTb2xkYWRvIg=="
+  }
+}

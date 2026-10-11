@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_6_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_6_Start.sin",
+    "image/Sinimage/Quest/165LVQuest_6_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_6_Start.sin",
+    "legacy_sha256": "927c2d9b55a14ac0712b0fba68df62d4d040780e2e39767ea770958e6cd6ffc5",
+    "legacy_size": 589
+  },
+  "semantic": {
+    "lines": [
+      "Temos um problema. O tentáculo é muito resistente e sua",
+      "autodefesa é instantânea. Nem mesmo a chama dos Magos",
+      "Reais foi capaz de queimá-los. Precisamos de uma chama",
+      "mais poderosa. ",
+      "Por ser criação de um deus, a Bruxa Insana possui o poder",
+      "ancestral em suas chamas. Elas são nossa única chance.",
+      "Midranda finalmente iniciou seu ataque final. ",
+      "",
+      "Tome, leve o Incensário Mágico e absorva a Chama Ancestral",
+      "da Bruxa Insana. Precisamos ajudar nossos companheiros.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Cace 30 Bruxas Insanas no Santuário do Abismo.",
+      "Ao terminar, fale com a Sábia Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGVtb3MgdW0gcHJvYmxlbWEuIE8gdGVudOFjdWxvIOkgbXVpdG8gcmVzaXN0ZW50ZSBlIHN1YQ0KYXV0b2RlZmVzYSDpIGluc3RhbnTibmVhLiBOZW0gbWVzbW8gYSBjaGFtYSBkb3MgTWFnb3MNClJlYWlzIGZvaSBjYXBheiBkZSBxdWVpbeEtbG9zLiBQcmVjaXNhbW9zIGRlIHVtYSBjaGFtYQ0KbWFpcyBwb2Rlcm9zYS4gDQpQb3Igc2VyIGNyaWHn428gZGUgdW0gZGV1cywgYSBCcnV4YSBJbnNhbmEgcG9zc3VpIG8gcG9kZXINCmFuY2VzdHJhbCBlbSBzdWFzIGNoYW1hcy4gRWxhcyBz428gbm9zc2Eg+m5pY2EgY2hhbmNlLg0KTWlkcmFuZGEgZmluYWxtZW50ZSBpbmljaW91IHNldSBhdGFxdWUgZmluYWwuIA0KDQpUb21lLCBsZXZlIG8gSW5jZW5z4XJpbyBN4WdpY28gZSBhYnNvcnZhIGEgQ2hhbWEgQW5jZXN0cmFsDQpkYSBCcnV4YSBJbnNhbmEuIFByZWNpc2Ftb3MgYWp1ZGFyIG5vc3NvcyBjb21wYW5oZWlyb3MuDQoNCltPYmpldGl2byBkbyBEZXNhZmlvXQ0KDQpDYWNlIDMwIEJydXhhcyBJbnNhbmFzIG5vIFNhbnR14XJpbyBkbyBBYmlzbW8uDQpBbyB0ZXJtaW5hciwgZmFsZSBjb20gYSBT4WJpYSBDZWxpbmEgZW0gUGlsbGFpLg=="
+  }
+}

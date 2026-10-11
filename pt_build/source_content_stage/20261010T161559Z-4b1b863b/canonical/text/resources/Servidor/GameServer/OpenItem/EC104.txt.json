@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ec104",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/EC104.txt",
+    "GameServer/OpenItem/EC104.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/EC104.txt",
+    "legacy_sha256": "c77c55433f9534f9b2a0667f11d4fd71c132dedaa49b5fb84df92e33d2a3bfca",
+    "legacy_size": 205
+  },
+  "semantic": {
+    "fields": {
+      "code": "EC104",
+      "name": "Pergaminho para Pilai",
+      "english_name": "Pergaminho para Pilai",
+      "weight": 1,
+      "price": 1000,
+      "linked_file": "Name\\EC104.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "EC104"
+        ],
+        "raw_values_hex": [
+          "4543313034"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pergaminho para Pilai"
+        ],
+        "raw_values_hex": [
+          "50657267616d696e686f20706172612050696c6169"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pergaminho para Pilai"
+        ],
+        "raw_values_hex": [
+          "50657267616d696e686f20706172612050696c6169"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1000
+        ],
+        "raw_values_hex": [
+          "31303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\EC104.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c45433130342e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkVDMTA0Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUGVyZ2FtaW5obyBwYXJhIFBpbGFpIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIlBlcmdhbWluaG8gcGFyYSBQaWxhaSINCg0KLy9XZWlnaHQNCiq5q7DUIDENCg0KLy9QcmljZQ0KKrChsN0gMTAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEVDMTA0Lnpob29uIg=="
+  }
+}

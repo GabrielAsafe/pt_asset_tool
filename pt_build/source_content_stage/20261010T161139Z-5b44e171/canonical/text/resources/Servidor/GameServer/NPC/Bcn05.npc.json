@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.bcn05",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Bcn05.npc",
+    "GameServer/NPC/Bcn05.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Bcn05.npc",
+    "legacy_sha256": "e331a3ca5aae20e4a303a01f48c48e248d42c3885ce569d52570bbf05aefc098",
+    "legacy_size": 508
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\Bcn05\\Bcn05.INI",
+      "name": "집사 앤더스",
+      "bless_castle": true,
+      "linked_file": "name\\Bcn05.zhoon",
+      "model_config_id": "model.char.npc.bcn05.bcn05"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\Bcn05\\Bcn05.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c42636e30355c42636e30352e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "집사 앤더스"
+        ],
+        "raw_values_hex": [
+          "c1fdbbe720bed8b4f5bdba"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "bless_castle",
+        "legacy_token": "*블레스캐슬",
+        "legacy_token_hex": "2abaedb7b9bdbac4b3bdbd",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Bcn05.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c42636e30352e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcQmNuMDVcQmNuMDUuSU5JIg0KDQoNCirAzLinCQkJIsH9u+cgvti09b26Ig0KKrrtt7m9usSzvb0NCi8vKrTryK0JCQkixam4rr26xbsgxbi/9sDHILzTvLrAuiDD0TOwocH2t84gutIsvvPAvSzA/LHitvi0z7TZLiCworCiwMcgxq/CocC7IMDfIMDMv+vHz73DuOkgvPa8ur+hILW1v/LAzCC1x73HsMy0z7TZIg0KLy8qtOvIrSAgICAgICAgICAgICAgICAgICAisKIguLbAu7+hvK0gvLyx3cDMILzTvNMgtbXC+MfPsO0gwNa9wLTPtNkiDQovLyq068itICAgICAgICAgICAgICAgICAgICLA+rTCIMfRIMbyu/0gwOfBpLD6ILy6wMcguea+7r+hILD8x9Egwba+8MC7ILXluK60wiDAz7+hIMD8t8LAuyC02cfPsO0gwNa9wLTPtNkiDQovLyq068itICAgICAgICAgICAgICAgICAgICKz1yDB1sDOtNQguau9vCC9w8WwvccgwM/AzCDA1sC4vcXB9r/kLiINCg0KDQoqv6yw4cbEwM8JIm5hbWVcQmNuMDUuemhvb24iDQoNCg0KLy+9w8G+wOUNCg=="
+  }
+}

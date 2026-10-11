@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestfuryitem11",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestFuryItem11.sin",
+    "image/Sinimage/Quest/haQuestFuryItem11.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestFuryItem11.sin",
+    "legacy_sha256": "d7fff96b5eb108a72fbb714817812396ecc2ae267ee7454a117873dfcfd62ae2",
+    "legacy_size": 304
+  },
+  "semantic": {
+    "lines": [
+      "[Punhos Arina]",
+      "                               ",
+      "                                 ",
+      "                             ",
+      "",
+      "",
+      "",
+      "",
+      "[Opção]",
+      "",
+      "Poder Adicional : 70-85     Add. HP : 50",
+      "Vel. da arma    : 8         Add. MP : 50",
+      "Taxa de ataque  : 285       Add.STM : 50",
+      "Critico         : 24%",
+      "Bloqueio        : 10%"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "W1B1bmhvcyBBcmluYV0NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCg0KDQoNCg0KW09w5+NvXQ0KDQpQb2RlciBBZGljaW9uYWwgOiA3MC04NSAgICAgQWRkLiBIUCA6IDUwDQpWZWwuIGRhIGFybWEgICAgOiA4ICAgICAgICAgQWRkLiBNUCA6IDUwDQpUYXhhIGRlIGF0YXF1ZSAgOiAyODUgICAgICAgQWRkLlNUTSA6IDUwDQpDcml0aWNvICAgICAgICAgOiAyNCUNCkJsb3F1ZWlvICAgICAgICA6IDEwJQ=="
+  }
+}

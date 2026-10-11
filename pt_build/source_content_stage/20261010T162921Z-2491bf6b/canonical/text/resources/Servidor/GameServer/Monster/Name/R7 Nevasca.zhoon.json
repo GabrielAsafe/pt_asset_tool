@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r7_nevasca",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R7 Nevasca.zhoon",
+    "GameServer/Monster/Name/R7 Nevasca.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R7 Nevasca.zhoon",
+    "legacy_sha256": "5cf99c67a2158673c785a0e9f4d5edcc2eb80d620074329ae508fbb74c9b1970",
+    "legacy_size": 20
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R7 Nevasca"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjcgTmV2YXNjYSI="
+  }
+}

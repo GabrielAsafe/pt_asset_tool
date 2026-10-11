@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.reward",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/reward.sin",
+    "image/Sinimage/help/reward.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/reward.sin",
+    "legacy_sha256": "c029f4cd532a6856dee006880d0a3cf0ee504c3445dbb5a4e6b1fe3b5ea507cc",
+    "legacy_size": 530
+  },
+  "semantic": {
+    "lines": [
+      "Olá {0},",
+      "",
+      "Você recebeu o buff de compensação Benção de Idhas em seu personagem!",
+      "",
+      "Este buff foi ativado em seu personagem e lhe concederá um bônus adicional de experiência (XP) por 24 horas: Servidores Clássicos, Valento e Idhas +20%, e Servidor Cronus +10%.",
+      "",
+      "O buff Bênção de Idhas é contabilizado de forma suplementar a todos os itens do Priston Shop que possuem essa mesma funcionalidade. Para mais informações, acesse:",
+      "",
+      "forum.priston.com.br/forum/equipe-priston-tale/comunicados",
+      "",
+      "Atenciosamente,",
+      "",
+      "Equipe Zenit Games"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhIHswfSwNCg0KVm9j6iByZWNlYmV1IG8gYnVmZiBkZSBjb21wZW5zYefjbyBCZW7n428gZGUgSWRoYXMgZW0gc2V1IHBlcnNvbmFnZW0hDQoNCkVzdGUgYnVmZiBmb2kgYXRpdmFkbyBlbSBzZXUgcGVyc29uYWdlbSBlIGxoZSBjb25jZWRlcuEgdW0gYvRudXMgYWRpY2lvbmFsIGRlIGV4cGVyaepuY2lhIChYUCkgcG9yIDI0IGhvcmFzOiBTZXJ2aWRvcmVzIENs4XNzaWNvcywgVmFsZW50byBlIElkaGFzICsyMCUsIGUgU2Vydmlkb3IgQ3JvbnVzICsxMCUuDQoNCk8gYnVmZiBC6m7n428gZGUgSWRoYXMg6SBjb250YWJpbGl6YWRvIGRlIGZvcm1hIHN1cGxlbWVudGFyIGEgdG9kb3Mgb3MgaXRlbnMgZG8gUHJpc3RvbiBTaG9wIHF1ZSBwb3NzdWVtIGVzc2EgbWVzbWEgZnVuY2lvbmFsaWRhZGUuIFBhcmEgbWFpcyBpbmZvcm1h5/VlcywgYWNlc3NlOg0KDQpmb3J1bS5wcmlzdG9uLmNvbS5ici9mb3J1bS9lcXVpcGUtcHJpc3Rvbi10YWxlL2NvbXVuaWNhZG9zDQoNCkF0ZW5jaW9zYW1lbnRlLA0KDQpFcXVpcGUgWmVuaXQgR2FtZXM="
+  }
+}

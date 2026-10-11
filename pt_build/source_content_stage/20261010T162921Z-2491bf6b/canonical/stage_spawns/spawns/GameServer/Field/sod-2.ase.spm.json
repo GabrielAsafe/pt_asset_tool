@@ -1,0 +1,18 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.sod_2",
+  "logical_path": "GameServer/Field/sod-2.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/sod-2.ase.spm",
+    "sha256": "67d117d8f6078276b528ff8ec3ae54d564e023f53d2639978f84c9bccbd1beb6"
+  },
+  "limit_max": 300,
+  "delay": {
+    "shift": 1,
+    "milliseconds": 2000
+  },
+  "open_limit": 2,
+  "actors": [],
+  "bosses": []
+}

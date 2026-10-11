@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_goblin_1end",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_goblin_1end.msg",
+    "image/party/party_DATA/HaQuest/Quest_goblin_1end.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_goblin_1end.msg",
+    "legacy_sha256": "fac88bf8278c12beff605c359a09111f8c097bf13af11c1cc191046166254f0d",
+    "legacy_size": 93
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "",
+      "After finishing the ",
+      "quest safely, get a ",
+      "ring and an amulet ",
+      "as a reward.",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoNCkFmdGVyIGZpbmlzaGluZyB0aGUgDQpxdWVzdCBzYWZlbHksIGdldCBhIA0KcmluZyBhbmQgYW4gYW11bGV0IA0KYXMgYSByZXdhcmQuDQoNCg0KDQoNCg0K"
+  }
+}

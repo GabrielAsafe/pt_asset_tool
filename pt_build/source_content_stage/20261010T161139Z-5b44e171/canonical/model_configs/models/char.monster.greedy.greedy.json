@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.greedy.greedy",
+  "logical_config": "char/monster/Greedy/Greedy.ini",
+  "legacy_cache": "char/monster/Greedy/Greedy.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_121_greedy",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_121_Greedy.inf.json"
+    },
+    {
+      "id": "monster.mini_greedy",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Mini_Greedy.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Greedy/Greedy.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Greedy/Greedy.inx"
+    }
+  }
+}

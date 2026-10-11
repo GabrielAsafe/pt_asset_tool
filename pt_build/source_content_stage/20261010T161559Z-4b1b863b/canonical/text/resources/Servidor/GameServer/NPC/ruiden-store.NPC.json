@@ -1,0 +1,219 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ruiden_store",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ruiden-store.NPC",
+    "GameServer/NPC/ruiden-store.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ruiden-store.NPC",
+    "legacy_sha256": "d3c43d409ac0601bbe5ef3615436c7db69f0766b75d3bb0568c0f1d3e758f232",
+    "legacy_size": 673
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-005\\TN-005.ini",
+      "level": 100,
+      "name": "노상잡화점 루네",
+      "english_name": "Mr Lim",
+      "sell_weapon": "없음",
+      "sell_defence": {
+        "$repeated": [
+          "없음",
+          "없음"
+        ]
+      },
+      "sell_etc": [
+        "PL101",
+        "PL102",
+        "PL103",
+        "PS101",
+        "PS102",
+        "PS103",
+        "ec101",
+        "ec104",
+        "os101",
+        "os102",
+        "os103",
+        "os104"
+      ],
+      "linked_file": "name\\ruiden-store.zhoon",
+      "model_config_id": "model.char.npc.tn.005.tn.005"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-005\\TN-005.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030355c544e2d3030352e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 6,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "노상잡화점 루네"
+        ],
+        "raw_values_hex": [
+          "b3ebbbf3c0e2c8adc1a120b7e7b3d7"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mr Lim"
+        ],
+        "raw_values_hex": [
+          "4d72204c696d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 20,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 22,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 25,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "PL101",
+          "PL102",
+          "PL103",
+          "PS101",
+          "PS102",
+          "PS103",
+          "ec101",
+          "ec104",
+          "os101",
+          "os102",
+          "os103",
+          "os104"
+        ],
+        "raw_values_hex": [
+          "504c313031",
+          "504c313032",
+          "504c313033",
+          "5053313031",
+          "5053313032",
+          "5053313033",
+          "6563313031",
+          "6563313034",
+          "6f73313031",
+          "6f73313032",
+          "6f73313033",
+          "6f73313034"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ruiden-store.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c72756964656e2d73746f72652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDA1XFROLTAwNS5pbmkiDQoqt7m6pwkJCTEwMA0KDQoqwMy4pwkJCSKz67vzwOLIrcGhILfns9ciDQoqTmFtZQkJCSJNciBMaW0iDQoNCi8vKrTryK0JCQkisdnDs7+hvK0gubC+4MC7ILG4x9IgvPYgwNa0wiCw98C6IL+pseK708DUtM+02S4iDQovLyq068itCQkJIsDMsPfAuiDAp8fox9EgyLK5q8H2IMDUtM+02S4gu/247bz2tMIgssAgw6yw3LChwfaw7SC02bTPvLy/5CINCi8vKrTryK0JCQkiwPq1tSDAzLD3v6Egwaa067fOILXIILi2wLvAuyC8vL/sseIgwKfH2CC/rb3JyPcgwPrD4CDB38DUtM+02S4iDQovLyq068itCQkJIr7uvK0gv8C8vL/kILfnwMyz2SDA4sitwaHA1LTPtNkuILTZvufH0SC5sL7gtemw+iC/ocXXuKMgxNq+7rimIMPrsd7Hz7DtIMDWvcC0z7TZLiINCg0KDQoNCg0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCiq5q7Hixse4xQkJvvjAvQ0KDQoquea+7rG4xse4xQkJvvjAvQ0KKrnmvu6xuMbHuMUJCb74wL0NCg0KKsDiyK3Gx7jFCSAJUEwxMDEgUEwxMDIgUEwxMDMJUFMxMDEgUFMxMDIgUFMxMDMJZWMxMDEgZWMxMDQJb3MxMDEgb3MxMDIgb3MxMDMgb3MxMDQNCg0KKr+ssOHGxMDPCSJuYW1lXHJ1aWRlbi1zdG9yZS56aG9vbiINCg0KDQoNCg0KDQoNCg=="
+  }
+}

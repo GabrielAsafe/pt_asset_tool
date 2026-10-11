@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.007.tn.007",
+  "logical_config": "char/npc/TN-007/TN-007.INI",
+  "legacy_cache": "char/npc/TN-007/TN-007.inx",
+  "consumers": [
+    {
+      "id": "npc.ricarden_master",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ricarden-master.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-007/TN-007.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-007/TN-007.inx"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest70end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest70end.sin",
+    "image/Sinimage/Quest/LevelQuest70end.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest70end.sin",
+    "legacy_sha256": "1b46e996062c77fa45f3d4f3d77a2c7dc779d551c13f18d21b6eda4cc599d4bb",
+    "legacy_size": 265
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "You seem to be a young warrior that has just ",
+      "started to enter the Sanctuary, but your courage ",
+      "is much greater than you look.",
+      "",
+      "Now that you've done my favor, I will give you ",
+      "a reward in return. ",
+      "",
+      "Go back to your town and increase the ability ",
+      "you want. "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpZb3Ugc2VlbSB0byBiZSBhIHlvdW5nIHdhcnJpb3IgdGhhdCBoYXMganVzdCANCnN0YXJ0ZWQgdG8gZW50ZXIgdGhlIFNhbmN0dWFyeSwgYnV0IHlvdXIgY291cmFnZSANCmlzIG11Y2ggZ3JlYXRlciB0aGFuIHlvdSBsb29rLg0KDQpOb3cgdGhhdCB5b3UndmUgZG9uZSBteSBmYXZvciwgSSB3aWxsIGdpdmUgeW91IA0KYSByZXdhcmQgaW4gcmV0dXJuLiANCg0KR28gYmFjayB0byB5b3VyIHRvd24gYW5kIGluY3JlYXNlIHRoZSBhYmlsaXR5IA0KeW91IHdhbnQuIA=="
+  }
+}

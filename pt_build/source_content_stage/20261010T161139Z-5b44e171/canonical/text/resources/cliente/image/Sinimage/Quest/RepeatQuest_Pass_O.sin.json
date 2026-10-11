@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.repeatquest_pass_o",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/RepeatQuest_Pass_O.sin",
+    "image/Sinimage/Quest/RepeatQuest_Pass_O.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/RepeatQuest_Pass_O.sin",
+    "legacy_sha256": "5e2399e27df84724b293e51a699dd3b087c7eb5209f12b512d7d6f115ed641cd",
+    "legacy_size": 203
+  },
+  "semantic": {
+    "lines": [
+      "Huh Huh Huh! Are you done hunting the",
+      "monsters? You are earlier than I thought.",
+      "Go back after maintaining your stuff.",
+      "Ha Ha~ there are many monsters to kill,",
+      "but not enough time. Please, move fast."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SHVoIEh1aCBIdWghIEFyZSB5b3UgZG9uZSBodW50aW5nIHRoZQ0KbW9uc3RlcnM/IFlvdSBhcmUgZWFybGllciB0aGFuIEkgdGhvdWdodC4NCkdvIGJhY2sgYWZ0ZXIgbWFpbnRhaW5pbmcgeW91ciBzdHVmZi4NCkhhIEhhfiB0aGVyZSBhcmUgbWFueSBtb25zdGVycyB0byBraWxsLA0KYnV0IG5vdCBlbm91Z2ggdGltZS4gUGxlYXNlLCBtb3ZlIGZhc3QuDQo="
+  }
+}

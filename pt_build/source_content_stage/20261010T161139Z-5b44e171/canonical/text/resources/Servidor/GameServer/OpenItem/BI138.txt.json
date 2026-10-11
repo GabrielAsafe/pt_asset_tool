@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi138",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI138.txt",
+    "GameServer/OpenItem/BI138.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI138.txt",
+    "legacy_sha256": "85b41d826f421c6645381df9ccf2bcff1f093f00b7823134b32cefa83778d9e6",
+    "legacy_size": 198
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI138",
+      "name": "Mestre do Aging C",
+      "english_name": "Mestre do Aging C",
+      "weight": 1,
+      "price": 80000,
+      "linked_file": "Name\\BI138.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI138"
+        ],
+        "raw_values_hex": [
+          "4249313338"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mestre do Aging C"
+        ],
+        "raw_values_hex": [
+          "4d657374726520646f204167696e672043"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Mestre do Aging C"
+        ],
+        "raw_values_hex": [
+          "4d657374726520646f204167696e672043"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          80000
+        ],
+        "raw_values_hex": [
+          "3830303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI138.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493133382e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTM4Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiTWVzdHJlIGRvIEFnaW5nIEMiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiTWVzdHJlIGRvIEFnaW5nIEMiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vUHJpY2UNCiqwobDdIDgwMDAwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxMzguemhvb24i"
+  }
+}

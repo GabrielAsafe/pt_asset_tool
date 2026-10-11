@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_4_path",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_4_Path.sin",
+    "image/Sinimage/Quest/165LVQuest_4_Path.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_4_Path.sin",
+    "legacy_sha256": "f437f128d408cf0c6b5e82cd24d142dbc29e87f29aa0ec3fc9ff527a0800194c",
+    "legacy_size": 347
+  },
+  "semantic": {
+    "lines": [
+      "Você deve se apressar.",
+      "",
+      "Purifiquei as lâminas e criei essa Lâmina Purificada. Mas",
+      "a energia insana do Crios não foi eliminada completamente.",
+      "Ela foi suprimida, mas não por muito tempo.",
+      "",
+      "Por favor, o tempo é curto. ",
+      "Vá, antes que a energia maligna seja liberada novamente.",
+      "",
+      "Entregue a Lâmina Purificada para Salon, a Artesã, em ",
+      "Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBkZXZlIHNlIGFwcmVzc2FyLg0KDQpQdXJpZmlxdWVpIGFzIGzibWluYXMgZSBjcmllaSBlc3NhIEzibWluYSBQdXJpZmljYWRhLiBNYXMNCmEgZW5lcmdpYSBpbnNhbmEgZG8gQ3Jpb3MgbuNvIGZvaSBlbGltaW5hZGEgY29tcGxldGFtZW50ZS4NCkVsYSBmb2kgc3VwcmltaWRhLCBtYXMgbuNvIHBvciBtdWl0byB0ZW1wby4NCg0KUG9yIGZhdm9yLCBvIHRlbXBvIOkgY3VydG8uIA0KVuEsIGFudGVzIHF1ZSBhIGVuZXJnaWEgbWFsaWduYSBzZWphIGxpYmVyYWRhIG5vdmFtZW50ZS4NCg0KRW50cmVndWUgYSBM4m1pbmEgUHVyaWZpY2FkYSBwYXJhIFNhbG9uLCBhIEFydGVz4ywgZW0gDQpSaWNhcnRlbi4="
+  }
+}

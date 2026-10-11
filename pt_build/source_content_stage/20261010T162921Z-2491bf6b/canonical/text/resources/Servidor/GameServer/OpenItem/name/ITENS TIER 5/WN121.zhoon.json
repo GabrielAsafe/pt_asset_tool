@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wn121",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN121.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WN121.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WN121.zhoon",
+    "legacy_sha256": "510ee00455f77eea37b2b6f51a60f22b3d89c0291beae2b9e2313a8b1b338a1e",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Zebul Phantom"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XTjEyMS50eHQNCg0KKkpfTkFNRQkJIlplYnVsIFBoYW50b20iDQo="
+  }
+}

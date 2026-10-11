@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.123_arhdyra",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/123_Arhdyra.zhoon",
+    "GameServer/Monster/Name/123_Arhdyra.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/123_Arhdyra.zhoon",
+    "legacy_sha256": "807e6b82f763c52d8538bbcf30fb6d5a61e116a1e7fde8508ef54a047bfa4fa9",
+    "legacy_size": 40
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Arhdyra"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8xMjNfQXJoZHlyYS5pbmYNCg0KKkpfTkFNRSAiQXJoZHlyYSINCg=="
+  }
+}

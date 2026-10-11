@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.nevisco",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Nevisco.sin",
+    "image/Sinimage/WarpGateDoc/Nevisco.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Nevisco.sin",
+    "legacy_sha256": "4e339b973ad38f2a988b011cac9980ff787b388096c501cc154260823ec061e9",
+    "legacy_size": 472
+  },
+  "semantic": {
+    "lines": [
+      "The ruined city, Navisko is located in the center",
+      "of desert and is on the way to dungeons and temples.",
+      "A small number of civilians are now left ",
+      "and make their living by running shops and stores.",
+      "Recently SOD amphitheater has been founded to test",
+      "warriors' ablity and skills and thus Navisko becomes",
+      "rather happening place. ",
+      "",
+      "However, civilians of Navisko are spellbound by",
+      "evil spirit and turn into monsters every night.",
+      "It becomes condemned city at night. ",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "VGhlIHJ1aW5lZCBjaXR5LCBOYXZpc2tvIGlzIGxvY2F0ZWQgaW4gdGhlIGNlbnRlcg0Kb2YgZGVzZXJ0IGFuZCBpcyBvbiB0aGUgd2F5IHRvIGR1bmdlb25zIGFuZCB0ZW1wbGVzLg0KQSBzbWFsbCBudW1iZXIgb2YgY2l2aWxpYW5zIGFyZSBub3cgbGVmdCANCmFuZCBtYWtlIHRoZWlyIGxpdmluZyBieSBydW5uaW5nIHNob3BzIGFuZCBzdG9yZXMuDQpSZWNlbnRseSBTT0QgYW1waGl0aGVhdGVyIGhhcyBiZWVuIGZvdW5kZWQgdG8gdGVzdA0Kd2FycmlvcnMnIGFibGl0eSBhbmQgc2tpbGxzIGFuZCB0aHVzIE5hdmlza28gYmVjb21lcw0KcmF0aGVyIGhhcHBlbmluZyBwbGFjZS4gDQoNCkhvd2V2ZXIsIGNpdmlsaWFucyBvZiBOYXZpc2tvIGFyZSBzcGVsbGJvdW5kIGJ5DQpldmlsIHNwaXJpdCBhbmQgdHVybiBpbnRvIG1vbnN0ZXJzIGV2ZXJ5IG5pZ2h0Lg0KSXQgYmVjb21lcyBjb25kZW1uZWQgY2l0eSBhdCBuaWdodC4gDQoNCg=="
+  }
+}

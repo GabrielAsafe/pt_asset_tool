@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv113",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV113.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV113.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV113.zhoon",
+    "legacy_sha256": "c00c4df76a7822f923772744fb2275443d372ec5f15efabcba282435977c6411",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Fortia Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjExMy50eHQNCg0KKkpfTkFNRQkJIkZvcnRpYSBTbmFrZSBCcmFjZSINCg=="
+  }
+}

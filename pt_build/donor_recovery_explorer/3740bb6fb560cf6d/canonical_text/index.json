@@ -1,0 +1,16 @@
+{
+  "schema": "summit.canonical-text-index/v1",
+  "documents": [
+    {
+      "id": "monster.102_i_hound",
+      "kind": "monster_definition",
+      "legacy_path": "Servidor/GameServer/Monster/102_I_Hound.inf",
+      "json_path": "resources/Servidor/GameServer/Monster/102_I_Hound.inf.json",
+      "runtime_paths": [
+        "Servidor/GameServer/Monster/102_I_Hound.inf",
+        "GameServer/Monster/102_I_Hound.inf"
+      ],
+      "legacy_sha256": "9a96ffbf729fe921bcdfcfc359e6b2ae8a5c828958c760ca73550389510c6b5e"
+    }
+  ]
+}

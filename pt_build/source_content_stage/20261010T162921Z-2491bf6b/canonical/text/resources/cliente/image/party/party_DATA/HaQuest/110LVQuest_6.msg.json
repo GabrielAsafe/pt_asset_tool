@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_6",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/110LVQuest_6.msg",
+    "image/party/party_DATA/HaQuest/110LVQuest_6.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/110LVQuest_6.msg",
+    "legacy_sha256": "cd79846b6bdce324d8362dadec9651142ca44ec3739290121b56ed73133e5b35",
+    "legacy_size": 102
+  },
+  "semantic": {
+    "lines": [
+      "Derrote Tulla na Mina de Gelo",
+      "(1º Andar), pegue o Cristal ",
+      "Instável e leve para o Newter",
+      "em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBUdWxsYSBuYSBNaW5hIGRlIEdlbG8NCigxuiBBbmRhciksIHBlZ3VlIG8gQ3Jpc3RhbCANCkluc3ThdmVsIGUgbGV2ZSBwYXJhIG8gTmV3dGVyDQplbSBQaWxsYWku"
+  }
+}

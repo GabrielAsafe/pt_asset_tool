@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.uwc109_brutal_hand",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/_Uwc109_Brutal Hand.zhoon",
+    "GameServer/OpenItem/name/_Uwc109_Brutal Hand.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/_Uwc109_Brutal Hand.zhoon",
+    "legacy_sha256": "51f715721fd4d5787ecc45100bcae1346c4424ac3f800e3dda8a57d232379b50",
+    "legacy_size": 21
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Mão Brutal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTmFtZQkJIk3jbyBCcnV0YWwi"
+  }
+}

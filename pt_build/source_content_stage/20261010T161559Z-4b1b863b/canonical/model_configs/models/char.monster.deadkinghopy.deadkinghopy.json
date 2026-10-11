@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.deadkinghopy.deadkinghopy",
+  "logical_config": "char/monster/deadkinghopy/deadkinghopy.ini",
+  "legacy_cache": "char/monster/deadkinghopy/deadkinghopy.inx",
+  "consumers": [
+    {
+      "id": "monster.100_esqueleto_de_rei_hopi",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/100_Esqueleto de Rei Hopi.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Deadkinghopy/deadkinghopy.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Deadkinghopy/deadkinghopy.inx"
+    }
+  }
+}

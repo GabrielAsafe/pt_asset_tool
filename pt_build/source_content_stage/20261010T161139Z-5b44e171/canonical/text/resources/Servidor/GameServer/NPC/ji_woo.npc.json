@@ -1,0 +1,106 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ji_woo",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ji_woo.npc",
+    "GameServer/NPC/ji_woo.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ji_woo.npc",
+    "legacy_sha256": "6e9aa5532c8459d11ea0874e7b84bc6184596c2fbcb46826f4b21e6b2df6ea69",
+    "legacy_size": 505
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\ji_woo\\jiwoo.INI",
+      "english_name": "Abaranbo",
+      "class": 1014,
+      "linked_file": "name\\jiwoo.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\ji_woo\\jiwoo.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c6a695f776f6f5c6a69776f6f2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Abaranbo"
+        ],
+        "raw_values_hex": [
+          "41626172616e626f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1014
+        ],
+        "raw_values_hex": [
+          "31303134"
+        ]
+      },
+      {
+        "line": 15,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\jiwoo.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6a69776f6f2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcamlfd29vXGppd29vLklOSSINCi8vKsDMuKcJCQkitOvA5cDlwMwgsO21pyINCipOYW1lCQkJIkFiYXJhbmJvIg0KDQoqsOix3iAxMDE0DQoNCi8vKrTryK0JCQkiwMy5+L+hILv1t84gsLO+98fRILDttacgwNS0z7TZLiDA+sjxILChsNS/obyxIMPKsd7A5brxuKYgw+ux3sfPsO0gwNbAuLTPIL7VwLi3ziDA3yC6zsW5ILXluK6w2r3AtM+02S4iDQovLyq068itCQkJIsDaIMPKsd4gwPy757Xpv6Gw1CCywCDHyr/kx9EgwOW68bXpwMwgwdi68bXHvu4gwNa9wLTPtNkuIg0KLy8qtOvIrQkJCSKws773x9HB9iC+87i2ILXHwfYgvsq+0sH2uLggx7DB+sC6IMiuvcfH1bTPtNkuIMDawNogtdG3ryC6uLy8v+QiDQovLyq068itCQkJIrTnvcXAzCC/+MfPtMIgwOW68bChIL74tNm46SC02biuILDHs8rG7b+hIMDWtMIgtOvA5cDlwMwgsMW9urimIMOjvsawoSC6uLy8v+QuIg0KDQoNCiq/rLDhxsTAzwkibmFtZVxqaXdvby56aG9vbiINCg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquesthammer_gpass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuesthammer_Gpass.sin",
+    "image/Sinimage/Quest/haQuesthammer_Gpass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuesthammer_Gpass.sin",
+    "legacy_sha256": "d2f67d7f113873667bc8fb3bf81e65a19ca538ae630217584bcd7ea93cd5556c",
+    "legacy_size": 250
+  },
+  "semantic": {
+    "lines": [
+      "Os Bargons levaram o martelo de Ump para fora da cidade.",
+      "Se ele o recuperar, poderá voltar a consertar os equipamentos",
+      "dos combatentes.",
+      "",
+      "Continue procurando pelos Bargons que roubaram o martelo.",
+      "Eles podem estar em vários pontos do continente."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T3MgQmFyZ29ucyBsZXZhcmFtIG8gbWFydGVsbyBkZSBVbXAgcGFyYSBmb3JhIGRhIGNpZGFkZS4NClNlIGVsZSBvIHJlY3VwZXJhciwgcG9kZXLhIHZvbHRhciBhIGNvbnNlcnRhciBvcyBlcXVpcGFtZW50b3MNCmRvcyBjb21iYXRlbnRlcy4NCg0KQ29udGludWUgcHJvY3VyYW5kbyBwZWxvcyBCYXJnb25zIHF1ZSByb3ViYXJhbSBvIG1hcnRlbG8uDQpFbGVzIHBvZGVtIGVzdGFyIGVtIHbhcmlvcyBwb250b3MgZG8gY29udGluZW50ZS4NCg=="
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.31_h_decoy",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/_31_H_Decoy.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/_31_H_Decoy.inf.json",
+      "sha256": "a47dac96ba846a4de783c9150da9156b8f206327da08f918f497adbac988ea05"
+    }
+  ]
+}

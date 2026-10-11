@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.140lvquest_6_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/140LVQuest_6_End.sin",
+    "image/Sinimage/Quest/140LVQuest_6_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/140LVQuest_6_End.sin",
+    "legacy_sha256": "e7af25147ff1aa87e1f2b98e48560158ad67620f329a7ef71bff62690aebf002",
+    "legacy_size": 818
+  },
+  "semantic": {
+    "lines": [
+      "Encontramos o laboratório de Yagditha sob os destroços da",
+      "fortaleza. Mas ele surgiu subitamente, matando Deykoon e",
+      "convocando suas hordas de espectros. As tropas de Yagditha",
+      "não possuídas, juraram lealdade à Zarad e se uniram aos",
+      "pristonianos. Graças ao canto de Marina, entrei com Diana",
+      "na mente de Yagditha por pouco tempo e a entidade se revela",
+      "sendo Vomori. Após um intenso combate, usei a Benção de",
+      "Idhas para revigorar os aliados. A flecha de Arteres abriu",
+      "caminho e entrei novamente na mente de Yagditha e expulsei",
+      "Vomori com a Jóia da Vida e o prendi na Prisão Mágica.",
+      "O Tridente Lendário surgiu para Zarad, que venceu Yagditha.",
+      "Fico feliz que, finalmente, os Shogoth foram vingados.",
+      "Ainda precisarei de sua ajuda, volte daqui a pouco.",
+      "",
+      "Receba 5 pontos de status, como recompensa por seu esforço."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RW5jb250cmFtb3MgbyBsYWJvcmF083JpbyBkZSBZYWdkaXRoYSBzb2Igb3MgZGVzdHJv529zIGRhDQpmb3J0YWxlemEuIE1hcyBlbGUgc3VyZ2l1IHN1Yml0YW1lbnRlLCBtYXRhbmRvIERleWtvb24gZQ0KY29udm9jYW5kbyBzdWFzIGhvcmRhcyBkZSBlc3BlY3Ryb3MuIEFzIHRyb3BhcyBkZSBZYWdkaXRoYQ0KbuNvIHBvc3N17WRhcywganVyYXJhbSBsZWFsZGFkZSDgoFphcmFkIGUgc2UgdW5pcmFtIGFvcw0KcHJpc3Rvbmlhbm9zLiBHcmHnYXMgYW8gY2FudG8gZGUgTWFyaW5hLCBlbnRyZWkgY29tIERpYW5hDQpuYSBtZW50ZSBkZSBZYWdkaXRoYSBwb3IgcG91Y28gdGVtcG8gZSBhIGVudGlkYWRlIHNlIHJldmVsYQ0Kc2VuZG8gVm9tb3JpLiBBcPNzIHVtIGludGVuc28gY29tYmF0ZSwgdXNlaSBhIEJlbufjbyBkZQ0KSWRoYXMgcGFyYSByZXZpZ29yYXIgb3MgYWxpYWRvcy4gQSBmbGVjaGEgZGUgQXJ0ZXJlcyBhYnJpdQ0KY2FtaW5obyBlIGVudHJlaSBub3ZhbWVudGUgbmEgbWVudGUgZGUgWWFnZGl0aGEgZSBleHB1bHNlaQ0KVm9tb3JpIGNvbSBhIErzaWEgZGEgVmlkYSBlIG8gcHJlbmRpIG5hIFByaXPjbyBN4WdpY2EuDQpPIFRyaWRlbnRlIExlbmThcmlvIHN1cmdpdSBwYXJhIFphcmFkLCBxdWUgdmVuY2V1IFlhZ2RpdGhhLg0KRmljbyBmZWxpeiBxdWUsIGZpbmFsbWVudGUsIG9zIFNob2dvdGggZm9yYW0gdmluZ2Fkb3MuDQpBaW5kYSBwcmVjaXNhcmVpIGRlIHN1YSBhanVkYSwgdm9sdGUgZGFxdWkgYSBwb3Vjby4NCg0KUmVjZWJhIDUgcG9udG9zIGRlIHN0YXR1cywgY29tbyByZWNvbXBlbnNhIHBvciBzZXUgZXNmb3Lnby4="
+  }
+}

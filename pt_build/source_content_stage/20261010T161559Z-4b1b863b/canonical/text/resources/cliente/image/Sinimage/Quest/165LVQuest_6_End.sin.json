@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_6_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_6_End.sin",
+    "image/Sinimage/Quest/165LVQuest_6_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_6_End.sin",
+    "legacy_sha256": "d4a9d592f26e7552f8f2a11957a8503f35cce6b7c1b285ab8048f41a1f096ef0",
+    "legacy_size": 594
+  },
+  "semantic": {
+    "lines": [
+      "Incrível, os tentáculos estão queimando. ",
+      "",
+      "Recebi informações que as tropas pristonianas, lideradas",
+      "pelos nossos Líderes de Esquadrão, estão cara a cara com",
+      "Midranda. Enquanto as hordas de Midranda, fortalecida pelos",
+      "experimentos perdidos que ele obteve do laboratório de",
+      "Yagditha, estão sendo combatidas pelo exército tritão",
+      "de Zarad na área externa do Santuário do Abismo.",
+      "",
+      "Usarei a Chama Ancestral para despertar o poder máximo",
+      "o Incensário Mágico com a essência dos tentáculos.",
+      "",
+      "Por favor, enquanto isso, prepare seus suprimentos.",
+      "",
+      "Volte aqui, quando estiver com tudo pronto. "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SW5jcu12ZWwsIG9zIHRlbnThY3Vsb3MgZXN0428gcXVlaW1hbmRvLiANCg0KUmVjZWJpIGluZm9ybWHn9WVzIHF1ZSBhcyB0cm9wYXMgcHJpc3RvbmlhbmFzLCBsaWRlcmFkYXMNCnBlbG9zIG5vc3NvcyBM7WRlcmVzIGRlIEVzcXVhZHLjbywgZXN0428gY2FyYSBhIGNhcmEgY29tDQpNaWRyYW5kYS4gRW5xdWFudG8gYXMgaG9yZGFzIGRlIE1pZHJhbmRhLCBmb3J0YWxlY2lkYSBwZWxvcw0KZXhwZXJpbWVudG9zIHBlcmRpZG9zIHF1ZSBlbGUgb2J0ZXZlIGRvIGxhYm9yYXTzcmlvIGRlDQpZYWdkaXRoYSwgZXN0428gc2VuZG8gY29tYmF0aWRhcyBwZWxvIGV46XJjaXRvIHRyaXTjbw0KZGUgWmFyYWQgbmEg4XJlYSBleHRlcm5hIGRvIFNhbnR14XJpbyBkbyBBYmlzbW8uDQoNClVzYXJlaSBhIENoYW1hIEFuY2VzdHJhbCBwYXJhIGRlc3BlcnRhciBvIHBvZGVyIG3heGltbw0KbyBJbmNlbnPhcmlvIE3hZ2ljbyBjb20gYSBlc3PqbmNpYSBkb3MgdGVudOFjdWxvcy4NCg0KUG9yIGZhdm9yLCBlbnF1YW50byBpc3NvLCBwcmVwYXJlIHNldXMgc3VwcmltZW50b3MuDQoNClZvbHRlIGFxdWksIHF1YW5kbyBlc3RpdmVyIGNvbSB0dWRvIHByb250by4g"
+  }
+}

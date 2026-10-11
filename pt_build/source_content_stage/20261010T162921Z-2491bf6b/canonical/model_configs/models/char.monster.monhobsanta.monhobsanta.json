@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monhobsanta.monhobsanta",
+  "logical_config": "char/monster/Monhobsanta/Monhobsanta.INI",
+  "legacy_cache": "char/monster/Monhobsanta/Monhobsanta.inx",
+  "consumers": [
+    {
+      "id": "monster.evento_1_duende_noel",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Evento_1_Duende Noel.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monhobsanta/Monhobsanta.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monhobsanta/Monhobsanta.inx"
+    }
+  }
+}

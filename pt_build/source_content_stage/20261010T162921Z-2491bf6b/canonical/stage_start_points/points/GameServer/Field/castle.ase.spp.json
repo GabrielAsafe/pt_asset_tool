@@ -1,0 +1,126 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.castle",
+  "logical_path": "GameServer/Field/castle.ase.spp",
+  "points": [
+    {
+      "slot": 2,
+      "state": 1,
+      "x": 35963,
+      "z": -29541
+    },
+    {
+      "slot": 4,
+      "state": 1,
+      "x": 35923,
+      "z": -29624
+    },
+    {
+      "slot": 5,
+      "state": 1,
+      "x": 35922,
+      "z": -29694
+    },
+    {
+      "slot": 6,
+      "state": 1,
+      "x": 35966,
+      "z": -29741
+    },
+    {
+      "slot": 7,
+      "state": 1,
+      "x": 36008,
+      "z": -29752
+    },
+    {
+      "slot": 8,
+      "state": 1,
+      "x": 36050,
+      "z": -29745
+    },
+    {
+      "slot": 9,
+      "state": 1,
+      "x": 36076,
+      "z": -29733
+    },
+    {
+      "slot": 10,
+      "state": 1,
+      "x": 36103,
+      "z": -29715
+    },
+    {
+      "slot": 11,
+      "state": 1,
+      "x": 36122,
+      "z": -29694
+    },
+    {
+      "slot": 31,
+      "state": 1,
+      "x": 34513,
+      "z": -29781
+    },
+    {
+      "slot": 32,
+      "state": 1,
+      "x": 34524,
+      "z": -29744
+    },
+    {
+      "slot": 33,
+      "state": 1,
+      "x": 34493,
+      "z": -29718
+    },
+    {
+      "slot": 34,
+      "state": 1,
+      "x": 34449,
+      "z": -29720
+    },
+    {
+      "slot": 35,
+      "state": 1,
+      "x": 34428,
+      "z": -29758
+    },
+    {
+      "slot": 36,
+      "state": 1,
+      "x": 34426,
+      "z": -29801
+    },
+    {
+      "slot": 37,
+      "state": 1,
+      "x": 34450,
+      "z": -29833
+    },
+    {
+      "slot": 38,
+      "state": 1,
+      "x": 34549,
+      "z": -29856
+    },
+    {
+      "slot": 39,
+      "state": 1,
+      "x": 35847,
+      "z": -29906
+    },
+    {
+      "slot": 40,
+      "state": 1,
+      "x": 35901,
+      "z": -29933
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/castle.ase.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "e78cf0a4b868237bc8a717c2b471bf4ff9245c2e3f142b18bdeb684c2d474359"
+  }
+}

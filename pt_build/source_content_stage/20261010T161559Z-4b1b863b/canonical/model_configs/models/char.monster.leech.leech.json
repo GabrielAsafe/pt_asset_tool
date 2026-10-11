@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.leech.leech",
+  "logical_config": "char/monster/leech/leech.ini",
+  "legacy_cache": "char/monster/leech/leech.inx",
+  "consumers": [
+    {
+      "id": "monster.30_parasita",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/30_Parasita.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/leech/leech.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/leech/leech.inx"
+    }
+  }
+}

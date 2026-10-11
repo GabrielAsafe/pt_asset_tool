@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.32_arqueiro_do_mal",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/32_Arqueiro do Mal.zhoon",
+    "GameServer/Monster/Name/32_Arqueiro do Mal.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/32_Arqueiro do Mal.zhoon",
+    "legacy_sha256": "9a9e7a9d4b19b2f1c24648789d7922cdc884f0bf83349965750555650763b503",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Arqueiro do Mal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJxdWVpcm8gZG8gTWFsIg=="
+  }
+}

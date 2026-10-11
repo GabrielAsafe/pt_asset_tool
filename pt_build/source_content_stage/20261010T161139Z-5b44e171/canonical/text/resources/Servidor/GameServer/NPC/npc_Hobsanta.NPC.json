@@ -1,0 +1,162 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.npc_hobsanta",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/npc_Hobsanta.NPC",
+    "GameServer/NPC/npc_Hobsanta.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/npc_Hobsanta.NPC",
+    "legacy_sha256": "286c4f61299ef9f31cf225159ae4543ad49204f062ffb8ae1a4ea57ded6f44ab",
+    "legacy_size": 472
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\hobsanta\\hobsanta.ini",
+      "name": "산타고블린",
+      "quest_event": 6,
+      "dialog": {
+        "$repeated": [
+          "크리스마스가 다가오는 이때에 자네는 어찌 혼자 다니는가!",
+          "선물을 나눠주고 안 나눠주고는 내 마음이야!",
+          "루돌프의 코를 한번 보라고... 더이상 빛이 나질 않아."
+        ]
+      },
+      "linked_file": "name\\hobsanta.zhoon",
+      "model_config_id": "model.char.npc.hobsanta.hobsanta"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\hobsanta\\hobsanta.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c686f6273616e74615c686f6273616e74612e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "산타고블린"
+        ],
+        "raw_values_hex": [
+          "bbeac5b8b0edbaedb8b0"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 7,
+        "key": "quest_event",
+        "legacy_token": "*퀘스트이벤트",
+        "legacy_token_hex": "2ac4f9bdbac6aec0ccbaa5c6ae",
+        "loader_status": "supported_mapped",
+        "values": [
+          6
+        ],
+        "raw_values_hex": [
+          "36"
+        ]
+      },
+      {
+        "line": 9,
+        "key": "dialog",
+        "legacy_token": "*대화",
+        "legacy_token_hex": "2ab4ebc8ad",
+        "loader_status": "supported_mapped",
+        "values": [
+          "크리스마스가 다가오는 이때에 자네는 어찌 혼자 다니는가!"
+        ],
+        "raw_values_hex": [
+          "c5a9b8aebdbab8b6bdbab0a120b4d9b0a1bfc0b4c220c0ccb6a7bfa120c0dab3d7b4c220beeec2ee20c8a5c0da20b4d9b4cfb4c2b0a121"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 10,
+        "key": "dialog",
+        "legacy_token": "*대화",
+        "legacy_token_hex": "2ab4ebc8ad",
+        "loader_status": "supported_mapped",
+        "values": [
+          "선물을 나눠주고 안 나눠주고는 내 마음이야!"
+        ],
+        "raw_values_hex": [
+          "bcb1b9b0c0bb20b3aab4b2c1d6b0ed20bec820b3aab4b2c1d6b0edb4c220b3bb20b8b6c0bdc0ccbedf21"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "dialog",
+        "legacy_token": "*대화",
+        "legacy_token_hex": "2ab4ebc8ad",
+        "loader_status": "supported_mapped",
+        "values": [
+          "루돌프의 코를 한번 보라고... 더이상 빛이 나질 않아."
+        ],
+        "raw_values_hex": [
+          "b7e7b5b9c7c1c0c720c4dab8a620c7d1b9f820bab8b6f3b0ed2e2e2e20b4f5c0ccbbf320bafbc0cc20b3aac1fa20becabec62e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 18,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\hobsanta.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c686f6273616e74612e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcaG9ic2FudGFcaG9ic2FudGEuaW5pIg0KDQoqwMy4pwkJCSK76sW4sO267biwIg0KDQoqxPm9usauwMy6pcauCQk2DQoNCiq068itCQkJIsWpuK69uri2vbqwoSC02bChv8C0wiDAzLanv6EgwNqz17TCIL7uwu4gyKXA2iC02bTPtMKwoSEiDQoqtOvIrSAgICAgICAgICAgICAgICAgICAivLG5sMC7ILOqtLLB1rDtIL7IILOqtLLB1rDttMIgs7sguLbAvcDMvt8hIg0KKrTryK0gICAgICAgICAgICAgICAgICAgIrfntbnHwcDHIMTauKYgx9G5+CC6uLbzsO0uLi4gtPXAzLvzILr7wMwgs6rB+iC+yr7GLiINCg0KLy+48726xc24piC757PJx8+46SC3o7T9IMfPsNQgteW2+LXHtMINCrOqwM4sIMXXwM8gvsa5xLe/wLsgx8G3ucDMvsZOUEO/obDUDQqwocGutNkgwdbA2i4NCg0KDQoqv6yw4cbEwM8JIm5hbWVcaG9ic2FudGEuemhvb24iDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.r2_cavaleiro_fantasma",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/R2 Cavaleiro Fantasma.zhoon",
+    "GameServer/Monster/Name/R2 Cavaleiro Fantasma.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/R2 Cavaleiro Fantasma.zhoon",
+    "legacy_sha256": "597d557124c2b9131171802fcaf4a6dbdcf48a0985cbdd8d31524782c8e6d2a8",
+    "legacy_size": 31
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "R2 Cavaleiro Fantasma"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUjIgQ2F2YWxlaXJvIEZhbnRhc21hIg=="
+  }
+}

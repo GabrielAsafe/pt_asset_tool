@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.bcn03.bcn03",
+  "logical_config": "char/npc/Bcn03/Bcn03.INI",
+  "legacy_cache": "char/npc/Bcn03/Bcn03.inx",
+  "consumers": [
+    {
+      "id": "npc.bcn03",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Bcn03.npc.json"
+    },
+    {
+      "id": "npc.loja_de_pedras",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Loja de Pedras.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Bcn03/Bcn03.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Bcn03/Bcn03.inx"
+    }
+  }
+}

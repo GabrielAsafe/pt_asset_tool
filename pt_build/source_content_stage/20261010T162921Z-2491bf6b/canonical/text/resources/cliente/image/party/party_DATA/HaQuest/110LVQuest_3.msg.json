@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.110lvquest_3",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/110LVQuest_3.msg",
+    "image/party/party_DATA/HaQuest/110LVQuest_3.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/110LVQuest_3.msg",
+    "legacy_sha256": "72bbc3844b24f41a1c014a0d18e20f5bfd990fece03a49ef8d4a8496c95f3cd8",
+    "legacy_size": 65
+  },
+  "semantic": {
+    "lines": [
+      "Leve o relatório de Salon ",
+      "para o Comandante Derik em",
+      "Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV2ZSBvIHJlbGF083JpbyBkZSBTYWxvbiANCnBhcmEgbyBDb21hbmRhbnRlIERlcmlrIGVtDQpSaWNhcnRlbi4="
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "summit.localization-report/v1",
+  "keys": 3770,
+  "english_keys": 3770,
+  "locales": {
+    "en": 3770,
+    "pt-BR": 3770,
+    "zh-TW": 18,
+    "ko": 285
+  },
+  "bindings": 2484,
+  "fallbacks": {
+    "english_name_fallbacks": 645,
+    "english_chat_fallbacks": 434,
+    "english_standalone_fallbacks": 791,
+    "pt_br_canonical_overrides": 3770
+  },
+  "missing_english_fallback": 0
+}

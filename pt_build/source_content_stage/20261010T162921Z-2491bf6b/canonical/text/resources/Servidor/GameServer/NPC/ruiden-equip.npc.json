@@ -1,0 +1,254 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ruiden_equip",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ruiden-equip.npc",
+    "GameServer/NPC/ruiden-equip.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ruiden-equip.npc",
+    "legacy_sha256": "2c7450f6d44540854dbcf2280961bf5bd59b2d5b7d7d4a36d436166c63ae0b38",
+    "legacy_size": 743
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-004\\TN-004.ini",
+      "name": "대장장이 루가",
+      "english_name": "Luga",
+      "class": 1021,
+      "sell_weapon": [
+        "ws105",
+        "ws106",
+        "ws107",
+        "ws206",
+        "ws207",
+        "wa104",
+        "wa105",
+        "wa106",
+        "wh105",
+        "wh106",
+        "wh107",
+        "wc104",
+        "wc105",
+        "wc106",
+        "wp105",
+        "wp106",
+        "wp107",
+        "wt105",
+        "wt106",
+        "wt107"
+      ],
+      "sell_defence": [
+        "DA106",
+        "DA107",
+        "DB105",
+        "DB106",
+        "DG105",
+        "DG106",
+        "DS105",
+        "DS106",
+        "OA205",
+        "OA206"
+      ],
+      "sell_etc": "없음",
+      "linked_file": "name\\ruiden-equip.zhoon",
+      "model_config_id": "model.char.npc.tn.004.tn.004"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-004\\TN-004.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030345c544e2d3030342e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "대장장이 루가"
+        ],
+        "raw_values_hex": [
+          "b4ebc0e5c0e5c0cc20b7e7b0a1"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Luga"
+        ],
+        "raw_values_hex": [
+          "4c756761"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1021
+        ],
+        "raw_values_hex": [
+          "31303231"
+        ]
+      },
+      {
+        "line": 19,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "ws105",
+          "ws106",
+          "ws107",
+          "ws206",
+          "ws207",
+          "wa104",
+          "wa105",
+          "wa106",
+          "wh105",
+          "wh106",
+          "wh107",
+          "wc104",
+          "wc105",
+          "wc106",
+          "wp105",
+          "wp106",
+          "wp107",
+          "wt105",
+          "wt106",
+          "wt107"
+        ],
+        "raw_values_hex": [
+          "7773313035",
+          "7773313036",
+          "7773313037",
+          "7773323036",
+          "7773323037",
+          "7761313034",
+          "7761313035",
+          "7761313036",
+          "7768313035",
+          "7768313036",
+          "7768313037",
+          "7763313034",
+          "7763313035",
+          "7763313036",
+          "7770313035",
+          "7770313036",
+          "7770313037",
+          "7774313035",
+          "7774313036",
+          "7774313037"
+        ]
+      },
+      {
+        "line": 21,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "DA106",
+          "DA107",
+          "DB105",
+          "DB106",
+          "DG105",
+          "DG106",
+          "DS105",
+          "DS106",
+          "OA205",
+          "OA206"
+        ],
+        "raw_values_hex": [
+          "4441313036",
+          "4441313037",
+          "4442313035",
+          "4442313036",
+          "4447313035",
+          "4447313036",
+          "4453313035",
+          "4453313036",
+          "4f41323035",
+          "4f41323036"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 25,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ruiden-equip.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c72756964656e2d65717569702e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDA0XFROLTAwNC5pbmkiDQoNCirAzLinCQkJIrTrwOXA5cDMILfnsKEiDQoqTmFtZQkJCSJMdWdhIg0KDQoqsOix3iAxMDIxDQovLyq068itCQkJIrjTILTrtNzH0SCwzbXpwLogvsa0z8H2uLggsde3sMD6t7AgvrW4uMfSILDUv+QiDQovLyq068itCQkJIsXbvbrFqbfQsPoguPC288DMv8IguPC1ziC757/rx9IgvPYgwNa0wiC02b7nx9EgwOW68bXpwMwgwNbAuLTPILXRt6+6uLDtILChvbQiDQovLyq068itCQkJIrHXt7K9zsfRILjwvcDAuiC+xrTPwfa4uCCzqrintOu3ziC+tbi4x9EgwOW68bXpwLsgxse4xcfPsO0gwNa89iINCi8vKrTryK0JCQkiwbax3b6/ILW3wLsguPC+xiC+8MGosKEgwMyw97+hvK0gxasguLbAu8C7ILi4tem+7iC6vCDC/MDMv8AiDQoNCg0KDQoNCi8vxse4xSC5q7Hit/ksILnmvu6xuCwgwOLIrSC3+bChIMbHuMW1yiwNCg0KKrmrseLGx7jFCXdzMTA1IHdzMTA2IHdzMTA3CXdzMjA2IHdzMjA3CXdhMTA0IHdhMTA1IHdhMTA2CXdoMTA1IHdoMTA2IHdoMTA3CXdjMTA0IHdjMTA1IHdjMTA2CXdwMTA1IHdwMTA2IHdwMTA3CXd0MTA1IHd0MTA2IHd0MTA3DQoNCiq55r7usbjGx7jFCURBMTA2IERBMTA3CQlEQjEwNSBEQjEwNglERzEwNSBERzEwNgkJRFMxMDUgRFMxMDYJCU9BMjA1IE9BMjA2DQoNCirA4sitxse4xQm++MC9DQoNCiq/rLDhxsTAzwkibmFtZVxydWlkZW4tZXF1aXAuemhvb24iDQoNCg0KDQoNCg0KDQo="
+  }
+}

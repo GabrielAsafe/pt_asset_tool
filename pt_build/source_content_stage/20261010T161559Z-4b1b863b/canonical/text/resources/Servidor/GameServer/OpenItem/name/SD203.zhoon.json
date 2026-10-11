@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.sd203",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/SD203.zhoon",
+    "GameServer/OpenItem/name/SD203.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/SD203.zhoon",
+    "legacy_sha256": "5a80c232e2143d5ef31aa5bfc982936c16b075af0fb24b462abb52d8931e5e3d",
+    "legacy_size": 48
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Freeze Seal"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9TRDIwMy50eHQNCg0KKkpfTmFtZSAgICAgICAgICAgIkZyZWV6ZSBTZWFsIg0K"
+  }
+}

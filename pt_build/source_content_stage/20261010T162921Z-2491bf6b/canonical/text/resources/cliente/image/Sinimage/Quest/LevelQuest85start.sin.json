@@ -1,0 +1,38 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.levelquest85start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/LevelQuest85start.sin",
+    "image/Sinimage/Quest/LevelQuest85start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/LevelQuest85start.sin",
+    "legacy_sha256": "4311af0771af0d9c05e477c98b35bf53e037c96ead321d915aabe152e51312f8",
+    "legacy_size": 529
+  },
+  "semantic": {
+    "lines": [
+      "You came here because of a rumor.",
+      "Egolranos will attack us in the future.",
+      "Chaliar with live or death has been providing some ",
+      "ways to resolve the problem. Get it, this is called",
+      "a 'Chaliar's Tear' which is a seal of her with live",
+      "or death. If you overcome my test, you must be used ",
+      "the item as you want.",
+      "",
+      "My test is to hunt 10 grotesques.",
+      "",
+      "Please be careful! If you die, and the item will be ",
+      "disappeared, and if you do that come to me again.",
+      "I hope you succeed in the quest, and good luck with",
+      "Caliar's Blessing."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "WW91IGNhbWUgaGVyZSBiZWNhdXNlIG9mIGEgcnVtb3IuDQpFZ29scmFub3Mgd2lsbCBhdHRhY2sgdXMgaW4gdGhlIGZ1dHVyZS4NCkNoYWxpYXIgd2l0aCBsaXZlIG9yIGRlYXRoIGhhcyBiZWVuIHByb3ZpZGluZyBzb21lIA0Kd2F5cyB0byByZXNvbHZlIHRoZSBwcm9ibGVtLiBHZXQgaXQsIHRoaXMgaXMgY2FsbGVkDQphICdDaGFsaWFyJ3MgVGVhcicgd2hpY2ggaXMgYSBzZWFsIG9mIGhlciB3aXRoIGxpdmUNCm9yIGRlYXRoLiBJZiB5b3Ugb3ZlcmNvbWUgbXkgdGVzdCwgeW91IG11c3QgYmUgdXNlZCANCnRoZSBpdGVtIGFzIHlvdSB3YW50Lg0KDQpNeSB0ZXN0IGlzIHRvIGh1bnQgMTAgZ3JvdGVzcXVlcy4NCg0KUGxlYXNlIGJlIGNhcmVmdWwhIElmIHlvdSBkaWUsIGFuZCB0aGUgaXRlbSB3aWxsIGJlIA0KZGlzYXBwZWFyZWQsIGFuZCBpZiB5b3UgZG8gdGhhdCBjb21lIHRvIG1lIGFnYWluLg0KSSBob3BlIHlvdSBzdWNjZWVkIGluIHRoZSBxdWVzdCwgYW5kIGdvb2QgbHVjayB3aXRoDQpDYWxpYXIncyBCbGVzc2luZy4NCg=="
+  }
+}

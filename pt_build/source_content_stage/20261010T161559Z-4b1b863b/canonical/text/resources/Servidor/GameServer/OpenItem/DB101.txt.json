@@ -1,0 +1,331 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.db101",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DB101.txt",
+    "GameServer/OpenItem/DB101.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DB101.txt",
+    "legacy_sha256": "97781c288fc6085ecc8b0963dac25f9b73b22a56850414129e09a4fe2810d10f",
+    "legacy_size": 560
+  },
+  "semantic": {
+    "fields": {
+      "code": "DB101",
+      "name": "Botas",
+      "english_name": "Botas",
+      "defence": [
+        4,
+        8
+      ],
+      "absorb": [
+        0.1,
+        0.2
+      ],
+      "move_speed": [
+        0.4,
+        0.6
+      ],
+      "bionic": [
+        1,
+        2
+      ],
+      "ice": [
+        1,
+        2
+      ],
+      "poison": [
+        1,
+        2
+      ],
+      "durability": [
+        22,
+        30
+      ],
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_absorb": [
+        0.1,
+        0.2
+      ],
+      "special_move_speed": [
+        0.1,
+        0
+      ],
+      "weight": 2,
+      "price": 110,
+      "linked_file": "Name\\DB101.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DB101"
+        ],
+        "raw_values_hex": [
+          "4442313031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Botas"
+        ],
+        "raw_values_hex": [
+          "426f746173"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Botas"
+        ],
+        "raw_values_hex": [
+          "426f746173"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          4,
+          8
+        ],
+        "raw_values_hex": [
+          "34",
+          "38"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.1,
+          0.2
+        ],
+        "raw_values_hex": [
+          "302e31",
+          "302e32"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "move_speed",
+        "legacy_token": "*이동속도",
+        "legacy_token_hex": "2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.4,
+          0.6
+        ],
+        "raw_values_hex": [
+          "302e34",
+          "302e36"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          2
+        ],
+        "raw_values_hex": [
+          "31",
+          "32"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          22,
+          30
+        ],
+        "raw_values_hex": [
+          "3232",
+          "3330"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.1,
+          0.2
+        ],
+        "raw_values_hex": [
+          "302e31",
+          "302e32"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "special_move_speed",
+        "legacy_token": "**이동속도",
+        "legacy_token_hex": "2a2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.1,
+          0
+        ],
+        "raw_values_hex": [
+          "302e31",
+          "30"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          110
+        ],
+        "raw_values_hex": [
+          "313130"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DB101.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44423130312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRCMTAxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQm90YXMiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQm90YXMiDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA0IDgNCg0KLy9BYnNvcnB0aW9uDQoqyO289rfCIDAuMSAwLjINCg0KLy9TcGVlZA0KKsDMtb+807W1IDAuNCAwLjYNCg0KLy9PcmdhbmljUmVzaXN0YW5jZQ0KKrv9w7wgMSAyDQoNCi8vRnJvc3RSZXNpc3RhbmNlDQoqs8Ox4iAxIDINCg0KLy9Qb2lzb25SZXNpc3RhbmNlDQoqtbYgMSAyDQoNCi8vSW50ZWdyaXR5DQoqs7uxuLfCIDIyIDMwDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBNZWNoYW5pY2lhbiBGaWdodGVyIFBpa2VtYW4gQXJjaGVyIEtuaWdodCBBdGFsYW50YSBQcmllc3Rlc3MgTWFnaWNpYW4NCg0KLy9TcGVjQWJzb3JwdGlvbg0KKirI7bz2t8IgMC4xIDAuMg0KDQovL1NwZWNTcGVlZA0KKirAzLW/vNO1tSAwLjEgMA0KDQovL1dlaWdodA0KKrmrsNQgMg0KDQovL1ByaWNlDQoqsKGw3SAxMTANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxEQjEwMS56aG9vbiI="
+  }
+}

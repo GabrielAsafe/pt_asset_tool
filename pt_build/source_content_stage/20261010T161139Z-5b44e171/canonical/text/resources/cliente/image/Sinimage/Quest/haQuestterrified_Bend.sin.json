@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestterrified_bend",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestterrified_Bend.sin",
+    "image/Sinimage/Quest/haQuestterrified_Bend.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestterrified_Bend.sin",
+    "legacy_sha256": "8a312cfe52fc9819ac38b3892b360c36d302b8b43fb13b8d9b182facdc9a67bf",
+    "legacy_size": 419
+  },
+  "semantic": {
+    "lines": [
+      "Você se saiu muito bem na caçada. Já consegue sentir",
+      "que está ficando mais forte? Como recompensa pelo seu",
+      "sucesso, vou lhe dar uma braçadeira.",
+      "",
+      "A braçadeira possui espaços para guardar poções e permite",
+      "usá-las com facilidade durante a batalha. Ela também",
+      "melhora sua defesa e ajuda a reduzir o risco em combate.",
+      "Esta é uma braçadeira especial, ainda mais resistente.",
+      "",
+      "Continue sua aventura e siga treinando."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBzZSBzYWl1IG11aXRvIGJlbSBuYSBjYedhZGEuIErhIGNvbnNlZ3VlIHNlbnRpcg0KcXVlIGVzdOEgZmljYW5kbyBtYWlzIGZvcnRlPyBDb21vIHJlY29tcGVuc2EgcGVsbyBzZXUNCnN1Y2Vzc28sIHZvdSBsaGUgZGFyIHVtYSBicmHnYWRlaXJhLg0KDQpBIGJyYedhZGVpcmEgcG9zc3VpIGVzcGHnb3MgcGFyYSBndWFyZGFyIHBv5/VlcyBlIHBlcm1pdGUNCnVz4S1sYXMgY29tIGZhY2lsaWRhZGUgZHVyYW50ZSBhIGJhdGFsaGEuIEVsYSB0YW1i6W0NCm1lbGhvcmEgc3VhIGRlZmVzYSBlIGFqdWRhIGEgcmVkdXppciBvIHJpc2NvIGVtIGNvbWJhdGUuDQpFc3RhIOkgdW1hIGJyYedhZGVpcmEgZXNwZWNpYWwsIGFpbmRhIG1haXMgcmVzaXN0ZW50ZS4NCg0KQ29udGludWUgc3VhIGF2ZW50dXJhIGUgc2lnYSB0cmVpbmFuZG8uDQo="
+  }
+}

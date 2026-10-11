@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_w3_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/Quest3/ChangeJob3-W3-2.msg",
+    "image/party/party_DATA/Quest3/ChangeJob3-W3-2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/Quest3/ChangeJob3-W3-2.msg",
+    "legacy_sha256": "d8a172d7e43146159c82b4677444a4f02daad9984068fc6a2bf3bf71b8508221",
+    "legacy_size": 93
+  },
+  "semantic": {
+    "lines": [
+      "Let's mature the weapon",
+      "by hunting 50 Head-cutters ",
+      "and bring it to ",
+      "skill/magic master."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TGV0J3MgbWF0dXJlIHRoZSB3ZWFwb24NCmJ5IGh1bnRpbmcgNTAgSGVhZC1jdXR0ZXJzIA0KYW5kIGJyaW5nIGl0IHRvIA0Kc2tpbGwvbWFnaWMgbWFzdGVyLg0K"
+  }
+}

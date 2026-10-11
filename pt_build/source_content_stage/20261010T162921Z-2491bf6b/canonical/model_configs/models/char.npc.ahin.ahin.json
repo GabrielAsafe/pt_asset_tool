@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.ahin.ahin",
+  "logical_config": "char/npc/Ahin/Ahin.INI",
+  "legacy_cache": "char/npc/Ahin/Ahin.inx",
+  "consumers": [
+    {
+      "id": "npc.ahin",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Ahin.NPC.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/Ahin/Ahin.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/Ahin/Ahin.inx"
+    }
+  }
+}

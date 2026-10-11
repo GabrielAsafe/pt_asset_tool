@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.lista_mix",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/Lista_mix.Zhoon",
+    "GameServer/NPC/name/Lista_mix.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/Lista_mix.Zhoon",
+    "legacy_sha256": "9aed5dd92d0271be5a6431543b87791a2123d8ae25c3c717c094b8f8eee97f63",
+    "legacy_size": 110
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Tabela de Combinações"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Consulte aqui a tabela de combinações."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9MaXN0YV9taXguTlBDDQoNCg0KKkpfTmFtZQkiVGFiZWxhIGRlIENvbWJpbmHn9WVzIg0KDQoNCipKX0NoYXQJIkNvbnN1bHRlIGFxdWkgYSB0YWJlbGEgZGUgY29tYmluYef1ZXMuIg0KDQo="
+  }
+}

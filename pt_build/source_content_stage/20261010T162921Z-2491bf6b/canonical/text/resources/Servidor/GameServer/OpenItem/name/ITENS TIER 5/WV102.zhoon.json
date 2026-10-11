@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv102",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV102.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV102.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV102.zhoon",
+    "legacy_sha256": "e3cbc3b4fac3b6de5315ee0f647b74a01b834556ccf319775d6045a7641bc31c",
+    "legacy_size": 44
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Fist Snake Brace"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjEwMi50eHQNCg0KKkpfTkFNRQkJIkZpc3QgU25ha2UgQnJhY2UiDQo="
+  }
+}

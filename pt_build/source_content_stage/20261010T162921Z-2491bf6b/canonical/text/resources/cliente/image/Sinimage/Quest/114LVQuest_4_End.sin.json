@@ -1,0 +1,37 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_4_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_4_End.sin",
+    "image/Sinimage/Quest/114LVQuest_4_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_4_End.sin",
+    "legacy_sha256": "50ad5418de061f3610f5bff0ff632407137266fe8bf6dd6a0535ac31f71bbdc0",
+    "legacy_size": 403
+  },
+  "semantic": {
+    "lines": [
+      "Bom trabalho!",
+      "Mas, infelizmente, o meu poder ainda não foi suficiente",
+      "para destruir a Arma Antiga.",
+      "O Concentrado de Alma Maligna apenas desativou-a. ",
+      "Pelo menos, Midranda não conseguirá utilizá-la",
+      "novamente.",
+      "Pillai foi uma perda grande demais...",
+      "",
+      "Pelo seu desempenho nessa missão, receba 10 (dez) pontos",
+      "de stats para auxiliá-lo nas batalhas.",
+      "A Terceria Guerra dos Deuses apenas começou!",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Qm9tIHRyYWJhbGhvIQ0KTWFzLCBpbmZlbGl6bWVudGUsIG8gbWV1IHBvZGVyIGFpbmRhIG7jbyBmb2kgc3VmaWNpZW50ZQ0KcGFyYSBkZXN0cnVpciBhIEFybWEgQW50aWdhLg0KTyBDb25jZW50cmFkbyBkZSBBbG1hIE1hbGlnbmEgYXBlbmFzIGRlc2F0aXZvdS1hLiANClBlbG8gbWVub3MsIE1pZHJhbmRhIG7jbyBjb25zZWd1aXLhIHV0aWxpeuEtbGENCm5vdmFtZW50ZS4NClBpbGxhaSBmb2kgdW1hIHBlcmRhIGdyYW5kZSBkZW1haXMuLi4NCg0KUGVsbyBzZXUgZGVzZW1wZW5obyBuZXNzYSBtaXNz428sIHJlY2ViYSAxMCAoZGV6KSBwb250b3MNCmRlIHN0YXRzIHBhcmEgYXV4aWxp4S1sbyBuYXMgYmF0YWxoYXMuDQpBIFRlcmNlcmlhIEd1ZXJyYSBkb3MgRGV1c2VzIGFwZW5hcyBjb21l5291IQ0KDQoNCg=="
+  }
+}

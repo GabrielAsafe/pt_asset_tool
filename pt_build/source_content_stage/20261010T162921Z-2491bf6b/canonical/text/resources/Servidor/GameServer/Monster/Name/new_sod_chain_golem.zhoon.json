@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_chain_golem",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_chain_golem.zhoon",
+    "GameServer/Monster/Name/new_sod_chain_golem.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_chain_golem.zhoon",
+    "legacy_sha256": "140750011009f1f687043b63dfb8b5872167f3abf699d8b6fd3660079b1f29a3",
+    "legacy_size": 41
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Golem de Correntes do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJHb2xlbSBkZSBDb3JyZW50ZXMgZG8gU29EIg0KDQo="
+  }
+}

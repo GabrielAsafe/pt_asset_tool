@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.108_u00c1rvore_das_cinzas",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/108_#U00c1rvore das Cinzas.zhoon",
+    "GameServer/Monster/Name/108_#U00c1rvore das Cinzas.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/108_#U00c1rvore das Cinzas.zhoon",
+    "legacy_sha256": "8a0542da6b7e757faad8a1662eaaeeaff0854f9b09dac04f9b377ae92243117a",
+    "legacy_size": 27
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "햞vore das Cinzas"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiwXJ2b3JlIGRhcyBDaW56YXMi"
+  }
+}

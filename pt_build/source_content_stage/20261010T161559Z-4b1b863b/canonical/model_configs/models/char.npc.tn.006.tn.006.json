@@ -1,0 +1,43 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.tn.006.tn.006",
+  "logical_config": "char/npc/TN-006/TN-006.ini",
+  "legacy_cache": "char/npc/TN-006/TN-006.inx",
+  "consumers": [
+    {
+      "id": "npc.eto",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Eto.npc.json"
+    },
+    {
+      "id": "npc.navisko_civilian2",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/navisko-civilian2.npc.json"
+    },
+    {
+      "id": "npc.ricarden_civilian1",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ricarden-civilian1.npc.json"
+    },
+    {
+      "id": "npc.ruiden_civilian1",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/ruiden-civilian1.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/TN-006/TN-006.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/TN-006/TN-006.inx"
+    }
+  }
+}

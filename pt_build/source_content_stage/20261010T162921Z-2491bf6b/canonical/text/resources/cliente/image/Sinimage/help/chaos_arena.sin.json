@@ -1,0 +1,40 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.chaos_arena",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/help/chaos_arena.sin",
+    "image/Sinimage/help/chaos_arena.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/help/chaos_arena.sin",
+    "legacy_sha256": "cf2a88e9e4fa8aa46aaeba558777e8a10c37a52e0ca1120bb5024334cd76a921",
+    "legacy_size": 662
+  },
+  "semantic": {
+    "lines": [
+      "Olá, {0}!",
+      "",
+      "A Chaos Arena lhe dá boas-vindas!",
+      "",
+      "Você enfrentará, agora, os inimigos mais aterrorizantes que já cruzaram o",
+      "árduo caminho dos pristonianos, todos reunidos em uma única arena mortal!",
+      "São 10 (dez) rounds contra vários Bosses do Priston Tale!",
+      "Os Bosses da Chaos Arena sempre vêm acompanhados por seus poderosos cristais",
+      "guardiões. Destrua os cristais para quebrar a imunidade dos Bosses.",
+      "Derrote os Bosses, sobreviva na Chaos Arena e receba a Caixa da Glória",
+      "como recompensa.",
+      "Atravesse o portal, agora, e prepare-se para o maior desafio da sua vida!",
+      "",
+      "As disputas acontecem todas as sextas-feiras, no subservidor Beta, às 21h00.",
+      "",
+      "Paticipe!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2zhLCB7MH0hDQoNCkEgQ2hhb3MgQXJlbmEgbGhlIGThIGJvYXMtdmluZGFzIQ0KDQpWb2PqIGVuZnJlbnRhcuEsIGFnb3JhLCBvcyBpbmltaWdvcyBtYWlzIGF0ZXJyb3JpemFudGVzIHF1ZSBq4SBjcnV6YXJhbSBvDQrhcmR1byBjYW1pbmhvIGRvcyBwcmlzdG9uaWFub3MsIHRvZG9zIHJldW5pZG9zIGVtIHVtYSD6bmljYSBhcmVuYSBtb3J0YWwhDQpT428gMTAgKGRleikgcm91bmRzIGNvbnRyYSB24XJpb3MgQm9zc2VzIGRvIFByaXN0b24gVGFsZSENCk9zIEJvc3NlcyBkYSBDaGFvcyBBcmVuYSBzZW1wcmUgduptIGFjb21wYW5oYWRvcyBwb3Igc2V1cyBwb2Rlcm9zb3MgY3Jpc3RhaXMNCmd1YXJkafVlcy4gRGVzdHJ1YSBvcyBjcmlzdGFpcyBwYXJhIHF1ZWJyYXIgYSBpbXVuaWRhZGUgZG9zIEJvc3Nlcy4NCkRlcnJvdGUgb3MgQm9zc2VzLCBzb2JyZXZpdmEgbmEgQ2hhb3MgQXJlbmEgZSByZWNlYmEgYSBDYWl4YSBkYSBHbPNyaWENCmNvbW8gcmVjb21wZW5zYS4NCkF0cmF2ZXNzZSBvIHBvcnRhbCwgYWdvcmEsIGUgcHJlcGFyZS1zZSBwYXJhIG8gbWFpb3IgZGVzYWZpbyBkYSBzdWEgdmlkYSENCg0KQXMgZGlzcHV0YXMgYWNvbnRlY2VtIHRvZGFzIGFzIHNleHRhcy1mZWlyYXMsIG5vIHN1YnNlcnZpZG9yIEJldGEsIOBzIDIxaDAwLg0KDQpQYXRpY2lwZSE="
+  }
+}

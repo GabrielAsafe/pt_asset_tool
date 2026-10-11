@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.ricarden_master",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/ricarden-master.zhoon",
+    "GameServer/NPC/name/ricarden-master.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/ricarden-master.zhoon",
+    "legacy_sha256": "d9c0030f98466b75698b02b08480bb0cd939725158b63a0bd313728aaf64bc2d",
+    "legacy_size": 451
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Mestre Verkan"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Quanto mais Pontos você investe, mais forte sua Habilidade fica..."
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Você deverá treinar suas Habilidades para poder usá-las rapidamente..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "A força dos Temspskrons vem de seu vigor físico. Agora, concentre-se na sua resistência!"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Um corpo resistente e uma mente pura são os elementos chave para se aprimorar Habilidades."
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJNZXN0cmUgVmVya2FuIg0KDQoqSl9DSEFUCQkJIlF1YW50byBtYWlzIFBvbnRvcyB2b2PqIGludmVzdGUsIG1haXMgZm9ydGUgc3VhIEhhYmlsaWRhZGUgZmljYS4uLiINCipKX0NIQVQgICAgICAgICAgICAgICAgICAgIlZvY+ogZGV2ZXLhIHRyZWluYXIgc3VhcyBIYWJpbGlkYWRlcyBwYXJhIHBvZGVyIHVz4S1sYXMgcmFwaWRhbWVudGUuLi4iDQoqSl9DSEFUICAgICAgICAgICAgICAgICAgICJBIGZvcudhIGRvcyBUZW1zcHNrcm9ucyB2ZW0gZGUgc2V1IHZpZ29yIGbtc2ljby4gQWdvcmEsIGNvbmNlbnRyZS1zZSBuYSBzdWEgcmVzaXN06m5jaWEhIg0KKkpfQ0hBVCAgICAgICAgICAgICAgICAgICAiVW0gY29ycG8gcmVzaXN0ZW50ZSBlIHVtYSBtZW50ZSBwdXJhIHPjbyBvcyBlbGVtZW50b3MgY2hhdmUgcGFyYSBzZSBhcHJpbW9yYXIgSGFiaWxpZGFkZXMuIg0KDQoNCg=="
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.incubussummer.incubussummer",
+  "logical_config": "char/monster/incubussummer/incubussummer.ini",
+  "legacy_cache": "char/monster/incubussummer/incubussummer.inx",
+  "consumers": [
+    {
+      "id": "monster.88_conjuradora",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/88_Conjuradora.inf.json"
+    },
+    {
+      "id": "monster.r7_conjuradora",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/R7 Conjuradora.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Incubussummer/Incubussummer.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Incubussummer/Incubussummer.inx"
+    }
+  }
+}

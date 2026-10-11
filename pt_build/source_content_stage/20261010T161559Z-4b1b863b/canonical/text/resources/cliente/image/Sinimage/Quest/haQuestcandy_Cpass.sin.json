@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.haquestcandy_cpass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/haQuestcandy_Cpass.sin",
+    "image/Sinimage/Quest/haQuestcandy_Cpass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/haQuestcandy_Cpass.sin",
+    "legacy_sha256": "14d2495b3e4ab7fe7eb434c0b12e122c7dc551cd7dd5cc31e85cd0a3a837d536",
+    "legacy_size": 154
+  },
+  "semantic": {
+    "lines": [
+      "Você ainda está com o doce. Talvez não saiba onde fica",
+      "o ferreiro.",
+      "",
+      "Abra o minimapa para localizar a ferraria.",
+      "",
+      "Depressa, antes que o doce derreta!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Vm9j6iBhaW5kYSBlc3ThIGNvbSBvIGRvY2UuIFRhbHZleiBu428gc2FpYmEgb25kZSBmaWNhDQpvIGZlcnJlaXJvLg0KDQpBYnJhIG8gbWluaW1hcGEgcGFyYSBsb2NhbGl6YXIgYSBmZXJyYXJpYS4NCg0KRGVwcmVzc2EsIGFudGVzIHF1ZSBvIGRvY2UgZGVycmV0YSENCg=="
+  }
+}

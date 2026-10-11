@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wv151",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV151.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WV151.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WV151.zhoon",
+    "legacy_sha256": "5d1ed846a871d453bde141eb008aba1ba228956db21948f81cf25fe1f89d7a45",
+    "legacy_size": 51
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pantera Snake Brace(5h)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVjE1MS50eHQNCg0KKkpfTkFNRQkJIlBhbnRlcmEgU25ha2UgQnJhY2UoNWgpIg0K"
+  }
+}

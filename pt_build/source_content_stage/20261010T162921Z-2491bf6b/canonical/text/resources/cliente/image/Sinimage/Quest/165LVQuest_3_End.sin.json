@@ -1,0 +1,39 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.165lvquest_3_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/165LVQuest_3_End.sin",
+    "image/Sinimage/Quest/165LVQuest_3_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/165LVQuest_3_End.sin",
+    "legacy_sha256": "417ed8f672c4761261fad66077751e7ec61e714fa18320691b9bd7aeea7085e8",
+    "legacy_size": 677
+  },
+  "semantic": {
+    "lines": [
+      "Enquanto esteve fora, as Rakoo, Guardiãs da 햞vore da Vida,",
+      "afetadas pela Alma de Fogo, quase a destruíram. Os Igolanos",
+      "invocaram criaturas horríveis usando a Lua de Sangue.",
+      "Foram momentos críticos, mas conseguimos superar.",
+      "Arteres me contou que vocês também passaram por apuros.",
+      "Você está bem? Agradeço muito pelo seu empenho.",
+      "",
+      "Consigo sentir a insanidade do Crios nessas lâminas. É um",
+      "poder terrível. Preciso purificá-las para que possam ser",
+      "usadas para a criação do Incensário Mágico.",
+      "Com os ensinamentos do Místico Avas, Salon poderá criar o",
+      "Incensário Mágico com esse metal.",
+      "Irei iniciar o processo de purificação das lâminas. ",
+      "",
+      "Por favor, volte mais tarde. "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RW5xdWFudG8gZXN0ZXZlIGZvcmEsIGFzIFJha29vLCBHdWFyZGnjcyBkYSDBcnZvcmUgZGEgVmlkYSwNCmFmZXRhZGFzIHBlbGEgQWxtYSBkZSBGb2dvLCBxdWFzZSBhIGRlc3Ryde1yYW0uIE9zIElnb2xhbm9zDQppbnZvY2FyYW0gY3JpYXR1cmFzIGhvcnLtdmVpcyB1c2FuZG8gYSBMdWEgZGUgU2FuZ3VlLg0KRm9yYW0gbW9tZW50b3MgY3LtdGljb3MsIG1hcyBjb25zZWd1aW1vcyBzdXBlcmFyLg0KQXJ0ZXJlcyBtZSBjb250b3UgcXVlIHZvY+pzIHRhbWLpbSBwYXNzYXJhbSBwb3IgYXB1cm9zLg0KVm9j6iBlc3ThIGJlbT8gQWdyYWRl528gbXVpdG8gcGVsbyBzZXUgZW1wZW5oby4NCg0KQ29uc2lnbyBzZW50aXIgYSBpbnNhbmlkYWRlIGRvIENyaW9zIG5lc3NhcyBs4m1pbmFzLiDJIHVtDQpwb2RlciB0ZXJy7XZlbC4gUHJlY2lzbyBwdXJpZmlj4S1sYXMgcGFyYSBxdWUgcG9zc2FtIHNlcg0KdXNhZGFzIHBhcmEgYSBjcmlh5+NvIGRvIEluY2Vuc+FyaW8gTeFnaWNvLg0KQ29tIG9zIGVuc2luYW1lbnRvcyBkbyBN7XN0aWNvIEF2YXMsIFNhbG9uIHBvZGVy4SBjcmlhciBvDQpJbmNlbnPhcmlvIE3hZ2ljbyBjb20gZXNzZSBtZXRhbC4NCklyZWkgaW5pY2lhciBvIHByb2Nlc3NvIGRlIHB1cmlmaWNh5+NvIGRhcyBs4m1pbmFzLiANCg0KUG9yIGZhdm9yLCB2b2x0ZSBtYWlzIHRhcmRlLiA="
+  }
+}

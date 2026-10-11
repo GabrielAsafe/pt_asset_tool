@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi312",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI312.txt",
+    "GameServer/OpenItem/BI312.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI312.txt",
+    "legacy_sha256": "459134b5bf06c3c59d910c186b417b755eb53ea8c37d44fa9684b20774136145",
+    "legacy_size": 166
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI312",
+      "name": "HP Booster 1d",
+      "english_name": "HP Booster 1d",
+      "weight": 1,
+      "linked_file": "Name\\BI312.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI312"
+        ],
+        "raw_values_hex": [
+          "4249333132"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "HP Booster 1d"
+        ],
+        "raw_values_hex": [
+          "485020426f6f73746572203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "HP Booster 1d"
+        ],
+        "raw_values_hex": [
+          "485020426f6f73746572203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI312.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493331322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMzEyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiSFAgQm9vc3RlciAxZCINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJIUCBCb29zdGVyIDFkIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJJMzEyLnpob29uIg=="
+  }
+}

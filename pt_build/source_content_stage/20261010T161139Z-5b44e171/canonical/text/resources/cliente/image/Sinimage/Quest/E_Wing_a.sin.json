@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.e_wing_a",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/E_Wing_a.sin",
+    "image/Sinimage/Quest/E_Wing_a.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/E_Wing_a.sin",
+    "legacy_sha256": "dffd637bb7d02dd2ba222742db00fefca53e7e74e8854efffcdb01d2d3d22b5c",
+    "legacy_size": 273
+  },
+  "semantic": {
+    "lines": [
+      "I just created an extreme wing which is used for",
+      "going the Land of Chaos. Only shift through warp",
+      "gate to go to the Land of Chaos.",
+      "",
+      "Bring me 1 CheiaSwing,",
+      "1 KingHoppy Crystal,",
+      "1 Hulk Crystal,",
+      "80,000 gold.",
+      "Then I'll exchange to the wing.",
+      "",
+      "How's that sound? Deal?"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SSBqdXN0IGNyZWF0ZWQgYW4gZXh0cmVtZSB3aW5nIHdoaWNoIGlzIHVzZWQgZm9yDQpnb2luZyB0aGUgTGFuZCBvZiBDaGFvcy4gT25seSBzaGlmdCB0aHJvdWdoIHdhcnANCmdhdGUgdG8gZ28gdG8gdGhlIExhbmQgb2YgQ2hhb3MuDQoNCkJyaW5nIG1lIDEgQ2hlaWFTd2luZywNCjEgS2luZ0hvcHB5IENyeXN0YWwsDQoxIEh1bGsgQ3J5c3RhbCwNCjgwLDAwMCBnb2xkLg0KVGhlbiBJJ2xsIGV4Y2hhbmdlIHRvIHRoZSB3aW5nLg0KDQpIb3cncyB0aGF0IHNvdW5kPyBEZWFsPw0K"
+  }
+}

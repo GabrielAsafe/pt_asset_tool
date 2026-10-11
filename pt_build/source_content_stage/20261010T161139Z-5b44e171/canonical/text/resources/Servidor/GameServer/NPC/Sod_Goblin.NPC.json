@@ -1,0 +1,122 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.sod_goblin",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Sod_Goblin.NPC",
+    "GameServer/NPC/Sod_Goblin.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Sod_Goblin.NPC",
+    "legacy_sha256": "2467b82c54e3ef3040b321ffda090dd08a1102b4a41cec7073c39b043ac0dd75",
+    "legacy_size": 490
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-008\\TN-008.INI",
+      "name": "홉고블린",
+      "event_npc": true,
+      "open_count": [
+        0,
+        2
+      ],
+      "linked_file": "name\\Sod_Goblin.zhoon",
+      "model_config_id": "model.char.npc.tn.008.tn.008"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-008\\TN-008.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030385c544e2d3030382e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "홉고블린"
+        ],
+        "raw_values_hex": [
+          "c8a9b0edbaedb8b0"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "event_npc",
+        "legacy_token": "*이벤트매표소",
+        "legacy_token_hex": "2ac0ccbaa5c6aeb8c5c7a5bcd2",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 7,
+        "key": "open_count",
+        "legacy_token": "*출현간격",
+        "legacy_token_hex": "2ac3e2c7f6b0a3b0dd",
+        "loader_status": "supported_mapped",
+        "values": [
+          0,
+          2
+        ],
+        "raw_values_hex": [
+          "30",
+          "32"
+        ]
+      },
+      {
+        "line": 24,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Sod_Goblin.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c536f645f476f626c696e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDA4XFROLTAwOC5JTkkiDQoNCirAzLinCQkJIsipsO267biwIg0KKsDMuqXGrrjFx6W80g0KKsPix/awo7DdCQkwCTINCg0KLy8qtOvIrQkJCSLH0SDB2bfOILytvK0gwNTA5cfPvLy/5CINCi8vKrTryK0JCQkisMWx4iC8vMShseIgx8+9w7TCILrQILm8tM+x7iEgsPjB37W1tPbAuyDB9sWwvLy/5CINCi8vKrTryK0JCQkiU09EwMcgvcPA28C6ILjFwM8gu/W6rsDUtM+02S4gvcOwo8C7IMGkyK7Hz7DUIMH2xbC8vL/kIg0KLy8qtOvIrQkJCSJTT0S/obytIL7ywLogwaG89rTCILOqwd+/oSC787HdwLi3ziC6uLvzx9ggteW4rrTPILi5wLogwaG89rimIL7ywLi8vL/kIg0KCQkJIlNPRCCw4cX1wOW/oSDA1MDlIL3DILe5uqe/oSC1+7ilIMGmx9HAzCDA1sC4tM8gvK21zrijvLy/5CINCg0KDQoNCg0KDQoNCg0KDQoNCg0KKr+ssOHGxMDPCSJuYW1lXFNvZF9Hb2JsaW4uemhvb24iDQoNCg0KDQoNCg=="
+  }
+}

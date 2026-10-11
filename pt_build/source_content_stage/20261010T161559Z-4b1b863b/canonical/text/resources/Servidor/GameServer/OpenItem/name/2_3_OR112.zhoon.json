@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.2_3_or112",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/2_3_OR112.zhoon",
+    "GameServer/OpenItem/name/2_3_OR112.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/2_3_OR112.zhoon",
+    "legacy_sha256": "edda05fae4374fcb2bf0127a62f0c76b8fc628247f42f243a1efc040e7ef5532",
+    "legacy_size": 38
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Focus Ring"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9PUjIwNC50eHQNCg0KKkpfTmFtZQkJIkZvY3VzIFJpbmciDQo="
+  }
+}

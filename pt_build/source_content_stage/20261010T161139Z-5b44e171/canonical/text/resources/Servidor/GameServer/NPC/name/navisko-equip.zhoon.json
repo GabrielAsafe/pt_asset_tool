@@ -1,0 +1,54 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.navisko_equip",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/navisko-equip.zhoon",
+    "GameServer/NPC/name/navisko-equip.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/navisko-equip.zhoon",
+    "legacy_sha256": "f118eb150ff6c651bc1331c7a785d8978df18eebd136ac94fbc91f0a582b39a9",
+    "legacy_size": 464
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Ferreiro Umph"
+      },
+      {
+        "line": 3,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Os guerreiros de Bellatra nunca aparecem por aqui. Será que eles possuem armas mais fortes que estas?"
+      },
+      {
+        "line": 4,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Se precisar comprar ou vender algum equipamento, fale comigo. Estes são os melhores itens que você poderá encontrar..."
+      },
+      {
+        "line": 5,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Estas são as especialidades da cidade. Eu sou o único que pode fabricá-las. Dê uma olhada!"
+      },
+      {
+        "line": 6,
+        "legacy_key": "J_CHAT",
+        "kind": "chat",
+        "text": "Ninguém do continente produz armas melhores que as minhas. Escolha a sua!"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJIkZlcnJlaXJvIFVtcGgiDQoNCipKX0NIQVQJCSJPcyBndWVycmVpcm9zIGRlIEJlbGxhdHJhIG51bmNhIGFwYXJlY2VtIHBvciBhcXVpLiBTZXLhIHF1ZSBlbGVzIHBvc3N1ZW0gYXJtYXMgbWFpcyBmb3J0ZXMgcXVlIGVzdGFzPyINCipKX0NIQVQJCSJTZSBwcmVjaXNhciBjb21wcmFyIG91IHZlbmRlciBhbGd1bSBlcXVpcGFtZW50bywgZmFsZSBjb21pZ28uIEVzdGVzIHPjbyBvcyBtZWxob3JlcyBpdGVucyBxdWUgdm9j6iBwb2RlcuEgZW5jb250cmFyLi4uIg0KKkpfQ0hBVAkJIkVzdGFzIHPjbyBhcyBlc3BlY2lhbGlkYWRlcyBkYSBjaWRhZGUuIEV1IHNvdSBvIPpuaWNvIHF1ZSBwb2RlIGZhYnJpY+EtbGFzLiBE6iB1bWEgb2xoYWRhISINCipKX0NIQVQJCSJOaW5ndeltIGRvIGNvbnRpbmVudGUgcHJvZHV6IGFybWFzIG1lbGhvcmVzIHF1ZSBhcyBtaW5oYXMuIEVzY29saGEgYSBzdWEhIg0KDQo="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wt153",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/WT153.zhoon",
+    "GameServer/OpenItem/name/WT153.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/WT153.zhoon",
+    "legacy_sha256": "e376024493e6c32179f815b3f7da7cf7d4b729286bb1141b5ee218eccbd2ec49",
+    "legacy_size": 44
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Lança de Suporte"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XVDE1My50eHQNCg0KKkpfTmFtZQkJIkxhbudhIGRlIFN1cG9ydGUiDQo="
+  }
+}

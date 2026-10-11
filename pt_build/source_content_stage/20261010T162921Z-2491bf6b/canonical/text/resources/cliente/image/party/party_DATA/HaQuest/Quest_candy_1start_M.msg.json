@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.quest_candy_1start_m",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/Quest_candy_1start_M.msg",
+    "image/party/party_DATA/HaQuest/Quest_candy_1start_M.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/Quest_candy_1start_M.msg",
+    "legacy_sha256": "825d40e19a2efeaf8ac57541c4a4636fe8cbf10455e21a90d7f97e446946ce57",
+    "legacy_size": 87
+  },
+  "semantic": {
+    "lines": [
+      "",
+      "Give the lost candy to ",
+      "Blacksmith in Pillai and ",
+      "get a reward from Bartz.",
+      " ",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQpHaXZlIHRoZSBsb3N0IGNhbmR5IHRvIA0KQmxhY2tzbWl0aCBpbiBQaWxsYWkgYW5kIA0KZ2V0IGEgcmV3YXJkIGZyb20gQmFydHouDQogDQoNCg0K"
+  }
+}

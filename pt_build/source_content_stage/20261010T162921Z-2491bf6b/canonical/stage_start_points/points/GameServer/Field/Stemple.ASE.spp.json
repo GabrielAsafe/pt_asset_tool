@@ -1,0 +1,163 @@
+{
+  "schema": "summit.stage-start-points/v1",
+  "id": "start_points.stemple",
+  "logical_path": "GameServer/Field/Stemple.ASE.spp",
+  "points": [
+    {
+      "slot": 0,
+      "state": 1,
+      "x": -28412,
+      "z": 27016
+    },
+    {
+      "slot": 1,
+      "state": 1,
+      "x": -28348,
+      "z": 27016
+    },
+    {
+      "slot": 2,
+      "state": 1,
+      "x": -28284,
+      "z": 27016
+    },
+    {
+      "slot": 3,
+      "state": 1,
+      "x": -28220,
+      "z": 27016
+    },
+    {
+      "slot": 4,
+      "state": 1,
+      "x": -28156,
+      "z": 27016
+    },
+    {
+      "slot": 5,
+      "state": 1,
+      "x": -28412,
+      "z": 27080
+    },
+    {
+      "slot": 6,
+      "state": 1,
+      "x": -28348,
+      "z": 27080
+    },
+    {
+      "slot": 7,
+      "state": 1,
+      "x": -28284,
+      "z": 27080
+    },
+    {
+      "slot": 8,
+      "state": 1,
+      "x": -28220,
+      "z": 27080
+    },
+    {
+      "slot": 9,
+      "state": 1,
+      "x": -28156,
+      "z": 27080
+    },
+    {
+      "slot": 10,
+      "state": 1,
+      "x": -28412,
+      "z": 27144
+    },
+    {
+      "slot": 11,
+      "state": 1,
+      "x": -28348,
+      "z": 27144
+    },
+    {
+      "slot": 12,
+      "state": 1,
+      "x": -28284,
+      "z": 27144
+    },
+    {
+      "slot": 13,
+      "state": 1,
+      "x": -28220,
+      "z": 27144
+    },
+    {
+      "slot": 14,
+      "state": 1,
+      "x": -28156,
+      "z": 27144
+    },
+    {
+      "slot": 15,
+      "state": 1,
+      "x": -28412,
+      "z": 27208
+    },
+    {
+      "slot": 16,
+      "state": 1,
+      "x": -28348,
+      "z": 27208
+    },
+    {
+      "slot": 17,
+      "state": 1,
+      "x": -28284,
+      "z": 27208
+    },
+    {
+      "slot": 18,
+      "state": 1,
+      "x": -28220,
+      "z": 27208
+    },
+    {
+      "slot": 19,
+      "state": 1,
+      "x": -28156,
+      "z": 27208
+    },
+    {
+      "slot": 20,
+      "state": 1,
+      "x": -28412,
+      "z": 27272
+    },
+    {
+      "slot": 21,
+      "state": 1,
+      "x": -28348,
+      "z": 27272
+    },
+    {
+      "slot": 22,
+      "state": 1,
+      "x": -28284,
+      "z": 27272
+    },
+    {
+      "slot": 23,
+      "state": 1,
+      "x": -28220,
+      "z": 27272
+    },
+    {
+      "slot": 24,
+      "state": 1,
+      "x": -28156,
+      "z": 27272
+    }
+  ],
+  "provenance": {
+    "source": "GameServer/Field/Stemple.ASE.spp",
+    "legacy_size": 2400,
+    "legacy_sha256": "f835b2afb1d7b1219f592650c06b16dd156322aeead793bb11dcd633045e2147",
+    "functional_reconstruction": "PATCH 209 functional fallback around the canonical player-entry anchor; exact lost legacy SPP parity is unknown"
+  }
+}

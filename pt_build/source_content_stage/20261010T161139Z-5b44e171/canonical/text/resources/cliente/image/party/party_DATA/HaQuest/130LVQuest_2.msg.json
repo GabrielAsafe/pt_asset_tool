@@ -1,0 +1,29 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.130lvquest_2",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/130LVQuest_2.msg",
+    "image/party/party_DATA/HaQuest/130LVQuest_2.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/130LVQuest_2.msg",
+    "legacy_sha256": "0532d78cc789aa8464a3e5fc67dbade2ed583082abc1172ad7799050b7b1e0ee",
+    "legacy_size": 111
+  },
+  "semantic": {
+    "lines": [
+      "Instale a CStone na área",
+      "demarcada, em Estrada ",
+      "Sombria. ",
+      "Após, fale com o Xamã Real",
+      "em Estrada dos Ventos."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SW5zdGFsZSBhIENTdG9uZSBuYSDhcmVhDQpkZW1hcmNhZGEsIGVtIEVzdHJhZGEgDQpTb21icmlhLiANCkFw83MsIGZhbGUgY29tIG8gWGFt4yBSZWFsDQplbSBFc3RyYWRhIGRvcyBWZW50b3Mu"
+  }
+}

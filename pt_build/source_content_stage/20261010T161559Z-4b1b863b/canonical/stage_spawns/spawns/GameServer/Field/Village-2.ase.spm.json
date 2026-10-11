@@ -1,0 +1,18 @@
+{
+  "schema": "summit.stage-spawn/v1",
+  "schema_version": 1,
+  "id": "spawn.village_2",
+  "logical_path": "GameServer/Field/Village-2.ase.spm",
+  "legacy_source": {
+    "path": "Servidor/GameServer/Field/Village-2.ase.spm",
+    "sha256": "21ddfce6165ed8631908b42162e3fbc26ea5650cacbc47554adc37e05f168467"
+  },
+  "limit_max": 30,
+  "delay": {
+    "shift": 5,
+    "milliseconds": 19000
+  },
+  "open_limit": 2,
+  "actors": [],
+  "bosses": []
+}

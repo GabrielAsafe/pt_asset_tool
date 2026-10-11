@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.123_wlord",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/123_WLord.zhoon",
+    "GameServer/Monster/Name/123_WLord.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/123_WLord.zhoon",
+    "legacy_sha256": "12be7d89a1f382a14737055fe0036ff1914b1f7cab6735be08e2e60546ca33ea",
+    "legacy_size": 43
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Bruxa Mestre"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8xMjNfV0xvcmQuaW5mDQoNCipKX05BTUUJCQkiQnJ1eGEgTWVzdHJlIg=="
+  }
+}

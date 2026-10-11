@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.cx109",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CX109.txt",
+    "GameServer/OpenItem/CX109.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CX109.txt",
+    "legacy_sha256": "77579131a4c80f1fff3e0e7b834a7e36c5a89fdc2e89c7d0086c0e4b1fcdf6e5",
+    "legacy_size": 178
+  },
+  "semantic": {
+    "fields": {
+      "code": "CX109",
+      "name": "Pacote de Aging +17",
+      "english_name": "Pacote de Aging +17",
+      "weight": 1,
+      "linked_file": "Name\\CX109.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CX109"
+        ],
+        "raw_values_hex": [
+          "4358313039"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pacote de Aging +17"
+        ],
+        "raw_values_hex": [
+          "5061636f7465206465204167696e67202b3137"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Pacote de Aging +17"
+        ],
+        "raw_values_hex": [
+          "5061636f7465206465204167696e67202b3137"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\CX109.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c43583130392e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkNYMTA5Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUGFjb3RlIGRlIEFnaW5nICsxNyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJQYWNvdGUgZGUgQWdpbmcgKzE3Ig0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXENYMTA5Lnpob29uIg=="
+  }
+}

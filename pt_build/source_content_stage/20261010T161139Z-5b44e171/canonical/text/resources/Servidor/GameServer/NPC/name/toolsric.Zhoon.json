@@ -1,0 +1,36 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.toolsric",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/name/toolsric.Zhoon",
+    "GameServer/NPC/name/toolsric.Zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/name/toolsric.Zhoon",
+    "legacy_sha256": "25979d0ef6a3f6b65bbd92a05fd5a4f553ac4300a658c240bc7dd06b9f580194",
+    "legacy_size": 84
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 4,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Loja de Brinquedos"
+      },
+      {
+        "line": 7,
+        "legacy_key": "J_Chat",
+        "kind": "chat",
+        "text": "Vamos brincar???"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly90b29sc3JpYy5OUEMNCg0KDQoqSl9OYW1lCSJMb2phIGRlIEJyaW5xdWVkb3MiDQoNCg0KKkpfQ2hhdAkiVmFtb3MgYnJpbmNhcj8/PyINCg0K"
+  }
+}

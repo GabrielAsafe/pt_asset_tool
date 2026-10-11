@@ -1,0 +1,34 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob3_0",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob3_0.sin",
+    "image/Sinimage/Quest/ChangeJob3_0.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob3_0.sin",
+    "legacy_sha256": "1daef8dfd2e77c9daf049cb43fa52920123a556f4eb526d0a9bab0e67971f4f1",
+    "legacy_size": 417
+  },
+  "semantic": {
+    "lines": [
+      "Come on in. I've been expecting for you to come.",
+      "Now is time to test your strength if you're",
+      "qualified to get upgraded skills.",
+      "Firstly, however, I have to know if you are ready",
+      "to have rank-up quest.",
+      "Bring me 3 Vamp Sheltoms to prove your will to",
+      "gain new skills.",
+      "You can get Vamp Sheltoms only from Minigue Silver ",
+      "which you can encounter in Navisko at night time.",
+      "Wait for the night and march to Navisko."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Q29tZSBvbiBpbi4gSSd2ZSBiZWVuIGV4cGVjdGluZyBmb3IgeW91IHRvIGNvbWUuDQpOb3cgaXMgdGltZSB0byB0ZXN0IHlvdXIgc3RyZW5ndGggaWYgeW91J3JlDQpxdWFsaWZpZWQgdG8gZ2V0IHVwZ3JhZGVkIHNraWxscy4NCkZpcnN0bHksIGhvd2V2ZXIsIEkgaGF2ZSB0byBrbm93IGlmIHlvdSBhcmUgcmVhZHkNCnRvIGhhdmUgcmFuay11cCBxdWVzdC4NCkJyaW5nIG1lIDMgVmFtcCBTaGVsdG9tcyB0byBwcm92ZSB5b3VyIHdpbGwgdG8NCmdhaW4gbmV3IHNraWxscy4NCllvdSBjYW4gZ2V0IFZhbXAgU2hlbHRvbXMgb25seSBmcm9tIE1pbmlndWUgU2lsdmVyIA0Kd2hpY2ggeW91IGNhbiBlbmNvdW50ZXIgaW4gTmF2aXNrbyBhdCBuaWdodCB0aW1lLg0KV2FpdCBmb3IgdGhlIG5pZ2h0IGFuZCBtYXJjaCB0byBOYXZpc2tvLg0K"
+  }
+}

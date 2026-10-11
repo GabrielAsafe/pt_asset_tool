@@ -1,0 +1,374 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wm120",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WM120.txt",
+    "GameServer/OpenItem/WM120.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WM120.txt",
+    "legacy_sha256": "f9a5ec173f11cb120efd68e3ef75a60e654a7a4c70f826c9f3986b9bd3a98e97",
+    "legacy_size": 683
+  },
+  "semantic": {
+    "fields": {
+      "code": "WM120",
+      "name": "Varinha Wyvern",
+      "english_name": "Varinha Wyvern",
+      "attack_damage": [
+        28,
+        30,
+        37,
+        39
+      ],
+      "attack_rating": [
+        146,
+        164
+      ],
+      "shooting_range": 180,
+      "attack_speed": 7,
+      "critical": 10,
+      "durability": [
+        122,
+        134
+      ],
+      "level": 80,
+      "strength": 70,
+      "spirit": 170,
+      "talent": 90,
+      "job_random": [
+        "Priestess",
+        "Magician"
+      ],
+      "special_damage": [
+        6,
+        6
+      ],
+      "special_attack_speed": 1,
+      "special_mana_regen_alt": [
+        0.9,
+        1.2
+      ],
+      "special_magic": [
+        6,
+        9
+      ],
+      "weight": 27,
+      "price": 800000,
+      "linked_file": "Name\\WM120.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WM120"
+        ],
+        "raw_values_hex": [
+          "574d313230"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Varinha Wyvern"
+        ],
+        "raw_values_hex": [
+          "566172696e68612057797665726e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Varinha Wyvern"
+        ],
+        "raw_values_hex": [
+          "566172696e68612057797665726e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          28,
+          30,
+          37,
+          39
+        ],
+        "raw_values_hex": [
+          "3238",
+          "3330",
+          "3337",
+          "3339"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          146,
+          164
+        ],
+        "raw_values_hex": [
+          "313436",
+          "313634"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "shooting_range",
+        "legacy_token": "*사정거리",
+        "legacy_token_hex": "2abbe7c1a4b0c5b8ae",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          180
+        ],
+        "raw_values_hex": [
+          "313830"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          7
+        ],
+        "raw_values_hex": [
+          "37"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          122,
+          134
+        ],
+        "raw_values_hex": [
+          "313232",
+          "313334"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          80
+        ],
+        "raw_values_hex": [
+          "3830"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          70
+        ],
+        "raw_values_hex": [
+          "3730"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          170
+        ],
+        "raw_values_hex": [
+          "313730"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          90
+        ],
+        "raw_values_hex": [
+          "3930"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          6
+        ],
+        "raw_values_hex": [
+          "36",
+          "36"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_mana_regen_alt",
+        "legacy_token": "**기력재생",
+        "legacy_token_hex": "2a2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.9,
+          1.2
+        ],
+        "raw_values_hex": [
+          "302e39",
+          "312e32"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_magic",
+        "legacy_token": "**마법숙련도",
+        "legacy_token_hex": "2a2ab8b6b9fdbcf7b7c3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          9
+        ],
+        "raw_values_hex": [
+          "36",
+          "39"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          27
+        ],
+        "raw_values_hex": [
+          "3237"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          800000
+        ],
+        "raw_values_hex": [
+          "383030303030"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WM120.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c574d3132302e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldNMTIwIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiVmFyaW5oYSBXeXZlcm4iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiVmFyaW5oYSBXeXZlcm4iDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgMjggMzAgMzcgMzkNCg0KLy9BdHRhY2tSYXRpbmcNCiq47cHft8IgMTQ2IDE2NA0KDQovL0F0dGFja1JhbmdlDQoqu+fBpLDFuK4gMTgwDQoNCi8vQXR0YWNrU3BlZWQNCiqw+LDdvNO1tSA3DQoNCi8vQXR0YWNrQ3JpdGljYWwNCirFqbiuxrzEwyAxMA0KDQovL0ludGVncml0eQ0KKrO7sbi3wiAxMjIgMTM0DQoNCi8vTGV2ZWwNCiq3ubqnIDgwDQoNCi8vU3RyZW5ndGgNCirI+yA3MA0KDQovL1NwaXJpdA0KKsGkvcW3wiAxNzANCg0KLy9UYWxlbnQNCirA57TJIDkwDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBQcmllc3Rlc3MgTWFnaWNpYW4NCg0KLy9TcGVjQXR0YWNrUG93ZXINCioqsPiw3bfCIDYgNg0KDQovL1NwZWNBdHRhY2tTcGVlZA0KKiqw+LDdvNO1tSAxDQoNCi8vU3BlY01QUmVnZW4NCioqseK3wsDnu/0gMC45IDEuMg0KDQovL1NwZWNTa2lsbFRyYWluaW5nDQoqKri2uf2897fDtbUgNiA5DQoNCi8vV2VpZ2h0DQoquauw1CAyNw0KDQovL1ByaWNlDQoqsKGw3SA4MDAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxXTTEyMC56aG9vbiI="
+  }
+}

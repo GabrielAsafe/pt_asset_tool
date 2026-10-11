@@ -1,0 +1,224 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.ricarden_equip1",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/ricarden-equip1.NPC",
+    "GameServer/NPC/ricarden-equip1.NPC"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/ricarden-equip1.NPC",
+    "legacy_sha256": "84145e89bab257471417666a976688cfc14af717e2ec4c4314ea2f1107d24466",
+    "legacy_size": 745
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\TN-003\\TN-003.ini",
+      "name": "대장장이 고덴",
+      "english_name": "Abaranbo",
+      "class": 1018,
+      "sell_weapon": [
+        "ws101",
+        "ws102",
+        "ws103",
+        "ws104",
+        "ws105",
+        "ws202",
+        "ws203",
+        "ws204",
+        "ws205",
+        "wc102",
+        "wc103",
+        "wc104"
+      ],
+      "sell_defence": [
+        "da102",
+        "da103",
+        "da104",
+        "da105",
+        "oa201",
+        "oa202",
+        "oa203",
+        "oa204"
+      ],
+      "sell_etc": "없음",
+      "linked_file": "name\\ricarden-equip1.zhoon",
+      "model_config_id": "model.char.npc.tn.003.tn.003"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\TN-003\\TN-003.ini"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c544e2d3030335c544e2d3030332e696e69"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "대장장이 고덴"
+        ],
+        "raw_values_hex": [
+          "b4ebc0e5c0e5c0cc20b0edb5a7"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Abaranbo"
+        ],
+        "raw_values_hex": [
+          "41626172616e626f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1018
+        ],
+        "raw_values_hex": [
+          "31303138"
+        ]
+      },
+      {
+        "line": 21,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "ws101",
+          "ws102",
+          "ws103",
+          "ws104",
+          "ws105",
+          "ws202",
+          "ws203",
+          "ws204",
+          "ws205",
+          "wc102",
+          "wc103",
+          "wc104"
+        ],
+        "raw_values_hex": [
+          "7773313031",
+          "7773313032",
+          "7773313033",
+          "7773313034",
+          "7773313035",
+          "7773323032",
+          "7773323033",
+          "7773323034",
+          "7773323035",
+          "7763313032",
+          "7763313033",
+          "7763313034"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "da102",
+          "da103",
+          "da104",
+          "da105",
+          "oa201",
+          "oa202",
+          "oa203",
+          "oa204"
+        ],
+        "raw_values_hex": [
+          "6461313032",
+          "6461313033",
+          "6461313034",
+          "6461313035",
+          "6f61323031",
+          "6f61323032",
+          "6f61323033",
+          "6f61323034"
+        ]
+      },
+      {
+        "line": 25,
+        "key": "sell_etc",
+        "legacy_token": "*잡화판매",
+        "legacy_token_hex": "2ac0e2c8adc6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "없음"
+        ],
+        "raw_values_hex": [
+          "bef8c0bd"
+        ]
+      },
+      {
+        "line": 27,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\ricarden-equip1.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c726963617264656e2d6571756970312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcVE4tMDAzXFROLTAwMy5pbmkiDQoNCirAzLinCQkJIrTrwOXA5cDMILDttaciDQoqTmFtZQkJCSJBYmFyYW5ibyINCg0KKrDosd4gMTAxOA0KDQovLyq068itCQkJIsDMufi/oSC79bfOILCzvvfH0SCw7bWnIMDUtM+02S4gwPrI8SCwobDUv6G8sSDDyrHewOW68bimIMPrsd7Hz7DtIMDWwLi0zyC+1cC4t84gwN8gus7FuSC15biusNq9wLTPtNkuIg0KLy8qtOvIrQkJCSLA2iDDyrHeIMD8u+e16b+hsNQgssAgx8q/5MfRIMDluvG16cDMIMHYuvG1x77uIMDWvcC0z7TZLiINCi8vKrTryK0JCQkisLO+98fRwfYgvvO4tiC1x8H2IL7KvtLB9ri4IMewwfrAuiDIrr3Hx9W0z7TZLiDA2sDaILXRt68guri8vL/kIg0KLy8qtOvIrQkJCSK0573FwMwgv/jHz7TCIMDluvGwoSC++LTZuOkgtNm4riCwx7PKxu2/oSDA1rTCILTrwOXA5cDMILDFvbq4piDDo77GsKEguri8vL/kLiINCg0KDQoNCg0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCiq5q7Hixse4xQl3czEwMSB3czEwMiB3czEwMyB3czEwNCB3czEwNQkgIHdzMjAyIHdzMjAzIHdzMjA0IHdzMjA1CSAgd2MxMDIgd2MxMDMgd2MxMDQNCg0KKrnmvu6xuMbHuMUJZGExMDIgZGExMDMgZGExMDQgZGExMDUJCW9hMjAxIG9hMjAyIG9hMjAzIG9hMjA0DQoNCirA4sitxse4xQm++MC9DQoNCiq/rLDhxsTAzwkibmFtZVxyaWNhcmRlbi1lcXVpcDEuemhvb24iDQoNCg0KDQoNCg=="
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "summit.localization-catalog/v1",
+  "schema_version": 1,
+  "locale": "zh-TW",
+  "fallback_locale": "en",
+  "entries": []
+}

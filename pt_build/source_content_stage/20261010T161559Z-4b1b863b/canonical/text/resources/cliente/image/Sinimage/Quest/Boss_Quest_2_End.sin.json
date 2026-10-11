@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_2_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_2_End.sin",
+    "image/Sinimage/Quest/Boss_Quest_2_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_2_End.sin",
+    "legacy_sha256": "4238c0a07baedba7200c9d27a23c87b8544f2c84596abafa846e14c29c6b8485",
+    "legacy_size": 115
+  },
+  "semantic": {
+    "lines": [
+      "Muito bom. Esse osso parece um pouco assustador.",
+      "",
+      "Receba essa experiência como recompensa pelo seu bom",
+      "trabalho."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TXVpdG8gYm9tLiBFc3NlIG9zc28gcGFyZWNlIHVtIHBvdWNvIGFzc3VzdGFkb3IuDQoNClJlY2ViYSBlc3NhIGV4cGVyaepuY2lhIGNvbW8gcmVjb21wZW5zYSBwZWxvIHNldSBib20NCnRyYWJhbGhvLg=="
+  }
+}

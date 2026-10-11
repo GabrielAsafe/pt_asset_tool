@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.cx107",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/CX107.zhoon",
+    "GameServer/OpenItem/name/CX107.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/CX107.zhoon",
+    "legacy_sha256": "5ffd93b7682f4834dd202e5805e1614aae6ac9b3c013cc3aad1cb8de5551ea90",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pacote de Aprimoramento +15"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGFjb3RlIGRlIEFwcmltb3JhbWVudG8gKzE1Ig=="
+  }
+}

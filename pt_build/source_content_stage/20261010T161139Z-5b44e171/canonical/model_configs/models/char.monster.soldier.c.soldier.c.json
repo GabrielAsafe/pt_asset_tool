@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.soldier.c.soldier.c",
+  "logical_config": "char/monster/soldier_c/soldier_c.ini",
+  "legacy_cache": "char/monster/soldier_c/soldier_c.inx",
+  "consumers": [
+    {
+      "id": "monster.bc_90_guarda_do_castelo",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/BC_90_Guarda do Castelo.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Soldier_C/Soldier_C.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Soldier_C/Soldier_C.inx"
+    }
+  }
+}

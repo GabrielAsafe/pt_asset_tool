@@ -1,0 +1,199 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.ca137",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/CA137.txt",
+    "GameServer/OpenItem/CA137.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/CA137.txt",
+    "legacy_sha256": "ed772824a2f64fc6fe5b0a02e0710de99c083c98cce59e45f73784f37f1683e9",
+    "legacy_size": 302
+  },
+  "semantic": {
+    "fields": {
+      "code": "CA137",
+      "name": "Traje Idhas 8h",
+      "english_name": "Traje Idhas 8h",
+      "weight": 1,
+      "level": 10,
+      "defence": [
+        50,
+        50
+      ],
+      "absorb": [
+        5.0,
+        5.0
+      ],
+      "life_add_alt": [
+        50,
+        50
+      ],
+      "mana_add_alt": [
+        50,
+        50
+      ],
+      "linked_file": "Name\\CA137.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "CA137"
+        ],
+        "raw_values_hex": [
+          "4341313337"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Idhas 8h"
+        ],
+        "raw_values_hex": [
+          "5472616a65204964686173203868"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Traje Idhas 8h"
+        ],
+        "raw_values_hex": [
+          "5472616a65204964686173203868"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          10
+        ],
+        "raw_values_hex": [
+          "3130"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          50
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3530"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          5.0,
+          5.0
+        ],
+        "raw_values_hex": [
+          "352e30",
+          "352e30"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "life_add_alt",
+        "legacy_token": "*생명력추가",
+        "legacy_token_hex": "2abbfdb8edb7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          50
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3530"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "mana_add_alt",
+        "legacy_token": "*기력추가",
+        "legacy_token_hex": "2ab1e2b7c2c3dfb0a1",
+        "loader_status": "supported_mapped",
+        "values": [
+          50,
+          50
+        ],
+        "raw_values_hex": [
+          "3530",
+          "3530"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\CA137.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c43413133372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkNBMTM3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiVHJhamUgSWRoYXMgOGgiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiVHJhamUgSWRoYXMgOGgiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTGV2ZWwNCiq3ubqnIDEwDQoNCi8vRGVmZW5zZQ0KKrnmvu63wiA1MCA1MA0KDQovL0Fic29ycHRpb24NCirI7bz2t8IgNS4wIDUuMA0KDQovL0hQDQoqu/247bfCw9+woSA1MCA1MA0KDQovL01QDQoqseK3wsPfsKEgNTAgNTANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxDQTEzNy56aG9vbiI="
+  }
+}

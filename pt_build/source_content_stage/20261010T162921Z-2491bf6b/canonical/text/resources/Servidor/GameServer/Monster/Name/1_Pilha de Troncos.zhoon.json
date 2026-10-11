@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.1_pilha_de_troncos",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/1_Pilha de Troncos.zhoon",
+    "GameServer/Monster/Name/1_Pilha de Troncos.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/1_Pilha de Troncos.zhoon",
+    "legacy_sha256": "f2949406d9b15203eeef76cc9fd472cad828215f0a85e2ecb2fc7e0975b448ab",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Pilha de Troncos"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiUGlsaGEgZGUgVHJvbmNvcyI="
+  }
+}

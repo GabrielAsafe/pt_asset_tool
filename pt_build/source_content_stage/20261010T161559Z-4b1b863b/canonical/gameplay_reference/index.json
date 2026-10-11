@@ -1,0 +1,6 @@
+{
+  "schema": "summit.gameplay-reference/v1",
+  "quest_catalog": "quests/priston_tale_quests.pt-BR.json",
+  "quest_runtime_bindings": "quests/runtime_bindings.json",
+  "mix_catalog": "mix/priston_tale_mix_table.pt-BR.json"
+}

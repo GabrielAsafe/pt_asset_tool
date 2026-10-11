@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.172lvquest_5",
+  "kind": "message_catalog",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/party/party_DATA/HaQuest/172LVQuest_5.msg",
+    "image/party/party_DATA/HaQuest/172LVQuest_5.msg"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/party/party_DATA/HaQuest/172LVQuest_5.msg",
+    "legacy_sha256": "a725ed41bf7594d631c17173540d07312cd682797f701a442e2db947927c6e03",
+    "legacy_size": 89
+  },
+  "semantic": {
+    "lines": [
+      "Derrote a Dama Flamejante",
+      "em Coração de Fogo.",
+      "Após, fale com a Sábia",
+      "Celina em Pillai."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RGVycm90ZSBhIERhbWEgRmxhbWVqYW50ZQ0KZW0gQ29yYefjbyBkZSBGb2dvLg0KQXDzcywgZmFsZSBjb20gYSBT4WJpYQ0KQ2VsaW5hIGVtIFBpbGxhaS4="
+  }
+}

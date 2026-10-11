@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.evilplant.evilplant",
+  "logical_config": "char/monster/evilplant/evilplant.ini",
+  "legacy_cache": "char/monster/evilplant/evilplant.inx",
+  "consumers": [
+    {
+      "id": "monster.58_planta_das_trevas",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/58_Planta das Trevas.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/EvilPlant/EvilPlant.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/EvilPlant/EvilPlant.inx"
+    }
+  }
+}

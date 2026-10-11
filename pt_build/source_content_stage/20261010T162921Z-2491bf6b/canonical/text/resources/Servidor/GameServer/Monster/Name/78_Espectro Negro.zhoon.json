@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.78_espectro_negro",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/78_Espectro Negro.zhoon",
+    "GameServer/Monster/Name/78_Espectro Negro.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/78_Espectro Negro.zhoon",
+    "legacy_sha256": "f7a40ba4b211d867ceb726d23059443eaf8d9ba5301a2bea58d886e172b16ea2",
+    "legacy_size": 24
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Espectro Negro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiRXNwZWN0cm8gTmVncm8i"
+  }
+}

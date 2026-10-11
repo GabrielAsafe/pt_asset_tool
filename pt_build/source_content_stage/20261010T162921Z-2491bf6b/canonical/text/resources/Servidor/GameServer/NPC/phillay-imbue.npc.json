@@ -1,0 +1,103 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.phillay_imbue",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/phillay-imbue.npc",
+    "GameServer/NPC/phillay-imbue.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/phillay-imbue.npc",
+    "legacy_sha256": "dd6e83c9522040c0a1acb2cb10b46ceedbbfcf1a2fb80a6f9ff67431d957c75e",
+    "legacy_size": 550
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-007\\MN-007.INI",
+      "name": "아케인 모리프",
+      "item_aging": true,
+      "linked_file": "name\\phillay-imbue.zhoon",
+      "model_config_id": "model.char.npc.mn.007.mn.007"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-007\\MN-007.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030375c4d4e2d3030372e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "아케인 모리프"
+        ],
+        "raw_values_hex": [
+          "bec6c4c9c0ce20b8f0b8aec7c1"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 16,
+        "key": "item_aging",
+        "legacy_token": "*아이템에이징",
+        "legacy_token_hex": "2abec6c0ccc5dbbfa1c0ccc2a1",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 19,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\phillay-imbue.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c7068696c6c61792d696d6275652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDA3XE1OLTAwNy5JTkkNCg0KKsDMuKcJCQkivsbEycDOILjwuK7HwSINCg0KLy8qtOvIrQkJCSK/ocDMwqHAuiC03LfDx8+0wiCw+sGkIMHfIL7GwMzF28DMILvntvPB+iC89rW1IMDWwfa4uCwgx9G5+MDHIMG2x9XAuLfOILy6tMnAuyDBwr/sx8+0wiC5zb26w7Mguri02bTCILT1IMfiu/O1yCC+xsDMxdsgtMm3wsC7ILL4vu4gs74gvPYgwNbB0iAiDQovLyq068itCQkJIr+hwMzCocC6ILCtx9EgyPvAuyCy+L7uILO+ILz2tbUgwNbB9ri4IL7GwMzF28DMIMH1ud8gx9IgvPa1tSDA1rTZtMIgsM21tSDA2MH2ILi7vsa+3yDH1bTPtNkuIg0KLy8qtOvIrQkJCSLHyr/kx9EgvanF0rD6ILW3wMwgwNa02bjpIL7wwaa158H2IL+hwMzCocC7IMfSILz2IMDWvcC0z7TZLiINCi8vKrTryK0JCQkisKK/wLTCILXFIMDWwLi9w7DawdI/ILHXt7Mgv6HAzMKhwLsgvcPA28fSse6/5D8iDQoNCg0KDQoNCg0KKr7GwMzF27+hwMzCoQ0KDQoNCiq/rLDhxsTAzyAibmFtZVxwaGlsbGF5LWltYnVlLnpob29uIg0KDQoNCg=="
+  }
+}

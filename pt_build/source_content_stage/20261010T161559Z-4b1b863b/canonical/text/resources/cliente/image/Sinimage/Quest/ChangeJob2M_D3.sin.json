@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.changejob2m_d3",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/ChangeJob2M_D3.sin",
+    "image/Sinimage/Quest/ChangeJob2M_D3.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/ChangeJob2M_D3.sin",
+    "legacy_sha256": "a749d79ffe743f7acc11873ac4aa2129f1aa4966fc5792589e9d448c4b78f6d9",
+    "legacy_size": 335
+  },
+  "semantic": {
+    "lines": [
+      "Oh! You have brought the hair loss treatment!",
+      "Thank you so much.. ",
+      "For my appreciation, I will let the magic master ",
+      "know that you have completed the rank-up quest.",
+      "You will be eligible to learn the next tier skills.",
+      "Oh, by the way, can you bring me some more if I ask",
+      "later?",
+      "",
+      "[Quest Completed]",
+      "",
+      "  1st rank-up quest completed"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "T2ghIFlvdSBoYXZlIGJyb3VnaHQgdGhlIGhhaXIgbG9zcyB0cmVhdG1lbnQhDQpUaGFuayB5b3Ugc28gbXVjaC4uIA0KRm9yIG15IGFwcHJlY2lhdGlvbiwgSSB3aWxsIGxldCB0aGUgbWFnaWMgbWFzdGVyIA0Ka25vdyB0aGF0IHlvdSBoYXZlIGNvbXBsZXRlZCB0aGUgcmFuay11cCBxdWVzdC4NCllvdSB3aWxsIGJlIGVsaWdpYmxlIHRvIGxlYXJuIHRoZSBuZXh0IHRpZXIgc2tpbGxzLg0KT2gsIGJ5IHRoZSB3YXksIGNhbiB5b3UgYnJpbmcgbWUgc29tZSBtb3JlIGlmIEkgYXNrDQpsYXRlcj8NCg0KW1F1ZXN0IENvbXBsZXRlZF0NCg0KICAxc3QgcmFuay11cCBxdWVzdCBjb21wbGV0ZWQ="
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "summit.fixed-npcs/v1",
+  "id": "fixed_npcs.dun_6a",
+  "logical_path": "GameServer/Field/Dun-6a.ASE.spc",
+  "npcs": [],
+  "provenance": {
+    "source": "GameServer/Field/Dun-6a.ASE.spc",
+    "legacy_size": 50400,
+    "legacy_sha256": "34dd708de504671f0eb5d689da1891983394e3f88d134bf7652485eb33edcfd0"
+  }
+}

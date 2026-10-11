@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bi122",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BI122.txt",
+    "GameServer/OpenItem/BI122.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BI122.txt",
+    "legacy_sha256": "bd6ddbb287339a362a32d0ae76f67e3ede7fc42053679ae05c5810b38d98a91f",
+    "legacy_size": 168
+  },
+  "semantic": {
+    "fields": {
+      "code": "BI122",
+      "name": "Drena Almas 1d",
+      "english_name": "Drena Almas 1d",
+      "weight": 1,
+      "linked_file": "Name\\BI122.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BI122"
+        ],
+        "raw_values_hex": [
+          "4249313232"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Drena Almas 1d"
+        ],
+        "raw_values_hex": [
+          "4472656e6120416c6d6173203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Drena Almas 1d"
+        ],
+        "raw_values_hex": [
+          "4472656e6120416c6d6173203164"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BI122.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42493132322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJJMTIyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiRHJlbmEgQWxtYXMgMWQiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiRHJlbmEgQWxtYXMgMWQiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcQkkxMjIuemhvb24i"
+  }
+}

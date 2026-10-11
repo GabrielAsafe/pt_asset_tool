@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.os135",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OS135.zhoon",
+    "GameServer/OpenItem/name/OS135.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OS135.zhoon",
+    "legacy_sha256": "22ca824971cbe04eeb97ee0aca79cfc409e9842fcd638e15300920148925ed0c",
+    "legacy_size": 37
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Sheltom do Guardião Sombrio"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiU2hlbHRvbSBkbyBHdWFyZGnjbyBTb21icmlvIg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_shadow_phalanx",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_shadow_phalanx.zhoon",
+    "GameServer/Monster/Name/new_sod_shadow_phalanx.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_shadow_phalanx.zhoon",
+    "legacy_sha256": "9a67b585d105493dbfe97c8bacacbda2600116eb978e35bc4434871fdf228854",
+    "legacy_size": 38
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Falange Sombria do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJGYWxhbmdlIFNvbWJyaWEgZG8gU29EIg0KDQo="
+  }
+}

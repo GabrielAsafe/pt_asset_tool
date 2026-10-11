@@ -1,0 +1,43 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.2011_newyear",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/2011_NewYear.sin",
+    "image/Sinimage/Quest/2011_NewYear.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/2011_NewYear.sin",
+    "legacy_sha256": "e9760be91594af8eaa601a1c79763a82bb49c8cf19f468ec1da27a9510bf69e4",
+    "legacy_size": 283
+  },
+  "semantic": {
+    "lines": [
+      "Hello!",
+      "",
+      "I'm Baurin, and give you a gift to celebrate year 2012.",
+      "If you bring me a gragon capsule, I wil exchange",
+      "with a gift.",
+      "",
+      "You can sell your gift card to store anytime.",
+      "",
+      "I can give you a gift many times",
+      "if you bring me a dragon capsule over and over.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SGVsbG8hDQoNCkknbSBCYXVyaW4sIGFuZCBnaXZlIHlvdSBhIGdpZnQgdG8gY2VsZWJyYXRlIHllYXIgMjAxMi4NCklmIHlvdSBicmluZyBtZSBhIGdyYWdvbiBjYXBzdWxlLCBJIHdpbCBleGNoYW5nZQ0Kd2l0aCBhIGdpZnQuDQoNCllvdSBjYW4gc2VsbCB5b3VyIGdpZnQgY2FyZCB0byBzdG9yZSBhbnl0aW1lLg0KDQpJIGNhbiBnaXZlIHlvdSBhIGdpZnQgbWFueSB0aW1lcw0KaWYgeW91IGJyaW5nIG1lIGEgZHJhZ29uIGNhcHN1bGUgb3ZlciBhbmQgb3Zlci4NCg0KDQoNCg0KDQoNCg0KDQoNCg=="
+  }
+}

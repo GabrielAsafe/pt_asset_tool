@@ -1,0 +1,48 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.mn.013.mn.013",
+  "logical_config": "char/npc/MN-013/MN-013.INI",
+  "legacy_cache": "char/npc/MN-013/MN-013.inx",
+  "consumers": [
+    {
+      "id": "npc.deamon_sabio",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Deamon sabio.NPC.json"
+    },
+    {
+      "id": "npc.magicalgreen",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/MagicalGreen.npc.json"
+    },
+    {
+      "id": "npc.mn_013",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/mn-013.npc.json"
+    },
+    {
+      "id": "npc.puzzleking",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/puzzleking.npc.json"
+    },
+    {
+      "id": "npc.sanc_guard",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/Sanc-guard.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/MN-013/MN-013.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/MN-013/MN-013.inx"
+    }
+  }
+}

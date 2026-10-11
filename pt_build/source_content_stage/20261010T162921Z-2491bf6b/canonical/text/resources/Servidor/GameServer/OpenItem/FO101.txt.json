@@ -1,0 +1,137 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.fo101",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/FO101.txt",
+    "GameServer/OpenItem/FO101.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/FO101.txt",
+    "legacy_sha256": "06112270d62e3b11cf9814cbc7acaecd47482ce236442611afb74e637deb7592",
+    "legacy_size": 207
+  },
+  "semantic": {
+    "fields": {
+      "code": "FO101",
+      "name": "Força Lucidi",
+      "english_name": "Força Lucidi",
+      "weight": 2,
+      "price": 1000,
+      "level": 1,
+      "linked_file": "Name\\FO101.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "FO101"
+        ],
+        "raw_values_hex": [
+          "464f313031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Força Lucidi"
+        ],
+        "raw_values_hex": [
+          "466f72e761204c7563696469"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Força Lucidi"
+        ],
+        "raw_values_hex": [
+          "466f72e761204c7563696469"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          2
+        ],
+        "raw_values_hex": [
+          "32"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1000
+        ],
+        "raw_values_hex": [
+          "31303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\FO101.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c464f3130312e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkZPMTAxIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiRm9y52EgTHVjaWRpIg0KDQovL0VuZ2xpc2ggTmFtZQ0KKk5hbWUgIkZvcudhIEx1Y2lkaSINCg0KLy9XZWlnaHQNCiq5q7DUIDINCg0KLy9QcmljZQ0KKrChsN0gMTAwMA0KDQovL0xldmVsDQoqt7m6pyAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcRk8xMDEuemhvb24i"
+  }
+}

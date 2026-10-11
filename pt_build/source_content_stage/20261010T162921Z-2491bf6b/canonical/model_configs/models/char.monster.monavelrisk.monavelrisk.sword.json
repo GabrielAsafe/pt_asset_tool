@@ -1,0 +1,33 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monavelrisk.monavelrisk.sword",
+  "logical_config": "char/monster/Monavelrisk/Monavelrisk-sword.ini",
+  "legacy_cache": "char/monster/Monavelrisk/Monavelrisk-sword.inx",
+  "consumers": [
+    {
+      "id": "monster.49_centauro_s",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/49_Centauro-S.inf.json"
+    },
+    {
+      "id": "monster.new_sod_avelisk_s",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/new_sod_avelisk-s.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monavelrisk/Monavelrisk-sword.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monavelrisk/Monavelrisk-sword.inx"
+    }
+  }
+}

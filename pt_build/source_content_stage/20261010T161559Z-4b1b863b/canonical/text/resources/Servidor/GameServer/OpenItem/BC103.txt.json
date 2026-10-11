@@ -1,0 +1,123 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.bc103",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/BC103.txt",
+    "GameServer/OpenItem/BC103.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/BC103.txt",
+    "legacy_sha256": "ea9a0a1df48bb99e70f9020566d4a23075c0e54584510adabccd69da1f856312",
+    "legacy_size": 196
+  },
+  "semantic": {
+    "fields": {
+      "code": "BC103",
+      "name": "Reflexo Selvagem",
+      "english_name": "Reflexo Selvagem",
+      "weight": 1,
+      "price": 50000,
+      "linked_file": "Name\\BC103.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "BC103"
+        ],
+        "raw_values_hex": [
+          "4243313033"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Reflexo Selvagem"
+        ],
+        "raw_values_hex": [
+          "5265666c65786f2053656c766167656d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Reflexo Selvagem"
+        ],
+        "raw_values_hex": [
+          "5265666c65786f2053656c766167656d"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          50000
+        ],
+        "raw_values_hex": [
+          "3530303030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\BC103.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c42433130332e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkJDMTAzIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiUmVmbGV4byBTZWx2YWdlbSINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJSZWZsZXhvIFNlbHZhZ2VtIg0KDQovL1dlaWdodA0KKrmrsNQgMQ0KDQovL1ByaWNlDQoqsKGw3SA1MDAwMA0KDQovL05hbWUgRmlsZQ0KKr+ssOHGxMDPICJOYW1lXEJDMTAzLnpob29uIg=="
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.114lvquest_1_end",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/114LVQuest_1_End.sin",
+    "image/Sinimage/Quest/114LVQuest_1_End.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/114LVQuest_1_End.sin",
+    "legacy_sha256": "82c14bd5a1099d1f2054f0af8626dbfc9e776083c536286c4d3a7ceabd2eda3f",
+    "legacy_size": 237
+  },
+  "semantic": {
+    "lines": [
+      "Que os meus amigos possam descansar, finalmente,",
+      "em eterna paz.",
+      "Agora, vou auxiliá-lo com o seu problema também.",
+      "",
+      "Muito obrigado!",
+      "Receba 1.988.134.487 de experiência por ajudar a trazer",
+      "o conforto ao espírito dos meus companheiros."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "UXVlIG9zIG1ldXMgYW1pZ29zIHBvc3NhbSBkZXNjYW5zYXIsIGZpbmFsbWVudGUsDQplbSBldGVybmEgcGF6Lg0KQWdvcmEsIHZvdSBhdXhpbGnhLWxvIGNvbSBvIHNldSBwcm9ibGVtYSB0YW1i6W0uDQoNCk11aXRvIG9icmlnYWRvIQ0KUmVjZWJhIDEuOTg4LjEzNC40ODcgZGUgZXhwZXJp6m5jaWEgcG9yIGFqdWRhciBhIHRyYXplcg0KbyBjb25mb3J0byBhbyBlc3Dtcml0byBkb3MgbWV1cyBjb21wYW5oZWlyb3Mu"
+  }
+}

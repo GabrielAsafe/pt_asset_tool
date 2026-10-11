@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.monhulk.1.monhulk.1",
+  "logical_config": "char/monster/monhulk-1/monhulk-1.ini",
+  "legacy_cache": "char/monster/monhulk-1/monhulk-1.inx",
+  "consumers": [
+    {
+      "id": "monster.85_tiphoon",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/85_Tiphoon.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Monhulk-1/Monhulk-1.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Monhulk-1/Monhulk-1.inx"
+    }
+  }
+}

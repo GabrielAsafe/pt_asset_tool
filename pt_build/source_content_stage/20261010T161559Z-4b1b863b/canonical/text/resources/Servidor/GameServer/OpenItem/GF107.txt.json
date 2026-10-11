@@ -1,0 +1,109 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.gf107",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/GF107.txt",
+    "GameServer/OpenItem/GF107.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/GF107.txt",
+    "legacy_sha256": "f9903886b470340382c89f6849275846775a9341e27b0279b2eda958f74572ba",
+    "legacy_size": 168
+  },
+  "semantic": {
+    "fields": {
+      "code": "GF107",
+      "name": "Investigador 1",
+      "english_name": "Investigador 1",
+      "weight": 1,
+      "linked_file": "Name\\GF107.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "GF107"
+        ],
+        "raw_values_hex": [
+          "4746313037"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Investigador 1"
+        ],
+        "raw_values_hex": [
+          "496e76657374696761646f722031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Investigador 1"
+        ],
+        "raw_values_hex": [
+          "496e76657374696761646f722031"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\GF107.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c47463130372e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkdGMTA3Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiSW52ZXN0aWdhZG9yIDEiDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiSW52ZXN0aWdhZG9yIDEiDQoNCi8vV2VpZ2h0DQoquauw1CAxDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcR0YxMDcuemhvb24i"
+  }
+}

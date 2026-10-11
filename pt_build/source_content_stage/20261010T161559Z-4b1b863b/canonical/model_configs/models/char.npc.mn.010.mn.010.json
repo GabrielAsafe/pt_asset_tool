@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.npc.mn.010.mn.010",
+  "logical_config": "char/npc/MN-010/MN-010.INI",
+  "legacy_cache": "char/npc/MN-010/MN-010.inx",
+  "consumers": [
+    {
+      "id": "npc.phillay_warehouse",
+      "kind": "npc_definition",
+      "json_path": "text/resources/Servidor/GameServer/NPC/phillay-warehouse.npc.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/npc/MN-010/MN-010.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/npc/MN-010/MN-010.inx"
+    }
+  }
+}

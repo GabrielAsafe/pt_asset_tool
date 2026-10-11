@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.96_inquisidor_negro",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/96_Inquisidor Negro.zhoon",
+    "GameServer/Monster/Name/96_Inquisidor Negro.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/96_Inquisidor Negro.zhoon",
+    "legacy_sha256": "bf9498f0065d852b042a60917139b900804351f71e0675d0ab55eadcbca670a2",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Inquisidor Negro"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiSW5xdWlzaWRvciBOZWdybyI="
+  }
+}

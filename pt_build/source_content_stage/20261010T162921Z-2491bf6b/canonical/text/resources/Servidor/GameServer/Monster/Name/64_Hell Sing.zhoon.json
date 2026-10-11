@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.64_hell_sing",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/64_Hell Sing.zhoon",
+    "GameServer/Monster/Name/64_Hell Sing.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/64_Hell Sing.zhoon",
+    "legacy_sha256": "a382fff6ae9b9c802c155ba2731a8db598b65471a3ee3b273284567f30611277",
+    "legacy_size": 19
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Hell Sing"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiSGVsbCBTaW5nIg=="
+  }
+}

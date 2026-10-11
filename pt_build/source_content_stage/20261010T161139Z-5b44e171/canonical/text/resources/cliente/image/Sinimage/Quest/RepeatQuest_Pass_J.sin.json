@@ -1,0 +1,27 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.repeatquest_pass_j",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/RepeatQuest_Pass_J.sin",
+    "image/Sinimage/Quest/RepeatQuest_Pass_J.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/RepeatQuest_Pass_J.sin",
+    "legacy_sha256": "dd987ac1f85096fe478fc9bcc248b059af0126f4278fcb0f0d2ac32b178efbd9",
+    "legacy_size": 122
+  },
+  "semantic": {
+    "lines": [
+      "I have given you the list of which monsters",
+      "you need to hunt. I will give you rewards",
+      "after hunting monsters. Take care."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "SSBoYXZlIGdpdmVuIHlvdSB0aGUgbGlzdCBvZiB3aGljaCBtb25zdGVycw0KeW91IG5lZWQgdG8gaHVudC4gSSB3aWxsIGdpdmUgeW91IHJld2FyZHMNCmFmdGVyIGh1bnRpbmcgbW9uc3RlcnMuIFRha2UgY2FyZS4="
+  }
+}

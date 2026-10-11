@@ -1,0 +1,148 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.sanc_guard",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Sanc-guard.npc",
+    "GameServer/NPC/Sanc-guard.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Sanc-guard.npc",
+    "legacy_sha256": "0b1a300fd3af6739b169179282b5f72b95831c3e44d1006127b5753f37867ebc",
+    "legacy_size": 558
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-013\\MN-013.INI",
+      "name": "사원관리인",
+      "dialog": {
+        "$repeated": [
+          "뒤에 보이는 켈베쥬 레어에 발을 들여 놓았다가 온전히 살아나온 자가 드물다고 하오.",
+          "켈베쥬는 무지막지한 공격력을 자랑하는 몬스터요. 당신의 방어력으로는 살아서 나올 수 없을것이오.",
+          "현재로서는 레어 안에 있는 켈베쥬는 무적이라해도 과언이 아닐것이오."
+        ]
+      },
+      "linked_file": "name\\Sanc-guard.zhoon",
+      "model_config_id": "model.char.npc.mn.013.mn.013"
+    },
+    "directives": [
+      {
+        "line": 1,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 2,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-013\\MN-013.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3031335c4d4e2d3031332e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 4,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "사원관리인"
+        ],
+        "raw_values_hex": [
+          "bbe7bff8b0fcb8aec0ce"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 9,
+        "key": "dialog",
+        "legacy_token": "*대화",
+        "legacy_token_hex": "2ab4ebc8ad",
+        "loader_status": "supported_mapped",
+        "values": [
+          "뒤에 보이는 켈베쥬 레어에 발을 들여 놓았다가 온전히 살아나온 자가 드물다고 하오."
+        ],
+        "raw_values_hex": [
+          "b5dabfa120bab8c0ccb4c220c4ccbaa3c1ea20b7b9beeebfa120b9dfc0bb20b5e9bfa920b3f5bed2b4d9b0a120bfc2c0fcc8f720bbecbec6b3aabfc220c0dab0a120b5e5b9b0b4d9b0ed20c7cfbfc02e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 10,
+        "key": "dialog",
+        "legacy_token": "*대화",
+        "legacy_token_hex": "2ab4ebc8ad",
+        "loader_status": "supported_mapped",
+        "values": [
+          "켈베쥬는 무지막지한 공격력을 자랑하는 몬스터요. 당신의 방어력으로는 살아서 나올 수 없을것이오."
+        ],
+        "raw_values_hex": [
+          "c4ccbaa3c1eab4c220b9abc1f6b8b7c1f6c7d120b0f8b0ddb7c2c0bb20c0dab6fbc7cfb4c220b8f3bdbac5cdbfe42e20b4e7bdc5c0c720b9e6beeeb7c2c0b8b7ceb4c220bbecbec6bcad20b3aabfc320bcf620bef8c0bbb0cdc0ccbfc02e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "dialog",
+        "legacy_token": "*대화",
+        "legacy_token_hex": "2ab4ebc8ad",
+        "loader_status": "supported_mapped",
+        "values": [
+          "현재로서는 레어 안에 있는 켈베쥬는 무적이라해도 과언이 아닐것이오."
+        ],
+        "raw_values_hex": [
+          "c7f6c0e7b7cebcadb4c220b7b9beee20bec8bfa120c0d6b4c220c4ccbaa3c1eab4c220b9abc0fbc0ccb6f3c7d8b5b520b0fabef0c0cc20bec6b4d2b0cdc0ccbfc02e"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 14,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Sanc-guard.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c53616e632d67756172642e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KrzTvLoJCQlOUEMNCiq48L7nxsTAzwkJImNoYXJcbnBjXE1OLTAxM1xNTi0wMTMuSU5JIg0KDQoqwMy4pwkJCSK757/4sPy4rsDOIg0KLy8qxdq3ucb3xq4gMg0KDQovLyq068itCQkJIsDMILD3wLogvLHFw7XIIMDatenAzCC15bOqtekgvPYgwNa0wiCw98DMv+QuILTnvcXAuiC09SDAzLvzIMDMtb/H0iC89iC++LzSLiINCi8vKrTryK0JCQkitOe9xcC6ILyxxcO53sC6IMDasKEgvsa00bDNILCwsbi3wS4iDQoqtOvIrQkJCSK12r+hILq4wMy0wiDEzLqjweogt7m+7r+hILnfwLsgtem/qSCz9b7StNmwoSC/wsD8yPcgu+y+xrOqv8IgwNqwoSC15bmwtNmw7SDHz7/ALiINCiq068itCQkJIsTMuqPB6rTCILmrwfa4t8H2x9EgsPiw3bfCwLsgwNq2+8fPtMIguPO9usXNv+QuILTnvcXAxyC55r7ut8LAuLfOtMIgu+y+xrytILOqv8MgvPYgvvjAu7DNwMy/wC4iDQoqtOvIrQkJCSLH9sDnt868rbTCILe5vu4gvsi/oSDA1rTCIMTMuqPB6rTCILmrwPvAzLbzx9i1tSCw+r7wwMwgvsa00rDNwMy/wC4iDQoNCg0KKr+ssOHGxMDPICJuYW1lXFNhbmMtZ3VhcmQuemhvb24iDQoNCi8vwM+53Q0K"
+  }
+}

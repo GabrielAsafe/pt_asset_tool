@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.kakoa.kakoa",
+  "logical_config": "char/monster/kakoa/kakoa.ini",
+  "legacy_cache": "char/monster/kakoa/kakoa.inx",
+  "consumers": [
+    {
+      "id": "monster.106_kakoa",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/106_Kakoa.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/Kakoa/Kakoa.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/Kakoa/Kakoa.inx"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.clanchiefring",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Clanchiefring.sin",
+    "image/Sinimage/Quest/Clanchiefring.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Clanchiefring.sin",
+    "legacy_sha256": "e7a0e98193967020d3e7d6ee526ac70a29ff84fadb2d0d9916aa663ce23418f7",
+    "legacy_size": 313
+  },
+  "semantic": {
+    "lines": [
+      "Este é o Continente do Priston?",
+      "Eu estou aqui para procurar cristais de monstros.",
+      "Eu descobri como criar anéis especiais utilizando cristais de monstros",
+      "mas eu ainda preciso de um pouco mais. Por isso que preciso da sua ajuda.",
+      "",
+      "Me traga 7 diferentes Cristais e eu lhe darei um anel com habilidades especiais."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "RXN0ZSDpIG8gQ29udGluZW50ZSBkbyBQcmlzdG9uPw0KRXUgZXN0b3UgYXF1aSBwYXJhIHByb2N1cmFyIGNyaXN0YWlzIGRlIG1vbnN0cm9zLg0KRXUgZGVzY29icmkgY29tbyBjcmlhciBhbulpcyBlc3BlY2lhaXMgdXRpbGl6YW5kbyBjcmlzdGFpcyBkZSBtb25zdHJvcw0KbWFzIGV1IGFpbmRhIHByZWNpc28gZGUgdW0gcG91Y28gbWFpcy4gUG9yIGlzc28gcXVlIHByZWNpc28gZGEgc3VhIGFqdWRhLg0KDQpNZSB0cmFnYSA3IGRpZmVyZW50ZXMgQ3Jpc3RhaXMgZSBldSBsaGUgZGFyZWkgdW0gYW5lbCBjb20gaGFiaWxpZGFkZXMgZXNwZWNpYWlzLg=="
+  }
+}

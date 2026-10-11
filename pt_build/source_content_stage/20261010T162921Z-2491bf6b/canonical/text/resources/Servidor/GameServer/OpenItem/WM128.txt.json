@@ -1,0 +1,393 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.wm128",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/WM128.txt",
+    "GameServer/OpenItem/WM128.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/WM128.txt",
+    "legacy_sha256": "18df6d1f3d57eec1d64ab7a34f3ff6c86886e70e7fabd3e0849dc55391ad9227",
+    "legacy_size": 728
+  },
+  "semantic": {
+    "fields": {
+      "code": "WM128",
+      "name": "Cajado Mitológico",
+      "english_name": "Cajado Mitológico",
+      "attack_damage": [
+        102,
+        105,
+        121,
+        123
+      ],
+      "attack_rating": [
+        213,
+        223
+      ],
+      "shooting_range": 220,
+      "attack_speed": 8,
+      "critical": 12,
+      "block": [
+        11.0,
+        11.0
+      ],
+      "durability": [
+        200,
+        220
+      ],
+      "level": 118,
+      "strength": 75,
+      "spirit": 226,
+      "talent": 100,
+      "job_random": [
+        "Priestess",
+        "Magician"
+      ],
+      "special_damage": [
+        6,
+        6
+      ],
+      "special_attack_speed": 1,
+      "special_mana_regen_alt": [
+        3.0,
+        3.3
+      ],
+      "special_magic": [
+        13,
+        20
+      ],
+      "weight": 74,
+      "price": 1500000,
+      "linked_file": "Name\\WM128.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "WM128"
+        ],
+        "raw_values_hex": [
+          "574d313238"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cajado Mitológico"
+        ],
+        "raw_values_hex": [
+          "43616a61646f204d69746f6cf36769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Cajado Mitológico"
+        ],
+        "raw_values_hex": [
+          "43616a61646f204d69746f6cf36769636f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "attack_damage",
+        "legacy_token": "*공격력",
+        "legacy_token_hex": "2ab0f8b0ddb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          102,
+          105,
+          121,
+          123
+        ],
+        "raw_values_hex": [
+          "313032",
+          "313035",
+          "313231",
+          "313233"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "attack_rating",
+        "legacy_token": "*명중력",
+        "legacy_token_hex": "2ab8edc1dfb7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          213,
+          223
+        ],
+        "raw_values_hex": [
+          "323133",
+          "323233"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "shooting_range",
+        "legacy_token": "*사정거리",
+        "legacy_token_hex": "2abbe7c1a4b0c5b8ae",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          220
+        ],
+        "raw_values_hex": [
+          "323230"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "attack_speed",
+        "legacy_token": "*공격속도",
+        "legacy_token_hex": "2ab0f8b0ddbcd3b5b5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          8
+        ],
+        "raw_values_hex": [
+          "38"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "critical",
+        "legacy_token": "*크리티컬",
+        "legacy_token_hex": "2ac5a9b8aec6bcc4c3",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          12
+        ],
+        "raw_values_hex": [
+          "3132"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "block",
+        "legacy_token": "*블럭율",
+        "legacy_token_hex": "2abaedb7b0c0b2",
+        "loader_status": "supported_mapped",
+        "values": [
+          11.0,
+          11.0
+        ],
+        "raw_values_hex": [
+          "31312e30",
+          "31312e30"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          200,
+          220
+        ],
+        "raw_values_hex": [
+          "323030",
+          "323230"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "level",
+        "legacy_token": "*레벨",
+        "legacy_token_hex": "2ab7b9baa7",
+        "loader_status": "supported_mapped",
+        "values": [
+          118
+        ],
+        "raw_values_hex": [
+          "313138"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "strength",
+        "legacy_token": "*힘",
+        "legacy_token_hex": "2ac8fb",
+        "loader_status": "supported_mapped",
+        "values": [
+          75
+        ],
+        "raw_values_hex": [
+          "3735"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "spirit",
+        "legacy_token": "*정신력",
+        "legacy_token_hex": "2ac1a4bdc5b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          226
+        ],
+        "raw_values_hex": [
+          "323236"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "talent",
+        "legacy_token": "*재능",
+        "legacy_token_hex": "2ac0e7b4c9",
+        "loader_status": "supported_mapped",
+        "values": [
+          100
+        ],
+        "raw_values_hex": [
+          "313030"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "special_damage",
+        "legacy_token": "**공격력",
+        "legacy_token_hex": "2a2ab0f8b0ddb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          6
+        ],
+        "raw_values_hex": [
+          "36",
+          "36"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "special_attack_speed",
+        "legacy_token": "**공격속도",
+        "legacy_token_hex": "2a2ab0f8b0ddbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          1
+        ],
+        "raw_values_hex": [
+          "31"
+        ]
+      },
+      {
+        "line": 53,
+        "key": "special_mana_regen_alt",
+        "legacy_token": "**기력재생",
+        "legacy_token_hex": "2a2ab1e2b7c2c0e7bbfd",
+        "loader_status": "supported_mapped",
+        "values": [
+          3.0,
+          3.3
+        ],
+        "raw_values_hex": [
+          "332e30",
+          "332e33"
+        ]
+      },
+      {
+        "line": 56,
+        "key": "special_magic",
+        "legacy_token": "**마법숙련도",
+        "legacy_token_hex": "2a2ab8b6b9fdbcf7b7c3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          13,
+          20
+        ],
+        "raw_values_hex": [
+          "3133",
+          "3230"
+        ]
+      },
+      {
+        "line": 59,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          74
+        ],
+        "raw_values_hex": [
+          "3734"
+        ]
+      },
+      {
+        "line": 62,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          1500000
+        ],
+        "raw_values_hex": [
+          "31353030303030"
+        ]
+      },
+      {
+        "line": 65,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\WM128.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c574d3132382e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIldNMTI4Ig0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQ2FqYWRvIE1pdG9s82dpY28iDQoNCi8vRW5nbGlzaCBOYW1lDQoqTmFtZSAiQ2FqYWRvIE1pdG9s82dpY28iDQoNCi8vQXR0YWNrUG93ZXINCiqw+LDdt8IgMTAyIDEwNSAxMjEgMTIzDQoNCi8vQXR0YWNrUmF0aW5nDQoquO3B37fCIDIxMyAyMjMNCg0KLy9BdHRhY2tSYW5nZQ0KKrvnwaSwxbiuIDIyMA0KDQovL0F0dGFja1NwZWVkDQoqsPiw3bzTtbUgOA0KDQovL0F0dGFja0NyaXRpY2FsDQoqxam4rsa8xMMgMTINCg0KLy9CbG9jaw0KKrrtt7DAsiAxMS4wIDExLjANCg0KLy9JbnRlZ3JpdHkNCiqzu7G4t8IgMjAwIDIyMA0KDQovL0xldmVsDQoqt7m6pyAxMTgNCg0KLy9TdHJlbmd0aA0KKsj7IDc1DQoNCi8vU3Bpcml0DQoqwaS9xbfCIDIyNg0KDQovL1RhbGVudA0KKsDntMkgMTAwDQoNCi8vU2Vjb25kYXJ5U3BlYw0KKirGr8itt6O0/SBQcmllc3Rlc3MgTWFnaWNpYW4NCg0KLy9TcGVjQXR0YWNrUG93ZXINCioqsPiw3bfCIDYgNg0KDQovL1NwZWNBdHRhY2tTcGVlZA0KKiqw+LDdvNO1tSAxDQoNCi8vU3BlY01QUmVnZW4NCioqseK3wsDnu/0gMy4wIDMuMw0KDQovL1NwZWNTa2lsbFRyYWluaW5nDQoqKri2uf2897fDtbUgMTMgMjANCg0KLy9XZWlnaHQNCiq5q7DUIDc0DQoNCi8vUHJpY2UNCiqwobDdIDE1MDAwMDANCg0KLy9OYW1lIEZpbGUNCiq/rLDhxsTAzyAiTmFtZVxXTTEyOC56aG9vbiI="
+  }
+}

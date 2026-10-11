@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.60_chama_elemental",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/60_Chama Elemental.zhoon",
+    "GameServer/Monster/Name/60_Chama Elemental.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/60_Chama Elemental.zhoon",
+    "legacy_sha256": "07a94117e5734e974fb40686e8d280dce5f54c68accd15ab1b930eec0f6c9f2b",
+    "legacy_size": 25
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Chama Elemental"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2hhbWEgRWxlbWVudGFsIg=="
+  }
+}

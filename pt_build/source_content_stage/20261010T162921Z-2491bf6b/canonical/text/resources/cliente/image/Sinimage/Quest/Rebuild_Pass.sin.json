@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.rebuild_pass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Rebuild_Pass.sin",
+    "image/Sinimage/Quest/Rebuild_Pass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Rebuild_Pass.sin",
+    "legacy_sha256": "cf84c619fed97f1cf9babcbc0c62d24c7881484741b020390514a4afd51184a0",
+    "legacy_size": 306
+  },
+  "semantic": {
+    "lines": [
+      "Sei que é uma tarefa cansativa, mas acredito em você. ",
+      "Estou precisando muito dos ingredientes roubados. ",
+      "",
+      "Ficarei muito feliz se me trouxer:",
+      "2x Cerejas",
+      "2x Chantilly  ",
+      "2x Trigo ",
+      "",
+      "Por favor, sua ajuda é muito importante para o sucesso",
+      "da festa! ",
+      "Nos ajude a trazer alegria para as nossas crianças!"
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "U2VpIHF1ZSDpIHVtYSB0YXJlZmEgY2Fuc2F0aXZhLCBtYXMgYWNyZWRpdG8gZW0gdm9j6i4gDQpFc3RvdSBwcmVjaXNhbmRvIG11aXRvIGRvcyBpbmdyZWRpZW50ZXMgcm91YmFkb3MuIA0KDQpGaWNhcmVpIG11aXRvIGZlbGl6IHNlIG1lIHRyb3V4ZXI6DQoyeCBDZXJlamFzDQoyeCBDaGFudGlsbHkgIA0KMnggVHJpZ28gDQoNClBvciBmYXZvciwgc3VhIGFqdWRhIOkgbXVpdG8gaW1wb3J0YW50ZSBwYXJhIG8gc3VjZXNzbw0KZGEgZmVzdGEhIA0KTm9zIGFqdWRlIGEgdHJhemVyIGFsZWdyaWEgcGFyYSBhcyBub3NzYXMgY3JpYW7nYXMh"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "summit.model-config/v1",
+  "schema_version": 1,
+  "id": "model.char.monster.goblinchief.goblinchief",
+  "logical_config": "char/monster/goblinchief/goblinchief.ini",
+  "legacy_cache": "char/monster/goblinchief/goblinchief.inx",
+  "consumers": [
+    {
+      "id": "monster.chefe_4_duende_chefe",
+      "kind": "monster_definition",
+      "json_path": "text/resources/Servidor/GameServer/Monster/Chefe_4_Duende Chefe.inf.json"
+    }
+  ],
+  "source": {
+    "status": "unresolved"
+  },
+  "semantic": {},
+  "inventory_presence": {
+    "server": {
+      "present": true,
+      "path": "char/monster/goblinchief/goblinchief.inx"
+    },
+    "client": {
+      "present": true,
+      "path": "char/monster/goblinchief/goblinchief.inx"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.new_sod_avelin_queen",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/new_sod_avelin_queen.zhoon",
+    "GameServer/Monster/Name/new_sod_avelin_queen.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/new_sod_avelin_queen.zhoon",
+    "legacy_sha256": "9b8fcf57d5c482fea2eae8c8efbb714375aca2314df9a80dbfac764edd8ac6a5",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Rainha Avelin do SoD"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRQkJCSJSYWluaGEgQXZlbGluIGRvIFNvRCINCg=="
+  }
+}

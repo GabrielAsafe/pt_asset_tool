@@ -1,0 +1,35 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.boss_quest_2_start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/Boss_Quest_2_Start.sin",
+    "image/Sinimage/Quest/Boss_Quest_2_Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/Boss_Quest_2_Start.sin",
+    "legacy_sha256": "847e1596b217052a0682d19564bd5f3311cc5ce035499345f524534974470e39",
+    "legacy_size": 380
+  },
+  "semantic": {
+    "lines": [
+      "No Refúgio dos Anciões, um poderoso monstro morto-vivo",
+      "foi avistado. Este monstro parece estar além do nível usual",
+      "de poder dos mortos-vivos dessa área.",
+      "",
+      "Derrote-o e traga qualquer informação útil. Levarei as ",
+      "as pistas para os nossos alquimistas investigarem.",
+      "",
+      "[Objetivo do Desafio]",
+      "",
+      "Derrote o Esqueleto Assassino no Refúgio dos Anciões, e",
+      "fale com o Proud em Ricarten."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Tm8gUmVm+mdpbyBkb3MgQW5jafVlcywgdW0gcG9kZXJvc28gbW9uc3RybyBtb3J0by12aXZvDQpmb2kgYXZpc3RhZG8uIEVzdGUgbW9uc3RybyBwYXJlY2UgZXN0YXIgYWzpbSBkbyBu7XZlbCB1c3VhbA0KZGUgcG9kZXIgZG9zIG1vcnRvcy12aXZvcyBkZXNzYSDhcmVhLg0KDQpEZXJyb3RlLW8gZSB0cmFnYSBxdWFscXVlciBpbmZvcm1h5+NvIPp0aWwuIExldmFyZWkgYXMgDQphcyBwaXN0YXMgcGFyYSBvcyBub3Nzb3MgYWxxdWltaXN0YXMgaW52ZXN0aWdhcmVtLg0KDQpbT2JqZXRpdm8gZG8gRGVzYWZpb10NCg0KRGVycm90ZSBvIEVzcXVlbGV0byBBc3Nhc3Npbm8gbm8gUmVm+mdpbyBkb3MgQW5jafVlcywgZQ0KZmFsZSBjb20gbyBQcm91ZCBlbSBSaWNhcnRlbi4="
+  }
+}

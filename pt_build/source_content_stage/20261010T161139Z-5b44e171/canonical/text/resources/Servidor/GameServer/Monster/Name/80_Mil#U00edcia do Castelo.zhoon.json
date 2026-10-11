@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.80_mil_u00edcia_do_castelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/80_Mil#U00edcia do Castelo.zhoon",
+    "GameServer/Monster/Name/80_Mil#U00edcia do Castelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/80_Mil#U00edcia do Castelo.zhoon",
+    "legacy_sha256": "1ee5833ee2096ac144846137a394de1cf87472c248958918982cc901f3dbbc23",
+    "legacy_size": 28
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Milícia do Castelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiTWls7WNpYSBkbyBDYXN0ZWxvIg=="
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.wd151",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD151.zhoon",
+    "GameServer/OpenItem/name/ITENS TIER 5/WD151.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/ITENS TIER 5/WD151.zhoon",
+    "legacy_sha256": "0ab10c05d586b7adb39039a9d5617c889bb7e2c48691cc946a01da401fa4b842",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Plunder Dagger(5H)"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9XRDE1MS50eHQNCg0KKkpfTkFNRQkJIlBsdW5kZXIgRGFnZ2VyKDVIKSINCg=="
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.phillay_warehouse",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/phillay-warehouse.npc",
+    "GameServer/NPC/phillay-warehouse.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/phillay-warehouse.npc",
+    "legacy_sha256": "55ba2d1495e40db1d855e12a024b06801bfb01de1ce31cf2b3364a132b32ec76",
+    "legacy_size": 484
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-010\\MN-010.INI",
+      "name": "창고지기 라벤다",
+      "class": 1016,
+      "warehouse": true,
+      "linked_file": "name\\phillay-warehouse.zhoon",
+      "model_config_id": "model.char.npc.mn.010.mn.010"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-010\\MN-010.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3031305c4d4e2d3031302e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "창고지기 라벤다"
+        ],
+        "raw_values_hex": [
+          "c3a2b0edc1f6b1e220b6f3baa5b4d9"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 6,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          1016
+        ],
+        "raw_values_hex": [
+          "31303136"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "warehouse",
+        "legacy_token": "*아이템보관",
+        "legacy_token_hex": "2abec6c0ccc5dbbab8b0fc",
+        "loader_status": "supported_mapped",
+        "values": [],
+        "raw_values_hex": []
+      },
+      {
+        "line": 16,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\phillay-warehouse.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c7068696c6c61792d77617265686f7573652e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDEwXE1OLTAxMC5JTkkNCg0KKsDMuKcJCQkiw6Kw7cH2seIgtvO6pbTZIg0KKrDosd4gIDEwMTYNCi8vKrTryK0JCQkiwfzAzCC4ucC7ILapILOqx9HF1yC4w7DctdYuLiEgwN8guriw/MfYILXRIMXXtM+x7i4gIg0KLy8qtOvIrQkJCSLDorDtv6Eguriw/MfSILz2IMDWtMIgsPiwo7D6IMGmvuDAzCDA1sC4tM8gwNrB1iDBpLiuIMfPtMIgsM3AuyDA2MH2ILi7tvOw7SINCi8vKrTryK0JCQkix8+35yDBvsDPILmwsMe16cC7ILnesO0gv8Wx4rDtIMfftPW0zyDI+7Xpsbogwbsgs6rB37+hIL/AuOkgvsi1ybHuPyINCi8vKrTryK0JCQkiwMyw9yDDorDtv80gxdu9usWpt9Agw6Kw7bTCILytt84gv6yw4bXFIMDWwLi0zyCwxsGkuLuw7SC4w7HitvOw7SINCg0KDQoNCiq+xsDMxdu6uLD8DQoNCiq/rLDhxsTAzyAibmFtZVxwaGlsbGF5LXdhcmVob3VzZS56aG9vbiINCg0KDQovL8OisO0NCg=="
+  }
+}

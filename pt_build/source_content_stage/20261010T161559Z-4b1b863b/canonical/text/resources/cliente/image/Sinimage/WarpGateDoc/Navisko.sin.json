@@ -1,0 +1,28 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.navisko",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/WarpGateDoc/Navisko.sin",
+    "image/Sinimage/WarpGateDoc/Navisko.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/WarpGateDoc/Navisko.sin",
+    "legacy_sha256": "bbed200777e478f7ed6bd0192bb04ff4b1f8237e241537e76fff56c982bddc30",
+    "legacy_size": 187
+  },
+  "semantic": {
+    "lines": [
+      "Navisko, thaÌnh phôì nãÌm giýÞa loÌng sa maòc.",
+      "Nõi cý dân gaình chiòu môòt lõÌi nguyêÌn khuÒng khiêìp.",
+      "Nêìu baòn không phaÒi laÌ môòt chiêìn binh can ðaÒm, ",
+      "baòn không nên ðêìn ðây. "
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "TmF2aXNrbywgdGhhzG5oIHBo9OwgbuPMbSBnaf3eYSBsb8xuZyBzYSBtYfJjLg0KTvVpIGP9IGTibiBnYexuaCBjaGnydSBt9PJ0IGz1zGkgbmd1eerMbiBraHXSbmcga2hp6uxwLg0KTursdSBiYfJuIGto9G5nIHBoYdJpIGxhzCBt9PJ0IGNoaersbiBiaW5oIGNhbiDwYdJtLCANCmJh8m4ga2j0bmcgbupuIPDq7G4g8OJ5LiANCg=="
+  }
+}

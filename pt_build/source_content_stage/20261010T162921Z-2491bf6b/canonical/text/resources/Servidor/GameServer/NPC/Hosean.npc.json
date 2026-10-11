@@ -1,0 +1,107 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.hosean",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/Hosean.npc",
+    "GameServer/NPC/Hosean.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/Hosean.npc",
+    "legacy_sha256": "db96fb4096751235449ca831ff117093f42df7bf3ff55a44dd21a1f0c183d531",
+    "legacy_size": 459
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\hosean\\hosean.INI",
+      "name": "장로 호세안",
+      "class": 2100,
+      "linked_file": "name\\Hosean.zhoon",
+      "model_config_id": "model.char.npc.hosean.hosean"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\hosean\\hosean.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c686f7365616e5c686f7365616e2e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "장로 호세안"
+        ],
+        "raw_values_hex": [
+          "c0e5b7ce20c8a3bcbcbec8"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "class",
+        "legacy_token": "*계급",
+        "legacy_token_hex": "2ab0e8b1de",
+        "loader_status": "supported_mapped",
+        "values": [
+          2100
+        ],
+        "raw_values_hex": [
+          "32313030"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\Hosean.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c486f7365616e2e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcaG9zZWFuXGhvc2Vhbi5JTkkNCg0KKsDMuKcJCQkiwOW3ziDIo7y8vsgiDQoNCi8vsOix3ryzwaTHyr/kIDTC9yDA/L73IMT5vbrGrg0KKrDosd4JCTIxMDAJCQkNCg0KDQovLyq068itCQkJIsDMt7Egv9zB+LD3se7B9iC+7sDOIMDPwMy9w7/APyINCi8vKrTryK0JCQkix+PH4y4uLi4gs60gsdfA+iC6r7nmv6G8rSDBtr/ryPcgwfazu7TCILTEwLrAzLbzv8AuIg0KLy8qtOvIrQkJCSLB9rHdwLogwOG9wyC/1bG5wMcgv+TDu7+hILX7tvMgv+u757XpwMwgwPy+9yC9w8fowLsgxKG4o7DUILW1v83B1rDtIMDWtNmz1y4iDQovLyq068itCQkJIsG2vcnHz73Dv8AhIMDMIMHWuq+/oyDAp8fox9EguPO9usXNtenAzCC4ucC4tM8gvLK60riuIL/ywfe/tLTZsKMgtNnEpbz2tbUgwNa80i4iDQoNCg0KKr+ssOHGxMDPIAkibmFtZVxIb3NlYW4uemhvb24i"
+  }
+}

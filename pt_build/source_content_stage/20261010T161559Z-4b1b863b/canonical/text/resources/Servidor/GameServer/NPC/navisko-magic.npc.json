@@ -1,0 +1,155 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "npc.navisko_magic",
+  "kind": "npc_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/NPC/navisko-magic.npc",
+    "GameServer/NPC/navisko-magic.npc"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/NPC/navisko-magic.npc",
+    "legacy_sha256": "e7e1fd7e38a66f7d3b64b8401a7b014006a513ea7d58228ac185eec5ba7a710a",
+    "legacy_size": 643
+  },
+  "semantic": {
+    "fields": {
+      "state": "NPC",
+      "model_file": "char\\npc\\MN-008\\MN-008.INI",
+      "name": "마론 마법상점 3호점",
+      "sell_weapon": [
+        "WM107",
+        "WM108",
+        "WM109",
+        "WM110"
+      ],
+      "sell_defence": [
+        "DA207",
+        "DA208",
+        "DA209",
+        "DA210",
+        "OM106",
+        "OM107",
+        "OM108",
+        "OM109"
+      ],
+      "linked_file": "name\\navisko-magic.zhoon",
+      "model_config_id": "model.char.npc.mn.008.mn.008"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "state",
+        "legacy_token": "*속성",
+        "legacy_token_hex": "2abcd3bcba",
+        "loader_status": "supported_mapped",
+        "values": [
+          "NPC"
+        ],
+        "raw_values_hex": [
+          "4e5043"
+        ]
+      },
+      {
+        "line": 3,
+        "key": "model_file",
+        "legacy_token": "*모양파일",
+        "legacy_token_hex": "2ab8f0bee7c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "char\\npc\\MN-008\\MN-008.INI"
+        ],
+        "raw_values_hex": [
+          "636861725c6e70635c4d4e2d3030385c4d4e2d3030382e494e49"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "supported_mapped",
+        "values": [
+          "마론 마법상점 3호점"
+        ],
+        "raw_values_hex": [
+          "b8b6b7d020b8b6b9fdbbf3c1a12033c8a3c1a1"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 15,
+        "key": "sell_weapon",
+        "legacy_token": "*무기판매",
+        "legacy_token_hex": "2ab9abb1e2c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "WM107",
+          "WM108",
+          "WM109",
+          "WM110"
+        ],
+        "raw_values_hex": [
+          "574d313037",
+          "574d313038",
+          "574d313039",
+          "574d313130"
+        ]
+      },
+      {
+        "line": 18,
+        "key": "sell_defence",
+        "legacy_token": "*방어구판매",
+        "legacy_token_hex": "2ab9e6beeeb1b8c6c7b8c5",
+        "loader_status": "supported_mapped",
+        "values": [
+          "DA207",
+          "DA208",
+          "DA209",
+          "DA210",
+          "OM106",
+          "OM107",
+          "OM108",
+          "OM109"
+        ],
+        "raw_values_hex": [
+          "4441323037",
+          "4441323038",
+          "4441323039",
+          "4441323130",
+          "4f4d313036",
+          "4f4d313037",
+          "4f4d313038",
+          "4f4d313039"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "name\\navisko-magic.zhoon"
+        ],
+        "raw_values_hex": [
+          "6e616d655c6e617669736b6f2d6d616769632e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "DQoqvNO8ugkJCU5QQw0KKrjwvufGxMDPCQkiY2hhclxucGNcTU4tMDA4XE1OLTAwOC5JTkkNCg0KKsDMuKcJCQkiuLa30CC4trn9u/PBoSAzyKPBoSINCg0KLy8qtOvIrQkJCSK4trfQtNTAxyC4trn9u/PBoSAzyKPBoSDA1LTPtNkuIMewwfrAuiC6u8GhsPogsLDAuLTPILDGwaQguLa8vL/kLiINCi8vKrTryK0JCQkiwMyw98DHIL7GwMzF28C6IMfKtvPAzL+hvK0guLi16b7uwfggsM216SC708DMtM8gx7DB+sC6IMiuvcfH1bTPtNkuIg0KLy8qtOvIrQkJCSLAzLexILi2uf0gwOW68bimILi4teW9xyC89iDA1rTCILrQwLogtOu3+r+hILi2t9C01CC708DUtM+02S4iDQovLyq068itCQkJIri2t8LAzCCx6rXnIMDluvGwoSDHyr/kx8+9w7TZuOkgwN8gtdG3ryC6uL3KvcO/wCwguLa5/SDA5brxuKYgxse4xSDHz7TCILD3wLoguLa30CC4trn9u/PBobvTwNS0z7TZLiINCg0KDQovL8bHuMUguaux4rf5LCC55r7usbgsIMDiyK0gt/mwoSDGx7jFtcosDQoNCiq5q7Hixse4xQlXTTEwNyBXTTEwOCBXTTEwOSBXTTExMA0KDQoNCiq55r7usbjGx7jFCURBMjA3IERBMjA4IERBMjA5IERBMjEwCQlPTTEwNiBPTTEwNyBPTTEwOCBPTTEwOQ0KDQoNCg0KDQoqv6yw4cbEwM8gIm5hbWVcbmF2aXNrby1tYWdpYy56aG9vbiINCg0KDQovL8DPud0NCg=="
+  }
+}

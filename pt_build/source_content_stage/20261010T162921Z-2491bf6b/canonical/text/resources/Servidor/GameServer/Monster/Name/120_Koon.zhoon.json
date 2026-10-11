@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.120_koon",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/120_Koon.zhoon",
+    "GameServer/Monster/Name/120_Koon.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/120_Koon.zhoon",
+    "legacy_sha256": "e7307deedb9979c1487dac7c02270d32e8ccd6804638da9d5f73467379525f95",
+    "legacy_size": 34
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Koon"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly8xMjBfS29vbi5pbmYNCg0KKkpfTkFNRSAiS29vbiINCg=="
+  }
+}

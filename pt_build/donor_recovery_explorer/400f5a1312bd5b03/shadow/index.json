@@ -1,0 +1,12 @@
+{
+  "schema": "summit.text-shadow-index/v1",
+  "documents": [
+    {
+      "id": "monster.lizard_papa_2",
+      "kind": "monster_definition",
+      "source_path": "Servidor/GameServer/Monster/Lizard_Papa_2.inf",
+      "json_path": "documents/Servidor/GameServer/Monster/Lizard_Papa_2.inf.json",
+      "sha256": "ef9a7e54eb8782de3eb083710d3fc312e25510c0d776238d16a64671f661c0b8"
+    }
+  ]
+}

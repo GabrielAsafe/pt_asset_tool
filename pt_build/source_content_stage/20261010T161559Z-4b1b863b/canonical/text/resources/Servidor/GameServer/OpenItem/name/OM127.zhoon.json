@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.om127",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/name/OM127.zhoon",
+    "GameServer/OpenItem/name/OM127.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/name/OM127.zhoon",
+    "legacy_sha256": "5e9c32dcd325a47cb1f956561058b772e3ef24cf0ab7b75f05ed95480615e9dc",
+    "legacy_size": 46
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 3,
+        "legacy_key": "J_Name",
+        "kind": "name",
+        "text": "Esfera da Dinastia"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9PTTMwNS50eHQNCg0KKkpfTmFtZQkJIkVzZmVyYSBkYSBEaW5hc3RpYSINCg=="
+  }
+}

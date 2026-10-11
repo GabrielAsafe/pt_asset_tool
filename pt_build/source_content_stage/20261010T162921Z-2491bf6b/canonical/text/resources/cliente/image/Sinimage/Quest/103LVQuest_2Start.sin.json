@@ -1,0 +1,33 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_2start",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_2Start.sin",
+    "image/Sinimage/Quest/103LVQuest_2Start.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_2Start.sin",
+    "legacy_sha256": "210ec7e6418ed1546f7d0d8647ebe0bdbce17c09b0ed61e9878d659319e859a2",
+    "legacy_size": 343
+  },
+  "semantic": {
+    "lines": [
+      "We require specimens from the following monsters:",
+      "Specimen of Blue Mountain, Morgonia,",
+      "Red eye, Turtle dragon, and Bone Hound. This",
+      "boss monster is very strong, like Pagon, so be",
+      "extra careful.",
+      "",
+      "This boss monster is the leader of monsters,",
+      "so get close to the monsters to find it. You should",
+      "prepare yourself before looking for them."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "V2UgcmVxdWlyZSBzcGVjaW1lbnMgZnJvbSB0aGUgZm9sbG93aW5nIG1vbnN0ZXJzOg0KU3BlY2ltZW4gb2YgQmx1ZSBNb3VudGFpbiwgTW9yZ29uaWEsDQpSZWQgZXllLCBUdXJ0bGUgZHJhZ29uLCBhbmQgQm9uZSBIb3VuZC4gVGhpcw0KYm9zcyBtb25zdGVyIGlzIHZlcnkgc3Ryb25nLCBsaWtlIFBhZ29uLCBzbyBiZQ0KZXh0cmEgY2FyZWZ1bC4NCg0KVGhpcyBib3NzIG1vbnN0ZXIgaXMgdGhlIGxlYWRlciBvZiBtb25zdGVycywNCnNvIGdldCBjbG9zZSB0byB0aGUgbW9uc3RlcnMgdG8gZmluZCBpdC4gWW91IHNob3VsZA0KcHJlcGFyZSB5b3Vyc2VsZiBiZWZvcmUgbG9va2luZyBmb3IgdGhlbS4NCg=="
+  }
+}

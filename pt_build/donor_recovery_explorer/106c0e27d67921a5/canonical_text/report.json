@@ -1,0 +1,52 @@
+{
+  "schema": "summit.canonical-text-report/v1",
+  "schema_version": 1,
+  "resources": 1,
+  "families": {
+    "monster_definition": 1
+  },
+  "runtime_aliases": 2,
+  "canonical_ids": 1,
+  "id_collisions_resolved": {},
+  "gameplay_configs_packed": [
+    "servidor/configs/bellatra.ini",
+    "servidor/configs/companion.ini",
+    "servidor/configs/skill/archer.ini",
+    "servidor/configs/skill/atalanta.ini",
+    "servidor/configs/skill/fighter.ini",
+    "servidor/configs/skill/knight.ini",
+    "servidor/configs/skill/mage.ini",
+    "servidor/configs/skill/mech.ini",
+    "servidor/configs/skill/pike.ini",
+    "servidor/configs/skill/sacer.ini"
+  ],
+  "ui_text_configs_packed": [
+    "cliente/image/clanimage/help/autohelp/levelsubj.ini",
+    "cliente/image/clanimage/help/autohelp/levelup_content.ini"
+  ],
+  "ui_text_files_packed": [
+    "cliente/image/sinimage/help/mothersday.json",
+    "cliente/image/sinimage/petdata/petmessage.txt"
+  ],
+  "mutable_or_mixed_configs_kept_external": {
+    "servidor/configs/expmanager.ini": "runtime_mutable",
+    "servidor/configs/sistemas.ini": "runtime_mutable",
+    "servidor/configs/hotuk.ini": "mixed_operational_gameplay"
+  },
+  "excluded_counts": {},
+  "excluded_examples": {},
+  "localization": {
+    "schema": "summit.localization-report/v1",
+    "keys": 1,
+    "english_keys": 1,
+    "locales": {
+      "en": 1,
+      "pt-BR": 1,
+      "zh-TW": 0,
+      "ko": 1
+    },
+    "bindings": 1,
+    "fallbacks": {},
+    "missing_english_fallback": 0
+  }
+}

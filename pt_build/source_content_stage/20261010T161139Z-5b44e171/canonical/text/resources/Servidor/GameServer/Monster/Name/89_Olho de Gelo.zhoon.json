@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.89_olho_de_gelo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/89_Olho de Gelo.zhoon",
+    "GameServer/Monster/Name/89_Olho de Gelo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/89_Olho de Gelo.zhoon",
+    "legacy_sha256": "260cb09692d44c846ed466f72bd62425f89339ab731fa2a14fb9fcea96ee5a37",
+    "legacy_size": 22
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Olho de Gelo"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiT2xobyBkZSBHZWxvIg=="
+  }
+}

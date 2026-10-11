@@ -1,0 +1,350 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "item.db102",
+  "kind": "open_item_definition",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/OpenItem/DB102.txt",
+    "GameServer/OpenItem/DB102.txt"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/OpenItem/DB102.txt",
+    "legacy_sha256": "91b773c6c7c538b8af10e4d443c7e1ea1eab91a39d395cd6191f90eaf6dce4ee",
+    "legacy_size": 612
+  },
+  "semantic": {
+    "fields": {
+      "code": "DB102",
+      "name": "Botas de Elfo",
+      "english_name": "Botas de Elfo",
+      "defence": [
+        6,
+        9
+      ],
+      "absorb": [
+        0.1,
+        0.4
+      ],
+      "move_speed": [
+        0.5,
+        0.8
+      ],
+      "bionic": [
+        1,
+        3
+      ],
+      "ice": [
+        1,
+        3
+      ],
+      "lightning": [
+        3,
+        5
+      ],
+      "poison": [
+        2,
+        3
+      ],
+      "durability": [
+        27,
+        33
+      ],
+      "job_random": [
+        "Mechanician",
+        "Fighter",
+        "Pikeman",
+        "Archer",
+        "Knight",
+        "Atalanta",
+        "Priestess",
+        "Magician"
+      ],
+      "special_absorb": [
+        0.2,
+        0.4
+      ],
+      "special_move_speed": [
+        0.2,
+        0
+      ],
+      "weight": 3,
+      "price": 480,
+      "linked_file": "Name\\DB102.zhoon"
+    },
+    "directives": [
+      {
+        "line": 2,
+        "key": "code",
+        "legacy_token": "*코드",
+        "legacy_token_hex": "2ac4dab5e5",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "DB102"
+        ],
+        "raw_values_hex": [
+          "4442313032"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 5,
+        "key": "name",
+        "legacy_token": "*이름",
+        "legacy_token_hex": "2ac0ccb8a7",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Botas de Elfo"
+        ],
+        "raw_values_hex": [
+          "426f74617320646520456c666f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 8,
+        "key": "english_name",
+        "legacy_token": "*Name",
+        "legacy_token_hex": "2a4e616d65",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          "Botas de Elfo"
+        ],
+        "raw_values_hex": [
+          "426f74617320646520456c666f"
+        ],
+        "quoted": [
+          true
+        ]
+      },
+      {
+        "line": 11,
+        "key": "defence",
+        "legacy_token": "*방어력",
+        "legacy_token_hex": "2ab9e6beeeb7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          6,
+          9
+        ],
+        "raw_values_hex": [
+          "36",
+          "39"
+        ]
+      },
+      {
+        "line": 14,
+        "key": "absorb",
+        "legacy_token": "*흡수력",
+        "legacy_token_hex": "2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.1,
+          0.4
+        ],
+        "raw_values_hex": [
+          "302e31",
+          "302e34"
+        ]
+      },
+      {
+        "line": 17,
+        "key": "move_speed",
+        "legacy_token": "*이동속도",
+        "legacy_token_hex": "2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.5,
+          0.8
+        ],
+        "raw_values_hex": [
+          "302e35",
+          "302e38"
+        ]
+      },
+      {
+        "line": 20,
+        "key": "bionic",
+        "legacy_token": "*생체",
+        "legacy_token_hex": "2abbfdc3bc",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 23,
+        "key": "ice",
+        "legacy_token": "*냉기",
+        "legacy_token_hex": "2ab3c3b1e2",
+        "loader_status": "supported_mapped",
+        "values": [
+          1,
+          3
+        ],
+        "raw_values_hex": [
+          "31",
+          "33"
+        ]
+      },
+      {
+        "line": 26,
+        "key": "lightning",
+        "legacy_token": "*번개",
+        "legacy_token_hex": "2ab9f8b0b3",
+        "loader_status": "supported_mapped",
+        "values": [
+          3,
+          5
+        ],
+        "raw_values_hex": [
+          "33",
+          "35"
+        ]
+      },
+      {
+        "line": 29,
+        "key": "poison",
+        "legacy_token": "*독",
+        "legacy_token_hex": "2ab5b6",
+        "loader_status": "supported_mapped",
+        "values": [
+          2,
+          3
+        ],
+        "raw_values_hex": [
+          "32",
+          "33"
+        ]
+      },
+      {
+        "line": 32,
+        "key": "durability",
+        "legacy_token": "*내구력",
+        "legacy_token_hex": "2ab3bbb1b8b7c2",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          27,
+          33
+        ],
+        "raw_values_hex": [
+          "3237",
+          "3333"
+        ]
+      },
+      {
+        "line": 35,
+        "key": "job_random",
+        "legacy_token": "**특화랜덤",
+        "legacy_token_hex": "2a2ac6afc8adb7a3b4fd",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Mechanician",
+          "Fighter",
+          "Pikeman",
+          "Archer",
+          "Knight",
+          "Atalanta",
+          "Priestess",
+          "Magician"
+        ],
+        "raw_values_hex": [
+          "4d656368616e696369616e",
+          "46696768746572",
+          "50696b656d616e",
+          "417263686572",
+          "4b6e69676874",
+          "4174616c616e7461",
+          "507269657374657373",
+          "4d6167696369616e"
+        ]
+      },
+      {
+        "line": 38,
+        "key": "special_absorb",
+        "legacy_token": "**흡수력",
+        "legacy_token_hex": "2a2ac8edbcf6b7c2",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.2,
+          0.4
+        ],
+        "raw_values_hex": [
+          "302e32",
+          "302e34"
+        ]
+      },
+      {
+        "line": 41,
+        "key": "special_move_speed",
+        "legacy_token": "**이동속도",
+        "legacy_token_hex": "2a2ac0ccb5bfbcd3b5b5",
+        "loader_status": "supported_mapped",
+        "values": [
+          0.2,
+          0
+        ],
+        "raw_values_hex": [
+          "302e32",
+          "30"
+        ]
+      },
+      {
+        "line": 44,
+        "key": "weight",
+        "legacy_token": "*무게",
+        "legacy_token_hex": "2ab9abb0d4",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          3
+        ],
+        "raw_values_hex": [
+          "33"
+        ]
+      },
+      {
+        "line": 47,
+        "key": "price",
+        "legacy_token": "*가격",
+        "legacy_token_hex": "2ab0a1b0dd",
+        "loader_status": "not_consumed_by_active_loader",
+        "values": [
+          480
+        ],
+        "raw_values_hex": [
+          "343830"
+        ]
+      },
+      {
+        "line": 50,
+        "key": "linked_file",
+        "legacy_token": "*연결파일",
+        "legacy_token_hex": "2abfacb0e1c6c4c0cf",
+        "loader_status": "supported_mapped",
+        "values": [
+          "Name\\DB102.zhoon"
+        ],
+        "raw_values_hex": [
+          "4e616d655c44423130322e7a686f6f6e"
+        ],
+        "quoted": [
+          true
+        ]
+      }
+    ],
+    "unknown_tokens": {}
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "Ly9JRA0KKsTateUgIkRCMTAyIg0KDQovL0tvcmVhbiBOYW1lDQoqwMy4pyAiQm90YXMgZGUgRWxmbyINCg0KLy9FbmdsaXNoIE5hbWUNCipOYW1lICJCb3RhcyBkZSBFbGZvIg0KDQovL0RlZmVuc2UNCiq55r7ut8IgNiA5DQoNCi8vQWJzb3JwdGlvbg0KKsjtvPa3wiAwLjEgMC40DQoNCi8vU3BlZWQNCirAzLW/vNO1tSAwLjUgMC44DQoNCi8vT3JnYW5pY1Jlc2lzdGFuY2UNCiq7/cO8IDEgMw0KDQovL0Zyb3N0UmVzaXN0YW5jZQ0KKrPDseIgMSAzDQoNCi8vTGlnaHRuaW5nUmVzaXN0YW5jZQ0KKrn4sLMgMyA1DQoNCi8vUG9pc29uUmVzaXN0YW5jZQ0KKrW2IDIgMw0KDQovL0ludGVncml0eQ0KKrO7sbi3wiAyNyAzMw0KDQovL1NlY29uZGFyeVNwZWMNCioqxq/IrbejtP0gTWVjaGFuaWNpYW4gRmlnaHRlciBQaWtlbWFuIEFyY2hlciBLbmlnaHQgQXRhbGFudGEgUHJpZXN0ZXNzIE1hZ2ljaWFuDQoNCi8vU3BlY0Fic29ycHRpb24NCioqyO289rfCIDAuMiAwLjQNCg0KLy9TcGVjU3BlZWQNCioqwMy1v7zTtbUgMC4yIDANCg0KLy9XZWlnaHQNCiq5q7DUIDMNCg0KLy9QcmljZQ0KKrChsN0gNDgwDQoNCi8vTmFtZSBGaWxlDQoqv6yw4cbEwM8gIk5hbWVcREIxMDIuemhvb24i"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.99_cavaleiro_sanguin_u00e1rio2",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/99_Cavaleiro Sanguin#U00e1rio2.zhoon",
+    "GameServer/Monster/Name/99_Cavaleiro Sanguin#U00e1rio2.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/99_Cavaleiro Sanguin#U00e1rio2.zhoon",
+    "legacy_sha256": "2e352286070ed6d3eb204cf8eaf770d84f42563147d822046f0110e2516ce7c2",
+    "legacy_size": 32
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Cavaleiro Sanguinário2"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQ2F2YWxlaXJvIFNhbmd1aW7hcmlvMiI="
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.103lvquest_6pass",
+  "kind": "sin_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "cliente/image/Sinimage/Quest/103LVQuest_6Pass.sin",
+    "image/Sinimage/Quest/103LVQuest_6Pass.sin"
+  ],
+  "source": {
+    "legacy_path": "cliente/image/Sinimage/Quest/103LVQuest_6Pass.sin",
+    "legacy_sha256": "22d82dfa6f2bef920cf1b4b972df663d6c07d1f90b64e38224611d9b07011b84",
+    "legacy_size": 308
+  },
+  "semantic": {
+    "lines": [
+      "Acacia Grove, Land of Dusk, ",
+      "Castle of the Lost, Battlefield the Ancient, ",
+      "Heart of Perum, Greedy Lake, Frozen sanctuary, ",
+      "and Lost Temple are where to install C-stones.",
+      "",
+      "If you have not installed all C-stones, I will",
+      "give you extra C-stones. After installing a total",
+      "of 8 C-stones, come back to me."
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "QWNhY2lhIEdyb3ZlLCBMYW5kIG9mIER1c2ssIA0KQ2FzdGxlIG9mIHRoZSBMb3N0LCBCYXR0bGVmaWVsZCB0aGUgQW5jaWVudCwgDQpIZWFydCBvZiBQZXJ1bSwgR3JlZWR5IExha2UsIEZyb3plbiBzYW5jdHVhcnksIA0KYW5kIExvc3QgVGVtcGxlIGFyZSB3aGVyZSB0byBpbnN0YWxsIEMtc3RvbmVzLg0KDQpJZiB5b3UgaGF2ZSBub3QgaW5zdGFsbGVkIGFsbCBDLXN0b25lcywgSSB3aWxsDQpnaXZlIHlvdSBleHRyYSBDLXN0b25lcy4gQWZ0ZXIgaW5zdGFsbGluZyBhIHRvdGFsDQpvZiA4IEMtc3RvbmVzLCBjb21lIGJhY2sgdG8gbWUuDQo="
+  }
+}

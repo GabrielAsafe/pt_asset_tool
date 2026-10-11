@@ -1,0 +1,30 @@
+{
+  "schema": "summit.canonical-text-resource/v1",
+  "schema_version": 1,
+  "id": "text.127_arhdyra_evolu_u00eddo",
+  "kind": "localization_resource",
+  "selection_reason": "runtime_text_family",
+  "runtime_paths": [
+    "Servidor/GameServer/Monster/Name/127_Arhdyra Evolu#U00eddo.zhoon",
+    "GameServer/Monster/Name/127_Arhdyra Evolu#U00eddo.zhoon"
+  ],
+  "source": {
+    "legacy_path": "Servidor/GameServer/Monster/Name/127_Arhdyra Evolu#U00eddo.zhoon",
+    "legacy_sha256": "612d794a9f8db9ecc083a8f5accad064ca2a256222a21b526cd913946aad1071",
+    "legacy_size": 26
+  },
+  "semantic": {
+    "entries": [
+      {
+        "line": 1,
+        "legacy_key": "J_NAME",
+        "kind": "name",
+        "text": "Arhdyra Evoluído"
+      }
+    ]
+  },
+  "compatibility": {
+    "encoding": "base64",
+    "legacy_payload_base64": "KkpfTkFNRSAiQXJoZHlyYSBFdm9sde1kbyI="
+  }
+}
