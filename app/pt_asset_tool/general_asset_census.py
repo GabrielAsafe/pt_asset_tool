@@ -303,6 +303,87 @@ def _resolve_bundle_reference(
     }
 
 
+
+def _face_texture_references_smd(path: pathlib.Path, project: pathlib.Path) -> dict[str, Any]:
+    """Return face-used texture references for either supported SMD container.
+
+    Character/NPC models use Model data Ver 0.62, while map geometry uses
+    Stage data Ver 0.72.  The directed bundle closure must distinguish the two
+    before choosing a parser; treating every .smd as Model0.62 makes valid map
+    roots fail closed-bundle certification before any dependency is inspected.
+    """
+    try:
+        with pathlib.Path(path).open("rb") as fh:
+            header = fh.read(32)
+    except Exception as exc:
+        return {
+            "status": "REVIEW",
+            "semantics": "UNPROVEN_FACE_SCOPE",
+            "model": str(path),
+            "used_material_ids": [],
+            "required_names": [],
+            "error": f"{type(exc).__name__}: {exc}",
+        }
+
+    if header.startswith(b"SMD Stage data Ver 0.72"):
+        try:
+            from .stage072_corpus import parse_stage072
+
+            parsed = parse_stage072(path)
+            if parsed.get("full_parse") != "PASS":
+                return {
+                    "status": "REVIEW",
+                    "semantics": "STAGE072_FACE_SCOPE_UNPROVEN",
+                    "model": str(path),
+                    "used_material_ids": [],
+                    "required_names": [],
+                    "error": "Stage0.72 parser did not pass structural gates",
+                    "parser_checks": parsed.get("checks") or {},
+                    "parser_errors": parsed.get("errors") or {},
+                }
+
+            face_counts = parsed.get("material_face_counts") or {}
+            used_ids = sorted(
+                int(mid) for mid, count in face_counts.items()
+                if int(count or 0) > 0
+            )
+            used_set = set(used_ids)
+            required: list[str] = []
+            seen: set[str] = set()
+            for material in parsed.get("materials") or []:
+                mid = int(material.get("id") or 0)
+                if mid not in used_set:
+                    continue
+                for row in list(material.get("textures") or []) + list(material.get("anim_textures") or []):
+                    logical = _norm(row.get("Name") or "")
+                    if not logical:
+                        continue
+                    key = logical.casefold()
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    required.append(logical)
+            return {
+                "status": "PASS",
+                "semantics": "STAGE072_FACE_REFERENCED_MATERIALS",
+                "model": str(path),
+                "used_material_ids": used_ids,
+                "required_names": required,
+                "full_parse": "PASS",
+            }
+        except Exception as exc:
+            return {
+                "status": "REVIEW",
+                "semantics": "STAGE072_FACE_SCOPE_UNPROVEN",
+                "model": str(path),
+                "used_material_ids": [],
+                "required_names": [],
+                "error": f"{type(exc).__name__}: {exc}",
+            }
+
+    return face_texture_references_model062(path, project)
+
+
 def _assess_client_recovery_bundle(
     project: pathlib.Path,
     root_row: dict[str, Any],
@@ -355,7 +436,7 @@ def _assess_client_recovery_bundle(
 
         refs: list[str] = []
         if ext == ".smd":
-            scope = face_texture_references_model062(physical, project)
+            scope = _face_texture_references_smd(physical, project)
             if scope.get("status") != "PASS":
                 issues.append({"kind": "SMD_FACE_SCOPE_REVIEW", "path": logical, "detail": scope})
                 continue
@@ -1692,7 +1773,7 @@ def audit_general_asset_census(
             physical = pathlib.Path(selected) if selected and pathlib.Path(selected).is_file() else None
         if physical is None:
             continue
-        scope = face_texture_references_model062(physical, project)
+        scope = _face_texture_references_smd(physical, project)
         if scope.get("status") != "PASS":
             model_scope_failures += 1
             diagnostics.append({"kind": "MODEL_FACE_TEXTURE_SCOPE_REVIEW", "path": key, "detail": scope})

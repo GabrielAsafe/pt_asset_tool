@@ -6,11 +6,11 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `b868a737dbf07baad01b406adec876d1b2211387c79b29fbd04c926b9c3cf6c9`
+- Source SHA-256: `cd819e1b21eef24d8cf37b89f57b769c1fcbfdcc113a3f6c0f7ea68d9989a335`
 - Maintained Python modules/scripts: **302**
 - Classes: **68**
 - Class methods: **297**
-- Module-level functions: **3176**
+- Module-level functions: **3177**
 
 A summary of `—` means the symbol has no Python docstring; the signature and source location remain documented here. This reference documents private helpers too because they are part of the maintained source surface, not only public API.
 
@@ -2307,13 +2307,14 @@ _No top-level functions or classes._
 | function | `_field_source_stage_witness` | `_field_source_stage_witness(row: dict[str, Any], source_literal_paths: set[str]) -> tuple[str \| None, str]` | 210 | Return one current-source-proven physical stage candidate, if unique. |
 | function | `_bundle_ref_candidates` | `_bundle_ref_candidates(ref: str, parent_rel: str) -> list[str]` | 243 | — |
 | function | `_resolve_bundle_reference` | `_resolve_bundle_reference(ref: str, parent_rel: str, *, parent_ext: str, target_idx: dict[str, pathlib.Path], donor_idx: dict[str, pathlib.Path]) -> dict[str, Any]` | 272 | — |
-| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 306 | — |
-| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 435 | — |
-| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 467 | Summarize Tier-5 effect+audio asset readiness. |
-| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 771 | Diagnostic-only T5 reference parity matrix. |
-| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 951 | Separate physical particle preload from proven T5 effect activation. |
-| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1079 | Build a plan-only, fail-closed client/server reachability census. |
-| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2240 | — |
+| function | `_face_texture_references_smd` | `_face_texture_references_smd(path: pathlib.Path, project: pathlib.Path) -> dict[str, Any]` | 307 | Return face-used texture references for either supported SMD container. |
+| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 387 | — |
+| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 516 | — |
+| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 548 | Summarize Tier-5 effect+audio asset readiness. |
+| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 852 | Diagnostic-only T5 reference parity matrix. |
+| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 1032 | Separate physical particle preload from proven T5 effect activation. |
+| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1160 | Build a plan-only, fail-closed client/server reachability census. |
+| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2321 | — |
 
 ## `app/pt_asset_tool/general_asset_recovery.py`
 

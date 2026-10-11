@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import sys
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -474,6 +475,63 @@ def test_client_recovery_bundle_treats_smb_alias_as_leaf(tmp_path):
     member = next(x for x in result["members"] if x["logical_path"].casefold().endswith("mhina.smb"))
     assert member["resolution_basis"] == "INX_ASE_TO_SMB_RUNTIME_ALIAS"
 
+
+
+
+def test_client_recovery_bundle_supports_stage072_face_texture_scope(monkeypatch, tmp_path):
+    project = tmp_path / "app"; project.mkdir()
+    donor = tmp_path / "d1"; donor.mkdir()
+    smd = donor / "Field/HeartOfFire/HeartOfFire.smd"
+    smd.parent.mkdir(parents=True)
+    smd.write_bytes(b"SMD Stage data Ver 0.72" + b"\0" * 64)
+    tex = donor / "Field/HeartOfFire/lava.tga"
+    tex.write_bytes(b"tex")
+
+    fake_module = SimpleNamespace(parse_stage072=lambda _path: {
+        "full_parse": "PASS",
+        "material_face_counts": {"0": 4, "1": 0},
+        "materials": [
+            {"id": 0, "textures": [{"Name": "lava.tga"}], "anim_textures": []},
+            {"id": 1, "textures": [{"Name": "unused.tga"}], "anim_textures": []},
+        ],
+    })
+    monkeypatch.setitem(sys.modules, "pt_asset_tool.stage072_corpus", fake_module)
+
+    rows = [
+        _bundle_plan_row("Field/HeartOfFire/HeartOfFire.smd", smd),
+        _bundle_plan_row("Field/HeartOfFire/lava.tga", tex),
+    ]
+    idx = {
+        "field/heartoffire/heartoffire.smd": smd,
+        "field/heartoffire/lava.tga": tex,
+    }
+    result = gac._assess_client_recovery_bundle(
+        project, rows[0], target_idx={}, donor_roots=[("D1", donor)],
+        donor_index_cache={"D1": idx},
+        plan_by_key={x["canonical_path"].casefold(): x for x in rows},
+    )
+
+    assert result["status"] == "CLOSED"
+    assert result["missing_count"] == 0
+    assert result["review_count"] == 0
+    assert {x["logical_path"].casefold() for x in result["members"]} >= {
+        "field/heartoffire/heartoffire.smd", "field/heartoffire/lava.tga",
+    }
+    assert not any("unused.tga" in x["logical_path"].casefold() for x in result["members"])
+
+
+def test_stage072_face_scope_parse_failure_stays_review(monkeypatch, tmp_path):
+    project = tmp_path / "app"; project.mkdir()
+    smd = tmp_path / "Map.smd"
+    smd.write_bytes(b"SMD Stage data Ver 0.72" + b"\0" * 64)
+    fake_module = SimpleNamespace(parse_stage072=lambda _path: {
+        "full_parse": "FAIL", "checks": {"area_payload": "FAIL"}, "errors": {"area": ["bad"]},
+    })
+    monkeypatch.setitem(sys.modules, "pt_asset_tool.stage072_corpus", fake_module)
+    scope = gac._face_texture_references_smd(smd, project)
+    assert scope["status"] == "REVIEW"
+    assert scope["semantics"] == "STAGE072_FACE_SCOPE_UNPROVEN"
+    assert scope["parser_checks"]["area_payload"] == "FAIL"
 
 def test_server_zhoon_recovery_bundle_is_closed_leaf(tmp_path):
     donor=tmp_path/'server_donor'; donor.mkdir()
