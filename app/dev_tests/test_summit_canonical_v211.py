@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -659,3 +660,40 @@ def test_document_set_rejects_non_cp1252_only_ptbr_definition_name(tmp_path):
         assert "CANONICAL_LOCALIZATION_FALLBACK_NAME_MISSING:monster.only_j" in str(exc)
     else:
         raise AssertionError("non-CP1252 pt-BR fallback must fail closed")
+
+
+def test_staged_ptbr_override_accepts_valid_generated_source_divergence(tmp_path):
+    import pt_asset_tool.canonical_authoring as ca
+
+    root = _source(tmp_path)
+    provider = SummitCanonicalContentProvider(root)
+
+    source_materialized = root / "Content/canonical/text/localization/pt-BR.json"
+    source_override = root / "Content/canonical/text/localization_overrides/pt-BR.json"
+    materialized_doc = json.loads(source_materialized.read_text(encoding="utf-8"))
+    override_doc = json.loads(source_override.read_text(encoding="utf-8"))
+    materialized_doc["entries"].append({
+        "key": "generated.only.name",
+        "text": "Gerado",
+        "quality": "exact",
+        "source": "generated.only",
+    })
+    _write_json(source_materialized, materialized_doc)
+    assert materialized_doc != override_doc
+
+    stage_root = tmp_path / "stage"
+    shutil.copytree(root / "Content/canonical", stage_root / "canonical")
+
+    result = ca._materialize_staged_ptbr_override(provider, stage_root)
+
+    assert result["status"] == "UPDATED"
+    assert result["source_pair_equal"] is False
+    assert result["source_override_sha256"] != result["source_materialized_sha256"]
+    staged_override = json.loads(
+        (stage_root / "canonical/text/localization_overrides/pt-BR.json").read_text(encoding="utf-8")
+    )
+    staged_materialized = json.loads(
+        (stage_root / "canonical/text/localization/pt-BR.json").read_text(encoding="utf-8")
+    )
+    assert staged_materialized == staged_override == override_doc
+    assert result["override_sha256"] == result["materialized_sha256"]

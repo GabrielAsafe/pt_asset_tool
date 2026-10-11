@@ -682,20 +682,35 @@ def _materialize_staged_ptbr_override(
     provider: SummitCanonicalContentProvider,
     stage_root: pathlib.Path,
 ) -> dict[str, Any]:
-    """Mirror the staged pt-BR override into the generated runtime catalog.
+    """Seed staged pt-BR materialization from the canonical override.
 
-    The current SUMMIT source keeps ``localization/pt-BR.json`` and
-    ``localization_overrides/pt-BR.json`` semantically identical. Donor
-    recovery edits only the override; this materializes the runtime-facing copy
-    inside the isolated stage before validators and compilers run. If that
-    source invariant changes, fail closed instead of guessing a new topology.
+    ``localization_overrides/pt-BR.json`` is canonical input, while
+    ``localization/pt-BR.json`` is generated output.  The two files can be
+    byte/semantic-equal before the localization materializer runs, but a valid
+    publish may leave the generated catalogue different from its override
+    source.  A later stage must therefore record source-pair divergence rather
+    than reject it.  Both source files still have to be valid pt-BR catalogues;
+    the staged runtime-facing copy is then reset from the staged override before
+    validators/materializers run.
     """
     source_materialized = provider.canonical_root / "text" / "localization" / "pt-BR.json"
     source_override = provider.canonical_root / "text" / "localization_overrides" / "pt-BR.json"
     if not source_materialized.is_file() or not source_override.is_file():
         raise FileNotFoundError("CANONICAL_LOCALIZATION_PTBR_SOURCE_PAIR_MISSING")
-    if _load_json(source_materialized) != _load_json(source_override):
-        raise ValueError("CANONICAL_LOCALIZATION_PTBR_SOURCE_PAIR_DIVERGED")
+
+    source_materialized_doc = _load_json(source_materialized)
+    source_override_doc = _load_json(source_override)
+    for label, source_doc in (
+        ("MATERIALIZED", source_materialized_doc),
+        ("OVERRIDE", source_override_doc),
+    ):
+        if (
+            not isinstance(source_doc, dict)
+            or source_doc.get("schema") != "summit.localization-catalog/v1"
+            or source_doc.get("locale") != "pt-BR"
+        ):
+            raise ValueError(f"CANONICAL_LOCALIZATION_PTBR_SOURCE_{label}_INVALID")
+    source_pair_equal = source_materialized_doc == source_override_doc
 
     staged_override = stage_root / "canonical" / "text" / "localization_overrides" / "pt-BR.json"
     staged_materialized = stage_root / "canonical" / "text" / "localization" / "pt-BR.json"
@@ -705,7 +720,9 @@ def _materialize_staged_ptbr_override(
     _atomic_json(staged_materialized, doc)
     return {
         "status": "UPDATED",
-        "source_pair_equal": True,
+        "source_pair_equal": source_pair_equal,
+        "source_override_sha256": sha256_file(source_override),
+        "source_materialized_sha256": sha256_file(source_materialized),
         "override_sha256": sha256_file(staged_override),
         "materialized_sha256": sha256_file(staged_materialized),
     }

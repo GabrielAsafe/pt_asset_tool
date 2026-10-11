@@ -6,7 +6,7 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `284f7255470408958044b64fb8f2a588e8c7a2e0fa7dcaf606fc667588628f19`
+- Source SHA-256: `d98556921c3adebe1bb925d682b117d9cc27fb0a879ba0616bf7e15d2676b272`
 - Maintained Python modules/scripts: **302**
 - Classes: **68**
 - Class methods: **300**
@@ -1732,26 +1732,26 @@ Strict static Model0.62 witness writer.
 | function | `_definition_dialog_from_canonical` | `_definition_dialog_from_canonical(doc: dict[str, Any]) -> str` | 551 | — |
 | function | `_changed_staged_definition_documents` | `_changed_staged_definition_documents(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> list[tuple[pathlib.PurePosixPath, dict[str, Any], str, str]]` | 562 | Discover the complete definition delta by comparing source vs stage. |
 | function | `_bridge_staged_definition_localization` | `_bridge_staged_definition_localization(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path, *, fallback_names: dict[str, str] \| None = None) -> dict[str, Any]` | 598 | Make pt-BR exact coverage complete for the full staged definition delta. |
-| function | `_materialize_staged_ptbr_override` | `_materialize_staged_ptbr_override(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 681 | Mirror the staged pt-BR override into the generated runtime catalog. |
-| function | `_run` | `_run(cmd: list[str], *, cwd: pathlib.Path, log: list[dict[str, Any]]) -> dict[str, Any]` | 714 | — |
-| function | `validate_staged_canonical` | `validate_staged_canonical(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 726 | — |
-| function | `build_staged_packs` | `build_staged_packs(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 758 | — |
-| function | `_patch_build_hashes` | `_patch_build_hashes(value: Any, pack_hashes: dict[str, str], *, context: str = "") -> set[str]` | 819 | — |
-| function | `materialize_staged_build_manifest` | `materialize_staged_build_manifest(stage_root: pathlib.Path, pack_hashes: dict[str, str]) -> dict[str, Any]` | 841 | — |
-| function | `stage_canonical_authoring` | `stage_canonical_authoring(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, spec: dict[str, Any], *, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 854 | — |
-| function | `stage_canonical_document_set` | `stage_canonical_document_set(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, changes: list[dict[str, Any]], *, kind: str, canonical_id: str = "", provenance: dict[str, Any] \| None = None, localization_fallback_names: dict[str, str] \| None = None, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 951 | Stage an atomic set of canonical JSON documents, including new files. |
-| function | `_manifest_path` | `_manifest_path(manifest: pathlib.Path \| str \| dict[str, Any]) -> tuple[pathlib.Path \| None, dict[str, Any]]` | 1187 | — |
-| function | `_transaction_path` | `_transaction_path(project_root: pathlib.Path, tx: str) -> pathlib.Path` | 1197 | — |
-| function | `_load_or_init_transaction` | `_load_or_init_transaction(project_root: pathlib.Path, manifest: dict[str, Any]) -> tuple[pathlib.Path, dict[str, Any]]` | 1201 | — |
-| function | `_source_change_rows` | `_source_change_rows(m: dict[str, Any]) -> list[dict[str, Any]]` | 1225 | — |
-| function | `_verify_source_change_preconditions` | `_verify_source_change_preconditions(provider: SummitCanonicalContentProvider, rows: list[dict[str, Any]]) -> None` | 1246 | — |
-| function | `publish_canonical_source` | `publish_canonical_source(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str) -> dict[str, Any]` | 1259 | — |
-| function | `publish_canonical_packs` | `publish_canonical_packs(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str) -> dict[str, Any]` | 1331 | — |
-| function | `_runtime_default_roots` | `_runtime_default_roots(provider: SummitCanonicalContentProvider) -> tuple[pathlib.Path, pathlib.Path]` | 1415 | — |
-| function | `_runtime_manifest_data` | `_runtime_manifest_data(role: str, root: pathlib.Path, pack_hashes: dict[str, str]) -> dict[str, Any]` | 1420 | — |
-| function | `deploy_canonical_runtime` | `deploy_canonical_runtime(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str, client_root: pathlib.Path \| str \| None = None, server_root: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 1429 | — |
-| function | `restore_canonical_transaction` | `restore_canonical_transaction(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str) -> dict[str, Any]` | 1536 | — |
-| function | `canonical_authoring_capabilities` | `canonical_authoring_capabilities(provider: SummitCanonicalContentProvider \| None = None) -> dict[str, Any]` | 1634 | — |
+| function | `_materialize_staged_ptbr_override` | `_materialize_staged_ptbr_override(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 681 | Seed staged pt-BR materialization from the canonical override. |
+| function | `_run` | `_run(cmd: list[str], *, cwd: pathlib.Path, log: list[dict[str, Any]]) -> dict[str, Any]` | 731 | — |
+| function | `validate_staged_canonical` | `validate_staged_canonical(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 743 | — |
+| function | `build_staged_packs` | `build_staged_packs(provider: SummitCanonicalContentProvider, stage_root: pathlib.Path) -> dict[str, Any]` | 775 | — |
+| function | `_patch_build_hashes` | `_patch_build_hashes(value: Any, pack_hashes: dict[str, str], *, context: str = "") -> set[str]` | 836 | — |
+| function | `materialize_staged_build_manifest` | `materialize_staged_build_manifest(stage_root: pathlib.Path, pack_hashes: dict[str, str]) -> dict[str, Any]` | 858 | — |
+| function | `stage_canonical_authoring` | `stage_canonical_authoring(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, spec: dict[str, Any], *, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 871 | — |
+| function | `stage_canonical_document_set` | `stage_canonical_document_set(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, changes: list[dict[str, Any]], *, kind: str, canonical_id: str = "", provenance: dict[str, Any] \| None = None, localization_fallback_names: dict[str, str] \| None = None, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 968 | Stage an atomic set of canonical JSON documents, including new files. |
+| function | `_manifest_path` | `_manifest_path(manifest: pathlib.Path \| str \| dict[str, Any]) -> tuple[pathlib.Path \| None, dict[str, Any]]` | 1204 | — |
+| function | `_transaction_path` | `_transaction_path(project_root: pathlib.Path, tx: str) -> pathlib.Path` | 1214 | — |
+| function | `_load_or_init_transaction` | `_load_or_init_transaction(project_root: pathlib.Path, manifest: dict[str, Any]) -> tuple[pathlib.Path, dict[str, Any]]` | 1218 | — |
+| function | `_source_change_rows` | `_source_change_rows(m: dict[str, Any]) -> list[dict[str, Any]]` | 1242 | — |
+| function | `_verify_source_change_preconditions` | `_verify_source_change_preconditions(provider: SummitCanonicalContentProvider, rows: list[dict[str, Any]]) -> None` | 1263 | — |
+| function | `publish_canonical_source` | `publish_canonical_source(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str) -> dict[str, Any]` | 1276 | — |
+| function | `publish_canonical_packs` | `publish_canonical_packs(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str) -> dict[str, Any]` | 1348 | — |
+| function | `_runtime_default_roots` | `_runtime_default_roots(provider: SummitCanonicalContentProvider) -> tuple[pathlib.Path, pathlib.Path]` | 1432 | — |
+| function | `_runtime_manifest_data` | `_runtime_manifest_data(role: str, root: pathlib.Path, pack_hashes: dict[str, str]) -> dict[str, Any]` | 1437 | — |
+| function | `deploy_canonical_runtime` | `deploy_canonical_runtime(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str, client_root: pathlib.Path \| str \| None = None, server_root: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 1446 | — |
+| function | `restore_canonical_transaction` | `restore_canonical_transaction(project_root: pathlib.Path, manifest: pathlib.Path \| str \| dict[str, Any], *, confirm: str) -> dict[str, Any]` | 1553 | — |
+| function | `canonical_authoring_capabilities` | `canonical_authoring_capabilities(provider: SummitCanonicalContentProvider \| None = None) -> dict[str, Any]` | 1651 | — |
 
 ## `app/pt_asset_tool/catalog_character_index.py`
 
