@@ -6,7 +6,7 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `c478481dd3dd3a9364a7c6b82de0d662e4107edee642cb5cd93e3644fcb5372b`
+- Source SHA-256: `b868a737dbf07baad01b406adec876d1b2211387c79b29fbd04c926b9c3cf6c9`
 - Maintained Python modules/scripts: **302**
 - Classes: **68**
 - Class methods: **297**
@@ -2165,51 +2165,51 @@ _No top-level functions or classes._
 | function | `_domain_file_allowed` | `_domain_file_allowed(side: str, domain: str, path: pathlib.Path) -> bool` | 278 | — |
 | function | `_decode_legacy_definition` | `_decode_legacy_definition(data: bytes) -> tuple[str, str]` | 285 | — |
 | function | `_definition_query_evidence` | `_definition_query_evidence(path: pathlib.Path, query: str, domain: str) -> dict[str, Any] \| None` | 294 | — |
-| function | `_definition_name_evidence` | `_definition_name_evidence(path: pathlib.Path, domain: str) -> dict[str, Any]` | 320 | — |
-| function | `_cp1252_safe_text` | `_cp1252_safe_text(value: Any) -> str` | 344 | — |
-| function | `_definition_ptbr_fallback_name` | `_definition_ptbr_fallback_name(path: pathlib.Path, domain: str) -> str` | 355 | Return donor-backed display evidence safe for the pt-BR runtime pack. |
-| function | `_definition_primary_legacy_name` | `_definition_primary_legacy_name(path: pathlib.Path, domain: str) -> str` | 386 | Return the legacy display name from the donor definition itself. |
-| function | `_classify_field_file` | `_classify_field_file(path: pathlib.Path) -> str` | 413 | — |
-| function | `_entity_identity` | `_entity_identity(relative_path: str, domain: str) -> tuple[str, str]` | 426 | — |
-| function | `_node` | `_node(root: pathlib.Path, path: pathlib.Path, *, donor: str, side: str, domain: str) -> dict[str, Any]` | 478 | — |
-| function | `_comparison_tree` | `_comparison_tree(donors: list[dict[str, Any]], domains: list[str]) -> dict[str, Any]` | 498 | — |
-| function | `_deep_signature_scan` | `_deep_signature_scan(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 532 | Last-resort read-only scan of the configured donor root. |
-| function | `_scan_domain` | `_scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 595 | — |
-| function | `_closed_recovery_map` | `_closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]` | 646 | — |
-| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = "", query: str = "", donor: str = "", limit: int = 1500) -> dict[str, Any]` | 680 | — |
-| function | `_fold_identity` | `_fold_identity(value: str) -> str` | 778 | — |
-| function | `_iter_server_domain_files` | `_iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]` | 783 | Yield unique server-domain files independent of historical layout. |
-| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]` | 814 | — |
-| function | `_definition_model_file` | `_definition_model_file(doc: dict[str, Any]) -> str` | 880 | — |
-| function | `_existing_monster_semantic_alias` | `_existing_monster_semantic_alias(provider: SummitCanonicalContentProvider, donor_doc: dict[str, Any]) -> dict[str, Any] \| None` | 886 | Resolve a donor Monster onto an already-authoritative canonical entity. |
-| function | `_spawn_unresolved_slots` | `_spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]` | 929 | — |
-| function | `_apply_spawn_semantic_reconciliation` | `_apply_spawn_semantic_reconciliation(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, doc: dict[str, Any], *, preferred_donor: str) -> list[dict[str, Any]]` | 954 | Resolve donor-only legacy names onto existing canonical Monster IDs. |
-| function | `_selected_donor_root` | `_selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path` | 1025 | — |
-| function | `_resolve_donor_file` | `_resolve_donor_file(root: pathlib.Path, relative_path: str) -> tuple[pathlib.Path, pathlib.PurePosixPath]` | 1039 | — |
-| function | `_server_logical_path` | `_server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath` | 1050 | — |
-| function | `_run_tool` | `_run_tool(cmd: list[str], cwd: pathlib.Path) -> dict[str, Any]` | 1072 | — |
-| function | `_import_workspace` | `_import_workspace(project_root: pathlib.Path, donor_label: str, source: pathlib.Path) -> pathlib.Path` | 1079 | — |
-| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = "logical_path") -> dict[str, Any]` | 1088 | — |
-| function | `stage_spawn_from_donor` | `stage_spawn_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True, preview_only: bool = False) -> dict[str, Any]` | 1120 | — |
-| function | `_prepare_definition_import` | `_prepare_definition_import(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str) -> dict[str, Any]` | 1245 | — |
-| function | `_definition_ptbr_localization_delta` | `_definition_ptbr_localization_delta(provider: SummitCanonicalContentProvider, documents: Iterable[dict[str, Any]], *, fallback_names: dict[str, str] \| None = None) -> tuple[dict[str, Any] \| None, list[dict[str, Any]]]` | 1288 | Bridge newly imported definitions into the source-controlled pt-BR override. |
-| function | `stage_definition_from_donor` | `stage_definition_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str, replace_existing: bool = False, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1363 | — |
-| function | `stage_unique_spawn_dependencies_from_donor` | `stage_unique_spawn_dependencies_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1424 | — |
-| class | `_LazyCasefoldPathIndex` | `class _LazyCasefoldPathIndex` | 1580 | Resolve exact logical paths under one root without walking the whole tree. |
-| method | `_LazyCasefoldPathIndex.__init__` | `__init__(self, root: pathlib.Path) -> None` | 1583 | — |
-| method | `_LazyCasefoldPathIndex._resolve` | `_resolve(self, key: str) -> pathlib.Path \| None` | 1587 | — |
-| method | `_LazyCasefoldPathIndex.__contains__` | `__contains__(self, key: object) -> bool` | 1624 | — |
-| method | `_LazyCasefoldPathIndex.__getitem__` | `__getitem__(self, key: str) -> pathlib.Path` | 1627 | — |
-| method | `_LazyCasefoldPathIndex.get` | `get(self, key: str, default: Any = None) -> Any` | 1633 | — |
-| class | `_DirectedRecoveryPlan` | `class _DirectedRecoveryPlan` | 1638 | Minimal same-lineage plan used only after a dependency resolved in that donor. |
-| method | `_DirectedRecoveryPlan.get` | `get(self, key: str, default: Any = None) -> dict[str, str]` | 1641 | — |
-| function | `_configured_donor_side_root` | `_configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path` | 1651 | — |
-| function | `certify_targeted_physical_bundle` | `certify_targeted_physical_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1669 | Certify one explicit physical root without general census or full-tree walk. |
-| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1740 | — |
-| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1749 | — |
-| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str) -> dict[str, Any]` | 1789 | — |
-| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1828 | — |
-| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1887 | — |
+| function | `_definition_name_evidence` | `_definition_name_evidence(path: pathlib.Path, domain: str) -> dict[str, Any]` | 326 | — |
+| function | `_cp1252_safe_text` | `_cp1252_safe_text(value: Any) -> str` | 350 | — |
+| function | `_definition_ptbr_fallback_name` | `_definition_ptbr_fallback_name(path: pathlib.Path, domain: str) -> str` | 361 | Return donor-backed display evidence safe for the pt-BR runtime pack. |
+| function | `_definition_primary_legacy_name` | `_definition_primary_legacy_name(path: pathlib.Path, domain: str) -> str` | 392 | Return the legacy display name from the donor definition itself. |
+| function | `_classify_field_file` | `_classify_field_file(path: pathlib.Path) -> str` | 419 | — |
+| function | `_entity_identity` | `_entity_identity(relative_path: str, domain: str) -> tuple[str, str]` | 432 | — |
+| function | `_node` | `_node(root: pathlib.Path, path: pathlib.Path, *, donor: str, side: str, domain: str) -> dict[str, Any]` | 484 | — |
+| function | `_comparison_tree` | `_comparison_tree(donors: list[dict[str, Any]], domains: list[str]) -> dict[str, Any]` | 504 | — |
+| function | `_deep_signature_scan` | `_deep_signature_scan(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 538 | Last-resort read-only scan of the configured donor root. |
+| function | `_scan_domain` | `_scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 601 | — |
+| function | `_closed_recovery_map` | `_closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]` | 652 | — |
+| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = "", query: str = "", donor: str = "", limit: int = 1500) -> dict[str, Any]` | 686 | — |
+| function | `_fold_identity` | `_fold_identity(value: str) -> str` | 784 | — |
+| function | `_iter_server_domain_files` | `_iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]` | 789 | Yield unique server-domain files independent of historical layout. |
+| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]` | 820 | — |
+| function | `_definition_model_file` | `_definition_model_file(doc: dict[str, Any]) -> str` | 886 | — |
+| function | `_existing_monster_semantic_alias` | `_existing_monster_semantic_alias(provider: SummitCanonicalContentProvider, donor_doc: dict[str, Any]) -> dict[str, Any] \| None` | 892 | Resolve a donor Monster onto an already-authoritative canonical entity. |
+| function | `_spawn_unresolved_slots` | `_spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]` | 935 | — |
+| function | `_apply_spawn_semantic_reconciliation` | `_apply_spawn_semantic_reconciliation(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, doc: dict[str, Any], *, preferred_donor: str) -> list[dict[str, Any]]` | 960 | Resolve donor-only legacy names onto existing canonical Monster IDs. |
+| function | `_selected_donor_root` | `_selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path` | 1031 | — |
+| function | `_resolve_donor_file` | `_resolve_donor_file(root: pathlib.Path, relative_path: str) -> tuple[pathlib.Path, pathlib.PurePosixPath]` | 1045 | — |
+| function | `_server_logical_path` | `_server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath` | 1056 | — |
+| function | `_run_tool` | `_run_tool(cmd: list[str], cwd: pathlib.Path) -> dict[str, Any]` | 1078 | — |
+| function | `_import_workspace` | `_import_workspace(project_root: pathlib.Path, donor_label: str, source: pathlib.Path) -> pathlib.Path` | 1085 | — |
+| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = "logical_path") -> dict[str, Any]` | 1094 | — |
+| function | `stage_spawn_from_donor` | `stage_spawn_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True, preview_only: bool = False) -> dict[str, Any]` | 1126 | — |
+| function | `_prepare_definition_import` | `_prepare_definition_import(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str) -> dict[str, Any]` | 1251 | — |
+| function | `_definition_ptbr_localization_delta` | `_definition_ptbr_localization_delta(provider: SummitCanonicalContentProvider, documents: Iterable[dict[str, Any]], *, fallback_names: dict[str, str] \| None = None) -> tuple[dict[str, Any] \| None, list[dict[str, Any]]]` | 1294 | Bridge newly imported definitions into the source-controlled pt-BR override. |
+| function | `stage_definition_from_donor` | `stage_definition_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str, replace_existing: bool = False, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1369 | — |
+| function | `stage_unique_spawn_dependencies_from_donor` | `stage_unique_spawn_dependencies_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1430 | — |
+| class | `_LazyCasefoldPathIndex` | `class _LazyCasefoldPathIndex` | 1586 | Resolve exact logical paths under one root without walking the whole tree. |
+| method | `_LazyCasefoldPathIndex.__init__` | `__init__(self, root: pathlib.Path) -> None` | 1589 | — |
+| method | `_LazyCasefoldPathIndex._resolve` | `_resolve(self, key: str) -> pathlib.Path \| None` | 1593 | — |
+| method | `_LazyCasefoldPathIndex.__contains__` | `__contains__(self, key: object) -> bool` | 1630 | — |
+| method | `_LazyCasefoldPathIndex.__getitem__` | `__getitem__(self, key: str) -> pathlib.Path` | 1633 | — |
+| method | `_LazyCasefoldPathIndex.get` | `get(self, key: str, default: Any = None) -> Any` | 1639 | — |
+| class | `_DirectedRecoveryPlan` | `class _DirectedRecoveryPlan` | 1644 | Minimal same-lineage plan used only after a dependency resolved in that donor. |
+| method | `_DirectedRecoveryPlan.get` | `get(self, key: str, default: Any = None) -> dict[str, str]` | 1647 | — |
+| function | `_configured_donor_side_root` | `_configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path` | 1657 | — |
+| function | `certify_targeted_physical_bundle` | `certify_targeted_physical_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1675 | Certify one explicit physical root without general census or full-tree walk. |
+| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1746 | — |
+| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1755 | — |
+| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str) -> dict[str, Any]` | 1795 | — |
+| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1834 | — |
+| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1893 | — |
 
 ## `app/pt_asset_tool/effect_runtime_coverage.py`
 

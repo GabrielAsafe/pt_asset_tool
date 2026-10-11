@@ -297,8 +297,14 @@ def _definition_query_evidence(path: pathlib.Path, query: str, domain: str) -> d
     q = str(query or "").strip()
     if not q:
         return {"match_basis": "NO_QUERY"}
-    if q.casefold() in path.as_posix().casefold():
-        return {"match_basis": "PATH_SUBSTRING"}
+    # Path evidence is deliberately token-prefix based rather than arbitrary
+    # substring matching.  This keeps useful partial queries such as ``lost``
+    # -> ``lost3`` while preventing entity queries such as ``Hina`` from
+    # matching unrelated names like ``chinaDress``.
+    path_folded = path.as_posix().casefold()
+    q_folded = q.casefold()
+    if re.search(r"(?<![0-9a-z])" + re.escape(q_folded), path_folded):
+        return {"match_basis": "PATH_TOKEN_PREFIX"}
     if domain not in {"MONSTER", "NPC", "ITEM"}:
         return None
     try:

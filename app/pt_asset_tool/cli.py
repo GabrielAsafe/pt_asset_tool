@@ -3588,7 +3588,7 @@ def cmd_donor_certify_physical(a):
     server_root = _require_server_root(s)
     result = certify_targeted_physical_bundle(
         s.project_root, s.client_root, server_root,
-        donor_label=a.donor, expected_side=a.side, expected_root=a.root,
+        donor_label=a.donor, expected_side=a.side, expected_root=a.asset_root,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") == "PASS" else 3
@@ -3601,7 +3601,7 @@ def cmd_donor_stage_physical(a):
         s.project_root, s.client_root, server_root,
         source_root=getattr(a, "source_root", None),
         reference_source_root=getattr(a, "reference_source_root", None),
-        donor_label=a.donor, expected_side=a.side, expected_root=a.root,
+        donor_label=a.donor, expected_side=a.side, expected_root=a.asset_root,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") == "PASS" else 3
@@ -3614,7 +3614,7 @@ def cmd_donor_apply_physical(a):
         s.project_root, s.client_root, server_root,
         source_root=getattr(a, "source_root", None),
         reference_source_root=getattr(a, "reference_source_root", None),
-        donor_label=a.donor, expected_side=a.side, expected_root=a.root,
+        donor_label=a.donor, expected_side=a.side, expected_root=a.asset_root,
         confirm=a.confirm,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
@@ -4817,7 +4817,7 @@ def build_parser():
     x = dnp.add_parser("certify-physical", help="directed lazy closure of one explicit CLIENT/SERVER root; never runs general census or a full donor tree walk")
     x.add_argument("--donor", required=True)
     x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
-    x.add_argument("--root", required=True, help="exact logical root, e.g. char/monster/Hina/Hina.inx or Field/HeartOfFire/HeartOfFire.smd")
+    x.add_argument("--root", dest="asset_root", required=True, help="exact logical root, e.g. char/monster/Hina/Hina.inx or Field/HeartOfFire/HeartOfFire.smd")
     x.set_defaults(func=cmd_donor_certify_physical)
 
     x = dnp.add_parser("stage-physical", help="certify one explicit root and stage its CLOSED same-lineage bundle under pt_build; no runtime write")
@@ -4825,7 +4825,7 @@ def build_parser():
     x.add_argument("--reference-source-root", required=False)
     x.add_argument("--donor", required=True)
     x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
-    x.add_argument("--root", required=True)
+    x.add_argument("--root", dest="asset_root", required=True)
     x.set_defaults(func=cmd_donor_stage_physical)
 
     x = dnp.add_parser("apply-physical", help=f"create missing runtime files for one directed CLOSED bundle; requires --confirm '{DONOR_PHYSICAL_APPLY_CONFIRM}'")
@@ -4833,7 +4833,7 @@ def build_parser():
     x.add_argument("--reference-source-root", required=False)
     x.add_argument("--donor", required=True)
     x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
-    x.add_argument("--root", required=True)
+    x.add_argument("--root", dest="asset_root", required=True)
     x.add_argument("--confirm", required=True)
     x.set_defaults(func=cmd_donor_apply_physical)
 

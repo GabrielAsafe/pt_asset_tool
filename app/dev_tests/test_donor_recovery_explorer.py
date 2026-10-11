@@ -745,3 +745,35 @@ def test_stage_physical_closed_bundle_uses_directed_certification_without_runtim
     assert result["planned_member_count"] == 2
     assert not (client / "char/monster/Hina/Hina.inx").exists()
     assert not (client / "char/monster/Hina/mHina.smb").exists()
+
+
+def test_path_query_evidence_requires_token_boundary_for_entity_names(tmp_path):
+    hina = tmp_path / "char/monster/Hina/Hina.inx"
+    china = tmp_path / "char/tmABCD/ar_chinadress.tga"
+    lost3 = tmp_path / "Field/lost/lost3.smd"
+    assert dre._definition_query_evidence(hina, "Hina", "CHARACTER")["match_basis"] == "PATH_TOKEN_PREFIX"
+    assert dre._definition_query_evidence(china, "Hina", "CHARACTER") is None
+    assert dre._definition_query_evidence(lost3, "lost", "MAP_FIELD")["match_basis"] == "PATH_TOKEN_PREFIX"
+
+
+def test_donor_physical_cli_root_does_not_override_project_root():
+    import pt_asset_tool.cli as cli
+    parser = cli.build_parser()
+    args = parser.parse_args([
+        "--root", "/tmp/project",
+        "donor", "certify-physical",
+        "--donor", "DONOR4",
+        "--side", "CLIENT",
+        "--root", "Field/HeartOfFire/HeartOfFire.smd",
+    ])
+    assert args.root == "/tmp/project"
+    assert args.asset_root == "Field/HeartOfFire/HeartOfFire.smd"
+
+    stage = parser.parse_args([
+        "donor", "stage-physical",
+        "--donor", "DONOR4",
+        "--side", "CLIENT",
+        "--root", "Field/StarArena/StarArena.smd",
+    ])
+    assert stage.root is None
+    assert stage.asset_root == "Field/StarArena/StarArena.smd"
