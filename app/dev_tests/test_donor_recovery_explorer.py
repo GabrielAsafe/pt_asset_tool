@@ -129,7 +129,8 @@ def test_physical_apply_writes_restorable_transaction_and_restore_is_hash_guarde
             "donor_label":"DONOR1","source_path":str(tmp_path/"donor/a.tga"),"written":True,
         }]
     }
-    monkeypatch.setattr(dre,"recover_closed_general_asset_bundles",lambda *a,**k: fake)
+    monkeypatch.setattr(dre,"certify_targeted_physical_bundle",lambda *a,**k: {"status":"PASS","bundle":{"status":"CLOSED"}})
+    monkeypatch.setattr(dre,"recover_targeted_closed_asset_bundles",lambda *a,**k: fake)
     applied=dre.apply_physical_closed_bundle(project,client,server,source_root=None,reference_source_root=None,donor_label="DONOR1",expected_side="CLIENT",expected_root=root_path,confirm=dre.PHYSICAL_APPLY_CONFIRM)
     assert applied["status"]=="APPLIED_VERIFIED"
     tx=Path(applied["transaction"]); assert tx.is_file()
@@ -145,7 +146,8 @@ def test_physical_restore_refuses_drift_before_deleting_anything(monkeypatch, tm
     target=client/root_path; target.parent.mkdir(parents=True); target.write_bytes(b"recovered")
     sha=dre.sha256_file(target)
     fake={"status":"PASS","state":"APPLIED_VERIFIED","client_root":str(client.resolve()),"server_root":str(server.resolve()),"scope_roots":[f"CLIENT:{root_path}"],"transactions":[{"side":"CLIENT","relative_path":root_path,"target_path":str(target),"sha256":sha,"size":9,"donor_label":"DONOR1","source_path":"x","written":True}]}
-    monkeypatch.setattr(dre,"recover_closed_general_asset_bundles",lambda *a,**k: fake)
+    monkeypatch.setattr(dre,"certify_targeted_physical_bundle",lambda *a,**k: {"status":"PASS","bundle":{"status":"CLOSED"}})
+    monkeypatch.setattr(dre,"recover_targeted_closed_asset_bundles",lambda *a,**k: fake)
     applied=dre.apply_physical_closed_bundle(project,client,server,source_root=None,reference_source_root=None,donor_label="DONOR1",expected_side="CLIENT",expected_root=root_path,confirm=dre.PHYSICAL_APPLY_CONFIRM)
     target.write_bytes(b"changed")
     try:
@@ -703,3 +705,43 @@ def test_stage_definition_ptbr_bridge_uses_cp1252_safe_donor_name_when_j_name_is
         "canonical/text/index.json",
     ]
     assert captured["kwargs"]["localization_fallback_names"] == {"monster.114_lengineer": "Lab Engineer"}
+
+
+def test_targeted_bundle_certification_is_lazy_and_closes_inx_ase_to_smb(monkeypatch, tmp_path):
+    import pt_asset_tool.general_asset_census as gac
+    project = tmp_path / "project"; client = tmp_path / "client"; server = tmp_path / "server"; donor = tmp_path / "donor"
+    for p in (project, client, server, donor): p.mkdir()
+    inx = donor / "char/monster/Hina/Hina.inx"; inx.parent.mkdir(parents=True); inx.write_bytes(b"mHina.ASE\x00")
+    smb = donor / "char/monster/Hina/mHina.smb"; smb.write_bytes(b"opaque-smb")
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR4={donor}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [])
+    monkeypatch.setattr(gac, "_walk_index", lambda *a, **k: (_ for _ in ()).throw(AssertionError("full tree walk forbidden")))
+    result = dre.certify_targeted_physical_bundle(
+        project, client, server, donor_label="DONOR4", expected_side="CLIENT", expected_root="char/monster/Hina/Hina.inx",
+    )
+    assert result["status"] == "PASS"
+    bundle = result["bundle"]
+    assert bundle["status"] == "CLOSED"
+    assert bundle["certification"]["general_census_executed"] is False
+    assert bundle["certification"]["full_tree_walk_executed"] is False
+    smb_member = next(x for x in bundle["members"] if x["logical_path"].casefold().endswith("mhina.smb"))
+    assert smb_member["resolution_basis"] == "INX_ASE_TO_SMB_RUNTIME_ALIAS"
+
+
+def test_stage_physical_closed_bundle_uses_directed_certification_without_runtime_write(monkeypatch, tmp_path):
+    project = tmp_path / "project"; client = tmp_path / "client"; server = tmp_path / "server"; donor = tmp_path / "donor"
+    for p in (project, client, server, donor): p.mkdir()
+    inx = donor / "char/monster/Hina/Hina.inx"; inx.parent.mkdir(parents=True); inx.write_bytes(b"mHina.ASE\x00")
+    smb = donor / "char/monster/Hina/mHina.smb"; smb.write_bytes(b"opaque-smb")
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR4={donor}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [])
+    result = dre.stage_physical_closed_bundle(
+        project, client, server, source_root=None, reference_source_root=None,
+        donor_label="DONOR4", expected_side="CLIENT", expected_root="char/monster/Hina/Hina.inx",
+    )
+    assert result["status"] == "PASS"
+    assert result["state"] == "STAGED_ONLY"
+    assert result["policy"]["general_census_required"] is False
+    assert result["planned_member_count"] == 2
+    assert not (client / "char/monster/Hina/Hina.inx").exists()
+    assert not (client / "char/monster/Hina/mHina.smb").exists()

@@ -283,6 +283,7 @@ def _resolve_bundle_reference(
         pp = pathlib.PurePosixPath(candidate)
         if parent_ext == ".inx" and pp.suffix.casefold() == ".ase":
             probe.append((pp.with_suffix(".smd").as_posix(), "INX_ASE_TO_SMD_RUNTIME_ALIAS"))
+            probe.append((pp.with_suffix(".smb").as_posix(), "INX_ASE_TO_SMB_RUNTIME_ALIAS"))
         probe.append((candidate, "EXACT_OR_SAME_DIRECTORY_REFERENCE"))
         for logical, basis in probe:
             key = _norm(logical).casefold()
@@ -324,7 +325,10 @@ def _assess_client_recovery_bundle(
         base.update({"status": "REVIEW", "reason": "SELECTED_DONOR_ROOT_NOT_RESOLVED", "member_count": 0, "recover_member_count": 0, "missing_count": 0, "review_count": 1})
         return base
     donor_root = dict(donor_roots)[label]
-    donor_idx = donor_index_cache.setdefault(label, _walk_index(donor_root))
+    donor_idx = donor_index_cache.get(label)
+    if donor_idx is None:
+        donor_idx = _walk_index(donor_root)
+        donor_index_cache[label] = donor_idx
     queue: deque[tuple[str, pathlib.Path, int, str, str]] = deque(
         [(root_rel, selected_path, 0, "", "ROOT")]
     )

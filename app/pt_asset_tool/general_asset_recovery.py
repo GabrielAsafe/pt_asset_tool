@@ -237,8 +237,11 @@ def _write_transactions(path: pathlib.Path, rows: list[dict[str, Any]]) -> None:
         w.writerows(rows)
 
 
-def _stage_transactions(project: pathlib.Path, tx: list[dict[str, Any]]) -> pathlib.Path:
-    stage_root = project / "pt_build" / "general_asset_recovery" / "staging"
+def _stage_transactions(project: pathlib.Path, tx: list[dict[str, Any]], *, namespace: str = "general_asset_recovery") -> pathlib.Path:
+    safe_namespace = str(namespace or "general_asset_recovery").strip().replace("\\", "/").strip("/")
+    if not safe_namespace or ".." in pathlib.PurePosixPath(safe_namespace).parts:
+        raise ValueError(f"RECOVERY_STAGE_NAMESPACE_INVALID:{namespace}")
+    stage_root = project / "pt_build" / pathlib.Path(*pathlib.PurePosixPath(safe_namespace).parts) / "staging"
     if stage_root.exists():
         shutil.rmtree(stage_root)
     for row in tx:
@@ -375,6 +378,142 @@ def _summary(result: dict[str, Any]) -> dict[str, Any]:
         "recovery_bundle_incomplete_root_count", "strong_client_path_count", "strong_server_path_count",
     ]
     return {k: result.get(k) for k in keys}
+
+
+def recover_targeted_closed_asset_bundles(
+    project: pathlib.Path,
+    client_root: pathlib.Path,
+    server_root: pathlib.Path,
+    *,
+    bundle_rows: Iterable[dict[str, Any]],
+    donor_clients: Iterable[str] | None = None,
+    donor_servers: Iterable[str] | None = None,
+    apply: bool = False,
+    progress: Callable[[str], None] | None = None,
+) -> dict[str, Any]:
+    """Stage/apply explicitly certified CLOSED bundles without a general census.
+
+    This is intentionally narrower than ``recover_closed_general_asset_bundles``:
+    callers must provide the exact bundle rows already certified by a directed
+    root assessment.  No discovery, reachability census, or broad tree audit is
+    performed here.  Physical dependencies remain locked to each bundle's
+    selected donor lineage and target writes remain create-only.
+    """
+    project = pathlib.Path(project).resolve()
+    client = pathlib.Path(client_root).resolve()
+    server = pathlib.Path(server_root).resolve()
+    rows = [dict(x) for x in bundle_rows if isinstance(x, dict)]
+    if not rows:
+        raise ValueError("TARGETED_RECOVERY_REQUIRES_BUNDLE_ROWS")
+    for row in rows:
+        if str(row.get("status") or "").upper() != "CLOSED":
+            raise ValueError(
+                f"TARGETED_RECOVERY_BUNDLE_NOT_CLOSED:{row.get('side')}:{row.get('root_path')}:{row.get('status')}"
+            )
+        side = str(row.get("side") or "").upper()
+        if side not in {"CLIENT", "SERVER"}:
+            raise ValueError(f"TARGETED_RECOVERY_SIDE_INVALID:{side}")
+        _safe_rel(_norm(row.get("root_path") or ""))
+
+    donor_client_roots = parse_labeled_roots(list(donor_clients or []))
+    donor_server_roots = parse_labeled_roots(list(donor_servers or []))
+    out_dir = project / "pt_build" / "targeted_asset_recovery"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    report_path = out_dir / "result.json"
+    tx_path = out_dir / "transactions.tsv"
+
+    result: dict[str, Any] = {
+        "format": "PT_ASSET_TARGETED_CLOSED_BUNDLE_RECOVERY_V1",
+        "status": "RUNNING",
+        "state": "PREFLIGHT",
+        "generated_at": time.time(),
+        "apply_requested": bool(apply),
+        "client_root": str(client),
+        "server_root": str(server),
+        "scope_roots": [
+            f"{str(x.get('side') or '').upper()}:{_norm(x.get('root_path') or '')}" for x in rows
+        ],
+        "policy": {
+            "general_census_required": False,
+            "directed_closed_bundles_only": True,
+            "explicit_scope_only": True,
+            "create_only_no_overwrite": True,
+            "same_selected_donor_lineage_only": True,
+            "atomic_file_replace": True,
+            "rollback_on_write_or_hash_verification_failure": True,
+            "production_authorized": False,
+        },
+        "transactions": [],
+        "rollback_performed": False,
+    }
+    written: list[pathlib.Path] = []
+    created_dirs: list[pathlib.Path] = []
+    try:
+        if progress:
+            progress(f"targeted scope locked: {len(rows)} directed CLOSED bundles")
+        tx = _build_transactions(
+            rows,
+            client_root=client,
+            server_root=server,
+            donor_clients=donor_client_roots,
+            donor_servers=donor_server_roots,
+        )
+        result["planned_member_count"] = len(tx)
+        result["planned_client_member_count"] = sum(1 for x in tx if x["side"] == "CLIENT")
+        result["planned_server_member_count"] = sum(1 for x in tx if x["side"] == "SERVER")
+        if progress:
+            progress(f"staging {len(tx)} directed members under pt_build")
+        stage_root = _stage_transactions(project, tx, namespace="targeted_asset_recovery")
+        result["staging_root"] = str(stage_root)
+        result["staged_member_count"] = len(tx)
+        result["transactions"] = tx
+        _write_transactions(tx_path, tx)
+
+        if not apply:
+            result.update({
+                "status": "PASS", "state": "STAGED_ONLY", "written_member_count": 0,
+                "target_client_modified": False, "target_server_modified": False,
+            })
+        else:
+            if progress:
+                progress("applying create-only targeted recovery transaction")
+            written, created_dirs = _apply_transactions(tx, client, server)
+            for row in tx:
+                if not row.get("written"):
+                    continue
+                target = pathlib.Path(str(row.get("target_path") or ""))
+                if (not target.is_file() or target.stat().st_size != int(row.get("size") or -1)
+                        or _sha256(target) != str(row.get("sha256") or "")):
+                    raise RuntimeError(f"TARGETED_RECOVERY_POSTWRITE_HASH_VERIFY_FAILED:{target}")
+            _write_transactions(tx_path, tx)
+            result.update({
+                "status": "PASS", "state": "APPLIED_VERIFIED",
+                "written_member_count": len(written),
+                "target_client_modified": any(x["side"] == "CLIENT" and x.get("written") for x in tx),
+                "target_server_modified": any(x["side"] == "SERVER" and x.get("written") for x in tx),
+            })
+    except RecoveryApplyRolledBackError as exc:
+        result["rollback_performed"] = True
+        result["rolled_back_member_count"] = exc.rolled_back_member_count
+        result.update({
+            "status": "FAIL", "state": "ROLLED_BACK", "written_member_count": 0,
+            "error": f"{type(exc.__cause__).__name__ if exc.__cause__ else type(exc).__name__}:{exc}",
+            "target_client_modified": False, "target_server_modified": False,
+        })
+    except Exception as exc:
+        if written and not result.get("rollback_performed"):
+            _rollback_written(written, created_dirs, client, server)
+            result["rollback_performed"] = True
+        result.update({
+            "status": "FAIL",
+            "state": "ROLLED_BACK" if result.get("rollback_performed") else "ABORTED_NO_WRITE",
+            "error": f"{type(exc).__name__}:{exc}",
+            "target_client_modified": False if result.get("rollback_performed") else False,
+            "target_server_modified": False if result.get("rollback_performed") else False,
+        })
+    finally:
+        report_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return result
 
 
 def recover_closed_general_asset_bundles(

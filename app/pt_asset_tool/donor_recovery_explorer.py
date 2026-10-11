@@ -17,7 +17,8 @@ from typing import Any, Iterable
 
 from .app_config import configured_contract_donor_clients, configured_contract_donor_servers
 from .canonical_authoring import stage_canonical_document_set
-from .general_asset_recovery import recover_closed_general_asset_bundles
+from .general_asset_census import _assess_client_recovery_bundle, _assess_server_recovery_bundle
+from .general_asset_recovery import recover_targeted_closed_asset_bundles
 from .legacy_name_catalog import semantic_monster_matches_for_model
 from .summit_canonical import SummitCanonicalContentProvider, canonical_id_for_doc, sha256_file
 
@@ -644,29 +645,36 @@ def _scan_domain(
 
 def _closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]:
     project = pathlib.Path(project).resolve()
-    # PT_ASSET_CLOSED_RECOVERY_APP_BUILD_COMPAT_V1
-    # Packaged/current PT Asset Tool persists build evidence under app/pt_build.
-    # Keep the historical pt_build fallback for older layouts.
+    # Prefer current app/pt_build evidence but merge legacy/root pt_build and
+    # directed certifications. Directed evidence is deliberately root-scoped
+    # and does not imply that a general census ran.
     candidates = (
         project / "app" / "pt_build" / "general_asset_census" / "recovery_bundles.json",
         project / "pt_build" / "general_asset_census" / "recovery_bundles.json",
+        project / "app" / "pt_build" / "targeted_donor_recovery" / "result.json",
+        project / "pt_build" / "targeted_donor_recovery" / "result.json",
     )
-    path = next((candidate for candidate in candidates if candidate.is_file()), None)
-    if path is None:
-        return {}
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
     out: dict[tuple[str, str, str], dict[str, Any]] = {}
-    for row in data.get("rows") or []:
-        if not isinstance(row, dict) or str(row.get("status") or "").upper() != "CLOSED":
+    for path in candidates:
+        if not path.is_file():
             continue
-        side = str(row.get("side") or "").upper()
-        root = _norm(row.get("root_path") or "").casefold()
-        donor = str(row.get("donor_label") or row.get("selected_source") or "").upper()
-        if side and root and donor:
-            out[(side, root, donor)] = row
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        rows: list[dict[str, Any]] = []
+        if isinstance(data, dict) and isinstance(data.get("rows"), list):
+            rows.extend(x for x in data.get("rows") or [] if isinstance(x, dict))
+        if isinstance(data, dict) and isinstance(data.get("bundle"), dict):
+            rows.append(data["bundle"])
+        for row in rows:
+            if str(row.get("status") or "").upper() != "CLOSED":
+                continue
+            side = str(row.get("side") or "").upper()
+            root = _norm(row.get("root_path") or "").casefold()
+            donor = str(row.get("donor_label") or row.get("selected_source") or "").upper()
+            if side and root and donor:
+                out[(side, root, donor)] = row
     return out
 
 def build_donor_explorer(
@@ -1569,6 +1577,161 @@ def stage_unique_spawn_dependencies_from_donor(
     return result
 
 
+class _LazyCasefoldPathIndex:
+    """Resolve exact logical paths under one root without walking the whole tree."""
+
+    def __init__(self, root: pathlib.Path) -> None:
+        self.root = pathlib.Path(root).resolve()
+        self._cache: dict[str, pathlib.Path | None] = {}
+
+    def _resolve(self, key: str) -> pathlib.Path | None:
+        logical = _norm(key).casefold()
+        if not logical:
+            return None
+        if logical in self._cache:
+            return self._cache[logical]
+        rel = pathlib.PurePosixPath(_norm(key))
+        if rel.is_absolute() or ".." in rel.parts:
+            self._cache[logical] = None
+            return None
+        current = self.root
+        for part in rel.parts:
+            if not current.is_dir():
+                self._cache[logical] = None
+                return None
+            exact = current / part
+            if exact.exists():
+                current = exact
+                continue
+            try:
+                matches = [x for x in current.iterdir() if x.name.casefold() == part.casefold()]
+            except OSError:
+                self._cache[logical] = None
+                return None
+            if len(matches) > 1:
+                raise RuntimeError(
+                    f"TARGETED_PATH_CASE_COLLISION:{current}:{part}:"
+                    + ",".join(sorted(x.name for x in matches))
+                )
+            if not matches:
+                self._cache[logical] = None
+                return None
+            current = matches[0]
+        resolved = current.resolve() if current.is_file() else None
+        self._cache[logical] = resolved
+        return resolved
+
+    def __contains__(self, key: object) -> bool:
+        return self._resolve(str(key or "")) is not None
+
+    def __getitem__(self, key: str) -> pathlib.Path:
+        value = self._resolve(key)
+        if value is None:
+            raise KeyError(key)
+        return value
+
+    def get(self, key: str, default: Any = None) -> Any:
+        value = self._resolve(key)
+        return value if value is not None else default
+
+
+class _DirectedRecoveryPlan:
+    """Minimal same-lineage plan used only after a dependency resolved in that donor."""
+
+    def get(self, key: str, default: Any = None) -> dict[str, str]:
+        return {
+            "canonical_path": _norm(key),
+            "action": "RECOVER",
+            "distinct_hash_count": "1",
+            "variant_count": "1",
+            "reason": "directed same-lineage dependency",
+        }
+
+
+def _configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path:
+    wanted = str(donor_label or "").strip().upper()
+    wanted_side = str(side or "").strip().upper()
+    if wanted_side not in {"CLIENT", "SERVER"}:
+        raise ValueError(f"DONOR_TARGETED_SIDE_INVALID:{wanted_side}")
+    for row in donor_pairs(project_root):
+        if str(row.get("label") or "").upper() != wanted:
+            continue
+        info = row.get(wanted_side.casefold())
+        if not isinstance(info, dict) or not info.get("present"):
+            raise FileNotFoundError(f"DONOR_TARGETED_ROOT_NOT_CONFIGURED:{wanted}:{wanted_side}")
+        root = pathlib.Path(str(info.get("root") or "")).resolve()
+        if not root.is_dir():
+            raise FileNotFoundError(f"DONOR_TARGETED_ROOT_NOT_FOUND:{wanted}:{wanted_side}:{root}")
+        return root
+    raise FileNotFoundError(f"DONOR_TARGETED_LABEL_NOT_CONFIGURED:{wanted}")
+
+
+def certify_targeted_physical_bundle(
+    project_root: pathlib.Path,
+    client_root: pathlib.Path,
+    server_root: pathlib.Path,
+    *,
+    donor_label: str,
+    expected_side: str,
+    expected_root: str,
+) -> dict[str, Any]:
+    """Certify one explicit physical root without general census or full-tree walk."""
+    project = pathlib.Path(project_root).resolve()
+    side = str(expected_side or "").strip().upper()
+    donor = str(donor_label or "").strip().upper()
+    root_rel = _norm(expected_root)
+    if side not in {"CLIENT", "SERVER"}:
+        raise ValueError(f"DONOR_TARGETED_SIDE_INVALID:{side}")
+    rel = pathlib.PurePosixPath(root_rel)
+    if not root_rel or rel.is_absolute() or ".." in rel.parts:
+        raise ValueError(f"DONOR_TARGETED_ROOT_INVALID:{expected_root}")
+    donor_root = _configured_donor_side_root(project, donor, side)
+    donor_idx = _LazyCasefoldPathIndex(donor_root)
+    root_key = root_rel.casefold()
+    selected = donor_idx.get(root_key)
+    if selected is None:
+        raise FileNotFoundError(f"DONOR_TARGETED_ROOT_NOT_FOUND:{donor}:{side}:{root_rel}")
+    root_row = {
+        "canonical_path": root_rel,
+        "path": root_rel,
+        "selected_source": donor,
+        "selected_path": str(selected),
+        "action": "RECOVER",
+        "distinct_hash_count": "1",
+    }
+    if side == "CLIENT":
+        target_idx = _LazyCasefoldPathIndex(pathlib.Path(client_root).resolve())
+        bundle = _assess_client_recovery_bundle(
+            project,
+            root_row,
+            target_idx=target_idx,  # type: ignore[arg-type]
+            donor_roots=[(donor, donor_root)],
+            donor_index_cache={donor: donor_idx},  # type: ignore[dict-item]
+            plan_by_key=_DirectedRecoveryPlan(),  # type: ignore[arg-type]
+        )
+    else:
+        bundle = _assess_server_recovery_bundle(root_row, [(donor, donor_root)])
+    bundle["certification"] = {
+        "mode": "DIRECTED_ROOT_LAZY",
+        "general_census_executed": False,
+        "full_tree_walk_executed": False,
+        "selected_donor_only": donor,
+        "cross_donor_mix": False,
+        "runtime_write": False,
+        "stage_authorized": str(bundle.get("status") or "").upper() == "CLOSED",
+        "publish_authorized": False,
+    }
+    out_dir = project / "pt_build" / "targeted_donor_recovery"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    artifact = {
+        "format": "PT_ASSET_TARGETED_DONOR_BUNDLE_CERTIFICATION_V1",
+        "status": "PASS" if str(bundle.get("status") or "").upper() == "CLOSED" else "REVIEW",
+        "bundle": bundle,
+    }
+    (out_dir / "result.json").write_text(json.dumps(artifact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return artifact
+
+
 PHYSICAL_APPLY_CONFIRM = "APPLY CLOSED DONOR BUNDLE"
 PHYSICAL_RESTORE_CONFIRM = "RESTORE CLOSED DONOR BUNDLE"
 PHYSICAL_TRANSACTION_FORMAT = "PT_ASSET_DONOR_PHYSICAL_RECOVERY_TRANSACTION_V1"
@@ -1637,14 +1800,19 @@ def apply_physical_closed_bundle(
 ) -> dict[str, Any]:
     if str(confirm or "") != PHYSICAL_APPLY_CONFIRM:
         raise PermissionError(f"DONOR_PHYSICAL_CONFIRMATION_REQUIRED:{PHYSICAL_APPLY_CONFIRM}")
-    _closed_bundle_selection(project_root, donor_label=donor_label, expected_side=expected_side, expected_root=expected_root)
     project = pathlib.Path(project_root).resolve()
-    result = recover_closed_general_asset_bundles(
+    certification = certify_targeted_physical_bundle(
         project, pathlib.Path(client_root), pathlib.Path(server_root),
-        source_root=source_root, reference_source_root=reference_source_root,
+        donor_label=donor_label, expected_side=expected_side, expected_root=expected_root,
+    )
+    bundle = certification.get("bundle") if isinstance(certification.get("bundle"), dict) else {}
+    if str(bundle.get("status") or "").upper() != "CLOSED":
+        return {"format": FORMAT, "status": "REVIEW_REQUIRED", "certification": certification}
+    result = recover_targeted_closed_asset_bundles(
+        project, pathlib.Path(client_root), pathlib.Path(server_root),
+        bundle_rows=[bundle],
         donor_clients=configured_contract_donor_clients(project),
         donor_servers=configured_contract_donor_servers(project),
-        expected_roots=[f"{expected_side.upper()}:{_norm(expected_root)}"],
         apply=True,
     )
     if result.get("status") != "PASS" or result.get("state") != "APPLIED_VERIFIED":
@@ -1728,13 +1896,19 @@ def stage_physical_closed_bundle(
     expected_root: str,
 ) -> dict[str, Any]:
     project = pathlib.Path(project_root).resolve()
-    _closed_bundle_selection(project, donor_label=donor_label, expected_side=expected_side, expected_root=expected_root)
-    return recover_closed_general_asset_bundles(
+    certification = certify_targeted_physical_bundle(
         project, pathlib.Path(client_root), pathlib.Path(server_root),
-        source_root=source_root,
-        reference_source_root=reference_source_root,
+        donor_label=donor_label, expected_side=expected_side, expected_root=expected_root,
+    )
+    bundle = certification.get("bundle") if isinstance(certification.get("bundle"), dict) else {}
+    if str(bundle.get("status") or "").upper() != "CLOSED":
+        return {"format": FORMAT, "status": "REVIEW_REQUIRED", "certification": certification}
+    result = recover_targeted_closed_asset_bundles(
+        project, pathlib.Path(client_root), pathlib.Path(server_root),
+        bundle_rows=[bundle],
         donor_clients=configured_contract_donor_clients(project),
         donor_servers=configured_contract_donor_servers(project),
-        expected_roots=[f"{expected_side.upper()}:{_norm(expected_root)}"],
         apply=False,
     )
+    result["certification"] = certification
+    return result

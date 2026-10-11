@@ -353,3 +353,19 @@ def test_recover_reports_inner_apply_rollback_truthfully(monkeypatch, tmp_path):
     assert result["written_member_count"] == 0
     assert result["target_client_modified"] is False
     assert result["target_server_modified"] is False
+
+
+def test_targeted_closed_bundle_recovery_never_calls_general_census(monkeypatch, tmp_path):
+    project = tmp_path / "project"; client = tmp_path / "client"; server = tmp_path / "server"; donor = tmp_path / "donor"
+    for p in (project, client, server, donor): p.mkdir()
+    source = donor / "char/monster/foo/foo.inx"; source.parent.mkdir(parents=True); source.write_bytes(b"targeted")
+    bundle = _bundle(source)["rows"][0]
+    monkeypatch.setattr(gar, "audit_general_asset_census", lambda *a, **k: (_ for _ in ()).throw(AssertionError("general census forbidden")))
+    result = gar.recover_targeted_closed_asset_bundles(
+        project, client, server, bundle_rows=[bundle], donor_clients=[f"D1={donor}"], donor_servers=[], apply=False,
+    )
+    assert result["status"] == "PASS"
+    assert result["state"] == "STAGED_ONLY"
+    assert result["policy"]["general_census_required"] is False
+    assert result["planned_member_count"] == 1
+    assert not (client / "char/monster/foo/foo.inx").exists()

@@ -94,6 +94,13 @@ from .asset_quarantine import (
 from .class_ui_alias_audit import audit_class_ui_aliases
 from .class_ui_alias_canonicalize import canonicalize_class_ui_alias_only
 from .general_asset_recovery import recover_closed_general_asset_bundles
+from .donor_recovery_explorer import (
+    PHYSICAL_APPLY_CONFIRM as DONOR_PHYSICAL_APPLY_CONFIRM,
+    PHYSICAL_RESTORE_CONFIRM as DONOR_PHYSICAL_RESTORE_CONFIRM,
+    apply_physical_closed_bundle, build_donor_explorer, certify_targeted_physical_bundle,
+    restore_physical_recovery, stage_definition_from_donor, stage_physical_closed_bundle,
+    stage_spawn_from_donor, stage_unique_spawn_dependencies_from_donor,
+)
 from .server_design_auto import run_server_design_auto
 from .physical_regression_auto import run_physical_regression_auto
 from .integration_regression_auto import run_integration_regression_auto
@@ -3549,6 +3556,122 @@ def cmd_audit_t5_assets(a):
     return cmd_audit_t5_effects(a)
 
 
+def _require_server_root(settings):
+    if settings.server_root is None:
+        raise FileNotFoundError("SERVER_ROOT_NOT_FOUND; configure --server-root or PT_SERVER_ROOT")
+    return settings.server_root
+
+
+def cmd_donor_explore(a):
+    s, reg, cert, resolver = make_context(a)
+    server_root = _require_server_root(s)
+    result = build_donor_explorer(
+        s.project_root, s.client_root, server_root,
+        source_root=getattr(a, "source_root", None),
+        domain=getattr(a, "domain", "") or "",
+        query=getattr(a, "query", "") or "",
+        donor=getattr(a, "donor", "") or "",
+        limit=int(getattr(a, "limit", 1500) or 1500),
+    )
+    if bool(getattr(a, "missing_target_only", False)):
+        missing = {}
+        for domain, payload in (result.get("entity_tree") or {}).items():
+            rows = [x for x in (payload.get("entities") or []) if not bool(x.get("has_target"))]
+            missing[domain] = {"entity_count": len(rows), "entities": rows}
+        result["missing_target_entity_tree"] = missing
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_donor_certify_physical(a):
+    s, reg, cert, resolver = make_context(a)
+    server_root = _require_server_root(s)
+    result = certify_targeted_physical_bundle(
+        s.project_root, s.client_root, server_root,
+        donor_label=a.donor, expected_side=a.side, expected_root=a.root,
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_donor_stage_physical(a):
+    s, reg, cert, resolver = make_context(a)
+    server_root = _require_server_root(s)
+    result = stage_physical_closed_bundle(
+        s.project_root, s.client_root, server_root,
+        source_root=getattr(a, "source_root", None),
+        reference_source_root=getattr(a, "reference_source_root", None),
+        donor_label=a.donor, expected_side=a.side, expected_root=a.root,
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "PASS" else 3
+
+
+def cmd_donor_apply_physical(a):
+    s, reg, cert, resolver = make_context(a)
+    server_root = _require_server_root(s)
+    result = apply_physical_closed_bundle(
+        s.project_root, s.client_root, server_root,
+        source_root=getattr(a, "source_root", None),
+        reference_source_root=getattr(a, "reference_source_root", None),
+        donor_label=a.donor, expected_side=a.side, expected_root=a.root,
+        confirm=a.confirm,
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "APPLIED_VERIFIED" else 3
+
+
+def cmd_donor_restore_physical(a):
+    s, reg, cert, resolver = make_context(a)
+    server_root = _require_server_root(s)
+    result = restore_physical_recovery(
+        s.project_root, s.client_root, server_root,
+        transaction=a.transaction, confirm=a.confirm,
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if result.get("status") == "RESTORED" else 3
+
+
+def cmd_donor_stage_definition(a):
+    s, reg, cert, resolver = make_context(a)
+    provider = SummitCanonicalContentProvider.from_project(s.project_root, getattr(a, "source_root", None))
+    result = stage_definition_from_donor(
+        s.project_root, provider,
+        donor_label=a.donor, relative_path=a.path, kind=a.kind,
+        replace_existing=bool(getattr(a, "replace_existing", False)),
+        run_validation=not bool(getattr(a, "skip_validation", False)),
+        run_build=not bool(getattr(a, "skip_build", False)),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if str(result.get("status") or "").upper() in {"STAGED", "PASS", "ALREADY_CANONICAL"} else 3
+
+
+def cmd_donor_stage_spawn(a):
+    s, reg, cert, resolver = make_context(a)
+    provider = SummitCanonicalContentProvider.from_project(s.project_root, getattr(a, "source_root", None))
+    result = stage_spawn_from_donor(
+        s.project_root, provider,
+        donor_label=a.donor, relative_path=a.path,
+        run_validation=not bool(getattr(a, "skip_validation", False)),
+        run_build=not bool(getattr(a, "skip_build", False)),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if str(result.get("status") or "").upper() in {"STAGED", "PASS", "ALREADY_CANONICAL"} else 3
+
+
+def cmd_donor_stage_spawn_dependencies(a):
+    s, reg, cert, resolver = make_context(a)
+    provider = SummitCanonicalContentProvider.from_project(s.project_root, getattr(a, "source_root", None))
+    result = stage_unique_spawn_dependencies_from_donor(
+        s.project_root, provider,
+        donor_label=a.donor, relative_path=a.path,
+        run_validation=not bool(getattr(a, "skip_validation", False)),
+        run_build=not bool(getattr(a, "skip_build", False)),
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if str(result.get("status") or "").upper() in {"STAGED", "PASS", "ALREADY_CANONICAL"} else 3
+
+
 def cmd_recover_general_closed_bundles(a):
     s, reg, cert, resolver = make_context(a)
     if s.server_root is None:
@@ -4679,6 +4802,71 @@ def build_parser():
     x.add_argument("--donor-server", action="append", default=[], metavar="LABEL=PATH", help="read-only donor server root; repeatable")
     x.add_argument("--plan-only", action="store_true", help="build all reports without copying files into staging")
     x.set_defaults(func=cmd_aggregate_summit_superset)
+
+    donor = sp.add_parser("donor", help="CLI-first directed donor discovery, certification and staging; no general census")
+    dnp = donor.add_subparsers(dest="donor_cmd", required=True)
+    x = dnp.add_parser("explore", help="read-only targeted donor explorer for maps, monsters and other supported domains")
+    x.add_argument("--source-root", required=False)
+    x.add_argument("--domain", choices=["MAP_FIELD", "MONSTER", "NPC", "ITEM", "CHARACTER", "EFFECT"], default="")
+    x.add_argument("--query", default="")
+    x.add_argument("--donor", default="", help="optional donor label such as DONOR3 or DONOR4")
+    x.add_argument("--limit", type=int, default=1500)
+    x.add_argument("--missing-target-only", action="store_true", help="also emit an entity tree containing only donor entities absent from Summit")
+    x.set_defaults(func=cmd_donor_explore)
+
+    x = dnp.add_parser("certify-physical", help="directed lazy closure of one explicit CLIENT/SERVER root; never runs general census or a full donor tree walk")
+    x.add_argument("--donor", required=True)
+    x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
+    x.add_argument("--root", required=True, help="exact logical root, e.g. char/monster/Hina/Hina.inx or Field/HeartOfFire/HeartOfFire.smd")
+    x.set_defaults(func=cmd_donor_certify_physical)
+
+    x = dnp.add_parser("stage-physical", help="certify one explicit root and stage its CLOSED same-lineage bundle under pt_build; no runtime write")
+    x.add_argument("--source-root", required=False)
+    x.add_argument("--reference-source-root", required=False)
+    x.add_argument("--donor", required=True)
+    x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
+    x.add_argument("--root", required=True)
+    x.set_defaults(func=cmd_donor_stage_physical)
+
+    x = dnp.add_parser("apply-physical", help=f"create missing runtime files for one directed CLOSED bundle; requires --confirm '{DONOR_PHYSICAL_APPLY_CONFIRM}'")
+    x.add_argument("--source-root", required=False)
+    x.add_argument("--reference-source-root", required=False)
+    x.add_argument("--donor", required=True)
+    x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
+    x.add_argument("--root", required=True)
+    x.add_argument("--confirm", required=True)
+    x.set_defaults(func=cmd_donor_apply_physical)
+
+    x = dnp.add_parser("restore-physical", help=f"restore one prior create-only donor transaction; requires --confirm '{DONOR_PHYSICAL_RESTORE_CONFIRM}'")
+    x.add_argument("--transaction", required=True)
+    x.add_argument("--confirm", required=True)
+    x.set_defaults(func=cmd_donor_restore_physical)
+
+    x = dnp.add_parser("stage-definition", help="stage a donor MONSTER/NPC/ITEM definition into canonical source using existing converters")
+    x.add_argument("--source-root", required=False)
+    x.add_argument("--donor", required=True)
+    x.add_argument("--kind", required=True, choices=["MONSTER", "NPC", "ITEM"])
+    x.add_argument("--path", required=True, help="donor-relative server definition path")
+    x.add_argument("--replace-existing", action="store_true")
+    x.add_argument("--skip-validation", action="store_true")
+    x.add_argument("--skip-build", action="store_true")
+    x.set_defaults(func=cmd_donor_stage_definition)
+
+    x = dnp.add_parser("stage-spawn", help="stage one exact donor SPM into canonical stage_spawns")
+    x.add_argument("--source-root", required=False)
+    x.add_argument("--donor", required=True)
+    x.add_argument("--path", required=True)
+    x.add_argument("--skip-validation", action="store_true")
+    x.add_argument("--skip-build", action="store_true")
+    x.set_defaults(func=cmd_donor_stage_spawn)
+
+    x = dnp.add_parser("stage-spawn-dependencies", help="stage uniquely resolved monster definitions referenced by one donor spawn")
+    x.add_argument("--source-root", required=False)
+    x.add_argument("--donor", required=True)
+    x.add_argument("--path", required=True)
+    x.add_argument("--skip-validation", action="store_true")
+    x.add_argument("--skip-build", action="store_true")
+    x.set_defaults(func=cmd_donor_stage_spawn_dependencies)
 
     recover = sp.add_parser("recover", help="scope-locked recovery of fresh CLOSED reachability bundles; broad deployment remains disabled")
     rcp = recover.add_subparsers(dest="recover_cmd", required=True)

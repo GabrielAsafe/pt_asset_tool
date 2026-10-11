@@ -6,11 +6,11 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `a6d7eb9a3fe5ea85b8f69893f51035927a9b0b53ddc4396e409037baac86cda5`
+- Source SHA-256: `c478481dd3dd3a9364a7c6b82de0d662e4107edee642cb5cd93e3644fcb5372b`
 - Maintained Python modules/scripts: **302**
-- Classes: **66**
-- Class methods: **291**
-- Module-level functions: **3164**
+- Classes: **68**
+- Class methods: **297**
+- Module-level functions: **3176**
 
 A summary of `—` means the symbol has no Python docstring; the signature and source location remain documented here. This reference documents private helpers too because they are part of the maintained source surface, not only public API.
 
@@ -793,11 +793,11 @@ _No top-level functions or classes._
 | function | `validate_contract_donor_specs` | `validate_contract_donor_specs(donors: Iterable[str], side: str, *, require_existing: bool = True) -> dict[str, Any]` | 374 | Validate/normalize donor specs without persisting anything. |
 | function | `save_contract_source_config` | `save_contract_source_config(project_root: pathlib.Path, source_root: pathlib.Path \| None, reference_source_root: pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str]) -> dict[str, Any]` | 473 | Validate and persist the complete Source Evidence configuration atomically. |
 | function | `_configured_contract_donors` | `_configured_contract_donors(project_root: pathlib.Path, key: str) -> list[str]` | 531 | — |
-| function | `configured_contract_donor_clients` | `configured_contract_donor_clients(project_root: pathlib.Path) -> list[str]` | 546 | Return explicitly persisted read-only donor roots as LABEL=PATH strings. |
-| function | `configured_contract_donor_servers` | `configured_contract_donor_servers(project_root: pathlib.Path) -> list[str]` | 551 | Return explicitly persisted read-only donor server roots. |
-| function | `_save_contract_donors` | `_save_contract_donors(project_root: pathlib.Path, key: str, donors: Iterable[str], side: str) -> pathlib.Path` | 556 | — |
-| function | `save_contract_donor_clients` | `save_contract_donor_clients(project_root: pathlib.Path, donors: list[str]) -> pathlib.Path` | 571 | Persist validated read-only client donors; accepts bare or CLI-form specs. |
-| function | `save_contract_donor_servers` | `save_contract_donor_servers(project_root: pathlib.Path, donors: list[str]) -> pathlib.Path` | 576 | Persist validated read-only server donors; accepts bare or CLI-form specs. |
+| function | `configured_contract_donor_clients` | `configured_contract_donor_clients(project_root: pathlib.Path) -> list[str]` | 581 | Return explicitly persisted read-only donor roots as LABEL=PATH strings. |
+| function | `configured_contract_donor_servers` | `configured_contract_donor_servers(project_root: pathlib.Path) -> list[str]` | 586 | Return explicitly persisted read-only donor server roots. |
+| function | `_save_contract_donors` | `_save_contract_donors(project_root: pathlib.Path, key: str, donors: Iterable[str], side: str) -> pathlib.Path` | 591 | — |
+| function | `save_contract_donor_clients` | `save_contract_donor_clients(project_root: pathlib.Path, donors: list[str]) -> pathlib.Path` | 606 | Persist validated read-only client donors; accepts bare or CLI-form specs. |
+| function | `save_contract_donor_servers` | `save_contract_donor_servers(project_root: pathlib.Path, donors: list[str]) -> pathlib.Path` | 611 | Persist validated read-only server donors; accepts bare or CLI-form specs. |
 
 ## `app/pt_asset_tool/asset_bundle_deploy.py`
 
@@ -1815,202 +1815,211 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `make_context` | `make_context(a)` | 136 | — |
-| function | `table` | `table(rows, headers)` | 144 | — |
-| function | `cmd_doctor` | `cmd_doctor(a)` | 161 | — |
-| function | `cmd_audit_physique` | `cmd_audit_physique(a)` | 298 | — |
-| function | `cmd_audit_animation_certification_plan` | `cmd_audit_animation_certification_plan(a)` | 316 | — |
-| function | `cmd_audit_object_local` | `cmd_audit_object_local(a)` | 329 | — |
-| function | `cmd_audit_object_local_corpus` | `cmd_audit_object_local_corpus(a)` | 346 | — |
-| function | `cmd_audit_texlink_corpus` | `cmd_audit_texlink_corpus(a)` | 368 | — |
-| function | `cmd_audit_stage072_corpus` | `cmd_audit_stage072_corpus(a)` | 391 | — |
-| function | `cmd_audit_stage072_stagearea` | `cmd_audit_stage072_stagearea(a)` | 419 | — |
-| function | `cmd_audit_stage072_textures` | `cmd_audit_stage072_textures(a)` | 443 | — |
-| function | `cmd_audit_rare_support` | `cmd_audit_rare_support(a)` | 471 | — |
-| function | `cmd_audit_rare_outliers` | `cmd_audit_rare_outliers(a)` | 496 | — |
-| function | `cmd_audit_rare_rigid_context` | `cmd_audit_rare_rigid_context(a)` | 524 | — |
-| function | `cmd_audit_rare_rigid_binding` | `cmd_audit_rare_rigid_binding(a)` | 552 | — |
-| function | `cmd_audit_rare_rigid_preview` | `cmd_audit_rare_rigid_preview(a)` | 578 | — |
-| function | `cmd_audit_rare_rigid_geometry` | `cmd_audit_rare_rigid_geometry(a)` | 608 | — |
-| function | `cmd_audit_rare_rigid_roundtrip` | `cmd_audit_rare_rigid_roundtrip(a)` | 635 | — |
-| function | `cmd_audit_rare_rigid_normal_roundtrip` | `cmd_audit_rare_rigid_normal_roundtrip(a)` | 660 | — |
-| function | `cmd_audit_rare_rigid_extent_roundtrip` | `cmd_audit_rare_rigid_extent_roundtrip(a)` | 685 | — |
-| function | `cmd_audit_rare_rigid_multibone` | `cmd_audit_rare_rigid_multibone(a)` | 711 | — |
-| function | `cmd_audit_rare_rigid_multibone_roundtrip` | `cmd_audit_rare_rigid_multibone_roundtrip(a)` | 744 | — |
-| function | `cmd_view_rare_model` | `cmd_view_rare_model(a)` | 771 | — |
-| function | `_print_asset_table_legend` | `_print_asset_table_legend()` | 781 | — |
-| function | `cmd_assets_list` | `cmd_assets_list(a)` | 794 | — |
-| function | `_profile_registry` | `_profile_registry(s)` | 819 | — |
-| function | `cmd_profiles_list` | `cmd_profiles_list(a)` | 823 | — |
-| function | `cmd_profiles_inspect` | `cmd_profiles_inspect(a)` | 834 | — |
-| function | `cmd_profiles_lod` | `cmd_profiles_lod(a)` | 841 | — |
-| function | `cmd_profiles_discover` | `cmd_profiles_discover(a)` | 859 | — |
-| function | `cmd_profiles_authoring_plan` | `cmd_profiles_authoring_plan(a)` | 871 | — |
-| function | `cmd_profiles_verify` | `cmd_profiles_verify(a)` | 879 | — |
-| function | `_entity_catalog_context` | `_entity_catalog_context(s, reg)` | 910 | — |
-| function | `cmd_entities_list` | `cmd_entities_list(a)` | 918 | — |
-| function | `cmd_entities_inspect` | `cmd_entities_inspect(a)` | 951 | — |
-| function | `cmd_audit_binding_coverage` | `cmd_audit_binding_coverage(a)` | 974 | — |
-| function | `_write_read_only_audit_result` | `_write_read_only_audit_result(s, result: dict, raw_output: str \| None) -> None` | 993 | — |
-| function | `cmd_audit_inx_writer_corpus` | `cmd_audit_inx_writer_corpus(a)` | 1009 | — |
-| function | `cmd_audit_smb_writer_corpus` | `cmd_audit_smb_writer_corpus(a)` | 1018 | — |
-| function | `cmd_audit_inx_writer_edit_corpus` | `cmd_audit_inx_writer_edit_corpus(a)` | 1027 | — |
-| function | `cmd_audit_smb_writer_edit_corpus` | `cmd_audit_smb_writer_edit_corpus(a)` | 1036 | — |
-| function | `cmd_audit_motion_writer_semantic_edit_corpus` | `cmd_audit_motion_writer_semantic_edit_corpus(a)` | 1045 | — |
-| function | `cmd_audit_object_local_writer_corpus` | `cmd_audit_object_local_writer_corpus(a)` | 1056 | — |
-| function | `cmd_audit_rigid_model_info_contexts` | `cmd_audit_rigid_model_info_contexts(a)` | 1064 | — |
-| function | `cmd_audit_development_readiness` | `cmd_audit_development_readiness(a)` | 1072 | — |
-| function | `cmd_deploy_prepare` | `cmd_deploy_prepare(a)` | 1086 | — |
-| function | `cmd_deploy_verify` | `cmd_deploy_verify(a)` | 1093 | — |
-| function | `cmd_deploy_simulate` | `cmd_deploy_simulate(a)` | 1099 | — |
-| function | `cmd_deploy_state` | `cmd_deploy_state(a)` | 1105 | — |
-| function | `cmd_deploy_restore_plan` | `cmd_deploy_restore_plan(a)` | 1111 | — |
-| function | `cmd_deploy_workspace_prepare` | `cmd_deploy_workspace_prepare(a)` | 1117 | — |
-| function | `cmd_deploy_workspace_apply` | `cmd_deploy_workspace_apply(a)` | 1127 | — |
-| function | `cmd_deploy_workspace_verify` | `cmd_deploy_workspace_verify(a)` | 1133 | — |
-| function | `cmd_deploy_workspace_state` | `cmd_deploy_workspace_state(a)` | 1139 | — |
-| function | `cmd_deploy_workspace_restore` | `cmd_deploy_workspace_restore(a)` | 1145 | — |
-| function | `cmd_deploy_workspace_history` | `cmd_deploy_workspace_history(a)` | 1151 | — |
-| function | `cmd_deploy_workspace_publish` | `cmd_deploy_workspace_publish(a)` | 1160 | — |
-| function | `cmd_deploy_workspace_check` | `cmd_deploy_workspace_check(a)` | 1171 | — |
-| function | `cmd_deploy_workspace_restore_latest` | `cmd_deploy_workspace_restore_latest(a)` | 1179 | — |
-| function | `cmd_deploy_workspace_restore_model_latest` | `cmd_deploy_workspace_restore_model_latest(a)` | 1187 | — |
-| function | `cmd_asset_authoring` | `cmd_asset_authoring(a)` | 1196 | — |
-| function | `cmd_audit_model062_authoring` | `cmd_audit_model062_authoring(a)` | 1215 | — |
-| function | `cmd_families` | `cmd_families(a)` | 1225 | — |
-| function | `cmd_asset_inspect` | `cmd_asset_inspect(a)` | 1231 | — |
-| function | `choose_next` | `choose_next(reg, cert, resolver, category = None)` | 1294 | — |
-| function | `cmd_audit_texlink_semantics` | `cmd_audit_texlink_semantics(a)` | 1306 | — |
-| function | `cmd_asset_texlink_semantics` | `cmd_asset_texlink_semantics(a)` | 1333 | — |
-| function | `cmd_validate_texlinks` | `cmd_validate_texlinks(a)` | 1348 | — |
-| function | `cmd_validate_texlink_roundtrip` | `cmd_validate_texlink_roundtrip(a)` | 1359 | — |
-| function | `cmd_validate_stage072_preview` | `cmd_validate_stage072_preview(a)` | 1370 | — |
-| function | `cmd_view_stage072` | `cmd_view_stage072(a)` | 1381 | — |
-| function | `cmd_paint_stage072` | `cmd_paint_stage072(a)` | 1398 | — |
-| function | `cmd_validate_stage072_roundtrip` | `cmd_validate_stage072_roundtrip(a)` | 1434 | — |
-| function | `cmd_validate_stage072_geometry_roundtrip` | `cmd_validate_stage072_geometry_roundtrip(a)` | 1445 | — |
-| function | `cmd_validate_structural` | `cmd_validate_structural(a)` | 1456 | — |
-| function | `cmd_validate_visual` | `cmd_validate_visual(a)` | 1465 | — |
-| function | `cmd_validate_roundtrip` | `cmd_validate_roundtrip(a)` | 1476 | — |
-| function | `cmd_asset_object_local` | `cmd_asset_object_local(a)` | 1488 | — |
-| function | `cmd_asset_texlinks` | `cmd_asset_texlinks(a)` | 1502 | — |
-| function | `cmd_validate_object_local` | `cmd_validate_object_local(a)` | 1517 | — |
-| function | `_normalize_head_tier` | `_normalize_head_tier(value: str) -> tuple[str, int \| None]` | 1527 | — |
-| function | `cmd_asset_heads` | `cmd_asset_heads(a)` | 1543 | — |
-| function | `cmd_asset_head_tiers` | `cmd_asset_head_tiers(a)` | 1555 | — |
-| function | `_resolve_head_option` | `_resolve_head_option(reg, asset, value: str, tier_value: str = "auto")` | 1567 | — |
-| function | `_resolved_motion_context` | `_resolved_motion_context(asset, resolver)` | 1621 | — |
-| function | `cmd_asset_motions` | `cmd_asset_motions(a)` | 1627 | — |
-| function | `_resolve_inx_source` | `_resolve_inx_source(a, s, resolver)` | 1642 | — |
-| function | `_pt_build_output` | `_pt_build_output(s, raw, *, default_rel)` | 1649 | — |
-| function | `_resolve_smb_source` | `_resolve_smb_source(a, s, resolver)` | 1664 | — |
-| function | `cmd_validate_smb_track_roundtrip` | `cmd_validate_smb_track_roundtrip(a)` | 1671 | — |
-| function | `cmd_write_smb_key` | `cmd_write_smb_key(a)` | 1680 | — |
-| function | `cmd_validate_inx_roundtrip` | `cmd_validate_inx_roundtrip(a)` | 1694 | — |
-| function | `cmd_write_inx_motion` | `cmd_write_inx_motion(a)` | 1703 | — |
-| function | `cmd_write_object_local_key_candidate` | `cmd_write_object_local_key_candidate(a)` | 1719 | — |
-| function | `cmd_validate_animation` | `cmd_validate_animation(a)` | 1750 | — |
-| function | `choose_next_animation` | `choose_next_animation(reg, cert, resolver, category = None)` | 1771 | — |
-| function | `cmd_audit_animation_source` | `cmd_audit_animation_source(a)` | 1782 | — |
-| function | `cmd_audit_animation_corpus` | `cmd_audit_animation_corpus(a)` | 1800 | — |
-| function | `cmd_diagnose_animation` | `cmd_diagnose_animation(a)` | 1815 | — |
-| function | `cmd_diagnose_motion_source` | `cmd_diagnose_motion_source(a)` | 1825 | — |
-| function | `cmd_diagnose_motion_segment` | `cmd_diagnose_motion_segment(a)` | 1836 | — |
-| function | `_load_root_binding_cache` | `_load_root_binding_cache(path: pathlib.Path) -> dict` | 1848 | — |
-| function | `_atomic_json` | `_atomic_json(path: pathlib.Path, data: dict)` | 1861 | — |
-| function | `_signature_for_passing_smb` | `_signature_for_passing_smb(s, smb_path: pathlib.Path) -> dict` | 1866 | Best-effort skeleton identity for an SMB that already passed the structural gate. |
-| function | `_error_bucket` | `_error_bucket(exc: Exception) -> str` | 1879 | — |
-| function | `_physique_subset_resolution` | `_physique_subset_resolution(a, s, reg, resolver, asset, src, tested, work)` | 1894 | Resolve full-skeleton ambiguity by the mesh's actually weighted bone closure. |
-| function | `_extract_config_binary_refs` | `_extract_config_binary_refs(blob: bytes) -> dict` | 2023 | Extract explicit asset references from opaque/fixed-field INX bytes. |
-| function | `_resolve_literal_config_ref` | `_resolve_literal_config_ref(token: str, inx_rel: str, reg, resolver) -> dict` | 2064 | Resolve one literal config token without fuzzy basename guessing. |
-| function | `_config_context_resolution` | `_config_context_resolution(a, s, reg, resolver, asset, tested, work)` | 2114 | Use explicit config references to discriminate full-skeleton ambiguity. |
-| function | `_assembly_graph_resolution` | `_assembly_graph_resolution(a, s, reg, resolver, asset, tested, work)` | 2268 | Resolve a config-only skeleton through explicit pairing graph connectivity. |
-| function | `cmd_binding_discover` | `cmd_binding_discover(a, s, reg, resolver)` | 2415 | — |
-| function | `cmd_bindings` | `cmd_bindings(a)` | 2747 | — |
-| function | `cmd_view_rigid_candidate` | `cmd_view_rigid_candidate(a)` | 2777 | — |
-| function | `cmd_audit_rigid_authoring_certification_plan` | `cmd_audit_rigid_authoring_certification_plan(a)` | 2790 | — |
-| function | `cmd_cert_rigid_candidate_review` | `cmd_cert_rigid_candidate_review(a)` | 2801 | — |
-| function | `cmd_cert_list` | `cmd_cert_list(a)` | 2908 | — |
-| function | `cmd_cert_record` | `cmd_cert_record(a)` | 2924 | — |
-| function | `cmd_audit_release_1_coverage` | `cmd_audit_release_1_coverage(a)` | 2942 | — |
-| function | `cmd_validate_environment_auto` | `cmd_validate_environment_auto(a)` | 2960 | — |
-| function | `cmd_validate_server_environment_auto` | `cmd_validate_server_environment_auto(a)` | 2969 | — |
-| function | `cmd_audit_server_inventory` | `cmd_audit_server_inventory(a)` | 2976 | — |
-| function | `cmd_audit_server_bundles` | `cmd_audit_server_bundles(a)` | 2992 | — |
-| function | `cmd_audit_server_fields` | `cmd_audit_server_fields(a)` | 3008 | — |
-| function | `cmd_audit_server_items` | `cmd_audit_server_items(a)` | 3023 | — |
-| function | `cmd_legacy_management_summary` | `cmd_legacy_management_summary(a)` | 3042 | — |
-| function | `cmd_legacy_management_verify` | `cmd_legacy_management_verify(a)` | 3047 | — |
-| function | `cmd_legacy_management_item_code` | `cmd_legacy_management_item_code(a)` | 3053 | — |
-| function | `cmd_audit_legacy_management` | `cmd_audit_legacy_management(a)` | 3061 | — |
-| function | `cmd_legacy_authoring_capabilities` | `cmd_legacy_authoring_capabilities(a)` | 3078 | — |
-| function | `_legacy_authoring_context` | `_legacy_authoring_context(a)` | 3084 | — |
-| function | `cmd_legacy_authoring_inspect` | `cmd_legacy_authoring_inspect(a)` | 3091 | — |
-| function | `cmd_legacy_authoring_stage` | `cmd_legacy_authoring_stage(a)` | 3098 | — |
-| function | `cmd_legacy_authoring_publish` | `cmd_legacy_authoring_publish(a)` | 3108 | — |
-| function | `cmd_legacy_authoring_restore` | `cmd_legacy_authoring_restore(a)` | 3118 | — |
-| function | `_canonical_context` | `_canonical_context(a)` | 3127 | — |
-| function | `cmd_canonical_status` | `cmd_canonical_status(a)` | 3134 | — |
-| function | `cmd_canonical_catalog` | `cmd_canonical_catalog(a)` | 3141 | — |
-| function | `cmd_canonical_capabilities` | `cmd_canonical_capabilities(a)` | 3148 | — |
-| function | `cmd_canonical_domains` | `cmd_canonical_domains(a)` | 3154 | — |
-| function | `cmd_canonical_stage` | `cmd_canonical_stage(a)` | 3160 | — |
-| function | `cmd_canonical_publish_source` | `cmd_canonical_publish_source(a)` | 3170 | — |
-| function | `cmd_canonical_publish_packs` | `cmd_canonical_publish_packs(a)` | 3177 | — |
-| function | `cmd_canonical_restore` | `cmd_canonical_restore(a)` | 3184 | — |
-| function | `cmd_contracts_registry_list` | `cmd_contracts_registry_list(a)` | 3191 | — |
-| function | `cmd_contracts_registry_show` | `cmd_contracts_registry_show(a)` | 3201 | — |
-| function | `cmd_asset_compiler_capabilities` | `cmd_asset_compiler_capabilities(a)` | 3213 | — |
-| function | `cmd_asset_compiler_plan` | `cmd_asset_compiler_plan(a)` | 3218 | — |
-| function | `cmd_asset_compiler_build` | `cmd_asset_compiler_build(a)` | 3225 | — |
-| function | `_asset_bundle_manifest_arg` | `_asset_bundle_manifest_arg(s, value)` | 3234 | — |
-| function | `cmd_asset_compiler_status` | `cmd_asset_compiler_status(a)` | 3243 | — |
-| function | `cmd_asset_compiler_publish` | `cmd_asset_compiler_publish(a)` | 3250 | — |
-| function | `cmd_asset_compiler_restore` | `cmd_asset_compiler_restore(a)` | 3260 | — |
-| function | `cmd_audit_client_enrichment` | `cmd_audit_client_enrichment(a)` | 3270 | — |
-| function | `cmd_audit_source_contracts` | `cmd_audit_source_contracts(a)` | 3285 | — |
-| function | `cmd_audit_class_ui_aliases` | `cmd_audit_class_ui_aliases(a)` | 3296 | — |
-| function | `cmd_recover_class_ui_alias_only` | `cmd_recover_class_ui_alias_only(a)` | 3303 | — |
-| function | `cmd_audit_cooked_textures` | `cmd_audit_cooked_textures(a)` | 3316 | — |
-| function | `cmd_audit_effect_runtime_coverage` | `cmd_audit_effect_runtime_coverage(a)` | 3327 | — |
-| function | `cmd_audit_summit_canonical_assets` | `cmd_audit_summit_canonical_assets(a)` | 3340 | — |
-| function | `cmd_audit_summit_asset_migration` | `cmd_audit_summit_asset_migration(a)` | 3353 | — |
-| function | `cmd_audit_asset_retention` | `cmd_audit_asset_retention(a)` | 3366 | Run the normal census and return its fail-closed retention slice. |
-| function | `cmd_query_asset_retention` | `cmd_query_asset_retention(a)` | 3391 | Query the persisted retention report without rerunning the census. |
-| function | `cmd_audit_quarantine_plan` | `cmd_audit_quarantine_plan(a)` | 3408 | — |
-| function | `cmd_quarantine_status` | `cmd_quarantine_status(a)` | 3424 | — |
-| function | `cmd_quarantine_review` | `cmd_quarantine_review(a)` | 3431 | — |
-| function | `cmd_quarantine_apply` | `cmd_quarantine_apply(a)` | 3444 | — |
-| function | `cmd_quarantine_apply_component` | `cmd_quarantine_apply_component(a)` | 3455 | — |
-| function | `cmd_quarantine_restore` | `cmd_quarantine_restore(a)` | 3467 | — |
-| function | `cmd_audit_general_asset_census` | `cmd_audit_general_asset_census(a)` | 3478 | — |
-| function | `cmd_audit_t5_effects` | `cmd_audit_t5_effects(a)` | 3496 | Run a fresh General Census and print the Tier-5 effect+audio asset slice. |
-| function | `cmd_audit_t5_assets` | `cmd_audit_t5_assets(a)` | 3548 | — |
-| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3552 | — |
-| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3572 | — |
-| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3589 | — |
-| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3608 | — |
-| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3620 | — |
-| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3634 | — |
-| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3652 | — |
-| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3665 | — |
-| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3679 | — |
-| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3689 | — |
-| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3702 | — |
-| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3739 | — |
-| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3841 | — |
-| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 3881 | — |
-| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 3905 | — |
-| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 3933 | — |
-| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 3955 | Fail closed when a candidate workflow explicitly requires an observed edit. |
-| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 3976 | — |
-| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 3998 | — |
-| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4045 | Prepare/open a reusable Blender workspace for a supported asset. |
-| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4134 | — |
-| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4417 | — |
-| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4424 | — |
-| function | `build_parser` | `build_parser()` | 4447 | — |
-| function | `main` | `main(argv = None)` | 4942 | — |
+| function | `make_context` | `make_context(a)` | 143 | — |
+| function | `table` | `table(rows, headers)` | 151 | — |
+| function | `cmd_doctor` | `cmd_doctor(a)` | 168 | — |
+| function | `cmd_audit_physique` | `cmd_audit_physique(a)` | 305 | — |
+| function | `cmd_audit_animation_certification_plan` | `cmd_audit_animation_certification_plan(a)` | 323 | — |
+| function | `cmd_audit_object_local` | `cmd_audit_object_local(a)` | 336 | — |
+| function | `cmd_audit_object_local_corpus` | `cmd_audit_object_local_corpus(a)` | 353 | — |
+| function | `cmd_audit_texlink_corpus` | `cmd_audit_texlink_corpus(a)` | 375 | — |
+| function | `cmd_audit_stage072_corpus` | `cmd_audit_stage072_corpus(a)` | 398 | — |
+| function | `cmd_audit_stage072_stagearea` | `cmd_audit_stage072_stagearea(a)` | 426 | — |
+| function | `cmd_audit_stage072_textures` | `cmd_audit_stage072_textures(a)` | 450 | — |
+| function | `cmd_audit_rare_support` | `cmd_audit_rare_support(a)` | 478 | — |
+| function | `cmd_audit_rare_outliers` | `cmd_audit_rare_outliers(a)` | 503 | — |
+| function | `cmd_audit_rare_rigid_context` | `cmd_audit_rare_rigid_context(a)` | 531 | — |
+| function | `cmd_audit_rare_rigid_binding` | `cmd_audit_rare_rigid_binding(a)` | 559 | — |
+| function | `cmd_audit_rare_rigid_preview` | `cmd_audit_rare_rigid_preview(a)` | 585 | — |
+| function | `cmd_audit_rare_rigid_geometry` | `cmd_audit_rare_rigid_geometry(a)` | 615 | — |
+| function | `cmd_audit_rare_rigid_roundtrip` | `cmd_audit_rare_rigid_roundtrip(a)` | 642 | — |
+| function | `cmd_audit_rare_rigid_normal_roundtrip` | `cmd_audit_rare_rigid_normal_roundtrip(a)` | 667 | — |
+| function | `cmd_audit_rare_rigid_extent_roundtrip` | `cmd_audit_rare_rigid_extent_roundtrip(a)` | 692 | — |
+| function | `cmd_audit_rare_rigid_multibone` | `cmd_audit_rare_rigid_multibone(a)` | 718 | — |
+| function | `cmd_audit_rare_rigid_multibone_roundtrip` | `cmd_audit_rare_rigid_multibone_roundtrip(a)` | 751 | — |
+| function | `cmd_view_rare_model` | `cmd_view_rare_model(a)` | 778 | — |
+| function | `_print_asset_table_legend` | `_print_asset_table_legend()` | 788 | — |
+| function | `cmd_assets_list` | `cmd_assets_list(a)` | 801 | — |
+| function | `_profile_registry` | `_profile_registry(s)` | 826 | — |
+| function | `cmd_profiles_list` | `cmd_profiles_list(a)` | 830 | — |
+| function | `cmd_profiles_inspect` | `cmd_profiles_inspect(a)` | 841 | — |
+| function | `cmd_profiles_lod` | `cmd_profiles_lod(a)` | 848 | — |
+| function | `cmd_profiles_discover` | `cmd_profiles_discover(a)` | 866 | — |
+| function | `cmd_profiles_authoring_plan` | `cmd_profiles_authoring_plan(a)` | 878 | — |
+| function | `cmd_profiles_verify` | `cmd_profiles_verify(a)` | 886 | — |
+| function | `_entity_catalog_context` | `_entity_catalog_context(s, reg)` | 917 | — |
+| function | `cmd_entities_list` | `cmd_entities_list(a)` | 925 | — |
+| function | `cmd_entities_inspect` | `cmd_entities_inspect(a)` | 958 | — |
+| function | `cmd_audit_binding_coverage` | `cmd_audit_binding_coverage(a)` | 981 | — |
+| function | `_write_read_only_audit_result` | `_write_read_only_audit_result(s, result: dict, raw_output: str \| None) -> None` | 1000 | — |
+| function | `cmd_audit_inx_writer_corpus` | `cmd_audit_inx_writer_corpus(a)` | 1016 | — |
+| function | `cmd_audit_smb_writer_corpus` | `cmd_audit_smb_writer_corpus(a)` | 1025 | — |
+| function | `cmd_audit_inx_writer_edit_corpus` | `cmd_audit_inx_writer_edit_corpus(a)` | 1034 | — |
+| function | `cmd_audit_smb_writer_edit_corpus` | `cmd_audit_smb_writer_edit_corpus(a)` | 1043 | — |
+| function | `cmd_audit_motion_writer_semantic_edit_corpus` | `cmd_audit_motion_writer_semantic_edit_corpus(a)` | 1052 | — |
+| function | `cmd_audit_object_local_writer_corpus` | `cmd_audit_object_local_writer_corpus(a)` | 1063 | — |
+| function | `cmd_audit_rigid_model_info_contexts` | `cmd_audit_rigid_model_info_contexts(a)` | 1071 | — |
+| function | `cmd_audit_development_readiness` | `cmd_audit_development_readiness(a)` | 1079 | — |
+| function | `cmd_deploy_prepare` | `cmd_deploy_prepare(a)` | 1093 | — |
+| function | `cmd_deploy_verify` | `cmd_deploy_verify(a)` | 1100 | — |
+| function | `cmd_deploy_simulate` | `cmd_deploy_simulate(a)` | 1106 | — |
+| function | `cmd_deploy_state` | `cmd_deploy_state(a)` | 1112 | — |
+| function | `cmd_deploy_restore_plan` | `cmd_deploy_restore_plan(a)` | 1118 | — |
+| function | `cmd_deploy_workspace_prepare` | `cmd_deploy_workspace_prepare(a)` | 1124 | — |
+| function | `cmd_deploy_workspace_apply` | `cmd_deploy_workspace_apply(a)` | 1134 | — |
+| function | `cmd_deploy_workspace_verify` | `cmd_deploy_workspace_verify(a)` | 1140 | — |
+| function | `cmd_deploy_workspace_state` | `cmd_deploy_workspace_state(a)` | 1146 | — |
+| function | `cmd_deploy_workspace_restore` | `cmd_deploy_workspace_restore(a)` | 1152 | — |
+| function | `cmd_deploy_workspace_history` | `cmd_deploy_workspace_history(a)` | 1158 | — |
+| function | `cmd_deploy_workspace_publish` | `cmd_deploy_workspace_publish(a)` | 1167 | — |
+| function | `cmd_deploy_workspace_check` | `cmd_deploy_workspace_check(a)` | 1178 | — |
+| function | `cmd_deploy_workspace_restore_latest` | `cmd_deploy_workspace_restore_latest(a)` | 1186 | — |
+| function | `cmd_deploy_workspace_restore_model_latest` | `cmd_deploy_workspace_restore_model_latest(a)` | 1194 | — |
+| function | `cmd_asset_authoring` | `cmd_asset_authoring(a)` | 1203 | — |
+| function | `cmd_audit_model062_authoring` | `cmd_audit_model062_authoring(a)` | 1222 | — |
+| function | `cmd_families` | `cmd_families(a)` | 1232 | — |
+| function | `cmd_asset_inspect` | `cmd_asset_inspect(a)` | 1238 | — |
+| function | `choose_next` | `choose_next(reg, cert, resolver, category = None)` | 1301 | — |
+| function | `cmd_audit_texlink_semantics` | `cmd_audit_texlink_semantics(a)` | 1313 | — |
+| function | `cmd_asset_texlink_semantics` | `cmd_asset_texlink_semantics(a)` | 1340 | — |
+| function | `cmd_validate_texlinks` | `cmd_validate_texlinks(a)` | 1355 | — |
+| function | `cmd_validate_texlink_roundtrip` | `cmd_validate_texlink_roundtrip(a)` | 1366 | — |
+| function | `cmd_validate_stage072_preview` | `cmd_validate_stage072_preview(a)` | 1377 | — |
+| function | `cmd_view_stage072` | `cmd_view_stage072(a)` | 1388 | — |
+| function | `cmd_paint_stage072` | `cmd_paint_stage072(a)` | 1405 | — |
+| function | `cmd_validate_stage072_roundtrip` | `cmd_validate_stage072_roundtrip(a)` | 1441 | — |
+| function | `cmd_validate_stage072_geometry_roundtrip` | `cmd_validate_stage072_geometry_roundtrip(a)` | 1452 | — |
+| function | `cmd_validate_structural` | `cmd_validate_structural(a)` | 1463 | — |
+| function | `cmd_validate_visual` | `cmd_validate_visual(a)` | 1472 | — |
+| function | `cmd_validate_roundtrip` | `cmd_validate_roundtrip(a)` | 1483 | — |
+| function | `cmd_asset_object_local` | `cmd_asset_object_local(a)` | 1495 | — |
+| function | `cmd_asset_texlinks` | `cmd_asset_texlinks(a)` | 1509 | — |
+| function | `cmd_validate_object_local` | `cmd_validate_object_local(a)` | 1524 | — |
+| function | `_normalize_head_tier` | `_normalize_head_tier(value: str) -> tuple[str, int \| None]` | 1534 | — |
+| function | `cmd_asset_heads` | `cmd_asset_heads(a)` | 1550 | — |
+| function | `cmd_asset_head_tiers` | `cmd_asset_head_tiers(a)` | 1562 | — |
+| function | `_resolve_head_option` | `_resolve_head_option(reg, asset, value: str, tier_value: str = "auto")` | 1574 | — |
+| function | `_resolved_motion_context` | `_resolved_motion_context(asset, resolver)` | 1628 | — |
+| function | `cmd_asset_motions` | `cmd_asset_motions(a)` | 1634 | — |
+| function | `_resolve_inx_source` | `_resolve_inx_source(a, s, resolver)` | 1649 | — |
+| function | `_pt_build_output` | `_pt_build_output(s, raw, *, default_rel)` | 1656 | — |
+| function | `_resolve_smb_source` | `_resolve_smb_source(a, s, resolver)` | 1671 | — |
+| function | `cmd_validate_smb_track_roundtrip` | `cmd_validate_smb_track_roundtrip(a)` | 1678 | — |
+| function | `cmd_write_smb_key` | `cmd_write_smb_key(a)` | 1687 | — |
+| function | `cmd_validate_inx_roundtrip` | `cmd_validate_inx_roundtrip(a)` | 1701 | — |
+| function | `cmd_write_inx_motion` | `cmd_write_inx_motion(a)` | 1710 | — |
+| function | `cmd_write_object_local_key_candidate` | `cmd_write_object_local_key_candidate(a)` | 1726 | — |
+| function | `cmd_validate_animation` | `cmd_validate_animation(a)` | 1757 | — |
+| function | `choose_next_animation` | `choose_next_animation(reg, cert, resolver, category = None)` | 1778 | — |
+| function | `cmd_audit_animation_source` | `cmd_audit_animation_source(a)` | 1789 | — |
+| function | `cmd_audit_animation_corpus` | `cmd_audit_animation_corpus(a)` | 1807 | — |
+| function | `cmd_diagnose_animation` | `cmd_diagnose_animation(a)` | 1822 | — |
+| function | `cmd_diagnose_motion_source` | `cmd_diagnose_motion_source(a)` | 1832 | — |
+| function | `cmd_diagnose_motion_segment` | `cmd_diagnose_motion_segment(a)` | 1843 | — |
+| function | `_load_root_binding_cache` | `_load_root_binding_cache(path: pathlib.Path) -> dict` | 1855 | — |
+| function | `_atomic_json` | `_atomic_json(path: pathlib.Path, data: dict)` | 1868 | — |
+| function | `_signature_for_passing_smb` | `_signature_for_passing_smb(s, smb_path: pathlib.Path) -> dict` | 1873 | Best-effort skeleton identity for an SMB that already passed the structural gate. |
+| function | `_error_bucket` | `_error_bucket(exc: Exception) -> str` | 1886 | — |
+| function | `_physique_subset_resolution` | `_physique_subset_resolution(a, s, reg, resolver, asset, src, tested, work)` | 1901 | Resolve full-skeleton ambiguity by the mesh's actually weighted bone closure. |
+| function | `_extract_config_binary_refs` | `_extract_config_binary_refs(blob: bytes) -> dict` | 2030 | Extract explicit asset references from opaque/fixed-field INX bytes. |
+| function | `_resolve_literal_config_ref` | `_resolve_literal_config_ref(token: str, inx_rel: str, reg, resolver) -> dict` | 2071 | Resolve one literal config token without fuzzy basename guessing. |
+| function | `_config_context_resolution` | `_config_context_resolution(a, s, reg, resolver, asset, tested, work)` | 2121 | Use explicit config references to discriminate full-skeleton ambiguity. |
+| function | `_assembly_graph_resolution` | `_assembly_graph_resolution(a, s, reg, resolver, asset, tested, work)` | 2275 | Resolve a config-only skeleton through explicit pairing graph connectivity. |
+| function | `cmd_binding_discover` | `cmd_binding_discover(a, s, reg, resolver)` | 2422 | — |
+| function | `cmd_bindings` | `cmd_bindings(a)` | 2754 | — |
+| function | `cmd_view_rigid_candidate` | `cmd_view_rigid_candidate(a)` | 2784 | — |
+| function | `cmd_audit_rigid_authoring_certification_plan` | `cmd_audit_rigid_authoring_certification_plan(a)` | 2797 | — |
+| function | `cmd_cert_rigid_candidate_review` | `cmd_cert_rigid_candidate_review(a)` | 2808 | — |
+| function | `cmd_cert_list` | `cmd_cert_list(a)` | 2915 | — |
+| function | `cmd_cert_record` | `cmd_cert_record(a)` | 2931 | — |
+| function | `cmd_audit_release_1_coverage` | `cmd_audit_release_1_coverage(a)` | 2949 | — |
+| function | `cmd_validate_environment_auto` | `cmd_validate_environment_auto(a)` | 2967 | — |
+| function | `cmd_validate_server_environment_auto` | `cmd_validate_server_environment_auto(a)` | 2976 | — |
+| function | `cmd_audit_server_inventory` | `cmd_audit_server_inventory(a)` | 2983 | — |
+| function | `cmd_audit_server_bundles` | `cmd_audit_server_bundles(a)` | 2999 | — |
+| function | `cmd_audit_server_fields` | `cmd_audit_server_fields(a)` | 3015 | — |
+| function | `cmd_audit_server_items` | `cmd_audit_server_items(a)` | 3030 | — |
+| function | `cmd_legacy_management_summary` | `cmd_legacy_management_summary(a)` | 3049 | — |
+| function | `cmd_legacy_management_verify` | `cmd_legacy_management_verify(a)` | 3054 | — |
+| function | `cmd_legacy_management_item_code` | `cmd_legacy_management_item_code(a)` | 3060 | — |
+| function | `cmd_audit_legacy_management` | `cmd_audit_legacy_management(a)` | 3068 | — |
+| function | `cmd_legacy_authoring_capabilities` | `cmd_legacy_authoring_capabilities(a)` | 3085 | — |
+| function | `_legacy_authoring_context` | `_legacy_authoring_context(a)` | 3091 | — |
+| function | `cmd_legacy_authoring_inspect` | `cmd_legacy_authoring_inspect(a)` | 3098 | — |
+| function | `cmd_legacy_authoring_stage` | `cmd_legacy_authoring_stage(a)` | 3105 | — |
+| function | `cmd_legacy_authoring_publish` | `cmd_legacy_authoring_publish(a)` | 3115 | — |
+| function | `cmd_legacy_authoring_restore` | `cmd_legacy_authoring_restore(a)` | 3125 | — |
+| function | `_canonical_context` | `_canonical_context(a)` | 3134 | — |
+| function | `cmd_canonical_status` | `cmd_canonical_status(a)` | 3141 | — |
+| function | `cmd_canonical_catalog` | `cmd_canonical_catalog(a)` | 3148 | — |
+| function | `cmd_canonical_capabilities` | `cmd_canonical_capabilities(a)` | 3155 | — |
+| function | `cmd_canonical_domains` | `cmd_canonical_domains(a)` | 3161 | — |
+| function | `cmd_canonical_stage` | `cmd_canonical_stage(a)` | 3167 | — |
+| function | `cmd_canonical_publish_source` | `cmd_canonical_publish_source(a)` | 3177 | — |
+| function | `cmd_canonical_publish_packs` | `cmd_canonical_publish_packs(a)` | 3184 | — |
+| function | `cmd_canonical_restore` | `cmd_canonical_restore(a)` | 3191 | — |
+| function | `cmd_contracts_registry_list` | `cmd_contracts_registry_list(a)` | 3198 | — |
+| function | `cmd_contracts_registry_show` | `cmd_contracts_registry_show(a)` | 3208 | — |
+| function | `cmd_asset_compiler_capabilities` | `cmd_asset_compiler_capabilities(a)` | 3220 | — |
+| function | `cmd_asset_compiler_plan` | `cmd_asset_compiler_plan(a)` | 3225 | — |
+| function | `cmd_asset_compiler_build` | `cmd_asset_compiler_build(a)` | 3232 | — |
+| function | `_asset_bundle_manifest_arg` | `_asset_bundle_manifest_arg(s, value)` | 3241 | — |
+| function | `cmd_asset_compiler_status` | `cmd_asset_compiler_status(a)` | 3250 | — |
+| function | `cmd_asset_compiler_publish` | `cmd_asset_compiler_publish(a)` | 3257 | — |
+| function | `cmd_asset_compiler_restore` | `cmd_asset_compiler_restore(a)` | 3267 | — |
+| function | `cmd_audit_client_enrichment` | `cmd_audit_client_enrichment(a)` | 3277 | — |
+| function | `cmd_audit_source_contracts` | `cmd_audit_source_contracts(a)` | 3292 | — |
+| function | `cmd_audit_class_ui_aliases` | `cmd_audit_class_ui_aliases(a)` | 3303 | — |
+| function | `cmd_recover_class_ui_alias_only` | `cmd_recover_class_ui_alias_only(a)` | 3310 | — |
+| function | `cmd_audit_cooked_textures` | `cmd_audit_cooked_textures(a)` | 3323 | — |
+| function | `cmd_audit_effect_runtime_coverage` | `cmd_audit_effect_runtime_coverage(a)` | 3334 | — |
+| function | `cmd_audit_summit_canonical_assets` | `cmd_audit_summit_canonical_assets(a)` | 3347 | — |
+| function | `cmd_audit_summit_asset_migration` | `cmd_audit_summit_asset_migration(a)` | 3360 | — |
+| function | `cmd_audit_asset_retention` | `cmd_audit_asset_retention(a)` | 3373 | Run the normal census and return its fail-closed retention slice. |
+| function | `cmd_query_asset_retention` | `cmd_query_asset_retention(a)` | 3398 | Query the persisted retention report without rerunning the census. |
+| function | `cmd_audit_quarantine_plan` | `cmd_audit_quarantine_plan(a)` | 3415 | — |
+| function | `cmd_quarantine_status` | `cmd_quarantine_status(a)` | 3431 | — |
+| function | `cmd_quarantine_review` | `cmd_quarantine_review(a)` | 3438 | — |
+| function | `cmd_quarantine_apply` | `cmd_quarantine_apply(a)` | 3451 | — |
+| function | `cmd_quarantine_apply_component` | `cmd_quarantine_apply_component(a)` | 3462 | — |
+| function | `cmd_quarantine_restore` | `cmd_quarantine_restore(a)` | 3474 | — |
+| function | `cmd_audit_general_asset_census` | `cmd_audit_general_asset_census(a)` | 3485 | — |
+| function | `cmd_audit_t5_effects` | `cmd_audit_t5_effects(a)` | 3503 | Run a fresh General Census and print the Tier-5 effect+audio asset slice. |
+| function | `cmd_audit_t5_assets` | `cmd_audit_t5_assets(a)` | 3555 | — |
+| function | `_require_server_root` | `_require_server_root(settings)` | 3559 | — |
+| function | `cmd_donor_explore` | `cmd_donor_explore(a)` | 3565 | — |
+| function | `cmd_donor_certify_physical` | `cmd_donor_certify_physical(a)` | 3586 | — |
+| function | `cmd_donor_stage_physical` | `cmd_donor_stage_physical(a)` | 3597 | — |
+| function | `cmd_donor_apply_physical` | `cmd_donor_apply_physical(a)` | 3610 | — |
+| function | `cmd_donor_restore_physical` | `cmd_donor_restore_physical(a)` | 3624 | — |
+| function | `cmd_donor_stage_definition` | `cmd_donor_stage_definition(a)` | 3635 | — |
+| function | `cmd_donor_stage_spawn` | `cmd_donor_stage_spawn(a)` | 3649 | — |
+| function | `cmd_donor_stage_spawn_dependencies` | `cmd_donor_stage_spawn_dependencies(a)` | 3662 | — |
+| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3675 | — |
+| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3695 | — |
+| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3712 | — |
+| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3731 | — |
+| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3743 | — |
+| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3757 | — |
+| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3775 | — |
+| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3788 | — |
+| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3802 | — |
+| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3812 | — |
+| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3825 | — |
+| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3862 | — |
+| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3964 | — |
+| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 4004 | — |
+| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 4028 | — |
+| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 4056 | — |
+| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 4078 | Fail closed when a candidate workflow explicitly requires an observed edit. |
+| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 4099 | — |
+| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 4121 | — |
+| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4168 | Prepare/open a reusable Blender workspace for a supported asset. |
+| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4257 | — |
+| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4540 | — |
+| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4547 | — |
+| function | `build_parser` | `build_parser()` | 4570 | — |
+| function | `main` | `main(argv = None)` | 5130 | — |
 
 ## `app/pt_asset_tool/client_enrichment.py`
 
@@ -2141,56 +2150,66 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `_field_entity_key_from_name` | `_field_entity_key_from_name(name: str) -> str` | 61 | — |
-| function | `_canonical_map_identity_index` | `_canonical_map_identity_index(source_root: pathlib.Path \| None) -> dict[str, dict[str, Any]]` | 76 | Index canonical maps by exact stage basename. |
-| function | `_annotate_map_field_identity` | `_annotate_map_field_identity(row: dict[str, Any], index: dict[str, dict[str, Any]]) -> None` | 116 | — |
-| function | `_norm` | `_norm(value: str) -> str` | 135 | — |
-| function | `_safe_rel` | `_safe_rel(value: str) -> pathlib.PurePosixPath` | 142 | — |
-| function | `_parse_specs` | `_parse_specs(values: Iterable[str], side: str) -> list[dict[str, Any]]` | 149 | — |
-| function | `donor_pairs` | `donor_pairs(project_root: pathlib.Path) -> list[dict[str, Any]]` | 162 | — |
-| function | `_ci_child` | `_ci_child(root: pathlib.Path, rel: pathlib.PurePosixPath) -> pathlib.Path \| None` | 174 | — |
-| function | `_domain_root_candidates` | `_domain_root_candidates(root: pathlib.Path, side: str, domain: str) -> list[pathlib.PurePosixPath]` | 190 | Return layout candidates relative to a configured donor root. |
-| function | `_signature_domain_roots` | `_signature_domain_roots(root: pathlib.Path, side: str, domain: str, *, max_depth: int = 8) -> list[pathlib.Path]` | 215 | — |
-| function | `_domain_roots` | `_domain_roots(root: pathlib.Path, side: str, domain: str) -> list[pathlib.Path]` | 242 | — |
-| function | `_scan_diagnostic` | `_scan_diagnostic(root: pathlib.Path, side: str, domain: str) -> dict[str, Any]` | 258 | — |
-| function | `_domain_file_allowed` | `_domain_file_allowed(side: str, domain: str, path: pathlib.Path) -> bool` | 277 | — |
-| function | `_decode_legacy_definition` | `_decode_legacy_definition(data: bytes) -> tuple[str, str]` | 284 | — |
-| function | `_definition_query_evidence` | `_definition_query_evidence(path: pathlib.Path, query: str, domain: str) -> dict[str, Any] \| None` | 293 | — |
-| function | `_definition_name_evidence` | `_definition_name_evidence(path: pathlib.Path, domain: str) -> dict[str, Any]` | 319 | — |
-| function | `_cp1252_safe_text` | `_cp1252_safe_text(value: Any) -> str` | 343 | — |
-| function | `_definition_ptbr_fallback_name` | `_definition_ptbr_fallback_name(path: pathlib.Path, domain: str) -> str` | 354 | Return donor-backed display evidence safe for the pt-BR runtime pack. |
-| function | `_definition_primary_legacy_name` | `_definition_primary_legacy_name(path: pathlib.Path, domain: str) -> str` | 385 | Return the legacy display name from the donor definition itself. |
-| function | `_classify_field_file` | `_classify_field_file(path: pathlib.Path) -> str` | 412 | — |
-| function | `_entity_identity` | `_entity_identity(relative_path: str, domain: str) -> tuple[str, str]` | 425 | — |
-| function | `_node` | `_node(root: pathlib.Path, path: pathlib.Path, *, donor: str, side: str, domain: str) -> dict[str, Any]` | 477 | — |
-| function | `_comparison_tree` | `_comparison_tree(donors: list[dict[str, Any]], domains: list[str]) -> dict[str, Any]` | 497 | — |
-| function | `_deep_signature_scan` | `_deep_signature_scan(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 531 | Last-resort read-only scan of the configured donor root. |
-| function | `_scan_domain` | `_scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 594 | — |
-| function | `_closed_recovery_map` | `_closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]` | 645 | — |
-| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = "", query: str = "", donor: str = "", limit: int = 1500) -> dict[str, Any]` | 664 | — |
-| function | `_fold_identity` | `_fold_identity(value: str) -> str` | 762 | — |
-| function | `_iter_server_domain_files` | `_iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]` | 767 | Yield unique server-domain files independent of historical layout. |
-| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]` | 798 | — |
-| function | `_definition_model_file` | `_definition_model_file(doc: dict[str, Any]) -> str` | 864 | — |
-| function | `_existing_monster_semantic_alias` | `_existing_monster_semantic_alias(provider: SummitCanonicalContentProvider, donor_doc: dict[str, Any]) -> dict[str, Any] \| None` | 870 | Resolve a donor Monster onto an already-authoritative canonical entity. |
-| function | `_spawn_unresolved_slots` | `_spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]` | 913 | — |
-| function | `_apply_spawn_semantic_reconciliation` | `_apply_spawn_semantic_reconciliation(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, doc: dict[str, Any], *, preferred_donor: str) -> list[dict[str, Any]]` | 938 | Resolve donor-only legacy names onto existing canonical Monster IDs. |
-| function | `_selected_donor_root` | `_selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path` | 1009 | — |
-| function | `_resolve_donor_file` | `_resolve_donor_file(root: pathlib.Path, relative_path: str) -> tuple[pathlib.Path, pathlib.PurePosixPath]` | 1023 | — |
-| function | `_server_logical_path` | `_server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath` | 1034 | — |
-| function | `_run_tool` | `_run_tool(cmd: list[str], cwd: pathlib.Path) -> dict[str, Any]` | 1056 | — |
-| function | `_import_workspace` | `_import_workspace(project_root: pathlib.Path, donor_label: str, source: pathlib.Path) -> pathlib.Path` | 1063 | — |
-| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = "logical_path") -> dict[str, Any]` | 1072 | — |
-| function | `stage_spawn_from_donor` | `stage_spawn_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True, preview_only: bool = False) -> dict[str, Any]` | 1104 | — |
-| function | `_prepare_definition_import` | `_prepare_definition_import(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str) -> dict[str, Any]` | 1229 | — |
-| function | `_definition_ptbr_localization_delta` | `_definition_ptbr_localization_delta(provider: SummitCanonicalContentProvider, documents: Iterable[dict[str, Any]], *, fallback_names: dict[str, str] \| None = None) -> tuple[dict[str, Any] \| None, list[dict[str, Any]]]` | 1272 | Bridge newly imported definitions into the source-controlled pt-BR override. |
-| function | `stage_definition_from_donor` | `stage_definition_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str, replace_existing: bool = False, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1347 | — |
-| function | `stage_unique_spawn_dependencies_from_donor` | `stage_unique_spawn_dependencies_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1408 | — |
-| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1569 | — |
-| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1578 | — |
-| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str) -> dict[str, Any]` | 1618 | — |
-| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1652 | — |
-| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1711 | — |
+| function | `_field_entity_key_from_name` | `_field_entity_key_from_name(name: str) -> str` | 62 | — |
+| function | `_canonical_map_identity_index` | `_canonical_map_identity_index(source_root: pathlib.Path \| None) -> dict[str, dict[str, Any]]` | 77 | Index canonical maps by exact stage basename. |
+| function | `_annotate_map_field_identity` | `_annotate_map_field_identity(row: dict[str, Any], index: dict[str, dict[str, Any]]) -> None` | 117 | — |
+| function | `_norm` | `_norm(value: str) -> str` | 136 | — |
+| function | `_safe_rel` | `_safe_rel(value: str) -> pathlib.PurePosixPath` | 143 | — |
+| function | `_parse_specs` | `_parse_specs(values: Iterable[str], side: str) -> list[dict[str, Any]]` | 150 | — |
+| function | `donor_pairs` | `donor_pairs(project_root: pathlib.Path) -> list[dict[str, Any]]` | 163 | — |
+| function | `_ci_child` | `_ci_child(root: pathlib.Path, rel: pathlib.PurePosixPath) -> pathlib.Path \| None` | 175 | — |
+| function | `_domain_root_candidates` | `_domain_root_candidates(root: pathlib.Path, side: str, domain: str) -> list[pathlib.PurePosixPath]` | 191 | Return layout candidates relative to a configured donor root. |
+| function | `_signature_domain_roots` | `_signature_domain_roots(root: pathlib.Path, side: str, domain: str, *, max_depth: int = 8) -> list[pathlib.Path]` | 216 | — |
+| function | `_domain_roots` | `_domain_roots(root: pathlib.Path, side: str, domain: str) -> list[pathlib.Path]` | 243 | — |
+| function | `_scan_diagnostic` | `_scan_diagnostic(root: pathlib.Path, side: str, domain: str) -> dict[str, Any]` | 259 | — |
+| function | `_domain_file_allowed` | `_domain_file_allowed(side: str, domain: str, path: pathlib.Path) -> bool` | 278 | — |
+| function | `_decode_legacy_definition` | `_decode_legacy_definition(data: bytes) -> tuple[str, str]` | 285 | — |
+| function | `_definition_query_evidence` | `_definition_query_evidence(path: pathlib.Path, query: str, domain: str) -> dict[str, Any] \| None` | 294 | — |
+| function | `_definition_name_evidence` | `_definition_name_evidence(path: pathlib.Path, domain: str) -> dict[str, Any]` | 320 | — |
+| function | `_cp1252_safe_text` | `_cp1252_safe_text(value: Any) -> str` | 344 | — |
+| function | `_definition_ptbr_fallback_name` | `_definition_ptbr_fallback_name(path: pathlib.Path, domain: str) -> str` | 355 | Return donor-backed display evidence safe for the pt-BR runtime pack. |
+| function | `_definition_primary_legacy_name` | `_definition_primary_legacy_name(path: pathlib.Path, domain: str) -> str` | 386 | Return the legacy display name from the donor definition itself. |
+| function | `_classify_field_file` | `_classify_field_file(path: pathlib.Path) -> str` | 413 | — |
+| function | `_entity_identity` | `_entity_identity(relative_path: str, domain: str) -> tuple[str, str]` | 426 | — |
+| function | `_node` | `_node(root: pathlib.Path, path: pathlib.Path, *, donor: str, side: str, domain: str) -> dict[str, Any]` | 478 | — |
+| function | `_comparison_tree` | `_comparison_tree(donors: list[dict[str, Any]], domains: list[str]) -> dict[str, Any]` | 498 | — |
+| function | `_deep_signature_scan` | `_deep_signature_scan(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 532 | Last-resort read-only scan of the configured donor root. |
+| function | `_scan_domain` | `_scan_domain(root: pathlib.Path, side: str, domain: str, *, donor: str, query: str, limit: int) -> tuple[list[dict[str, Any]], bool, dict[str, Any]]` | 595 | — |
+| function | `_closed_recovery_map` | `_closed_recovery_map(project: pathlib.Path) -> dict[tuple[str, str, str], dict[str, Any]]` | 646 | — |
+| function | `build_donor_explorer` | `build_donor_explorer(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| None = None, domain: str = "", query: str = "", donor: str = "", limit: int = 1500) -> dict[str, Any]` | 680 | — |
+| function | `_fold_identity` | `_fold_identity(value: str) -> str` | 778 | — |
+| function | `_iter_server_domain_files` | `_iter_server_domain_files(root: pathlib.Path, domain: str) -> Iterable[pathlib.Path]` | 783 | Yield unique server-domain files independent of historical layout. |
+| function | `_monster_dependency_candidates` | `_monster_dependency_candidates(project_root: pathlib.Path, unresolved: list[dict[str, Any]], *, preferred_donor: str = "", max_per_name: int = 12) -> list[dict[str, Any]]` | 814 | — |
+| function | `_definition_model_file` | `_definition_model_file(doc: dict[str, Any]) -> str` | 880 | — |
+| function | `_existing_monster_semantic_alias` | `_existing_monster_semantic_alias(provider: SummitCanonicalContentProvider, donor_doc: dict[str, Any]) -> dict[str, Any] \| None` | 886 | Resolve a donor Monster onto an already-authoritative canonical entity. |
+| function | `_spawn_unresolved_slots` | `_spawn_unresolved_slots(doc: dict[str, Any]) -> list[dict[str, Any]]` | 929 | — |
+| function | `_apply_spawn_semantic_reconciliation` | `_apply_spawn_semantic_reconciliation(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, doc: dict[str, Any], *, preferred_donor: str) -> list[dict[str, Any]]` | 954 | Resolve donor-only legacy names onto existing canonical Monster IDs. |
+| function | `_selected_donor_root` | `_selected_donor_root(project_root: pathlib.Path, label: str, side: str) -> pathlib.Path` | 1025 | — |
+| function | `_resolve_donor_file` | `_resolve_donor_file(root: pathlib.Path, relative_path: str) -> tuple[pathlib.Path, pathlib.PurePosixPath]` | 1039 | — |
+| function | `_server_logical_path` | `_server_logical_path(rel: pathlib.PurePosixPath) -> pathlib.PurePosixPath` | 1050 | — |
+| function | `_run_tool` | `_run_tool(cmd: list[str], cwd: pathlib.Path) -> dict[str, Any]` | 1072 | — |
+| function | `_import_workspace` | `_import_workspace(project_root: pathlib.Path, donor_label: str, source: pathlib.Path) -> pathlib.Path` | 1079 | — |
+| function | `_merge_index` | `_merge_index(index_doc: dict[str, Any], entry: dict[str, Any], *, path_key: str = "logical_path") -> dict[str, Any]` | 1088 | — |
+| function | `stage_spawn_from_donor` | `stage_spawn_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True, preview_only: bool = False) -> dict[str, Any]` | 1120 | — |
+| function | `_prepare_definition_import` | `_prepare_definition_import(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str) -> dict[str, Any]` | 1245 | — |
+| function | `_definition_ptbr_localization_delta` | `_definition_ptbr_localization_delta(provider: SummitCanonicalContentProvider, documents: Iterable[dict[str, Any]], *, fallback_names: dict[str, str] \| None = None) -> tuple[dict[str, Any] \| None, list[dict[str, Any]]]` | 1288 | Bridge newly imported definitions into the source-controlled pt-BR override. |
+| function | `stage_definition_from_donor` | `stage_definition_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, kind: str, replace_existing: bool = False, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1363 | — |
+| function | `stage_unique_spawn_dependencies_from_donor` | `stage_unique_spawn_dependencies_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1424 | — |
+| class | `_LazyCasefoldPathIndex` | `class _LazyCasefoldPathIndex` | 1580 | Resolve exact logical paths under one root without walking the whole tree. |
+| method | `_LazyCasefoldPathIndex.__init__` | `__init__(self, root: pathlib.Path) -> None` | 1583 | — |
+| method | `_LazyCasefoldPathIndex._resolve` | `_resolve(self, key: str) -> pathlib.Path \| None` | 1587 | — |
+| method | `_LazyCasefoldPathIndex.__contains__` | `__contains__(self, key: object) -> bool` | 1624 | — |
+| method | `_LazyCasefoldPathIndex.__getitem__` | `__getitem__(self, key: str) -> pathlib.Path` | 1627 | — |
+| method | `_LazyCasefoldPathIndex.get` | `get(self, key: str, default: Any = None) -> Any` | 1633 | — |
+| class | `_DirectedRecoveryPlan` | `class _DirectedRecoveryPlan` | 1638 | Minimal same-lineage plan used only after a dependency resolved in that donor. |
+| method | `_DirectedRecoveryPlan.get` | `get(self, key: str, default: Any = None) -> dict[str, str]` | 1641 | — |
+| function | `_configured_donor_side_root` | `_configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path` | 1651 | — |
+| function | `certify_targeted_physical_bundle` | `certify_targeted_physical_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1669 | Certify one explicit physical root without general census or full-tree walk. |
+| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1740 | — |
+| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1749 | — |
+| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str) -> dict[str, Any]` | 1789 | — |
+| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1828 | — |
+| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1887 | — |
 
 ## `app/pt_asset_tool/effect_runtime_coverage.py`
 
@@ -2288,13 +2307,13 @@ _No top-level functions or classes._
 | function | `_field_source_stage_witness` | `_field_source_stage_witness(row: dict[str, Any], source_literal_paths: set[str]) -> tuple[str \| None, str]` | 210 | Return one current-source-proven physical stage candidate, if unique. |
 | function | `_bundle_ref_candidates` | `_bundle_ref_candidates(ref: str, parent_rel: str) -> list[str]` | 243 | — |
 | function | `_resolve_bundle_reference` | `_resolve_bundle_reference(ref: str, parent_rel: str, *, parent_ext: str, target_idx: dict[str, pathlib.Path], donor_idx: dict[str, pathlib.Path]) -> dict[str, Any]` | 272 | — |
-| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 305 | — |
-| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 431 | — |
-| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 463 | Summarize Tier-5 effect+audio asset readiness. |
-| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 767 | Diagnostic-only T5 reference parity matrix. |
-| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 947 | Separate physical particle preload from proven T5 effect activation. |
-| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1075 | Build a plan-only, fail-closed client/server reachability census. |
-| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2236 | — |
+| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 306 | — |
+| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 435 | — |
+| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 467 | Summarize Tier-5 effect+audio asset readiness. |
+| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 771 | Diagnostic-only T5 reference parity matrix. |
+| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 951 | Separate physical particle preload from proven T5 effect activation. |
+| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1079 | Build a plan-only, fail-closed client/server reachability census. |
+| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2240 | — |
 
 ## `app/pt_asset_tool/general_asset_recovery.py`
 
@@ -2317,14 +2336,15 @@ _No top-level functions or classes._
 | function | `_physical_relative` | `_physical_relative(source: pathlib.Path, donor_root: pathlib.Path, logical_path: str) -> pathlib.PurePosixPath` | 151 | — |
 | function | `_build_transactions` | `_build_transactions(bundle_rows: list[dict[str, Any]], *, client_root: pathlib.Path, server_root: pathlib.Path, donor_clients: list[tuple[str, pathlib.Path]], donor_servers: list[tuple[str, pathlib.Path]]) -> list[dict[str, Any]]` | 165 | — |
 | function | `_write_transactions` | `_write_transactions(path: pathlib.Path, rows: list[dict[str, Any]]) -> None` | 228 | — |
-| function | `_stage_transactions` | `_stage_transactions(project: pathlib.Path, tx: list[dict[str, Any]]) -> pathlib.Path` | 240 | — |
-| function | `_fsync_file` | `_fsync_file(path: pathlib.Path) -> None` | 258 | — |
-| function | `_cleanup_empty_dirs` | `_cleanup_empty_dirs(paths: list[pathlib.Path], roots: set[pathlib.Path]) -> None` | 263 | — |
-| function | `_preflight_target_writability` | `_preflight_target_writability(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 274 | — |
-| function | `_apply_transactions` | `_apply_transactions(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> tuple[list[pathlib.Path], list[pathlib.Path]]` | 293 | — |
-| function | `_rollback_written` | `_rollback_written(written: list[pathlib.Path], created_dirs: list[pathlib.Path], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 360 | — |
-| function | `_summary` | `_summary(result: dict[str, Any]) -> dict[str, Any]` | 370 | — |
-| function | `recover_closed_general_asset_bundles` | `recover_closed_general_asset_bundles(project: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: str \| pathlib.Path \| None = None, reference_source_root: str \| pathlib.Path \| None = None, donor_clients: Iterable[str] \| None = None, donor_servers: Iterable[str] \| None = None, expected_roots: Iterable[str] \| None = None, apply: bool = False, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 380 | — |
+| function | `_stage_transactions` | `_stage_transactions(project: pathlib.Path, tx: list[dict[str, Any]], *, namespace: str = "general_asset_recovery") -> pathlib.Path` | 240 | — |
+| function | `_fsync_file` | `_fsync_file(path: pathlib.Path) -> None` | 261 | — |
+| function | `_cleanup_empty_dirs` | `_cleanup_empty_dirs(paths: list[pathlib.Path], roots: set[pathlib.Path]) -> None` | 266 | — |
+| function | `_preflight_target_writability` | `_preflight_target_writability(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 277 | — |
+| function | `_apply_transactions` | `_apply_transactions(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> tuple[list[pathlib.Path], list[pathlib.Path]]` | 296 | — |
+| function | `_rollback_written` | `_rollback_written(written: list[pathlib.Path], created_dirs: list[pathlib.Path], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 363 | — |
+| function | `_summary` | `_summary(result: dict[str, Any]) -> dict[str, Any]` | 373 | — |
+| function | `recover_targeted_closed_asset_bundles` | `recover_targeted_closed_asset_bundles(project: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, bundle_rows: Iterable[dict[str, Any]], donor_clients: Iterable[str] \| None = None, donor_servers: Iterable[str] \| None = None, apply: bool = False, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 383 | Stage/apply explicitly certified CLOSED bundles without a general census. |
+| function | `recover_closed_general_asset_bundles` | `recover_closed_general_asset_bundles(project: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: str \| pathlib.Path \| None = None, reference_source_root: str \| pathlib.Path \| None = None, donor_clients: Iterable[str] \| None = None, donor_servers: Iterable[str] \| None = None, expected_roots: Iterable[str] \| None = None, apply: bool = False, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 519 | — |
 
 ## `app/pt_asset_tool/integration_regression_auto.py`
 

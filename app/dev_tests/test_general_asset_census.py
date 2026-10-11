@@ -421,6 +421,60 @@ def test_client_recovery_bundle_refuses_cross_donor_dependency(monkeypatch, tmp_
     assert any(x['kind']=='MISSING_SAME_LINEAGE_DEPENDENCY' for x in result['issues'])
 
 
+def test_inx_ase_alias_prefers_smd_over_smb(tmp_path):
+    donor = tmp_path / "donor"; donor.mkdir()
+    smd = donor / "char/monster/Foo/Foo.smd"; smd.parent.mkdir(parents=True); smd.write_bytes(b"smd")
+    smb = donor / "char/monster/Foo/Foo.smb"; smb.write_bytes(b"smb")
+    idx = {"char/monster/foo/foo.smd": smd, "char/monster/foo/foo.smb": smb}
+    result = gac._resolve_bundle_reference(
+        "char/monster/Foo/Foo.ASE", "char/monster/Foo/Foo.inx",
+        parent_ext=".inx", target_idx={}, donor_idx=idx,
+    )
+    assert result["status"] == "RECOVER_SAME_DONOR"
+    assert result["logical_path"].casefold() == "char/monster/foo/foo.smd"
+    assert result["resolution_basis"] == "INX_ASE_TO_SMD_RUNTIME_ALIAS"
+
+
+def test_inx_ase_alias_resolves_smb_when_smd_absent(tmp_path):
+    donor = tmp_path / "donor"; donor.mkdir()
+    smb = donor / "char/monster/Hina/mHina.smb"; smb.parent.mkdir(parents=True); smb.write_bytes(b"smb")
+    idx = {"char/monster/hina/mhina.smb": smb}
+    result = gac._resolve_bundle_reference(
+        "mHina.ASE", "char/monster/Hina/Hina.inx",
+        parent_ext=".inx", target_idx={}, donor_idx=idx,
+    )
+    assert result["status"] == "RECOVER_SAME_DONOR"
+    assert result["logical_path"].casefold() == "char/monster/hina/mhina.smb"
+    assert result["resolution_basis"] == "INX_ASE_TO_SMB_RUNTIME_ALIAS"
+
+
+def test_inx_ase_alias_missing_stays_same_lineage_missing():
+    result = gac._resolve_bundle_reference(
+        "mMissing.ASE", "char/monster/Hina/Hina.inx",
+        parent_ext=".inx", target_idx={}, donor_idx={},
+    )
+    assert result["status"] == "MISSING_SAME_LINEAGE"
+    assert result["resolution_basis"] == "NO_EXACT_OR_SAME_DIRECTORY_MATCH"
+
+
+def test_client_recovery_bundle_treats_smb_alias_as_leaf(tmp_path):
+    project = tmp_path / "app"; project.mkdir()
+    donor = tmp_path / "donor"; donor.mkdir()
+    inx = donor / "char/monster/Hina/Hina.inx"; inx.parent.mkdir(parents=True); inx.write_bytes(b"mHina.ASE\x00")
+    smb = donor / "char/monster/Hina/mHina.smb"; smb.write_bytes(b"not-a-parseable-container")
+    rows = [
+        _bundle_plan_row("char/monster/Hina/Hina.inx", inx),
+        _bundle_plan_row("char/monster/Hina/mHina.smb", smb),
+    ]
+    result = gac._assess_client_recovery_bundle(
+        project, rows[0], target_idx={}, donor_roots=[("D1", donor)], donor_index_cache={},
+        plan_by_key={x["canonical_path"].casefold(): x for x in rows},
+    )
+    assert result["status"] == "CLOSED"
+    member = next(x for x in result["members"] if x["logical_path"].casefold().endswith("mhina.smb"))
+    assert member["resolution_basis"] == "INX_ASE_TO_SMB_RUNTIME_ALIAS"
+
+
 def test_server_zhoon_recovery_bundle_is_closed_leaf(tmp_path):
     donor=tmp_path/'server_donor'; donor.mkdir()
     z=donor/'GameServer/Monster/name/Test.zhoon'; z.parent.mkdir(parents=True); z.write_bytes('*J_NAME "Test"\n'.encode('cp1252'))
