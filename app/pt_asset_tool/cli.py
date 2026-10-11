@@ -3590,6 +3590,7 @@ def cmd_donor_certify_physical(a):
     result = certify_targeted_physical_bundle(
         s.project_root, s.client_root, server_root,
         donor_label=a.donor, expected_side=a.side, expected_root=a.asset_root,
+        relocation_evidence=getattr(a, "relocation_evidence", None),
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") == "PASS" else 3
@@ -3603,6 +3604,7 @@ def cmd_donor_stage_physical(a):
         source_root=getattr(a, "source_root", None),
         reference_source_root=getattr(a, "reference_source_root", None),
         donor_label=a.donor, expected_side=a.side, expected_root=a.asset_root,
+        relocation_evidence=getattr(a, "relocation_evidence", None),
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") == "PASS" else 3
@@ -3616,7 +3618,7 @@ def cmd_donor_apply_physical(a):
         source_root=getattr(a, "source_root", None),
         reference_source_root=getattr(a, "reference_source_root", None),
         donor_label=a.donor, expected_side=a.side, expected_root=a.asset_root,
-        confirm=a.confirm,
+        confirm=a.confirm, relocation_evidence=getattr(a, "relocation_evidence", None),
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") == "APPLIED_VERIFIED" else 3
@@ -4819,6 +4821,7 @@ def build_parser():
     x.add_argument("--donor", required=True)
     x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
     x.add_argument("--root", dest="asset_root", required=True, help="exact logical root, e.g. char/monster/Hina/Hina.inx or Field/HeartOfFire/HeartOfFire.smd")
+    x.add_argument("--relocation-evidence", help="explicit same-donor relocation authorization JSON pinned to SHA-256")
     x.set_defaults(func=cmd_donor_certify_physical)
 
     x = dnp.add_parser("stage-physical", help="certify one explicit root and stage its CLOSED same-lineage bundle under pt_build; no runtime write")
@@ -4827,6 +4830,7 @@ def build_parser():
     x.add_argument("--donor", required=True)
     x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
     x.add_argument("--root", dest="asset_root", required=True)
+    x.add_argument("--relocation-evidence", help="explicit same-donor relocation authorization JSON pinned to SHA-256")
     x.set_defaults(func=cmd_donor_stage_physical)
 
     x = dnp.add_parser("apply-physical", help=f"create missing runtime files for one directed CLOSED bundle; requires --confirm '{DONOR_PHYSICAL_APPLY_CONFIRM}'")
@@ -4835,6 +4839,7 @@ def build_parser():
     x.add_argument("--donor", required=True)
     x.add_argument("--side", required=True, choices=["CLIENT", "SERVER"])
     x.add_argument("--root", dest="asset_root", required=True)
+    x.add_argument("--relocation-evidence", help="explicit same-donor relocation authorization JSON pinned to SHA-256")
     x.add_argument("--confirm", required=True)
     x.set_defaults(func=cmd_donor_apply_physical)
 

@@ -1601,6 +1601,21 @@ class _LazyCasefoldPathIndex:
     def __init__(self, root: pathlib.Path) -> None:
         self.root = pathlib.Path(root).resolve()
         self._cache: dict[str, pathlib.Path | None] = {}
+        self._relocations: dict[str, dict[str, Any]] = {}
+
+    def authorize_relocation(self, logical_path: str, source_path: pathlib.Path, metadata: dict[str, Any]) -> None:
+        key = _norm(logical_path).casefold()
+        if not key:
+            raise ValueError("DONOR_TARGETED_RELOCATION_LOGICAL_EMPTY")
+        self._cache[key] = pathlib.Path(source_path).resolve()
+        self._relocations[key] = dict(metadata)
+
+    def resolution_basis(self, key: str) -> str:
+        return "EXPLICIT_SAME_DONOR_RELOCATION_SHA256" if _norm(key).casefold() in self._relocations else ""
+
+    def relocation_metadata(self, key: str) -> dict[str, Any] | None:
+        row = self._relocations.get(_norm(key).casefold())
+        return dict(row) if isinstance(row, dict) else None
 
     def _resolve(self, key: str) -> pathlib.Path | None:
         logical = _norm(key).casefold()
@@ -1666,6 +1681,86 @@ class _DirectedRecoveryPlan:
         }
 
 
+TARGETED_RELOCATION_FORMAT = "PT_ASSET_TARGETED_RELOCATION_AUTH_V1"
+
+
+def _safe_targeted_rel(value: str, *, label: str) -> str:
+    normalized = _norm(value)
+    rel = pathlib.PurePosixPath(normalized)
+    if not normalized or rel.is_absolute() or ".." in rel.parts:
+        raise ValueError(f"DONOR_TARGETED_RELOCATION_{label}_INVALID:{value}")
+    return normalized
+
+
+def _apply_targeted_relocation_evidence(
+    donor_idx: _LazyCasefoldPathIndex,
+    donor_root: pathlib.Path,
+    *,
+    evidence_path: pathlib.Path | str | None,
+    donor_label: str,
+    side: str,
+) -> list[dict[str, Any]]:
+    if evidence_path is None or not str(evidence_path).strip():
+        return []
+    path = pathlib.Path(evidence_path).expanduser().resolve()
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("format") != TARGETED_RELOCATION_FORMAT:
+        raise ValueError(f"DONOR_TARGETED_RELOCATION_FORMAT_INVALID:{data.get('format')}")
+    donor = str(donor_label or "").upper()
+    wanted_side = str(side or "").upper()
+    if str(data.get("donor") or "").upper() != donor:
+        raise ValueError(f"DONOR_TARGETED_RELOCATION_DONOR_MISMATCH:{data.get('donor')}:{donor}")
+    if str(data.get("side") or "").upper() != wanted_side:
+        raise ValueError(f"DONOR_TARGETED_RELOCATION_SIDE_MISMATCH:{data.get('side')}:{wanted_side}")
+    if wanted_side != "CLIENT":
+        raise ValueError("DONOR_TARGETED_RELOCATION_CLIENT_ONLY")
+    rows = data.get("mappings") or []
+    if not isinstance(rows, list) or not rows:
+        raise ValueError("DONOR_TARGETED_RELOCATION_MAPPINGS_REQUIRED")
+    authorized: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for raw in rows:
+        if not isinstance(raw, dict):
+            raise ValueError("DONOR_TARGETED_RELOCATION_MAPPING_INVALID")
+        logical = _safe_targeted_rel(str(raw.get("logical_path") or ""), label="LOGICAL")
+        source_rel = _safe_targeted_rel(str(raw.get("source_path") or ""), label="SOURCE")
+        lkey = logical.casefold()
+        if lkey in seen:
+            raise ValueError(f"DONOR_TARGETED_RELOCATION_DUPLICATE:{logical}")
+        seen.add(lkey)
+        if pathlib.PurePosixPath(logical).suffix.casefold() != pathlib.PurePosixPath(source_rel).suffix.casefold():
+            raise ValueError(f"DONOR_TARGETED_RELOCATION_EXTENSION_MISMATCH:{logical}:{source_rel}")
+        if pathlib.PurePosixPath(logical).parts[0].casefold() != pathlib.PurePosixPath(source_rel).parts[0].casefold():
+            raise ValueError(f"DONOR_TARGETED_RELOCATION_DOMAIN_MISMATCH:{logical}:{source_rel}")
+        if donor_idx.get(logical) is not None:
+            raise ValueError(f"DONOR_TARGETED_RELOCATION_LOGICAL_ALREADY_PRESENT:{logical}")
+        source = donor_idx.get(source_rel)
+        if source is None:
+            raise FileNotFoundError(f"DONOR_TARGETED_RELOCATION_SOURCE_NOT_FOUND:{source_rel}")
+        try:
+            source.resolve().relative_to(pathlib.Path(donor_root).resolve())
+        except Exception as exc:
+            raise ValueError(f"DONOR_TARGETED_RELOCATION_SOURCE_OUTSIDE_DONOR:{source}") from exc
+        expected_sha = str(raw.get("sha256") or "").strip().casefold()
+        if not re.fullmatch(r"[0-9a-f]{64}", expected_sha):
+            raise ValueError(f"DONOR_TARGETED_RELOCATION_SHA256_INVALID:{logical}")
+        actual_sha = sha256_file(source)
+        if actual_sha != expected_sha:
+            raise ValueError(f"DONOR_TARGETED_RELOCATION_SHA256_MISMATCH:{logical}:{expected_sha}:{actual_sha}")
+        metadata = {
+            "format": TARGETED_RELOCATION_FORMAT,
+            "logical_path": logical,
+            "source_path": source_rel,
+            "sha256": expected_sha,
+            "evidence": str(raw.get("evidence") or ""),
+            "evidence_file": str(path),
+            "same_donor": donor,
+        }
+        donor_idx.authorize_relocation(logical, source, metadata)
+        authorized.append(metadata)
+    return authorized
+
+
 def _configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path:
     wanted = str(donor_label or "").strip().upper()
     wanted_side = str(side or "").strip().upper()
@@ -1692,6 +1787,7 @@ def certify_targeted_physical_bundle(
     donor_label: str,
     expected_side: str,
     expected_root: str,
+    relocation_evidence: pathlib.Path | str | None = None,
 ) -> dict[str, Any]:
     """Certify one explicit physical root without general census or full-tree walk."""
     project = pathlib.Path(project_root).resolve()
@@ -1705,6 +1801,9 @@ def certify_targeted_physical_bundle(
         raise ValueError(f"DONOR_TARGETED_ROOT_INVALID:{expected_root}")
     donor_root = _configured_donor_side_root(project, donor, side)
     donor_idx = _LazyCasefoldPathIndex(donor_root)
+    authorized_relocations = _apply_targeted_relocation_evidence(
+        donor_idx, donor_root, evidence_path=relocation_evidence, donor_label=donor, side=side,
+    )
     root_key = root_rel.casefold()
     selected = donor_idx.get(root_key)
     if selected is None:
@@ -1738,6 +1837,8 @@ def certify_targeted_physical_bundle(
         "runtime_write": False,
         "stage_authorized": str(bundle.get("status") or "").upper() == "CLOSED",
         "publish_authorized": False,
+        "authorized_relocation_count": len(authorized_relocations),
+        "authorized_relocations": authorized_relocations,
     }
     out_dir = project / "pt_build" / "targeted_donor_recovery"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -1815,6 +1916,7 @@ def apply_physical_closed_bundle(
     expected_side: str,
     expected_root: str,
     confirm: str,
+    relocation_evidence: pathlib.Path | str | None = None,
 ) -> dict[str, Any]:
     if str(confirm or "") != PHYSICAL_APPLY_CONFIRM:
         raise PermissionError(f"DONOR_PHYSICAL_CONFIRMATION_REQUIRED:{PHYSICAL_APPLY_CONFIRM}")
@@ -1822,6 +1924,7 @@ def apply_physical_closed_bundle(
     certification = certify_targeted_physical_bundle(
         project, pathlib.Path(client_root), pathlib.Path(server_root),
         donor_label=donor_label, expected_side=expected_side, expected_root=expected_root,
+        relocation_evidence=relocation_evidence,
     )
     bundle = certification.get("bundle") if isinstance(certification.get("bundle"), dict) else {}
     if str(bundle.get("status") or "").upper() != "CLOSED":
@@ -1912,11 +2015,13 @@ def stage_physical_closed_bundle(
     donor_label: str,
     expected_side: str,
     expected_root: str,
+    relocation_evidence: pathlib.Path | str | None = None,
 ) -> dict[str, Any]:
     project = pathlib.Path(project_root).resolve()
     certification = certify_targeted_physical_bundle(
         project, pathlib.Path(client_root), pathlib.Path(server_root),
         donor_label=donor_label, expected_side=expected_side, expected_root=expected_root,
+        relocation_evidence=relocation_evidence,
     )
     bundle = certification.get("bundle") if isinstance(certification.get("bundle"), dict) else {}
     if str(bundle.get("status") or "").upper() != "CLOSED":

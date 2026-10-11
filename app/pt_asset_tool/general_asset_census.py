@@ -293,10 +293,25 @@ def _resolve_bundle_reference(
                     "physical_path": str(target_idx[key]), "resolution_basis": basis,
                 }
             if key in donor_idx:
-                return {
+                donor_basis = basis
+                donor_relocation = None
+                basis_fn = getattr(donor_idx, "resolution_basis", None)
+                if callable(basis_fn):
+                    override = str(basis_fn(key) or "")
+                    if override:
+                        donor_basis = override
+                relocation_fn = getattr(donor_idx, "relocation_metadata", None)
+                if callable(relocation_fn):
+                    meta = relocation_fn(key)
+                    if isinstance(meta, dict):
+                        donor_relocation = dict(meta)
+                out = {
                     "status": "RECOVER_SAME_DONOR", "logical_path": _norm(logical),
-                    "physical_path": str(donor_idx[key]), "resolution_basis": basis,
+                    "physical_path": str(donor_idx[key]), "resolution_basis": donor_basis,
                 }
+                if donor_relocation is not None:
+                    out["relocation"] = donor_relocation
+                return out
     return {
         "status": "MISSING_SAME_LINEAGE", "logical_path": candidates[0] if candidates else _norm(ref),
         "physical_path": "", "resolution_basis": "NO_EXACT_OR_SAME_DIRECTORY_MATCH",
@@ -475,12 +490,15 @@ def _assess_client_recovery_bundle(
             resolved = _resolve_bundle_reference(ref, logical, parent_ext=ext, target_idx=target_idx, donor_idx=donor_idx)
             dep = _norm(resolved.get("logical_path") or "")
             state = str(resolved.get("status") or "")
-            members.append({
+            member = {
                 "logical_path": dep, "physical_path": resolved.get("physical_path") or "",
                 "state": state, "depth": depth + 1, "parent": logical,
                 "reference": ref, "resolution_basis": resolved.get("resolution_basis") or "",
                 "extension": pathlib.PurePosixPath(dep).suffix.casefold(),
-            })
+            }
+            if isinstance(resolved.get("relocation"), dict):
+                member["relocation"] = dict(resolved["relocation"])
+            members.append(member)
             if state == "MISSING_SAME_LINEAGE":
                 issues.append({"kind": "MISSING_SAME_LINEAGE_DEPENDENCY", "parent": logical, "reference": ref, "logical_path": dep})
                 continue

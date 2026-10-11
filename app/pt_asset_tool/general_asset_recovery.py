@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import pathlib
+import re
 import shutil
 import time
 import uuid
@@ -195,7 +196,30 @@ def _build_transactions(
             source = pathlib.Path(str(member.get("physical_path") or ""))
             if not source.is_file():
                 raise FileNotFoundError(f"RECOVERY_SOURCE_MISSING:{side}:{logical}:{source}")
-            rel = _physical_relative(source, donor_root, logical)
+            relocation = member.get("relocation") if isinstance(member.get("relocation"), dict) else None
+            if relocation is None:
+                rel = _physical_relative(source, donor_root, logical)
+            else:
+                rel = _safe_rel(logical)
+                source_rel = _safe_rel(str(relocation.get("source_path") or ""))
+                expected_logical = _safe_rel(str(relocation.get("logical_path") or ""))
+                expected_sha = str(relocation.get("sha256") or "").strip().casefold()
+                if expected_logical.as_posix().casefold() != rel.as_posix().casefold():
+                    raise RuntimeError(
+                        f"RECOVERY_RELOCATION_LOGICAL_MISMATCH:{logical}:{expected_logical.as_posix()}"
+                    )
+                physical_rel = _physical_relative(source, donor_root, source_rel.as_posix())
+                if physical_rel.as_posix().casefold() != source_rel.as_posix().casefold():
+                    raise RuntimeError(
+                        f"RECOVERY_RELOCATION_SOURCE_MISMATCH:{source}:{source_rel.as_posix()}"
+                    )
+                if not re.fullmatch(r"[0-9a-f]{64}", expected_sha):
+                    raise RuntimeError(f"RECOVERY_RELOCATION_SHA256_INVALID:{logical}")
+                actual_sha = _sha256(source)
+                if actual_sha != expected_sha:
+                    raise RuntimeError(
+                        f"RECOVERY_RELOCATION_SHA256_MISMATCH:{logical}:{expected_sha}:{actual_sha}"
+                    )
             existing = _casefold_existing_file(target_root, rel)
             if existing is not None:
                 raise RuntimeError(f"RECOVERY_TARGET_ALREADY_EXISTS:{side}:{rel.as_posix()}:{existing}")

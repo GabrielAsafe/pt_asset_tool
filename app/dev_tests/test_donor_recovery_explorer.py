@@ -801,3 +801,85 @@ def test_filtered_explorer_can_compare_hidden_summit_target_for_missing_only(mon
     assert entities["lost3"]["has_target"] is True
     assert entities["lost3"]["donor_labels"] == ["DONOR1", "SUMMIT"]
     assert entities["donoronly"]["has_target"] is False
+
+
+def test_targeted_same_donor_relocation_evidence_closes_and_stages_logical_path(monkeypatch, tmp_path):
+    project = tmp_path / "project"; client = tmp_path / "client"; server = tmp_path / "server"; donor = tmp_path / "donor"
+    for p in (project, client, server, donor): p.mkdir()
+    root = donor / "char/monster/Test/Test.inx"; root.parent.mkdir(parents=True); root.write_bytes(b"dep.tga\x00")
+    source = donor / "char/monster/Shared/dep.tga"; source.parent.mkdir(parents=True); source.write_bytes(b"same-donor-relocated-texture")
+    evidence = tmp_path / "relocation.json"
+    evidence.write_text(json.dumps({
+        "format": dre.TARGETED_RELOCATION_FORMAT,
+        "donor": "DONOR4", "side": "CLIENT",
+        "mappings": [{
+            "logical_path": "char/monster/Test/dep.tga",
+            "source_path": "char/monster/Shared/dep.tga",
+            "sha256": dre.sha256_file(source),
+            "evidence": "exact same-donor dependency relocation",
+        }],
+    }), encoding="utf-8")
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR4={donor}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [])
+
+    certified = dre.certify_targeted_physical_bundle(
+        project, client, server, donor_label="DONOR4", expected_side="CLIENT",
+        expected_root="char/monster/Test/Test.inx", relocation_evidence=evidence,
+    )
+    assert certified["status"] == "PASS"
+    bundle = certified["bundle"]
+    assert bundle["status"] == "CLOSED"
+    assert bundle["certification"]["authorized_relocation_count"] == 1
+    dep = next(x for x in bundle["members"] if x.get("logical_path", "").casefold().endswith("test/dep.tga"))
+    assert dep["resolution_basis"] == "EXPLICIT_SAME_DONOR_RELOCATION_SHA256"
+    assert dep["relocation"]["source_path"] == "char/monster/Shared/dep.tga"
+
+    staged = dre.stage_physical_closed_bundle(
+        project, client, server, source_root=None, reference_source_root=None,
+        donor_label="DONOR4", expected_side="CLIENT", expected_root="char/monster/Test/Test.inx",
+        relocation_evidence=evidence,
+    )
+    assert staged["status"] == "PASS" and staged["state"] == "STAGED_ONLY"
+    staged_dep = project / "pt_build/targeted_asset_recovery/staging/client/char/monster/Test/dep.tga"
+    assert staged_dep.read_bytes() == source.read_bytes()
+    assert not (client / "char/monster/Test/dep.tga").exists()
+
+
+def test_targeted_same_donor_relocation_evidence_requires_exact_sha(monkeypatch, tmp_path):
+    project = tmp_path / "project"; client = tmp_path / "client"; server = tmp_path / "server"; donor = tmp_path / "donor"
+    for p in (project, client, server, donor): p.mkdir()
+    root = donor / "char/monster/Test/Test.inx"; root.parent.mkdir(parents=True); root.write_bytes(b"dep.tga\x00")
+    source = donor / "char/monster/Shared/dep.tga"; source.parent.mkdir(parents=True); source.write_bytes(b"source")
+    evidence = tmp_path / "relocation.json"
+    evidence.write_text(json.dumps({
+        "format": dre.TARGETED_RELOCATION_FORMAT,
+        "donor": "DONOR4", "side": "CLIENT",
+        "mappings": [{
+            "logical_path": "char/monster/Test/dep.tga",
+            "source_path": "char/monster/Shared/dep.tga",
+            "sha256": "0" * 64,
+        }],
+    }), encoding="utf-8")
+    monkeypatch.setattr(dre, "configured_contract_donor_clients", lambda _p: [f"DONOR4={donor}"])
+    monkeypatch.setattr(dre, "configured_contract_donor_servers", lambda _p: [])
+    try:
+        dre.certify_targeted_physical_bundle(
+            project, client, server, donor_label="DONOR4", expected_side="CLIENT",
+            expected_root="char/monster/Test/Test.inx", relocation_evidence=evidence,
+        )
+    except ValueError as exc:
+        assert "SHA256_MISMATCH" in str(exc)
+    else:
+        raise AssertionError("wrong relocation sha256 must be rejected")
+
+
+def test_donor_physical_cli_accepts_relocation_evidence():
+    import pt_asset_tool.cli as cli
+    parser = cli.build_parser()
+    args = parser.parse_args([
+        "donor", "stage-physical", "--donor", "DONOR4", "--side", "CLIENT",
+        "--root", "Field/ruined-foreverfall/ruined-pilai.smd",
+        "--relocation-evidence", "/tmp/relocation.json",
+    ])
+    assert args.asset_root == "Field/ruined-foreverfall/ruined-pilai.smd"
+    assert args.relocation_evidence == "/tmp/relocation.json"

@@ -6,11 +6,11 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `8c8a8487df0edc6ee5e0ea24cc44c8ae1980fdbbe28e3112cde90f6cf5d9e3b8`
+- Source SHA-256: `4e259def8195c9f4e6f22fc231429718f1073ca0407b435c6af073f2c7b5ef5a`
 - Maintained Python modules/scripts: **302**
 - Classes: **68**
-- Class methods: **297**
-- Module-level functions: **3177**
+- Class methods: **300**
+- Module-level functions: **3179**
 
 A summary of `—` means the symbol has no Python docstring; the signature and source location remain documented here. This reference documents private helpers too because they are part of the maintained source surface, not only public API.
 
@@ -1989,37 +1989,37 @@ _No top-level functions or classes._
 | function | `_require_server_root` | `_require_server_root(settings)` | 3559 | — |
 | function | `cmd_donor_explore` | `cmd_donor_explore(a)` | 3565 | — |
 | function | `cmd_donor_certify_physical` | `cmd_donor_certify_physical(a)` | 3587 | — |
-| function | `cmd_donor_stage_physical` | `cmd_donor_stage_physical(a)` | 3598 | — |
-| function | `cmd_donor_apply_physical` | `cmd_donor_apply_physical(a)` | 3611 | — |
-| function | `cmd_donor_restore_physical` | `cmd_donor_restore_physical(a)` | 3625 | — |
-| function | `cmd_donor_stage_definition` | `cmd_donor_stage_definition(a)` | 3636 | — |
-| function | `cmd_donor_stage_spawn` | `cmd_donor_stage_spawn(a)` | 3650 | — |
-| function | `cmd_donor_stage_spawn_dependencies` | `cmd_donor_stage_spawn_dependencies(a)` | 3663 | — |
-| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3676 | — |
-| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3696 | — |
-| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3713 | — |
-| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3732 | — |
-| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3744 | — |
-| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3758 | — |
-| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3776 | — |
-| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3789 | — |
-| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3803 | — |
-| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3813 | — |
-| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3826 | — |
-| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3863 | — |
-| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3965 | — |
-| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 4005 | — |
-| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 4029 | — |
-| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 4057 | — |
-| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 4079 | Fail closed when a candidate workflow explicitly requires an observed edit. |
-| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 4100 | — |
-| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 4122 | — |
-| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4169 | Prepare/open a reusable Blender workspace for a supported asset. |
-| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4258 | — |
-| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4541 | — |
-| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4548 | — |
-| function | `build_parser` | `build_parser()` | 4571 | — |
-| function | `main` | `main(argv = None)` | 5131 | — |
+| function | `cmd_donor_stage_physical` | `cmd_donor_stage_physical(a)` | 3599 | — |
+| function | `cmd_donor_apply_physical` | `cmd_donor_apply_physical(a)` | 3613 | — |
+| function | `cmd_donor_restore_physical` | `cmd_donor_restore_physical(a)` | 3627 | — |
+| function | `cmd_donor_stage_definition` | `cmd_donor_stage_definition(a)` | 3638 | — |
+| function | `cmd_donor_stage_spawn` | `cmd_donor_stage_spawn(a)` | 3652 | — |
+| function | `cmd_donor_stage_spawn_dependencies` | `cmd_donor_stage_spawn_dependencies(a)` | 3665 | — |
+| function | `cmd_recover_general_closed_bundles` | `cmd_recover_general_closed_bundles(a)` | 3678 | — |
+| function | `cmd_audit_player_class_contracts` | `cmd_audit_player_class_contracts(a)` | 3698 | — |
+| function | `cmd_aggregate_player_classes` | `cmd_aggregate_player_classes(a)` | 3715 | — |
+| function | `cmd_aggregate_client_superset` | `cmd_aggregate_client_superset(a)` | 3734 | — |
+| function | `cmd_aggregate_server_superset` | `cmd_aggregate_server_superset(a)` | 3746 | — |
+| function | `cmd_aggregate_summit_superset` | `cmd_aggregate_summit_superset(a)` | 3760 | — |
+| function | `cmd_audit_enrichment_plan` | `cmd_audit_enrichment_plan(a)` | 3778 | — |
+| function | `cmd_audit_enrichment_graph` | `cmd_audit_enrichment_graph(a)` | 3791 | — |
+| function | `cmd_validate_server_design_auto` | `cmd_validate_server_design_auto(a)` | 3805 | — |
+| function | `cmd_validate_physical_regression_auto` | `cmd_validate_physical_regression_auto(a)` | 3815 | — |
+| function | `cmd_validate_integration_regression_auto` | `cmd_validate_integration_regression_auto(a)` | 3828 | — |
+| function | `cmd_validate_release_1_auto` | `cmd_validate_release_1_auto(a)` | 3865 | — |
+| function | `cmd_validate_rigid_profile_auto` | `cmd_validate_rigid_profile_auto(a)` | 3967 | — |
+| function | `cmd_audit_stage072_normals` | `cmd_audit_stage072_normals(a)` | 4007 | — |
+| function | `cmd_audit_rare_rigid_edit_workflow` | `cmd_audit_rare_rigid_edit_workflow(a)` | 4031 | — |
+| function | `cmd_edit_rare_model` | `cmd_edit_rare_model(a)` | 4059 | — |
+| function | `_enforce_candidate_edit_requirement` | `_enforce_candidate_edit_requirement(kind, verification, require_edit)` | 4081 | Fail closed when a candidate workflow explicitly requires an observed edit. |
+| function | `_parse_material_edits` | `_parse_material_edits(specs)` | 4102 | — |
+| function | `cmd_asset_material_candidate` | `cmd_asset_material_candidate(a)` | 4124 | — |
+| function | `cmd_import_asset` | `cmd_import_asset(a)` | 4171 | Prepare/open a reusable Blender workspace for a supported asset. |
+| function | `cmd_build_asset` | `cmd_build_asset(a)` | 4260 | — |
+| function | `cmd_deploy_plan` | `cmd_deploy_plan(a)` | 4543 | — |
+| function | `cmd_write_rare_model` | `cmd_write_rare_model(a)` | 4550 | — |
+| function | `build_parser` | `build_parser()` | 4573 | — |
+| function | `main` | `main(argv = None)` | 5136 | — |
 
 ## `app/pt_asset_tool/client_enrichment.py`
 
@@ -2197,19 +2197,24 @@ _No top-level functions or classes._
 | function | `stage_unique_spawn_dependencies_from_donor` | `stage_unique_spawn_dependencies_from_donor(project_root: pathlib.Path, provider: SummitCanonicalContentProvider, *, donor_label: str, relative_path: str, run_validation: bool = True, run_build: bool = True) -> dict[str, Any]` | 1442 | — |
 | class | `_LazyCasefoldPathIndex` | `class _LazyCasefoldPathIndex` | 1598 | Resolve exact logical paths under one root without walking the whole tree. |
 | method | `_LazyCasefoldPathIndex.__init__` | `__init__(self, root: pathlib.Path) -> None` | 1601 | — |
-| method | `_LazyCasefoldPathIndex._resolve` | `_resolve(self, key: str) -> pathlib.Path \| None` | 1605 | — |
-| method | `_LazyCasefoldPathIndex.__contains__` | `__contains__(self, key: object) -> bool` | 1642 | — |
-| method | `_LazyCasefoldPathIndex.__getitem__` | `__getitem__(self, key: str) -> pathlib.Path` | 1645 | — |
-| method | `_LazyCasefoldPathIndex.get` | `get(self, key: str, default: Any = None) -> Any` | 1651 | — |
-| class | `_DirectedRecoveryPlan` | `class _DirectedRecoveryPlan` | 1656 | Minimal same-lineage plan used only after a dependency resolved in that donor. |
-| method | `_DirectedRecoveryPlan.get` | `get(self, key: str, default: Any = None) -> dict[str, str]` | 1659 | — |
-| function | `_configured_donor_side_root` | `_configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path` | 1669 | — |
-| function | `certify_targeted_physical_bundle` | `certify_targeted_physical_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1687 | Certify one explicit physical root without general census or full-tree walk. |
-| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1758 | — |
-| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1767 | — |
-| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str) -> dict[str, Any]` | 1807 | — |
-| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1846 | — |
-| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1905 | — |
+| method | `_LazyCasefoldPathIndex.authorize_relocation` | `authorize_relocation(self, logical_path: str, source_path: pathlib.Path, metadata: dict[str, Any]) -> None` | 1606 | — |
+| method | `_LazyCasefoldPathIndex.resolution_basis` | `resolution_basis(self, key: str) -> str` | 1613 | — |
+| method | `_LazyCasefoldPathIndex.relocation_metadata` | `relocation_metadata(self, key: str) -> dict[str, Any] \| None` | 1616 | — |
+| method | `_LazyCasefoldPathIndex._resolve` | `_resolve(self, key: str) -> pathlib.Path \| None` | 1620 | — |
+| method | `_LazyCasefoldPathIndex.__contains__` | `__contains__(self, key: object) -> bool` | 1657 | — |
+| method | `_LazyCasefoldPathIndex.__getitem__` | `__getitem__(self, key: str) -> pathlib.Path` | 1660 | — |
+| method | `_LazyCasefoldPathIndex.get` | `get(self, key: str, default: Any = None) -> Any` | 1666 | — |
+| class | `_DirectedRecoveryPlan` | `class _DirectedRecoveryPlan` | 1671 | Minimal same-lineage plan used only after a dependency resolved in that donor. |
+| method | `_DirectedRecoveryPlan.get` | `get(self, key: str, default: Any = None) -> dict[str, str]` | 1674 | — |
+| function | `_safe_targeted_rel` | `_safe_targeted_rel(value: str, *, label: str) -> str` | 1687 | — |
+| function | `_apply_targeted_relocation_evidence` | `_apply_targeted_relocation_evidence(donor_idx: _LazyCasefoldPathIndex, donor_root: pathlib.Path, *, evidence_path: pathlib.Path \| str \| None, donor_label: str, side: str) -> list[dict[str, Any]]` | 1695 | — |
+| function | `_configured_donor_side_root` | `_configured_donor_side_root(project_root: pathlib.Path, donor_label: str, side: str) -> pathlib.Path` | 1764 | — |
+| function | `certify_targeted_physical_bundle` | `certify_targeted_physical_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str, relocation_evidence: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 1782 | Certify one explicit physical root without general census or full-tree walk. |
+| function | `_closed_bundle_selection` | `_closed_bundle_selection(project_root: pathlib.Path, *, donor_label: str, expected_side: str, expected_root: str) -> dict[str, Any]` | 1859 | — |
+| function | `_write_physical_transaction` | `_write_physical_transaction(project_root: pathlib.Path, result: dict[str, Any], *, donor_label: str) -> pathlib.Path` | 1868 | — |
+| function | `apply_physical_closed_bundle` | `apply_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, confirm: str, relocation_evidence: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 1908 | — |
+| function | `restore_physical_recovery` | `restore_physical_recovery(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, transaction: pathlib.Path \| str, confirm: str) -> dict[str, Any]` | 1949 | — |
+| function | `stage_physical_closed_bundle` | `stage_physical_closed_bundle(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: pathlib.Path \| str \| None, reference_source_root: pathlib.Path \| str \| None, donor_label: str, expected_side: str, expected_root: str, relocation_evidence: pathlib.Path \| str \| None = None) -> dict[str, Any]` | 2008 | — |
 
 ## `app/pt_asset_tool/effect_runtime_coverage.py`
 
@@ -2307,14 +2312,14 @@ _No top-level functions or classes._
 | function | `_field_source_stage_witness` | `_field_source_stage_witness(row: dict[str, Any], source_literal_paths: set[str]) -> tuple[str \| None, str]` | 210 | Return one current-source-proven physical stage candidate, if unique. |
 | function | `_bundle_ref_candidates` | `_bundle_ref_candidates(ref: str, parent_rel: str) -> list[str]` | 243 | — |
 | function | `_resolve_bundle_reference` | `_resolve_bundle_reference(ref: str, parent_rel: str, *, parent_ext: str, target_idx: dict[str, pathlib.Path], donor_idx: dict[str, pathlib.Path]) -> dict[str, Any]` | 272 | — |
-| function | `_face_texture_references_smd` | `_face_texture_references_smd(path: pathlib.Path, project: pathlib.Path) -> dict[str, Any]` | 307 | Return face-used texture references for either supported SMD container. |
-| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 396 | — |
-| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 525 | — |
-| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 557 | Summarize Tier-5 effect+audio asset readiness. |
-| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 861 | Diagnostic-only T5 reference parity matrix. |
-| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 1041 | Separate physical particle preload from proven T5 effect activation. |
-| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1169 | Build a plan-only, fail-closed client/server reachability census. |
-| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2330 | — |
+| function | `_face_texture_references_smd` | `_face_texture_references_smd(path: pathlib.Path, project: pathlib.Path) -> dict[str, Any]` | 322 | Return face-used texture references for either supported SMD container. |
+| function | `_assess_client_recovery_bundle` | `_assess_client_recovery_bundle(project: pathlib.Path, root_row: dict[str, Any], *, target_idx: dict[str, pathlib.Path], donor_roots: list[tuple[str, pathlib.Path]], donor_index_cache: dict[str, dict[str, pathlib.Path]], plan_by_key: dict[str, dict[str, str]], max_depth: int = 12) -> dict[str, Any]` | 411 | — |
+| function | `_assess_server_recovery_bundle` | `_assess_server_recovery_bundle(root_row: dict[str, Any], donor_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 543 | — |
+| function | `_t5_effect_readiness` | `_t5_effect_readiness(graph: dict[str, Any], candidate_rows: list[dict[str, Any]], recovery_bundles: list[dict[str, Any]], client_roots: list[tuple[str, pathlib.Path]]) -> dict[str, Any]` | 575 | Summarize Tier-5 effect+audio asset readiness. |
+| function | `_t5_reference_parity` | `_t5_reference_parity(graph: dict[str, Any], t5_readiness: dict[str, Any], candidate_rows: list[dict[str, Any]]) -> dict[str, Any]` | 879 | Diagnostic-only T5 reference parity matrix. |
+| function | `_t5_activation_readiness` | `_t5_activation_readiness(graph: dict[str, Any], t5_readiness: dict[str, Any], reference_parity: dict[str, Any]) -> dict[str, Any]` | 1059 | Separate physical particle preload from proven T5 effect activation. |
+| function | `audit_general_asset_census` | `audit_general_asset_census(project_root: str \| pathlib.Path, client_root: str \| pathlib.Path, server_root: str \| pathlib.Path, *, source_root: str \| pathlib.Path \| None, reference_source_root: str \| pathlib.Path \| None, donor_clients: Iterable[str], donor_servers: Iterable[str], progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 1187 | Build a plan-only, fail-closed client/server reachability census. |
+| function | `query_general_asset_census` | `query_general_asset_census(project_root: str \| pathlib.Path, *, query: str = "", side: str = "", decision: str = "", family: str = "", component: str = "", offset: int = 0, limit: int = 200) -> dict[str, Any]` | 2348 | — |
 
 ## `app/pt_asset_tool/general_asset_recovery.py`
 
@@ -2322,30 +2327,30 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| class | `RecoveryApplyRolledBackError` | `class RecoveryApplyRolledBackError(RuntimeError)` | 21 | — |
-| method | `RecoveryApplyRolledBackError.__init__` | `__init__(self, message: str, rolled_back_member_count: int) -> None` | 22 | — |
-| function | `_norm` | `_norm(value: str) -> str` | 27 | — |
-| function | `_sha256` | `_sha256(path: pathlib.Path) -> str` | 34 | — |
-| function | `_safe_rel` | `_safe_rel(value: str) -> pathlib.PurePosixPath` | 42 | — |
-| function | `_parse_expected_roots` | `_parse_expected_roots(values: Iterable[str] \| None) -> set[tuple[str, str]]` | 49 | — |
-| function | `_load_json` | `_load_json(path: pathlib.Path) -> dict[str, Any]` | 68 | — |
-| function | `_closed_scope` | `_closed_scope(bundle_report: dict[str, Any]) -> tuple[set[tuple[str, str]], list[dict[str, Any]]]` | 77 | — |
-| function | `_matching_dirs` | `_matching_dirs(parent: pathlib.Path, name: str) -> list[pathlib.Path]` | 92 | — |
-| function | `_case_preserving_destination` | `_case_preserving_destination(root: pathlib.Path, rel: pathlib.PurePosixPath) -> pathlib.Path` | 101 | Reuse existing casing; when aliases collide, an exact spelling is authoritative. |
-| function | `_casefold_existing_files` | `_casefold_existing_files(root: pathlib.Path, rel: pathlib.PurePosixPath) -> list[pathlib.Path]` | 124 | Find existing case-insensitive file variants across every colliding parent branch. |
-| function | `_casefold_existing_file` | `_casefold_existing_file(root: pathlib.Path, rel: pathlib.PurePosixPath) -> pathlib.Path \| None` | 143 | — |
-| function | `_physical_relative` | `_physical_relative(source: pathlib.Path, donor_root: pathlib.Path, logical_path: str) -> pathlib.PurePosixPath` | 151 | — |
-| function | `_build_transactions` | `_build_transactions(bundle_rows: list[dict[str, Any]], *, client_root: pathlib.Path, server_root: pathlib.Path, donor_clients: list[tuple[str, pathlib.Path]], donor_servers: list[tuple[str, pathlib.Path]]) -> list[dict[str, Any]]` | 165 | — |
-| function | `_write_transactions` | `_write_transactions(path: pathlib.Path, rows: list[dict[str, Any]]) -> None` | 228 | — |
-| function | `_stage_transactions` | `_stage_transactions(project: pathlib.Path, tx: list[dict[str, Any]], *, namespace: str = "general_asset_recovery") -> pathlib.Path` | 240 | — |
-| function | `_fsync_file` | `_fsync_file(path: pathlib.Path) -> None` | 261 | — |
-| function | `_cleanup_empty_dirs` | `_cleanup_empty_dirs(paths: list[pathlib.Path], roots: set[pathlib.Path]) -> None` | 266 | — |
-| function | `_preflight_target_writability` | `_preflight_target_writability(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 277 | — |
-| function | `_apply_transactions` | `_apply_transactions(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> tuple[list[pathlib.Path], list[pathlib.Path]]` | 296 | — |
-| function | `_rollback_written` | `_rollback_written(written: list[pathlib.Path], created_dirs: list[pathlib.Path], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 363 | — |
-| function | `_summary` | `_summary(result: dict[str, Any]) -> dict[str, Any]` | 373 | — |
-| function | `recover_targeted_closed_asset_bundles` | `recover_targeted_closed_asset_bundles(project: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, bundle_rows: Iterable[dict[str, Any]], donor_clients: Iterable[str] \| None = None, donor_servers: Iterable[str] \| None = None, apply: bool = False, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 383 | Stage/apply explicitly certified CLOSED bundles without a general census. |
-| function | `recover_closed_general_asset_bundles` | `recover_closed_general_asset_bundles(project: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: str \| pathlib.Path \| None = None, reference_source_root: str \| pathlib.Path \| None = None, donor_clients: Iterable[str] \| None = None, donor_servers: Iterable[str] \| None = None, expected_roots: Iterable[str] \| None = None, apply: bool = False, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 519 | — |
+| class | `RecoveryApplyRolledBackError` | `class RecoveryApplyRolledBackError(RuntimeError)` | 22 | — |
+| method | `RecoveryApplyRolledBackError.__init__` | `__init__(self, message: str, rolled_back_member_count: int) -> None` | 23 | — |
+| function | `_norm` | `_norm(value: str) -> str` | 28 | — |
+| function | `_sha256` | `_sha256(path: pathlib.Path) -> str` | 35 | — |
+| function | `_safe_rel` | `_safe_rel(value: str) -> pathlib.PurePosixPath` | 43 | — |
+| function | `_parse_expected_roots` | `_parse_expected_roots(values: Iterable[str] \| None) -> set[tuple[str, str]]` | 50 | — |
+| function | `_load_json` | `_load_json(path: pathlib.Path) -> dict[str, Any]` | 69 | — |
+| function | `_closed_scope` | `_closed_scope(bundle_report: dict[str, Any]) -> tuple[set[tuple[str, str]], list[dict[str, Any]]]` | 78 | — |
+| function | `_matching_dirs` | `_matching_dirs(parent: pathlib.Path, name: str) -> list[pathlib.Path]` | 93 | — |
+| function | `_case_preserving_destination` | `_case_preserving_destination(root: pathlib.Path, rel: pathlib.PurePosixPath) -> pathlib.Path` | 102 | Reuse existing casing; when aliases collide, an exact spelling is authoritative. |
+| function | `_casefold_existing_files` | `_casefold_existing_files(root: pathlib.Path, rel: pathlib.PurePosixPath) -> list[pathlib.Path]` | 125 | Find existing case-insensitive file variants across every colliding parent branch. |
+| function | `_casefold_existing_file` | `_casefold_existing_file(root: pathlib.Path, rel: pathlib.PurePosixPath) -> pathlib.Path \| None` | 144 | — |
+| function | `_physical_relative` | `_physical_relative(source: pathlib.Path, donor_root: pathlib.Path, logical_path: str) -> pathlib.PurePosixPath` | 152 | — |
+| function | `_build_transactions` | `_build_transactions(bundle_rows: list[dict[str, Any]], *, client_root: pathlib.Path, server_root: pathlib.Path, donor_clients: list[tuple[str, pathlib.Path]], donor_servers: list[tuple[str, pathlib.Path]]) -> list[dict[str, Any]]` | 166 | — |
+| function | `_write_transactions` | `_write_transactions(path: pathlib.Path, rows: list[dict[str, Any]]) -> None` | 252 | — |
+| function | `_stage_transactions` | `_stage_transactions(project: pathlib.Path, tx: list[dict[str, Any]], *, namespace: str = "general_asset_recovery") -> pathlib.Path` | 264 | — |
+| function | `_fsync_file` | `_fsync_file(path: pathlib.Path) -> None` | 285 | — |
+| function | `_cleanup_empty_dirs` | `_cleanup_empty_dirs(paths: list[pathlib.Path], roots: set[pathlib.Path]) -> None` | 290 | — |
+| function | `_preflight_target_writability` | `_preflight_target_writability(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 301 | — |
+| function | `_apply_transactions` | `_apply_transactions(tx: list[dict[str, Any]], client_root: pathlib.Path, server_root: pathlib.Path) -> tuple[list[pathlib.Path], list[pathlib.Path]]` | 320 | — |
+| function | `_rollback_written` | `_rollback_written(written: list[pathlib.Path], created_dirs: list[pathlib.Path], client_root: pathlib.Path, server_root: pathlib.Path) -> None` | 387 | — |
+| function | `_summary` | `_summary(result: dict[str, Any]) -> dict[str, Any]` | 397 | — |
+| function | `recover_targeted_closed_asset_bundles` | `recover_targeted_closed_asset_bundles(project: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, bundle_rows: Iterable[dict[str, Any]], donor_clients: Iterable[str] \| None = None, donor_servers: Iterable[str] \| None = None, apply: bool = False, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 407 | Stage/apply explicitly certified CLOSED bundles without a general census. |
+| function | `recover_closed_general_asset_bundles` | `recover_closed_general_asset_bundles(project: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, *, source_root: str \| pathlib.Path \| None = None, reference_source_root: str \| pathlib.Path \| None = None, donor_clients: Iterable[str] \| None = None, donor_servers: Iterable[str] \| None = None, expected_roots: Iterable[str] \| None = None, apply: bool = False, progress: Callable[[str], None] \| None = None) -> dict[str, Any]` | 543 | — |
 
 ## `app/pt_asset_tool/integration_regression_auto.py`
 
