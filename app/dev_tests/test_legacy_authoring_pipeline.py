@@ -8,6 +8,7 @@ import pytest
 from pt_asset_tool.asset_bundle_deploy import APPLY_CONFIRM, RESTORE_CONFIRM
 from pt_asset_tool.asset_compiler import _legacy_line, _source_token, build_spc_record
 from pt_asset_tool.legacy_authoring import (
+    _inspect_text_definition,
     authoring_capabilities,
     inspect_authoring,
     stage_authoring,
@@ -33,6 +34,20 @@ def _write(server: Path, rel: str, data: bytes):
 
 def _cp949(lines: list[str]) -> bytes:
     return ("\r\n".join(lines) + "\r\n").encode("cp949")
+
+
+def test_inspect_text_definition_accepts_tab_delimited_legacy_tokens():
+    reg = "character_tokens"
+    raw = (
+        _source_token(reg, "Name").encode("cp949") + b"\t\t\"Flame Maiden\"\r\n"
+        + _source_token(reg, "ModelFile").encode("cp949") + b"\t\t\"char/monster/FlameMaiden/FlameMaiden.ini\"\r\n"
+        + _source_token(reg, "Level").encode("cp949") + b"\t\t190\r\n"
+    )
+    detail = _inspect_text_definition("MONSTER", raw)
+    assert detail["recognized"]["name"] == [["Flame Maiden"]]
+    assert detail["recognized"]["model_file"] == [["char/monster/FlameMaiden/FlameMaiden.ini"]]
+    assert detail["recognized"]["level"] == [["190"]]
+    assert detail["unknown_line_count"] == 0
 
 
 def test_capabilities_are_real_authoring_and_need_no_exe():

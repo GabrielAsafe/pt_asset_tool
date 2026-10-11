@@ -171,7 +171,9 @@ def _inspect_text_definition(kind: str, raw: bytes) -> dict[str, Any]:
         s = original.strip()
         if not s or s.startswith("//") or s.startswith("#") or s.startswith(";"):
             continue
-        head, _, tail = s.partition(" ")
+        parts = s.split(None, 1)
+        head = parts[0]
+        tail = parts[1] if len(parts) > 1 else ""
         if head in token_to_field:
             recognized.setdefault(token_to_field[head], []).append(_parse_words(tail))
         elif head in special:

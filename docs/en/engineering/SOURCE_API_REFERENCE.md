@@ -6,7 +6,7 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `4e259def8195c9f4e6f22fc231429718f1073ca0407b435c6af073f2c7b5ef5a`
+- Source SHA-256: `284f7255470408958044b64fb8f2a588e8c7a2e0fa7dcaf606fc667588628f19`
 - Maintained Python modules/scripts: **302**
 - Classes: **68**
 - Class methods: **300**
@@ -2739,22 +2739,22 @@ _No top-level functions or classes._
 | function | `_token_maps` | `_token_maps(kind: str) -> tuple[dict[str, tuple[str, str]], dict[str, str]]` | 118 | — |
 | function | `_parse_words` | `_parse_words(text: str) -> list[str]` | 135 | — |
 | function | `_inspect_text_definition` | `_inspect_text_definition(kind: str, raw: bytes) -> dict[str, Any]` | 142 | — |
-| function | `inspect_authoring` | `inspect_authoring(project_root: pathlib.Path, server_root: pathlib.Path, client_root: pathlib.Path \| None, kind: str, logical: str) -> dict[str, Any]` | 198 | — |
-| function | `_line_head` | `_line_head(line: str) -> str` | 232 | — |
-| function | `_replace_token` | `_replace_token(lines: list[str], token: str, new_lines: list[str]) -> list[str]` | 237 | — |
-| function | `_field_line` | `_field_line(kind: str, field: str, value: Any) -> str \| None` | 254 | — |
-| function | `_patch_text` | `_patch_text(kind: str, raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 265 | — |
-| function | `_patch_spm` | `_patch_spm(raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 366 | — |
-| function | `_patch_spp` | `_patch_spp(raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 433 | — |
-| function | `_patch_spc` | `_patch_spc(raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 446 | — |
-| function | `_write_patch_bundle` | `_write_patch_bundle(project_root: pathlib.Path, kind: str, rel: pathlib.PurePosixPath, source: pathlib.Path, data: bytes, writer: dict[str, Any]) -> dict[str, Any]` | 468 | — |
-| function | `_attach_semantic_binding` | `_attach_semantic_binding(manifest: dict[str, Any], binding: dict[str, Any] \| None, related: list[dict[str, Any]] \| None = None) -> dict[str, Any]` | 490 | — |
-| function | `_create_bundle_recipe` | `_create_bundle_recipe(kind: str, logical: str, spec: dict[str, Any]) -> dict[str, Any]` | 516 | — |
-| function | `stage_authoring` | `stage_authoring(project_root: pathlib.Path, server_root: pathlib.Path, client_root: pathlib.Path \| None, spec: dict[str, Any]) -> dict[str, Any]` | 528 | — |
-| function | `publish_authoring` | `publish_authoring(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, manifest: str \| pathlib.Path, *, confirm: str) -> dict[str, Any]` | 572 | — |
-| function | `restore_authoring` | `restore_authoring(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, manifest: str \| pathlib.Path, *, confirm: str) -> dict[str, Any]` | 578 | — |
-| function | `authoring_workspace_guide` | `authoring_workspace_guide(*, server_root: pathlib.Path \| None = None, client_root: pathlib.Path \| None = None, project_root: pathlib.Path \| None = None) -> dict[str, Any]` | 583 | User-facing task guide for the Python-native legacy authoring surface. |
-| function | `authoring_capabilities` | `authoring_capabilities(project_root: pathlib.Path \| None = None) -> dict[str, Any]` | 688 | — |
+| function | `inspect_authoring` | `inspect_authoring(project_root: pathlib.Path, server_root: pathlib.Path, client_root: pathlib.Path \| None, kind: str, logical: str) -> dict[str, Any]` | 200 | — |
+| function | `_line_head` | `_line_head(line: str) -> str` | 234 | — |
+| function | `_replace_token` | `_replace_token(lines: list[str], token: str, new_lines: list[str]) -> list[str]` | 239 | — |
+| function | `_field_line` | `_field_line(kind: str, field: str, value: Any) -> str \| None` | 256 | — |
+| function | `_patch_text` | `_patch_text(kind: str, raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 267 | — |
+| function | `_patch_spm` | `_patch_spm(raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 368 | — |
+| function | `_patch_spp` | `_patch_spp(raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 435 | — |
+| function | `_patch_spc` | `_patch_spc(raw: bytes, patch: dict[str, Any]) -> tuple[bytes, dict[str, Any]]` | 448 | — |
+| function | `_write_patch_bundle` | `_write_patch_bundle(project_root: pathlib.Path, kind: str, rel: pathlib.PurePosixPath, source: pathlib.Path, data: bytes, writer: dict[str, Any]) -> dict[str, Any]` | 470 | — |
+| function | `_attach_semantic_binding` | `_attach_semantic_binding(manifest: dict[str, Any], binding: dict[str, Any] \| None, related: list[dict[str, Any]] \| None = None) -> dict[str, Any]` | 492 | — |
+| function | `_create_bundle_recipe` | `_create_bundle_recipe(kind: str, logical: str, spec: dict[str, Any]) -> dict[str, Any]` | 518 | — |
+| function | `stage_authoring` | `stage_authoring(project_root: pathlib.Path, server_root: pathlib.Path, client_root: pathlib.Path \| None, spec: dict[str, Any]) -> dict[str, Any]` | 530 | — |
+| function | `publish_authoring` | `publish_authoring(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, manifest: str \| pathlib.Path, *, confirm: str) -> dict[str, Any]` | 574 | — |
+| function | `restore_authoring` | `restore_authoring(project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path, manifest: str \| pathlib.Path, *, confirm: str) -> dict[str, Any]` | 580 | — |
+| function | `authoring_workspace_guide` | `authoring_workspace_guide(*, server_root: pathlib.Path \| None = None, client_root: pathlib.Path \| None = None, project_root: pathlib.Path \| None = None) -> dict[str, Any]` | 585 | User-facing task guide for the Python-native legacy authoring surface. |
+| function | `authoring_capabilities` | `authoring_capabilities(project_root: pathlib.Path \| None = None) -> dict[str, Any]` | 690 | — |
 
 ## `app/pt_asset_tool/legacy_management_audit.py`
 
