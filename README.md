@@ -74,3 +74,10 @@ See `docs/en/topics/SUMMIT_CANONICAL_SOURCE_V211.md`.
 The read-only `summit-canonical-assets` and `summit-asset-migration` audits import `SourceCode/Content/canonical/**/*.json` as asset evidence, compare it with current C/C++ asset literals and UI text candidates, and emit a deterministic runtime cook/package plan. Normal `asset-retention` also consumes the canonical strong roots so canonical assets cannot fall into orphan/quarantine review simply because their legacy source literal disappeared.
 
 See `docs/tematicos/SUMMIT_ASSET_MIGRATION_AUDIT.md` and `RUN_SUMMIT_ASSET_MIGRATION_AUDIT.sh`.
+
+
+### Material Lab pós-upscale (sem repetir upscale)
+
+A versão atual inclui `app/pt_asset.py texture-material` para restaurar imagens à resolução atual (incluindo DEDXT 1× com pesos externos/verificados), gerar normal/height e demos parallax **offline**, fazer auditoria read-only de meshes e revisão de candidatos por hash. A interface inclui **Client / Enrichment → Texture Enhancement → Material Lab**. Não há publicação automática de mapas, nem alteração dos shaders do cliente. Consulte [a documentação do Material Lab](docs/tematicos/TEXTURE_MATERIAL_LAB_POS_UPSCALE.md) para comandos e limites do motor.
+
+Material Lab pós-upscale: instalação do patch cumulativo e manual detalhado em `docs/tematicos/MATERIAL_LAB_GUIA_FINAL_PATCH_CUMULATIVO.md`. O processo 1× não repete o upscale e a exportação `export-approved` destina-se apenas a testes offline; mapas/meshes in-game continuam não certificados.

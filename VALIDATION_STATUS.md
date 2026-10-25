@@ -77,3 +77,30 @@ The localization production-publish gate remains **BLOCKED**. The supplied proje
 The supplied `Content(5)` archive contains the canonical content tree and packs but not `tools/content_port`. Consequently this environment can validate the live provider/catalog/census/current pack hashes and construct full-tree stages, but it cannot independently rerun the source validators/compilers after a mutation. Recompile/inspect of a modified stage remains a runtime gate against a configured Summit root that includes the canonical toolchain.
 
 Release packaging gates after the V2.11 integration: `EN_LOCALIZATION=PASS`, JavaScript syntax `PASS`, `SNAPSHOT_MANIFEST_CHECK=PASS` (770 static files), and `PACKAGE_VERIFY=PASS`.
+
+
+## Material Lab Fases 3–6 — 2026-10-20 (offline, pós-upscale)
+
+- `texture-material` criado como pipeline 1× **sem novo upscale**; staging exclusivo, SHA-256, formatos TGA/BMP protegidos e preservação de alpha/cor-chave.
+- Adaptador de modelos ESRGAN/DEDXT 1× por material preparado; necessita pesos `.pth`, runtime `torch>=2.6`/Spandrel ou CLI externa com hashes, ainda não exercitado com pesos reais.
+- Mapas de height/normal DX/GL e demonstrador parallax são **offline**; não existe shader novo, integração de material ou autorização de parallax runtime.
+- Auditoria SMD 0.62 é read-only; correções de normais/smooth-shading em `.blend` separado necessitam Blender e validação do exportador/corpo de prova. Nenhuma mesh foi modificada no cliente.
+- Galeria HTML + importação de decisões human-in-the-loop com SHA-256. A aprovação não autoriza o deploy até serem certificados renderer e geometria.
+- Testes: **70 PASS** focados em upscale + Material Lab + ações UI, integração e dependências; `node --check`: PASS; `VERIFY_PACKAGE.sh`: PASS após atualização do snapshot.
+- Não foi executado nenhum lote de produção; não foram disponibilizadas as texturas já ampliadas nem as fontes do renderer do cliente nesta entrega.
+
+Guia: `docs/tematicos/TEXTURE_MATERIAL_LAB_POS_UPSCALE.md`.
+
+
+## Material Lab finalização offline e patch cumulativo — 2026-10-20
+
+- Candidatos continuam a 1×, sem executar Real-ESRGAN 4× e sem escrita na origem ou cliente.
+- Relatório de diferenças RGB/alpha, bordos (heurístico) e imagem de diferenças por candidato.
+- Auditoria revalida input + output + mapas + revisão humana; alteração da origem invalida aprovação e exportação.
+- Nova ação `export-approved`: copia candidatos aprovados e mapas com hashes para pasta disjunta **somente para teste offline**, `may_publish_to_client=false`.
+- 75 testes selecionados de texture upscaling/restauro/Material Lab/interface interativa (inclui 6 testes finais) passaram. Testes de cliente em jogo, Blender e DEDXT com pesos reais **NÃO EXECUTADOS**.
+- Patch cumulativo gerado contra a base original (`pt_asset_tool-main1(2).zip`), com instalador de verificações SHA-256, backups e rollback.
+- Não se afirma parallax em tempo real, suporte de normais, exportação certificada de meshes ou publicação no cliente; os gates continuam bloqueados.
+- Instruções: `docs/tematicos/MATERIAL_LAB_GUIA_FINAL_PATCH_CUMULATIVO.md`.
+
+- Corrigida regressão preexistente na Fase 2: importação local de `re` em `ui_actions.build_command` interferia com validação de comandos de animação. Testes UI incluídos na bateria de 75.

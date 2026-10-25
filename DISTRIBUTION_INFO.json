@@ -34,7 +34,7 @@
     "validation_status": "PASS"
   },
   "snapshot": {
-    "file_count": 770,
+    "file_count": 704,
     "status": "PASS"
   },
   "package_verify": "PASS",
@@ -50,5 +50,41 @@
     "supplied_build_freshness": "PASS_9_OF_9_PACK_SHA256_MATCH_BUILD_JSON",
     "gameplay_config_scope": "10_DOCUMENTS_578_ENTRIES",
     "reference_content": "QUESTS_88_BINDINGS_14_SUPPORTED_13_MIX_RECIPES_127_REFERENCE_ONLY"
+  },
+  "post_upscale_material_lab_2026_10_20": {
+    "format": "PT_TEXTURE_MATERIAL_LAB_V1",
+    "features": [
+      "1x_spandrel_model_adapter_optional_weights",
+      "per_material_model_routing",
+      "protected_tga_bmp_encoding",
+      "black_colorkey_and_alpha_preservation",
+      "offline_height_and_dx_gl_normal_maps",
+      "offline_parallax_demo",
+      "smd_structural_mesh_read_only_audit",
+      "blender_workspace_lighting_fix_unvalidated",
+      "before_after_review_sha256",
+      "web_ui_staging_controls",
+      "visual_quality_metrics_and_difference_previews",
+      "source_and_candidate_sha256_recheck_at_audit",
+      "offline_approved_bundle_with_map_hashes_and_safe_path_gate",
+      "cumulative_pristine_base_patch_and_backups",
+      "fix_ui_action_command_re_shadowing"
+    ],
+    "focused_tests_passed": 70,
+    "focused_tests_failed": 0,
+    "snapshot_verified": true,
+    "package_verified": true,
+    "upscale_repeated": false,
+    "client_textures_touched": false,
+    "game_renderer_shader_modified": false,
+    "parallax_runtime_authorized": false,
+    "mesh_live_deploy_authorized": false,
+    "actual_dedxt_weights_bundled": false,
+    "actual_client_corpus_tested": false,
+    "documentation": "docs/tematicos/MATERIAL_LAB_GUIA_FINAL_PATCH_CUMULATIVO.md",
+    "focus_finalization_tests_passed": 75,
+    "test_status_note": "75 selected texture and interactive UI tests; shader/weights/in-game not exercised",
+    "offline_export_authorized_after_full_review": true,
+    "client_publish_authorized": false
   }
 }

@@ -6,11 +6,11 @@ This is the exhaustive maintained first-party Python implementation symbol inven
 
 Scope: `READY_TO_DEPLOY.py`, top-level runtime scripts in `app/*.py` (excluding `conftest.py`), every `app/pt_asset_tool/**/*.py` module, and the maintained documentation validators/generator in `docs/validation/*.py`. Test functions are validated by pytest but are intentionally not treated as implementation API. Historical merge-preview trees are evidence only. `vendor/` is upstream/external code with its own versioned documentation boundary and is not re-documented as first-party API here.
 
-- Source SHA-256: `d98556921c3adebe1bb925d682b117d9cc27fb0a879ba0616bf7e15d2676b272`
-- Maintained Python modules/scripts: **302**
+- Source SHA-256: `a607cb955c9588a745e555c7cb725886c24dfb9c70391291aabb93b3251ec689`
+- Maintained Python modules/scripts: **308**
 - Classes: **68**
 - Class methods: **300**
-- Module-level functions: **3179**
+- Module-level functions: **3222**
 
 A summary of `—` means the symbol has no Python docstring; the signature and source location remain documented here. This reference documents private helpers too because they are part of the maintained source surface, not only public API.
 
@@ -5196,6 +5196,89 @@ _No top-level functions or classes._
 | function | `_classify_non_image_target_payload` | `_classify_non_image_target_payload(raw: bytes, tga_core = None) -> str \| None` | 370 | — |
 | function | `audit_proprietary_texture_physical_corpus` | `audit_proprietary_texture_physical_corpus(project_root, registry, resolver, *, failure_sample_limit: int = 100, progress: bool = False) -> dict[str, Any]` | 399 | Read-only decode/classification gate for every registry proprietary BMP/TGA. |
 
+## `app/pt_asset_tool/texture_material_maps.py`
+
+Offline-only material map authoring and indicative parallax visualization.
+
+| Kind | Symbol | Signature | Line | Summary |
+|---|---|---|---:|---|
+| function | `height_from_diffuse` | `height_from_diffuse(image: Image.Image, *, blur: float = 1.0, contrast: float = 1.0) -> Image.Image` | 12 | — |
+| function | `normals_from_height` | `normals_from_height(height: Image.Image, *, strength: float = 2, wrap: bool = True, convention: str = 'directx') -> Image.Image` | 22 | — |
+| function | `renormalize_normals` | `renormalize_normals(image: Image.Image, *, invert_green: bool = False) -> Image.Image` | 38 | — |
+| function | `parallax_demo` | `parallax_demo(image: Image.Image, height: Image.Image, *, max_shift: int = 12) -> Image.Image` | 47 | Simple oblique offset preview ONLY; not occlusion mapping or true 3D. |
+
+## `app/pt_asset_tool/texture_material_pipeline.py`
+
+Post-upscale Priston Tale material lab (read-only input, staged output).
+
+| Kind | Symbol | Signature | Line | Summary |
+|---|---|---|---:|---|
+| function | `dump` | `dump(path: Path, data: object, *, overwrite: bool = False) -> None` | 48 | — |
+| function | `_file_hash` | `_file_hash(path: Path) -> str` | 52 | — |
+| function | `material_of` | `material_of(rel: str, overrides: dict) -> str` | 56 | — |
+| function | `load_config` | `load_config(path: Path \| None) -> dict` | 70 | — |
+| function | `model_for` | `model_for(material: str, config: dict) -> dict \| None` | 95 | — |
+| function | `_model_path` | `_model_path(model: dict, config_path: Path \| None) -> Path` | 100 | — |
+| function | `validate_model` | `validate_model(model: dict, config_path: Path \| None) -> Path` | 107 | — |
+| function | `restore_rgb` | `restore_rgb(image: Image.Image, model: dict, config_path: Path \| None) -> tuple[Image.Image, dict]` | 116 | — |
+| function | `_decode_bytes_verifiable` | `_decode_bytes_verifiable(raw: bytes, rec, meta)` | 150 | Force exact same approved codec path on both pre-/post-serialization. |
+| function | `_stage_image` | `_stage_image(image: Image.Image, path: Path) -> None` | 162 | — |
+| function | `_thumbnail` | `_thumbnail(image: Image.Image, path: Path) -> None` | 173 | — |
+| function | `_find_height` | `_find_height(root: Path, rel: str) -> Path \| None` | 182 | — |
+| function | `mesh_diagnostics` | `mesh_diagnostics(mesh_root: Path \| None, *, limit: int = 5000) -> dict` | 192 | — |
+| function | `prepare` | `prepare(input_root: Path, output_root: Path, *, include: list[str], exact: list[str], all_: bool, include_ui: bool = False, include_technical: bool = False, config_path: Path \| None = None, denoise: str = 'off', maps: str = 'off', height_root: Path \| None = None, mesh_root: Path \| None = None, max_dimension: int = 8192, checkpoint_every: int = 25, alpha_tolerance: int = 0, profile: str = 'legacy', profile_config: Path \| None = None) -> dict` | 224 | — |
+| function | `_verified_manifest` | `_verified_manifest(path: Path) -> dict` | 438 | — |
+| function | `_gallery_script` | `_gallery_script() -> str` | 447 | — |
+| function | `write_gallery` | `write_gallery(d: dict, *, page_size: int = 80) -> list[Path]` | 458 | — |
+| function | `import_reviews` | `import_reviews(manifest: Path, decisions: Path) -> dict` | 491 | — |
+| function | `_resolved_candidate` | `_resolved_candidate(root: Path, relative: str) -> Path` | 520 | Only allow files belonging to this run, never path escape or symlinks. |
+| function | `audit` | `audit(manifest: Path) -> dict` | 530 | — |
+| function | `export_approved` | `export_approved(manifest: Path, output_root: Path) -> dict` | 580 | Create a *new*, non-deployable verification bundle for in-engine authors. |
+| function | `build_parser` | `build_parser()` | 642 | — |
+| function | `main` | `main(argv = None) -> int` | 686 | — |
+
+## `app/pt_asset_tool/texture_material_profiles.py`
+
+Conservative, opt-in selection of post-upscale 1x material restoration.
+
+| Kind | Symbol | Signature | Line | Summary |
+|---|---|---|---:|---|
+| function | `load_profile_config` | `load_profile_config(path: Path \| None) -> dict` | 66 | — |
+| function | `_tokens` | `_tokens(path: str) -> list[str]` | 90 | — |
+| function | `_material` | `_material(rel: str, fallback: str, context: str = '') -> tuple[str, str]` | 94 | — |
+| function | `decide` | `decide(rel: str, *, role: str, base_material: str = 'unknown', config: dict \| None = None, context: str = '') -> dict` | 113 | Return a previewable decision. A user rule never bypasses hard safety guards. |
+| function | `scan` | `scan(root: Path, *, include: list[str], exact: list[str], all_: bool, config: dict, overrides: dict \| None = None) -> dict` | 138 | — |
+
+## `app/pt_asset_tool/texture_material_quality.py`
+
+Conservative offline image quality witnesses for staged PT textures.
+
+| Kind | Symbol | Signature | Line | Summary |
+|---|---|---|---:|---|
+| function | `_sample` | `_sample(image: Image.Image, limit: int = 768) -> Image.Image` | 12 | — |
+| function | `_borders` | `_borders(image: Image.Image) -> dict` | 20 | — |
+| function | `assess` | `assess(before: Image.Image, after: Image.Image) -> dict` | 33 | — |
+| function | `difference_preview` | `difference_preview(before: Image.Image, after: Image.Image) -> Image.Image` | 58 | Bounded-memory visual change map (not a full-res processed texture). |
+
+## `app/pt_asset_tool/texture_mesh_fix_blender.py`
+
+Blender-only, topology-preserving mesh lighting fix candidate (never exports SMD).
+
+| Kind | Symbol | Signature | Line | Summary |
+|---|---|---|---:|---|
+| function | `inventory` | `inventory(bpy)` | 17 | — |
+| function | `stage` | `stage(input_file: Path, output_file: Path, mode: str) -> dict` | 30 | — |
+| function | `main` | `main()` | 78 | — |
+
+## `app/pt_asset_tool/texture_model_runner.py`
+
+Optional isolated 1x ESRGAN/Spandrel image-to-image adapter.
+
+| Kind | Symbol | Signature | Line | Summary |
+|---|---|---|---:|---|
+| function | `infer` | `infer(input_file: Path, output_file: Path, model: Path, expected_hash: str, *, tile: int = 256, halo: int = 24, device: str = "cpu") -> dict` | 13 | — |
+| function | `main` | `main(argv = None)` | 57 | — |
+
 ## `app/pt_asset_tool/texture_overlay.py`
 
 —
@@ -5206,11 +5289,11 @@ _No top-level functions or classes._
 | function | `_used_material_ids_model062` | `_used_material_ids_model062(path: pathlib.Path) -> list[int]` | 20 | Return material ids actually referenced by Model0.62 faces. |
 | function | `_load_bmp_core` | `_load_bmp_core(root: pathlib.Path)` | 56 | — |
 | function | `_load_material_parser` | `_load_material_parser(root: pathlib.Path)` | 67 | — |
-| function | `_face_texture_scope` | `_face_texture_scope(*, asset, resolver, root: pathlib.Path) -> dict` | 79 | Classify texture references by whether a face-referenced material uses them. |
-| function | `face_texture_references_model062` | `face_texture_references_model062(path: pathlib.Path, project_root: pathlib.Path) -> dict` | 126 | Return only textures used by face-referenced materials in one Model0.62 SMD. |
-| function | `prepare_texture_overlay` | `prepare_texture_overlay(*, asset, resolver, root: pathlib.Path, work: pathlib.Path) -> tuple[pathlib.Path, dict]` | 171 | Create a read-only client texture overlay for Blender import. |
-| function | `classify_stage072_texture_transport_failures` | `classify_stage072_texture_transport_failures(report: dict) -> dict` | 382 | Split source-client absence from tool/decode failures. |
-| function | `prepare_stage072_texture_overlay` | `prepare_stage072_texture_overlay(*, asset, parsed: dict, resolver, root: pathlib.Path, work: pathlib.Path) -> tuple[pathlib.Path, dict]` | 417 | Prepare every serialized texture used by a face-referenced Stage0.72 material. |
+| function | `_face_texture_scope` | `_face_texture_scope(*, asset, resolver, root: pathlib.Path) -> dict` | 83 | Classify texture references by whether a face-referenced material uses them. |
+| function | `face_texture_references_model062` | `face_texture_references_model062(path: pathlib.Path, project_root: pathlib.Path) -> dict` | 130 | Return only textures used by face-referenced materials in one Model0.62 SMD. |
+| function | `prepare_texture_overlay` | `prepare_texture_overlay(*, asset, resolver, root: pathlib.Path, work: pathlib.Path) -> tuple[pathlib.Path, dict]` | 175 | Create a read-only client texture overlay for Blender import. |
+| function | `classify_stage072_texture_transport_failures` | `classify_stage072_texture_transport_failures(report: dict) -> dict` | 386 | Split source-client absence from tool/decode failures. |
+| function | `prepare_stage072_texture_overlay` | `prepare_stage072_texture_overlay(*, asset, parsed: dict, resolver, root: pathlib.Path, work: pathlib.Path) -> tuple[pathlib.Path, dict]` | 421 | Prepare every serialized texture used by a face-referenced Stage0.72 material. |
 
 ## `app/pt_asset_tool/texture_upscale.py`
 
@@ -5218,69 +5301,71 @@ _No top-level functions or classes._
 
 | Kind | Symbol | Signature | Line | Summary |
 |---|---|---|---:|---|
-| function | `_need_pillow` | `_need_pillow() -> None` | 87 | — |
-| function | `sha256_bytes` | `sha256_bytes(data: bytes) -> str` | 94 | — |
-| function | `sha256_file` | `sha256_file(path: Path) -> str` | 98 | — |
-| function | `_runtime_decrypt_tga` | `_runtime_decrypt_tga(data: bytes) -> bytes` | 106 | Exact header transform used by the supplied Summit client format. |
-| function | `_runtime_g8_candidate` | `_runtime_g8_candidate(raw: bytes) -> tuple[bytes, dict] \| None` | 119 | Recognize the exact legacy G8 header transform using a decode witness. |
-| function | `_protect_tga_g8_runtime` | `_protect_tga_g8_runtime(standard: bytes, source_raw: bytes) -> bytes` | 159 | Rebuild a resized G8-runtime TGA using the exact reversible header transform. |
-| function | `_rare_tga_decode_for_upscale` | `_rare_tga_decode_for_upscale(raw: bytes) -> tuple[bytes, dict] \| None` | 175 | Decode only rare TGA families already proven by the physical-corpus audit. |
-| function | `_protect_tga_dimensions_12_15` | `_protect_tga_dimensions_12_15(standard: bytes, source_meta: dict \| None) -> bytes` | 195 | — |
-| function | `_encode_ship_bmp_resized` | `_encode_ship_bmp_resized(standard_bmp: bytes, baseline: bytes) -> bytes` | 210 | Encode a resized member of the proven chrselect ship BMP family. |
-| function | `_runtime_encrypt_bmp_header` | `_runtime_encrypt_bmp_header(standard_bmp: bytes, protected_prefix: bytes) -> bytes` | 253 | Create a BMP prefix inverse-compatible with the client DecryptBMP path. |
-| function | `_runtime_decrypt_bmp` | `_runtime_decrypt_bmp(data: bytes) -> bytes` | 266 | Python equivalent of the client DecryptBMP header transform. |
-| class | `TextureRecord` | `@dataclass class TextureRecord` | 280 | — |
-| function | `_open_from_bytes` | `_open_from_bytes(data: bytes, *, force_mode: str \| None = None)` | 309 | — |
-| function | `inspect_texture` | `inspect_texture(path: Path) -> tuple[TextureRecord, object \| None]` | 318 | — |
-| function | `decode_texture` | `decode_texture(path: Path, rec: TextureRecord, meta: object \| None)` | 395 | — |
-| function | `_save_standard_bytes` | `_save_standard_bytes(image, suffix: str, *, jpeg_quality: int = 95) -> bytes` | 417 | — |
-| function | `encode_texture` | `encode_texture(image, source_raw: bytes, rec: TextureRecord, meta: object \| None) -> bytes` | 435 | — |
-| function | `_alpha_channel` | `_alpha_channel(image, size: tuple[int, int])` | 453 | — |
-| function | `_detail_metric` | `_detail_metric(image) -> float` | 460 | Small deterministic edge-energy witness; informative, never a quality gate. |
-| function | `_apply_quality_profile` | `_apply_quality_profile(image, profile: str, *, ai_backend: bool = False)` | 469 | — |
-| function | `upscale_lanczos` | `upscale_lanczos(image, scale: int, *, profile: str = "balanced")` | 492 | — |
-| function | `_resolve_realesrgan` | `_resolve_realesrgan(executable: str \| None) -> str` | 500 | — |
-| function | `capability_status` | `capability_status(executable: str \| None = None) -> dict` | 515 | — |
-| function | `upscale_realesrgan` | `upscale_realesrgan(image, *, scale: int, executable: str \| None, model: str, tile: int, gpu: int, profile: str = "balanced") -> tuple[object, list[str]]` | 542 | — |
-| function | `_matches_any` | `_matches_any(rel: str, patterns: Iterable[str]) -> bool` | 585 | — |
-| function | `_risk_class` | `_risk_class(rel: str) -> str` | 596 | — |
-| function | `iter_textures` | `iter_textures(root: Path) -> Iterable[Path]` | 604 | — |
-| function | `_selected` | `_selected(rel: str, include_patterns: list[str], include_exact: list[str]) -> bool` | 610 | — |
-| function | `_is_within` | `_is_within(root: Path, path: Path) -> bool` | 618 | — |
-| function | `_ensure_outside_source` | `_ensure_outside_source(root: Path, path: Path, label: str) -> None` | 624 | — |
-| function | `_json_dump` | `_json_dump(path: Path, payload: dict, *, overwrite: bool) -> None` | 629 | — |
-| function | `_atomic_publish` | `_atomic_publish(path: Path, data: bytes, *, overwrite: bool) -> None` | 635 | Publish complete bytes atomically; do not overwrite unless explicitly allowed. |
-| function | `scan_tree` | `scan_tree(root: Path, *, include_ui: bool, extra_excludes: list[str], include_patterns: list[str] \| None = None, include_exact: list[str] \| None = None) -> dict` | 658 | — |
-| function | `upscale_tree` | `upscale_tree(root: Path, output_root: Path, *, scale: int, backend: str, profile: str = "balanced", include_ui: bool, extra_excludes: list[str], max_dimension: int, executable: str \| None, model: str, tile: int, gpu: int, fail_fast: bool, include_patterns: list[str] \| None = None, include_exact: list[str] \| None = None, overwrite: bool = False, checkpoint_manifest: Path \| None = None, checkpoint_every: int = 25, resume_records: list[dict] \| None = None) -> dict` | 712 | — |
-| class | `_Skip` | `class _Skip(Exception)` | 963 | — |
-| function | `_resolve_client_root` | `_resolve_client_root(value: Path \| None) -> Path` | 967 | — |
-| function | `_run_stamp` | `_run_stamp() -> str` | 979 | — |
-| function | `_safe_asset_key` | `_safe_asset_key(rel: str) -> str` | 983 | — |
-| function | `enhancement_root` | `enhancement_root(project_root: Path \| None = None) -> Path` | 991 | — |
-| function | `_normalized_rel` | `_normalized_rel(rel: str) -> str` | 1003 | — |
-| function | `_load_json` | `_load_json(path: Path) -> dict` | 1010 | — |
-| function | `_enhancement_run_manifests` | `_enhancement_run_manifests(project_root: Path \| None = None) -> list[Path]` | 1017 | — |
-| function | `latest_enhancement_candidate` | `latest_enhancement_candidate(project_root: Path, rel: str, *, source_sha256: str \| None = None) -> dict \| None` | 1025 | — |
-| function | `_client_target` | `_client_target(client_root: Path, rel: str) -> tuple[Path, str]` | 1075 | — |
-| function | `_transaction_dirs` | `_transaction_dirs(project_root: Path, rel: str) -> list[Path]` | 1103 | — |
-| function | `latest_enhancement_transaction` | `latest_enhancement_transaction(project_root: Path, rel: str, *, restorable_only: bool = False) -> dict \| None` | 1111 | — |
-| function | `enhancement_status` | `enhancement_status(project_root: Path, client_root: Path, rel: str) -> dict` | 1129 | — |
-| function | `_atomic_replace_client` | `_atomic_replace_client(path: Path, data: bytes) -> None` | 1154 | — |
-| function | `_candidate_from_record` | `_candidate_from_record(project_root: Path, manifest_path: Path, rec: dict) -> dict` | 1175 | — |
-| function | `_candidates_from_run_manifest` | `_candidates_from_run_manifest(project_root: Path, manifest_path: Path) -> list[dict]` | 1208 | — |
-| function | `_latest_run_manifest` | `_latest_run_manifest(project_root: Path) -> Path \| None` | 1229 | — |
-| function | `_publish_candidate` | `_publish_candidate(client_root: Path, project_root: Path, candidate: dict) -> dict` | 1234 | — |
-| function | `publish_enhancement` | `publish_enhancement(client_root: Path, project_root: Path, rel: str, *, confirm: str) -> dict` | 1300 | — |
-| function | `_restore_transaction` | `_restore_transaction(client_root: Path, tx_manifest: Path) -> dict` | 1312 | — |
-| function | `restore_enhancement` | `restore_enhancement(client_root: Path, project_root: Path, rel: str, *, confirm: str) -> dict` | 1348 | — |
-| function | `_batch_transaction_manifests` | `_batch_transaction_manifests(project_root: Path) -> list[Path]` | 1361 | — |
-| function | `latest_enhancement_batch` | `latest_enhancement_batch(project_root: Path, *, restorable_only: bool = False) -> dict \| None` | 1369 | — |
-| function | `enhancement_batch_status` | `enhancement_batch_status(project_root: Path) -> dict` | 1383 | — |
-| function | `_resolve_batch_source_manifest` | `_resolve_batch_source_manifest(project_root: Path, manifest: Path \| None) -> Path` | 1416 | — |
-| function | `publish_enhancement_batch` | `publish_enhancement_batch(client_root: Path, project_root: Path, *, manifest: Path \| None = None, confirm: str) -> dict` | 1427 | — |
-| function | `restore_enhancement_batch` | `restore_enhancement_batch(client_root: Path, project_root: Path, *, batch_manifest: Path \| None = None, confirm: str) -> dict` | 1515 | — |
-| function | `build_parser` | `build_parser() -> argparse.ArgumentParser` | 1602 | — |
-| function | `main` | `main(argv: list[str] \| None = None) -> int` | 1670 | — |
+| function | `_need_pillow` | `_need_pillow() -> None` | 89 | — |
+| function | `sha256_bytes` | `sha256_bytes(data: bytes) -> str` | 96 | — |
+| function | `sha256_file` | `sha256_file(path: Path) -> str` | 100 | — |
+| function | `_runtime_decrypt_tga` | `_runtime_decrypt_tga(data: bytes) -> bytes` | 108 | Exact header transform used by the supplied Summit client format. |
+| function | `_runtime_g8_candidate` | `_runtime_g8_candidate(raw: bytes) -> tuple[bytes, dict] \| None` | 121 | Recognize the exact legacy G8 header transform using a decode witness. |
+| function | `_protect_tga_g8_runtime` | `_protect_tga_g8_runtime(standard: bytes, source_raw: bytes) -> bytes` | 161 | Rebuild a resized G8-runtime TGA using the exact reversible header transform. |
+| function | `_rare_tga_decode_for_upscale` | `_rare_tga_decode_for_upscale(raw: bytes) -> tuple[bytes, dict] \| None` | 177 | Decode only rare TGA families already proven by the physical-corpus audit. |
+| function | `_protect_tga_dimensions_12_15` | `_protect_tga_dimensions_12_15(standard: bytes, source_meta: dict \| None) -> bytes` | 197 | — |
+| function | `_encode_ship_bmp_resized` | `_encode_ship_bmp_resized(standard_bmp: bytes, baseline: bytes) -> bytes` | 212 | Encode a resized member of the proven chrselect ship BMP family. |
+| function | `_runtime_encrypt_bmp_header` | `_runtime_encrypt_bmp_header(standard_bmp: bytes, protected_prefix: bytes) -> bytes` | 255 | Create a BMP prefix inverse-compatible with the client DecryptBMP path. |
+| function | `_runtime_decrypt_bmp` | `_runtime_decrypt_bmp(data: bytes) -> bytes` | 268 | Python equivalent of the client DecryptBMP header transform. |
+| class | `TextureRecord` | `@dataclass class TextureRecord` | 282 | — |
+| function | `_open_from_bytes` | `_open_from_bytes(data: bytes, *, force_mode: str \| None = None)` | 314 | — |
+| function | `inspect_texture` | `inspect_texture(path: Path) -> tuple[TextureRecord, object \| None]` | 323 | — |
+| function | `decode_texture` | `decode_texture(path: Path, rec: TextureRecord, meta: object \| None)` | 400 | — |
+| function | `_save_standard_bytes` | `_save_standard_bytes(image, suffix: str, *, jpeg_quality: int = 95) -> bytes` | 422 | — |
+| function | `encode_texture` | `encode_texture(image, source_raw: bytes, rec: TextureRecord, meta: object \| None) -> bytes` | 440 | — |
+| function | `_alpha_channel` | `_alpha_channel(image, size: tuple[int, int])` | 458 | — |
+| function | `_detail_metric` | `_detail_metric(image) -> float` | 465 | Small deterministic edge-energy witness; informative, never a quality gate. |
+| function | `clean_compression_artifacts` | `clean_compression_artifacts(image, level: str = "off")` | 474 | Conservative, opt-in pre-upscale RGB noise suppression. |
+| function | `detect_texture_role` | `detect_texture_role(relative_path: str) -> str` | 496 | Only recognizable naming conventions: ambiguous files remain diffuse candidates. |
+| function | `_apply_quality_profile` | `_apply_quality_profile(image, profile: str, *, ai_backend: bool = False)` | 509 | — |
+| function | `upscale_lanczos` | `upscale_lanczos(image, scale: int, *, profile: str = "balanced")` | 532 | — |
+| function | `_resolve_realesrgan` | `_resolve_realesrgan(executable: str \| None) -> str` | 540 | — |
+| function | `capability_status` | `capability_status(executable: str \| None = None) -> dict` | 555 | — |
+| function | `upscale_realesrgan` | `upscale_realesrgan(image, *, scale: int, executable: str \| None, model: str, tile: int, gpu: int, profile: str = "balanced", model_dir: Path \| None = None) -> tuple[object, list[str]]` | 584 | — |
+| function | `_matches_any` | `_matches_any(rel: str, patterns: Iterable[str]) -> bool` | 635 | — |
+| function | `_risk_class` | `_risk_class(rel: str) -> str` | 646 | — |
+| function | `iter_textures` | `iter_textures(root: Path) -> Iterable[Path]` | 654 | — |
+| function | `_selected` | `_selected(rel: str, include_patterns: list[str], include_exact: list[str]) -> bool` | 660 | — |
+| function | `_is_within` | `_is_within(root: Path, path: Path) -> bool` | 668 | — |
+| function | `_ensure_outside_source` | `_ensure_outside_source(root: Path, path: Path, label: str) -> None` | 674 | — |
+| function | `_json_dump` | `_json_dump(path: Path, payload: dict, *, overwrite: bool) -> None` | 679 | — |
+| function | `_atomic_publish` | `_atomic_publish(path: Path, data: bytes, *, overwrite: bool) -> None` | 685 | Publish complete bytes atomically; do not overwrite unless explicitly allowed. |
+| function | `scan_tree` | `scan_tree(root: Path, *, include_ui: bool, extra_excludes: list[str], include_patterns: list[str] \| None = None, include_exact: list[str] \| None = None) -> dict` | 708 | — |
+| function | `upscale_tree` | `upscale_tree(root: Path, output_root: Path, *, scale: int, backend: str, profile: str = "balanced", include_ui: bool, extra_excludes: list[str], max_dimension: int, executable: str \| None, model: str, tile: int, gpu: int, fail_fast: bool, include_patterns: list[str] \| None = None, include_exact: list[str] \| None = None, overwrite: bool = False, checkpoint_manifest: Path \| None = None, checkpoint_every: int = 25, resume_records: list[dict] \| None = None, denoise: str = "off", model_dir: Path \| None = None, protect_technical_maps: bool = True) -> dict` | 762 | — |
+| class | `_Skip` | `class _Skip(Exception)` | 1035 | — |
+| function | `_resolve_client_root` | `_resolve_client_root(value: Path \| None) -> Path` | 1039 | — |
+| function | `_run_stamp` | `_run_stamp() -> str` | 1051 | — |
+| function | `_safe_asset_key` | `_safe_asset_key(rel: str) -> str` | 1055 | — |
+| function | `enhancement_root` | `enhancement_root(project_root: Path \| None = None) -> Path` | 1063 | — |
+| function | `_normalized_rel` | `_normalized_rel(rel: str) -> str` | 1075 | — |
+| function | `_load_json` | `_load_json(path: Path) -> dict` | 1082 | — |
+| function | `_enhancement_run_manifests` | `_enhancement_run_manifests(project_root: Path \| None = None) -> list[Path]` | 1089 | — |
+| function | `latest_enhancement_candidate` | `latest_enhancement_candidate(project_root: Path, rel: str, *, source_sha256: str \| None = None) -> dict \| None` | 1097 | — |
+| function | `_client_target` | `_client_target(client_root: Path, rel: str) -> tuple[Path, str]` | 1147 | — |
+| function | `_transaction_dirs` | `_transaction_dirs(project_root: Path, rel: str) -> list[Path]` | 1175 | — |
+| function | `latest_enhancement_transaction` | `latest_enhancement_transaction(project_root: Path, rel: str, *, restorable_only: bool = False) -> dict \| None` | 1183 | — |
+| function | `enhancement_status` | `enhancement_status(project_root: Path, client_root: Path, rel: str) -> dict` | 1201 | — |
+| function | `_atomic_replace_client` | `_atomic_replace_client(path: Path, data: bytes) -> None` | 1226 | — |
+| function | `_candidate_from_record` | `_candidate_from_record(project_root: Path, manifest_path: Path, rec: dict) -> dict` | 1247 | — |
+| function | `_candidates_from_run_manifest` | `_candidates_from_run_manifest(project_root: Path, manifest_path: Path) -> list[dict]` | 1280 | — |
+| function | `_latest_run_manifest` | `_latest_run_manifest(project_root: Path) -> Path \| None` | 1301 | — |
+| function | `_publish_candidate` | `_publish_candidate(client_root: Path, project_root: Path, candidate: dict) -> dict` | 1306 | — |
+| function | `publish_enhancement` | `publish_enhancement(client_root: Path, project_root: Path, rel: str, *, confirm: str) -> dict` | 1372 | — |
+| function | `_restore_transaction` | `_restore_transaction(client_root: Path, tx_manifest: Path) -> dict` | 1384 | — |
+| function | `restore_enhancement` | `restore_enhancement(client_root: Path, project_root: Path, rel: str, *, confirm: str) -> dict` | 1420 | — |
+| function | `_batch_transaction_manifests` | `_batch_transaction_manifests(project_root: Path) -> list[Path]` | 1433 | — |
+| function | `latest_enhancement_batch` | `latest_enhancement_batch(project_root: Path, *, restorable_only: bool = False) -> dict \| None` | 1441 | — |
+| function | `enhancement_batch_status` | `enhancement_batch_status(project_root: Path) -> dict` | 1455 | — |
+| function | `_resolve_batch_source_manifest` | `_resolve_batch_source_manifest(project_root: Path, manifest: Path \| None) -> Path` | 1488 | — |
+| function | `publish_enhancement_batch` | `publish_enhancement_batch(client_root: Path, project_root: Path, *, manifest: Path \| None = None, confirm: str) -> dict` | 1499 | — |
+| function | `restore_enhancement_batch` | `restore_enhancement_batch(client_root: Path, project_root: Path, *, batch_manifest: Path \| None = None, confirm: str) -> dict` | 1587 | — |
+| function | `build_parser` | `build_parser() -> argparse.ArgumentParser` | 1674 | — |
+| function | `main` | `main(argv: list[str] \| None = None) -> int` | 1745 | — |
 
 ## `app/pt_asset_tool/tree_compare.py`
 
@@ -5359,12 +5444,12 @@ _No top-level functions or classes._
 | method | `UIHandler._body_json` | `_body_json(self) -> dict[str, Any]` | 742 | — |
 | method | `UIHandler._require_token` | `_require_token(self) -> bool` | 751 | — |
 | method | `UIHandler.do_GET` | `do_GET(self) -> None` | 757 | — |
-| method | `UIHandler.do_POST` | `do_POST(self) -> None` | 1437 | — |
-| method | `UIHandler._serve_static` | `_serve_static(self, rel: str) -> None` | 2295 | — |
-| function | `_one` | `_one(q: dict[str, list[str]], key: str) -> str` | 2314 | — |
-| function | `_is_loopback` | `_is_loopback(host: str) -> bool` | 2319 | — |
-| function | `_open_browser` | `_open_browser(url: str) -> None` | 2328 | Open the host browser without leaking PyInstaller's private libraries. |
-| function | `run_ui` | `run_ui(project_root: pathlib.Path, client_root: pathlib.Path \| None, server_root: pathlib.Path \| None, host: str, port: int, open_browser: bool, allow_remote: bool) -> int` | 2348 | — |
+| method | `UIHandler.do_POST` | `do_POST(self) -> None` | 1481 | — |
+| method | `UIHandler._serve_static` | `_serve_static(self, rel: str) -> None` | 2367 | — |
+| function | `_one` | `_one(q: dict[str, list[str]], key: str) -> str` | 2386 | — |
+| function | `_is_loopback` | `_is_loopback(host: str) -> bool` | 2391 | — |
+| function | `_open_browser` | `_open_browser(url: str) -> None` | 2400 | Open the host browser without leaking PyInstaller's private libraries. |
+| function | `run_ui` | `run_ui(project_root: pathlib.Path, client_root: pathlib.Path \| None, server_root: pathlib.Path \| None, host: str, port: int, open_browser: bool, allow_remote: bool) -> int` | 2420 | — |
 
 ## `app/pt_asset_tool/ui_capabilities.py`
 

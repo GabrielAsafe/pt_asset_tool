@@ -1963,6 +1963,7 @@ def main() -> int:
         print("  registry status                generate/read machine-local asset registry state")
         print("  registry rebuild [--client-root PATH]  force a read-only registry rebuild from the current client")
         print("  texture-upscale scan|run|resume|publish|restore|publish-batch|restore-batch ...   stage enhanced textures under app/pt_build/texture_upscale and publish/undo verified single or batch changes")
+        print("  texture-material capabilities|run|review-import|audit|mesh-audit ...  post-upscale offline DXT cleanup, maps, mesh review; NEVER resizes/publishes client textures")
         return cp.returncode
     if args in (["status"], ["app-status"]):
         return _command_app_status()
@@ -1980,6 +1981,13 @@ def main() -> int:
         return _command_app_config(args[1:])
     if args and args[0] == "registry":
         return _command_registry(args[1:])
+    if args and args[0] == "texture-material":
+        from pt_asset_tool.texture_material_pipeline import main as _texture_material_main
+        try:
+            return _texture_material_main(args[1:])
+        except Exception as exc:
+            print(f"texture_material_error={type(exc).__name__}:{exc}", file=sys.stderr)
+            return 2
     if args and args[0] == "texture-upscale":
         from pt_asset_tool.texture_upscale import main as _texture_upscale_main
         try:

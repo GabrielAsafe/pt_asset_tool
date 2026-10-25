@@ -7,6 +7,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import secrets
 import shutil
 import struct
@@ -47,6 +48,7 @@ ENHANCEMENT_RESTORE_CONFIRM = "RESTORE CLIENT ENHANCEMENT"
 ENHANCEMENT_BATCH_PUBLISH_CONFIRM = "APPLY CLIENT ENHANCEMENT BATCH"
 ENHANCEMENT_BATCH_RESTORE_CONFIRM = "RESTORE CLIENT ENHANCEMENT BATCH"
 QUALITY_PROFILES = ("faithful", "balanced", "detail", "pixel-art")
+DENOISE_LEVELS = ("off", "light", "medium")
 PILLOW_AVAILABLE = Image is not None
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SUPPORTED_SUFFIXES = {".tga", ".bmp", ".png", ".jpg", ".jpeg"}
@@ -304,6 +306,9 @@ class TextureRecord:
     detail_metric_before: float | None = None
     detail_metric_after: float | None = None
     detail_gain_ratio: float | None = None
+    denoise_level: str | None = None
+    model_used: str | None = None
+    texture_role: str | None = None
 
 
 def _open_from_bytes(data: bytes, *, force_mode: str | None = None):
@@ -466,6 +471,41 @@ def _detail_metric(image) -> float:
     return round(float(stat.rms[0] if stat.rms else 0.0), 6)
 
 
+def clean_compression_artifacts(image, level: str = "off"):
+    """Conservative, opt-in pre-upscale RGB noise suppression.
+
+    Median blending reduces isolated noise, not DXT/BCn block reconstruction.
+    Keep the original alpha bit-for-bit; UI/masks/normals need other pipelines.
+    """
+    _need_pillow()
+    if level not in DENOISE_LEVELS:
+        raise ValueError(f"denoise must be one of: {', '.join(DENOISE_LEVELS)}")
+    if level == "off":
+        return image
+    alpha = image.getchannel("A") if "A" in image.getbands() else None
+    rgb = image.convert("RGB")
+    filtered = rgb.filter(ImageFilter.MedianFilter(size=3))
+    strength = 0.25 if level == "light" else 0.45
+    result = Image.blend(rgb, filtered, strength)
+    if alpha is not None:
+        result = result.convert("RGBA")
+        result.putalpha(alpha)
+    return result
+
+
+def detect_texture_role(relative_path: str) -> str:
+    """Only recognizable naming conventions: ambiguous files remain diffuse candidates.
+
+    This is a safety heuristic, NOT proof of shader/material semantics.
+    """
+    name = Path(relative_path).stem.lower()
+    if re.search(r"(?:^|[_\-.])(?:normal|normals|normalmap|nrm)(?:$|[_\-.])", name) or re.search(r"(?:_n)$", name):
+        return "normal_candidate"
+    if re.search(r"(?:^|[_\-.])(?:height|heightmap|parallax|displacement)(?:$|[_\-.])", name):
+        return "height_candidate"
+    return "diffuse_candidate"
+
+
 def _apply_quality_profile(image, profile: str, *, ai_backend: bool = False):
     _need_pillow()
     profile = str(profile or "balanced").lower()
@@ -529,6 +569,8 @@ def capability_status(executable: str | None = None) -> dict:
         "realesrgan_error": realesrgan_error,
         "supported_suffixes": sorted(SUPPORTED_SUFFIXES),
         "quality_profiles": list(QUALITY_PROFILES),
+        "denoise_levels": list(DENOISE_LEVELS),
+        "custom_ncnn_models": "--model-dir accepts converted .param + .bin model pairs; .pth requires conversion/external workflow",
         "auto_backend_ready": pillow_ready,
         "auto_profile_policy": {
             "faithful": "lanczos_preserve",
@@ -548,9 +590,16 @@ def upscale_realesrgan(
     tile: int,
     gpu: int,
     profile: str = "balanced",
+    model_dir: Path | None = None,
 ) -> tuple[object, list[str]]:
     _need_pillow()
     exe = _resolve_realesrgan(executable)
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", model) or model.endswith((".pth", ".bin", ".param")):
+        raise ValueError("model must be a model basename (not a path or .pth/.bin/.param file)")
+    if model_dir is not None:
+        model_dir = Path(model_dir).expanduser().resolve()
+        if not model_dir.is_dir() or not all((model_dir / (model + ext)).is_file() for ext in (".param", ".bin")):
+            raise FileNotFoundError(f"ncnn model requires {model}.param and {model}.bin in {model_dir}")
     target = (image.width * scale, image.height * scale)
     original_alpha = _alpha_channel(image, target)
 
@@ -563,6 +612,7 @@ def upscale_realesrgan(
             "-i", str(inp),
             "-o", str(out),
             "-n", model,
+            *(["-m", str(model_dir)] if model_dir is not None else []),
             "-s", str(scale),
             "-t", str(tile),
             "-g", str(gpu),
@@ -730,6 +780,9 @@ def upscale_tree(
     checkpoint_manifest: Path | None = None,
     checkpoint_every: int = 25,
     resume_records: list[dict] | None = None,
+    denoise: str = "off",
+    model_dir: Path | None = None,
+    protect_technical_maps: bool = True,
 ) -> dict:
     _need_pillow()
     if scale not in (2, 3, 4):
@@ -742,6 +795,12 @@ def upscale_tree(
         raise ValueError("backend must be auto, lanczos, or realesrgan")
     if profile == "pixel-art" and backend == "realesrgan":
         raise ValueError("pixel-art profile cannot use realesrgan")
+    denoise = str(denoise or "off").lower()
+    if denoise not in DENOISE_LEVELS:
+        raise ValueError(f"denoise must be one of: {', '.join(DENOISE_LEVELS)}")
+    if profile == "pixel-art" and denoise != "off":
+        raise ValueError("denoise cannot be combined with the pixel-art profile")
+    model_dir = Path(model_dir).expanduser().resolve() if model_dir is not None else None
 
     root = root.resolve()
     output_root = output_root.resolve()
@@ -792,6 +851,9 @@ def upscale_tree(
             "ai_enhancement_used": bool(backend_counts.get("realesrgan")),
             "enhancement_class": "AI_SUPER_RESOLUTION" if backend_counts.get("realesrgan") else ("PIXEL_ART_RESAMPLE" if profile == "pixel-art" else "DETERMINISTIC_RESAMPLE_SHARPEN"),
             "quality_profile": profile,
+            "denoise": denoise,
+            "model_dir": str(model_dir) if model_dir is not None else None,
+            "protect_technical_maps": protect_technical_maps,
             "model": model if backend_counts.get("realesrgan") else None,
             "tile": tile if backend_counts.get("realesrgan") else None,
             "gpu": gpu if backend_counts.get("realesrgan") else None,
@@ -848,7 +910,13 @@ def upscale_tree(
             rec.source = rel
             rec.risk_class = _risk_class(rel)
             rec.quality_profile = profile
+            rec.denoise_level = denoise
+            rec.texture_role = detect_texture_role(rel)
             rel_lower = rel.lower()
+            if protect_technical_maps and rec.texture_role != "diffuse_candidate":
+                rec.status = "skipped_technical_map_review"
+                rec.reason = "normal/height candidate: requires shader-aware workflow; use --include-technical-maps only after reviewing the material"
+                raise _Skip
             if not include_ui and rec.risk_class == "UI_ATLAS_RISK":
                 rec.status = "skipped_ui_pixel_crop_risk"
                 rec.reason = "use --include-ui only after verifying pixel-space atlas consumers"
@@ -868,6 +936,8 @@ def upscale_tree(
             source_raw = source.read_bytes()
             image = decode_texture(source, rec, meta)
             rec.detail_metric_before = _detail_metric(image)
+            # Suppression is intentionally before upscale. Do not alter encoded alpha.
+            image = clean_compression_artifacts(image, denoise)
             effective_backend = backend
             if backend == "auto":
                 effective_backend = "realesrgan" if (profile == "detail" and auto_realesrgan) else "lanczos"
@@ -876,6 +946,7 @@ def upscale_tree(
             rec.backend_used = effective_backend
             rec.backend_decision = backend_decision
             rec.ai_enhancement_used = effective_backend == "realesrgan"
+            rec.model_used = model if effective_backend == "realesrgan" else None
             backend_counts[effective_backend] = backend_counts.get(effective_backend, 0) + 1
             if effective_backend == "lanczos":
                 result = upscale_lanczos(image, scale, profile=profile)
@@ -889,6 +960,7 @@ def upscale_tree(
                     tile=tile,
                     gpu=gpu,
                     profile=profile,
+                    model_dir=model_dir,
                 )
             else:
                 raise ValueError(f"unknown backend: {effective_backend}")
@@ -930,7 +1002,7 @@ def upscale_tree(
             rec.output_sha256 = sha256_bytes(encoded)
             rec.output_width, rec.output_height = verify.size
             rec.status = "upscaled"
-            rec.reason = (" ".join(command) if command else "Pillow Lanczos") + f" · profile={profile} · decision={backend_decision}"
+            rec.reason = (" ".join(command) if command else "Pillow Lanczos") + f" · profile={profile} · denoise={denoise} · decision={backend_decision}"
         except _Skip:
             pass
         except Exception as exc:
@@ -1649,7 +1721,10 @@ def build_parser() -> argparse.ArgumentParser:
     u.add_argument("--backend", choices=("auto", "realesrgan", "lanczos"), default="auto")
     u.add_argument("--profile", choices=QUALITY_PROFILES, default="balanced", help="faithful=no sharpening; balanced=mild detail; detail=stronger detail/AI when auto; pixel-art=nearest-neighbour")
     u.add_argument("--realesrgan", help="path/name of realesrgan-ncnn-vulkan executable")
-    u.add_argument("--model", default="realesrgan-x4plus")
+    u.add_argument("--model", default="realesrgan-x4plus", help="ncnn model basename (custom game-texture models must be converted to .bin/.param)")
+    u.add_argument("--model-dir", type=Path, help="directory containing matching <model>.param + <model>.bin for Real-ESRGAN ncnn")
+    u.add_argument("--denoise", choices=DENOISE_LEVELS, default="off", help="optional conservative RGB noise cleanup BEFORE upscale; not a DXT-trained model")
+    u.add_argument("--include-technical-maps", action="store_true", help="explicitly allow normal/height candidates; generic AI may corrupt them")
     u.add_argument("--tile", type=int, default=256, help="Vulkan tile size; 256 is conservative for 8GB-class GPUs")
     u.add_argument("--gpu", type=int, default=0)
     u.add_argument("--max-dimension", type=int, default=8192)
@@ -1701,6 +1776,9 @@ def main(argv: list[str] | None = None) -> int:
             checkpoint_manifest=manifest,
             checkpoint_every=args.checkpoint_every,
             resume_records=list(previous.get("records") or []),
+            denoise=str(previous.get("denoise") or "off"),
+            model_dir=Path(previous["model_dir"]) if previous.get("model_dir") else None,
+            protect_technical_maps=bool(previous.get("protect_technical_maps", True)),
         )
         print(json.dumps({
             "tool": TOOL, "action": "resume", "texture_count": report["texture_count"],
@@ -1792,6 +1870,9 @@ def main(argv: list[str] | None = None) -> int:
             overwrite=args.overwrite,
             checkpoint_manifest=manifest,
             checkpoint_every=args.checkpoint_every,
+            denoise=args.denoise,
+            model_dir=args.model_dir,
+            protect_technical_maps=not args.include_technical_maps,
         )
 
     if args.command != "run":
@@ -1808,6 +1889,8 @@ def main(argv: list[str] | None = None) -> int:
         "ai_enhancement_used": bool(report.get("ai_enhancement_used")),
         "enhancement_class": report.get("enhancement_class"),
         "quality_profile": report.get("quality_profile"),
+        "denoise": report.get("denoise"),
+        "model_dir": report.get("model_dir"),
         "manifest": str(manifest),
         "output_root": report.get("output_root"),
         "enhancement_workspace": str(enhancement_root(PROJECT_ROOT)),

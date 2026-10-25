@@ -1,0 +1,352 @@
+{
+  "schema": "PT_ASSET_REFOCUS_UNIFICADO_V1",
+  "models": {
+    "refocus_v3": {
+      "files": {
+        "param": {
+          "path": "assets/ai_models/refocus_v3/refocus_v3.ncnn.param",
+          "sha256": "0ef9d998804964a6e3ddf2cba33cd93f1f4eed17d8d314f027b433cceb954358",
+          "bytes": 101231
+        },
+        "bin": {
+          "path": "assets/ai_models/refocus_v3/refocus_v3.ncnn.bin",
+          "sha256": "6d0186d1264ee385bcf5d6c6e9af012e0c8f61a3158362af82aa37ffd7d6cd65",
+          "bytes": 33276544
+        },
+        "model_provenance": {
+          "path": "assets/ai_models/refocus_v3/ORIGEM_MODELO.json",
+          "sha256": "c87212bb8b969c0475222d94bf86cdb3165d91dda1e06b11d6fe9286fc90b0ec",
+          "bytes": 305
+        },
+        "original_pth": {
+          "path": "assets/ai_models/refocus_v3/1x-ReFocus-V3.pth",
+          "sha256": "94d8f38726c7abaa83a3fad27c01863ba961f76a995d8541c173eb3195062547",
+          "bytes": 66665765
+        }
+      },
+      "config": "config/material_lab/refocus_v3_gpu.json"
+    },
+    "unresize_v3": {
+      "files": {
+        "param": {
+          "path": "assets/ai_models/unresize_v3/unresize_v3.ncnn.param",
+          "sha256": "0ef9d998804964a6e3ddf2cba33cd93f1f4eed17d8d314f027b433cceb954358",
+          "bytes": 101231
+        },
+        "bin": {
+          "path": "assets/ai_models/unresize_v3/unresize_v3.ncnn.bin",
+          "sha256": "836c40014ba786d40302732d51beed8dac0237afc5d72a5fe58fd5927f81d957",
+          "bytes": 33276544
+        },
+        "model_provenance": {
+          "path": "assets/ai_models/unresize_v3/ORIGEM_MODELO.json",
+          "sha256": "5c3fdce7e6cf555ad3e53056115585ae58d1f67e50888ac9571dc19dbf445b27",
+          "bytes": 308
+        },
+        "original_pth": {
+          "path": "assets/ai_models/unresize_v3/1x-UnResize-V3.pth",
+          "sha256": "41c1fd640c265375b4649f6c41772714081ea77faf07593456c8021638d3e1d3",
+          "bytes": 66665765
+        }
+      },
+      "config": "config/material_lab/unresize_v3_gpu.json"
+    },
+    "dedxt_1x": {
+      "files": {
+        "param": {
+          "path": "assets/ai_models/dedxt_1x/dedxt_1x.ncnn.param",
+          "sha256": "0ef9d998804964a6e3ddf2cba33cd93f1f4eed17d8d314f027b433cceb954358",
+          "bytes": 101231
+        },
+        "bin": {
+          "path": "assets/ai_models/dedxt_1x/dedxt_1x.ncnn.bin",
+          "sha256": "352ee967b67594477c64c3fcf050e641b4205849d647e45ca8716e8a66434ba8",
+          "bytes": 33276544
+        },
+        "original_pth": {
+          "path": "assets/ai_models/dedxt_1x/1x_DEDXT.pth",
+          "sha256": "4400aa3970a1bf8279f290a7c4c73ff655ece058e94aaa162955459d63093406",
+          "bytes": 66665765
+        }
+      },
+      "config": "config/material_lab/dedxt_1x_gpu.json"
+    }
+  },
+  "runtime": "vendor/ncnn/1.0.20261020",
+  "runtime_files": {
+    "ncnn/__init__.py": {
+      "sha256": "ef90c76a49b37e74b0cd89f1da9502e764ee6b24a8da44860f4af894dc5838fe",
+      "bytes": 118
+    },
+    "ncnn/__pycache__/__init__.cpython-311.pyc": {
+      "sha256": "221c200c67ed40f98670aead944a4079d4bbf0ef2931e9a067b910f6ebd4ac4d",
+      "bytes": 225
+    },
+    "ncnn/model_zoo/__init__.py": {
+      "sha256": "4263c58822bfccf6dff564c317e7b6fb7c36126238152a2383a22d08ef1bd525",
+      "bytes": 199
+    },
+    "ncnn/model_zoo/__pycache__/__init__.cpython-311.pyc": {
+      "sha256": "297fae60ee7d3ca1751383f46da0f1cc92c1929a4ae1cbfc176ed7f5b74b26cf",
+      "bytes": 367
+    },
+    "ncnn/model_zoo/__pycache__/fasterrcnn.cpython-311.pyc": {
+      "sha256": "5a97ea85274efb2317c735f5fe39e4598ef73bbd0984c017f5062ac1b7587deb",
+      "bytes": 8829
+    },
+    "ncnn/model_zoo/__pycache__/mobilenetssd.cpython-311.pyc": {
+      "sha256": "3a3c9b61d8cdbb60d11366d0346f2e2ba68c6cc4889d8dbdb5b65b6257fdaffe",
+      "bytes": 3610
+    },
+    "ncnn/model_zoo/__pycache__/mobilenetv2ssdlite.cpython-311.pyc": {
+      "sha256": "a77780e78e096c58bb359ae0443ab5658c2ddfcefc6ebf23209a22543a888386",
+      "bytes": 3964
+    },
+    "ncnn/model_zoo/__pycache__/mobilenetv3ssdlite.cpython-311.pyc": {
+      "sha256": "7505b53821de9d1edfda7eef613d065d0b3ffabd01853e8fd1f7c488342adc2b",
+      "bytes": 4853
+    },
+    "ncnn/model_zoo/__pycache__/model_store.cpython-311.pyc": {
+      "sha256": "828ae34739c9e7888ace8bcbc4eb6b37522cab26f9e0950b0582e509fb45ce2d",
+      "bytes": 10658
+    },
+    "ncnn/model_zoo/__pycache__/model_zoo.cpython-311.pyc": {
+      "sha256": "3f40ecbe8b224df508be25db4b539dad808192b81c7549855d8375be30eb846f",
+      "bytes": 2845
+    },
+    "ncnn/model_zoo/__pycache__/nanodet.cpython-311.pyc": {
+      "sha256": "a9d212d4e8d582bc90eed76c6ea1f67406c3652d3c1846b80bf9ca97e78c20fb",
+      "bytes": 9653
+    },
+    "ncnn/model_zoo/__pycache__/peleenetssd.cpython-311.pyc": {
+      "sha256": "6d1f00b0f97a6211ea7cb7272d03c5879474aaf0108cb26a2afde914b0cf265a",
+      "bytes": 3746
+    },
+    "ncnn/model_zoo/__pycache__/retinaface.cpython-311.pyc": {
+      "sha256": "9298be992f8491130419107d8fddb6a00d15ba47308480978c46baac59585fac",
+      "bytes": 13568
+    },
+    "ncnn/model_zoo/__pycache__/rfcn.cpython-311.pyc": {
+      "sha256": "0e44a69ec83e49aeba0e59a9a20acecb89e329a0f58a431606ea6bbf80620fe0",
+      "bytes": 8815
+    },
+    "ncnn/model_zoo/__pycache__/shufflenetv2.cpython-311.pyc": {
+      "sha256": "8a9a69fcb47c45d25e0390de497cc666f6d268d217fa594c11c008fc09755b69",
+      "bytes": 3104
+    },
+    "ncnn/model_zoo/__pycache__/simplepose.cpython-311.pyc": {
+      "sha256": "0cd4604157c638d8ecc7123dec54d3b416b1373436c50e8c9178d7261de92072",
+      "bytes": 3601
+    },
+    "ncnn/model_zoo/__pycache__/squeezenet.cpython-311.pyc": {
+      "sha256": "25992c779d04106f72d561e0b1d6b5826809ca424ec44c680bf448afb1d025b1",
+      "bytes": 2620
+    },
+    "ncnn/model_zoo/__pycache__/squeezenetssd.cpython-311.pyc": {
+      "sha256": "1ddacc719294a0ac57fb7d551d4daeedb384e5261dd34a01481f31376bba23fa",
+      "bytes": 3584
+    },
+    "ncnn/model_zoo/__pycache__/yolact.cpython-311.pyc": {
+      "sha256": "b1fa397433d9a0572b72e86502b9a854f61de08ac657f52e862dd3325ebe8aca",
+      "bytes": 11741
+    },
+    "ncnn/model_zoo/__pycache__/yolov2.cpython-311.pyc": {
+      "sha256": "07eb1ba167c36afdb1ef28954619ff2fcd10232d20e8cd04ba15de9392b1df60",
+      "bytes": 3664
+    },
+    "ncnn/model_zoo/__pycache__/yolov3.cpython-311.pyc": {
+      "sha256": "da2d2dcad9657fc71658ad9d0327e5504ab17232768e54cde2cb6f37615366b0",
+      "bytes": 3616
+    },
+    "ncnn/model_zoo/__pycache__/yolov4.cpython-311.pyc": {
+      "sha256": "a1965a298c3438a1a49ec7855a5c4ab914006faf2679754604130dc018df89f5",
+      "bytes": 5401
+    },
+    "ncnn/model_zoo/__pycache__/yolov5.cpython-311.pyc": {
+      "sha256": "3782ec58a86fec3fc715bdafba390f837653608b1c94e2ab85adfebabb125712",
+      "bytes": 13208
+    },
+    "ncnn/model_zoo/__pycache__/yolov7.cpython-311.pyc": {
+      "sha256": "2566a524c3e01c61cc963bf6175c2a9f12dfa3047d64cc509d8b7414adca329d",
+      "bytes": 11282
+    },
+    "ncnn/model_zoo/__pycache__/yolov8.cpython-311.pyc": {
+      "sha256": "73e9a4d950274ff3dcab3cb2d68fc09e765e3559dbe575bc128ea6eb6f2d6a5a",
+      "bytes": 11208
+    },
+    "ncnn/model_zoo/fasterrcnn.py": {
+      "sha256": "0f8c527f0522b75a9ea6f33a24cad19e9f81c880b7c9accbfee26786323698ec",
+      "bytes": 6868
+    },
+    "ncnn/model_zoo/mobilenetssd.py": {
+      "sha256": "c8032c6d03800caec4acffb23e23c232fe22d75db5bbbfece99f32bc16974a0b",
+      "bytes": 3199
+    },
+    "ncnn/model_zoo/mobilenetv2ssdlite.py": {
+      "sha256": "8bd65fc2f95fadae12bbdc8d7ef79c2dff55ffc1ded6397858497f783743b3ae",
+      "bytes": 3360
+    },
+    "ncnn/model_zoo/mobilenetv3ssdlite.py": {
+      "sha256": "446ea68d5648c61c39c4f85a4928bc8f001bd7d24320a5acff6a1748c04724d8",
+      "bytes": 4396
+    },
+    "ncnn/model_zoo/model_store.py": {
+      "sha256": "ca5608c9c6938bee71217eb8bc0c9fad6c89ff91d4e12f51f5ec0db984aadc18",
+      "bytes": 7911
+    },
+    "ncnn/model_zoo/model_zoo.py": {
+      "sha256": "4faa6a3b4c45e02b2ecb6f8706ecc40833a490e6aa7b7f20f8cc2557cdbbae85",
+      "bytes": 1822
+    },
+    "ncnn/model_zoo/nanodet.py": {
+      "sha256": "9dc158d5b8e35c47e2aadbce36c42490e257f5a73fcffa869b8983d102de8d0d",
+      "bytes": 7780
+    },
+    "ncnn/model_zoo/peleenetssd.py": {
+      "sha256": "9580ed90e0ba3ece7a002d94b70e3c1b2879c020325491288199e7e05e2cb4c2",
+      "bytes": 3090
+    },
+    "ncnn/model_zoo/retinaface.py": {
+      "sha256": "457d4f763f5a814d87f830d948b87fc2e58dedf087cb609bc181b36dc3be45bc",
+      "bytes": 10289
+    },
+    "ncnn/model_zoo/rfcn.py": {
+      "sha256": "38818017230c59db71fb3c2c9afb370fa49cdfd0eb03cc0855a3a995e4aa159a",
+      "bytes": 6821
+    },
+    "ncnn/model_zoo/shufflenetv2.py": {
+      "sha256": "7a10d47a0d9206f0351a33660546ef6ab24ce03a0ebe7c8e848b409f0fa74da0",
+      "bytes": 1967
+    },
+    "ncnn/model_zoo/simplepose.py": {
+      "sha256": "134001f330471028c468c9a6e4be2fb53b005c7634ced4a3a00dcf0ae3eb4519",
+      "bytes": 2474
+    },
+    "ncnn/model_zoo/squeezenet.py": {
+      "sha256": "9c1ba0cda59f82490e74cc68f7afb84f2571077c4403579d1f895c9ee3160605",
+      "bytes": 1441
+    },
+    "ncnn/model_zoo/squeezenetssd.py": {
+      "sha256": "9fd7dfc97358c984ec1cbf59172aea17faab817ddd8f252a6c27334b601ed576",
+      "bytes": 3190
+    },
+    "ncnn/model_zoo/yolact.py": {
+      "sha256": "1e877a3d7238cefc645d9c25530493acd286692913d2f29e2b80a58b868ac3e7",
+      "bytes": 10590
+    },
+    "ncnn/model_zoo/yolov2.py": {
+      "sha256": "868ad8fac22519df8cc0f4ead2c03788cb2cc989fa6194d3ced8e1b3c31eff76",
+      "bytes": 3365
+    },
+    "ncnn/model_zoo/yolov3.py": {
+      "sha256": "3d9e7a9dc4352f8c754eadda8cf3aafaa1877390651dbee1895ac1f7547138a8",
+      "bytes": 3240
+    },
+    "ncnn/model_zoo/yolov4.py": {
+      "sha256": "f194eb2892796d5a168dc30faf7e0cbe1b2a83dfa8eb21f3626a452e3318efdd",
+      "bytes": 4904
+    },
+    "ncnn/model_zoo/yolov5.py": {
+      "sha256": "696f49963c269386be58a084ddd9caa9b1b8471c60f826dc21520d8c235ad650",
+      "bytes": 10916
+    },
+    "ncnn/model_zoo/yolov7.py": {
+      "sha256": "d222f0065323566115e0960b62f667195b0809ab9d155e5eba3506b2a65c54b3",
+      "bytes": 10195
+    },
+    "ncnn/model_zoo/yolov8.py": {
+      "sha256": "1611197a2ca01f15689aa13041fecc20c34f4a96fa5f1a565bc28a7f0a2855fc",
+      "bytes": 9666
+    },
+    "ncnn/ncnn.cpython-311-x86_64-linux-gnu.so": {
+      "sha256": "bee71beca8df30edfb4b63d766c8227df07ff093fab9a19d52a4aad2694c33f6",
+      "bytes": 26414897
+    },
+    "ncnn/utils/__init__.py": {
+      "sha256": "b225ecbc992bc63e54636ca4765c5d4116da6bdebcc4ca2b06e33234c3e65cb2",
+      "bytes": 154
+    },
+    "ncnn/utils/__pycache__/__init__.cpython-311.pyc": {
+      "sha256": "e3ced5fa471a458f61137dcd808f527e9758fe33cc2920f1f12e14c24a613dd4",
+      "bytes": 303
+    },
+    "ncnn/utils/__pycache__/_opencv.cpython-311.pyc": {
+      "sha256": "e15fb420d17fd2144050f4f04402a33f9827335870a460792f65e0c42fd6e710",
+      "bytes": 779
+    },
+    "ncnn/utils/__pycache__/download.cpython-311.pyc": {
+      "sha256": "34f586803200cba7b71253e27e77c317442a6d05180aeb3b88de3cd3e46956e0",
+      "bytes": 5027
+    },
+    "ncnn/utils/__pycache__/functional.cpython-311.pyc": {
+      "sha256": "9da5e4963f7b88ae7d91c701e2442874f33f0d85e224d78dd8bb42940673f24c",
+      "bytes": 5936
+    },
+    "ncnn/utils/__pycache__/objects.cpython-311.pyc": {
+      "sha256": "0f932547a93af6f66efca210cc9fff5d5936c338335d454b218ef3b45422728c",
+      "bytes": 3409
+    },
+    "ncnn/utils/__pycache__/visual.cpython-311.pyc": {
+      "sha256": "723f70457cc113f0e56aa599edb6b71523df1396e1a01ae2c6eeabb090745399",
+      "bytes": 8137
+    },
+    "ncnn/utils/_opencv.py": {
+      "sha256": "b29191b25be34d92d1ecde16d9b643504193588a5b3965ca9b0c45368aa0170f",
+      "bytes": 489
+    },
+    "ncnn/utils/download.py": {
+      "sha256": "d1636fe32c860a75a0c6322a60fce3971d467772bea683f70bfd755f9b445681",
+      "bytes": 3335
+    },
+    "ncnn/utils/functional.py": {
+      "sha256": "be4703cf85dec7686ed8a6745165758dd178239b1da8a30ec0a3a565e12b12bc",
+      "bytes": 3246
+    },
+    "ncnn/utils/objects.py": {
+      "sha256": "ee2ae4fca37528a1ac53ca2335f67e7b716c08dff3a6761eaffa659748ae37cc",
+      "bytes": 1043
+    },
+    "ncnn/utils/visual.py": {
+      "sha256": "80a2cb29e425b4a999feb10264d32a505968ca3b509f09bc1d70a64b8ab93679",
+      "bytes": 4778
+    },
+    "ncnn-1.0.20261020.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "ncnn-1.0.20261020.dist-info/METADATA": {
+      "sha256": "da798bd17f1a05bbaadeb22c009d9529b102f02719ccf6329145c9218683ee3d",
+      "bytes": 29616
+    },
+    "ncnn-1.0.20261020.dist-info/RECORD": {
+      "sha256": "6d88cba9ac66dcd9fdb96a05b9f006fcd60d235c55542dacf337ef0edaffe94c",
+      "bytes": 4936
+    },
+    "ncnn-1.0.20261020.dist-info/REQUESTED": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ncnn-1.0.20261020.dist-info/WHEEL": {
+      "sha256": "6da809d67b0bbf5d4132e90bf794ac4db4468ca9e12a41aed0b3289652118475",
+      "bytes": 152
+    },
+    "ncnn-1.0.20261020.dist-info/licenses/LICENSE.txt": {
+      "sha256": "7c974bac98848df46be1af5bdaa3c3c9c01f6082a90f55caeb7f60c6208aa255",
+      "bytes": 6427
+    },
+    "ncnn-1.0.20261020.dist-info/sboms/auditwheel.cdx.json": {
+      "sha256": "799020ab4a091ef44a16c9b9818dcf35c6b0a20a6f8f68751a1c82a6283dac9f",
+      "bytes": 1466
+    },
+    "ncnn-1.0.20261020.dist-info/top_level.txt": {
+      "sha256": "6592d2d7e89e5a12f38614d92f0a122a45bf63259207443cc1dfb520a7a70d4a",
+      "bytes": 5
+    },
+    "ncnn.libs/libgomp-6a29c32d.so.1.0.0": {
+      "sha256": "2aa037784caec5079de4f23a7d526a62bcc03a3fb98ac94031345daabe21c465",
+      "bytes": 2114857
+    }
+  },
+  "python_launcher": "tools/refocus/python311.sh",
+  "notes": "staged nao significa aprovado; nao inclui texturas do cliente"
+}

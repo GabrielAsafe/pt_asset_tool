@@ -1,0 +1,17 @@
+{
+  "material_overrides": {
+    "*/Image/Field/*stone*": "stone",
+    "*/Image/Terrain/*": "terrain"
+  },
+  "models": {
+    "stone": {
+      "engine": "spandrel",
+      "model": "/SUBSTITUIR/PESO_ESRGAN_1X_DEDXT.pth",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "device": "cpu",
+      "tile": 256,
+      "halo": 24,
+      "timeout": 900
+    }
+  }
+}

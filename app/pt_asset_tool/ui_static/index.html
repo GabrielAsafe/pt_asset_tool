@@ -182,6 +182,20 @@
             <div id="clientEnhancementBatchSummary" class="server-summary"></div>
             <p class="micro"><strong>Dedicated workflow:</strong> candidates are stored in <code>app/pt_build/texture_upscale/runs</code>; publish/rollback use pre-validation, hashes, and backups. For enhancement of a specific texture, use the <strong>Catalog</strong>.</p>
           </section>
+          <section class="panel server-root-panel" id="clientMaterialLabPanel">
+            <div class="panel-title"><strong>Material Lab · Pós-upscale 1×</strong><span id="clientMaterialLabState">Nenhum trabalho iniciado</span></div>
+            <p class="micro"><strong>Sem novo upscale:</strong> preserva as dimensões atuais, cria candidatos fora do cliente e gera pré-visualizações antes/depois e mapas offline. Não publica texturas nem ativa shaders/parallax automaticamente.</p>
+            <div class="server-root-form">
+              <label>Restauração 1× <select id="clientMaterialLabDenoise"><option value="off">Sem alterações RGB</option><option value="light">Limpeza leve</option><option value="medium">Limpeza média</option></select></label>
+              <label>Mapas de material <select id="clientMaterialLabMaps"><option value="off">Não gerar</option><option value="from-diffuse">Gerar estimativas de normal/height + demo offline</option></select></label>
+              <label class="check"><input id="clientMaterialLabIncludeUi" type="checkbox"/> Incluir UI/atlases (revisão obrigatória)</label>
+              <button id="clientMaterialLabRunBtn" class="btn primary">Preparar materiais atuais (sem upscale)</button>
+              <button id="clientMaterialLabRefreshBtn" class="btn">Estado</button>
+            </div>
+            <div id="clientMaterialLabSummary" class="server-summary"></div>
+            <p><a id="clientMaterialLabReviewLink" href="#" target="_blank" rel="noopener" style="display:none">Abrir galeria de revisão antes/depois</a></p>
+            <p class="micro">Para executar DEDXT/ESRGAN 1× (modelos .pth), modelos por material ou usar height maps criados à mão, usa <code>pt_asset.py texture-material</code> com ficheiro de configuração e pesos verificados. O painel de revisão HTML é gerado na workspace; a autorização de publicação dos mapas continua bloqueada até à certificação no motor.</p>
+          </section>
           <section class="panel server-handoff-panel"><div class="panel-title"><strong>Individual enhancement</strong><span>not duplicated here</span></div><p>Select the texture in the Catalog and use the asset capabilities. This step contains only the global/batch workflow.</p><button class="btn" data-open-client-target="catalog">Open Catalog</button></section>
         </section>
 

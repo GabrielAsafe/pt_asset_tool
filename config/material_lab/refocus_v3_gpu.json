@@ -1,0 +1,19 @@
+{
+  "material_overrides": {},
+  "models": {
+    "default": {
+      "engine": "ncnn_vulkan",
+      "model_param": "../../assets/ai_models/refocus_v3/refocus_v3.ncnn.param",
+      "model_bin": "../../assets/ai_models/refocus_v3/refocus_v3.ncnn.bin",
+      "sha256": "0ef9d998804964a6e3ddf2cba33cd93f1f4eed17d8d314f027b433cceb954358",
+      "sha256_bin": "6d0186d1264ee385bcf5d6c6e9af012e0c8f61a3158362af82aa37ffd7d6cd65",
+      "python": "../../tools/refocus/python311.sh",
+      "runtime_root": "../../vendor/ncnn/1.0.20261020",
+      "tile_cache_root": "../../.work/material_lab_tile_cache",
+      "gpu_id": 0,
+      "tile": 256,
+      "halo": 24,
+      "timeout": 1800
+    }
+  }
+}

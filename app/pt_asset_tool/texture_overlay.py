@@ -1,5 +1,5 @@
 from __future__ import annotations
-from .runtime_paths import python_script_command
+from .runtime_paths import bundle_root, python_script_command
 import importlib.util, json, os, pathlib, shutil, struct, subprocess
 from .utils import norm_path
 
@@ -66,6 +66,10 @@ def _load_bmp_core(root: pathlib.Path):
 
 def _load_material_parser(root: pathlib.Path):
     p = root / "pt_pikeman_smd_material_audit_v1.py"
+    if not p.is_file():
+        # The caller can pass the PT Asset Tool repository root, while the
+        # shipped Model0.62 parser lives in app/ (the runtime bundle root).
+        p = bundle_root() / "pt_pikeman_smd_material_audit_v1.py"
     if not p.is_file():
         raise FileNotFoundError(p)
     spec = importlib.util.spec_from_file_location("pt_texture_overlay_material_decoder", p)

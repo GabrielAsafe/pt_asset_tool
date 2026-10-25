@@ -1,0 +1,19 @@
+{
+  "material_overrides": {},
+  "models": {
+    "default": {
+      "engine": "ncnn_vulkan",
+      "model_param": "../../assets/ai_models/dedxt_1x/dedxt_1x.ncnn.param",
+      "model_bin": "../../assets/ai_models/dedxt_1x/dedxt_1x.ncnn.bin",
+      "sha256": "0ef9d998804964a6e3ddf2cba33cd93f1f4eed17d8d314f027b433cceb954358",
+      "sha256_bin": "352ee967b67594477c64c3fcf050e641b4205849d647e45ca8716e8a66434ba8",
+      "python": "../../tools/refocus/python311.sh",
+      "runtime_root": "../../vendor/ncnn/1.0.20261020",
+      "tile_cache_root": "../../.work/material_lab_tile_cache",
+      "gpu_id": 0,
+      "tile": 256,
+      "halo": 24,
+      "timeout": 1800
+    }
+  }
+}

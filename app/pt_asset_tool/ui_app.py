@@ -767,6 +767,32 @@ class UIHandler(BaseHTTPRequestHandler):
             return
         if path.startswith("/static/"):
             return self._serve_static(path[len("/static/"):])
+        if path.startswith("/api/material-lab/runs/"):
+            # Serve only locally-generated review HTML and PNG previews from
+            # the app-managed staging tree. Never expose arbitrary pt_build.
+            rel = urllib.parse.unquote(path[len('/api/material-lab/runs/'):])
+            parts = pathlib.PurePosixPath(rel).parts
+            if len(parts) < 2 or any(x in ('..','.') for x in parts):
+                return self._error(404, 'MATERIAL_LAB_PREVIEW_NOT_FOUND')
+            run_name = parts[0]
+            if not run_name.startswith('run_') or not all(ch.isalnum() or ch in '_-' for ch in run_name):
+                return self._error(404, 'MATERIAL_LAB_PREVIEW_NOT_FOUND')
+            lab_root = (self.ctx.project_root / 'pt_build' / 'texture_material' / 'runs' / run_name).resolve()
+            resource = (lab_root / pathlib.Path(*parts[1:])).resolve()
+            allowed = (len(parts)==2 and parts[1].startswith('review_') and parts[1].endswith('.html')) or (len(parts)>=3 and parts[1] in {'previews','maps'} and resource.suffix.lower()=='.png')
+            if (not allowed or lab_root not in resource.parents or not (lab_root/'manifest.json').is_file() or not resource.is_file()):
+                return self._error(404, 'MATERIAL_LAB_PREVIEW_NOT_FOUND')
+            raw=resource.read_bytes()
+            mime='text/html; charset=utf-8' if resource.suffix.lower()=='.html' else 'image/png'
+            self.send_response(200)
+            self.send_header('Content-Type',mime)
+            self.send_header('Content-Length',str(len(raw)))
+            self.send_header('Cache-Control','no-store')
+            self.send_header('X-Content-Type-Options','nosniff')
+            self.send_header('Content-Security-Policy',"default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'")
+            self.end_headers()
+            self.wfile.write(raw)
+            return
         if path == "/api/bootstrap":
             s = self.ctx.catalog.stats
             return self._json(200, {
@@ -807,6 +833,24 @@ class UIHandler(BaseHTTPRequestHandler):
                     "note": "Client/server Asset Bundle writes are limited to verified transactions with backup, drift gate, atomic replace and rollback. Persistence/security/log paths remain blocked.",
                 },
             })
+        if path == "/api/material-lab/status":
+            from . import texture_material_pipeline as lab
+            runs = self.ctx.project_root / "pt_build" / "texture_material" / "runs"
+            candidates = sorted(runs.glob("*/manifest.json"), key=lambda p: p.stat().st_mtime, reverse=True) if runs.is_dir() else []
+            if not candidates:
+                return self._json(200, {"ok": True, "state": "NO_RUN", "upscale_performed": False,
+                                        "client_publish_authorized": False})
+            try:
+                latest = lab._verified_manifest(candidates[0])
+                result = lab.audit(candidates[0])
+                return self._json(200, {"ok": True, "state": latest['state'], "manifest": str(candidates[0]),
+                                        "gallery": str(candidates[0].parent / 'review_001.html'),
+                                        "review_url": "/api/material-lab/runs/" + candidates[0].parent.name + "/review_001.html",
+                                        "status_counts": latest['status_counts'],
+                                        "audit": result, "upscale_performed": False,
+                                        "client_publish_authorized": False})
+            except Exception as exc:
+                return self._error(500, "MATERIAL_LAB_REPORT_INVALID", str(exc))
         if path == "/api/legacy-ops/status":
             try:
                 return self._json(200, {"ok": True, **legacy_apps_workspace_status(self.ctx.project_root, self.ctx.server_root)})
@@ -1439,6 +1483,27 @@ class UIHandler(BaseHTTPRequestHandler):
             return
         u = urllib.parse.urlparse(self.path)
         body = self._body_json()
+        if u.path == "/api/material-lab/run":
+            if not self.ctx.write_armed:
+                return self._error(409, "BUILD_WRITE_NOT_ARMED", "Arm workspace/build before staging the material lab.")
+            if self.ctx.jobs.has_active(None):
+                return self._error(409, "GLOBAL_JOB_ALREADY_RUNNING", "A job is already active.")
+            denoise = str(body.get('denoise') or 'off').strip().lower()
+            maps = str(body.get('maps') or 'off').strip().lower()
+            if denoise not in {'off', 'light', 'medium'} or maps not in {'off','from-diffuse'}:
+                return self._error(400, "MATERIAL_LAB_INVALID_OPTIONS", "AI needs a pinned model configuration (CLI); height-root needs authored evidence (CLI).")
+            if body.get('confirm') != 'STAGE MATERIAL LAB':
+                return self._error(400, "MATERIAL_LAB_CONFIRMATION_REQUIRED")
+            cmd = [*app_command(self.ctx.project_root), "--client-root", str(self.ctx.client_root),
+                   "texture-material", "run", "--input-root", str(self.ctx.client_root),
+                   "--all", "--denoise", denoise, "--maps", maps]
+            if body.get('include_ui') is True:
+                cmd.append('--include-ui')
+            job = self.ctx.jobs.submit('material_lab_run', None, cmd,
+                                       surface='client', workflow='enhancement',
+                                       result_anchor='clientMaterialLabSummary')
+            return self._json(202, {"ok": True, "job": job.public(), "mode": 'material_lab_run',
+                                    "upscale_performed": False, "client_write": False})
         if u.path == "/api/legacy-ops/plan":
             if self.ctx.server_root is None or not self.ctx.server_root.is_dir():
                 return self._error(409, "SERVER_ROOT_NOT_CONFIGURED")
@@ -1764,6 +1829,9 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "TEXTURE_UPSCALE_BACKEND_INVALID")
             if profile not in {"faithful", "balanced", "detail", "pixel-art"}:
                 return self._error(400, "TEXTURE_QUALITY_PROFILE_INVALID")
+            denoise = str(body.get("denoise") or "off").strip().lower()
+            if denoise not in {"off", "light", "medium"} or (profile == "pixel-art" and denoise != "off"):
+                return self._error(400, "TEXTURE_DENOISE_INVALID")
             if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
                 return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "Real-ESRGAN is not available in this environment.")
             cmd = [
@@ -1773,6 +1841,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 "--scale", scale, "--backend", backend, "--profile", profile,
                 "--gpu", str(int(body.get("gpu") or 0)),
                 "--model", str(body.get("model") or "realesrgan-x4plus"),
+                "--denoise", denoise,
             ]
             job = self.ctx.jobs.submit("enhancement_batch_run", None, cmd, surface="client", workflow="enhancement", result_anchor="clientEnhancementBatchSummary")
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_run"})
@@ -2250,6 +2319,9 @@ class UIHandler(BaseHTTPRequestHandler):
                     return self._error(400, "TEXTURE_UPSCALE_BACKEND_INVALID")
                 if profile not in {"faithful", "balanced", "detail", "pixel-art"}:
                     return self._error(400, "TEXTURE_QUALITY_PROFILE_INVALID")
+                denoise = str(options.get("denoise") or "off").strip().lower()
+                if denoise not in {"off", "light", "medium"} or (profile == "pixel-art" and denoise != "off"):
+                    return self._error(400, "TEXTURE_DENOISE_INVALID")
                 if profile == "pixel-art" and backend == "realesrgan":
                     return self._error(400, "TEXTURE_PIXEL_ART_AI_INVALID", "pixel-art must use auto or Lanczos.")
                 if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):

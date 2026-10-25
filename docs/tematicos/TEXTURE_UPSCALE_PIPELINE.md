@@ -275,3 +275,47 @@ Use `python3 pt_asset.py texture-upscale capabilities` para verificar os backend
 O fato de `app/pt_build/texture_upscale/` ser runtime gerado não torna transações/manifests automaticamente descartáveis. Antes de uma consolidação/clean que remova `pt_build`, arquive/exporte qualquer run, transaction, batch ou manifest necessário para auditoria, comparação ou rollback futuro.
 
 Nunca apague esse estado assumindo que existe uma migração: primeiro confirme o destino e hashes da cópia.
+
+
+## Fase 2 — pré-limpeza e modelos de texturas de jogos (opt-in)
+
+A melhoria visual deve ser testada em pares `antes/depois` **antes da publicação**. Esta fase acrescenta:
+
+- `--denoise off|light|medium` (padrão `off`): filtro de mediana RGB com mistura leve **antes** do upscale. Preserva o canal alpha original. Reduz ruído pontual, mas **não** é um modelo de recuperação DXT/BC1, não corrige cores alucinadas, nem substitui IA especializada. Comece por `light`; `medium` pode apagar detalhes finos.
+- `--model <nome> --model-dir <pasta>`: escolha explícita de modelos **NCNN** já convertidos, que tenham os dois ficheiros `<nome>.param` e `<nome>.bin`. O executable continua a ser o `realesrgan-ncnn-vulkan` existente. Os modelos em `.pth` como o DEDXT da OpenModelDB **não funcionam diretamente** neste backend: utilize um pré-processamento dedicado no chaiNNer/PyTorch ou uma conversão compatível e validada, se disponível.
+- Proteção conservadora para nomes de ficheiro sugestivos de normal maps (`_n`, `_normal`, `_nrm`) e height/parallax (`_height`, `_parallax`, etc.). São reportados no manifest como `skipped_technical_map_review` por padrão, não são enviados ao upscaler genérico. Isto é apenas uma heurística de nomes, não deteção por shader/mesh. `--include-technical-maps` permite testes explícitos, **não** valida a compatibilidade desses mapas.
+
+Exemplo com o modelo incluído e pré-limpeza leve:
+
+```bash
+cd app
+python3 pt_asset.py texture-upscale run \
+  --include-exact 'Image/Field/stone.tga' \
+  --scale 4 --backend realesrgan --profile detail \
+  --model realesrgan-x4plus --denoise light
+```
+
+Exemplo com modelo de jogo **já convertido em NCNN**, preparado pelo utilizador:
+
+```bash
+python3 pt_asset.py texture-upscale run \
+  --include-exact 'Image/Field/stone.tga' \
+  --scale 4 --backend realesrgan --profile faithful \
+  --model GameTexture4x --model-dir /caminho/modelos-ncnn \
+  --denoise off
+```
+
+O manifest passa a guardar o `denoise`, `model_dir`, `protect_technical_maps`, e por ficheiro o `denoise_level`, `model_used`, `texture_role`. O comando `resume` reutiliza os parâmetros guardados. Na GUI, a ação individual pergunta o nível de pré-limpeza e, se for usar AI, permite indicar modelo NCNN e pasta. O lote global pergunta pelo `denoise`, por padrão desligado; o tratamento de mapas técnicos continua separado.
+
+**Limites importantes:** o pipeline do Priston Tale/Summit trabalha principalmente com TGA/BMP (alguns protegidos), PNG e JPEG; os exemplos de Skyrim e de DXT/DDS não devem ser transplantados automaticamente. Antes de desenvolver normal maps, height maps, parallax ou substituição de meshes, é necessário confirmar quais os shaders, canais/slots de material e formatos que o motor do cliente aceita. Gerar um normal map ou uma textura de altura não torna automaticamente o jogo compatível com esse efeito. A etapa de meshes requer um processo separado de importação/exportação e validação geométrica.
+
+### Planeamento da Fase 2 (histórico; ver Fases 3–6 abaixo)
+
+1. Catalogação dos tipos de material por referência efetiva de mesh/shader (não apenas pelo nome), com análise de texturas repetíveis, alpha/máscaras e possíveis seams.
+2. Pipeline dedicado de normal maps: espaço tangente, orientação Y, renormalização, preservação de alpha auxiliar, confirmação de suporte pelo cliente e screenshots in-game.
+3. Pipeline de height/parallax **somente** se o renderizador suportar essa técnica (ou se existir extensão compatível), com renderização de comparação.
+4. Auditoria de geometria/UV e mesh fixes sem alterar malhas do cliente sem pré-visualização, backups, diffs e rollback.
+5. Comparador de candidatos e marcação de aprovação visual/manual por textura antes de publicar em lote.
+
+
+**Fases 3–6 (outubro de 2026):** foi acrescentado o `texture-material` para processamento **1× pós-upscale**, geração offline de normal/height/parallax-demo, auditoria SMD e aprovação de candidatos por hash. Consulte `docs/tematicos/TEXTURE_MATERIAL_LAB_POS_UPSCALE.md`. A publicação de mapas não é suportada sem shaders/mesh fixes certificados para o cliente; a geração offline não implica efeito em jogo.

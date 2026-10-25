@@ -187,6 +187,22 @@ def build_command(project_root: pathlib.Path, action: str, rel: str | None, opti
         cmd = base + ["texture-upscale", "run", "--include-exact", rel, "--scale", scale, "--backend", backend]
         if profile_raw is not None:
             cmd += ["--profile", profile]
+        denoise = str(options.get("denoise") or "off").strip().lower()
+        if denoise not in {"off", "light", "medium"}:
+            raise ValueError("INVALID_TEXTURE_DENOISE_LEVEL")
+        if profile == "pixel-art" and denoise != "off":
+            raise ValueError("PIXEL_ART_DENOISE_UNSAFE")
+        if denoise != "off":
+            cmd += ["--denoise", denoise]
+        if options.get("model") is not None:
+            model = str(options["model"]).strip()
+            if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", model) or model.endswith((".bin", ".param", ".pth")):
+                raise ValueError("INVALID_NCNN_MODEL_NAME")
+            cmd += ["--model", model]
+        if options.get("model_dir"):
+            cmd += ["--model-dir", str(options["model_dir"])]
+        if bool(options.get("include_technical_maps")):
+            cmd.append("--include-technical-maps")
         if bool(options.get("include_ui")):
             cmd.append("--include-ui")
         return cmd
