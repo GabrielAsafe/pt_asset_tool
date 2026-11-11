@@ -992,9 +992,19 @@ class ValidationRunner:
         incomplete_texture_refs = list(texture_policy.get("incomplete_references") or [])
         hard_texture_failures = list(texture_policy.get("hard_preparation_failures") or [])
         if hard_texture_failures:
+            # Preserve fail-closed behavior. Expose exactly WHICH physical
+            # client file, decoder, and status blocked the preview. Do not
+            # reclassify a BMP/TGA decode failure as a missing texture.
+            failure_details = [
+                {k: row[k] for k in
+                 ("logical", "physical", "status", "error", "log", "returncode")
+                 if k in row}
+                for row in hard_texture_failures[:5]
+            ]
             raise RuntimeError(
                 "Stage0.72 texture preparation hard-failed for existing client files: "
-                f"failures={len(hard_texture_failures)}"
+                f"failures={len(hard_texture_failures)} details={failure_details!r} "
+                f"report={work / 'texture_overlay_report.json'}"
             )
 
         blend = work / "stage072_preview.blend"

@@ -4577,6 +4577,10 @@ def build_parser():
     p.add_argument("--client-root", help="client root (default: PT_CLIENT_ROOT or standard Summit path)")
     p.add_argument("--server-root", help="server root (default: PT_SERVER_ROOT; server integration is read-only until separately certified)")
     sp = p.add_subparsers(dest="command", required=True)
+    from .data_type_tools import register_parser as register_data_type_tools
+    register_data_type_tools(sp)
+    from .etervale_integration import register_parser as register_etervale_bridge
+    register_etervale_bridge(sp)
 
     x = sp.add_parser("doctor"); x.set_defaults(func=cmd_doctor)
     x = sp.add_parser("families"); x.set_defaults(func=cmd_families)

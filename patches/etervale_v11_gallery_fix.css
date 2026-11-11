@@ -1,0 +1,52 @@
+/* ETERVALE_V11_GALLERY_IMAGE_RATIO_BEGIN
+ * Repara o catálogo após o layout de altura fixa V10.
+ * A área de scroll pode ter altura fixa; os cartões dentro dela NÃO podem
+ * repartir essa altura entre todas as linhas da página.
+ * Isto não altera nem reprocessa nenhuma imagem ou preview SMD.
+ */
+#tab-catalog #galleryMode.gallery {
+  /* Os tracks do grid crescem com o conteúdo, não encolhem até zero. */
+  grid-template-rows: none !important;
+  grid-auto-rows: max-content !important;
+  align-content: start !important;
+  align-items: start !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+#tab-catalog #galleryMode.gallery > .asset-card {
+  /* Nunca repartir a altura da viewport pelos cartões. */
+  height: auto !important;
+  min-height: 0;
+  max-height: none !important;
+  align-self: start !important;
+  display: block !important;
+  overflow: hidden;
+}
+#tab-catalog #galleryMode.gallery > .asset-card > .thumb {
+  /* Reservar a altura real da miniatura independentemente do número de linhas. */
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: 118px !important;
+  min-height: 118px !important;
+  max-height: 118px !important;
+  flex: 0 0 118px !important;
+  overflow: hidden;
+}
+#tab-catalog #galleryMode.gallery > .asset-card > .thumb > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+}
+#tab-catalog #galleryMode.gallery > .asset-card > .card-body {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden;
+}
+/* ETERVALE_V11_GALLERY_IMAGE_RATIO_END */

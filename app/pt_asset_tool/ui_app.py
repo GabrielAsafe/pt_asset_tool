@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import errno
+import hashlib
 import json
 import mimetypes
 import os
@@ -32,6 +33,7 @@ from .item_visual_index import load_or_build_item_visual_index
 from .catalog_character_index import load_or_build_character_index, PLAYABLE_CLASSES
 from .smd_preview import SmdPreviewManager, build_smd_preview_plan
 from .smd_preview_batch import read_batch_state
+from . import etervale_entity_names as game_entity_names
 from .resolver import ClientResolver
 from .legacy_management_web import (
     legacy_management_dashboard, legacy_management_item_detail,
@@ -74,7 +76,8 @@ from .donor_recovery_explorer import (
 from .asset_retention import query_asset_retention
 from .server_enrichment_readiness import build_general_census_readiness
 from .source_catalog import configured_source_roots
-from .texture_upscale import capability_status as texture_upscale_capability_status, enhancement_status, enhancement_root, enhancement_batch_status
+from .texture_upscale import capability_status as texture_upscale_capability_status, enhancement_status, enhancement_root, enhancement_batch_status, ncnn_model_inventory, discover_ncnn_model_dir
+from .etervale_texture_selection import list_selection as texture_list_selection, validate_selected_paths as texture_validate_selected_paths
 from .blender_workspace import blender_edit_root
 from .dependencies import dependency_report
 from . import particle_service
@@ -175,6 +178,13 @@ def _path_inside(root: pathlib.Path, rel: str) -> pathlib.Path:
     return p
 
 
+def _preview_etag(path: pathlib.Path) -> str:
+    """Revision validator for preview URLs without revealing source paths."""
+    st = path.stat()
+    token = f"{path.resolve()}\0{st.st_size}\0{st.st_mtime_ns}".encode("utf-8")
+    return '"' + hashlib.sha256(token).hexdigest()[:28] + '"'
+
+
 class UIContext:
     def __init__(self, project_root: pathlib.Path, client_root: pathlib.Path, server_root: pathlib.Path | None = None):
         self.project_root = project_root.resolve()
@@ -228,6 +238,9 @@ class UIContext:
         self._character_index_catalog_revision = -1
         self._character_index_cache_hit = False
         self._character_index_last_build_ms = 0.0
+        self._entity_name_lookup_key = None
+        self._entity_name_lookup: dict[tuple[str, str], list[str]] = {}
+        self._entity_name_lookup_at = 0.0
         self.smd_previews = SmdPreviewManager(self.project_root, self.client_root)
         self.jobs = JobManager(
             self.project_root, max_concurrent=2,
@@ -438,6 +451,26 @@ class UIContext:
         except Exception:
             # Cache persistence is an optimization only.
             pass
+
+    def entities_with_game_names(self, registry=None) -> list[dict[str, Any]]:
+        base = self.entities_snapshot(registry)
+        status = game_entity_names.source_status(self.project_root, self.server_root)
+        path = pathlib.Path(status["path"]) if status["status"] == "READY_READ_ONLY_SQLITE" else None
+        def stamp(p: pathlib.Path | None) -> tuple[int, int]:
+            try:
+                st = p.stat() if p else None
+                return (st.st_size, st.st_mtime_ns) if st else (0, 0)
+            except OSError:
+                return (0, 0)
+        key = (str(path or ""), stamp(path), stamp(pathlib.Path(str(path) + "-wal") if path else None))
+        if key != self._entity_name_lookup_key or time.monotonic() - self._entity_name_lookup_at > 5:
+            try:
+                self._entity_name_lookup = game_entity_names.read_names(path) if path else {}
+            except (ValueError, OSError, __import__("sqlite3").Error):
+                self._entity_name_lookup = {}
+            self._entity_name_lookup_key = key
+            self._entity_name_lookup_at = time.monotonic()
+        return game_entity_names.annotate(base, self._entity_name_lookup)
 
     def entities_snapshot(self, registry=None) -> list[dict[str, Any]]:
         revision = int(getattr(self.catalog, "revision", 0))
@@ -760,6 +793,13 @@ class UIHandler(BaseHTTPRequestHandler):
         q = urllib.parse.parse_qs(u.query)
         if path == "/":
             return self._serve_static("index.html")
+        if path == "/etervale-readiness":
+            return self._serve_static("etervale-readiness.html")
+        if path == "/api/entity-names/source":
+            return self._json(200, {"ok": True, "result": game_entity_names.source_status(self.ctx.project_root, self.ctx.server_root)})
+        if path == "/api/etervale/readiness":
+            from .etervale_ui_readiness import board
+            return self._json(200, {"ok": True, "result": board(self.ctx.project_root / "pt_build")})
         if path == "/favicon.ico":
             self.send_response(204)
             self.send_header("Content-Length", "0")
@@ -832,6 +872,26 @@ class UIHandler(BaseHTTPRequestHandler):
                     "persistence_write": False,
                     "note": "Client/server Asset Bundle writes are limited to verified transactions with backup, drift gate, atomic replace and rollback. Persistence/security/log paths remain blocked.",
                 },
+            })
+        if path == "/api/enhancement/selection":
+            try:
+                with self.ctx.catalog._lock:
+                    assets = list(self.ctx.catalog.assets)
+                return self._json(200, {"ok": True, **texture_list_selection(
+                    assets, family=_one(q, "family") or "ui", search=_one(q, "q"),
+                    offset=int(_one(q, "offset") or 0), limit=int(_one(q, "limit") or 100),
+                )})
+            except (ValueError, TypeError) as exc:
+                return self._error(400, "TEXTURE_SELECTION_QUERY_INVALID", str(exc))
+        if path == "/api/enhancement/backend-status":
+            caps = texture_upscale_capability_status()
+            return self._json(200, {
+                "ok": True,
+                "capabilities": caps,
+                "installed_ncnn_models": ncnn_model_inventory(self.ctx.project_root),
+                "pytorch_pth_directly_compatible": False,
+                "runtime_inference_verified": False,
+                "model_architectures_verified": False,
             })
         if path == "/api/material-lab/status":
             from . import texture_material_pipeline as lab
@@ -1028,13 +1088,14 @@ class UIHandler(BaseHTTPRequestHandler):
                 except Exception as exc:
                     registry = None
                     registry_error = f"{type(exc).__name__}:{exc}"
-                entities = self.ctx.entities_snapshot(registry)
+                entities = self.ctx.entities_with_game_names(registry)
                 report = query_built_entities(
                     entities,
                     self.ctx.entity_seed,
                     group=_one(q, "group"),
                     q=_one(q, "q"),
                     limit=int(_one(q, "limit") or 500),
+                    ext=_one(q, "ext"), source=_one(q, "source"),
                 )
                 if registry_error:
                     report["registry_error"] = registry_error
@@ -1055,7 +1116,7 @@ class UIHandler(BaseHTTPRequestHandler):
                 except Exception as exc:
                     registry = None
                     registry_error = f"{type(exc).__name__}:{exc}"
-                entities = self.ctx.entities_snapshot(registry)
+                entities = self.ctx.entities_with_game_names(registry)
                 report = entity_detail_from_built(
                     entities,
                     _one(q, "key"),
@@ -1355,8 +1416,13 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(500, "FIELD_METADATA_INSPECT_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/particles":
             try:
+                limit_str = _one(q, "limit")
+                offset_str = _one(q, "offset")
+                limit = max(1, min(150, int(limit_str or "100")))
+                offset = max(0, int(offset_str or "0"))
                 rows = particle_service.asset_index(self.ctx.client_root, _one(q, "q"))
-                return self._json(200, {"ok": True, "items": rows, "count": len(rows)})
+                return self._json(200, {"ok": True, "items": rows[offset:offset+limit],
+                                        "count": len(rows), "offset":offset,"limit":limit})
             except Exception as exc:
                 return self._error(400, "PARTICLE_INDEX_FAILED", f"{type(exc).__name__}:{exc}")
         if path == "/api/particles/inspect":
@@ -1381,11 +1447,19 @@ class UIHandler(BaseHTTPRequestHandler):
         if path == "/api/particles/preview-image":
             try:
                 image = particle_service.safe_preview_image(self.ctx.project_root, _one(q, "path"))
+                etag = _preview_etag(image)
+                if self.headers.get("If-None-Match") == etag:
+                    self.send_response(304)
+                    self.send_header("ETag", etag)
+                    self.send_header("Cache-Control", "private, no-cache, must-revalidate")
+                    self.end_headers()
+                    return
                 raw = image.read_bytes()
                 self.send_response(200)
                 self.send_header("Content-Type", "image/png")
                 self.send_header("Content-Length", str(len(raw)))
-                self.send_header("Cache-Control", "no-store")
+                self.send_header("ETag", etag)
+                self.send_header("Cache-Control", "private, no-cache, must-revalidate")
                 self.end_headers()
                 self.wfile.write(raw)
                 return
@@ -1425,12 +1499,27 @@ class UIHandler(BaseHTTPRequestHandler):
             return self._json(200, {"ok": True, "name": name, "report": data})
         if path == "/api/smd-preview-batch":
             self.ctx.refresh_smd_preview_annotations()
-            preview_index = self.ctx.smd_previews.status_index()
+            # The batch state tracks the active job, not the whole catalog.
+            # Progress totals must reflect all inventoried SMDs, including
+            # assets never queued for preview rendering.
             counts: dict[str, int] = {}
-            for row in preview_index.values():
-                status = str((row or {}).get("status") or "MISSING").upper()
-                counts[status] = counts.get(status, 0) + 1
-            return self._json(200, {"ok": True, "batch": read_batch_state(self.ctx.project_root), "index": {"items": len(preview_index), "counts": counts}})
+            with self.ctx.catalog._lock:
+                smd_rows = [r for r in self.ctx.catalog.assets if str(r.get("ext") or "").casefold() == ".smd"]
+                for row in smd_rows:
+                    status = str(row.get("smd_preview_status") or "MISSING").upper()
+                    counts[status] = counts.get(status, 0) + 1
+            remaining = sum(counts.get(k, 0) for k in ("MISSING", "STALE", "FAILED"))
+            jobs = [j for j in self.ctx.jobs.list(100, surface="client") if j.get("action") == "smd_preview_batch"]
+            job = jobs[0] if jobs else None
+            batch = read_batch_state(self.ctx.project_root)
+            if batch.get("status") == "RUNNING" and not (job and job.get("status") in {"QUEUED", "RUNNING", "CANCELLING"}):
+                # The previous process was interrupted or the UI server restarted;
+                # do not falsely advertise an active worker.
+                batch = {**batch, "status": "INTERRUPTED", "note": "No active SMD batch job; previous results remain on disk and can be resumed with Generate SMD previews."}
+            return self._json(200, {"ok": True, "batch": batch, "job": job, "index": {
+                "items": len(smd_rows), "counts": counts, "total_smd": len(smd_rows),
+                "remaining": remaining,
+            }})
         if path == "/api/smd-preview-status":
             rel = _one(q, "path")
             plan = self.ctx._smd_preview_plan(rel)
@@ -1439,13 +1528,21 @@ class UIHandler(BaseHTTPRequestHandler):
             rel = _one(q, "path")
             try:
                 image = self.ctx.smd_previews.image_path(rel)
+                etag = _preview_etag(image)
+                if self.headers.get("If-None-Match") == etag:
+                    self.send_response(304)
+                    self.send_header("ETag", etag)
+                    self.send_header("Cache-Control", "private, no-cache, must-revalidate")
+                    self.end_headers()
+                    return
                 raw = image.read_bytes()
             except Exception as exc:
                 return self._error(404, "SMD_PREVIEW_NOT_READY", f"{type(exc).__name__}:{exc}")
             self.send_response(200)
             self.send_header("Content-Type", "image/png")
             self.send_header("Content-Length", str(len(raw)))
-            self.send_header("Cache-Control", "private, max-age=3600")
+            self.send_header("ETag", etag)
+            self.send_header("Cache-Control", "private, no-cache, must-revalidate")
             self.end_headers()
             self.wfile.write(raw)
             return
@@ -1458,6 +1555,13 @@ class UIHandler(BaseHTTPRequestHandler):
                 p = _path_inside(self.ctx.client_root, rel)
                 if not p.is_file():
                     return self._error(404, "PREVIEW_SOURCE_NOT_FOUND")
+                etag = _preview_etag(p)
+                if self.headers.get("If-None-Match") == etag:
+                    self.send_response(304)
+                    self.send_header("ETag", etag)
+                    self.send_header("Cache-Control", "private, max-age=3600, must-revalidate")
+                    self.end_headers()
+                    return
                 raw, mime = preview_image_bytes(p, self.ctx.project_root)
             except FileNotFoundError as exc:
                 return self._error(404, "PREVIEW_SOURCE_NOT_FOUND", str(exc))
@@ -1472,7 +1576,8 @@ class UIHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", mime)
             self.send_header("Content-Length", str(len(raw)))
-            self.send_header("Cache-Control", "private, max-age=120")
+            self.send_header("ETag", etag)
+            self.send_header("Cache-Control", "private, max-age=3600, must-revalidate")
             self.end_headers()
             self.wfile.write(raw)
             return
@@ -1650,6 +1755,13 @@ class UIHandler(BaseHTTPRequestHandler):
                 cmd.extend(["--tutorial-root", tutorial_root])
             job = self.ctx.jobs.submit("legacy_management_audit", None, cmd)
             return self._json(202, {"ok": True, "job": job.public(), "mode": "legacy_management_audit"})
+        if u.path == "/api/entity-names/source":
+            try:
+                result = game_entity_names.save_path(self.ctx.project_root, body.get("path", ""))
+                self.ctx._entity_name_lookup_key = None
+                return self._json(200, {"ok": True, "result": result})
+            except (ValueError, OSError) as exc:
+                return self._error(400, "ENTITY_NAME_DB_INVALID", str(exc))
         if u.path == "/api/smd-preview-batch":
             mode = str(body.get("mode") or "warmup").strip().lower()
             if mode not in {"warmup", "all", "missing", "stale", "failed"}:
@@ -1674,7 +1786,10 @@ class UIHandler(BaseHTTPRequestHandler):
                 self.ctx.resolver.prime_from_inventory(self.ctx.settings.inventory)
             except Exception:
                 pass
-            stale_count = self.ctx.smd_previews.mark_all_stale("REGISTRY_REINDEXED")
+            # Reindexing alone is not a texture/model modification. The per-asset
+            # cache key already checks its binary dependencies at render time.
+            # Do NOT invalidate thousands of proven previews unconditionally.
+            stale_count = 0
             self.ctx.refresh_smd_preview_annotations()
             return self._json(200, {
                 "ok": True,
@@ -1834,15 +1949,35 @@ class UIHandler(BaseHTTPRequestHandler):
                 return self._error(400, "TEXTURE_DENOISE_INVALID")
             if backend == "realesrgan" and not bool(tcaps.get("realesrgan_ready")):
                 return self._error(409, "TEXTURE_UPSCALE_REALESRGAN_UNAVAILABLE", "Real-ESRGAN is not available in this environment.")
+            # Never broaden a web selection into --all. Revalidate each path
+            # against the live indexed client catalogue before starting a job.
+            try:
+                with self.ctx.catalog._lock:
+                    texture_assets = list(self.ctx.catalog.assets)
+                selected_paths = texture_validate_selected_paths(
+                    texture_assets, self.ctx.client_root, body.get("paths"),
+                    family=str(body.get("family") or "ui"),
+                    include_ui=body.get("include_ui") is True,
+                )
+            except (ValueError, OSError) as exc:
+                return self._error(400, "TEXTURE_SELECTION_INVALID", str(exc))
             cmd = [
                 *app_command(self.ctx.project_root),
                 "--client-root", str(self.ctx.client_root),
-                "texture-upscale", "run", "--all", "--include-ui",
+                "texture-upscale", "run",
+                *(piece for item in selected_paths for piece in ("--include-exact", item)),
+                *(["--include-ui"] if body.get("include_ui") is True else []),
                 "--scale", scale, "--backend", backend, "--profile", profile,
                 "--gpu", str(int(body.get("gpu") or 0)),
                 "--model", str(body.get("model") or "realesrgan-x4plus"),
                 "--denoise", denoise,
             ]
+            model_name = str(body.get("model") or "realesrgan-x4plus")
+            # Let the CLI supply its own bundle if not found. Never claim a
+            # directory holding .pth weights is a compatible NCNN model dir.
+            known_dir = discover_ncnn_model_dir(model_name, self.ctx.project_root)
+            if known_dir is not None and backend in {"auto", "realesrgan"}:
+                cmd.extend(["--model-dir", str(known_dir)])
             job = self.ctx.jobs.submit("enhancement_batch_run", None, cmd, surface="client", workflow="enhancement", result_anchor="clientEnhancementBatchSummary")
             return self._json(202, {"ok": True, "job": job.public(), "mode": "enhancement_batch_run"})
         if u.path == "/api/enhancement/batch-resume":

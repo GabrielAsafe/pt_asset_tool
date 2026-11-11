@@ -1,0 +1,35 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_V6_WEB_UI_AUDITORIA_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/index.html"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.js"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.css"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_app.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/entity_catalog.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_v6_web_focus.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/V6_AUDITORIA_WEB_UI_E_API.md"
+    }
+  ]
+}

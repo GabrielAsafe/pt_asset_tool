@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/world_phases.schema.json",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "worlds"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "summit.world-phases/v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "worlds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/world"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "profileIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "mapVariant": {
+      "type": "object",
+      "required": [
+        "logical_map",
+        "variant_map",
+        "transition_policy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "logical_map": {
+          "type": "string",
+          "minLength": 1
+        },
+        "variant_map": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transition_policy": {
+          "enum": [
+            "relocate_players",
+            "drain_then_retire",
+            "next_entry"
+          ]
+        },
+        "transition_spawn": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "phase": {
+      "type": "object",
+      "required": [
+        "value",
+        "key",
+        "maps",
+        "spawn_profiles",
+        "npc_profiles"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "maps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mapVariant"
+          }
+        },
+        "spawn_profiles": {
+          "$ref": "#/$defs/profileIds"
+        },
+        "npc_profiles": {
+          "$ref": "#/$defs/profileIds"
+        },
+        "gate_profiles": {
+          "$ref": "#/$defs/profileIds"
+        }
+      }
+    },
+    "world": {
+      "type": "object",
+      "required": [
+        "id",
+        "phase_flag",
+        "monotonic",
+        "initial_phase",
+        "phases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^world\\."
+        },
+        "phase_flag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "monotonic": {
+          "type": "boolean"
+        },
+        "initial_phase": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "phases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/phase"
+          }
+        }
+      }
+    }
+  }
+}

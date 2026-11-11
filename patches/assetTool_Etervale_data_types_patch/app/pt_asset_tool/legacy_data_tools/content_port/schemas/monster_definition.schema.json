@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/monster_definition.schema.json",
+  "title": "Summit Monster Definition v1",
+  "type": "object",
+  "required": ["schema", "schema_version", "id", "kind", "semantic"],
+  "properties": {
+    "schema": {"const": "summit.canonical-text-resource/v1"},
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^monster\\.[a-z0-9_.-]+$"},
+    "kind": {"const": "monster_definition"},
+    "semantic": {
+      "type": "object",
+      "required": ["fields", "directives", "unknown_tokens"],
+      "properties": {
+        "fields": {
+          "type": "object",
+          "required": ["state", "model_file", "name", "level", "life", "linked_file"],
+          "properties": {
+            "state": {"type": "string", "minLength": 1},
+            "model_file": {"type": "string", "minLength": 1},
+            "name": {"type": "string", "minLength": 1},
+            "level": {"type": "integer"},
+            "life": {"type": "integer"},
+            "linked_file": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": true
+        },
+        "directives": {"type": "array", "items": {"$ref": "#/$defs/directive"}},
+        "unknown_tokens": {"type": "object"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "directive": {
+      "type": "object",
+      "required": ["line", "key", "legacy_token", "legacy_token_hex", "loader_status", "values", "raw_values_hex"],
+      "properties": {
+        "line": {"type": "integer", "minimum": 1},
+        "key": {"type": "string", "minLength": 1},
+        "legacy_token": {"type": "string", "minLength": 1},
+        "legacy_token_hex": {"type": "string", "pattern": "^[0-9a-f]+$"},
+        "loader_status": {"type": "string", "minLength": 1},
+        "values": {"type": "array"},
+        "raw_values_hex": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]*$"}},
+        "quoted": {"type": "array", "items": {"type": "boolean"}}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

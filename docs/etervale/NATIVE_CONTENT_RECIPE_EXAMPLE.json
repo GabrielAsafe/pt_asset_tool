@@ -1,0 +1,12 @@
+{
+  "format": "PT_ASSET_ETERVALE_NATIVE_RECIPE_V2",
+  "files": [
+    {
+      "path": "Field/Dcave.ase.spm",
+      "sha256": "SUBSTITUIR_PELO_HASH_DO_SNAPSHOT",
+      "operations": [
+        {"op": "append", "key": "*DELAY", "values": [3, 2]}
+      ]
+    }
+  ]
+}

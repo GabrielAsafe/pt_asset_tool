@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "summit.fixed-npcs.schema/v1",
+  "title": "Summit Fixed NPC Placements",
+  "type": "object",
+  "required": ["schema", "id", "logical_path", "npcs"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "summit.fixed-npcs/v1"},
+    "id": {"type": "string", "pattern": "^fixed_npcs\\."},
+    "logical_path": {"type": "string", "pattern": "(?i)\\.spc$"},
+    "npcs": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "required": ["slot", "npc_id", "x", "y", "z", "ax", "ay", "az", "state"],
+        "additionalProperties": false,
+        "properties": {
+          "slot": {"type": "integer", "minimum": 0, "maximum": 99},
+          "npc_id": {"type": "string", "pattern": "^npc\\."},
+          "x": {"type": "integer"},
+          "y": {"type": "integer"},
+          "z": {"type": "integer"},
+          "ax": {"type": "integer"},
+          "ay": {"type": "integer"},
+          "az": {"type": "integer"},
+          "state": {"type": "integer"}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

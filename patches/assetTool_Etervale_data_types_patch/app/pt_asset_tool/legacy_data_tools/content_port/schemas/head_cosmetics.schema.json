@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/head_cosmetics.schema.json",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "mode",
+    "slot",
+    "cosmetics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "summit.head-cosmetics/v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "mode": {
+      "const": "cosmetic_slot"
+    },
+    "active_runtime": {
+      "type": "boolean"
+    },
+    "slot": {
+      "type": "object",
+      "required": [
+        "id",
+        "legacy_inventory_bit",
+        "combat_stats"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "const": "head_cosmetic"
+        },
+        "legacy_inventory_bit": {
+          "type": "string",
+          "pattern": "^0x[0-9A-Fa-f]{8}$"
+        },
+        "combat_stats": {
+          "const": false
+        }
+      }
+    },
+    "cosmetics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "display_name",
+          "male_asset",
+          "female_asset",
+          "render_mode",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^head\\."
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "item_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "male_asset": {
+            "type": "string",
+            "minLength": 1
+          },
+          "female_asset": {
+            "type": "string",
+            "minLength": 1
+          },
+          "render_mode": {
+            "enum": [
+              "head_overlay",
+              "head_replacement"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

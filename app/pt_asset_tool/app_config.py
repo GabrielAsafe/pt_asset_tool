@@ -89,6 +89,53 @@ def clear_blender_executable(project_root: pathlib.Path) -> pathlib.Path:
         _atomic_write_json(path, current)
     return path
 
+def validate_etervale_root(value: pathlib.Path | str) -> pathlib.Path:
+    """Validate a unified Etervale checkout, without creating/modifying files."""
+    root = pathlib.Path(value).expanduser().resolve(strict=True)
+    if not root.is_dir():
+        raise NotADirectoryError(f"ETERVALE_ROOT_NOT_DIRECTORY:{root}")
+    required = (
+        'PristonTale.sln', 'assets', 'Client', 'Server', 'Shared',
+        'tools/PristonTale.AssetDump/PristonTale.AssetDump.csproj',
+    )
+    missing = [name for name in required if not (root / name).exists()]
+    if missing:
+        raise ValueError(f"NOT_ETERVALE_CHECKOUT:{root}:missing={','.join(missing)}")
+    if not (root / 'assets').is_dir():
+        raise ValueError(f"ETERVALE_ASSETS_NOT_DIRECTORY:{root / 'assets'}")
+    return root
+
+
+def configured_etervale_root(project_root: pathlib.Path) -> pathlib.Path | None:
+    """Read one configured game root. Explicit PT_ETERVALE_ROOT overrides persisted state."""
+    raw = os.environ.get('PT_ETERVALE_ROOT') or load_config(project_root).get('etervale_root')
+    if not isinstance(raw, str) or not raw.strip():
+        return None
+    return pathlib.Path(raw).expanduser().resolve()
+
+
+def save_etervale_root(project_root: pathlib.Path, value: pathlib.Path | str) -> pathlib.Path:
+    root = validate_etervale_root(value)
+    path = config_path(project_root)
+    current = load_config(project_root)
+    # Keep historic client/server settings for rollback, but the unified checkout
+    # takes precedence over those settings while active.
+    current.update({'format': 'PT_ASSET_APP_CONFIG_V1', 'etervale_root': str(root),
+                    'project_layout': 'ETERVALE_UNIFIED_V1'})
+    return _atomic_write_json(path, current)
+
+
+def clear_etervale_root(project_root: pathlib.Path) -> pathlib.Path:
+    path = config_path(project_root)
+    current = load_config(project_root)
+    if 'etervale_root' in current or 'project_layout' in current:
+        current.pop('etervale_root', None)
+        current.pop('project_layout', None)
+        current.setdefault('format', 'PT_ASSET_APP_CONFIG_V1')
+        _atomic_write_json(path, current)
+    return path
+
+
 def save_client_root(project_root: pathlib.Path, client_root: pathlib.Path) -> pathlib.Path:
     project_root = project_root.resolve()
     client_root = client_root.expanduser().resolve()
@@ -130,6 +177,10 @@ def candidate_client_roots_with_source(project_root: pathlib.Path) -> list[tuple
         candidates.append((pathlib.Path(env).expanduser(), "PT_CLIENT_ROOT"))
 
     cfg = load_config(project_root)
+    game_root = configured_etervale_root(project_root)
+    if game_root is not None:
+        # The game project has source in Client/ but physical assets in assets/.
+        candidates.append((game_root / 'assets', 'ETERVALE_UNIFIED_ASSETS'))
     configured = cfg.get("client_root")
     if isinstance(configured, str) and configured.strip():
         candidates.append((pathlib.Path(configured).expanduser(), "PERSISTENT_CONFIG"))
@@ -231,6 +282,10 @@ def candidate_server_roots_with_source(project_root: pathlib.Path) -> list[tuple
         candidates.append((pathlib.Path(env).expanduser(), "PT_SERVER_ROOT"))
 
     cfg = load_config(project_root)
+    game_root = configured_etervale_root(project_root)
+    if game_root is not None:
+        # GameServer is the legacy authored-data subtree, not C# Server/.
+        candidates.append((game_root / 'assets' / 'GameServer', 'ETERVALE_UNIFIED_GAMESERVER'))
     configured = cfg.get("server_root")
     if isinstance(configured, str) and configured.strip():
         candidates.append((pathlib.Path(configured).expanduser(), "PERSISTENT_CONFIG"))

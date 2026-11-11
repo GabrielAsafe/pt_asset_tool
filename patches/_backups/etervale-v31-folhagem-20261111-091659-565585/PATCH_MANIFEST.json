@@ -1,0 +1,42 @@
+{
+  "patch_id": "etervale-v31-select-unreplaced-vegetation-by-material",
+  "description": "V31: click original remaining faces and expand by connected material, nearby foliage, global material or all foliage; explicit reversible visual mask; no game edits",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/stage072_environment_v26.py",
+      "kind": "modified",
+      "old_sha256": "f19c9f2776548fe2c2dc2a0615e0678eadf95c582ffbf5848b6130db9a8586b8",
+      "sha256": "8999069471d07a5b2728da905029f7c88444a9452211c732633bb921221577f7"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "kind": "modified",
+      "old_sha256": "b8ffe4e17cfd7733cde4f9bb23a58a1547eae5e7a669aded73efbfbdf76692a8",
+      "sha256": "1ae96cbb869f5491d81bc1cd2f37843ef446d242b95dc6dfa427d61932223509"
+    },
+    {
+      "path": "app/pt_asset_tool/environment_residual_v31.py",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "401873adc41fd61db59bf5f2a9226751cd90f3563bafa0a921224bb02377dd43"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/environment_residual_v31.py",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "189cada9e86463874571ded20fdc0eaf31d14ec460eebd8b90448bf9bb871bcc"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_environment_v31_residual.py",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "f135a85ec2d481bf6d97ae28798b653834c4271f7b99dc51aae62fcfb9ba2295"
+    },
+    {
+      "path": "docs/etervale/V31_SELECAO_FOLHAGEM_RESIDUAL.md",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "48d6f5fdf8a3256856eb7501bfa60caa375a755dfd7697e3ee7f8a4218e1182c"
+    }
+  ]
+}

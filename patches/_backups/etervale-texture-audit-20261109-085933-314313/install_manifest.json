@@ -1,0 +1,21 @@
+{
+  "format": "ETERVALE_TEXTURE_DIAGNOSTICS_PATCH_V1",
+  "patch": "/home/gabriel/Transferências/pt_asset_tool/patches/assetTool_Etervale_texture_diagnostics_patch.zip",
+  "changes": [
+    {
+      "path": "app/dev_tests/test_etervale_texture_audit_bridge.py",
+      "previous_sha256": null,
+      "new_sha256": "890e6e8bff27e3f3beeceda7c7ef6e9b9ffda22501186924b9f8204a20006e3f"
+    },
+    {
+      "path": "app/pt_asset_tool/etervale_integration.py",
+      "previous_sha256": "17d2f8f09faf0cc31973f7ff8cc9e935fa9d06c8b65c1e7fb791988e40642f81",
+      "new_sha256": "9e12f23438679013b23e35ddb16be65342bc21367d0ce1db39893eeb1dc5be7f"
+    },
+    {
+      "path": "docs/etervale/ETERVALE_TEXTURE_DIAGNOSTICS.md",
+      "previous_sha256": null,
+      "new_sha256": "1ad11abeb585a722bb0434e0852920bcc8dbb4246d9f4ce5def13970088fe6a1"
+    }
+  ]
+}

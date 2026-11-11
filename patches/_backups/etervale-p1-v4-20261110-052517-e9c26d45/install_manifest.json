@@ -1,0 +1,39 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_P1_FECHAMENTO_V4_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_p1_full.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_p1_closure.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_p1_full_v4.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/P1_FECHAMENTO_UNIFICADO_V4.md"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/P1_RUNTIME_CHECKLIST_V4.md"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/etervale_p0p1_plugins.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/etervale_ui_readiness.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/dev_tests/test_etervale_p1_ui_readiness.py"
+    }
+  ]
+}

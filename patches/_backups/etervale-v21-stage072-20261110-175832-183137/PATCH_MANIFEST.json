@@ -1,0 +1,32 @@
+{
+  "patch_id": "etervale-v21-stage072-semantic-paint-source-locked",
+  "date": "2026-11-10",
+  "parent_min": "V20",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/stage072_semantic_core.py",
+      "kind": "new",
+      "sha256": "adf0e843f5d410102156944c25de42957e33e0f332a6c94df078a0857617175a"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "kind": "new",
+      "sha256": "2337441b121fa2c9ee79ac4881b57f53f1897b6b979f4b8089fc328694c99883"
+    },
+    {
+      "path": "app/pt_stage072_semantic_paint.py",
+      "kind": "new",
+      "sha256": "9cc93145170b72fe49582fc2fc65f5d34ed6f74c7775c126909e5fdc6ace4a98"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_semantic_v21.py",
+      "kind": "new",
+      "sha256": "d7cc78fc46ddffb7b488666f802a3939f446b9e6c2771aab3d6c20f236d643ff"
+    },
+    {
+      "path": "docs/etervale/V21_STAGE072_PINCEL_SEMANTICO.md",
+      "kind": "new",
+      "sha256": "2a3b2462a6e1b1de5f63028fbb8bc77baf0c9c9462222a11430df02ae6bbb5a0"
+    }
+  ]
+}

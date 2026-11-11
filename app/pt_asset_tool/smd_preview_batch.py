@@ -80,6 +80,8 @@ def run_batch(
     state: dict[str, Any] = {
         "format": FORMAT,
         "status": "RUNNING",
+        "phase": "PLANNING",
+        "planning_processed": 0,
         "mode": mode,
         "workers": max(1, min(4, int(workers))),
         "force": bool(force),
@@ -93,19 +95,35 @@ def run_batch(
             "command": list(runtime.get("command") or []),
         },
         "total_candidates": len(candidates),
-        "counts": {"READY": 0, "MISSING": 0, "STALE": 0, "FAILED": 0, "UNSUPPORTED": 0, "UNAVAILABLE": 0, "QUEUED": 0, "RUNNING": 0, "SKIPPED": 0, "CANCELED": 0},
+        "counts": {"READY": 0, "MISSING": 0, "STALE": 0, "FAILED": 0, "UNSUPPORTED": 0, "UNAVAILABLE": 0, "QUEUED": 0, "RUNNING": 0, "SKIPPED": 0, "CANCELED": 0, "BLOCKED": 0},
         "items": {},
+        "blocked_examples": [],
+        "planning_errors": [],
     }
     _atomic_json(state_path, state)
 
     plans: list[tuple[str, dict[str, Any] | None, dict[str, Any]]] = []
-    for rel in candidates:
-        plan = build_smd_preview_plan(registry, resolver, rel)
-        classification = manager.classify(plan) if plan else {"status": "UNSUPPORTED", "detail": "SMD_PREVIEW_PLAN_UNAVAILABLE", "asset": rel}
+    for ordinal, rel in enumerate(candidates, 1):
+        try:
+            plan = build_smd_preview_plan(registry, resolver, rel)
+            classification = manager.classify(plan) if plan else {"status": "UNSUPPORTED", "detail": "SMD_PREVIEW_PLAN_UNAVAILABLE", "asset": rel}
+        except RuntimeError as exc:
+            # The Linux client can legitimately hold two physical files whose
+            # names differ only in case.  Never guess which is the intended
+            # texture, and never let this *one preview* abort the entire batch.
+            # The strict resolver remains unchanged for authoring/publishing.
+            if "case-insensitive client path collision without exact-case match:" not in str(exc):
+                raise
+            plan = None
+            detail = str(exc)
+            classification = {"status": "BLOCKED", "detail": "CASE_COLLISION_AMBIGUOUS: " + detail, "asset": rel}
+            if len(state["blocked_examples"]) < 25:
+                state["blocked_examples"].append({"asset": rel, "reason": classification["detail"]})
+            print(f"SMD_PREVIEW_BLOCKED path={rel} reason={detail}", flush=True)
         status = str(classification.get("status") or "MISSING")
         state["items"][rel] = {"status": status, "detail": classification.get("detail"), "updated_at": time.time()}
         state["counts"][status] = int(state["counts"].get(status, 0)) + 1
-        should = force or (
+        should = status != "BLOCKED" and (force or (
             mode == "all" and status != "UNSUPPORTED" and status != "UNAVAILABLE"
         ) or (
             mode == "warmup" and status in {"MISSING", "STALE", "FAILED"}
@@ -115,12 +133,19 @@ def run_batch(
             mode == "stale" and status == "STALE"
         ) or (
             mode == "failed" and status == "FAILED"
-        )
+        ))
         if should and plan:
             plans.append((rel, plan, classification))
-        elif status not in {"READY", "UNSUPPORTED", "UNAVAILABLE"}:
+        elif status not in {"READY", "UNSUPPORTED", "UNAVAILABLE", "BLOCKED"}:
             state["counts"]["SKIPPED"] += 1
+        state["planning_processed"] = ordinal
+        state["selected_so_far"] = len(plans)
+        if ordinal % 50 == 0 or ordinal == len(candidates):
+            state["updated_at"] = time.time()
+            _atomic_json(state_path, state)
+            print(f"SMD_PREVIEW_PLANNING done={ordinal} total={len(candidates)} selected={len(plans)}", flush=True)
     state["selected_for_render"] = len(plans)
+    state["phase"] = "RENDERING"
     state["updated_at"] = time.time()
     _atomic_json(state_path, state)
 
@@ -239,12 +264,15 @@ def run_batch(
         final_counts[s] = final_counts.get(s, 0) + 1
     state["counts_final"] = final_counts
     state["completed"] = completed
-    state["status"] = "COMPLETE"
+    # Completed with a documented, unresolved asset collision is not a
+    # completely successful batch.  Other assets were processed normally.
+    state["status"] = "COMPLETE_WITH_BLOCKED" if final_counts.get("BLOCKED", 0) else "COMPLETE"
     state["finished_at"] = time.time()
     state["updated_at"] = state["finished_at"]
     state["duration_seconds"] = round(state["finished_at"] - started, 3)
     _atomic_json(state_path, state)
-    print("SMD_PREVIEW_BATCH=PASS " + " ".join(f"{k.lower()}={v}" for k, v in sorted(final_counts.items())), flush=True)
+    verdict = "PARTIAL_BLOCKED" if final_counts.get("BLOCKED", 0) else "PASS"
+    print("SMD_PREVIEW_BATCH=" + verdict + " " + " ".join(f"{k.lower()}={v}" for k, v in sorted(final_counts.items())), flush=True)
     return state
 
 

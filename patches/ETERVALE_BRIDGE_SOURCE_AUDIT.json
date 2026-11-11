@@ -1,0 +1,161 @@
+{
+  "format": "PT_ASSET_ETERVALE_CSHARP_CENSUS_V1",
+  "status": "PASS",
+  "game_root": "/mnt/data/etervale_probe",
+  "total_csharp_files": 1091,
+  "files_by_tree": {
+    "Client": 424,
+    "Server": 40,
+    "Shared": 499,
+    "Persistence": 77,
+    "tools": 51,
+    "scripts": 0
+  },
+  "textual_markers": {
+    "PristonSmdReader": {
+      "occurrences": 23,
+      "sample_files": [
+        "Client/PristonTale.Engine3D/Formats/PristonActorLoader.cs",
+        "Client/PristonTale.Engine3D/Formats/PristonSmdReader.cs",
+        "Client/PristonTale.Engine3D/Rendering/Sky/PristonSkyLibrary.cs",
+        "Client/PristonTale.Gameplay/Effects/VfxContent.cs",
+        "Client/PristonTale.Gameplay/Screens/CharacterSelect/CharacterSelectScreen.cs",
+        "Client/PristonTale.Gameplay/Screens/Opening/OpeningCinematic.cs",
+        "Client/PristonTale.Gameplay/World/GameScene.cs",
+        "Client/PristonTale.Gameplay/World/Streaming/FieldResourceStreamer.cs"
+      ]
+    },
+    "PristonInxReader": {
+      "occurrences": 9,
+      "sample_files": [
+        "Client/PristonTale.Engine3D/Formats/PristonActorLoader.cs",
+        "Client/PristonTale.Engine3D/Formats/PristonInxReader.cs",
+        "tools/PristonTale.AssetDump/Program.cs",
+        "tools/PristonTale.WorldImport/Parsers/MotionTableExtractor.cs"
+      ]
+    },
+    "StageCollisionReader": {
+      "occurrences": 4,
+      "sample_files": [
+        "Client/PristonTale.Engine3D/Physics/PristonCollisionWorld.cs",
+        "Server/PristonTale.Server/Hosting/FieldTerrainLoadService.cs",
+        "Shared/PristonTale.Assets/StageCollisionReader.cs",
+        "tools/PristonTale.AssetDump/Program.cs"
+      ]
+    },
+    "PristonActorLoader": {
+      "occurrences": 23,
+      "sample_files": [
+        "Client/PristonTale.Engine3D/Formats/PristonActorLoader.cs",
+        "Client/PristonTale.Gameplay/Screens/CharacterSelect/CharacterSelectScene.cs",
+        "Client/PristonTale.Gameplay/Screens/CharacterSelect/CharacterSelectScreen.cs",
+        "Client/PristonTale.Gameplay/Screens/Opening/OpeningCinematic.cs",
+        "Client/PristonTale.Gameplay/World/GameScene.cs",
+        "Client/PristonTale.Gameplay/World/Remote/ActorLookPresenter.cs",
+        "Client/PristonTale.Gameplay/World/Remote/CrownPresentation.cs",
+        "Client/PristonTale.Gameplay/World/Remote/GroundLootPresentation.cs"
+      ]
+    },
+    "GltfSceneExport": {
+      "occurrences": 8,
+      "sample_files": [
+        "tools/PristonTale.GltfExport/GltfSceneExport.cs",
+        "tools/PristonTale.GltfExport/Program.cs"
+      ]
+    },
+    "SharpGLTF": {
+      "occurrences": 35,
+      "sample_files": [
+        "tools/PristonTale.GltfExport/GltfSceneExport.cs",
+        "tools/PristonTale.GltfExport/MaterialFactory.cs",
+        "tools/PristonTale.GltfExport/Program.cs"
+      ]
+    },
+    ".smd": {
+      "occurrences": 480,
+      "sample_files": [
+        "Client/PristonTale.Effects/Vfx/VfxComponentDefinition.cs",
+        "Client/PristonTale.Engine3D/Formats/PristonActorLoader.cs",
+        "Client/PristonTale.Engine3D/Rendering/PristonMaterialAdapter.cs",
+        "Client/PristonTale.Engine3D/Rendering/Sky/PristonSkyLibrary.cs",
+        "Client/PristonTale.Engine3D/Rendering/Sky/PristonSkyManifest.cs",
+        "Client/PristonTale.Gameplay/Effects/PlayerShots.cs",
+        "Client/PristonTale.Gameplay/Screens/CharacterSelect/CharacterSelectScene.cs",
+        "Client/PristonTale.Gameplay/Screens/CharacterSelect/CharacterSelectScreen.cs"
+      ]
+    },
+    ".smb": {
+      "occurrences": 25,
+      "sample_files": [
+        "Client/PristonTale.Engine3D/Formats/PristonActorLoader.cs",
+        "Client/PristonTale.Engine3D/Rendering/PristonMaterialAdapter.cs",
+        "Client/PristonTale.Gameplay/Effects/VfxContent.cs",
+        "Client/PristonTale.Gameplay/Screens/Opening/OpeningCinematic.cs",
+        "Client/PristonTale.Gameplay/World/Remote/PremiumPetPresentation.cs",
+        "tools/PristonTale.AssetDump/Program.cs",
+        "tools/PristonTale.DataImport/DataCopier.cs",
+        "tools/PristonTale.GltfExport/Program.cs"
+      ]
+    },
+    ".inx": {
+      "occurrences": 891,
+      "sample_files": [
+        "Client/PristonTale.Engine3D/Formats/PristonActorLoader.cs",
+        "Client/PristonTale.Engine3D/Formats/PristonInxReader.cs",
+        "Client/PristonTale.Gameplay/World/Remote/AlternateModel.cs",
+        "Client/PristonTale.Gameplay/World/Remote/EquipmentVisuals.cs",
+        "Client/PristonTale.Gameplay/World/Remote/EquipmentVisualTables.cs",
+        "Client/PristonTale.Gameplay/World/Remote/PlayerActorComposer.cs",
+        "Shared/PristonTale.Application/World/FieldInstance.cs",
+        "Shared/PristonTale.Application/World/FieldInstance.Night.cs"
+      ]
+    },
+    ".glb": {
+      "occurrences": 6,
+      "sample_files": [
+        "tools/PristonTale.GltfExport/Program.cs",
+        "tools/PristonTale.WorldJson/Program.cs"
+      ]
+    },
+    ".gltf": {
+      "occurrences": 10,
+      "sample_files": [
+        "tools/PristonTale.AssetDump/FieldTextureManifest.cs",
+        "tools/PristonTale.GltfExport/GltfSceneExport.cs",
+        "tools/PristonTale.GltfExport/ImageDecode.cs",
+        "tools/PristonTale.GltfExport/MaterialFactory.cs",
+        "tools/PristonTale.GltfExport/NumericsConvert.cs",
+        "tools/PristonTale.GltfExport/PngWriter.cs",
+        "tools/PristonTale.GltfExport/Program.cs"
+      ]
+    },
+    ".part": {
+      "occurrences": 218,
+      "sample_files": [
+        "Client/PristonTale.Client.Net/IPlayChannel.cs",
+        "Client/PristonTale.Client.Net/Online/OwnerItemDecoder.cs",
+        "Client/PristonTale.Client.Net/Online/PresenceDecoder.cs",
+        "Client/PristonTale.Effects/Vfx/VfxCatalog.cs",
+        "Client/PristonTale.Effects/Vfx/VfxComponents.cs",
+        "Client/PristonTale.Effects/Vfx/VfxLibrary.cs",
+        "Client/PristonTale.Effects/Vfx/VfxRenderer.cs",
+        "Client/PristonTale.Effects/Vfx/VfxRenderer.Parts.cs"
+      ]
+    },
+    ".spm": {
+      "occurrences": 15,
+      "sample_files": [
+        "tools/PristonTale.WorldImport/Importer.cs",
+        "tools/PristonTale.WorldImport/KeyMaps.cs",
+        "tools/PristonTale.WorldImport/Parsers/MonsterInfParser.cs",
+        "tools/PristonTale.WorldImport/Parsers/NpcParser.cs",
+        "tools/PristonTale.WorldImport/Parsers/ParsedField.cs",
+        "tools/PristonTale.WorldImport/Parsers/SpmParser.cs"
+      ]
+    }
+  },
+  "read_errors": [],
+  "proof_level": "TEXTUAL_CENSUS_ONLY:includes_comments_and_tests;not_proof_of_runtime_dependency",
+  "legacy_contract_scanner": "UNMODIFIED_C_CPP_ONLY",
+  "game_assets_modified": false
+}

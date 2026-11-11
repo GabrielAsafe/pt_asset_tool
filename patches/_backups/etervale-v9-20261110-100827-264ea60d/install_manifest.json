@@ -1,0 +1,35 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_V9_TEXTURE_BATCH_SELECTIVO_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_app.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/index.html"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.js"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.css"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_texture_selection.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_v9_texture_selection.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/V9_TEXTURE_BATCH_SELECTIVO.md"
+    }
+  ]
+}

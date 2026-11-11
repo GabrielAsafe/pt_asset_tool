@@ -8,6 +8,7 @@ import struct
 import zipfile
 
 from .utils import norm_path
+from .stage072_source_exceptions import is_proven_null_zero_uv_preview, RULE_ID
 
 HEADER = b"SMD Stage data Ver 0.72"
 DFILE_HEADER_SIZE = 556
@@ -242,6 +243,7 @@ def _parse_area_payload(data: bytes, start: int, stage_ptrs: list[int], nface: i
 def parse_stage072(path: pathlib.Path, *, include_payload: bool = False) -> dict:
     p = pathlib.Path(path)
     data = p.read_bytes()
+    physical_sha256 = hashlib.sha256(data).hexdigest()
     min_head = DFILE_HEADER_SIZE + STAGE_HEADER_SIZE
     if len(data) < min_head:
         raise ValueError(f"Stage0.72 file too small: {len(data)} < {min_head}")
@@ -361,6 +363,7 @@ def parse_stage072(path: pathlib.Path, *, include_payload: bool = False) -> dict
 
     depth_counts = collections.Counter()
     htexture_mapping_errors = []
+    source_exact_null_handle_reviews = []
     stage_overrun_errors = []
     cycles = []
     textureless_placeholder_faces = 0
@@ -453,7 +456,18 @@ def parse_stage072(path: pathlib.Path, *, include_payload: bool = False) -> dict
                 stage_overrun_errors.append({"face": fi, "material": mid, "stage": stage_idx, "TextureCounter": tc, "AnimTexCounter": ac})
                 continue
             expected = (material_runtime_base + mid * MATERIAL_SIZE + 8 + stage_idx * 4) & 0xFFFFFFFF
-            if htex != expected:
+            if htex != expected and is_proven_null_zero_uv_preview(
+                source_sha256=physical_sha256, material_id=mid,
+                texture_count=tc, animation_count=ac,
+                chain_length=depth, stage_index=stage_idx,
+                htexture=htex, u=link["u"], v=link["v"],
+            ):
+                source_exact_null_handle_reviews.append({
+                    "face": fi, "material": mid, "stage": stage_idx,
+                    "hTexture": htex, "expected": expected,
+                    "rule": RULE_ID,
+                })
+            elif htex != expected:
                 htexture_mapping_errors.append({
                     "face": fi, "material": mid, "stage": stage_idx,
                     "hTexture": htex, "expected": expected,
@@ -524,7 +538,7 @@ def parse_stage072(path: pathlib.Path, *, include_payload: bool = False) -> dict
         "format": "PT_STAGE072_FILE_PARSE_V1",
         "path": str(p),
         "size": len(data),
-        "sha256": hashlib.sha256(data).hexdigest(),
+        "sha256": physical_sha256,
         "file_header": file_header,
         "material_blob_size": material_blob_size,
         "stage_header_size": STAGE_HEADER_SIZE,
@@ -556,6 +570,9 @@ def parse_stage072(path: pathlib.Path, *, include_payload: bool = False) -> dict
             f"{a}-{b}": n for (a, b), n in sorted(uv_distinct_stage_pair_faces.items())
         },
         "textureless_placeholder_faces": textureless_placeholder_faces,
+        "source_exact_null_handle_review_count": len(source_exact_null_handle_reviews),
+        "source_exact_null_handle_review_sample": source_exact_null_handle_reviews[:20],
+        "source_exact_null_handle_review_policy": RULE_ID if source_exact_null_handle_reviews else None,
         "inert_zero_texture_texlink_faces": textureless_placeholder_faces,
         "inert_zero_texture_handle_usage": dict(sorted(inert_zero_texture_handle_usage.items())),
         "stage_state_usage": [
@@ -585,7 +602,9 @@ def parse_stage072(path: pathlib.Path, *, include_payload: bool = False) -> dict
         "checks": {
             "geometry": "PASS" if geometry_ok else "FAIL",
             "texlink_pointers": "PASS" if pointer_ok else "FAIL",
-            "htexture_stage_mapping": "PASS" if tex_semantics_ok else "FAIL",
+            "htexture_stage_mapping": (
+                "PASS_WITH_SOURCE_EXACT_REVIEW" if tex_semantics_ok and source_exact_null_handle_reviews else
+                "PASS" if tex_semantics_ok else "FAIL"),
             "area_payload": "PASS" if area_ok else "FAIL",
         },
         "profile": profile,

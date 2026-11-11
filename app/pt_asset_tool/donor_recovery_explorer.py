@@ -1804,8 +1804,7 @@ def certify_targeted_physical_bundle(
     authorized_relocations = _apply_targeted_relocation_evidence(
         donor_idx, donor_root, evidence_path=relocation_evidence, donor_label=donor, side=side,
     )
-    root_key = root_rel.casefold()
-    selected = donor_idx.get(root_key)
+    selected = donor_idx.get(root_rel)
     if selected is None:
         raise FileNotFoundError(f"DONOR_TARGETED_ROOT_NOT_FOUND:{donor}:{side}:{root_rel}")
     root_row = {

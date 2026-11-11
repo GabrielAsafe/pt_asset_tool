@@ -1,0 +1,51 @@
+{
+  "format": "PT_ASSET_INCREMENTAL_PATCH_V1",
+  "patch_id": "etervale-v16-stage072-jpeg-misnamed-bmp-source-locked-htexture",
+  "base": "ETERVALE_V14_STAGE072_UV_TRIAGEM",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/texture_overlay.py",
+      "kind": "modified",
+      "old_sha256": "182d2a11b4be83127b0cbf10f48073f1b519a9919276ec033d0ac12efa12d3fb",
+      "sha256": "6a362cb02db1f6600935f6717ad155d604545d9cf6587b1f8e2ef27a68d65ddc"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_corpus.py",
+      "kind": "modified",
+      "old_sha256": "aead188936276b0358cd7fb37e86e70d37ee8507ce4850c610fcc959db2b101d",
+      "sha256": "e791659da5d319b146995fe3ce2685728eeb0cfd43421f04d5702eeded061826"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_batch_audit.py",
+      "kind": "modified",
+      "old_sha256": "42128c1f9022b3b01d5a45c124813cf15255c54154d1fbb6415e81e3dc8a3e12",
+      "sha256": "47959fcd69edee6123e09a90587411ba19370d2dd130312f59efbf19b594f1bb"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_uv_f32_v14.py",
+      "kind": "modified",
+      "old_sha256": "49d5d95abc3c7e25882741f579acac4efc4eb07b5605195d5a74dc94c3fdfda4",
+      "sha256": "900439be715b8a15d8d1175942cb55656e959d2d42c89189d6bf3e75c695ea7f"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_preview_jpeg.py",
+      "kind": "new",
+      "sha256": "01472516203406b5889dce4d362b5a3ae9ec5fdab0f13859a24db4ac2abf4ffe"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_source_exceptions.py",
+      "kind": "new",
+      "sha256": "b835c08452c969605253dea18c520ad93ab9c32e1d2ca108f7dc6379d289f804"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_v16_jpeg_darkboss.py",
+      "kind": "new",
+      "sha256": "e40894118f141a049b840e635408d9f08662e3be451f4dc22663fbee1bcef941"
+    },
+    {
+      "path": "docs/etervale/V16_STAGE072_JPEG_SOURCE_LOCKED_HANDLE.md",
+      "kind": "new",
+      "sha256": "3cbdcddd4b9efb9adc66b8539c9ac77083e0b094b39b63a870ae2340d534adc5"
+    }
+  ]
+}

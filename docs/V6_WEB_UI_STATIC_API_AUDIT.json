@@ -1,0 +1,181 @@
+{
+  "scope": [
+    "ui_static/index.html",
+    "ui_static/app.js",
+    "ui_static/app.css",
+    "ui_app.py",
+    "entity_catalog.py"
+  ],
+  "audit_type": "STATIC_ROUTE_AND_DOM_INSPECTION_NOT_COMPLETE_RUNTIME_TEST",
+  "sidebar_navigation_elements": 7,
+  "html_id_count": 401,
+  "js_id_selectors": 424,
+  "js_selector_id_missing_static_and_dynamic": [
+    "assetBundlePublishBtn",
+    "assetBundleRestoreBtn",
+    "assetBundleStatusBtn",
+    "assetBundleTemplate",
+    "assetBundleTemplateBtn",
+    "assetRecipeBuildBtn",
+    "assetRecipeInput",
+    "assetRecipePlanBtn",
+    "assetRecipeResult",
+    "fieldEditorForm",
+    "fieldEditorPath",
+    "fieldEditorState",
+    "fieldEditorSummary",
+    "legacyManagementRoot",
+    "serverExplorerCount",
+    "serverExplorerDetail",
+    "serverExplorerKind",
+    "serverExplorerReason",
+    "serverExplorerRows",
+    "serverExplorerSearch",
+    "serverExplorerStatus"
+  ],
+  "js_named_functions": 228,
+  "js_direct_property_listeners": 197,
+  "unique_client_api_literals": 81,
+  "backend_get_literal_routes": 53,
+  "backend_post_literal_routes": 42,
+  "backend_get_prefix_routes": 1,
+  "backend_post_prefix_routes": 0,
+  "called_endpoints_not_matched_by_simple_literals": [
+    {
+      "url": "/api/canonical",
+      "client_calls": 1,
+      "js_lines": "480",
+      "backend": "UNMAPPED_STATIC",
+      "method_hints": "POST"
+    }
+  ],
+  "backend_routes_not_called_from_literal_js": [
+    {
+      "url": "/api/canonical/capabilities",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/canonical/contract-graph",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/enhancement/batch-publish",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "POST",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/enhancement/batch-restore",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "POST",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/enhancement/batch-resume",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "POST",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/enhancement/batch-run",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "POST",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/entities",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/etervale/readiness",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/legacy-authoring/capabilities",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/legacy-management/report",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/legacy-management/verify",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "POST",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/legacy-ops/admin",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/material-lab/runs/",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET_PREFIX",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/particles/preview-image",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/preview",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/safety/deploy-disarm",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "POST",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/safety/server-deploy-disarm",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "POST",
+      "method_hints": ""
+    },
+    {
+      "url": "/api/smd-preview",
+      "client_calls": 0,
+      "js_lines": "",
+      "backend": "GET",
+      "method_hints": ""
+    }
+  ],
+  "requires_dynamic_validation": true
+}

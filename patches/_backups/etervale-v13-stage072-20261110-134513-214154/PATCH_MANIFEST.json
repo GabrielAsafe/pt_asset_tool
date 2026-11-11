@@ -1,0 +1,32 @@
+{
+  "format": "PT_ASSET_INCREMENTAL_PATCH_V1",
+  "patch_id": "etervale-v13-stage072-all-maps-audit",
+  "base": "ETERVALE_V12_STAGE072_BLENDER_ORIENTACAO_PAINT",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/stage072_batch_audit.py",
+      "kind": "new",
+      "sha256": "42128c1f9022b3b01d5a45c124813cf15255c54154d1fbb6415e81e3dc8a3e12"
+    },
+    {
+      "path": "app/pt_stage072_batch_audit.py",
+      "kind": "new",
+      "sha256": "877cf89488f4cb684dc4d6b5e77611664b26e6d0a3425bbecebe5bde023d1825"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/audit_stage072_view_batch.py",
+      "kind": "new",
+      "sha256": "48792c1747e8d0da24cfd899044f013c670f110381ee71137c7cf977adf7b653"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_all_maps_v13.py",
+      "kind": "new",
+      "sha256": "2bd2ad0f4ca5a84af5836f48a1b378ef20515117332360a54fb5b069e47286ca"
+    },
+    {
+      "path": "docs/etervale/V13_STAGE072_TODOS_MAPAS_AUDITORIA.md",
+      "kind": "new",
+      "sha256": "88b2d25b4b1b3732cb21fb6d8e770861b2ca1572679c226fcca15a8760f2263e"
+    }
+  ]
+}

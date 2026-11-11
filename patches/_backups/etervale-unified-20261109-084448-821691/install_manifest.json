@@ -1,0 +1,41 @@
+{
+  "format": "ETERVALE_UNIFIED_INTEGRATION_PATCH_V1",
+  "patch": "/home/gabriel/Transferências/pt_asset_tool/patches/assetTool_Etervale_unified_integration_patch.zip",
+  "changes": [
+    {
+      "path": "app/dev_tests/test_etervale_unified_bridge.py",
+      "previous_sha256": null,
+      "new_sha256": "9da3c52807c2cf1d16f7fab90dd702a80091123b409ac3bb30298d22e14bbaf1"
+    },
+    {
+      "path": "app/pt_asset.py",
+      "previous_sha256": "ff6ba980969cca83c4548699887cc827eb99367c0abef9850fa683cade888cfd",
+      "new_sha256": "eeb6706673777c032d61656a064ef5c680dd6535aa6939e6c4bbf0bf615292b2"
+    },
+    {
+      "path": "app/pt_asset_tool/app_config.py",
+      "previous_sha256": "61960dff4d091fd1d81d597553ae4c15d6075a85f620b8389ae0cc8990984db7",
+      "new_sha256": "0187b11fd5fd910ef50bc0ef40fc169382b88310cb9ce6943d067173661d4efb"
+    },
+    {
+      "path": "app/pt_asset_tool/cli.py",
+      "previous_sha256": "fb1942858de42aa238f3ee0194feb88dde90dbb0d76bc8e28a8a71d6048fe956",
+      "new_sha256": "31144cd26e89ddd6cf8e1ce8f726a4a28169f7736fda4ffeb269611589e887cc"
+    },
+    {
+      "path": "app/pt_asset_tool/etervale_integration.py",
+      "previous_sha256": null,
+      "new_sha256": "17d2f8f09faf0cc31973f7ff8cc9e935fa9d06c8b65c1e7fb791988e40642f81"
+    },
+    {
+      "path": "app/pt_asset_tool/source_catalog.py",
+      "previous_sha256": "9d34f219366bea9872a034c00622d1fc3249b3cbf596df7e5d457281bfd3c73a",
+      "new_sha256": "ac4a1db8ba153f6e2272526ea8182d60e7c4f6982a11c6181d93960c1b49b5ff"
+    },
+    {
+      "path": "docs/etervale/ETERVALE_UNIFIED_BRIDGE.md",
+      "previous_sha256": null,
+      "new_sha256": "8a0cc56869370bb5a6ebc4d6b19a0d9a3f28fb8d912680425b60d541f835ce22"
+    }
+  ]
+}

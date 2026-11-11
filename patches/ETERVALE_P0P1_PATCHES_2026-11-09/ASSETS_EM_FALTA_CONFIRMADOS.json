@@ -1,0 +1,27 @@
+{
+  "format": "PT_ASSET_ETERVALE_VERIFIED_MISSING_ASSETS_V1",
+  "date": "2026-11-09",
+  "scope": "user execution results, not a full inventory",
+  "confirmed": [
+    {
+      "asset": "Field/Ricarten/tem_wall04.bmp",
+      "reference": "Field/Ricarten/village-2.smd",
+      "material_index": 173,
+      "face_count": 1,
+      "first_party_reader": "PristonTale.AssetDump",
+      "gltf_export_fallback_reason": "file not found",
+      "searched": [
+        "Etervale-git/assets",
+        "~/Transferências",
+        "~/armazem/priston"
+      ],
+      "recovery": "NOT_FOUND",
+      "status": "MISSING_CONFIRMED"
+    }
+  ],
+  "notes": [
+    "lost_temple_wall04.bmp is a different asset",
+    "existing stage is parsed successfully but strict GLB export fails texture coverage",
+    "do not silently replace with white placeholder or similarly named texture"
+  ]
+}

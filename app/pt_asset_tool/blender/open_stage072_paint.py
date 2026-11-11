@@ -17,6 +17,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from pt_asset_tool.blender import open_stage072_preview as view
+from pt_asset_tool.stage072_paint_policy import partition_target_failures
 
 SOURCE_UV_PREFIX = "PT_STAGE072_TEXLINK_STAGE_"
 PAINT_UV_PREFIX = "PT_STAGE072_PAINT_UV_STAGE_"
@@ -316,6 +317,7 @@ def _configure_artist_areas(radius: float):
             r3d.view_location = Vector((0.0, 0.0, 0.0))
             # Start close enough to paint, but not inside the mesh.
             r3d.view_distance = max(5.0, radius * 0.55)
+            view.set_stage_view_rotation(r3d)
             try:
                 r3d.view_perspective = "PERSP"
             except Exception:
@@ -379,14 +381,29 @@ def configure_stage072_paint():
     manifest_rows: list[dict] = []
     _duplicate_materials_for_paint(proxy, paint_root, int(a.stage), manifest_rows)
     private_rows, private_hard = _validate_private_paint_images(proxy, paint_root, int(a.stage))
-    if private_hard:
-        raise RuntimeError(f"private paint image validation failed: {private_hard[:5]}")
+    blocking_errors, known_unpaintable = partition_target_failures(private_hard)
+    if blocking_errors:
+        raise RuntimeError(f"private paint image validation failed: {blocking_errors[:5]}")
+    # A known missing source image cannot be painted safely. Keep its actual
+    # material/texlink metadata untouched; hide only matching proxy faces so
+    # Blender can edit the other materials without a false placeholder image.
+    blocked_slots = {int(x['slot']) for x in known_unpaintable}
+    hidden_faces = 0
+    if blocked_slots:
+        for polygon in proxy.data.polygons:
+            if int(polygon.material_index) in blocked_slots:
+                polygon.hide = True
+                hidden_faces += 1
+        print(f"PT_STAGE072_PAINT_KNOWN_MISSING=NONFATAL refs={len(known_unpaintable)} "
+              f"proxy_faces_hidden={hidden_faces} status=PARTIAL_UNPAINTABLE")
 
     proxy["pt_stage072_paint_proxy"] = True
     proxy["pt_stage072_paint_stage"] = int(a.stage)
     proxy["pt_stage072_paint_uv_layer"] = active_paint_uv.name
     proxy["pt_stage072_paint_active_source_uv"] = f"{SOURCE_UV_PREFIX}{int(a.stage)}"
     proxy["pt_stage072_paint_warning"] = "PAINT_UV_IS_VIEW_ONLY_SOURCE_TEXLINK_UV_UNCHANGED"
+    proxy["pt_stage072_paint_known_missing"] = len(known_unpaintable)
+    proxy["pt_stage072_paint_unpaintable_faces"] = hidden_faces
     bpy.context.scene["pt_stage072_paint_root"] = str(paint_root)
     bpy.context.scene["pt_stage072_paint_stage"] = int(a.stage)
     bpy.context.scene["pt_stage072_paint_semantics"] = "SAFE_TEXTURE_COPY_PLUS_NORMALIZED_FLOATING_ORIGIN_SOURCE_UV_PAINT"
@@ -403,7 +420,11 @@ def configure_stage072_paint():
         "uv_stats": uv_stats,
         "material_images": manifest_rows,
         "private_image_validation": private_rows,
-        "private_image_validation_pass": True,
+        "private_image_validation_pass": not bool(known_unpaintable),
+        "private_image_validation_status": "PASS_WITH_KNOWN_MISSING_UNPAINTABLE" if known_unpaintable else "PASS",
+        "known_unpaintable_texture_references": known_unpaintable,
+        "proxy_faces_hidden_due_to_missing_texture": hidden_faces,
+        "source_texture_dependencies_complete": not bool(known_unpaintable),
     }
     manifest_path = paint_root / "paint_manifest.json"
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -416,14 +437,15 @@ def configure_stage072_paint():
     _configure_texture_paint_workspace(proxy, radius)
 
     target_stat = next(x for x in uv_stats if x["stage"] == int(a.stage))
+    paint_status = "PASS_WITH_KNOWN_MISSING_UNPAINTABLE" if known_unpaintable else "PASS"
     print(
-        "PT_STAGE072_PAINT=PASS "
+        f"PT_STAGE072_PAINT={paint_status} "
         f"stage={int(a.stage)} "
         f"paint_uv={active_paint_uv.name} "
         f"source_uv_bounds={target_stat['source_bounds']} "
         f"paint_uv_bounds={target_stat['paint_bounds']} "
         f"private_images={len({x['paint_file'] for x in manifest_rows if x.get('paint_file')})} "
-        f"private_image_validation=PASS "
+        f"private_image_validation={'PASS_WITH_KNOWN_MISSING_UNPAINTABLE' if known_unpaintable else 'PASS'} "
         f"workspace={workspace_blend} "
         "source_uv_unchanged=true client_modified=false"
     )

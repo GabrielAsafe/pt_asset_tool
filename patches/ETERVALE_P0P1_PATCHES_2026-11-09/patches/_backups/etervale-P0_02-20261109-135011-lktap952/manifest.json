@@ -1,0 +1,26 @@
+{
+  "format": "PT_ASSET_ETERVALE_PATCH_BACKUP_V1",
+  "patch": "P0_02",
+  "source_zip": "/home/gabriel/Transferências/pt_asset_tool/patches/ETERVALE_P0P1_PATCHES_2026-11-09/patches/etervale_P0_02_content.zip",
+  "entries": [
+    {
+      "path": "app/pt_asset_tool/etervale_content_compat.py",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "46aa312befe56101fc2fd52afdad45b3954a7fda35fb3fda4f22c2fa75559e0f"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_p0_content_compat.py",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "fa80a1023d7fe47ed794edd62ba1413682efad0e71d8ecb78657f06a59691a10"
+    },
+    {
+      "path": "docs/etervale/P0_02_CANONICAL_ADAPTATION.md",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "d90d38cc39ea9d992f1a5d9083848896ed47f02543151ad27cfc595613242c5c"
+    }
+  ],
+  "backup_paths": {}
+}

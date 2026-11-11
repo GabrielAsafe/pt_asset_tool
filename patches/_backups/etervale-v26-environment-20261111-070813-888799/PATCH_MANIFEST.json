@@ -1,0 +1,48 @@
+{
+  "patch_id": "etervale-v26-environment-one-panel-local-blend-zip",
+  "description": "V26 simplifies Environment Modernizer, loads local Poly Haven blend.zip models, safe preview only",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "kind": "modified",
+      "sha256": "fc472894b4c4d6a1889079e876cb1154aa5f84f44e547f58a877eb3314598d3c",
+      "old_sha256": "74b8612a86ca4e9818c07ad0fc72a8def9ba91abae8e266f6b2ea54f02569720"
+    },
+    {
+      "path": "app/pt_stage072_semantic_paint.py",
+      "kind": "modified",
+      "sha256": "4811b1d8ba588707a07f9d8515485579d45dcc44f5f248001e15bd711a4784b6",
+      "old_sha256": "9cc93145170b72fe49582fc2fc65f5d34ed6f74c7775c126909e5fdc6ace4a98"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_environment_v26.py",
+      "kind": "new",
+      "sha256": "36501c649eb5b1594aa06b2156c3e8c94c7673e39edcd58227dabd66f05ad462",
+      "old_sha256": ""
+    },
+    {
+      "path": "app/pt_asset_tool/environment_library_v26.py",
+      "kind": "new",
+      "sha256": "b88521941165858be1bf4faeadab773d1f0470a7472757393dbc00345c8092fd",
+      "old_sha256": ""
+    },
+    {
+      "path": "app/pt_environment.py",
+      "kind": "new",
+      "sha256": "84b82d4e383d45784700ec3bc38b36f0b6d4d96fbe758c613e5884976bafb2dd",
+      "old_sha256": ""
+    },
+    {
+      "path": "app/dev_tests/test_etervale_environment_v26.py",
+      "kind": "new",
+      "sha256": "2da96b95c4633878a2395d761c707480b5816d2cc1ef2f5104e8c249794549eb",
+      "old_sha256": ""
+    },
+    {
+      "path": "docs/etervale/V26_ENVIRONMENT_REFACTORIZACAO_E_MODELOS_LOCAIS.md",
+      "kind": "new",
+      "sha256": "950099d280bfe6c42b5f26d31cc6abc9a490974257bbdab62dcbe3f01c9f2af6",
+      "old_sha256": ""
+    }
+  ]
+}

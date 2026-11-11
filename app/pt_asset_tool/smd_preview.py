@@ -1,6 +1,11 @@
 from __future__ import annotations
 
 import hashlib
+from contextlib import contextmanager
+try:
+    import fcntl  # Cross-process index coordination on Linux
+except ImportError:
+    fcntl = None
 import json
 import os
 import pathlib
@@ -187,6 +192,7 @@ class SmdPreviewManager:
         self._stop = threading.Event()
         self.worker_count = max(1, min(4, int(workers)))
         self._index = self._load_index()
+        self._index_mtime_ns = self._index_stamp()
         self._runtime_cache: dict[str, Any] | None = None
         self._runtime_cache_at = 0.0
         self._workers: list[threading.Thread] = []
@@ -222,6 +228,34 @@ class SmdPreviewManager:
             self._write_index(data)
         return data
 
+    @contextmanager
+    def _index_process_lock(self):
+        lock_path = self.root / "index.lock"
+        with lock_path.open("a+b") as lock_stream:
+            if fcntl is not None:
+                fcntl.flock(lock_stream.fileno(), fcntl.LOCK_EX)
+            try:
+                yield
+            finally:
+                if fcntl is not None:
+                    fcntl.flock(lock_stream.fileno(), fcntl.LOCK_UN)
+
+    def _index_stamp(self) -> int:
+        try:
+            st = self.index_path.stat()
+            return (st.st_ino, st.st_size, st.st_mtime_ns)
+        except OSError:
+            return (0, 0, 0)
+
+    def _sync_index_from_disk(self) -> None:
+        """A batch runs in another process: don't serve the UI's startup snapshot."""
+        stamp = self._index_stamp()
+        if stamp != self._index_mtime_ns:
+            raw = _json_load(self.index_path)
+            if raw.get("format") == INDEX_FORMAT and isinstance(raw.get("items"), dict):
+                self._index = raw
+            self._index_mtime_ns = stamp
+
     def _write_index(self, data: dict[str, Any] | None = None) -> None:
         with self._index_lock:
             if data is not None:
@@ -231,9 +265,11 @@ class SmdPreviewManager:
             tmp = self.index_path.with_suffix(".json.tmp")
             tmp.write_text(json.dumps(self._index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             os.replace(tmp, self.index_path)
+            self._index_mtime_ns = self._index_stamp()
 
     def _index_update(self, logical: str, **fields: Any) -> None:
-        with self._index_lock:
+        with self._index_lock, self._index_process_lock():
+            self._sync_index_from_disk()
             items = self._index.setdefault("items", {})
             row = dict(items.get(self._key(logical)) or {})
             row.update({"asset": logical, "updated_at": time.time(), **fields})
@@ -242,11 +278,13 @@ class SmdPreviewManager:
 
     def status_index(self) -> dict[str, dict[str, Any]]:
         with self._index_lock:
+            self._sync_index_from_disk()
             return {k: dict(v) for k, v in (self._index.get("items") or {}).items() if isinstance(v, dict)}
 
     def mark_all_stale(self, detail: str = "REGISTRY_REINDEXED") -> int:
         changed = 0
-        with self._index_lock:
+        with self._index_lock, self._index_process_lock():
+            self._sync_index_from_disk()
             for row in (self._index.get("items") or {}).values():
                 if isinstance(row, dict) and row.get("status") == "READY":
                     row.update(status="STALE", detail=detail, updated_at=time.time())

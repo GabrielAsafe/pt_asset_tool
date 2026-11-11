@@ -347,10 +347,13 @@ def bundled_realesrgan(project_root: Path | None = None) -> Path | None:
                 return _materialize_realesrgan_payload(archive)
         return None
 
-    for base in (repo / "tools" / "realesrgan", project / "tools" / "realesrgan"):
+    # The developer install keeps Real-ESRGAN under AI_enhcance/ (historic
+    # spelling is intentional). This is a LOCAL executable, not a .pth model.
+    for base in (repo / "AI_enhcance" / "realesrgan", project / "AI_enhcance" / "realesrgan",
+                 repo / "tools" / "realesrgan", project / "tools" / "realesrgan"):
         for name in names:
             p = base / name
-            if p.is_file():
+            if p.is_file() and os.access(p, os.X_OK):
                 return p.resolve()
     return None
 

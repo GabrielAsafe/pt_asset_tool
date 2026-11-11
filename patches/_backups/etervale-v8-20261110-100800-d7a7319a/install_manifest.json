@@ -1,0 +1,55 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_V8_WEB_ENTITIES_SMD_SETTINGS_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/smd_preview.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/smd_preview_batch.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_app.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/entity_catalog.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/index.html"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.js"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.css"
+    },
+    {
+      "kind": "modified",
+      "path": "app/dev_tests/test_etervale_v6_web_focus.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/dev_tests/test_etervale_v7_native_ui_ai_particles.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_entity_names.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_v8_web_entities_smd.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/V8_WEB_ENTITIES_SMD_SETTINGS.md"
+    }
+  ]
+}

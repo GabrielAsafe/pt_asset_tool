@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/equipment_sets.schema.json",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "sets"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "summit.equipment-sets/v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "sets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/set"
+      }
+    }
+  },
+  "$defs": {
+    "piece": {
+      "type": "object",
+      "required": [
+        "item_id",
+        "slot",
+        "required_copies"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_copies": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "bonus": {
+      "type": "object",
+      "required": [
+        "required_piece_count",
+        "modifiers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "required_piece_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "require_complete_set": {
+          "type": "boolean"
+        },
+        "modifiers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "stat_key",
+              "operation"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "stat_key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "operation": {
+                "enum": [
+                  "flat",
+                  "percent",
+                  "multiply"
+                ]
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "integer"
+                ]
+              },
+              "value_source": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "set": {
+      "type": "object",
+      "required": [
+        "id",
+        "display_name",
+        "pieces",
+        "bonuses"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^set\\."
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "migration": {
+          "type": "string"
+        },
+        "pieces": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/piece"
+          }
+        },
+        "bonuses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/bonus"
+          }
+        }
+      }
+    }
+  }
+}

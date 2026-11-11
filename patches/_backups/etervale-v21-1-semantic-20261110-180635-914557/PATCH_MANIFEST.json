@@ -1,0 +1,23 @@
+{
+  "patch_id": "etervale-v21-1-semantic-bpy-props-registration",
+  "date": "2026-11-10",
+  "parent_min": "V21",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "kind": "modified",
+      "sha256": "24d3b79814ddb4f757a4385e4ed21f45486098292149a4b01bc143ae268a6855",
+      "old_sha256": "2337441b121fa2c9ee79ac4881b57f53f1897b6b979f4b8089fc328694c99883"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_semantic_blender_props_v21_1.py",
+      "kind": "new",
+      "sha256": "95296b374f3353cfbd9c51d07d0feb054227f30fff63682cf02f1e248d850c5d"
+    },
+    {
+      "path": "docs/etervale/V21_1_STAGE072_SEMANTIC_BLENDER_PROPS.md",
+      "kind": "new",
+      "sha256": "95b094c5bc031fa2a4289eda817279e1e37d1b1a3c8eb43194f9fa4d7d9c3bb1"
+    }
+  ]
+}

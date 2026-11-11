@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/npc_definition.schema.json",
+  "title": "Summit NPC Definition v1",
+  "type": "object",
+  "required": ["schema", "schema_version", "id", "kind", "semantic"],
+  "properties": {
+    "schema": {"const": "summit.canonical-text-resource/v1"},
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^npc\\.[a-z0-9_.-]+$"},
+    "kind": {"const": "npc_definition"},
+    "semantic": {
+      "type": "object",
+      "required": ["fields", "directives", "unknown_tokens"],
+      "properties": {
+        "fields": {"type": "object", "minProperties": 1},
+        "directives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["line", "key", "legacy_token", "legacy_token_hex", "loader_status", "values", "raw_values_hex"],
+            "properties": {
+              "line": {"type": "integer", "minimum": 1},
+              "key": {"type": "string", "minLength": 1},
+              "legacy_token": {"type": "string", "minLength": 1},
+              "legacy_token_hex": {"type": "string", "pattern": "^[0-9a-f]+$"},
+              "loader_status": {"type": "string", "minLength": 1},
+              "values": {"type": "array"},
+              "raw_values_hex": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]*$"}}
+            },
+            "additionalProperties": true
+          }
+        },
+        "unknown_tokens": {"type": "object"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

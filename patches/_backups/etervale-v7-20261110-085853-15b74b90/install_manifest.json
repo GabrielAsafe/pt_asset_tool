@@ -1,0 +1,39 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_V7_WEB_UI_ETERVALE_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/index.html"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.js"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.css"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_app.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/dependencies.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/texture_upscale.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_v7_native_ui_ai_particles.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/V7_WEB_ETERVALE_NATIVE_AI_PARTICLES.md"
+    }
+  ]
+}

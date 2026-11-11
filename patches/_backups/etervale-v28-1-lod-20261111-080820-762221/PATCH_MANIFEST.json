@@ -1,0 +1,42 @@
+{
+  "description": "V28.1: progressive measured-face Decimate passes; rejects >150% budget; preserves existing V28 cache and source game assets",
+  "files": [
+    {
+      "kind": "modified",
+      "old_sha256": "d46553b7e4f6706568b299ba5d4f3c5aa1acea851902ce5c33c412e2e3a410a4",
+      "path": "app/pt_environment.py",
+      "sha256": "660d44cd4def5013f2c726c13cf06d439accff1b7925c29650bf28576bf9e62d"
+    },
+    {
+      "kind": "modified",
+      "old_sha256": "d85706d01c2de04821e11ff4f86daab9ade8c7f9acb8c6ef4cb8f2e24236c251",
+      "path": "app/pt_asset_tool/environment_lods_v28.py",
+      "sha256": "eb7e1f4eadb2ca8ac268660d721929bcef8017969d6aa98ac649b6233f049e88"
+    },
+    {
+      "kind": "modified",
+      "old_sha256": "31b7bb51e9e3072ace74dfee45bc68052fb08e28cb3cd402ab74f05efb5749e3",
+      "path": "app/pt_asset_tool/blender/environment_prepare_worker_v28.py",
+      "sha256": "ae789cb6ca30d60ef99fa13d62d2e0089e30f5c5ac6e090159167700af4abfd0"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/pt_asset_tool/lod_planning_v28_1.py",
+      "sha256": "b58e768e377dce6786174dbff1bac1882475a04812b0582775549fd3a04d0ddc"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/dev_tests/test_etervale_environment_v28_1_adaptive.py",
+      "sha256": "2b209e581818c5afcb71be3057139260c45a01ce23388d4287bc24a7f3283d08"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "docs/etervale/V28_1_LOD_ADAPTATIVO_HOTFIX.md",
+      "sha256": "54416bf5f5534b58f8be00acb5da7bab923c440bf887b91bfa1fdd36e560c011"
+    }
+  ],
+  "patch_id": "etervale-v28-1-adaptive-lod-budget-hotfix"
+}

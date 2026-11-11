@@ -1,0 +1,40 @@
+{
+  "format": "PT_ASSET_ETERVALE_PATCH_BACKUP_V1",
+  "patch": "P0_01",
+  "source_zip": "/home/gabriel/Transferências/pt_asset_tool/patches/ETERVALE_P0P1_PATCHES_2026-11-09/patches/etervale_P0_01_writers.zip",
+  "entries": [
+    {
+      "path": "app/pt_asset_tool/etervale_integration.py",
+      "action": "MODIFY",
+      "before_sha256": "9e12f23438679013b23e35ddb16be65342bc21367d0ce1db39893eeb1dc5be7f",
+      "after_sha256": "6e5e1b87d12ef5e56c0485f58fcaca572a3e3b81ed32478b38fb8e515257bb7f"
+    },
+    {
+      "path": "app/pt_asset_tool/etervale_p0p1_plugins.py",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "b786052e2bba2e94d0cb67e49357e8bc7a2d760a42670b63c213b5d7c2f9c8f1"
+    },
+    {
+      "path": "app/pt_asset_tool/etervale_writer_cert.py",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "0ce5f01412cd0be850a3f0d3e096a625e581aab480caac7b365dc5daade9ada2"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_p0_writer_cert.py",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "554f554a2d5049e43d3c6a965f45111af26bd55c9a0acc4d9bb16cd8207ab685"
+    },
+    {
+      "path": "docs/etervale/P0_01_WRITERS_CERT.md",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "847952c1fea75930b9c64c6fd65a2d4b974f6f07bc782a6f4171403e6d4f3929"
+    }
+  ],
+  "backup_paths": {
+    "app/pt_asset_tool/etervale_integration.py": "/home/gabriel/Transferências/pt_asset_tool/patches/ETERVALE_P0P1_PATCHES_2026-11-09/patches/_backups/etervale-P0_01-20261109-135011-nje46e25/files/app/pt_asset_tool/etervale_integration.py"
+  }
+}

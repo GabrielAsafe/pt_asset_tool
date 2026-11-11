@@ -1,0 +1,27 @@
+{
+  "patch_id": "etervale-v25-1-stage072-native-stage-visibility-workbench",
+  "version": "25.1",
+  "source": "V25",
+  "description": "Keep certified native Stage hidden in Blender V25 and allow explicit disposal of inspection meshes",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/stage072_tree_review_v25.py",
+      "kind": "modified",
+      "sha256": "4ffe628e796b79c16cb91403ce567354e0227b45deddd5063c8900bd48e485f8",
+      "size": 17743,
+      "old_sha256": "07ff6b5ee2d3497053062f37c172cc168bf64db5a90cd2db2054195f5c975391"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_v25_1_visibility.py",
+      "kind": "new",
+      "sha256": "85c3d7965a0e3ce79d205fa5490f745bcdab5fba5d65812ead95deaa4c2a5ebf",
+      "size": 7254
+    },
+    {
+      "path": "docs/etervale/V25_1_STAGE072_VISIBILIDADE_SEM_DUPLICACAO.md",
+      "kind": "new",
+      "sha256": "3eb66fc0a444f3ef8f22cd63c0722aae16907e4578c0f4bb976bc132db1c3dfc",
+      "size": 2082
+    }
+  ]
+}

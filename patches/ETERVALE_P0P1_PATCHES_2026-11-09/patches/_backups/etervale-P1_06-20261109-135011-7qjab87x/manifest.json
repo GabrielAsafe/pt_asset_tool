@@ -1,0 +1,47 @@
+{
+  "format": "PT_ASSET_ETERVALE_PATCH_BACKUP_V1",
+  "patch": "P1_06",
+  "source_zip": "/home/gabriel/Transferências/pt_asset_tool/patches/ETERVALE_P0P1_PATCHES_2026-11-09/patches/etervale_P1_06_ui.zip",
+  "entries": [
+    {
+      "path": "app/pt_asset_tool/etervale_ui_readiness.py",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "af4e87720ba0fc46e3b2eaa4136ee6a8d0f099c09a4d11d58094b6fc8501307d"
+    },
+    {
+      "path": "app/pt_asset_tool/ui_app.py",
+      "action": "MODIFY",
+      "before_sha256": "a283a39aa9ffe60aa0ebf57ff1b13acb2f84a1c73c6b6edfd7027a7a850e0ce6",
+      "after_sha256": "56e12229c34585e874a97ad69eda6cc621f10e173196aeb151b16457b209a406"
+    },
+    {
+      "path": "app/pt_asset_tool/ui_static/index.html",
+      "action": "MODIFY",
+      "before_sha256": "83197e3311e59ddbbcee25d63b0a28bd6a3072c4bc734d3a19c4f3267af81772",
+      "after_sha256": "6b68121590ad2562054c96226d3008a5de5724fab5b87e40c4b412191802ce02"
+    },
+    {
+      "path": "app/pt_asset_tool/ui_static/etervale-readiness.html",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "27e877882f3bcf8b9a09965e447545312e636595334f527e711c11bba44da1f4"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_p1_ui_readiness.py",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "3dec6241e554682cdd05402a748c5d12e193cca969daa52c2675ea9863cd66be"
+    },
+    {
+      "path": "docs/etervale/P1_06_UI_READINESS.md",
+      "action": "NEW",
+      "before_sha256": null,
+      "after_sha256": "a4a518a6722cb3f2981d683d782c69f366d2a0f4f6555ad37b19c1b03c202d4e"
+    }
+  ],
+  "backup_paths": {
+    "app/pt_asset_tool/ui_app.py": "/home/gabriel/Transferências/pt_asset_tool/patches/ETERVALE_P0P1_PATCHES_2026-11-09/patches/_backups/etervale-P1_06-20261109-135011-7qjab87x/files/app/pt_asset_tool/ui_app.py",
+    "app/pt_asset_tool/ui_static/index.html": "/home/gabriel/Transferências/pt_asset_tool/patches/ETERVALE_P0P1_PATCHES_2026-11-09/patches/_backups/etervale-P1_06-20261109-135011-7qjab87x/files/app/pt_asset_tool/ui_static/index.html"
+  }
+}

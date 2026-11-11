@@ -1,0 +1,38 @@
+{
+  "patch_id": "etervale-v12-stage072-blender-view-paint",
+  "format": "PT_ASSET_INCREMENTAL_PATCH_V1",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/open_stage072_preview.py",
+      "kind": "modified",
+      "old_sha256": "1b8a0b62df6e3af64ee7236eb587610d44e5c72b40f92fd8d5208991806dac31",
+      "sha256": "da4eb4016f70dfd0f18f0dbbb733a0aa1b72774a06869dd5a6bcea172e81ad17"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/open_stage072_paint.py",
+      "kind": "modified",
+      "old_sha256": "9c1571d87b12310daa6fc59f8613bbdb7c2271154fa7d32c38c57db988588a04",
+      "sha256": "e10fbceda719896211d482853b8de4ce21947a73d9dbc26dbac069578ab479ed"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_view_axes.py",
+      "kind": "new",
+      "sha256": "d568c318fc180ca2091fac611a3dc5adce1589550a8f49aef5a65d5f3dcbb815"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_paint_policy.py",
+      "kind": "new",
+      "sha256": "ef6f6970a282e1a7cb73fa8a5b3d7825bdae706b057f99f744d922c753897c43"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_view_paint_v12.py",
+      "kind": "new",
+      "sha256": "e5780151a96d13efbc81661cf22e3611f483daf0f5ed0be812cd56910ef5a8a0"
+    },
+    {
+      "path": "docs/etervale/V12_STAGE072_BLENDER_AXES_PAINT_MISSING.md",
+      "kind": "new",
+      "sha256": "91bee6403de02c6b4bc67a41b95b55814dfdba1af490eea8e8bc439a415730c8"
+    }
+  ]
+}

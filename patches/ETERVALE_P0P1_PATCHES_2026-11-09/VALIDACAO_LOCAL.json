@@ -1,0 +1,14 @@
+{
+  "format": "PT_ASSET_ETERVALE_P0P1_LOCAL_VALIDATION_V1",
+  "date": "2026-11-09",
+  "environment": "isolated ZIP source checkout, Python tests; no .NET runtime available",
+  "passed_last_combined_focused": 51,
+  "additional_ui_regression_passed": 13,
+  "performed_native_csharp_reader_tests": false,
+  "game_assets_modified": false,
+  "scope_limits": [
+    "P0 content adaptation is partial and requires schema-by-schema mapping",
+    "writers need execution against real Etervale checkout and runtime",
+    "P1 UI patch is a read-only evidence dashboard, not complete visual redesign"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_P0_FECHAMENTO_V3_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_p0_closure.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/dev_tests/test_etervale_p1_ui_readiness.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/etervale_native_pipeline.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_p0_alias.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_p0_binary.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_p0_closure_audit.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_p0_content_probe.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_p0_release.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/etervale_p0p1_plugins.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/etervale_ui_readiness.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/P0_FECHAMENTO_UNIFICADO_V3.md"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/P0_STATUS_E_LIMITES_2026-11-09.md"
+    }
+  ]
+}

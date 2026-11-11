@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/stage_spawn.schema.json",
+  "title": "Summit Stage Spawn v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "id",
+    "logical_path",
+    "legacy_source",
+    "limit_max",
+    "delay",
+    "open_limit",
+    "actors",
+    "bosses"
+  ],
+  "properties": {
+    "schema": {
+      "const": "summit.stage-spawn/v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^spawn\\.[a-z0-9_.-]+$"
+    },
+    "logical_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_source": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "limit_max": {
+      "type": "integer"
+    },
+    "delay": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "shift"
+          ],
+          "properties": {
+            "shift": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 31
+            },
+            "milliseconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "open_limit": {
+      "type": "integer"
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/actor"
+      }
+    },
+    "bosses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/boss"
+      }
+    }
+  },
+  "$defs": {
+    "resolution": {
+      "enum": [
+        "exact",
+        "explicit_compatibility_override",
+        "legacy_skip_if_missing",
+        "source_monster_signature"
+      ]
+    },
+    "actor": {
+      "type": "object",
+      "required": [
+        "monster_id",
+        "legacy_name",
+        "legacy_name_bytes_hex",
+        "weight",
+        "resolution"
+      ],
+      "properties": {
+        "monster_id": {
+          "type": "string"
+        },
+        "legacy_name": {
+          "type": "string"
+        },
+        "legacy_name_bytes_hex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-fA-F]{2})*$"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "resolution": {
+          "$ref": "#/$defs/resolution"
+        },
+        "canonical_name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "boss": {
+      "type": "object",
+      "required": [
+        "master_monster_id",
+        "slave_monster_id",
+        "master_legacy_name",
+        "slave_legacy_name",
+        "master_legacy_name_bytes_hex",
+        "slave_legacy_name_bytes_hex",
+        "slave_count",
+        "open_hours",
+        "master_resolution",
+        "slave_resolution"
+      ],
+      "properties": {
+        "master_monster_id": {
+          "type": "string"
+        },
+        "slave_monster_id": {
+          "type": "string"
+        },
+        "master_legacy_name": {
+          "type": "string"
+        },
+        "slave_legacy_name": {
+          "type": "string"
+        },
+        "master_legacy_name_bytes_hex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-fA-F]{2})*$"
+        },
+        "slave_legacy_name_bytes_hex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-fA-F]{2})*$"
+        },
+        "slave_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "open_hours": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 23
+          }
+        },
+        "master_resolution": {
+          "$ref": "#/$defs/resolution"
+        },
+        "slave_resolution": {
+          "$ref": "#/$defs/resolution"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

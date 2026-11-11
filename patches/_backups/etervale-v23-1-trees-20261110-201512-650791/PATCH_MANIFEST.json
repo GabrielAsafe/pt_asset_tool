@@ -1,0 +1,36 @@
+{
+  "patch_id": "etervale-v23-1-preserve-empty-review-and-restore-103-trees",
+  "description": "non-destructive V22 V23 proposals with 103-tree rescue; no Etervale assets changed",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "kind": "modified",
+      "sha256": "ef8a011ca254e594287f4c0debfc387bdecd14522062ec60fe341dd43d284f79",
+      "old_sha256": "b06d594f77f19de887d1b2d2f8ae02274a5cae766304c312851195a6592316a3"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_tree_v23.py",
+      "kind": "modified",
+      "sha256": "04de69f0d81ec8e56683f56cdf8a761296740363d7ec23c136e639ae063b2d5d",
+      "old_sha256": "7850ab74c1ce44e30f585129fd92a9e4f8c8c322fb38203efb5d7cf5c8b10aa7"
+    },
+    {
+      "path": "app/pt_stage072_restore_v23_1.py",
+      "kind": "new",
+      "sha256": "bb5e4ba472ec925eb715ac33abf0b2eb3f170a60f32bca5bb315b970f6c8aa07",
+      "old_sha256": null
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_v23_1_preservacao.py",
+      "kind": "new",
+      "sha256": "8949cfdc34579a9b8f54f95c1c82ce4c7d9511eff99fc7cd788ca4ee65f31ba9",
+      "old_sha256": null
+    },
+    {
+      "path": "docs/etervale/V23_1_RECUPERACAO_ESTADO_ARVORES.md",
+      "kind": "new",
+      "sha256": "e962724f0b9f1b35c2a58c064daee6dc847f51b95ff01b318a25874e53ee1db9",
+      "old_sha256": null
+    }
+  ]
+}

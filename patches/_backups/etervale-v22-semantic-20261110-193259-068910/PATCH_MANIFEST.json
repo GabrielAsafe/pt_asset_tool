@@ -1,0 +1,31 @@
+{
+  "base": "V21.1",
+  "files": [
+    {
+      "kind": "modified",
+      "old_sha256": "24d3b79814ddb4f757a4385e4ed21f45486098292149a4b01bc143ae268a6855",
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "sha256": "24e4e1ac37c769cc98b53091b4d99c936397fd7b2c2058d871d556c5b61350c0"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/pt_asset_tool/stage072_semantic_detect_v22.py",
+      "sha256": "e2e69d8ca07e4963bd44926ac79554784ae93815b030fa2a9ce45016400cb94b"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/dev_tests/test_etervale_stage072_auto_detect_v22.py",
+      "sha256": "a2fbc899c985769b49a9c0ace080150adf00c5f9b81753c6c8d0fedb3ce79b2a"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "docs/etervale/V22_STAGE072_DETECAO_GEOMETRICA_SEMANTICA.md",
+      "sha256": "adb94ff9695e9672207af5c9d2ba19e1ce3f7fc0fe5365915f59a1efe9a152a9"
+    }
+  ],
+  "patch_id": "etervale-v22-stage072-semantic-geometry-object-detection",
+  "version": 22
+}

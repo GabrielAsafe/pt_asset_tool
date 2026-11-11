@@ -1,0 +1,43 @@
+........................................................................ [ 43%]
+........................................................................ [ 86%]
+..................F....                                                  [100%]
+=================================== FAILURES ===================================
+_______________ test_tile_cache_inside_input_client_is_rejected ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_tile_cache_inside_input_c0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6fc1d7ab30>
+
+    def test_tile_cache_inside_input_client_is_rejected(tmp_path, monkeypatch):
+        pipeline = load_pipeline(monkeypatch)
+        client = tmp_path/'cliente'
+        client.mkdir()
+        outside = tmp_path/'resultados'
+        cfg = tmp_path/'gpu.json'
+        row = {'engine':'ncnn_vulkan', 'model_param':'a', 'model_bin':'b',
+               'sha256':'a'*64, 'sha256_bin':'b'*64,
+               'python':sys.executable, 'runtime_root':'runtime',
+               'tile_cache_root':str(client/'cache')}
+        cfg.write_text(json.dumps({'models':{'default':row}}))
+        try:
+>           pipeline.prepare(client, outside, include=[], exact=['Field/Boss/stone_01.bmp'],
+                             all_=False, config_path=cfg)
+
+tests/test_texture_ncnn_pipeline.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input_root = PosixPath('/tmp/pytest-of-root/pytest-0/test_tile_cache_inside_input_c0/cliente')
+output_root = PosixPath('/tmp/pytest-of-root/pytest-0/test_tile_cache_inside_input_c0/resultados')
+
+    def prepare(input_root: Path, output_root: Path, *, include: list[str], exact: list[str], all_: bool,
+                include_ui: bool=False, include_technical: bool=False, config_path: Path | None=None,
+                denoise: str='off', maps: str='off', height_root: Path | None=None,
+                mesh_root: Path | None=None, max_dimension: int=8192, checkpoint_every: int=25,
+                alpha_tolerance: int=0, profile: str='legacy', profile_config: Path | None=None) -> dict:
+>       if profile not in ('legacy', profiles.PROFILE, profiles.ADAPTIVE_PROFILE):
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'pt_asset_tool.texture_material_profiles' has no attribute 'ADAPTIVE_PROFILE'
+
+app/pt_asset_tool/texture_material_pipeline.py:275: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_texture_ncnn_pipeline.py::test_tile_cache_inside_input_client_is_rejected - AttributeError: module 'pt_asset_tool.texture_material_profiles' has no attribute 'ADAPTIVE_PROFILE'
+1 failed, 166 passed in 18.17s

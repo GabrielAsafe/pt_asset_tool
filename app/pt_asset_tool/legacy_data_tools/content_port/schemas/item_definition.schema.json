@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/item_definition.schema.json",
+  "title": "Summit Item Definition v1",
+  "type": "object",
+  "required": ["schema", "schema_version", "id", "kind", "semantic"],
+  "properties": {
+    "schema": {"const": "summit.canonical-text-resource/v1"},
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^item\\.[a-z0-9_.-]+$"},
+    "kind": {"const": "open_item_definition"},
+    "runtime_profiles": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["client", "server"]},
+      "maxItems": 2,
+      "uniqueItems": true,
+      "description": "Explicit canonical runtime eligibility. When absent, legacy executable item profiles remain the migration fallback."
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "icon": {
+          "type": "object",
+          "required": ["logical_path", "runtime_format", "runtime_required"],
+          "properties": {
+            "logical_path": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^image/Sinimage/Items/.+/it[^/]+$",
+              "description": "Extensionless logical item-icon path; runtime representation is cooked separately."
+            },
+            "runtime_format": {"const": "dds"},
+            "runtime_required": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "semantic": {
+      "type": "object",
+      "required": ["fields", "directives", "unknown_tokens"],
+      "properties": {
+        "fields": {
+          "type": "object",
+          "required": ["code"],
+          "properties": {"code": {}},
+          "additionalProperties": true
+        },
+        "directives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["line", "key", "legacy_token", "legacy_token_hex", "loader_status", "values", "raw_values_hex"],
+            "properties": {
+              "line": {"type": "integer", "minimum": 1},
+              "key": {"type": "string", "minLength": 1},
+              "legacy_token": {"type": "string", "minLength": 1},
+              "legacy_token_hex": {"type": "string", "pattern": "^[0-9a-f]+$"},
+              "loader_status": {"type": "string", "minLength": 1},
+              "values": {"type": "array"},
+              "raw_values_hex": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]*$"}}
+            },
+            "additionalProperties": true
+          }
+        },
+        "unknown_tokens": {"type": "object"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

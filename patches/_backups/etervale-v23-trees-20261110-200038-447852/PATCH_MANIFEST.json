@@ -1,0 +1,38 @@
+{
+  "patch_id": "etervale-v23-stage072-tree-inspection-glb-preview",
+  "version": 23,
+  "base": "V22",
+  "description": "Preview-only tree grouping, virtual isolation and user-selected GLB instances. No game edits.",
+  "files": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "old_sha256": "24e4e1ac37c769cc98b53091b4d99c936397fd7b2c2058d871d556c5b61350c0",
+      "sha256": "b06d594f77f19de887d1b2d2f8ae02274a5cae766304c312851195a6592316a3"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/stage072_trees_v23.py",
+      "old_sha256": "",
+      "sha256": "965057dbfc8896985f459ff47fff2d57235ef6da64b633b2efe0adbd16e01284"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/blender/stage072_tree_v23.py",
+      "old_sha256": "",
+      "sha256": "7850ab74c1ce44e30f585129fd92a9e4f8c8c322fb38203efb5d7cf5c8b10aa7"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_stage072_trees_v23.py",
+      "old_sha256": "",
+      "sha256": "28f624151a74d3ff7bf4bb781dd61383a62fb41509d252dd1ae7556afaf94c99"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/V23_ARVORES_OBJETOS_PREVIEW_GLB.md",
+      "old_sha256": "",
+      "sha256": "1237b32eef497e6ae1dfafc3ab6950ebf43f723667e7ce19798a4add2f26a77b"
+    }
+  ]
+}

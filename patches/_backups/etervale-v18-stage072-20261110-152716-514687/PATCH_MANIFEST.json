@@ -1,0 +1,28 @@
+{
+  "format": "PT_ASSET_INCREMENTAL_PATCH_V1",
+  "patch_id": "etervale-v18-stage072-exact-binary32-position-transport",
+  "base": "ETERVALE_V16_STAGE072_JPEG_HANDLE",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/check_stage072_transport.py",
+      "kind": "modified",
+      "old_sha256": "06882fa15cf38973bb11fb1284e24a0b1bf0e3399ea5b29b096e0c04376e597d",
+      "sha256": "9176d457da5b8139e9d61ec1e33fb4f4c2eef42a88c7084e8b34c6c0d96f836c"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_position_float32.py",
+      "kind": "new",
+      "sha256": "63012f21cc13d2be8a0a30fb45238c842fa75e9355b1b23579def1d03522a1aa"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_position_f32_v18.py",
+      "kind": "new",
+      "sha256": "bf654f1cf021b68d9c395e72fc1597bae6f34379e3a8df02c850055951b56cb3"
+    },
+    {
+      "path": "docs/etervale/V18_STAGE072_POSITIONS_BINARY32.md",
+      "kind": "new",
+      "sha256": "cd3065fd8f4b86e078c3331cf1e0c6333907ef9aed2483a9ea23e2c1a12d1d97"
+    }
+  ]
+}

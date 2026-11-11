@@ -1,0 +1,54 @@
+{
+  "patch_id": "etervale-v27-texture-components-preview-lod",
+  "description": "V27: Stage texture connected components and safe preview-only model LOD; source SHA locked",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "kind": "modified",
+      "sha256": "b8ffe4e17cfd7733cde4f9bb23a58a1547eae5e7a669aded73efbfbdf76692a8",
+      "old_sha256": "fc472894b4c4d6a1889079e876cb1154aa5f84f44e547f58a877eb3314598d3c"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_environment_v26.py",
+      "kind": "modified",
+      "sha256": "2bc0fe7275d396920cc38d72b97e001cc52a982f57ab3873462bf9870d6acf0c",
+      "old_sha256": "36501c649eb5b1594aa06b2156c3e8c94c7673e39edcd58227dabd66f05ad462"
+    },
+    {
+      "path": "app/pt_asset_tool/environment_library_v26.py",
+      "kind": "modified",
+      "sha256": "351653bf58badbc14bac2a6d9c68e0f7b2ac21933145bb5f41054a6703291c2f",
+      "old_sha256": "b88521941165858be1bf4faeadab773d1f0470a7472757393dbc00345c8092fd"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_texture_semantics_v27.py",
+      "kind": "new",
+      "sha256": "b138ca6fb17c948b3929f474f9c0665d8de5917ac5f6303a1527d1a2f1b19524",
+      "old_sha256": ""
+    },
+    {
+      "path": "app/pt_asset_tool/environment_lod_v27.py",
+      "kind": "new",
+      "sha256": "4a8143980f3b22b10dd479349349865c4005f6d6f290f9310515849783cbe449",
+      "old_sha256": ""
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_textures_v27.py",
+      "kind": "new",
+      "sha256": "9dabe77f409bc37a305f3253782b874834fdf3f69e6060fc5f876eea4d9f13b4",
+      "old_sha256": ""
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_texture_v27.py",
+      "kind": "new",
+      "sha256": "b953902e76ecb5f32694ad93d95c2948bf913a8210d8f21d15d5a398145bee72",
+      "old_sha256": ""
+    },
+    {
+      "path": "docs/etervale/V27_TEXTURAS_COMPONENTES_E_LOD.md",
+      "kind": "new",
+      "sha256": "e42602edad3dff500a3d5c0eb14afdcc4031fe0d807b575692df5cf97c236222",
+      "old_sha256": ""
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/canonical_text_resource.schema.json",
+  "title": "Summit Canonical Text Resource v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "id",
+    "kind",
+    "selection_reason",
+    "runtime_paths",
+    "source",
+    "semantic",
+    "compatibility"
+  ],
+  "properties": {
+    "schema": {
+      "const": "summit.canonical-text-resource/v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9_.-]+$"
+    },
+    "kind": {
+      "enum": [
+        "monster_definition",
+        "npc_definition",
+        "open_item_definition",
+        "localization_resource",
+        "sin_resource",
+        "message_catalog",
+        "ini_config",
+        "generic_text"
+      ]
+    },
+    "selection_reason": {
+      "enum": [
+        "runtime_text_family",
+        "immutable_gameplay_config",
+        "ui_text_config",
+        "ui_text_resource"
+      ]
+    },
+    "runtime_paths": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "runtime_profiles": {"type": "array"},
+    "assets": {"type": "object"},
+    "source": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "legacy_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "legacy_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "legacy_aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "generated_from": {
+          "type": "string",
+          "minLength": 1
+        },
+        "migration_status": {
+          "type": "string",
+          "enum": [
+            "native_canonical_generated"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "legacy_path",
+            "legacy_sha256",
+            "legacy_size"
+          ]
+        },
+        {
+          "required": [
+            "generated_from",
+            "migration_status"
+          ]
+        }
+      ]
+    },
+    "semantic": {
+      "type": "object"
+    },
+    "compatibility": {
+      "type": "object",
+      "required": [
+        "encoding",
+        "legacy_payload_base64"
+      ],
+      "properties": {
+        "encoding": {
+          "const": "base64"
+        },
+        "legacy_payload_base64": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

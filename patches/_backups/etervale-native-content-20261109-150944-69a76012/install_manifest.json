@@ -1,0 +1,27 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_P0_02_native_pipeline_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/etervale_p0p1_plugins.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/etervale_native_pipeline.py"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_native_pipeline.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/P0_02_NATIVE_IMPORT_GATE_V2.md"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/NATIVE_CONTENT_RECIPE_EXAMPLE.json"
+    }
+  ]
+}

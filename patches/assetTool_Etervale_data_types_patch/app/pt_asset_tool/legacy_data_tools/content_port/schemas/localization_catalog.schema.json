@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/localization_catalog.schema.json",
+  "title": "Summit Localization Catalog v1",
+  "type": "object",
+  "required": ["schema", "schema_version", "locale", "fallback_locale", "entries"],
+  "properties": {
+    "schema": {"const": "summit.localization-catalog/v1"},
+    "schema_version": {"const": 1},
+    "locale": {"enum": ["en", "pt-BR", "zh-TW", "ko"]},
+    "fallback_locale": {"anyOf": [{"const": "en"}, {"type": "null"}]},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "text", "quality", "source"],
+        "properties": {
+          "key": {"type": "string", "minLength": 1, "pattern": "^[a-z0-9_.-]+$"},
+          "text": {"type": "string", "minLength": 1},
+          "quality": {"enum": ["translated", "untranslated_fallback", "legacy_fallback", "legacy_source"]},
+          "source": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

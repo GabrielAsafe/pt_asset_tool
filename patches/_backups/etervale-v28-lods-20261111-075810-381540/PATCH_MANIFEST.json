@@ -1,0 +1,42 @@
+{
+  "description": "V28: background Blender LOD0/LOD1/LOD2 content-hash cache, one shared private mesh collection per model and batch instancing for approved forest trees; game assets and Stage source untouched",
+  "files": [
+    {
+      "kind": "modified",
+      "old_sha256": "84b82d4e383d45784700ec3bc38b36f0b6d4d96fbe758c613e5884976bafb2dd",
+      "path": "app/pt_environment.py",
+      "sha256": "d46553b7e4f6706568b299ba5d4f3c5aa1acea851902ce5c33c412e2e3a410a4"
+    },
+    {
+      "kind": "modified",
+      "old_sha256": "2bc0fe7275d396920cc38d72b97e001cc52a982f57ab3873462bf9870d6acf0c",
+      "path": "app/pt_asset_tool/blender/stage072_environment_v26.py",
+      "sha256": "a1932be28e92ad2ac2ee2c3c933491132b3b2928047dc6c684511b7e9fd0f586"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/pt_asset_tool/environment_lods_v28.py",
+      "sha256": "d85706d01c2de04821e11ff4f86daab9ade8c7f9acb8c6ef4cb8f2e24236c251"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/pt_asset_tool/blender/environment_prepare_worker_v28.py",
+      "sha256": "31b7bb51e9e3072ace74dfee45bc68052fb08e28cb3cd402ab74f05efb5749e3"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/dev_tests/test_etervale_environment_v28.py",
+      "sha256": "e3f98a43b63fe81ec77677d73078933230b3a692a6d2ebe8faaab4311b1173cd"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "docs/etervale/V28_LODS_CACHE_INSTANCIAS.md",
+      "sha256": "36c5932c4871f851334f331ccbc632386641ae8624a5d65a9745f496cc02bc81"
+    }
+  ],
+  "patch_id": "etervale-v28-background-model-lods-shared-preview-instances"
+}

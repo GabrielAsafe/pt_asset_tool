@@ -1618,6 +1618,7 @@ def _command_app_config(args: list[str]) -> int:
         clear_blender_executable, clear_client_root, clear_server_root, config_path,
         configured_blender_executable, load_config, resolve_client_root, resolve_server_root,
         save_blender_executable, save_client_root, save_server_root,
+        save_etervale_root, clear_etervale_root, configured_etervale_root,
     )
     if not args or args == ["show"]:
         cfg = load_config(ROOT)
@@ -1644,6 +1645,8 @@ def _command_app_config(args: list[str]) -> int:
             "status": "PASS" if resolved else "WARN",
             "release_version": OVERLAY_VERSION,
             "config_path": str(config_path(ROOT)),
+            "configured_etervale_root": str(configured_etervale_root(ROOT)) if configured_etervale_root(ROOT) else None,
+            "etervale_project_layout": cfg.get("project_layout"),
             "configured_client_root": cfg.get("client_root"),
             "resolved_client_root": resolved,
             "resolved_client_root_source": resolved_source,
@@ -1661,6 +1664,26 @@ def _command_app_config(args: list[str]) -> int:
         }
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0 if resolved else 1
+    if len(args) == 2 and args[0] in ("set-etervale-root", "set-game-root"):
+        path = save_etervale_root(ROOT, Path(args[1]))
+        root = configured_etervale_root(ROOT)
+        print(json.dumps({
+            "format": "PT_ASSET_APP_CONFIG_WRITE_V1", "status": "PASS",
+            "config_path": str(path), "etervale_root": str(root),
+            "asset_root": str(root / "assets"),
+            "server_data_root": str(root / "assets" / "GameServer"),
+            "code_root": str(root),
+            "note": "Legacy client/server roots kept for rollback; unified root takes priority. C# contracts remain a separate scan.",
+        }, ensure_ascii=False, indent=2))
+        return 0
+    if args in (["clear-etervale-root"], ["clear-game-root"]):
+        path = clear_etervale_root(ROOT)
+        print(json.dumps({
+            "format": "PT_ASSET_APP_CONFIG_WRITE_V1", "status": "PASS",
+            "config_path": str(path), "etervale_root": None,
+            "note": "Previous client/server root settings are again available.",
+        }, ensure_ascii=False, indent=2))
+        return 0
     if len(args) == 2 and args[0] == "set-client-root":
         path = save_client_root(ROOT, Path(args[1]))
         print(json.dumps({
@@ -1737,7 +1760,7 @@ def _command_app_config(args: list[str]) -> int:
             "note": "Persistent Blender override cleared; environment/PATH/Flatpak discovery remains available.",
         }, ensure_ascii=False, indent=2))
         return 0
-    print("usage: pt_asset.py config show | config set-client-root PATH | config clear-client-root | config set-server-root PATH | config clear-server-root | config set-blender-exe PATH | config clear-blender-exe", file=sys.stderr)
+    print("usage: pt_asset.py config show | config set-etervale-root PATH | config clear-etervale-root | config set-client-root PATH | config clear-client-root | config set-server-root PATH | config clear-server-root | config set-blender-exe PATH | config clear-blender-exe", file=sys.stderr)
     return 2
 
 
@@ -1954,6 +1977,9 @@ def main() -> int:
         print("  explain TOPIC                  explain statuses/bindings/validators in user terms")
         print("  preview render-all-smd [--mode warmup|all|missing|stale|failed] [--workers N]  generate/cache catalog SMD thumbnails in pt_build")
         print("  config show                    show persistent application configuration")
+        print("  config set-etervale-root PATH  bind unified Etervale checkout (assets + GameServer + C# code)")
+        print("  config clear-etervale-root     revert to legacy client/server discovery")
+        print("  etervale status|source-audit|validate|export-glb  native read-only C# bridge")
         print("  config set-client-root PATH    persist client root for GUI/desktop use")
         print("  config clear-client-root       clear persistent client root and return to discovery")
         print("  config set-server-root PATH    persist server root for Asset Enrichment/GUI use")

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "summit.stage-start-points.schema/v1",
+  "title": "Summit Stage Start Points",
+  "type": "object",
+  "required": ["schema", "id", "logical_path", "points"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "summit.stage-start-points/v1"},
+    "id": {"type": "string", "pattern": "^start_points\\."},
+    "logical_path": {"type": "string", "pattern": "(?i)\\.spp$"},
+    "points": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "required": ["slot", "state", "x", "z"],
+        "additionalProperties": false,
+        "properties": {
+          "slot": {"type": "integer", "minimum": 0, "maximum": 199},
+          "state": {"type": "integer", "minimum": 1},
+          "x": {"type": "integer"},
+          "z": {"type": "integer"}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

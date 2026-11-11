@@ -1,0 +1,21 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Etervale · Evidências P0/P1</title><style>
+:root{color-scheme:dark}body{background:#121821;color:#edf2f8;font:15px system-ui,sans-serif;max-width:1050px;margin:35px auto;padding:0 18px}a{color:#a9d2fb}header{margin-bottom:22px}h1{font-size:27px}p,small{color:#a9bacb}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}.panel{border:1px solid #344256;background:#1c2735;padding:18px;border-radius:12px}.label{font-size:12px;color:#9eb5ca}.state{font-size:15px;font-weight:700;margin-top:12px;overflow-wrap:anywhere}.blocked{color:#ffb69b}.pending{color:#b7c5d4}.ok{color:#a8dfbd}button{border:1px solid #748ba1;background:#253448;color:inherit;border-radius:7px;padding:10px 16px;cursor:pointer}code{overflow-wrap:anywhere}footer{margin-top:24px;color:#a9bacb}
+</style></head><body><header><h1>Etervale — Validação de conteúdo e assets</h1>
+<p>Resultados publicados pelos verificadores do Asset Tool. Evidência estrutural não é certificação visual ou funcional no jogo.</p>
+<button id="refresh">Atualizar resultados</button> <a href="/">Voltar ao Asset Tool</a></header>
+<main id="results" aria-live="polite"><p>Carregando…</p></main>
+<footer>Somente leitura. Nenhum arquivo do jogo é alterado. Execute as verificações pela CLI antes de autorizar publicação.</footer>
+<script>
+const out=document.getElementById('results');
+function node(tag,cls,value){const e=document.createElement(tag);if(cls)e.className=cls;e.textContent=value;return e}
+async function refresh(){out.replaceChildren(node('p','','Carregando…'));try{
+const resp=await fetch('/api/etervale/readiness',{cache:'no-store'});if(!resp.ok)throw Error('HTTP '+resp.status);
+const data=(await resp.json()).result;out.replaceChildren();
+for(const item of data.items){const card=node('section','panel','');card.append(node('h2','',item.title));
+const ev=item.evidence;if(!ev){card.append(node('p','state pending','Sem evidência gerada'));}else{
+const state=node('p','state '+(/FAIL|MISSING|REVIEW|ADAPTATION|NOT_|REJECT/.test(ev.status)?'blocked':'ok'),ev.status);card.append(state);
+card.append(node('small','',ev.format));card.append(node('p','label','Nível da prova: '+(ev.proof_level||'ver relatório')));
+card.append(node('code','label',ev.evidence_file));}out.append(card)}
+}catch(err){out.replaceChildren(node('p','blocked','Erro ao consultar relatórios: '+String(err)));}}
+document.getElementById('refresh').addEventListener('click',refresh);refresh();</script></body></html>

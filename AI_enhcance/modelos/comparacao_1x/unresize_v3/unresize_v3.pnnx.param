@@ -1,0 +1,976 @@
+7767517
+974 973
+pnnx.Input               pnnx_input_0             0 1 0 #0=(1,3,64,64)f32
+nn.Conv2d                model.0                  1 1 0 1 bias=True dilation=(1,1) groups=1 in_channels=3 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,3,3,3)f32 #0=(1,3,64,64)f32 #1=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB1.conv1.0 1 1 1 2 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #1=(1,64,64,64)f32 #2=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB1.conv1.1 1 1 2 3 negative_slope=0.2 #2=(1,32,64,64)f32 #3=(1,32,64,64)f32
+torch.cat                torch.cat_0              2 1 1 3 4 dim=1 #1=(1,64,64,64)f32 #3=(1,32,64,64)f32 #4=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB1.conv2.0 1 1 4 5 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #4=(1,96,64,64)f32 #5=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB1.conv2.1 1 1 5 6 negative_slope=0.2 #5=(1,32,64,64)f32 #6=(1,32,64,64)f32
+torch.cat                torch.cat_1              3 1 1 3 6 7 dim=1 #1=(1,64,64,64)f32 #3=(1,32,64,64)f32 #6=(1,32,64,64)f32 #7=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB1.conv3.0 1 1 7 8 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #7=(1,128,64,64)f32 #8=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB1.conv3.1 1 1 8 9 negative_slope=0.2 #8=(1,32,64,64)f32 #9=(1,32,64,64)f32
+torch.cat                torch.cat_2              4 1 1 3 6 9 10 dim=1 #1=(1,64,64,64)f32 #3=(1,32,64,64)f32 #6=(1,32,64,64)f32 #9=(1,32,64,64)f32 #10=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB1.conv4.0 1 1 10 11 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #10=(1,160,64,64)f32 #11=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB1.conv4.1 1 1 11 12 negative_slope=0.2 #11=(1,32,64,64)f32 #12=(1,32,64,64)f32
+torch.cat                torch.cat_3              5 1 1 3 6 9 12 13 dim=1 #1=(1,64,64,64)f32 #3=(1,32,64,64)f32 #6=(1,32,64,64)f32 #9=(1,32,64,64)f32 #12=(1,32,64,64)f32 #13=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB1.conv5.0 1 1 13 14 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #13=(1,192,64,64)f32 #14=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_635            2 1 14 1 15 expr=add(mul(@0,0.2),@1) #14=(1,64,64,64)f32 #1=(1,64,64,64)f32 #15=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB2.conv1.0 1 1 15 16 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #15=(1,64,64,64)f32 #16=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB2.conv1.1 1 1 16 17 negative_slope=0.2 #16=(1,32,64,64)f32 #17=(1,32,64,64)f32
+torch.cat                torch.cat_4              2 1 15 17 18 dim=1 #15=(1,64,64,64)f32 #17=(1,32,64,64)f32 #18=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB2.conv2.0 1 1 18 19 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #18=(1,96,64,64)f32 #19=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB2.conv2.1 1 1 19 20 negative_slope=0.2 #19=(1,32,64,64)f32 #20=(1,32,64,64)f32
+torch.cat                torch.cat_5              3 1 15 17 20 21 dim=1 #15=(1,64,64,64)f32 #17=(1,32,64,64)f32 #20=(1,32,64,64)f32 #21=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB2.conv3.0 1 1 21 22 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #21=(1,128,64,64)f32 #22=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB2.conv3.1 1 1 22 23 negative_slope=0.2 #22=(1,32,64,64)f32 #23=(1,32,64,64)f32
+torch.cat                torch.cat_6              4 1 15 17 20 23 24 dim=1 #15=(1,64,64,64)f32 #17=(1,32,64,64)f32 #20=(1,32,64,64)f32 #23=(1,32,64,64)f32 #24=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB2.conv4.0 1 1 24 25 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #24=(1,160,64,64)f32 #25=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB2.conv4.1 1 1 25 26 negative_slope=0.2 #25=(1,32,64,64)f32 #26=(1,32,64,64)f32
+torch.cat                torch.cat_7              5 1 15 17 20 23 26 27 dim=1 #15=(1,64,64,64)f32 #17=(1,32,64,64)f32 #20=(1,32,64,64)f32 #23=(1,32,64,64)f32 #26=(1,32,64,64)f32 #27=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB2.conv5.0 1 1 27 28 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #27=(1,192,64,64)f32 #28=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_627            2 1 28 15 29 expr=add(mul(@0,0.2),@1) #28=(1,64,64,64)f32 #15=(1,64,64,64)f32 #29=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB3.conv1.0 1 1 29 30 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #29=(1,64,64,64)f32 #30=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB3.conv1.1 1 1 30 31 negative_slope=0.2 #30=(1,32,64,64)f32 #31=(1,32,64,64)f32
+torch.cat                torch.cat_8              2 1 29 31 32 dim=1 #29=(1,64,64,64)f32 #31=(1,32,64,64)f32 #32=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB3.conv2.0 1 1 32 33 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #32=(1,96,64,64)f32 #33=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB3.conv2.1 1 1 33 34 negative_slope=0.2 #33=(1,32,64,64)f32 #34=(1,32,64,64)f32
+torch.cat                torch.cat_9              3 1 29 31 34 35 dim=1 #29=(1,64,64,64)f32 #31=(1,32,64,64)f32 #34=(1,32,64,64)f32 #35=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB3.conv3.0 1 1 35 36 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #35=(1,128,64,64)f32 #36=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB3.conv3.1 1 1 36 37 negative_slope=0.2 #36=(1,32,64,64)f32 #37=(1,32,64,64)f32
+torch.cat                torch.cat_10             4 1 29 31 34 37 38 dim=1 #29=(1,64,64,64)f32 #31=(1,32,64,64)f32 #34=(1,32,64,64)f32 #37=(1,32,64,64)f32 #38=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB3.conv4.0 1 1 38 39 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #38=(1,160,64,64)f32 #39=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.0.RDB3.conv4.1 1 1 39 40 negative_slope=0.2 #39=(1,32,64,64)f32 #40=(1,32,64,64)f32
+torch.cat                torch.cat_11             5 1 29 31 34 37 40 41 dim=1 #29=(1,64,64,64)f32 #31=(1,32,64,64)f32 #34=(1,32,64,64)f32 #37=(1,32,64,64)f32 #40=(1,32,64,64)f32 #41=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.0.RDB3.conv5.0 1 1 41 42 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #41=(1,192,64,64)f32 #42=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_617            3 1 42 29 1 43 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #42=(1,64,64,64)f32 #29=(1,64,64,64)f32 #1=(1,64,64,64)f32 #43=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB1.conv1.0 1 1 43 44 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #43=(1,64,64,64)f32 #44=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB1.conv1.1 1 1 44 45 negative_slope=0.2 #44=(1,32,64,64)f32 #45=(1,32,64,64)f32
+torch.cat                torch.cat_12             2 1 43 45 46 dim=1 #43=(1,64,64,64)f32 #45=(1,32,64,64)f32 #46=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB1.conv2.0 1 1 46 47 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #46=(1,96,64,64)f32 #47=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB1.conv2.1 1 1 47 48 negative_slope=0.2 #47=(1,32,64,64)f32 #48=(1,32,64,64)f32
+torch.cat                torch.cat_13             3 1 43 45 48 49 dim=1 #43=(1,64,64,64)f32 #45=(1,32,64,64)f32 #48=(1,32,64,64)f32 #49=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB1.conv3.0 1 1 49 50 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #49=(1,128,64,64)f32 #50=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB1.conv3.1 1 1 50 51 negative_slope=0.2 #50=(1,32,64,64)f32 #51=(1,32,64,64)f32
+torch.cat                torch.cat_14             4 1 43 45 48 51 52 dim=1 #43=(1,64,64,64)f32 #45=(1,32,64,64)f32 #48=(1,32,64,64)f32 #51=(1,32,64,64)f32 #52=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB1.conv4.0 1 1 52 53 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #52=(1,160,64,64)f32 #53=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB1.conv4.1 1 1 53 54 negative_slope=0.2 #53=(1,32,64,64)f32 #54=(1,32,64,64)f32
+torch.cat                torch.cat_15             5 1 43 45 48 51 54 55 dim=1 #43=(1,64,64,64)f32 #45=(1,32,64,64)f32 #48=(1,32,64,64)f32 #51=(1,32,64,64)f32 #54=(1,32,64,64)f32 #55=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB1.conv5.0 1 1 55 56 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #55=(1,192,64,64)f32 #56=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_607            2 1 56 43 57 expr=add(mul(@0,0.2),@1) #56=(1,64,64,64)f32 #43=(1,64,64,64)f32 #57=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB2.conv1.0 1 1 57 58 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #57=(1,64,64,64)f32 #58=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB2.conv1.1 1 1 58 59 negative_slope=0.2 #58=(1,32,64,64)f32 #59=(1,32,64,64)f32
+torch.cat                torch.cat_16             2 1 57 59 60 dim=1 #57=(1,64,64,64)f32 #59=(1,32,64,64)f32 #60=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB2.conv2.0 1 1 60 61 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #60=(1,96,64,64)f32 #61=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB2.conv2.1 1 1 61 62 negative_slope=0.2 #61=(1,32,64,64)f32 #62=(1,32,64,64)f32
+torch.cat                torch.cat_17             3 1 57 59 62 63 dim=1 #57=(1,64,64,64)f32 #59=(1,32,64,64)f32 #62=(1,32,64,64)f32 #63=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB2.conv3.0 1 1 63 64 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #63=(1,128,64,64)f32 #64=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB2.conv3.1 1 1 64 65 negative_slope=0.2 #64=(1,32,64,64)f32 #65=(1,32,64,64)f32
+torch.cat                torch.cat_18             4 1 57 59 62 65 66 dim=1 #57=(1,64,64,64)f32 #59=(1,32,64,64)f32 #62=(1,32,64,64)f32 #65=(1,32,64,64)f32 #66=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB2.conv4.0 1 1 66 67 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #66=(1,160,64,64)f32 #67=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB2.conv4.1 1 1 67 68 negative_slope=0.2 #67=(1,32,64,64)f32 #68=(1,32,64,64)f32
+torch.cat                torch.cat_19             5 1 57 59 62 65 68 69 dim=1 #57=(1,64,64,64)f32 #59=(1,32,64,64)f32 #62=(1,32,64,64)f32 #65=(1,32,64,64)f32 #68=(1,32,64,64)f32 #69=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB2.conv5.0 1 1 69 70 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #69=(1,192,64,64)f32 #70=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_599            2 1 70 57 71 expr=add(mul(@0,0.2),@1) #70=(1,64,64,64)f32 #57=(1,64,64,64)f32 #71=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB3.conv1.0 1 1 71 72 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #71=(1,64,64,64)f32 #72=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB3.conv1.1 1 1 72 73 negative_slope=0.2 #72=(1,32,64,64)f32 #73=(1,32,64,64)f32
+torch.cat                torch.cat_20             2 1 71 73 74 dim=1 #71=(1,64,64,64)f32 #73=(1,32,64,64)f32 #74=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB3.conv2.0 1 1 74 75 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #74=(1,96,64,64)f32 #75=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB3.conv2.1 1 1 75 76 negative_slope=0.2 #75=(1,32,64,64)f32 #76=(1,32,64,64)f32
+torch.cat                torch.cat_21             3 1 71 73 76 77 dim=1 #71=(1,64,64,64)f32 #73=(1,32,64,64)f32 #76=(1,32,64,64)f32 #77=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB3.conv3.0 1 1 77 78 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #77=(1,128,64,64)f32 #78=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB3.conv3.1 1 1 78 79 negative_slope=0.2 #78=(1,32,64,64)f32 #79=(1,32,64,64)f32
+torch.cat                torch.cat_22             4 1 71 73 76 79 80 dim=1 #71=(1,64,64,64)f32 #73=(1,32,64,64)f32 #76=(1,32,64,64)f32 #79=(1,32,64,64)f32 #80=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB3.conv4.0 1 1 80 81 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #80=(1,160,64,64)f32 #81=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.1.RDB3.conv4.1 1 1 81 82 negative_slope=0.2 #81=(1,32,64,64)f32 #82=(1,32,64,64)f32
+torch.cat                torch.cat_23             5 1 71 73 76 79 82 83 dim=1 #71=(1,64,64,64)f32 #73=(1,32,64,64)f32 #76=(1,32,64,64)f32 #79=(1,32,64,64)f32 #82=(1,32,64,64)f32 #83=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.1.RDB3.conv5.0 1 1 83 84 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #83=(1,192,64,64)f32 #84=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_589            3 1 84 71 43 85 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #84=(1,64,64,64)f32 #71=(1,64,64,64)f32 #43=(1,64,64,64)f32 #85=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB1.conv1.0 1 1 85 86 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #85=(1,64,64,64)f32 #86=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB1.conv1.1 1 1 86 87 negative_slope=0.2 #86=(1,32,64,64)f32 #87=(1,32,64,64)f32
+torch.cat                torch.cat_24             2 1 85 87 88 dim=1 #85=(1,64,64,64)f32 #87=(1,32,64,64)f32 #88=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB1.conv2.0 1 1 88 89 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #88=(1,96,64,64)f32 #89=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB1.conv2.1 1 1 89 90 negative_slope=0.2 #89=(1,32,64,64)f32 #90=(1,32,64,64)f32
+torch.cat                torch.cat_25             3 1 85 87 90 91 dim=1 #85=(1,64,64,64)f32 #87=(1,32,64,64)f32 #90=(1,32,64,64)f32 #91=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB1.conv3.0 1 1 91 92 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #91=(1,128,64,64)f32 #92=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB1.conv3.1 1 1 92 93 negative_slope=0.2 #92=(1,32,64,64)f32 #93=(1,32,64,64)f32
+torch.cat                torch.cat_26             4 1 85 87 90 93 94 dim=1 #85=(1,64,64,64)f32 #87=(1,32,64,64)f32 #90=(1,32,64,64)f32 #93=(1,32,64,64)f32 #94=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB1.conv4.0 1 1 94 95 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #94=(1,160,64,64)f32 #95=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB1.conv4.1 1 1 95 96 negative_slope=0.2 #95=(1,32,64,64)f32 #96=(1,32,64,64)f32
+torch.cat                torch.cat_27             5 1 85 87 90 93 96 97 dim=1 #85=(1,64,64,64)f32 #87=(1,32,64,64)f32 #90=(1,32,64,64)f32 #93=(1,32,64,64)f32 #96=(1,32,64,64)f32 #97=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB1.conv5.0 1 1 97 98 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #97=(1,192,64,64)f32 #98=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_579            2 1 98 85 99 expr=add(mul(@0,0.2),@1) #98=(1,64,64,64)f32 #85=(1,64,64,64)f32 #99=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB2.conv1.0 1 1 99 100 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #99=(1,64,64,64)f32 #100=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB2.conv1.1 1 1 100 101 negative_slope=0.2 #100=(1,32,64,64)f32 #101=(1,32,64,64)f32
+torch.cat                torch.cat_28             2 1 99 101 102 dim=1 #99=(1,64,64,64)f32 #101=(1,32,64,64)f32 #102=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB2.conv2.0 1 1 102 103 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #102=(1,96,64,64)f32 #103=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB2.conv2.1 1 1 103 104 negative_slope=0.2 #103=(1,32,64,64)f32 #104=(1,32,64,64)f32
+torch.cat                torch.cat_29             3 1 99 101 104 105 dim=1 #99=(1,64,64,64)f32 #101=(1,32,64,64)f32 #104=(1,32,64,64)f32 #105=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB2.conv3.0 1 1 105 106 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #105=(1,128,64,64)f32 #106=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB2.conv3.1 1 1 106 107 negative_slope=0.2 #106=(1,32,64,64)f32 #107=(1,32,64,64)f32
+torch.cat                torch.cat_30             4 1 99 101 104 107 108 dim=1 #99=(1,64,64,64)f32 #101=(1,32,64,64)f32 #104=(1,32,64,64)f32 #107=(1,32,64,64)f32 #108=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB2.conv4.0 1 1 108 109 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #108=(1,160,64,64)f32 #109=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB2.conv4.1 1 1 109 110 negative_slope=0.2 #109=(1,32,64,64)f32 #110=(1,32,64,64)f32
+torch.cat                torch.cat_31             5 1 99 101 104 107 110 111 dim=1 #99=(1,64,64,64)f32 #101=(1,32,64,64)f32 #104=(1,32,64,64)f32 #107=(1,32,64,64)f32 #110=(1,32,64,64)f32 #111=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB2.conv5.0 1 1 111 112 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #111=(1,192,64,64)f32 #112=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_571            2 1 112 99 113 expr=add(mul(@0,0.2),@1) #112=(1,64,64,64)f32 #99=(1,64,64,64)f32 #113=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB3.conv1.0 1 1 113 114 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #113=(1,64,64,64)f32 #114=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB3.conv1.1 1 1 114 115 negative_slope=0.2 #114=(1,32,64,64)f32 #115=(1,32,64,64)f32
+torch.cat                torch.cat_32             2 1 113 115 116 dim=1 #113=(1,64,64,64)f32 #115=(1,32,64,64)f32 #116=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB3.conv2.0 1 1 116 117 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #116=(1,96,64,64)f32 #117=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB3.conv2.1 1 1 117 118 negative_slope=0.2 #117=(1,32,64,64)f32 #118=(1,32,64,64)f32
+torch.cat                torch.cat_33             3 1 113 115 118 119 dim=1 #113=(1,64,64,64)f32 #115=(1,32,64,64)f32 #118=(1,32,64,64)f32 #119=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB3.conv3.0 1 1 119 120 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #119=(1,128,64,64)f32 #120=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB3.conv3.1 1 1 120 121 negative_slope=0.2 #120=(1,32,64,64)f32 #121=(1,32,64,64)f32
+torch.cat                torch.cat_34             4 1 113 115 118 121 122 dim=1 #113=(1,64,64,64)f32 #115=(1,32,64,64)f32 #118=(1,32,64,64)f32 #121=(1,32,64,64)f32 #122=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB3.conv4.0 1 1 122 123 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #122=(1,160,64,64)f32 #123=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.2.RDB3.conv4.1 1 1 123 124 negative_slope=0.2 #123=(1,32,64,64)f32 #124=(1,32,64,64)f32
+torch.cat                torch.cat_35             5 1 113 115 118 121 124 125 dim=1 #113=(1,64,64,64)f32 #115=(1,32,64,64)f32 #118=(1,32,64,64)f32 #121=(1,32,64,64)f32 #124=(1,32,64,64)f32 #125=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.2.RDB3.conv5.0 1 1 125 126 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #125=(1,192,64,64)f32 #126=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_561            3 1 126 113 85 127 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #126=(1,64,64,64)f32 #113=(1,64,64,64)f32 #85=(1,64,64,64)f32 #127=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB1.conv1.0 1 1 127 128 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #127=(1,64,64,64)f32 #128=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB1.conv1.1 1 1 128 129 negative_slope=0.2 #128=(1,32,64,64)f32 #129=(1,32,64,64)f32
+torch.cat                torch.cat_36             2 1 127 129 130 dim=1 #127=(1,64,64,64)f32 #129=(1,32,64,64)f32 #130=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB1.conv2.0 1 1 130 131 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #130=(1,96,64,64)f32 #131=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB1.conv2.1 1 1 131 132 negative_slope=0.2 #131=(1,32,64,64)f32 #132=(1,32,64,64)f32
+torch.cat                torch.cat_37             3 1 127 129 132 133 dim=1 #127=(1,64,64,64)f32 #129=(1,32,64,64)f32 #132=(1,32,64,64)f32 #133=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB1.conv3.0 1 1 133 134 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #133=(1,128,64,64)f32 #134=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB1.conv3.1 1 1 134 135 negative_slope=0.2 #134=(1,32,64,64)f32 #135=(1,32,64,64)f32
+torch.cat                torch.cat_38             4 1 127 129 132 135 136 dim=1 #127=(1,64,64,64)f32 #129=(1,32,64,64)f32 #132=(1,32,64,64)f32 #135=(1,32,64,64)f32 #136=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB1.conv4.0 1 1 136 137 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #136=(1,160,64,64)f32 #137=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB1.conv4.1 1 1 137 138 negative_slope=0.2 #137=(1,32,64,64)f32 #138=(1,32,64,64)f32
+torch.cat                torch.cat_39             5 1 127 129 132 135 138 139 dim=1 #127=(1,64,64,64)f32 #129=(1,32,64,64)f32 #132=(1,32,64,64)f32 #135=(1,32,64,64)f32 #138=(1,32,64,64)f32 #139=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB1.conv5.0 1 1 139 140 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #139=(1,192,64,64)f32 #140=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_551            2 1 140 127 141 expr=add(mul(@0,0.2),@1) #140=(1,64,64,64)f32 #127=(1,64,64,64)f32 #141=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB2.conv1.0 1 1 141 142 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #141=(1,64,64,64)f32 #142=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB2.conv1.1 1 1 142 143 negative_slope=0.2 #142=(1,32,64,64)f32 #143=(1,32,64,64)f32
+torch.cat                torch.cat_40             2 1 141 143 144 dim=1 #141=(1,64,64,64)f32 #143=(1,32,64,64)f32 #144=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB2.conv2.0 1 1 144 145 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #144=(1,96,64,64)f32 #145=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB2.conv2.1 1 1 145 146 negative_slope=0.2 #145=(1,32,64,64)f32 #146=(1,32,64,64)f32
+torch.cat                torch.cat_41             3 1 141 143 146 147 dim=1 #141=(1,64,64,64)f32 #143=(1,32,64,64)f32 #146=(1,32,64,64)f32 #147=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB2.conv3.0 1 1 147 148 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #147=(1,128,64,64)f32 #148=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB2.conv3.1 1 1 148 149 negative_slope=0.2 #148=(1,32,64,64)f32 #149=(1,32,64,64)f32
+torch.cat                torch.cat_42             4 1 141 143 146 149 150 dim=1 #141=(1,64,64,64)f32 #143=(1,32,64,64)f32 #146=(1,32,64,64)f32 #149=(1,32,64,64)f32 #150=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB2.conv4.0 1 1 150 151 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #150=(1,160,64,64)f32 #151=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB2.conv4.1 1 1 151 152 negative_slope=0.2 #151=(1,32,64,64)f32 #152=(1,32,64,64)f32
+torch.cat                torch.cat_43             5 1 141 143 146 149 152 153 dim=1 #141=(1,64,64,64)f32 #143=(1,32,64,64)f32 #146=(1,32,64,64)f32 #149=(1,32,64,64)f32 #152=(1,32,64,64)f32 #153=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB2.conv5.0 1 1 153 154 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #153=(1,192,64,64)f32 #154=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_543            2 1 154 141 155 expr=add(mul(@0,0.2),@1) #154=(1,64,64,64)f32 #141=(1,64,64,64)f32 #155=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB3.conv1.0 1 1 155 156 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #155=(1,64,64,64)f32 #156=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB3.conv1.1 1 1 156 157 negative_slope=0.2 #156=(1,32,64,64)f32 #157=(1,32,64,64)f32
+torch.cat                torch.cat_44             2 1 155 157 158 dim=1 #155=(1,64,64,64)f32 #157=(1,32,64,64)f32 #158=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB3.conv2.0 1 1 158 159 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #158=(1,96,64,64)f32 #159=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB3.conv2.1 1 1 159 160 negative_slope=0.2 #159=(1,32,64,64)f32 #160=(1,32,64,64)f32
+torch.cat                torch.cat_45             3 1 155 157 160 161 dim=1 #155=(1,64,64,64)f32 #157=(1,32,64,64)f32 #160=(1,32,64,64)f32 #161=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB3.conv3.0 1 1 161 162 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #161=(1,128,64,64)f32 #162=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB3.conv3.1 1 1 162 163 negative_slope=0.2 #162=(1,32,64,64)f32 #163=(1,32,64,64)f32
+torch.cat                torch.cat_46             4 1 155 157 160 163 164 dim=1 #155=(1,64,64,64)f32 #157=(1,32,64,64)f32 #160=(1,32,64,64)f32 #163=(1,32,64,64)f32 #164=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB3.conv4.0 1 1 164 165 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #164=(1,160,64,64)f32 #165=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.3.RDB3.conv4.1 1 1 165 166 negative_slope=0.2 #165=(1,32,64,64)f32 #166=(1,32,64,64)f32
+torch.cat                torch.cat_47             5 1 155 157 160 163 166 167 dim=1 #155=(1,64,64,64)f32 #157=(1,32,64,64)f32 #160=(1,32,64,64)f32 #163=(1,32,64,64)f32 #166=(1,32,64,64)f32 #167=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.3.RDB3.conv5.0 1 1 167 168 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #167=(1,192,64,64)f32 #168=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_533            3 1 168 155 127 169 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #168=(1,64,64,64)f32 #155=(1,64,64,64)f32 #127=(1,64,64,64)f32 #169=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB1.conv1.0 1 1 169 170 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #169=(1,64,64,64)f32 #170=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB1.conv1.1 1 1 170 171 negative_slope=0.2 #170=(1,32,64,64)f32 #171=(1,32,64,64)f32
+torch.cat                torch.cat_48             2 1 169 171 172 dim=1 #169=(1,64,64,64)f32 #171=(1,32,64,64)f32 #172=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB1.conv2.0 1 1 172 173 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #172=(1,96,64,64)f32 #173=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB1.conv2.1 1 1 173 174 negative_slope=0.2 #173=(1,32,64,64)f32 #174=(1,32,64,64)f32
+torch.cat                torch.cat_49             3 1 169 171 174 175 dim=1 #169=(1,64,64,64)f32 #171=(1,32,64,64)f32 #174=(1,32,64,64)f32 #175=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB1.conv3.0 1 1 175 176 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #175=(1,128,64,64)f32 #176=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB1.conv3.1 1 1 176 177 negative_slope=0.2 #176=(1,32,64,64)f32 #177=(1,32,64,64)f32
+torch.cat                torch.cat_50             4 1 169 171 174 177 178 dim=1 #169=(1,64,64,64)f32 #171=(1,32,64,64)f32 #174=(1,32,64,64)f32 #177=(1,32,64,64)f32 #178=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB1.conv4.0 1 1 178 179 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #178=(1,160,64,64)f32 #179=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB1.conv4.1 1 1 179 180 negative_slope=0.2 #179=(1,32,64,64)f32 #180=(1,32,64,64)f32
+torch.cat                torch.cat_51             5 1 169 171 174 177 180 181 dim=1 #169=(1,64,64,64)f32 #171=(1,32,64,64)f32 #174=(1,32,64,64)f32 #177=(1,32,64,64)f32 #180=(1,32,64,64)f32 #181=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB1.conv5.0 1 1 181 182 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #181=(1,192,64,64)f32 #182=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_523            2 1 182 169 183 expr=add(mul(@0,0.2),@1) #182=(1,64,64,64)f32 #169=(1,64,64,64)f32 #183=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB2.conv1.0 1 1 183 184 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #183=(1,64,64,64)f32 #184=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB2.conv1.1 1 1 184 185 negative_slope=0.2 #184=(1,32,64,64)f32 #185=(1,32,64,64)f32
+torch.cat                torch.cat_52             2 1 183 185 186 dim=1 #183=(1,64,64,64)f32 #185=(1,32,64,64)f32 #186=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB2.conv2.0 1 1 186 187 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #186=(1,96,64,64)f32 #187=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB2.conv2.1 1 1 187 188 negative_slope=0.2 #187=(1,32,64,64)f32 #188=(1,32,64,64)f32
+torch.cat                torch.cat_53             3 1 183 185 188 189 dim=1 #183=(1,64,64,64)f32 #185=(1,32,64,64)f32 #188=(1,32,64,64)f32 #189=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB2.conv3.0 1 1 189 190 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #189=(1,128,64,64)f32 #190=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB2.conv3.1 1 1 190 191 negative_slope=0.2 #190=(1,32,64,64)f32 #191=(1,32,64,64)f32
+torch.cat                torch.cat_54             4 1 183 185 188 191 192 dim=1 #183=(1,64,64,64)f32 #185=(1,32,64,64)f32 #188=(1,32,64,64)f32 #191=(1,32,64,64)f32 #192=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB2.conv4.0 1 1 192 193 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #192=(1,160,64,64)f32 #193=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB2.conv4.1 1 1 193 194 negative_slope=0.2 #193=(1,32,64,64)f32 #194=(1,32,64,64)f32
+torch.cat                torch.cat_55             5 1 183 185 188 191 194 195 dim=1 #183=(1,64,64,64)f32 #185=(1,32,64,64)f32 #188=(1,32,64,64)f32 #191=(1,32,64,64)f32 #194=(1,32,64,64)f32 #195=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB2.conv5.0 1 1 195 196 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #195=(1,192,64,64)f32 #196=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_515            2 1 196 183 197 expr=add(mul(@0,0.2),@1) #196=(1,64,64,64)f32 #183=(1,64,64,64)f32 #197=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB3.conv1.0 1 1 197 198 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #197=(1,64,64,64)f32 #198=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB3.conv1.1 1 1 198 199 negative_slope=0.2 #198=(1,32,64,64)f32 #199=(1,32,64,64)f32
+torch.cat                torch.cat_56             2 1 197 199 200 dim=1 #197=(1,64,64,64)f32 #199=(1,32,64,64)f32 #200=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB3.conv2.0 1 1 200 201 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #200=(1,96,64,64)f32 #201=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB3.conv2.1 1 1 201 202 negative_slope=0.2 #201=(1,32,64,64)f32 #202=(1,32,64,64)f32
+torch.cat                torch.cat_57             3 1 197 199 202 203 dim=1 #197=(1,64,64,64)f32 #199=(1,32,64,64)f32 #202=(1,32,64,64)f32 #203=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB3.conv3.0 1 1 203 204 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #203=(1,128,64,64)f32 #204=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB3.conv3.1 1 1 204 205 negative_slope=0.2 #204=(1,32,64,64)f32 #205=(1,32,64,64)f32
+torch.cat                torch.cat_58             4 1 197 199 202 205 206 dim=1 #197=(1,64,64,64)f32 #199=(1,32,64,64)f32 #202=(1,32,64,64)f32 #205=(1,32,64,64)f32 #206=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB3.conv4.0 1 1 206 207 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #206=(1,160,64,64)f32 #207=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.4.RDB3.conv4.1 1 1 207 208 negative_slope=0.2 #207=(1,32,64,64)f32 #208=(1,32,64,64)f32
+torch.cat                torch.cat_59             5 1 197 199 202 205 208 209 dim=1 #197=(1,64,64,64)f32 #199=(1,32,64,64)f32 #202=(1,32,64,64)f32 #205=(1,32,64,64)f32 #208=(1,32,64,64)f32 #209=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.4.RDB3.conv5.0 1 1 209 210 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #209=(1,192,64,64)f32 #210=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_505            3 1 210 197 169 211 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #210=(1,64,64,64)f32 #197=(1,64,64,64)f32 #169=(1,64,64,64)f32 #211=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB1.conv1.0 1 1 211 212 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #211=(1,64,64,64)f32 #212=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB1.conv1.1 1 1 212 213 negative_slope=0.2 #212=(1,32,64,64)f32 #213=(1,32,64,64)f32
+torch.cat                torch.cat_60             2 1 211 213 214 dim=1 #211=(1,64,64,64)f32 #213=(1,32,64,64)f32 #214=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB1.conv2.0 1 1 214 215 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #214=(1,96,64,64)f32 #215=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB1.conv2.1 1 1 215 216 negative_slope=0.2 #215=(1,32,64,64)f32 #216=(1,32,64,64)f32
+torch.cat                torch.cat_61             3 1 211 213 216 217 dim=1 #211=(1,64,64,64)f32 #213=(1,32,64,64)f32 #216=(1,32,64,64)f32 #217=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB1.conv3.0 1 1 217 218 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #217=(1,128,64,64)f32 #218=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB1.conv3.1 1 1 218 219 negative_slope=0.2 #218=(1,32,64,64)f32 #219=(1,32,64,64)f32
+torch.cat                torch.cat_62             4 1 211 213 216 219 220 dim=1 #211=(1,64,64,64)f32 #213=(1,32,64,64)f32 #216=(1,32,64,64)f32 #219=(1,32,64,64)f32 #220=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB1.conv4.0 1 1 220 221 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #220=(1,160,64,64)f32 #221=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB1.conv4.1 1 1 221 222 negative_slope=0.2 #221=(1,32,64,64)f32 #222=(1,32,64,64)f32
+torch.cat                torch.cat_63             5 1 211 213 216 219 222 223 dim=1 #211=(1,64,64,64)f32 #213=(1,32,64,64)f32 #216=(1,32,64,64)f32 #219=(1,32,64,64)f32 #222=(1,32,64,64)f32 #223=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB1.conv5.0 1 1 223 224 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #223=(1,192,64,64)f32 #224=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_495            2 1 224 211 225 expr=add(mul(@0,0.2),@1) #224=(1,64,64,64)f32 #211=(1,64,64,64)f32 #225=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB2.conv1.0 1 1 225 226 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #225=(1,64,64,64)f32 #226=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB2.conv1.1 1 1 226 227 negative_slope=0.2 #226=(1,32,64,64)f32 #227=(1,32,64,64)f32
+torch.cat                torch.cat_64             2 1 225 227 228 dim=1 #225=(1,64,64,64)f32 #227=(1,32,64,64)f32 #228=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB2.conv2.0 1 1 228 229 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #228=(1,96,64,64)f32 #229=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB2.conv2.1 1 1 229 230 negative_slope=0.2 #229=(1,32,64,64)f32 #230=(1,32,64,64)f32
+torch.cat                torch.cat_65             3 1 225 227 230 231 dim=1 #225=(1,64,64,64)f32 #227=(1,32,64,64)f32 #230=(1,32,64,64)f32 #231=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB2.conv3.0 1 1 231 232 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #231=(1,128,64,64)f32 #232=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB2.conv3.1 1 1 232 233 negative_slope=0.2 #232=(1,32,64,64)f32 #233=(1,32,64,64)f32
+torch.cat                torch.cat_66             4 1 225 227 230 233 234 dim=1 #225=(1,64,64,64)f32 #227=(1,32,64,64)f32 #230=(1,32,64,64)f32 #233=(1,32,64,64)f32 #234=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB2.conv4.0 1 1 234 235 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #234=(1,160,64,64)f32 #235=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB2.conv4.1 1 1 235 236 negative_slope=0.2 #235=(1,32,64,64)f32 #236=(1,32,64,64)f32
+torch.cat                torch.cat_67             5 1 225 227 230 233 236 237 dim=1 #225=(1,64,64,64)f32 #227=(1,32,64,64)f32 #230=(1,32,64,64)f32 #233=(1,32,64,64)f32 #236=(1,32,64,64)f32 #237=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB2.conv5.0 1 1 237 238 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #237=(1,192,64,64)f32 #238=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_487            2 1 238 225 239 expr=add(mul(@0,0.2),@1) #238=(1,64,64,64)f32 #225=(1,64,64,64)f32 #239=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB3.conv1.0 1 1 239 240 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #239=(1,64,64,64)f32 #240=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB3.conv1.1 1 1 240 241 negative_slope=0.2 #240=(1,32,64,64)f32 #241=(1,32,64,64)f32
+torch.cat                torch.cat_68             2 1 239 241 242 dim=1 #239=(1,64,64,64)f32 #241=(1,32,64,64)f32 #242=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB3.conv2.0 1 1 242 243 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #242=(1,96,64,64)f32 #243=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB3.conv2.1 1 1 243 244 negative_slope=0.2 #243=(1,32,64,64)f32 #244=(1,32,64,64)f32
+torch.cat                torch.cat_69             3 1 239 241 244 245 dim=1 #239=(1,64,64,64)f32 #241=(1,32,64,64)f32 #244=(1,32,64,64)f32 #245=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB3.conv3.0 1 1 245 246 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #245=(1,128,64,64)f32 #246=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB3.conv3.1 1 1 246 247 negative_slope=0.2 #246=(1,32,64,64)f32 #247=(1,32,64,64)f32
+torch.cat                torch.cat_70             4 1 239 241 244 247 248 dim=1 #239=(1,64,64,64)f32 #241=(1,32,64,64)f32 #244=(1,32,64,64)f32 #247=(1,32,64,64)f32 #248=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB3.conv4.0 1 1 248 249 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #248=(1,160,64,64)f32 #249=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.5.RDB3.conv4.1 1 1 249 250 negative_slope=0.2 #249=(1,32,64,64)f32 #250=(1,32,64,64)f32
+torch.cat                torch.cat_71             5 1 239 241 244 247 250 251 dim=1 #239=(1,64,64,64)f32 #241=(1,32,64,64)f32 #244=(1,32,64,64)f32 #247=(1,32,64,64)f32 #250=(1,32,64,64)f32 #251=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.5.RDB3.conv5.0 1 1 251 252 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #251=(1,192,64,64)f32 #252=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_477            3 1 252 239 211 253 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #252=(1,64,64,64)f32 #239=(1,64,64,64)f32 #211=(1,64,64,64)f32 #253=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB1.conv1.0 1 1 253 254 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #253=(1,64,64,64)f32 #254=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB1.conv1.1 1 1 254 255 negative_slope=0.2 #254=(1,32,64,64)f32 #255=(1,32,64,64)f32
+torch.cat                torch.cat_72             2 1 253 255 256 dim=1 #253=(1,64,64,64)f32 #255=(1,32,64,64)f32 #256=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB1.conv2.0 1 1 256 257 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #256=(1,96,64,64)f32 #257=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB1.conv2.1 1 1 257 258 negative_slope=0.2 #257=(1,32,64,64)f32 #258=(1,32,64,64)f32
+torch.cat                torch.cat_73             3 1 253 255 258 259 dim=1 #253=(1,64,64,64)f32 #255=(1,32,64,64)f32 #258=(1,32,64,64)f32 #259=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB1.conv3.0 1 1 259 260 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #259=(1,128,64,64)f32 #260=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB1.conv3.1 1 1 260 261 negative_slope=0.2 #260=(1,32,64,64)f32 #261=(1,32,64,64)f32
+torch.cat                torch.cat_74             4 1 253 255 258 261 262 dim=1 #253=(1,64,64,64)f32 #255=(1,32,64,64)f32 #258=(1,32,64,64)f32 #261=(1,32,64,64)f32 #262=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB1.conv4.0 1 1 262 263 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #262=(1,160,64,64)f32 #263=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB1.conv4.1 1 1 263 264 negative_slope=0.2 #263=(1,32,64,64)f32 #264=(1,32,64,64)f32
+torch.cat                torch.cat_75             5 1 253 255 258 261 264 265 dim=1 #253=(1,64,64,64)f32 #255=(1,32,64,64)f32 #258=(1,32,64,64)f32 #261=(1,32,64,64)f32 #264=(1,32,64,64)f32 #265=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB1.conv5.0 1 1 265 266 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #265=(1,192,64,64)f32 #266=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_467            2 1 266 253 267 expr=add(mul(@0,0.2),@1) #266=(1,64,64,64)f32 #253=(1,64,64,64)f32 #267=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB2.conv1.0 1 1 267 268 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #267=(1,64,64,64)f32 #268=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB2.conv1.1 1 1 268 269 negative_slope=0.2 #268=(1,32,64,64)f32 #269=(1,32,64,64)f32
+torch.cat                torch.cat_76             2 1 267 269 270 dim=1 #267=(1,64,64,64)f32 #269=(1,32,64,64)f32 #270=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB2.conv2.0 1 1 270 271 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #270=(1,96,64,64)f32 #271=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB2.conv2.1 1 1 271 272 negative_slope=0.2 #271=(1,32,64,64)f32 #272=(1,32,64,64)f32
+torch.cat                torch.cat_77             3 1 267 269 272 273 dim=1 #267=(1,64,64,64)f32 #269=(1,32,64,64)f32 #272=(1,32,64,64)f32 #273=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB2.conv3.0 1 1 273 274 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #273=(1,128,64,64)f32 #274=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB2.conv3.1 1 1 274 275 negative_slope=0.2 #274=(1,32,64,64)f32 #275=(1,32,64,64)f32
+torch.cat                torch.cat_78             4 1 267 269 272 275 276 dim=1 #267=(1,64,64,64)f32 #269=(1,32,64,64)f32 #272=(1,32,64,64)f32 #275=(1,32,64,64)f32 #276=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB2.conv4.0 1 1 276 277 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #276=(1,160,64,64)f32 #277=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB2.conv4.1 1 1 277 278 negative_slope=0.2 #277=(1,32,64,64)f32 #278=(1,32,64,64)f32
+torch.cat                torch.cat_79             5 1 267 269 272 275 278 279 dim=1 #267=(1,64,64,64)f32 #269=(1,32,64,64)f32 #272=(1,32,64,64)f32 #275=(1,32,64,64)f32 #278=(1,32,64,64)f32 #279=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB2.conv5.0 1 1 279 280 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #279=(1,192,64,64)f32 #280=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_459            2 1 280 267 281 expr=add(mul(@0,0.2),@1) #280=(1,64,64,64)f32 #267=(1,64,64,64)f32 #281=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB3.conv1.0 1 1 281 282 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #281=(1,64,64,64)f32 #282=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB3.conv1.1 1 1 282 283 negative_slope=0.2 #282=(1,32,64,64)f32 #283=(1,32,64,64)f32
+torch.cat                torch.cat_80             2 1 281 283 284 dim=1 #281=(1,64,64,64)f32 #283=(1,32,64,64)f32 #284=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB3.conv2.0 1 1 284 285 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #284=(1,96,64,64)f32 #285=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB3.conv2.1 1 1 285 286 negative_slope=0.2 #285=(1,32,64,64)f32 #286=(1,32,64,64)f32
+torch.cat                torch.cat_81             3 1 281 283 286 287 dim=1 #281=(1,64,64,64)f32 #283=(1,32,64,64)f32 #286=(1,32,64,64)f32 #287=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB3.conv3.0 1 1 287 288 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #287=(1,128,64,64)f32 #288=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB3.conv3.1 1 1 288 289 negative_slope=0.2 #288=(1,32,64,64)f32 #289=(1,32,64,64)f32
+torch.cat                torch.cat_82             4 1 281 283 286 289 290 dim=1 #281=(1,64,64,64)f32 #283=(1,32,64,64)f32 #286=(1,32,64,64)f32 #289=(1,32,64,64)f32 #290=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB3.conv4.0 1 1 290 291 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #290=(1,160,64,64)f32 #291=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.6.RDB3.conv4.1 1 1 291 292 negative_slope=0.2 #291=(1,32,64,64)f32 #292=(1,32,64,64)f32
+torch.cat                torch.cat_83             5 1 281 283 286 289 292 293 dim=1 #281=(1,64,64,64)f32 #283=(1,32,64,64)f32 #286=(1,32,64,64)f32 #289=(1,32,64,64)f32 #292=(1,32,64,64)f32 #293=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.6.RDB3.conv5.0 1 1 293 294 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #293=(1,192,64,64)f32 #294=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_449            3 1 294 281 253 295 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #294=(1,64,64,64)f32 #281=(1,64,64,64)f32 #253=(1,64,64,64)f32 #295=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB1.conv1.0 1 1 295 296 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #295=(1,64,64,64)f32 #296=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB1.conv1.1 1 1 296 297 negative_slope=0.2 #296=(1,32,64,64)f32 #297=(1,32,64,64)f32
+torch.cat                torch.cat_84             2 1 295 297 298 dim=1 #295=(1,64,64,64)f32 #297=(1,32,64,64)f32 #298=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB1.conv2.0 1 1 298 299 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #298=(1,96,64,64)f32 #299=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB1.conv2.1 1 1 299 300 negative_slope=0.2 #299=(1,32,64,64)f32 #300=(1,32,64,64)f32
+torch.cat                torch.cat_85             3 1 295 297 300 301 dim=1 #295=(1,64,64,64)f32 #297=(1,32,64,64)f32 #300=(1,32,64,64)f32 #301=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB1.conv3.0 1 1 301 302 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #301=(1,128,64,64)f32 #302=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB1.conv3.1 1 1 302 303 negative_slope=0.2 #302=(1,32,64,64)f32 #303=(1,32,64,64)f32
+torch.cat                torch.cat_86             4 1 295 297 300 303 304 dim=1 #295=(1,64,64,64)f32 #297=(1,32,64,64)f32 #300=(1,32,64,64)f32 #303=(1,32,64,64)f32 #304=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB1.conv4.0 1 1 304 305 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #304=(1,160,64,64)f32 #305=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB1.conv4.1 1 1 305 306 negative_slope=0.2 #305=(1,32,64,64)f32 #306=(1,32,64,64)f32
+torch.cat                torch.cat_87             5 1 295 297 300 303 306 307 dim=1 #295=(1,64,64,64)f32 #297=(1,32,64,64)f32 #300=(1,32,64,64)f32 #303=(1,32,64,64)f32 #306=(1,32,64,64)f32 #307=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB1.conv5.0 1 1 307 308 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #307=(1,192,64,64)f32 #308=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_439            2 1 308 295 309 expr=add(mul(@0,0.2),@1) #308=(1,64,64,64)f32 #295=(1,64,64,64)f32 #309=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB2.conv1.0 1 1 309 310 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #309=(1,64,64,64)f32 #310=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB2.conv1.1 1 1 310 311 negative_slope=0.2 #310=(1,32,64,64)f32 #311=(1,32,64,64)f32
+torch.cat                torch.cat_88             2 1 309 311 312 dim=1 #309=(1,64,64,64)f32 #311=(1,32,64,64)f32 #312=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB2.conv2.0 1 1 312 313 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #312=(1,96,64,64)f32 #313=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB2.conv2.1 1 1 313 314 negative_slope=0.2 #313=(1,32,64,64)f32 #314=(1,32,64,64)f32
+torch.cat                torch.cat_89             3 1 309 311 314 315 dim=1 #309=(1,64,64,64)f32 #311=(1,32,64,64)f32 #314=(1,32,64,64)f32 #315=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB2.conv3.0 1 1 315 316 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #315=(1,128,64,64)f32 #316=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB2.conv3.1 1 1 316 317 negative_slope=0.2 #316=(1,32,64,64)f32 #317=(1,32,64,64)f32
+torch.cat                torch.cat_90             4 1 309 311 314 317 318 dim=1 #309=(1,64,64,64)f32 #311=(1,32,64,64)f32 #314=(1,32,64,64)f32 #317=(1,32,64,64)f32 #318=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB2.conv4.0 1 1 318 319 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #318=(1,160,64,64)f32 #319=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB2.conv4.1 1 1 319 320 negative_slope=0.2 #319=(1,32,64,64)f32 #320=(1,32,64,64)f32
+torch.cat                torch.cat_91             5 1 309 311 314 317 320 321 dim=1 #309=(1,64,64,64)f32 #311=(1,32,64,64)f32 #314=(1,32,64,64)f32 #317=(1,32,64,64)f32 #320=(1,32,64,64)f32 #321=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB2.conv5.0 1 1 321 322 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #321=(1,192,64,64)f32 #322=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_431            2 1 322 309 323 expr=add(mul(@0,0.2),@1) #322=(1,64,64,64)f32 #309=(1,64,64,64)f32 #323=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB3.conv1.0 1 1 323 324 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #323=(1,64,64,64)f32 #324=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB3.conv1.1 1 1 324 325 negative_slope=0.2 #324=(1,32,64,64)f32 #325=(1,32,64,64)f32
+torch.cat                torch.cat_92             2 1 323 325 326 dim=1 #323=(1,64,64,64)f32 #325=(1,32,64,64)f32 #326=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB3.conv2.0 1 1 326 327 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #326=(1,96,64,64)f32 #327=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB3.conv2.1 1 1 327 328 negative_slope=0.2 #327=(1,32,64,64)f32 #328=(1,32,64,64)f32
+torch.cat                torch.cat_93             3 1 323 325 328 329 dim=1 #323=(1,64,64,64)f32 #325=(1,32,64,64)f32 #328=(1,32,64,64)f32 #329=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB3.conv3.0 1 1 329 330 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #329=(1,128,64,64)f32 #330=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB3.conv3.1 1 1 330 331 negative_slope=0.2 #330=(1,32,64,64)f32 #331=(1,32,64,64)f32
+torch.cat                torch.cat_94             4 1 323 325 328 331 332 dim=1 #323=(1,64,64,64)f32 #325=(1,32,64,64)f32 #328=(1,32,64,64)f32 #331=(1,32,64,64)f32 #332=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB3.conv4.0 1 1 332 333 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #332=(1,160,64,64)f32 #333=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.7.RDB3.conv4.1 1 1 333 334 negative_slope=0.2 #333=(1,32,64,64)f32 #334=(1,32,64,64)f32
+torch.cat                torch.cat_95             5 1 323 325 328 331 334 335 dim=1 #323=(1,64,64,64)f32 #325=(1,32,64,64)f32 #328=(1,32,64,64)f32 #331=(1,32,64,64)f32 #334=(1,32,64,64)f32 #335=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.7.RDB3.conv5.0 1 1 335 336 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #335=(1,192,64,64)f32 #336=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_421            3 1 336 323 295 337 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #336=(1,64,64,64)f32 #323=(1,64,64,64)f32 #295=(1,64,64,64)f32 #337=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB1.conv1.0 1 1 337 338 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #337=(1,64,64,64)f32 #338=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB1.conv1.1 1 1 338 339 negative_slope=0.2 #338=(1,32,64,64)f32 #339=(1,32,64,64)f32
+torch.cat                torch.cat_96             2 1 337 339 340 dim=1 #337=(1,64,64,64)f32 #339=(1,32,64,64)f32 #340=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB1.conv2.0 1 1 340 341 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #340=(1,96,64,64)f32 #341=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB1.conv2.1 1 1 341 342 negative_slope=0.2 #341=(1,32,64,64)f32 #342=(1,32,64,64)f32
+torch.cat                torch.cat_97             3 1 337 339 342 343 dim=1 #337=(1,64,64,64)f32 #339=(1,32,64,64)f32 #342=(1,32,64,64)f32 #343=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB1.conv3.0 1 1 343 344 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #343=(1,128,64,64)f32 #344=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB1.conv3.1 1 1 344 345 negative_slope=0.2 #344=(1,32,64,64)f32 #345=(1,32,64,64)f32
+torch.cat                torch.cat_98             4 1 337 339 342 345 346 dim=1 #337=(1,64,64,64)f32 #339=(1,32,64,64)f32 #342=(1,32,64,64)f32 #345=(1,32,64,64)f32 #346=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB1.conv4.0 1 1 346 347 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #346=(1,160,64,64)f32 #347=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB1.conv4.1 1 1 347 348 negative_slope=0.2 #347=(1,32,64,64)f32 #348=(1,32,64,64)f32
+torch.cat                torch.cat_99             5 1 337 339 342 345 348 349 dim=1 #337=(1,64,64,64)f32 #339=(1,32,64,64)f32 #342=(1,32,64,64)f32 #345=(1,32,64,64)f32 #348=(1,32,64,64)f32 #349=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB1.conv5.0 1 1 349 350 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #349=(1,192,64,64)f32 #350=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_411            2 1 350 337 351 expr=add(mul(@0,0.2),@1) #350=(1,64,64,64)f32 #337=(1,64,64,64)f32 #351=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB2.conv1.0 1 1 351 352 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #351=(1,64,64,64)f32 #352=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB2.conv1.1 1 1 352 353 negative_slope=0.2 #352=(1,32,64,64)f32 #353=(1,32,64,64)f32
+torch.cat                torch.cat_100            2 1 351 353 354 dim=1 #351=(1,64,64,64)f32 #353=(1,32,64,64)f32 #354=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB2.conv2.0 1 1 354 355 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #354=(1,96,64,64)f32 #355=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB2.conv2.1 1 1 355 356 negative_slope=0.2 #355=(1,32,64,64)f32 #356=(1,32,64,64)f32
+torch.cat                torch.cat_101            3 1 351 353 356 357 dim=1 #351=(1,64,64,64)f32 #353=(1,32,64,64)f32 #356=(1,32,64,64)f32 #357=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB2.conv3.0 1 1 357 358 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #357=(1,128,64,64)f32 #358=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB2.conv3.1 1 1 358 359 negative_slope=0.2 #358=(1,32,64,64)f32 #359=(1,32,64,64)f32
+torch.cat                torch.cat_102            4 1 351 353 356 359 360 dim=1 #351=(1,64,64,64)f32 #353=(1,32,64,64)f32 #356=(1,32,64,64)f32 #359=(1,32,64,64)f32 #360=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB2.conv4.0 1 1 360 361 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #360=(1,160,64,64)f32 #361=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB2.conv4.1 1 1 361 362 negative_slope=0.2 #361=(1,32,64,64)f32 #362=(1,32,64,64)f32
+torch.cat                torch.cat_103            5 1 351 353 356 359 362 363 dim=1 #351=(1,64,64,64)f32 #353=(1,32,64,64)f32 #356=(1,32,64,64)f32 #359=(1,32,64,64)f32 #362=(1,32,64,64)f32 #363=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB2.conv5.0 1 1 363 364 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #363=(1,192,64,64)f32 #364=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_403            2 1 364 351 365 expr=add(mul(@0,0.2),@1) #364=(1,64,64,64)f32 #351=(1,64,64,64)f32 #365=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB3.conv1.0 1 1 365 366 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #365=(1,64,64,64)f32 #366=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB3.conv1.1 1 1 366 367 negative_slope=0.2 #366=(1,32,64,64)f32 #367=(1,32,64,64)f32
+torch.cat                torch.cat_104            2 1 365 367 368 dim=1 #365=(1,64,64,64)f32 #367=(1,32,64,64)f32 #368=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB3.conv2.0 1 1 368 369 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #368=(1,96,64,64)f32 #369=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB3.conv2.1 1 1 369 370 negative_slope=0.2 #369=(1,32,64,64)f32 #370=(1,32,64,64)f32
+torch.cat                torch.cat_105            3 1 365 367 370 371 dim=1 #365=(1,64,64,64)f32 #367=(1,32,64,64)f32 #370=(1,32,64,64)f32 #371=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB3.conv3.0 1 1 371 372 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #371=(1,128,64,64)f32 #372=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB3.conv3.1 1 1 372 373 negative_slope=0.2 #372=(1,32,64,64)f32 #373=(1,32,64,64)f32
+torch.cat                torch.cat_106            4 1 365 367 370 373 374 dim=1 #365=(1,64,64,64)f32 #367=(1,32,64,64)f32 #370=(1,32,64,64)f32 #373=(1,32,64,64)f32 #374=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB3.conv4.0 1 1 374 375 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #374=(1,160,64,64)f32 #375=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.8.RDB3.conv4.1 1 1 375 376 negative_slope=0.2 #375=(1,32,64,64)f32 #376=(1,32,64,64)f32
+torch.cat                torch.cat_107            5 1 365 367 370 373 376 377 dim=1 #365=(1,64,64,64)f32 #367=(1,32,64,64)f32 #370=(1,32,64,64)f32 #373=(1,32,64,64)f32 #376=(1,32,64,64)f32 #377=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.8.RDB3.conv5.0 1 1 377 378 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #377=(1,192,64,64)f32 #378=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_393            3 1 378 365 337 379 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #378=(1,64,64,64)f32 #365=(1,64,64,64)f32 #337=(1,64,64,64)f32 #379=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB1.conv1.0 1 1 379 380 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #379=(1,64,64,64)f32 #380=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB1.conv1.1 1 1 380 381 negative_slope=0.2 #380=(1,32,64,64)f32 #381=(1,32,64,64)f32
+torch.cat                torch.cat_108            2 1 379 381 382 dim=1 #379=(1,64,64,64)f32 #381=(1,32,64,64)f32 #382=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB1.conv2.0 1 1 382 383 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #382=(1,96,64,64)f32 #383=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB1.conv2.1 1 1 383 384 negative_slope=0.2 #383=(1,32,64,64)f32 #384=(1,32,64,64)f32
+torch.cat                torch.cat_109            3 1 379 381 384 385 dim=1 #379=(1,64,64,64)f32 #381=(1,32,64,64)f32 #384=(1,32,64,64)f32 #385=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB1.conv3.0 1 1 385 386 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #385=(1,128,64,64)f32 #386=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB1.conv3.1 1 1 386 387 negative_slope=0.2 #386=(1,32,64,64)f32 #387=(1,32,64,64)f32
+torch.cat                torch.cat_110            4 1 379 381 384 387 388 dim=1 #379=(1,64,64,64)f32 #381=(1,32,64,64)f32 #384=(1,32,64,64)f32 #387=(1,32,64,64)f32 #388=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB1.conv4.0 1 1 388 389 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #388=(1,160,64,64)f32 #389=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB1.conv4.1 1 1 389 390 negative_slope=0.2 #389=(1,32,64,64)f32 #390=(1,32,64,64)f32
+torch.cat                torch.cat_111            5 1 379 381 384 387 390 391 dim=1 #379=(1,64,64,64)f32 #381=(1,32,64,64)f32 #384=(1,32,64,64)f32 #387=(1,32,64,64)f32 #390=(1,32,64,64)f32 #391=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB1.conv5.0 1 1 391 392 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #391=(1,192,64,64)f32 #392=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_383            2 1 392 379 393 expr=add(mul(@0,0.2),@1) #392=(1,64,64,64)f32 #379=(1,64,64,64)f32 #393=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB2.conv1.0 1 1 393 394 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #393=(1,64,64,64)f32 #394=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB2.conv1.1 1 1 394 395 negative_slope=0.2 #394=(1,32,64,64)f32 #395=(1,32,64,64)f32
+torch.cat                torch.cat_112            2 1 393 395 396 dim=1 #393=(1,64,64,64)f32 #395=(1,32,64,64)f32 #396=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB2.conv2.0 1 1 396 397 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #396=(1,96,64,64)f32 #397=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB2.conv2.1 1 1 397 398 negative_slope=0.2 #397=(1,32,64,64)f32 #398=(1,32,64,64)f32
+torch.cat                torch.cat_113            3 1 393 395 398 399 dim=1 #393=(1,64,64,64)f32 #395=(1,32,64,64)f32 #398=(1,32,64,64)f32 #399=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB2.conv3.0 1 1 399 400 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #399=(1,128,64,64)f32 #400=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB2.conv3.1 1 1 400 401 negative_slope=0.2 #400=(1,32,64,64)f32 #401=(1,32,64,64)f32
+torch.cat                torch.cat_114            4 1 393 395 398 401 402 dim=1 #393=(1,64,64,64)f32 #395=(1,32,64,64)f32 #398=(1,32,64,64)f32 #401=(1,32,64,64)f32 #402=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB2.conv4.0 1 1 402 403 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #402=(1,160,64,64)f32 #403=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB2.conv4.1 1 1 403 404 negative_slope=0.2 #403=(1,32,64,64)f32 #404=(1,32,64,64)f32
+torch.cat                torch.cat_115            5 1 393 395 398 401 404 405 dim=1 #393=(1,64,64,64)f32 #395=(1,32,64,64)f32 #398=(1,32,64,64)f32 #401=(1,32,64,64)f32 #404=(1,32,64,64)f32 #405=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB2.conv5.0 1 1 405 406 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #405=(1,192,64,64)f32 #406=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_375            2 1 406 393 407 expr=add(mul(@0,0.2),@1) #406=(1,64,64,64)f32 #393=(1,64,64,64)f32 #407=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB3.conv1.0 1 1 407 408 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #407=(1,64,64,64)f32 #408=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB3.conv1.1 1 1 408 409 negative_slope=0.2 #408=(1,32,64,64)f32 #409=(1,32,64,64)f32
+torch.cat                torch.cat_116            2 1 407 409 410 dim=1 #407=(1,64,64,64)f32 #409=(1,32,64,64)f32 #410=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB3.conv2.0 1 1 410 411 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #410=(1,96,64,64)f32 #411=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB3.conv2.1 1 1 411 412 negative_slope=0.2 #411=(1,32,64,64)f32 #412=(1,32,64,64)f32
+torch.cat                torch.cat_117            3 1 407 409 412 413 dim=1 #407=(1,64,64,64)f32 #409=(1,32,64,64)f32 #412=(1,32,64,64)f32 #413=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB3.conv3.0 1 1 413 414 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #413=(1,128,64,64)f32 #414=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB3.conv3.1 1 1 414 415 negative_slope=0.2 #414=(1,32,64,64)f32 #415=(1,32,64,64)f32
+torch.cat                torch.cat_118            4 1 407 409 412 415 416 dim=1 #407=(1,64,64,64)f32 #409=(1,32,64,64)f32 #412=(1,32,64,64)f32 #415=(1,32,64,64)f32 #416=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB3.conv4.0 1 1 416 417 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #416=(1,160,64,64)f32 #417=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.9.RDB3.conv4.1 1 1 417 418 negative_slope=0.2 #417=(1,32,64,64)f32 #418=(1,32,64,64)f32
+torch.cat                torch.cat_119            5 1 407 409 412 415 418 419 dim=1 #407=(1,64,64,64)f32 #409=(1,32,64,64)f32 #412=(1,32,64,64)f32 #415=(1,32,64,64)f32 #418=(1,32,64,64)f32 #419=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.9.RDB3.conv5.0 1 1 419 420 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #419=(1,192,64,64)f32 #420=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_365            3 1 420 407 379 421 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #420=(1,64,64,64)f32 #407=(1,64,64,64)f32 #379=(1,64,64,64)f32 #421=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB1.conv1.0 1 1 421 422 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #421=(1,64,64,64)f32 #422=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB1.conv1.1 1 1 422 423 negative_slope=0.2 #422=(1,32,64,64)f32 #423=(1,32,64,64)f32
+torch.cat                torch.cat_120            2 1 421 423 424 dim=1 #421=(1,64,64,64)f32 #423=(1,32,64,64)f32 #424=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB1.conv2.0 1 1 424 425 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #424=(1,96,64,64)f32 #425=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB1.conv2.1 1 1 425 426 negative_slope=0.2 #425=(1,32,64,64)f32 #426=(1,32,64,64)f32
+torch.cat                torch.cat_121            3 1 421 423 426 427 dim=1 #421=(1,64,64,64)f32 #423=(1,32,64,64)f32 #426=(1,32,64,64)f32 #427=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB1.conv3.0 1 1 427 428 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #427=(1,128,64,64)f32 #428=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB1.conv3.1 1 1 428 429 negative_slope=0.2 #428=(1,32,64,64)f32 #429=(1,32,64,64)f32
+torch.cat                torch.cat_122            4 1 421 423 426 429 430 dim=1 #421=(1,64,64,64)f32 #423=(1,32,64,64)f32 #426=(1,32,64,64)f32 #429=(1,32,64,64)f32 #430=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB1.conv4.0 1 1 430 431 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #430=(1,160,64,64)f32 #431=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB1.conv4.1 1 1 431 432 negative_slope=0.2 #431=(1,32,64,64)f32 #432=(1,32,64,64)f32
+torch.cat                torch.cat_123            5 1 421 423 426 429 432 433 dim=1 #421=(1,64,64,64)f32 #423=(1,32,64,64)f32 #426=(1,32,64,64)f32 #429=(1,32,64,64)f32 #432=(1,32,64,64)f32 #433=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB1.conv5.0 1 1 433 434 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #433=(1,192,64,64)f32 #434=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_355            2 1 434 421 435 expr=add(mul(@0,0.2),@1) #434=(1,64,64,64)f32 #421=(1,64,64,64)f32 #435=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB2.conv1.0 1 1 435 436 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #435=(1,64,64,64)f32 #436=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB2.conv1.1 1 1 436 437 negative_slope=0.2 #436=(1,32,64,64)f32 #437=(1,32,64,64)f32
+torch.cat                torch.cat_124            2 1 435 437 438 dim=1 #435=(1,64,64,64)f32 #437=(1,32,64,64)f32 #438=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB2.conv2.0 1 1 438 439 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #438=(1,96,64,64)f32 #439=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB2.conv2.1 1 1 439 440 negative_slope=0.2 #439=(1,32,64,64)f32 #440=(1,32,64,64)f32
+torch.cat                torch.cat_125            3 1 435 437 440 441 dim=1 #435=(1,64,64,64)f32 #437=(1,32,64,64)f32 #440=(1,32,64,64)f32 #441=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB2.conv3.0 1 1 441 442 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #441=(1,128,64,64)f32 #442=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB2.conv3.1 1 1 442 443 negative_slope=0.2 #442=(1,32,64,64)f32 #443=(1,32,64,64)f32
+torch.cat                torch.cat_126            4 1 435 437 440 443 444 dim=1 #435=(1,64,64,64)f32 #437=(1,32,64,64)f32 #440=(1,32,64,64)f32 #443=(1,32,64,64)f32 #444=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB2.conv4.0 1 1 444 445 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #444=(1,160,64,64)f32 #445=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB2.conv4.1 1 1 445 446 negative_slope=0.2 #445=(1,32,64,64)f32 #446=(1,32,64,64)f32
+torch.cat                torch.cat_127            5 1 435 437 440 443 446 447 dim=1 #435=(1,64,64,64)f32 #437=(1,32,64,64)f32 #440=(1,32,64,64)f32 #443=(1,32,64,64)f32 #446=(1,32,64,64)f32 #447=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB2.conv5.0 1 1 447 448 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #447=(1,192,64,64)f32 #448=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_347            2 1 448 435 449 expr=add(mul(@0,0.2),@1) #448=(1,64,64,64)f32 #435=(1,64,64,64)f32 #449=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB3.conv1.0 1 1 449 450 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #449=(1,64,64,64)f32 #450=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB3.conv1.1 1 1 450 451 negative_slope=0.2 #450=(1,32,64,64)f32 #451=(1,32,64,64)f32
+torch.cat                torch.cat_128            2 1 449 451 452 dim=1 #449=(1,64,64,64)f32 #451=(1,32,64,64)f32 #452=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB3.conv2.0 1 1 452 453 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #452=(1,96,64,64)f32 #453=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB3.conv2.1 1 1 453 454 negative_slope=0.2 #453=(1,32,64,64)f32 #454=(1,32,64,64)f32
+torch.cat                torch.cat_129            3 1 449 451 454 455 dim=1 #449=(1,64,64,64)f32 #451=(1,32,64,64)f32 #454=(1,32,64,64)f32 #455=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB3.conv3.0 1 1 455 456 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #455=(1,128,64,64)f32 #456=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB3.conv3.1 1 1 456 457 negative_slope=0.2 #456=(1,32,64,64)f32 #457=(1,32,64,64)f32
+torch.cat                torch.cat_130            4 1 449 451 454 457 458 dim=1 #449=(1,64,64,64)f32 #451=(1,32,64,64)f32 #454=(1,32,64,64)f32 #457=(1,32,64,64)f32 #458=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB3.conv4.0 1 1 458 459 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #458=(1,160,64,64)f32 #459=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.10.RDB3.conv4.1 1 1 459 460 negative_slope=0.2 #459=(1,32,64,64)f32 #460=(1,32,64,64)f32
+torch.cat                torch.cat_131            5 1 449 451 454 457 460 461 dim=1 #449=(1,64,64,64)f32 #451=(1,32,64,64)f32 #454=(1,32,64,64)f32 #457=(1,32,64,64)f32 #460=(1,32,64,64)f32 #461=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.10.RDB3.conv5.0 1 1 461 462 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #461=(1,192,64,64)f32 #462=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_337            3 1 462 449 421 463 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #462=(1,64,64,64)f32 #449=(1,64,64,64)f32 #421=(1,64,64,64)f32 #463=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB1.conv1.0 1 1 463 464 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #463=(1,64,64,64)f32 #464=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB1.conv1.1 1 1 464 465 negative_slope=0.2 #464=(1,32,64,64)f32 #465=(1,32,64,64)f32
+torch.cat                torch.cat_132            2 1 463 465 466 dim=1 #463=(1,64,64,64)f32 #465=(1,32,64,64)f32 #466=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB1.conv2.0 1 1 466 467 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #466=(1,96,64,64)f32 #467=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB1.conv2.1 1 1 467 468 negative_slope=0.2 #467=(1,32,64,64)f32 #468=(1,32,64,64)f32
+torch.cat                torch.cat_133            3 1 463 465 468 469 dim=1 #463=(1,64,64,64)f32 #465=(1,32,64,64)f32 #468=(1,32,64,64)f32 #469=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB1.conv3.0 1 1 469 470 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #469=(1,128,64,64)f32 #470=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB1.conv3.1 1 1 470 471 negative_slope=0.2 #470=(1,32,64,64)f32 #471=(1,32,64,64)f32
+torch.cat                torch.cat_134            4 1 463 465 468 471 472 dim=1 #463=(1,64,64,64)f32 #465=(1,32,64,64)f32 #468=(1,32,64,64)f32 #471=(1,32,64,64)f32 #472=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB1.conv4.0 1 1 472 473 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #472=(1,160,64,64)f32 #473=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB1.conv4.1 1 1 473 474 negative_slope=0.2 #473=(1,32,64,64)f32 #474=(1,32,64,64)f32
+torch.cat                torch.cat_135            5 1 463 465 468 471 474 475 dim=1 #463=(1,64,64,64)f32 #465=(1,32,64,64)f32 #468=(1,32,64,64)f32 #471=(1,32,64,64)f32 #474=(1,32,64,64)f32 #475=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB1.conv5.0 1 1 475 476 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #475=(1,192,64,64)f32 #476=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_327            2 1 476 463 477 expr=add(mul(@0,0.2),@1) #476=(1,64,64,64)f32 #463=(1,64,64,64)f32 #477=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB2.conv1.0 1 1 477 478 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #477=(1,64,64,64)f32 #478=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB2.conv1.1 1 1 478 479 negative_slope=0.2 #478=(1,32,64,64)f32 #479=(1,32,64,64)f32
+torch.cat                torch.cat_136            2 1 477 479 480 dim=1 #477=(1,64,64,64)f32 #479=(1,32,64,64)f32 #480=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB2.conv2.0 1 1 480 481 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #480=(1,96,64,64)f32 #481=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB2.conv2.1 1 1 481 482 negative_slope=0.2 #481=(1,32,64,64)f32 #482=(1,32,64,64)f32
+torch.cat                torch.cat_137            3 1 477 479 482 483 dim=1 #477=(1,64,64,64)f32 #479=(1,32,64,64)f32 #482=(1,32,64,64)f32 #483=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB2.conv3.0 1 1 483 484 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #483=(1,128,64,64)f32 #484=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB2.conv3.1 1 1 484 485 negative_slope=0.2 #484=(1,32,64,64)f32 #485=(1,32,64,64)f32
+torch.cat                torch.cat_138            4 1 477 479 482 485 486 dim=1 #477=(1,64,64,64)f32 #479=(1,32,64,64)f32 #482=(1,32,64,64)f32 #485=(1,32,64,64)f32 #486=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB2.conv4.0 1 1 486 487 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #486=(1,160,64,64)f32 #487=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB2.conv4.1 1 1 487 488 negative_slope=0.2 #487=(1,32,64,64)f32 #488=(1,32,64,64)f32
+torch.cat                torch.cat_139            5 1 477 479 482 485 488 489 dim=1 #477=(1,64,64,64)f32 #479=(1,32,64,64)f32 #482=(1,32,64,64)f32 #485=(1,32,64,64)f32 #488=(1,32,64,64)f32 #489=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB2.conv5.0 1 1 489 490 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #489=(1,192,64,64)f32 #490=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_319            2 1 490 477 491 expr=add(mul(@0,0.2),@1) #490=(1,64,64,64)f32 #477=(1,64,64,64)f32 #491=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB3.conv1.0 1 1 491 492 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #491=(1,64,64,64)f32 #492=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB3.conv1.1 1 1 492 493 negative_slope=0.2 #492=(1,32,64,64)f32 #493=(1,32,64,64)f32
+torch.cat                torch.cat_140            2 1 491 493 494 dim=1 #491=(1,64,64,64)f32 #493=(1,32,64,64)f32 #494=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB3.conv2.0 1 1 494 495 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #494=(1,96,64,64)f32 #495=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB3.conv2.1 1 1 495 496 negative_slope=0.2 #495=(1,32,64,64)f32 #496=(1,32,64,64)f32
+torch.cat                torch.cat_141            3 1 491 493 496 497 dim=1 #491=(1,64,64,64)f32 #493=(1,32,64,64)f32 #496=(1,32,64,64)f32 #497=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB3.conv3.0 1 1 497 498 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #497=(1,128,64,64)f32 #498=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB3.conv3.1 1 1 498 499 negative_slope=0.2 #498=(1,32,64,64)f32 #499=(1,32,64,64)f32
+torch.cat                torch.cat_142            4 1 491 493 496 499 500 dim=1 #491=(1,64,64,64)f32 #493=(1,32,64,64)f32 #496=(1,32,64,64)f32 #499=(1,32,64,64)f32 #500=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB3.conv4.0 1 1 500 501 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #500=(1,160,64,64)f32 #501=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.11.RDB3.conv4.1 1 1 501 502 negative_slope=0.2 #501=(1,32,64,64)f32 #502=(1,32,64,64)f32
+torch.cat                torch.cat_143            5 1 491 493 496 499 502 503 dim=1 #491=(1,64,64,64)f32 #493=(1,32,64,64)f32 #496=(1,32,64,64)f32 #499=(1,32,64,64)f32 #502=(1,32,64,64)f32 #503=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.11.RDB3.conv5.0 1 1 503 504 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #503=(1,192,64,64)f32 #504=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_309            3 1 504 491 463 505 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #504=(1,64,64,64)f32 #491=(1,64,64,64)f32 #463=(1,64,64,64)f32 #505=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB1.conv1.0 1 1 505 506 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #505=(1,64,64,64)f32 #506=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB1.conv1.1 1 1 506 507 negative_slope=0.2 #506=(1,32,64,64)f32 #507=(1,32,64,64)f32
+torch.cat                torch.cat_144            2 1 505 507 508 dim=1 #505=(1,64,64,64)f32 #507=(1,32,64,64)f32 #508=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB1.conv2.0 1 1 508 509 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #508=(1,96,64,64)f32 #509=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB1.conv2.1 1 1 509 510 negative_slope=0.2 #509=(1,32,64,64)f32 #510=(1,32,64,64)f32
+torch.cat                torch.cat_145            3 1 505 507 510 511 dim=1 #505=(1,64,64,64)f32 #507=(1,32,64,64)f32 #510=(1,32,64,64)f32 #511=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB1.conv3.0 1 1 511 512 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #511=(1,128,64,64)f32 #512=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB1.conv3.1 1 1 512 513 negative_slope=0.2 #512=(1,32,64,64)f32 #513=(1,32,64,64)f32
+torch.cat                torch.cat_146            4 1 505 507 510 513 514 dim=1 #505=(1,64,64,64)f32 #507=(1,32,64,64)f32 #510=(1,32,64,64)f32 #513=(1,32,64,64)f32 #514=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB1.conv4.0 1 1 514 515 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #514=(1,160,64,64)f32 #515=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB1.conv4.1 1 1 515 516 negative_slope=0.2 #515=(1,32,64,64)f32 #516=(1,32,64,64)f32
+torch.cat                torch.cat_147            5 1 505 507 510 513 516 517 dim=1 #505=(1,64,64,64)f32 #507=(1,32,64,64)f32 #510=(1,32,64,64)f32 #513=(1,32,64,64)f32 #516=(1,32,64,64)f32 #517=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB1.conv5.0 1 1 517 518 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #517=(1,192,64,64)f32 #518=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_299            2 1 518 505 519 expr=add(mul(@0,0.2),@1) #518=(1,64,64,64)f32 #505=(1,64,64,64)f32 #519=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB2.conv1.0 1 1 519 520 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #519=(1,64,64,64)f32 #520=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB2.conv1.1 1 1 520 521 negative_slope=0.2 #520=(1,32,64,64)f32 #521=(1,32,64,64)f32
+torch.cat                torch.cat_148            2 1 519 521 522 dim=1 #519=(1,64,64,64)f32 #521=(1,32,64,64)f32 #522=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB2.conv2.0 1 1 522 523 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #522=(1,96,64,64)f32 #523=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB2.conv2.1 1 1 523 524 negative_slope=0.2 #523=(1,32,64,64)f32 #524=(1,32,64,64)f32
+torch.cat                torch.cat_149            3 1 519 521 524 525 dim=1 #519=(1,64,64,64)f32 #521=(1,32,64,64)f32 #524=(1,32,64,64)f32 #525=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB2.conv3.0 1 1 525 526 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #525=(1,128,64,64)f32 #526=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB2.conv3.1 1 1 526 527 negative_slope=0.2 #526=(1,32,64,64)f32 #527=(1,32,64,64)f32
+torch.cat                torch.cat_150            4 1 519 521 524 527 528 dim=1 #519=(1,64,64,64)f32 #521=(1,32,64,64)f32 #524=(1,32,64,64)f32 #527=(1,32,64,64)f32 #528=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB2.conv4.0 1 1 528 529 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #528=(1,160,64,64)f32 #529=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB2.conv4.1 1 1 529 530 negative_slope=0.2 #529=(1,32,64,64)f32 #530=(1,32,64,64)f32
+torch.cat                torch.cat_151            5 1 519 521 524 527 530 531 dim=1 #519=(1,64,64,64)f32 #521=(1,32,64,64)f32 #524=(1,32,64,64)f32 #527=(1,32,64,64)f32 #530=(1,32,64,64)f32 #531=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB2.conv5.0 1 1 531 532 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #531=(1,192,64,64)f32 #532=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_291            2 1 532 519 533 expr=add(mul(@0,0.2),@1) #532=(1,64,64,64)f32 #519=(1,64,64,64)f32 #533=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB3.conv1.0 1 1 533 534 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #533=(1,64,64,64)f32 #534=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB3.conv1.1 1 1 534 535 negative_slope=0.2 #534=(1,32,64,64)f32 #535=(1,32,64,64)f32
+torch.cat                torch.cat_152            2 1 533 535 536 dim=1 #533=(1,64,64,64)f32 #535=(1,32,64,64)f32 #536=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB3.conv2.0 1 1 536 537 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #536=(1,96,64,64)f32 #537=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB3.conv2.1 1 1 537 538 negative_slope=0.2 #537=(1,32,64,64)f32 #538=(1,32,64,64)f32
+torch.cat                torch.cat_153            3 1 533 535 538 539 dim=1 #533=(1,64,64,64)f32 #535=(1,32,64,64)f32 #538=(1,32,64,64)f32 #539=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB3.conv3.0 1 1 539 540 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #539=(1,128,64,64)f32 #540=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB3.conv3.1 1 1 540 541 negative_slope=0.2 #540=(1,32,64,64)f32 #541=(1,32,64,64)f32
+torch.cat                torch.cat_154            4 1 533 535 538 541 542 dim=1 #533=(1,64,64,64)f32 #535=(1,32,64,64)f32 #538=(1,32,64,64)f32 #541=(1,32,64,64)f32 #542=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB3.conv4.0 1 1 542 543 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #542=(1,160,64,64)f32 #543=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.12.RDB3.conv4.1 1 1 543 544 negative_slope=0.2 #543=(1,32,64,64)f32 #544=(1,32,64,64)f32
+torch.cat                torch.cat_155            5 1 533 535 538 541 544 545 dim=1 #533=(1,64,64,64)f32 #535=(1,32,64,64)f32 #538=(1,32,64,64)f32 #541=(1,32,64,64)f32 #544=(1,32,64,64)f32 #545=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.12.RDB3.conv5.0 1 1 545 546 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #545=(1,192,64,64)f32 #546=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_281            3 1 546 533 505 547 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #546=(1,64,64,64)f32 #533=(1,64,64,64)f32 #505=(1,64,64,64)f32 #547=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB1.conv1.0 1 1 547 548 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #547=(1,64,64,64)f32 #548=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB1.conv1.1 1 1 548 549 negative_slope=0.2 #548=(1,32,64,64)f32 #549=(1,32,64,64)f32
+torch.cat                torch.cat_156            2 1 547 549 550 dim=1 #547=(1,64,64,64)f32 #549=(1,32,64,64)f32 #550=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB1.conv2.0 1 1 550 551 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #550=(1,96,64,64)f32 #551=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB1.conv2.1 1 1 551 552 negative_slope=0.2 #551=(1,32,64,64)f32 #552=(1,32,64,64)f32
+torch.cat                torch.cat_157            3 1 547 549 552 553 dim=1 #547=(1,64,64,64)f32 #549=(1,32,64,64)f32 #552=(1,32,64,64)f32 #553=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB1.conv3.0 1 1 553 554 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #553=(1,128,64,64)f32 #554=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB1.conv3.1 1 1 554 555 negative_slope=0.2 #554=(1,32,64,64)f32 #555=(1,32,64,64)f32
+torch.cat                torch.cat_158            4 1 547 549 552 555 556 dim=1 #547=(1,64,64,64)f32 #549=(1,32,64,64)f32 #552=(1,32,64,64)f32 #555=(1,32,64,64)f32 #556=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB1.conv4.0 1 1 556 557 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #556=(1,160,64,64)f32 #557=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB1.conv4.1 1 1 557 558 negative_slope=0.2 #557=(1,32,64,64)f32 #558=(1,32,64,64)f32
+torch.cat                torch.cat_159            5 1 547 549 552 555 558 559 dim=1 #547=(1,64,64,64)f32 #549=(1,32,64,64)f32 #552=(1,32,64,64)f32 #555=(1,32,64,64)f32 #558=(1,32,64,64)f32 #559=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB1.conv5.0 1 1 559 560 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #559=(1,192,64,64)f32 #560=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_271            2 1 560 547 561 expr=add(mul(@0,0.2),@1) #560=(1,64,64,64)f32 #547=(1,64,64,64)f32 #561=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB2.conv1.0 1 1 561 562 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #561=(1,64,64,64)f32 #562=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB2.conv1.1 1 1 562 563 negative_slope=0.2 #562=(1,32,64,64)f32 #563=(1,32,64,64)f32
+torch.cat                torch.cat_160            2 1 561 563 564 dim=1 #561=(1,64,64,64)f32 #563=(1,32,64,64)f32 #564=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB2.conv2.0 1 1 564 565 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #564=(1,96,64,64)f32 #565=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB2.conv2.1 1 1 565 566 negative_slope=0.2 #565=(1,32,64,64)f32 #566=(1,32,64,64)f32
+torch.cat                torch.cat_161            3 1 561 563 566 567 dim=1 #561=(1,64,64,64)f32 #563=(1,32,64,64)f32 #566=(1,32,64,64)f32 #567=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB2.conv3.0 1 1 567 568 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #567=(1,128,64,64)f32 #568=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB2.conv3.1 1 1 568 569 negative_slope=0.2 #568=(1,32,64,64)f32 #569=(1,32,64,64)f32
+torch.cat                torch.cat_162            4 1 561 563 566 569 570 dim=1 #561=(1,64,64,64)f32 #563=(1,32,64,64)f32 #566=(1,32,64,64)f32 #569=(1,32,64,64)f32 #570=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB2.conv4.0 1 1 570 571 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #570=(1,160,64,64)f32 #571=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB2.conv4.1 1 1 571 572 negative_slope=0.2 #571=(1,32,64,64)f32 #572=(1,32,64,64)f32
+torch.cat                torch.cat_163            5 1 561 563 566 569 572 573 dim=1 #561=(1,64,64,64)f32 #563=(1,32,64,64)f32 #566=(1,32,64,64)f32 #569=(1,32,64,64)f32 #572=(1,32,64,64)f32 #573=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB2.conv5.0 1 1 573 574 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #573=(1,192,64,64)f32 #574=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_263            2 1 574 561 575 expr=add(mul(@0,0.2),@1) #574=(1,64,64,64)f32 #561=(1,64,64,64)f32 #575=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB3.conv1.0 1 1 575 576 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #575=(1,64,64,64)f32 #576=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB3.conv1.1 1 1 576 577 negative_slope=0.2 #576=(1,32,64,64)f32 #577=(1,32,64,64)f32
+torch.cat                torch.cat_164            2 1 575 577 578 dim=1 #575=(1,64,64,64)f32 #577=(1,32,64,64)f32 #578=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB3.conv2.0 1 1 578 579 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #578=(1,96,64,64)f32 #579=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB3.conv2.1 1 1 579 580 negative_slope=0.2 #579=(1,32,64,64)f32 #580=(1,32,64,64)f32
+torch.cat                torch.cat_165            3 1 575 577 580 581 dim=1 #575=(1,64,64,64)f32 #577=(1,32,64,64)f32 #580=(1,32,64,64)f32 #581=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB3.conv3.0 1 1 581 582 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #581=(1,128,64,64)f32 #582=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB3.conv3.1 1 1 582 583 negative_slope=0.2 #582=(1,32,64,64)f32 #583=(1,32,64,64)f32
+torch.cat                torch.cat_166            4 1 575 577 580 583 584 dim=1 #575=(1,64,64,64)f32 #577=(1,32,64,64)f32 #580=(1,32,64,64)f32 #583=(1,32,64,64)f32 #584=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB3.conv4.0 1 1 584 585 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #584=(1,160,64,64)f32 #585=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.13.RDB3.conv4.1 1 1 585 586 negative_slope=0.2 #585=(1,32,64,64)f32 #586=(1,32,64,64)f32
+torch.cat                torch.cat_167            5 1 575 577 580 583 586 587 dim=1 #575=(1,64,64,64)f32 #577=(1,32,64,64)f32 #580=(1,32,64,64)f32 #583=(1,32,64,64)f32 #586=(1,32,64,64)f32 #587=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.13.RDB3.conv5.0 1 1 587 588 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #587=(1,192,64,64)f32 #588=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_253            3 1 588 575 547 589 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #588=(1,64,64,64)f32 #575=(1,64,64,64)f32 #547=(1,64,64,64)f32 #589=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB1.conv1.0 1 1 589 590 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #589=(1,64,64,64)f32 #590=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB1.conv1.1 1 1 590 591 negative_slope=0.2 #590=(1,32,64,64)f32 #591=(1,32,64,64)f32
+torch.cat                torch.cat_168            2 1 589 591 592 dim=1 #589=(1,64,64,64)f32 #591=(1,32,64,64)f32 #592=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB1.conv2.0 1 1 592 593 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #592=(1,96,64,64)f32 #593=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB1.conv2.1 1 1 593 594 negative_slope=0.2 #593=(1,32,64,64)f32 #594=(1,32,64,64)f32
+torch.cat                torch.cat_169            3 1 589 591 594 595 dim=1 #589=(1,64,64,64)f32 #591=(1,32,64,64)f32 #594=(1,32,64,64)f32 #595=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB1.conv3.0 1 1 595 596 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #595=(1,128,64,64)f32 #596=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB1.conv3.1 1 1 596 597 negative_slope=0.2 #596=(1,32,64,64)f32 #597=(1,32,64,64)f32
+torch.cat                torch.cat_170            4 1 589 591 594 597 598 dim=1 #589=(1,64,64,64)f32 #591=(1,32,64,64)f32 #594=(1,32,64,64)f32 #597=(1,32,64,64)f32 #598=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB1.conv4.0 1 1 598 599 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #598=(1,160,64,64)f32 #599=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB1.conv4.1 1 1 599 600 negative_slope=0.2 #599=(1,32,64,64)f32 #600=(1,32,64,64)f32
+torch.cat                torch.cat_171            5 1 589 591 594 597 600 601 dim=1 #589=(1,64,64,64)f32 #591=(1,32,64,64)f32 #594=(1,32,64,64)f32 #597=(1,32,64,64)f32 #600=(1,32,64,64)f32 #601=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB1.conv5.0 1 1 601 602 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #601=(1,192,64,64)f32 #602=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_243            2 1 602 589 603 expr=add(mul(@0,0.2),@1) #602=(1,64,64,64)f32 #589=(1,64,64,64)f32 #603=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB2.conv1.0 1 1 603 604 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #603=(1,64,64,64)f32 #604=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB2.conv1.1 1 1 604 605 negative_slope=0.2 #604=(1,32,64,64)f32 #605=(1,32,64,64)f32
+torch.cat                torch.cat_172            2 1 603 605 606 dim=1 #603=(1,64,64,64)f32 #605=(1,32,64,64)f32 #606=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB2.conv2.0 1 1 606 607 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #606=(1,96,64,64)f32 #607=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB2.conv2.1 1 1 607 608 negative_slope=0.2 #607=(1,32,64,64)f32 #608=(1,32,64,64)f32
+torch.cat                torch.cat_173            3 1 603 605 608 609 dim=1 #603=(1,64,64,64)f32 #605=(1,32,64,64)f32 #608=(1,32,64,64)f32 #609=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB2.conv3.0 1 1 609 610 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #609=(1,128,64,64)f32 #610=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB2.conv3.1 1 1 610 611 negative_slope=0.2 #610=(1,32,64,64)f32 #611=(1,32,64,64)f32
+torch.cat                torch.cat_174            4 1 603 605 608 611 612 dim=1 #603=(1,64,64,64)f32 #605=(1,32,64,64)f32 #608=(1,32,64,64)f32 #611=(1,32,64,64)f32 #612=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB2.conv4.0 1 1 612 613 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #612=(1,160,64,64)f32 #613=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB2.conv4.1 1 1 613 614 negative_slope=0.2 #613=(1,32,64,64)f32 #614=(1,32,64,64)f32
+torch.cat                torch.cat_175            5 1 603 605 608 611 614 615 dim=1 #603=(1,64,64,64)f32 #605=(1,32,64,64)f32 #608=(1,32,64,64)f32 #611=(1,32,64,64)f32 #614=(1,32,64,64)f32 #615=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB2.conv5.0 1 1 615 616 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #615=(1,192,64,64)f32 #616=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_235            2 1 616 603 617 expr=add(mul(@0,0.2),@1) #616=(1,64,64,64)f32 #603=(1,64,64,64)f32 #617=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB3.conv1.0 1 1 617 618 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #617=(1,64,64,64)f32 #618=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB3.conv1.1 1 1 618 619 negative_slope=0.2 #618=(1,32,64,64)f32 #619=(1,32,64,64)f32
+torch.cat                torch.cat_176            2 1 617 619 620 dim=1 #617=(1,64,64,64)f32 #619=(1,32,64,64)f32 #620=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB3.conv2.0 1 1 620 621 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #620=(1,96,64,64)f32 #621=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB3.conv2.1 1 1 621 622 negative_slope=0.2 #621=(1,32,64,64)f32 #622=(1,32,64,64)f32
+torch.cat                torch.cat_177            3 1 617 619 622 623 dim=1 #617=(1,64,64,64)f32 #619=(1,32,64,64)f32 #622=(1,32,64,64)f32 #623=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB3.conv3.0 1 1 623 624 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #623=(1,128,64,64)f32 #624=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB3.conv3.1 1 1 624 625 negative_slope=0.2 #624=(1,32,64,64)f32 #625=(1,32,64,64)f32
+torch.cat                torch.cat_178            4 1 617 619 622 625 626 dim=1 #617=(1,64,64,64)f32 #619=(1,32,64,64)f32 #622=(1,32,64,64)f32 #625=(1,32,64,64)f32 #626=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB3.conv4.0 1 1 626 627 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #626=(1,160,64,64)f32 #627=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.14.RDB3.conv4.1 1 1 627 628 negative_slope=0.2 #627=(1,32,64,64)f32 #628=(1,32,64,64)f32
+torch.cat                torch.cat_179            5 1 617 619 622 625 628 629 dim=1 #617=(1,64,64,64)f32 #619=(1,32,64,64)f32 #622=(1,32,64,64)f32 #625=(1,32,64,64)f32 #628=(1,32,64,64)f32 #629=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.14.RDB3.conv5.0 1 1 629 630 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #629=(1,192,64,64)f32 #630=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_225            3 1 630 617 589 631 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #630=(1,64,64,64)f32 #617=(1,64,64,64)f32 #589=(1,64,64,64)f32 #631=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB1.conv1.0 1 1 631 632 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #631=(1,64,64,64)f32 #632=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB1.conv1.1 1 1 632 633 negative_slope=0.2 #632=(1,32,64,64)f32 #633=(1,32,64,64)f32
+torch.cat                torch.cat_180            2 1 631 633 634 dim=1 #631=(1,64,64,64)f32 #633=(1,32,64,64)f32 #634=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB1.conv2.0 1 1 634 635 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #634=(1,96,64,64)f32 #635=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB1.conv2.1 1 1 635 636 negative_slope=0.2 #635=(1,32,64,64)f32 #636=(1,32,64,64)f32
+torch.cat                torch.cat_181            3 1 631 633 636 637 dim=1 #631=(1,64,64,64)f32 #633=(1,32,64,64)f32 #636=(1,32,64,64)f32 #637=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB1.conv3.0 1 1 637 638 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #637=(1,128,64,64)f32 #638=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB1.conv3.1 1 1 638 639 negative_slope=0.2 #638=(1,32,64,64)f32 #639=(1,32,64,64)f32
+torch.cat                torch.cat_182            4 1 631 633 636 639 640 dim=1 #631=(1,64,64,64)f32 #633=(1,32,64,64)f32 #636=(1,32,64,64)f32 #639=(1,32,64,64)f32 #640=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB1.conv4.0 1 1 640 641 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #640=(1,160,64,64)f32 #641=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB1.conv4.1 1 1 641 642 negative_slope=0.2 #641=(1,32,64,64)f32 #642=(1,32,64,64)f32
+torch.cat                torch.cat_183            5 1 631 633 636 639 642 643 dim=1 #631=(1,64,64,64)f32 #633=(1,32,64,64)f32 #636=(1,32,64,64)f32 #639=(1,32,64,64)f32 #642=(1,32,64,64)f32 #643=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB1.conv5.0 1 1 643 644 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #643=(1,192,64,64)f32 #644=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_215            2 1 644 631 645 expr=add(mul(@0,0.2),@1) #644=(1,64,64,64)f32 #631=(1,64,64,64)f32 #645=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB2.conv1.0 1 1 645 646 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #645=(1,64,64,64)f32 #646=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB2.conv1.1 1 1 646 647 negative_slope=0.2 #646=(1,32,64,64)f32 #647=(1,32,64,64)f32
+torch.cat                torch.cat_184            2 1 645 647 648 dim=1 #645=(1,64,64,64)f32 #647=(1,32,64,64)f32 #648=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB2.conv2.0 1 1 648 649 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #648=(1,96,64,64)f32 #649=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB2.conv2.1 1 1 649 650 negative_slope=0.2 #649=(1,32,64,64)f32 #650=(1,32,64,64)f32
+torch.cat                torch.cat_185            3 1 645 647 650 651 dim=1 #645=(1,64,64,64)f32 #647=(1,32,64,64)f32 #650=(1,32,64,64)f32 #651=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB2.conv3.0 1 1 651 652 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #651=(1,128,64,64)f32 #652=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB2.conv3.1 1 1 652 653 negative_slope=0.2 #652=(1,32,64,64)f32 #653=(1,32,64,64)f32
+torch.cat                torch.cat_186            4 1 645 647 650 653 654 dim=1 #645=(1,64,64,64)f32 #647=(1,32,64,64)f32 #650=(1,32,64,64)f32 #653=(1,32,64,64)f32 #654=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB2.conv4.0 1 1 654 655 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #654=(1,160,64,64)f32 #655=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB2.conv4.1 1 1 655 656 negative_slope=0.2 #655=(1,32,64,64)f32 #656=(1,32,64,64)f32
+torch.cat                torch.cat_187            5 1 645 647 650 653 656 657 dim=1 #645=(1,64,64,64)f32 #647=(1,32,64,64)f32 #650=(1,32,64,64)f32 #653=(1,32,64,64)f32 #656=(1,32,64,64)f32 #657=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB2.conv5.0 1 1 657 658 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #657=(1,192,64,64)f32 #658=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_207            2 1 658 645 659 expr=add(mul(@0,0.2),@1) #658=(1,64,64,64)f32 #645=(1,64,64,64)f32 #659=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB3.conv1.0 1 1 659 660 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #659=(1,64,64,64)f32 #660=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB3.conv1.1 1 1 660 661 negative_slope=0.2 #660=(1,32,64,64)f32 #661=(1,32,64,64)f32
+torch.cat                torch.cat_188            2 1 659 661 662 dim=1 #659=(1,64,64,64)f32 #661=(1,32,64,64)f32 #662=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB3.conv2.0 1 1 662 663 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #662=(1,96,64,64)f32 #663=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB3.conv2.1 1 1 663 664 negative_slope=0.2 #663=(1,32,64,64)f32 #664=(1,32,64,64)f32
+torch.cat                torch.cat_189            3 1 659 661 664 665 dim=1 #659=(1,64,64,64)f32 #661=(1,32,64,64)f32 #664=(1,32,64,64)f32 #665=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB3.conv3.0 1 1 665 666 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #665=(1,128,64,64)f32 #666=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB3.conv3.1 1 1 666 667 negative_slope=0.2 #666=(1,32,64,64)f32 #667=(1,32,64,64)f32
+torch.cat                torch.cat_190            4 1 659 661 664 667 668 dim=1 #659=(1,64,64,64)f32 #661=(1,32,64,64)f32 #664=(1,32,64,64)f32 #667=(1,32,64,64)f32 #668=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB3.conv4.0 1 1 668 669 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #668=(1,160,64,64)f32 #669=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.15.RDB3.conv4.1 1 1 669 670 negative_slope=0.2 #669=(1,32,64,64)f32 #670=(1,32,64,64)f32
+torch.cat                torch.cat_191            5 1 659 661 664 667 670 671 dim=1 #659=(1,64,64,64)f32 #661=(1,32,64,64)f32 #664=(1,32,64,64)f32 #667=(1,32,64,64)f32 #670=(1,32,64,64)f32 #671=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.15.RDB3.conv5.0 1 1 671 672 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #671=(1,192,64,64)f32 #672=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_197            3 1 672 659 631 673 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #672=(1,64,64,64)f32 #659=(1,64,64,64)f32 #631=(1,64,64,64)f32 #673=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB1.conv1.0 1 1 673 674 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #673=(1,64,64,64)f32 #674=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB1.conv1.1 1 1 674 675 negative_slope=0.2 #674=(1,32,64,64)f32 #675=(1,32,64,64)f32
+torch.cat                torch.cat_192            2 1 673 675 676 dim=1 #673=(1,64,64,64)f32 #675=(1,32,64,64)f32 #676=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB1.conv2.0 1 1 676 677 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #676=(1,96,64,64)f32 #677=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB1.conv2.1 1 1 677 678 negative_slope=0.2 #677=(1,32,64,64)f32 #678=(1,32,64,64)f32
+torch.cat                torch.cat_193            3 1 673 675 678 679 dim=1 #673=(1,64,64,64)f32 #675=(1,32,64,64)f32 #678=(1,32,64,64)f32 #679=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB1.conv3.0 1 1 679 680 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #679=(1,128,64,64)f32 #680=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB1.conv3.1 1 1 680 681 negative_slope=0.2 #680=(1,32,64,64)f32 #681=(1,32,64,64)f32
+torch.cat                torch.cat_194            4 1 673 675 678 681 682 dim=1 #673=(1,64,64,64)f32 #675=(1,32,64,64)f32 #678=(1,32,64,64)f32 #681=(1,32,64,64)f32 #682=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB1.conv4.0 1 1 682 683 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #682=(1,160,64,64)f32 #683=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB1.conv4.1 1 1 683 684 negative_slope=0.2 #683=(1,32,64,64)f32 #684=(1,32,64,64)f32
+torch.cat                torch.cat_195            5 1 673 675 678 681 684 685 dim=1 #673=(1,64,64,64)f32 #675=(1,32,64,64)f32 #678=(1,32,64,64)f32 #681=(1,32,64,64)f32 #684=(1,32,64,64)f32 #685=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB1.conv5.0 1 1 685 686 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #685=(1,192,64,64)f32 #686=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_187            2 1 686 673 687 expr=add(mul(@0,0.2),@1) #686=(1,64,64,64)f32 #673=(1,64,64,64)f32 #687=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB2.conv1.0 1 1 687 688 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #687=(1,64,64,64)f32 #688=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB2.conv1.1 1 1 688 689 negative_slope=0.2 #688=(1,32,64,64)f32 #689=(1,32,64,64)f32
+torch.cat                torch.cat_196            2 1 687 689 690 dim=1 #687=(1,64,64,64)f32 #689=(1,32,64,64)f32 #690=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB2.conv2.0 1 1 690 691 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #690=(1,96,64,64)f32 #691=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB2.conv2.1 1 1 691 692 negative_slope=0.2 #691=(1,32,64,64)f32 #692=(1,32,64,64)f32
+torch.cat                torch.cat_197            3 1 687 689 692 693 dim=1 #687=(1,64,64,64)f32 #689=(1,32,64,64)f32 #692=(1,32,64,64)f32 #693=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB2.conv3.0 1 1 693 694 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #693=(1,128,64,64)f32 #694=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB2.conv3.1 1 1 694 695 negative_slope=0.2 #694=(1,32,64,64)f32 #695=(1,32,64,64)f32
+torch.cat                torch.cat_198            4 1 687 689 692 695 696 dim=1 #687=(1,64,64,64)f32 #689=(1,32,64,64)f32 #692=(1,32,64,64)f32 #695=(1,32,64,64)f32 #696=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB2.conv4.0 1 1 696 697 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #696=(1,160,64,64)f32 #697=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB2.conv4.1 1 1 697 698 negative_slope=0.2 #697=(1,32,64,64)f32 #698=(1,32,64,64)f32
+torch.cat                torch.cat_199            5 1 687 689 692 695 698 699 dim=1 #687=(1,64,64,64)f32 #689=(1,32,64,64)f32 #692=(1,32,64,64)f32 #695=(1,32,64,64)f32 #698=(1,32,64,64)f32 #699=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB2.conv5.0 1 1 699 700 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #699=(1,192,64,64)f32 #700=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_179            2 1 700 687 701 expr=add(mul(@0,0.2),@1) #700=(1,64,64,64)f32 #687=(1,64,64,64)f32 #701=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB3.conv1.0 1 1 701 702 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #701=(1,64,64,64)f32 #702=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB3.conv1.1 1 1 702 703 negative_slope=0.2 #702=(1,32,64,64)f32 #703=(1,32,64,64)f32
+torch.cat                torch.cat_200            2 1 701 703 704 dim=1 #701=(1,64,64,64)f32 #703=(1,32,64,64)f32 #704=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB3.conv2.0 1 1 704 705 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #704=(1,96,64,64)f32 #705=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB3.conv2.1 1 1 705 706 negative_slope=0.2 #705=(1,32,64,64)f32 #706=(1,32,64,64)f32
+torch.cat                torch.cat_201            3 1 701 703 706 707 dim=1 #701=(1,64,64,64)f32 #703=(1,32,64,64)f32 #706=(1,32,64,64)f32 #707=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB3.conv3.0 1 1 707 708 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #707=(1,128,64,64)f32 #708=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB3.conv3.1 1 1 708 709 negative_slope=0.2 #708=(1,32,64,64)f32 #709=(1,32,64,64)f32
+torch.cat                torch.cat_202            4 1 701 703 706 709 710 dim=1 #701=(1,64,64,64)f32 #703=(1,32,64,64)f32 #706=(1,32,64,64)f32 #709=(1,32,64,64)f32 #710=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB3.conv4.0 1 1 710 711 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #710=(1,160,64,64)f32 #711=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.16.RDB3.conv4.1 1 1 711 712 negative_slope=0.2 #711=(1,32,64,64)f32 #712=(1,32,64,64)f32
+torch.cat                torch.cat_203            5 1 701 703 706 709 712 713 dim=1 #701=(1,64,64,64)f32 #703=(1,32,64,64)f32 #706=(1,32,64,64)f32 #709=(1,32,64,64)f32 #712=(1,32,64,64)f32 #713=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.16.RDB3.conv5.0 1 1 713 714 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #713=(1,192,64,64)f32 #714=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_169            3 1 714 701 673 715 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #714=(1,64,64,64)f32 #701=(1,64,64,64)f32 #673=(1,64,64,64)f32 #715=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB1.conv1.0 1 1 715 716 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #715=(1,64,64,64)f32 #716=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB1.conv1.1 1 1 716 717 negative_slope=0.2 #716=(1,32,64,64)f32 #717=(1,32,64,64)f32
+torch.cat                torch.cat_204            2 1 715 717 718 dim=1 #715=(1,64,64,64)f32 #717=(1,32,64,64)f32 #718=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB1.conv2.0 1 1 718 719 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #718=(1,96,64,64)f32 #719=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB1.conv2.1 1 1 719 720 negative_slope=0.2 #719=(1,32,64,64)f32 #720=(1,32,64,64)f32
+torch.cat                torch.cat_205            3 1 715 717 720 721 dim=1 #715=(1,64,64,64)f32 #717=(1,32,64,64)f32 #720=(1,32,64,64)f32 #721=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB1.conv3.0 1 1 721 722 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #721=(1,128,64,64)f32 #722=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB1.conv3.1 1 1 722 723 negative_slope=0.2 #722=(1,32,64,64)f32 #723=(1,32,64,64)f32
+torch.cat                torch.cat_206            4 1 715 717 720 723 724 dim=1 #715=(1,64,64,64)f32 #717=(1,32,64,64)f32 #720=(1,32,64,64)f32 #723=(1,32,64,64)f32 #724=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB1.conv4.0 1 1 724 725 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #724=(1,160,64,64)f32 #725=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB1.conv4.1 1 1 725 726 negative_slope=0.2 #725=(1,32,64,64)f32 #726=(1,32,64,64)f32
+torch.cat                torch.cat_207            5 1 715 717 720 723 726 727 dim=1 #715=(1,64,64,64)f32 #717=(1,32,64,64)f32 #720=(1,32,64,64)f32 #723=(1,32,64,64)f32 #726=(1,32,64,64)f32 #727=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB1.conv5.0 1 1 727 728 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #727=(1,192,64,64)f32 #728=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_159            2 1 728 715 729 expr=add(mul(@0,0.2),@1) #728=(1,64,64,64)f32 #715=(1,64,64,64)f32 #729=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB2.conv1.0 1 1 729 730 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #729=(1,64,64,64)f32 #730=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB2.conv1.1 1 1 730 731 negative_slope=0.2 #730=(1,32,64,64)f32 #731=(1,32,64,64)f32
+torch.cat                torch.cat_208            2 1 729 731 732 dim=1 #729=(1,64,64,64)f32 #731=(1,32,64,64)f32 #732=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB2.conv2.0 1 1 732 733 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #732=(1,96,64,64)f32 #733=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB2.conv2.1 1 1 733 734 negative_slope=0.2 #733=(1,32,64,64)f32 #734=(1,32,64,64)f32
+torch.cat                torch.cat_209            3 1 729 731 734 735 dim=1 #729=(1,64,64,64)f32 #731=(1,32,64,64)f32 #734=(1,32,64,64)f32 #735=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB2.conv3.0 1 1 735 736 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #735=(1,128,64,64)f32 #736=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB2.conv3.1 1 1 736 737 negative_slope=0.2 #736=(1,32,64,64)f32 #737=(1,32,64,64)f32
+torch.cat                torch.cat_210            4 1 729 731 734 737 738 dim=1 #729=(1,64,64,64)f32 #731=(1,32,64,64)f32 #734=(1,32,64,64)f32 #737=(1,32,64,64)f32 #738=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB2.conv4.0 1 1 738 739 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #738=(1,160,64,64)f32 #739=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB2.conv4.1 1 1 739 740 negative_slope=0.2 #739=(1,32,64,64)f32 #740=(1,32,64,64)f32
+torch.cat                torch.cat_211            5 1 729 731 734 737 740 741 dim=1 #729=(1,64,64,64)f32 #731=(1,32,64,64)f32 #734=(1,32,64,64)f32 #737=(1,32,64,64)f32 #740=(1,32,64,64)f32 #741=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB2.conv5.0 1 1 741 742 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #741=(1,192,64,64)f32 #742=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_151            2 1 742 729 743 expr=add(mul(@0,0.2),@1) #742=(1,64,64,64)f32 #729=(1,64,64,64)f32 #743=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB3.conv1.0 1 1 743 744 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #743=(1,64,64,64)f32 #744=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB3.conv1.1 1 1 744 745 negative_slope=0.2 #744=(1,32,64,64)f32 #745=(1,32,64,64)f32
+torch.cat                torch.cat_212            2 1 743 745 746 dim=1 #743=(1,64,64,64)f32 #745=(1,32,64,64)f32 #746=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB3.conv2.0 1 1 746 747 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #746=(1,96,64,64)f32 #747=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB3.conv2.1 1 1 747 748 negative_slope=0.2 #747=(1,32,64,64)f32 #748=(1,32,64,64)f32
+torch.cat                torch.cat_213            3 1 743 745 748 749 dim=1 #743=(1,64,64,64)f32 #745=(1,32,64,64)f32 #748=(1,32,64,64)f32 #749=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB3.conv3.0 1 1 749 750 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #749=(1,128,64,64)f32 #750=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB3.conv3.1 1 1 750 751 negative_slope=0.2 #750=(1,32,64,64)f32 #751=(1,32,64,64)f32
+torch.cat                torch.cat_214            4 1 743 745 748 751 752 dim=1 #743=(1,64,64,64)f32 #745=(1,32,64,64)f32 #748=(1,32,64,64)f32 #751=(1,32,64,64)f32 #752=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB3.conv4.0 1 1 752 753 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #752=(1,160,64,64)f32 #753=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.17.RDB3.conv4.1 1 1 753 754 negative_slope=0.2 #753=(1,32,64,64)f32 #754=(1,32,64,64)f32
+torch.cat                torch.cat_215            5 1 743 745 748 751 754 755 dim=1 #743=(1,64,64,64)f32 #745=(1,32,64,64)f32 #748=(1,32,64,64)f32 #751=(1,32,64,64)f32 #754=(1,32,64,64)f32 #755=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.17.RDB3.conv5.0 1 1 755 756 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #755=(1,192,64,64)f32 #756=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_141            3 1 756 743 715 757 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #756=(1,64,64,64)f32 #743=(1,64,64,64)f32 #715=(1,64,64,64)f32 #757=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB1.conv1.0 1 1 757 758 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #757=(1,64,64,64)f32 #758=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB1.conv1.1 1 1 758 759 negative_slope=0.2 #758=(1,32,64,64)f32 #759=(1,32,64,64)f32
+torch.cat                torch.cat_216            2 1 757 759 760 dim=1 #757=(1,64,64,64)f32 #759=(1,32,64,64)f32 #760=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB1.conv2.0 1 1 760 761 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #760=(1,96,64,64)f32 #761=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB1.conv2.1 1 1 761 762 negative_slope=0.2 #761=(1,32,64,64)f32 #762=(1,32,64,64)f32
+torch.cat                torch.cat_217            3 1 757 759 762 763 dim=1 #757=(1,64,64,64)f32 #759=(1,32,64,64)f32 #762=(1,32,64,64)f32 #763=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB1.conv3.0 1 1 763 764 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #763=(1,128,64,64)f32 #764=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB1.conv3.1 1 1 764 765 negative_slope=0.2 #764=(1,32,64,64)f32 #765=(1,32,64,64)f32
+torch.cat                torch.cat_218            4 1 757 759 762 765 766 dim=1 #757=(1,64,64,64)f32 #759=(1,32,64,64)f32 #762=(1,32,64,64)f32 #765=(1,32,64,64)f32 #766=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB1.conv4.0 1 1 766 767 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #766=(1,160,64,64)f32 #767=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB1.conv4.1 1 1 767 768 negative_slope=0.2 #767=(1,32,64,64)f32 #768=(1,32,64,64)f32
+torch.cat                torch.cat_219            5 1 757 759 762 765 768 769 dim=1 #757=(1,64,64,64)f32 #759=(1,32,64,64)f32 #762=(1,32,64,64)f32 #765=(1,32,64,64)f32 #768=(1,32,64,64)f32 #769=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB1.conv5.0 1 1 769 770 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #769=(1,192,64,64)f32 #770=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_131            2 1 770 757 771 expr=add(mul(@0,0.2),@1) #770=(1,64,64,64)f32 #757=(1,64,64,64)f32 #771=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB2.conv1.0 1 1 771 772 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #771=(1,64,64,64)f32 #772=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB2.conv1.1 1 1 772 773 negative_slope=0.2 #772=(1,32,64,64)f32 #773=(1,32,64,64)f32
+torch.cat                torch.cat_220            2 1 771 773 774 dim=1 #771=(1,64,64,64)f32 #773=(1,32,64,64)f32 #774=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB2.conv2.0 1 1 774 775 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #774=(1,96,64,64)f32 #775=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB2.conv2.1 1 1 775 776 negative_slope=0.2 #775=(1,32,64,64)f32 #776=(1,32,64,64)f32
+torch.cat                torch.cat_221            3 1 771 773 776 777 dim=1 #771=(1,64,64,64)f32 #773=(1,32,64,64)f32 #776=(1,32,64,64)f32 #777=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB2.conv3.0 1 1 777 778 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #777=(1,128,64,64)f32 #778=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB2.conv3.1 1 1 778 779 negative_slope=0.2 #778=(1,32,64,64)f32 #779=(1,32,64,64)f32
+torch.cat                torch.cat_222            4 1 771 773 776 779 780 dim=1 #771=(1,64,64,64)f32 #773=(1,32,64,64)f32 #776=(1,32,64,64)f32 #779=(1,32,64,64)f32 #780=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB2.conv4.0 1 1 780 781 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #780=(1,160,64,64)f32 #781=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB2.conv4.1 1 1 781 782 negative_slope=0.2 #781=(1,32,64,64)f32 #782=(1,32,64,64)f32
+torch.cat                torch.cat_223            5 1 771 773 776 779 782 783 dim=1 #771=(1,64,64,64)f32 #773=(1,32,64,64)f32 #776=(1,32,64,64)f32 #779=(1,32,64,64)f32 #782=(1,32,64,64)f32 #783=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB2.conv5.0 1 1 783 784 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #783=(1,192,64,64)f32 #784=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_123            2 1 784 771 785 expr=add(mul(@0,0.2),@1) #784=(1,64,64,64)f32 #771=(1,64,64,64)f32 #785=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB3.conv1.0 1 1 785 786 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #785=(1,64,64,64)f32 #786=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB3.conv1.1 1 1 786 787 negative_slope=0.2 #786=(1,32,64,64)f32 #787=(1,32,64,64)f32
+torch.cat                torch.cat_224            2 1 785 787 788 dim=1 #785=(1,64,64,64)f32 #787=(1,32,64,64)f32 #788=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB3.conv2.0 1 1 788 789 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #788=(1,96,64,64)f32 #789=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB3.conv2.1 1 1 789 790 negative_slope=0.2 #789=(1,32,64,64)f32 #790=(1,32,64,64)f32
+torch.cat                torch.cat_225            3 1 785 787 790 791 dim=1 #785=(1,64,64,64)f32 #787=(1,32,64,64)f32 #790=(1,32,64,64)f32 #791=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB3.conv3.0 1 1 791 792 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #791=(1,128,64,64)f32 #792=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB3.conv3.1 1 1 792 793 negative_slope=0.2 #792=(1,32,64,64)f32 #793=(1,32,64,64)f32
+torch.cat                torch.cat_226            4 1 785 787 790 793 794 dim=1 #785=(1,64,64,64)f32 #787=(1,32,64,64)f32 #790=(1,32,64,64)f32 #793=(1,32,64,64)f32 #794=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB3.conv4.0 1 1 794 795 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #794=(1,160,64,64)f32 #795=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.18.RDB3.conv4.1 1 1 795 796 negative_slope=0.2 #795=(1,32,64,64)f32 #796=(1,32,64,64)f32
+torch.cat                torch.cat_227            5 1 785 787 790 793 796 797 dim=1 #785=(1,64,64,64)f32 #787=(1,32,64,64)f32 #790=(1,32,64,64)f32 #793=(1,32,64,64)f32 #796=(1,32,64,64)f32 #797=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.18.RDB3.conv5.0 1 1 797 798 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #797=(1,192,64,64)f32 #798=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_113            3 1 798 785 757 799 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #798=(1,64,64,64)f32 #785=(1,64,64,64)f32 #757=(1,64,64,64)f32 #799=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB1.conv1.0 1 1 799 800 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #799=(1,64,64,64)f32 #800=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB1.conv1.1 1 1 800 801 negative_slope=0.2 #800=(1,32,64,64)f32 #801=(1,32,64,64)f32
+torch.cat                torch.cat_228            2 1 799 801 802 dim=1 #799=(1,64,64,64)f32 #801=(1,32,64,64)f32 #802=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB1.conv2.0 1 1 802 803 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #802=(1,96,64,64)f32 #803=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB1.conv2.1 1 1 803 804 negative_slope=0.2 #803=(1,32,64,64)f32 #804=(1,32,64,64)f32
+torch.cat                torch.cat_229            3 1 799 801 804 805 dim=1 #799=(1,64,64,64)f32 #801=(1,32,64,64)f32 #804=(1,32,64,64)f32 #805=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB1.conv3.0 1 1 805 806 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #805=(1,128,64,64)f32 #806=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB1.conv3.1 1 1 806 807 negative_slope=0.2 #806=(1,32,64,64)f32 #807=(1,32,64,64)f32
+torch.cat                torch.cat_230            4 1 799 801 804 807 808 dim=1 #799=(1,64,64,64)f32 #801=(1,32,64,64)f32 #804=(1,32,64,64)f32 #807=(1,32,64,64)f32 #808=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB1.conv4.0 1 1 808 809 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #808=(1,160,64,64)f32 #809=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB1.conv4.1 1 1 809 810 negative_slope=0.2 #809=(1,32,64,64)f32 #810=(1,32,64,64)f32
+torch.cat                torch.cat_231            5 1 799 801 804 807 810 811 dim=1 #799=(1,64,64,64)f32 #801=(1,32,64,64)f32 #804=(1,32,64,64)f32 #807=(1,32,64,64)f32 #810=(1,32,64,64)f32 #811=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB1.conv5.0 1 1 811 812 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #811=(1,192,64,64)f32 #812=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_103            2 1 812 799 813 expr=add(mul(@0,0.2),@1) #812=(1,64,64,64)f32 #799=(1,64,64,64)f32 #813=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB2.conv1.0 1 1 813 814 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #813=(1,64,64,64)f32 #814=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB2.conv1.1 1 1 814 815 negative_slope=0.2 #814=(1,32,64,64)f32 #815=(1,32,64,64)f32
+torch.cat                torch.cat_232            2 1 813 815 816 dim=1 #813=(1,64,64,64)f32 #815=(1,32,64,64)f32 #816=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB2.conv2.0 1 1 816 817 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #816=(1,96,64,64)f32 #817=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB2.conv2.1 1 1 817 818 negative_slope=0.2 #817=(1,32,64,64)f32 #818=(1,32,64,64)f32
+torch.cat                torch.cat_233            3 1 813 815 818 819 dim=1 #813=(1,64,64,64)f32 #815=(1,32,64,64)f32 #818=(1,32,64,64)f32 #819=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB2.conv3.0 1 1 819 820 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #819=(1,128,64,64)f32 #820=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB2.conv3.1 1 1 820 821 negative_slope=0.2 #820=(1,32,64,64)f32 #821=(1,32,64,64)f32
+torch.cat                torch.cat_234            4 1 813 815 818 821 822 dim=1 #813=(1,64,64,64)f32 #815=(1,32,64,64)f32 #818=(1,32,64,64)f32 #821=(1,32,64,64)f32 #822=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB2.conv4.0 1 1 822 823 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #822=(1,160,64,64)f32 #823=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB2.conv4.1 1 1 823 824 negative_slope=0.2 #823=(1,32,64,64)f32 #824=(1,32,64,64)f32
+torch.cat                torch.cat_235            5 1 813 815 818 821 824 825 dim=1 #813=(1,64,64,64)f32 #815=(1,32,64,64)f32 #818=(1,32,64,64)f32 #821=(1,32,64,64)f32 #824=(1,32,64,64)f32 #825=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB2.conv5.0 1 1 825 826 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #825=(1,192,64,64)f32 #826=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_95             2 1 826 813 827 expr=add(mul(@0,0.2),@1) #826=(1,64,64,64)f32 #813=(1,64,64,64)f32 #827=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB3.conv1.0 1 1 827 828 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #827=(1,64,64,64)f32 #828=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB3.conv1.1 1 1 828 829 negative_slope=0.2 #828=(1,32,64,64)f32 #829=(1,32,64,64)f32
+torch.cat                torch.cat_236            2 1 827 829 830 dim=1 #827=(1,64,64,64)f32 #829=(1,32,64,64)f32 #830=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB3.conv2.0 1 1 830 831 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #830=(1,96,64,64)f32 #831=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB3.conv2.1 1 1 831 832 negative_slope=0.2 #831=(1,32,64,64)f32 #832=(1,32,64,64)f32
+torch.cat                torch.cat_237            3 1 827 829 832 833 dim=1 #827=(1,64,64,64)f32 #829=(1,32,64,64)f32 #832=(1,32,64,64)f32 #833=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB3.conv3.0 1 1 833 834 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #833=(1,128,64,64)f32 #834=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB3.conv3.1 1 1 834 835 negative_slope=0.2 #834=(1,32,64,64)f32 #835=(1,32,64,64)f32
+torch.cat                torch.cat_238            4 1 827 829 832 835 836 dim=1 #827=(1,64,64,64)f32 #829=(1,32,64,64)f32 #832=(1,32,64,64)f32 #835=(1,32,64,64)f32 #836=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB3.conv4.0 1 1 836 837 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #836=(1,160,64,64)f32 #837=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.19.RDB3.conv4.1 1 1 837 838 negative_slope=0.2 #837=(1,32,64,64)f32 #838=(1,32,64,64)f32
+torch.cat                torch.cat_239            5 1 827 829 832 835 838 839 dim=1 #827=(1,64,64,64)f32 #829=(1,32,64,64)f32 #832=(1,32,64,64)f32 #835=(1,32,64,64)f32 #838=(1,32,64,64)f32 #839=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.19.RDB3.conv5.0 1 1 839 840 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #839=(1,192,64,64)f32 #840=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_85             3 1 840 827 799 841 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #840=(1,64,64,64)f32 #827=(1,64,64,64)f32 #799=(1,64,64,64)f32 #841=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB1.conv1.0 1 1 841 842 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #841=(1,64,64,64)f32 #842=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB1.conv1.1 1 1 842 843 negative_slope=0.2 #842=(1,32,64,64)f32 #843=(1,32,64,64)f32
+torch.cat                torch.cat_240            2 1 841 843 844 dim=1 #841=(1,64,64,64)f32 #843=(1,32,64,64)f32 #844=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB1.conv2.0 1 1 844 845 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #844=(1,96,64,64)f32 #845=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB1.conv2.1 1 1 845 846 negative_slope=0.2 #845=(1,32,64,64)f32 #846=(1,32,64,64)f32
+torch.cat                torch.cat_241            3 1 841 843 846 847 dim=1 #841=(1,64,64,64)f32 #843=(1,32,64,64)f32 #846=(1,32,64,64)f32 #847=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB1.conv3.0 1 1 847 848 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #847=(1,128,64,64)f32 #848=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB1.conv3.1 1 1 848 849 negative_slope=0.2 #848=(1,32,64,64)f32 #849=(1,32,64,64)f32
+torch.cat                torch.cat_242            4 1 841 843 846 849 850 dim=1 #841=(1,64,64,64)f32 #843=(1,32,64,64)f32 #846=(1,32,64,64)f32 #849=(1,32,64,64)f32 #850=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB1.conv4.0 1 1 850 851 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #850=(1,160,64,64)f32 #851=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB1.conv4.1 1 1 851 852 negative_slope=0.2 #851=(1,32,64,64)f32 #852=(1,32,64,64)f32
+torch.cat                torch.cat_243            5 1 841 843 846 849 852 853 dim=1 #841=(1,64,64,64)f32 #843=(1,32,64,64)f32 #846=(1,32,64,64)f32 #849=(1,32,64,64)f32 #852=(1,32,64,64)f32 #853=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB1.conv5.0 1 1 853 854 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #853=(1,192,64,64)f32 #854=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_75             2 1 854 841 855 expr=add(mul(@0,0.2),@1) #854=(1,64,64,64)f32 #841=(1,64,64,64)f32 #855=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB2.conv1.0 1 1 855 856 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #855=(1,64,64,64)f32 #856=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB2.conv1.1 1 1 856 857 negative_slope=0.2 #856=(1,32,64,64)f32 #857=(1,32,64,64)f32
+torch.cat                torch.cat_244            2 1 855 857 858 dim=1 #855=(1,64,64,64)f32 #857=(1,32,64,64)f32 #858=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB2.conv2.0 1 1 858 859 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #858=(1,96,64,64)f32 #859=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB2.conv2.1 1 1 859 860 negative_slope=0.2 #859=(1,32,64,64)f32 #860=(1,32,64,64)f32
+torch.cat                torch.cat_245            3 1 855 857 860 861 dim=1 #855=(1,64,64,64)f32 #857=(1,32,64,64)f32 #860=(1,32,64,64)f32 #861=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB2.conv3.0 1 1 861 862 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #861=(1,128,64,64)f32 #862=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB2.conv3.1 1 1 862 863 negative_slope=0.2 #862=(1,32,64,64)f32 #863=(1,32,64,64)f32
+torch.cat                torch.cat_246            4 1 855 857 860 863 864 dim=1 #855=(1,64,64,64)f32 #857=(1,32,64,64)f32 #860=(1,32,64,64)f32 #863=(1,32,64,64)f32 #864=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB2.conv4.0 1 1 864 865 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #864=(1,160,64,64)f32 #865=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB2.conv4.1 1 1 865 866 negative_slope=0.2 #865=(1,32,64,64)f32 #866=(1,32,64,64)f32
+torch.cat                torch.cat_247            5 1 855 857 860 863 866 867 dim=1 #855=(1,64,64,64)f32 #857=(1,32,64,64)f32 #860=(1,32,64,64)f32 #863=(1,32,64,64)f32 #866=(1,32,64,64)f32 #867=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB2.conv5.0 1 1 867 868 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #867=(1,192,64,64)f32 #868=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_67             2 1 868 855 869 expr=add(mul(@0,0.2),@1) #868=(1,64,64,64)f32 #855=(1,64,64,64)f32 #869=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB3.conv1.0 1 1 869 870 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #869=(1,64,64,64)f32 #870=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB3.conv1.1 1 1 870 871 negative_slope=0.2 #870=(1,32,64,64)f32 #871=(1,32,64,64)f32
+torch.cat                torch.cat_248            2 1 869 871 872 dim=1 #869=(1,64,64,64)f32 #871=(1,32,64,64)f32 #872=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB3.conv2.0 1 1 872 873 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #872=(1,96,64,64)f32 #873=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB3.conv2.1 1 1 873 874 negative_slope=0.2 #873=(1,32,64,64)f32 #874=(1,32,64,64)f32
+torch.cat                torch.cat_249            3 1 869 871 874 875 dim=1 #869=(1,64,64,64)f32 #871=(1,32,64,64)f32 #874=(1,32,64,64)f32 #875=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB3.conv3.0 1 1 875 876 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #875=(1,128,64,64)f32 #876=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB3.conv3.1 1 1 876 877 negative_slope=0.2 #876=(1,32,64,64)f32 #877=(1,32,64,64)f32
+torch.cat                torch.cat_250            4 1 869 871 874 877 878 dim=1 #869=(1,64,64,64)f32 #871=(1,32,64,64)f32 #874=(1,32,64,64)f32 #877=(1,32,64,64)f32 #878=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB3.conv4.0 1 1 878 879 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #878=(1,160,64,64)f32 #879=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.20.RDB3.conv4.1 1 1 879 880 negative_slope=0.2 #879=(1,32,64,64)f32 #880=(1,32,64,64)f32
+torch.cat                torch.cat_251            5 1 869 871 874 877 880 881 dim=1 #869=(1,64,64,64)f32 #871=(1,32,64,64)f32 #874=(1,32,64,64)f32 #877=(1,32,64,64)f32 #880=(1,32,64,64)f32 #881=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.20.RDB3.conv5.0 1 1 881 882 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #881=(1,192,64,64)f32 #882=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_57             3 1 882 869 841 883 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #882=(1,64,64,64)f32 #869=(1,64,64,64)f32 #841=(1,64,64,64)f32 #883=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB1.conv1.0 1 1 883 884 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #883=(1,64,64,64)f32 #884=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB1.conv1.1 1 1 884 885 negative_slope=0.2 #884=(1,32,64,64)f32 #885=(1,32,64,64)f32
+torch.cat                torch.cat_252            2 1 883 885 886 dim=1 #883=(1,64,64,64)f32 #885=(1,32,64,64)f32 #886=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB1.conv2.0 1 1 886 887 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #886=(1,96,64,64)f32 #887=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB1.conv2.1 1 1 887 888 negative_slope=0.2 #887=(1,32,64,64)f32 #888=(1,32,64,64)f32
+torch.cat                torch.cat_253            3 1 883 885 888 889 dim=1 #883=(1,64,64,64)f32 #885=(1,32,64,64)f32 #888=(1,32,64,64)f32 #889=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB1.conv3.0 1 1 889 890 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #889=(1,128,64,64)f32 #890=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB1.conv3.1 1 1 890 891 negative_slope=0.2 #890=(1,32,64,64)f32 #891=(1,32,64,64)f32
+torch.cat                torch.cat_254            4 1 883 885 888 891 892 dim=1 #883=(1,64,64,64)f32 #885=(1,32,64,64)f32 #888=(1,32,64,64)f32 #891=(1,32,64,64)f32 #892=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB1.conv4.0 1 1 892 893 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #892=(1,160,64,64)f32 #893=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB1.conv4.1 1 1 893 894 negative_slope=0.2 #893=(1,32,64,64)f32 #894=(1,32,64,64)f32
+torch.cat                torch.cat_255            5 1 883 885 888 891 894 895 dim=1 #883=(1,64,64,64)f32 #885=(1,32,64,64)f32 #888=(1,32,64,64)f32 #891=(1,32,64,64)f32 #894=(1,32,64,64)f32 #895=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB1.conv5.0 1 1 895 896 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #895=(1,192,64,64)f32 #896=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_47             2 1 896 883 897 expr=add(mul(@0,0.2),@1) #896=(1,64,64,64)f32 #883=(1,64,64,64)f32 #897=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB2.conv1.0 1 1 897 898 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #897=(1,64,64,64)f32 #898=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB2.conv1.1 1 1 898 899 negative_slope=0.2 #898=(1,32,64,64)f32 #899=(1,32,64,64)f32
+torch.cat                torch.cat_256            2 1 897 899 900 dim=1 #897=(1,64,64,64)f32 #899=(1,32,64,64)f32 #900=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB2.conv2.0 1 1 900 901 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #900=(1,96,64,64)f32 #901=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB2.conv2.1 1 1 901 902 negative_slope=0.2 #901=(1,32,64,64)f32 #902=(1,32,64,64)f32
+torch.cat                torch.cat_257            3 1 897 899 902 903 dim=1 #897=(1,64,64,64)f32 #899=(1,32,64,64)f32 #902=(1,32,64,64)f32 #903=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB2.conv3.0 1 1 903 904 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #903=(1,128,64,64)f32 #904=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB2.conv3.1 1 1 904 905 negative_slope=0.2 #904=(1,32,64,64)f32 #905=(1,32,64,64)f32
+torch.cat                torch.cat_258            4 1 897 899 902 905 906 dim=1 #897=(1,64,64,64)f32 #899=(1,32,64,64)f32 #902=(1,32,64,64)f32 #905=(1,32,64,64)f32 #906=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB2.conv4.0 1 1 906 907 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #906=(1,160,64,64)f32 #907=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB2.conv4.1 1 1 907 908 negative_slope=0.2 #907=(1,32,64,64)f32 #908=(1,32,64,64)f32
+torch.cat                torch.cat_259            5 1 897 899 902 905 908 909 dim=1 #897=(1,64,64,64)f32 #899=(1,32,64,64)f32 #902=(1,32,64,64)f32 #905=(1,32,64,64)f32 #908=(1,32,64,64)f32 #909=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB2.conv5.0 1 1 909 910 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #909=(1,192,64,64)f32 #910=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_39             2 1 910 897 911 expr=add(mul(@0,0.2),@1) #910=(1,64,64,64)f32 #897=(1,64,64,64)f32 #911=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB3.conv1.0 1 1 911 912 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #911=(1,64,64,64)f32 #912=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB3.conv1.1 1 1 912 913 negative_slope=0.2 #912=(1,32,64,64)f32 #913=(1,32,64,64)f32
+torch.cat                torch.cat_260            2 1 911 913 914 dim=1 #911=(1,64,64,64)f32 #913=(1,32,64,64)f32 #914=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB3.conv2.0 1 1 914 915 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #914=(1,96,64,64)f32 #915=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB3.conv2.1 1 1 915 916 negative_slope=0.2 #915=(1,32,64,64)f32 #916=(1,32,64,64)f32
+torch.cat                torch.cat_261            3 1 911 913 916 917 dim=1 #911=(1,64,64,64)f32 #913=(1,32,64,64)f32 #916=(1,32,64,64)f32 #917=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB3.conv3.0 1 1 917 918 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #917=(1,128,64,64)f32 #918=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB3.conv3.1 1 1 918 919 negative_slope=0.2 #918=(1,32,64,64)f32 #919=(1,32,64,64)f32
+torch.cat                torch.cat_262            4 1 911 913 916 919 920 dim=1 #911=(1,64,64,64)f32 #913=(1,32,64,64)f32 #916=(1,32,64,64)f32 #919=(1,32,64,64)f32 #920=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB3.conv4.0 1 1 920 921 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #920=(1,160,64,64)f32 #921=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.21.RDB3.conv4.1 1 1 921 922 negative_slope=0.2 #921=(1,32,64,64)f32 #922=(1,32,64,64)f32
+torch.cat                torch.cat_263            5 1 911 913 916 919 922 923 dim=1 #911=(1,64,64,64)f32 #913=(1,32,64,64)f32 #916=(1,32,64,64)f32 #919=(1,32,64,64)f32 #922=(1,32,64,64)f32 #923=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.21.RDB3.conv5.0 1 1 923 924 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #923=(1,192,64,64)f32 #924=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_29             3 1 924 911 883 925 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #924=(1,64,64,64)f32 #911=(1,64,64,64)f32 #883=(1,64,64,64)f32 #925=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB1.conv1.0 1 1 925 926 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #925=(1,64,64,64)f32 #926=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB1.conv1.1 1 1 926 927 negative_slope=0.2 #926=(1,32,64,64)f32 #927=(1,32,64,64)f32
+torch.cat                torch.cat_264            2 1 925 927 928 dim=1 #925=(1,64,64,64)f32 #927=(1,32,64,64)f32 #928=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB1.conv2.0 1 1 928 929 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #928=(1,96,64,64)f32 #929=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB1.conv2.1 1 1 929 930 negative_slope=0.2 #929=(1,32,64,64)f32 #930=(1,32,64,64)f32
+torch.cat                torch.cat_265            3 1 925 927 930 931 dim=1 #925=(1,64,64,64)f32 #927=(1,32,64,64)f32 #930=(1,32,64,64)f32 #931=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB1.conv3.0 1 1 931 932 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #931=(1,128,64,64)f32 #932=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB1.conv3.1 1 1 932 933 negative_slope=0.2 #932=(1,32,64,64)f32 #933=(1,32,64,64)f32
+torch.cat                torch.cat_266            4 1 925 927 930 933 934 dim=1 #925=(1,64,64,64)f32 #927=(1,32,64,64)f32 #930=(1,32,64,64)f32 #933=(1,32,64,64)f32 #934=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB1.conv4.0 1 1 934 935 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #934=(1,160,64,64)f32 #935=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB1.conv4.1 1 1 935 936 negative_slope=0.2 #935=(1,32,64,64)f32 #936=(1,32,64,64)f32
+torch.cat                torch.cat_267            5 1 925 927 930 933 936 937 dim=1 #925=(1,64,64,64)f32 #927=(1,32,64,64)f32 #930=(1,32,64,64)f32 #933=(1,32,64,64)f32 #936=(1,32,64,64)f32 #937=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB1.conv5.0 1 1 937 938 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #937=(1,192,64,64)f32 #938=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_19             2 1 938 925 939 expr=add(mul(@0,0.2),@1) #938=(1,64,64,64)f32 #925=(1,64,64,64)f32 #939=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB2.conv1.0 1 1 939 940 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #939=(1,64,64,64)f32 #940=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB2.conv1.1 1 1 940 941 negative_slope=0.2 #940=(1,32,64,64)f32 #941=(1,32,64,64)f32
+torch.cat                torch.cat_268            2 1 939 941 942 dim=1 #939=(1,64,64,64)f32 #941=(1,32,64,64)f32 #942=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB2.conv2.0 1 1 942 943 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #942=(1,96,64,64)f32 #943=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB2.conv2.1 1 1 943 944 negative_slope=0.2 #943=(1,32,64,64)f32 #944=(1,32,64,64)f32
+torch.cat                torch.cat_269            3 1 939 941 944 945 dim=1 #939=(1,64,64,64)f32 #941=(1,32,64,64)f32 #944=(1,32,64,64)f32 #945=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB2.conv3.0 1 1 945 946 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #945=(1,128,64,64)f32 #946=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB2.conv3.1 1 1 946 947 negative_slope=0.2 #946=(1,32,64,64)f32 #947=(1,32,64,64)f32
+torch.cat                torch.cat_270            4 1 939 941 944 947 948 dim=1 #939=(1,64,64,64)f32 #941=(1,32,64,64)f32 #944=(1,32,64,64)f32 #947=(1,32,64,64)f32 #948=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB2.conv4.0 1 1 948 949 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #948=(1,160,64,64)f32 #949=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB2.conv4.1 1 1 949 950 negative_slope=0.2 #949=(1,32,64,64)f32 #950=(1,32,64,64)f32
+torch.cat                torch.cat_271            5 1 939 941 944 947 950 951 dim=1 #939=(1,64,64,64)f32 #941=(1,32,64,64)f32 #944=(1,32,64,64)f32 #947=(1,32,64,64)f32 #950=(1,32,64,64)f32 #951=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB2.conv5.0 1 1 951 952 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #951=(1,192,64,64)f32 #952=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_11             2 1 952 939 953 expr=add(mul(@0,0.2),@1) #952=(1,64,64,64)f32 #939=(1,64,64,64)f32 #953=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB3.conv1.0 1 1 953 954 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,64,3,3)f32 #953=(1,64,64,64)f32 #954=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB3.conv1.1 1 1 954 955 negative_slope=0.2 #954=(1,32,64,64)f32 #955=(1,32,64,64)f32
+torch.cat                torch.cat_272            2 1 953 955 956 dim=1 #953=(1,64,64,64)f32 #955=(1,32,64,64)f32 #956=(1,96,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB3.conv2.0 1 1 956 957 bias=True dilation=(1,1) groups=1 in_channels=96 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,96,3,3)f32 #956=(1,96,64,64)f32 #957=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB3.conv2.1 1 1 957 958 negative_slope=0.2 #957=(1,32,64,64)f32 #958=(1,32,64,64)f32
+torch.cat                torch.cat_273            3 1 953 955 958 959 dim=1 #953=(1,64,64,64)f32 #955=(1,32,64,64)f32 #958=(1,32,64,64)f32 #959=(1,128,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB3.conv3.0 1 1 959 960 bias=True dilation=(1,1) groups=1 in_channels=128 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,128,3,3)f32 #959=(1,128,64,64)f32 #960=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB3.conv3.1 1 1 960 961 negative_slope=0.2 #960=(1,32,64,64)f32 #961=(1,32,64,64)f32
+torch.cat                torch.cat_274            4 1 953 955 958 961 962 dim=1 #953=(1,64,64,64)f32 #955=(1,32,64,64)f32 #958=(1,32,64,64)f32 #961=(1,32,64,64)f32 #962=(1,160,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB3.conv4.0 1 1 962 963 bias=True dilation=(1,1) groups=1 in_channels=160 kernel_size=(3,3) out_channels=32 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(32)f32 @weight=(32,160,3,3)f32 #962=(1,160,64,64)f32 #963=(1,32,64,64)f32
+nn.LeakyReLU             model.1.sub.22.RDB3.conv4.1 1 1 963 964 negative_slope=0.2 #963=(1,32,64,64)f32 #964=(1,32,64,64)f32
+torch.cat                torch.cat_275            5 1 953 955 958 961 964 965 dim=1 #953=(1,64,64,64)f32 #955=(1,32,64,64)f32 #958=(1,32,64,64)f32 #961=(1,32,64,64)f32 #964=(1,32,64,64)f32 #965=(1,192,64,64)f32
+nn.Conv2d                model.1.sub.22.RDB3.conv5.0 1 1 965 966 bias=True dilation=(1,1) groups=1 in_channels=192 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,192,3,3)f32 #965=(1,192,64,64)f32 #966=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_1              3 1 966 953 925 967 expr=add(mul(add(mul(@0,0.2),@1),0.2),@2) #966=(1,64,64,64)f32 #953=(1,64,64,64)f32 #925=(1,64,64,64)f32 #967=(1,64,64,64)f32
+nn.Conv2d                model.1.sub.23           1 1 967 968 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,64,3,3)f32 #967=(1,64,64,64)f32 #968=(1,64,64,64)f32
+pnnx.Expression          pnnx_expr_0              2 1 1 968 969 expr=add(@0,@1) #1=(1,64,64,64)f32 #968=(1,64,64,64)f32 #969=(1,64,64,64)f32
+nn.Conv2d                model.2                  1 1 969 970 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=64 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(64)f32 @weight=(64,64,3,3)f32 #969=(1,64,64,64)f32 #970=(1,64,64,64)f32
+nn.LeakyReLU             model.3                  1 1 970 971 negative_slope=0.2 #970=(1,64,64,64)f32 #971=(1,64,64,64)f32
+nn.Conv2d                model.4                  1 1 971 972 bias=True dilation=(1,1) groups=1 in_channels=64 kernel_size=(3,3) out_channels=3 padding=(1,1) padding_mode=zeros stride=(1,1) @bias=(3)f32 @weight=(3,64,3,3)f32 #971=(1,64,64,64)f32 #972=(1,3,64,64)f32
+pnnx.Output              pnnx_output_0            1 0 972 #972=(1,3,64,64)f32

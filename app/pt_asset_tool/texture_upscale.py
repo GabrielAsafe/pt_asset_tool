@@ -581,6 +581,41 @@ def capability_status(executable: str | None = None) -> dict:
     }
 
 
+def installed_ncnn_model_dirs(project_root: Path | None = None) -> list[Path]:
+    """Model directories for the compatible Real-ESRGAN CLI, not arbitrary .pth weights.
+
+    The historic AI_enhcance spelling is part of the user's existing layout.
+    Directory enumeration alone does not certify CUDA/Vulkan or model architecture.
+    """
+    project = (project_root or PROJECT_ROOT).resolve()
+    candidates = [project.parent / "AI_enhcance" / "realesrgan" / "models",
+                  project / "AI_enhcance" / "realesrgan" / "models",
+                  project.parent / "tools" / "realesrgan" / "models",
+                  project / "tools" / "realesrgan" / "models"]
+    return [d for d in candidates if d.is_dir()]
+
+
+def discover_ncnn_model_dir(model: str, project_root: Path | None = None) -> Path | None:
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", model):
+        return None
+    for directory in installed_ncnn_model_dirs(project_root):
+        if all((directory / (model + ext)).is_file() for ext in (".param", ".bin")):
+            return directory
+    return None
+
+
+def ncnn_model_inventory(project_root: Path | None = None) -> list[dict[str, str]]:
+    seen = set()
+    result = []
+    for directory in installed_ncnn_model_dirs(project_root):
+        for p in sorted(directory.glob('*.param')):
+            if p.stem in seen or not (directory / (p.stem + '.bin')).is_file():
+                continue
+            seen.add(p.stem)
+            result.append({'name':p.stem,'model_dir':str(directory)})
+    return result
+
+
 def upscale_realesrgan(
     image,
     *,
@@ -596,6 +631,8 @@ def upscale_realesrgan(
     exe = _resolve_realesrgan(executable)
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", model) or model.endswith((".pth", ".bin", ".param")):
         raise ValueError("model must be a model basename (not a path or .pth/.bin/.param file)")
+    if model_dir is None:
+        model_dir = discover_ncnn_model_dir(model)
     if model_dir is not None:
         model_dir = Path(model_dir).expanduser().resolve()
         if not model_dir.is_dir() or not all((model_dir / (model + ext)).is_file() for ext in (".param", ".bin")):

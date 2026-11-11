@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PT Asset Tool</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body data-manual-legacy-authoring="2026-09-21">
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">PT</div><div><strong>Asset Tool</strong><small id="versions">UI</small></div></div>
+      <nav>
+        <button class="nav active" data-tab="catalog">Catalog</button>
+        <button class="nav" data-tab="entities">Entities</button>
+        <button class="nav" data-tab="client" data-nav-group="workspaces">Workspaces · Client / Server / Legacy / Compare</button>
+        <button class="nav" data-tab="particles">Particles</button>
+        <button class="nav" data-tab="jobs">Jobs</button>
+        <button class="nav" data-tab="reports">Reports</button>
+        <button class="nav" data-tab="docs" data-nav-group="support">Etervale Validation · Guides · Settings</button>
+      </nav>
+      <div class="safety-card">
+        <span class="dot safe"></span><strong>Read-only by default</strong>
+        <p>Catalog and diagnostics are read-only. Writes only occur in explicitly armed transactional workflows with staging, backup, hashes, and restore.</p>
+        <button id="armBtn" class="btn subtle">Arm workspace/build</button>
+        <div id="armState" class="micro">Build actions locked</div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div><h1 id="pageTitle">Asset Catalog</h1><p id="subtitle">Browse, classify, validate, and open assets without modifying the source client.</p></div>
+        <div class="header-actions"><button id="doctorBtn" class="btn">Run Doctor</button><button id="reindexBtn" class="btn">Reindexar</button></div>
+      </header>
+
+      <div id="workspaceTabs" class="workspace-switcher hidden" role="tablist" aria-label="Client, Server, Management and Compare">
+        <button type="button" data-workspace-tab="client">Client / Enrichment</button>
+        <button type="button" data-workspace-tab="server">Server / Enrichment</button>
+        <button type="button" data-workspace-tab="legacy">Management Legacy</button>
+        <button type="button" data-workspace-tab="compare">Comparar</button>
+      </div>
+      <div id="supportTabs" class="workspace-switcher hidden" role="tablist" aria-label="Etervale Validation, Help and Settings">
+        <button type="button" data-support-tab="validation">Etervale Validation</button>
+        <button type="button" data-support-tab="docs">Help / Guides</button>
+        <button type="button" data-support-tab="settings">Settings</button>
+      </div>
+      <section id="tab-validation" class="tab">
+        <section class="panel validation-frame-panel">
+          <div class="panel-title"><strong>Etervale Validation</strong><a href="/etervale-readiness" target="_blank" rel="noopener">Abrir separadamente</a></div>
+          <iframe title="Etervale validation evidence" src="/etervale-readiness" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        </section>
+      </section>
+
+      <section id="tab-catalog" class="tab active">
+        <div class="metrics" id="metrics"></div>
+        <div class="catalog-layout">
+          <section class="panel catalog-panel">
+            <div class="toolbar">
+              <input id="search" type="search" placeholder="Search path, role, tags, notes…" />
+              <select id="category"><option value="">All categories</option></select>
+              <select id="entityFilter" disabled><option value="">Entity: choose a category</option></select>
+              <select id="character"><option value="">All characters</option></select>
+              <select id="folder"><option value="">All folders</option></select>
+              <select id="role"><option value="">All roles</option></select>
+              <select id="ext"><option value="">All extensions</option></select>
+              <select id="smdPreviewStatus"><option value="">All SMD previews</option><option value="READY">Preview ready</option><option value="MISSING">No preview</option><option value="STALE">Stale preview</option><option value="FAILED">Preview failed</option></select>
+              <label class="check"><input id="favorites" type="checkbox" /> Favorites</label>
+              <details class="catalog-advanced"><summary>Advanced · system files</summary><label class="check"><input id="showSystem" type="checkbox" /> Include logs, runtime files and operational data</label><small>Normally hidden: OPERATIONAL, USER_DATA, INSTALLER_SYSTEM and NOISE. This does not change game files.</small></details>
+              <div class="view-toggle"><button id="tableView" class="active">Table</button><button id="galleryView">Gallery</button></div>
+            </div>
+            <div id="catalogSmdPreviewTools" class="panel" style="margin:8px 0;padding:10px">
+              <div class="panel-title"><strong>Previews SMD</strong><span id="smdPreviewBatchState">loading status…</span></div>
+              <div class="server-workflow-actions"><button id="smdPreviewWarmupBtn" class="btn primary">Generate SMD previews</button><button id="smdPreviewStaleBtn" class="btn">Regenerate stale</button><button id="smdPreviewFailedBtn" class="btn">Retry failed</button><button id="smdPreviewBatchRefresh" class="btn">Refresh status</button></div>
+              <div id="smdPreviewBatchSummary" class="micro">Aguardando estado do inventário de SMD.</div>
+              <progress id="smdPreviewProgress" value="0" max="1" aria-label="SMD previews ready" style="width:100%;height:9px"></progress>
+            </div>
+            <div id="tableMode" class="table-wrap"><table><thead><tr><th></th><th>Preview</th><th>Asset</th><th>Category</th><th>Character</th><th>Folder</th><th>Role</th><th>Item relationship</th><th>Ext</th><th>Size</th></tr></thead><tbody id="assetRows"></tbody></table></div><div id="galleryMode" class="gallery hidden"></div>
+            <div class="pager"><button id="prevPage">Previous</button><span id="pageInfo"></span><button id="nextPage">Next</button></div>
+          </section>
+
+          <aside class="panel detail-panel" id="detailPanel">
+            <div class="empty">Select an asset to view details and capabilities.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="tab-entities" class="tab">
+        <section class="panel">
+          <div class="panel-title"><strong>Game Entities</strong><span id="entitySummary">Physical relationships + registry</span></div>
+          <div class="toolbar entity-toolbar">
+            <input id="entitySearch" type="search" placeholder="Search entity or folder…" />
+            <select id="entityGroup"><option value="">All entities</option><option value="CHARACTER">Characters</option><option value="ITEM">Items</option><option value="MONSTER">Monsters</option><option value="NPC">NPCs</option><option value="EFFECT">Effects</option><option value="MAP_FIELD">Maps / Fields</option></select>
+            <select id="entityExtension"><option value="">All file types</option></select>
+            <select id="entitySource"><option value="">Client + Server</option><option value="client">Client only / includes client</option><option value="server">Server only / includes server</option><option value="linked">Client + Server linked</option></select>
+            <button id="entityRefresh" class="btn">Refresh</button>
+          </div>
+          <div id="entityGrid" class="gallery entity-gallery"><div class="empty">Loading entities…</div></div>
+        </section>
+        <section class="panel entity-detail-panel">
+          <div class="panel-title"><strong>Entity Details</strong><span>Physical evidence + registry; this is not writer/runtime authorization.</span></div>
+          <div id="entityDetail" class="entity-detail"><div class="empty">Select an entity to view models, textures, configs, animations, and verified relationships.</div></div>
+        </section>
+      </section>
+
+
+      <section id="tab-client" class="tab">
+        <div class="server-hero panel">
+          <div>
+            <h2>Etervale Client / Asset Enrichment</h2>
+            <p>Client-side diagnostics, census, validation, and recovery. The <strong>Catalog</strong> is the authority for individual assets and <strong>Entities</strong> for physical relationships; this page does not duplicate those explorers.</p>
+          </div>
+          <span class="badge">READ-ONLY + VERIFIED TRANSACTIONS</span>
+        </div>
+
+        <div class="server-workflow-tabs" role="tablist" aria-label="Client / Enrichment Workflow">
+          <button class="server-workflow-tab" data-client-workflow="overview">1 · Overview</button>
+          <button class="server-workflow-tab" data-client-workflow="diagnostics">2 · Diagnostics</button>
+          <button class="server-workflow-tab" data-client-workflow="census">3 · Census &amp; Recovery</button>
+          <button class="server-workflow-tab" data-client-workflow="validation">4 · Validation</button>
+          <button class="server-workflow-tab" data-client-workflow="enhancement">5 · Texture Enhancement</button>
+          <button class="server-workflow-tab subtle" data-client-workflow="activity">Activity</button>
+        </div>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="overview">
+          <section class="panel server-root-panel">
+            <div class="panel-title"><strong>Client Status</strong><span id="clientEnrichmentState">Loading…</span></div>
+            <div class="server-root-form">
+              <code id="clientEnrichmentRoot">—</code>
+              <button id="clientEnrichmentRefresh" class="btn">Refresh view</button>
+              <button id="clientEnrichmentReindex" class="btn">Reindex client</button>
+            </div>
+            <p class="micro">Reindex refreshes the Catalog inventory. Analyses and results stay in the workflows below; you do not need to look for output in General Jobs or the Catalog.</p>
+          </section>
+          <div id="clientEnrichmentMetrics" class="metrics server-metrics"></div>
+          <section class="panel server-handoff-panel">
+            <div class="panel-title"><strong>Responsibility Split</strong><span>one authority per task</span></div>
+            <div class="server-handoff-grid">
+              <div><b>Client / Enrichment</b><p>Measure coverage, classify gaps/reachability, produce evidence, and operate the global texture batch.</p></div>
+              <div><b>Catalog</b><p>Inspect a specific asset, run certified capabilities, and perform individual enhancement.</p><button class="btn" data-open-client-target="catalog">Open Catalog</button></div>
+              <div><b>Entities</b><p>Inspect physical/registry relationships for Character, Item, Monster, NPC, Effect, and Map/Field.</p><button class="btn" data-open-client-target="entities">Open Entities</button></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="diagnostics">
+          <section class="panel">
+            <div class="panel-title"><strong>Client-side Diagnostics</strong><span>evidence, not authoring</span></div>
+            <div class="server-workflow-actions">
+              <button id="clientEnrichmentAnalyze" class="btn primary">Analyze enrichment client</button>
+              <button id="clientPlayerContractsBtn" class="btn">Audit 10 classes</button>
+            </div>
+            <p class="micro">Execution, console, and history remain in <strong>Client → Activity</strong>; when finished, “Open result” returns to this workflow or Validation.</p>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Client Enrichment</strong><span id="clientFullEnrichmentState">No report</span></div><div id="clientFullEnrichmentSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Player classes</strong><span id="clientPlayerState">No report</span></div><div id="clientPlayerSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Physical Registry</strong><span id="clientRegistryState">No data</span></div><div id="clientRegistrySummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Entities client-side</strong><span id="clientEntitiesState">No data</span></div><div id="clientEntitiesSummary" class="server-summary"></div></section>
+          </div>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Need to explore an asset or entity?</strong><span>explicit handoff</span></div><p>The numbers above are aggregate diagnostics. Detailed exploration is not duplicated here.</p><div class="server-workflow-actions"><button class="btn" data-open-client-target="catalog">Open Catalog</button><button class="btn" data-open-client-target="entities">Open Entities</button></div></section>
+        </section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="census">
+          <section class="panel">
+            <div class="panel-title"><strong>Client Census &amp; Recovery</strong><span>plan-only / evidence</span></div>
+            <div class="server-workflow-actions"><button id="clientGeneralCensusBtn" class="btn primary">Client General Census</button><button id="clientVendorGraphBtn" class="btn">Dependency Graph</button><button class="btn" data-open-server-config="1">Configure Source &amp; donors</button></div>
+            <p class="micro">The Census uses the shared Source/donor configuration under <strong>Server → Configuration</strong>. Donor/reference/source roots are evidence; they do not become automatic imports or write authorization.</p>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>General Census · Client</strong><span id="clientCensusState">No report</span></div><div id="clientCensusSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Dependency graph</strong><span id="clientGraphState">No report</span></div><div id="clientGraphSummary" class="server-summary"></div></section>
+          </div>
+          <section class="panel server-explorer-panel" id="clientCensusPanel">
+            <div class="panel-title"><strong>Reachability · lado Client</strong><span id="clientCensusCount">Run the General Census to classify client-side gaps.</span></div>
+            <div class="server-explorer-toolbar"><input id="clientCensusSearch" type="search" placeholder="Search path, evidence, donor, or reason…" /><select id="clientCensusDecision"><option value="">All decisions</option></select><select id="clientCensusFamily"><option value="">All families</option></select><button id="clientCensusRefresh" class="btn">Refresh list</button></div>
+            <div class="server-explorer-table"><table><thead><tr><th>Decision</th><th>Family</th><th>Category</th><th>Path</th><th>Evidence / reason</th></tr></thead><tbody id="clientCensusRows"><tr><td colspan="5" class="empty">No client census loaded.</td></tr></tbody></table></div>
+            <p class="micro">Click a row only to hand off to the Catalog when the path is an existing physical asset. The census result continues to be read here.</p>
+          </section>
+        </section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="validation">
+          <section class="panel server-explorer-panel" id="clientValidationPanel">
+            <div class="panel-title"><strong>Client Enrichment Gaps</strong><span id="clientEnrichmentCount">Run “Analyze client enrichment” to close physical relationships and coverage.</span></div>
+            <div class="server-explorer-toolbar"><input id="clientEnrichmentSearch" type="search" placeholder="Search entity, model, path, reason, or evidence…" /><select id="clientEnrichmentIssueState"><option value="">All states</option></select><select id="clientEnrichmentIssueGroup"><option value="">All groups</option></select><select id="clientEnrichmentIssueKind"><option value="">All types</option></select><button id="clientEnrichmentIssueRefresh" class="btn">Refresh gaps</button></div>
+            <div class="server-explorer-table"><table><thead><tr><th>Status</th><th>Group</th><th>Type</th><th>Target / Path</th><th>Reasons / evidence</th></tr></thead><tbody id="clientEnrichmentRows"><tr><td colspan="5" class="empty">No client enrichment report.</td></tr></tbody></table></div>
+            <p class="micro"><strong>CLOSED/PARTIAL</strong> are evidence-completeness states; they are not runtime certification or writer authorization. Click a row to open the asset in the Catalog when a physical path exists.</p>
+          </section>
+          <section class="panel"><div class="panel-title"><strong>Evidence / certifications</strong><span id="clientCertState">No data</span></div><div id="clientCertSummary" class="server-summary"></div></section>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Is the next action to edit/validate an asset?</strong><span>continue in the correct authority</span></div><p>Use <strong>Catalog</strong> for a physical asset and <strong>Entities</strong> for bundle relationships. This page keeps diagnostics and aggregate results.</p><div class="server-workflow-actions"><button class="btn primary" data-open-client-target="catalog">Open Catalog</button><button class="btn" data-open-client-target="entities">Open Entities</button></div></section>
+        </section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="enhancement">
+          <section class="panel server-root-panel">
+            <div class="panel-title"><strong>Global Texture Enhancement</strong><span id="clientEnhancementBatchState">No batch</span></div>
+            <div class="server-root-form"><button id="clientEnhanceAllBtn" class="btn primary">Enhance all textures (AI)</button><button id="clientResumeEnhancementBatchBtn" class="btn">Resume latest run</button><button id="clientPublishEnhancementBatchBtn" class="btn">Publish batch to client</button><button id="clientRestoreEnhancementBatchBtn" class="btn">Roll back published batch</button><button id="clientEnhancementBatchRefresh" class="btn">Refresh batch</button></div>
+            <div id="clientEnhancementBatchSummary" class="server-summary"></div>
+            <p class="micro"><strong>Dedicated workflow:</strong> candidates are stored in <code>app/pt_build/texture_upscale/runs</code>; publish/rollback use pre-validation, hashes, and backups. For enhancement of a specific texture, use the <strong>Catalog</strong>.</p>
+          </section>
+          <section class="panel server-root-panel" id="clientMaterialLabPanel">
+            <div class="panel-title"><strong>Material Lab · Pós-upscale 1×</strong><span id="clientMaterialLabState">Nenhum trabalho iniciado</span></div>
+            <p class="micro"><strong>Sem novo upscale:</strong> preserva as dimensões atuais, cria candidatos fora do cliente e gera pré-visualizações antes/depois e mapas offline. Não publica texturas nem ativa shaders/parallax automaticamente.</p>
+            <div class="server-root-form">
+              <label>Restauração 1× <select id="clientMaterialLabDenoise"><option value="off">Sem alterações RGB</option><option value="light">Limpeza leve</option><option value="medium">Limpeza média</option></select></label>
+              <label>Mapas de material <select id="clientMaterialLabMaps"><option value="off">Não gerar</option><option value="from-diffuse">Gerar estimativas de normal/height + demo offline</option></select></label>
+              <label class="check"><input id="clientMaterialLabIncludeUi" type="checkbox"/> Incluir UI/atlases (revisão obrigatória)</label>
+              <button id="clientMaterialLabRunBtn" class="btn primary">Preparar materiais atuais (sem upscale)</button>
+              <button id="clientMaterialLabRefreshBtn" class="btn">Estado</button>
+            </div>
+            <div id="clientMaterialLabSummary" class="server-summary"></div>
+            <p><a id="clientMaterialLabReviewLink" href="#" target="_blank" rel="noopener" style="display:none">Abrir galeria de revisão antes/depois</a></p>
+            <p class="micro">Para executar DEDXT/ESRGAN 1× (modelos .pth), modelos por material ou usar height maps criados à mão, usa <code>pt_asset.py texture-material</code> com ficheiro de configuração e pesos verificados. O painel de revisão HTML é gerado na workspace; a autorização de publicação dos mapas continua bloqueada até à certificação no motor.</p>
+          </section>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Individual enhancement</strong><span>not duplicated here</span></div><p>Select the texture in the Catalog and use the asset capabilities. This step contains only the global/batch workflow.</p><button class="btn" data-open-client-target="catalog">Open Catalog</button></section>
+        </section>
+
+        <section class="server-workflow-pane" data-client-workflow-pane="activity">
+          <section class="panel server-activity-panel">
+            <div class="panel-title"><strong>Client / Enrichment Activity</strong><button id="clientActivityRefresh" class="btn small">Refresh</button></div>
+            <p class="micro server-activity-note">Jobs started on this page remain here during and after execution. They are not duplicated in General Jobs. <strong>Open result</strong> returns to the workflow that produced the report.</p>
+            <div id="clientActivityList"><div class="empty">No jobs in this workflow.</div></div>
+          </section>
+          <section class="panel console-panel server-console-panel">
+            <div class="panel-title"><strong>Job Console</strong><div class="console-head-actions"><span id="clientConsoleStatus">No job selected</span><button id="clientCancelJobBtn" class="btn small danger-outline" style="display:none">Cancel job</button></div></div>
+            <pre id="clientConsole">Select a job above.</pre>
+            <div class="server-result-actions"><button id="clientOpenResultBtn" class="btn primary" disabled>Open result in workflow</button></div>
+          </section>
+        </section>
+      </section>
+
+
+      <section id="tab-server" class="tab">
+        <div class="server-hero panel">
+          <div>
+            <h2>Etervale Server / Asset Enrichment</h2>
+            <p>Server-side diagnostics, census, recovery, and validation. Authoring for Item, Monster, NPC, and Field belongs to <strong>Management Legacy</strong>; this page does not duplicate those editors.</p>
+          </div>
+          <span class="badge">READ-ONLY + STAGING CONTROLADO</span>
+        </div>
+
+        <div class="server-workflow-tabs" role="tablist" aria-label="Server / Enrichment Workflow">
+          <button class="server-workflow-tab" data-server-workflow="config">1 · Configuration</button>
+          <button class="server-workflow-tab" data-server-workflow="diagnostics">2 · Diagnostics</button>
+          <button class="server-workflow-tab" data-server-workflow="census">3 · Census &amp; Recovery</button>
+          <button class="server-workflow-tab" data-server-workflow="validation">4 · Validation</button>
+          <button class="server-workflow-tab" data-server-workflow="evidence">5 · Advanced Evidence</button>
+          <button class="server-workflow-tab subtle" data-server-workflow="activity">Activity</button>
+        </div>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="config">
+          <section class="panel server-root-panel">
+            <div class="panel-title"><strong>Functional roots</strong><span id="serverRootStatus">Loading…</span></div>
+            <div class="server-root-form">
+              <label>Server root<input id="serverRootInput" type="text" placeholder="/path/to/Etervale-git/assets/GameServer" /></label>
+              <button id="saveServerRootBtn" class="btn primary">Save server root</button>
+            </div>
+            <p class="micro">This page uses the server for read/analysis. Account/character, PostBox, SQLite, launch, and content editing belong in <strong>Management Legacy</strong>.</p>
+          </section>
+
+          <section class="panel contract-root-panel">
+            <div class="panel-title"><strong>Source &amp; evidence donors</strong><span id="contractState">Loading…</span></div>
+            <div class="contract-root-form">
+              <label>Source C++ legada (opcional)<input id="sourceRootInput" type="text" placeholder="/path/to/SourceCode" /></label>
+              <label>Reference EU Source<input id="referenceSourceRootInput" type="text" placeholder="/path/to/PristonTale-EU" /></label>
+              <label class="contract-donors">Donor clients read-only
+                <small>One line per donor. Accepts <code>DONOR1=/path/client</code> or a line copied from the CLI such as <code>--donor-client 'DONOR1=/path/client'</code>.</small>
+                <textarea id="contractDonorsInput" placeholder="DONOR1=/home/meu/donor/client&#10;DONOR2=/home/meu/outro client"></textarea>
+              </label>
+              <label class="contract-donors">Donor servers read-only
+                <small>One line per donor. Accepts <code>DONOR1=/path/server</code> ou <code>--donor-server 'DONOR1=/path/server'</code>.</small>
+                <textarea id="contractServerDonorsInput" placeholder="DONOR1=/home/meu/donor/server&#10;DONOR2=/home/meu/outro server"></textarea>
+              </label>
+              <div class="contract-actions"><button id="saveContractRootsBtn" class="btn primary">Validate and save configuration</button></div>
+              <div id="contractConfigFeedback" class="contract-feedback hidden" aria-live="polite"></div>
+            </div>
+            <p class="micro">Labels use only letters, numbers, <code>_</code> and <code>-</code>. Paths may contain spaces. If there is an error, the entire configuration is rejected and nothing is partially saved.</p>
+            <p class="micro">Arguments <code>--donor-*</code> used in a terminal apply only to that run; GUI workflows use only what was validated and saved here.</p>
+          </section>
+
+          <section class="panel server-handoff-panel">
+            <div class="panel-title"><strong>Responsibility Split</strong><span>one authority per task</span></div>
+            <div class="server-handoff-grid">
+              <div><b>Server / Enrichment</b><p>Discover, measure, classify reachability, locate donor candidates, validate integration, and produce evidence.</p></div>
+              <div><b>Management Legacy</b><p>Create/edit Item, Monster, NPC, SPM/SPP/SPC, World Closure, account/character, PostBox, and local administration.</p><button class="btn" data-open-legacy="world">Open Legacy Management · World Closure</button></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="diagnostics">
+          <section class="panel">
+            <div class="panel-title"><strong>Environment Diagnostics</strong><span>prerequisites before census/validation</span></div>
+            <div class="server-workflow-actions">
+              <button id="serverEnvBtn" class="btn primary">Validate environment</button>
+              <button id="serverInventoryBtn" class="btn">Physical server inventory</button>
+              <button id="sourceContractsBtn" class="btn">Read source contracts</button>
+              <button id="playerContractsBtn" class="btn">Audit 10 classes</button>
+            </div>
+            <p class="micro">These jobs are read-only. Execution, console, and history remain in <strong>Server → Activity</strong>; the result returns to this workflow.</p>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Server environment</strong><span id="serverEnvironmentState">No report</span></div><div id="serverEnvironmentSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Server-side inventory</strong><span id="serverInventoryState">No report</span></div><div id="serverInventorySummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Source contracts</strong><span id="sourceContractsState">No report</span></div><div id="sourceContractsSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Player classes</strong><span id="playerContractsState">No report</span></div><div id="playerContractsSummary" class="server-summary"></div></section>
+          </div>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="census">
+          <section class="panel">
+            <div class="panel-title"><strong>Census &amp; Recovery</strong><span id="generalCensusState">No report</span></div>
+            <div class="server-workflow-actions">
+              <button id="generalCensusBtn" class="btn primary">Run General Census</button>
+              <button id="aggregatePlayerClassesBtn" class="btn">Agregar 10 classes · staging</button>
+              <button id="aggregateSummitBtn" class="btn">Agregar Summit completo · staging</button>
+              <button id="serverVendorPlanBtn" class="btn">Recovery Plan v9</button>
+              <button id="serverVendorGraphBtn" class="btn">Dependency Graph</button>
+            </div>
+            <p class="micro">Census is <strong>plan-only</strong>. Aggregations write only to <code>pt_build</code>. A donor gap does not imply a runtime requirement; nothing in this step publishes to client/server.</p>
+            <div class="general-census-guide" id="generalCensusGuide">
+              <div class="panel-title"><strong>General Census Preflight</strong><span id="generalCensusReadinessState">Checking…</span></div>
+              <div id="generalCensusChecklist" class="general-census-checklist"></div>
+              <div id="generalCensusNotices" class="general-census-notices"></div>
+              <div class="general-census-command-row"><div><b>Equivalent command</b><p class="micro">Reproduces exactly the configuration persisted by this GUI.</p></div><button id="copyGeneralCensusCommandBtn" class="btn">Copy command</button></div>
+              <pre id="generalCensusCommand" class="general-census-command">Loading configuration…</pre>
+            </div>
+          </section>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Aggregate classes</strong><span id="playerAggregateState">No report</span></div><div id="playerAggregateSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Summit superset</strong><span id="summitAggregateState">No report</span></div><div id="summitAggregateSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Plan v9</strong><span id="serverVendorPlanState">No report</span></div><div id="serverVendorPlanSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Grafo v9</strong><span id="serverVendorGraphState">No report</span></div><div id="serverVendorGraphSummary" class="server-summary"></div></section>
+          </div>
+          <section class="panel server-explorer-panel" id="generalCensusPanel">
+            <div class="panel-title"><strong>General Census Result</strong><span id="generalCensusCount">Run the census to classify gaps.</span></div>
+            <div id="generalCensusSummary" class="server-summary"></div>
+            <div class="server-explorer-toolbar">
+              <select id="generalCensusSide"><option value="">Client + Server</option><option value="CLIENT">Client</option><option value="SERVER">Server</option></select>
+              <input id="generalCensusSearch" type="search" placeholder="Search path, evidence, donor, or reason…" />
+              <select id="generalCensusDecision"><option value="">All decisions</option></select>
+              <select id="generalCensusFamily"><option value="">All families</option></select>
+              <button id="generalCensusRefresh" class="btn">Refresh list</button>
+            </div>
+            <div class="server-explorer-table"><table><thead><tr><th>Decision</th><th>Side</th><th>Family</th><th>Path</th><th>Evidence / reason</th></tr></thead><tbody id="generalCensusRows"><tr><td colspan="5" class="empty">No General Census loaded.</td></tr></tbody></table></div>
+          </section>
+          <section class="panel server-explorer-panel" id="donorRecoveryPanel">
+            <div class="panel-title"><strong>Donor / Recovery Explorer</strong><span id="donorRecoveryCount">Paired client + server donors, canonical-aware.</span></div>
+            <p class="micro">One logical donor may have both a CLIENT and SERVER root with the same label. SPM/Monster/NPC/Item recovery is semantic → canonical staging; Character/Effect physical bundles use the closed General Census recovery plan.</p>
+            <div class="server-explorer-toolbar">
+              <select id="donorRecoveryDonor"><option value="">SUMMIT + all donors</option></select>
+              <select id="donorRecoveryDomain"><option value="MAP_FIELD">Maps / Fields</option><option value="MONSTER">Monsters</option><option value="NPC">NPCs</option><option value="ITEM">Items</option><option value="CHARACTER">Characters</option><option value="EFFECT">Effects</option></select>
+              <input id="donorRecoverySearch" type="search" placeholder="Search donor path, map, monster, NPC, item…" />
+              <button id="donorRecoveryRefresh" class="btn">Refresh tree</button>
+            </div>
+            <div id="donorRecoveryTree" class="donor-recovery-tree"><div class="empty">Load the donor tree after saving Source & evidence donors.</div></div>
+            <pre id="donorRecoveryResult" class="legacy-authoring-result">Select an action to stage. Staging never writes directly to client/server.</pre>
+            <div class="donor-recovery-deploy">
+              <button id="donorRecoveryStageUniqueDeps" class="btn" disabled>Stage unique exact monster dependencies</button>
+              <span id="donorRecoveryDependencyHint" class="micro">Available after a spawn is blocked by unresolved monsters.</span>
+            </div>
+            <div class="donor-recovery-deploy">
+              <input id="donorRecoveryPhysicalConfirm" type="text" placeholder="APPLY CLOSED DONOR BUNDLE" />
+              <button id="donorRecoveryPhysicalApply" class="btn" disabled>Apply staged physical bundle</button>
+              <input id="donorRecoveryPhysicalTransaction" type="text" placeholder="physical transaction.json for restore" />
+              <button id="donorRecoveryPhysicalRestore" class="btn" disabled>Restore physical transaction</button>
+            </div>
+            <p class="micro">Physical apply/restore requires the existing Asset Bundle deployment arm. Apply is create-only, re-audited and rollback-on-failure; restore refuses files whose hashes drifted after deployment.</p>
+          </section>
+          <section class="panel server-explorer-panel" id="assetRetentionPanel">
+            <div class="panel-title"><strong>Client Retention / Orphans</strong><span id="assetRetentionCount">Run the General Census to generate the classification.</span></div>
+            <div id="assetRetentionSummary" class="server-summary"></div>
+            <p class="micro">Fail-closed: <strong>ORPHAN_CANDIDATE does not authorize deletion</strong>. Monster/NPC content linked by catalog, graph, or bundle remains protected; a DDS failure is build evidence only.</p>
+            <div class="server-explorer-toolbar">
+              <input id="assetRetentionSearch" type="search" placeholder="Search path, bundle, evidence, or DDS failure…" />
+              <select id="assetRetentionState"><option value="">All states</option></select>
+              <select id="assetRetentionFamily"><option value="">All families</option></select>
+              <button id="assetRetentionRefresh" class="btn">Refresh retention</button>
+            </div>
+            <div class="server-explorer-table"><table><thead><tr><th>Status</th><th>Family</th><th>Path</th><th>Root</th><th>Component</th><th>Edges</th><th>Evidence / DDS</th></tr></thead><tbody id="assetRetentionRows"><tr><td colspan="7" class="empty">No retention report loaded.</td></tr></tbody></table></div>
+          </section>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="validation">
+          <section class="panel">
+            <div class="panel-title"><strong>Integration Validation</strong><span>gates, not authoring</span></div>
+            <div class="server-workflow-actions"><button id="serverDesignBtn" class="btn primary">Analyze Asset Enrichment</button><button id="serverIntegrationBtn" class="btn primary">Validate Client + Server</button></div>
+          </section>
+          <div id="serverMetrics" class="metrics server-metrics"></div>
+          <div class="server-grid server-grid-reports">
+            <section class="panel"><div class="panel-title"><strong>Client + Server Validation</strong><span id="serverIntegrationState">No report</span></div><div id="serverIntegrationSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Readiness Release 1.0</strong><span id="release1State">No report completo</span></div><div id="release1Summary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Monster / NPC closure</strong><span id="serverEntitiesState">No report</span></div><div id="serverEntitiesSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>Field closure</strong><span id="serverFieldsState">No report</span></div><div id="serverFieldsSummary" class="server-summary"></div></section>
+            <section class="panel"><div class="panel-title"><strong>OpenItem closure</strong><span id="serverItemsState">No report</span></div><div id="serverItemsSummary" class="server-summary"></div></section>
+          </div>
+          <section class="panel server-handoff-panel">
+            <div class="panel-title"><strong>Found content in REVIEW?</strong><span>continue in the correct workflow</span></div>
+            <p>These are aggregate gates. To investigate and fix Monster, NPC, Item, or Field, use <strong>Management Legacy · World Closure</strong>. The duplicate explorer/editor was removed from here.</p>
+            <button class="btn primary" data-open-legacy="world">Open World Closure</button>
+          </section>
+          <details class="panel server-policy-details"><summary>Bundle model and lifecycle policy</summary><div class="server-grid"><div><div class="panel-title"><strong>Functional bundles</strong><span>client ↔ server</span></div><div id="serverBundleModel" class="server-list"></div></div><div><div class="panel-title"><strong>Lifecycle / policy</strong><span>path + parser</span></div><div id="serverLifecycle" class="server-list"></div></div></div></details>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="evidence">
+          <section class="panel">
+            <div class="panel-title"><strong>Contract Registry · Technical Evidence</strong><span id="assetContractState">Loading…</span></div>
+            <p class="micro server-evidence-note">The registry is for understanding format/runtime. The <strong>Asset Compiler</strong> for Monster/NPC/Item/Field is not here: authoring belongs to Legacy Management.</p>
+            <div class="server-summary" id="assetContractSummary"></div>
+            <div class="server-explorer-toolbar"><input id="assetContractSearch" type="search" placeholder="Search contract, format, runtime, family…" /><select id="assetContractImplementation"><option value="">All implementations</option></select><button id="assetContractRefresh" class="btn">Refresh contracts</button></div>
+            <div class="server-explorer-table"><table><thead><tr><th>Contract</th><th>Family</th><th>Runtime</th><th>Source</th><th>Implementation</th></tr></thead><tbody id="assetContractRows"><tr><td colspan="5" class="empty">Loading registry…</td></tr></tbody></table></div>
+          </section>
+          <section class="panel server-handoff-panel"><div class="panel-title"><strong>Need to edit content?</strong><span>explicit handoff</span></div><p>Use the evidence to understand the contract; create/edit and World Closure stay on one surface.</p><button class="btn primary" data-open-legacy="world">Open Legacy Management</button></section>
+        </section>
+
+        <section class="server-workflow-pane" data-server-workflow-pane="activity">
+          <section class="panel server-activity-panel">
+            <div class="panel-title"><strong>Server / Enrichment Activity</strong><button id="serverActivityRefresh" class="btn small">Refresh</button></div>
+            <p class="micro server-activity-note">Jobs started on this page remain here during and after execution. They are not duplicated in the General Jobs list. The button <strong>Open result</strong> returns to the workflow that produced the report.</p>
+            <div id="serverActivityList"><div class="empty">No jobs in this workflow.</div></div>
+          </section>
+          <section class="panel console-panel server-console-panel">
+            <div class="panel-title"><strong>Job Console</strong><div class="console-head-actions"><span id="serverConsoleStatus">No job selected</span><button id="serverCancelJobBtn" class="btn small danger-outline" style="display:none">Cancel job</button></div></div>
+            <pre id="serverConsole">Select a job above.</pre>
+            <div class="server-result-actions"><button id="serverOpenResultBtn" class="btn primary" disabled>Open result in workflow</button></div>
+          </section>
+        </section>
+      
+</section>
+
+      <section id="tab-legacy" class="tab">
+        <div class="server-hero panel legacy-hero">
+          <div>
+            <h2>Legacy Authoring — Python tasks</h2>
+            <p>Manage content and persistence by task. Each workflow shows only the required data, generates a plan/stage before any write, and keeps the result with the task that produced it.</p>
+          </div>
+          <span class="badge">TASK-ORIENTED · PLAN/STAGE FIRST</span>
+        </div>
+
+        <section class="panel canonical-v211-panel" id="canonicalV211Panel">
+          <div class="panel-title"><strong>Summit Canonical — ferramenta histórica</strong><span id="canonicalV211State">Checking canonical authority…</span></div>
+          <p class="micro"><strong>Não é a fonte de verdade do Etervale.</strong> A base existente do Etervale e os arquivos nativos têm precedência; este painel Summit é histórico, para comparação/diagnóstico. Não publicar packs canónicos Summit como assets nativos do Etervale.</p>
+          <div id="canonicalV211Summary" class="server-summary"><div class="empty">Loading canonical status…</div></div>
+          <details class="legacy-ops-wide">
+            <summary>Canonical browsers · source authority / reference content</summary>
+            <div class="legacy-ops-grid">
+              <label>Search canonical resources<input id="canonicalV211Search" type="search" placeholder="canonical id, family, path, name…" /></label>
+              <label>Family<input id="canonicalV211Family" placeholder="e.g. localization_resource / ini_config" /></label>
+              <label>Locale<select id="canonicalV211Locale"><option>pt-BR</option><option>en</option><option>zh-TW</option><option>ko</option></select></label>
+            </div>
+            <div class="legacy-ops-buttons"><button id="canonicalV211Browse" class="btn">Canonical Text Browser</button><button id="canonicalV211ItemProfiles" class="btn">Item Profile Browser</button><button id="canonicalV211GameplayConfig" class="btn">Gameplay Config</button><button id="canonicalV211Localization" class="btn">Localization</button><button id="canonicalV211References" class="btn">Quest Codex / Mix Guide</button><button id="canonicalV211Domains" class="btn">Extended Domains</button><button id="canonicalV211CompareMap" class="btn">Compare CLIENT/SERVER map</button></div>
+            <pre id="canonicalV211BrowserResult" class="legacy-authoring-result">Read-only canonical browser. Families without a typed writer remain read-only.</pre>
+          </details>
+          <details open class="legacy-ops-wide">
+            <summary>Typed Canonical Authoring</summary>
+            <div class="legacy-ops-grid">
+              <label>Kind<select id="canonicalV211Kind"><option>ITEM</option><option>MONSTER</option><option>NPC</option><option>STAGE_SPAWN</option><option>STAGE_START_POINT</option><option>FIXED_NPC</option><option>MAP</option><option>MODEL_CONFIG</option><option>COIN_SHOP_CATALOG</option><option>NPC_SHOP_OVERRIDES</option><option>EQUIPMENT_SETS</option><option>HEAD_COSMETICS</option><option>WORLD_STORY</option><option>WORLD_PHASES</option><option>COVENANT_ALTARS</option><option>EXPERIENCE_BALANCE</option><option>GAMEPLAY_CONFIG</option><option>LOCALIZATION</option><option>CANONICAL_TEXT</option></select></label>
+              <label>Canonical ID<input id="canonicalV211Id" placeholder="item.bc130 / stage / map id" /></label>
+              <label>Profile<select id="canonicalV211Profile"><option value="">—</option><option value="client">CLIENT</option><option value="server">SERVER</option></select></label>
+              <label>Canonical path (optional)<input id="canonicalV211Path" placeholder="canonical/text/...json" /></label>
+              <label class="legacy-ops-wide">Patch JSON<textarea id="canonicalV211Patch" spellcheck="false">{
+  "fields": {}
+}</textarea></label>
+            </div>
+            <p class="micro">Definition edits update <code>semantic.fields</code> and matching directive payloads atomically. Stage always mounts a complete canonical tree; validation + all canonical packs run by default.</p>
+            <div class="legacy-ops-buttons"><button id="canonicalV211Refresh" class="btn">Refresh status</button><button id="canonicalV211Stage" class="btn primary">Stage + validate + compile</button></div>
+            <pre id="canonicalV211Result" class="legacy-authoring-result">No canonical stage yet.</pre>
+            <div class="legacy-ops-grid">
+              <label>Manifest path<input id="canonicalV211Manifest" placeholder="pt_build/source_content_stage/.../manifest.json" /></label>
+              <label>Confirmation<input id="canonicalV211Confirm" placeholder="PUBLISH CANONICAL SOURCE / PUBLISH CANONICAL PACKS / DEPLOY CANONICAL RUNTIME / RESTORE CANONICAL TRANSACTION" /></label>
+            </div>
+            <div class="legacy-ops-buttons"><button id="canonicalV211PublishSource" class="btn">Publish source JSON</button><button id="canonicalV211PublishPacks" class="btn">Publish packs + BUILD</button><button id="canonicalV211DeployRuntime" class="btn">Deploy client + server runtime</button><button id="canonicalV211Restore" class="btn danger-outline">Transactional restore</button></div>
+            <p class="micro"><strong>Localization:</strong> edit/preview are enabled; production publish remains fail-closed until the legacy localization bridge validator passes. Client/server deployment remains a separate third phase.</p>
+          </details>
+        </section>
+
+        <p class="micro"><strong>Legacy executables are evidence only.</strong> The operator workspace uses the audited Python-native flows below; historical binaries are retained for provenance and reverse-engineering evidence.</p>
+
+        <div class="legacy-task-tabs" role="tablist" aria-label="Jobs Legacy">
+          <button class="legacy-task-tab active" data-legacy-task="item">Item · create/edit</button>
+          <button class="legacy-task-tab" data-legacy-task="monster">Monster · create/edit</button>
+          <button class="legacy-task-tab" data-legacy-task="npc">NPC · create/edit</button>
+          <button class="legacy-task-tab" data-legacy-task="map">Map / Field</button>
+          <button class="legacy-task-tab" data-legacy-task="character">Character / Account</button>
+          <button class="legacy-task-tab" data-legacy-task="postbox">Items / Postbox</button>
+          <button class="legacy-task-tab" data-legacy-task="admin">Admin local</button>
+          <button class="legacy-task-tab" data-legacy-task="world">World Closure</button>
+        </div>
+
+        <section class="legacy-task-pane active" data-legacy-pane="item">
+          <section class="panel legacy-task-card">
+            <div class="panel-title"><strong>Item — create/edit</strong><span>OpenItem Python-native</span></div>
+            <div id="legacyGuideItem" class="legacy-requirements"><div class="empty">Loading requirements…</div></div>
+            <div class="legacy-task-actions"><button class="btn primary" data-legacy-open="ITEM:CREATE">Create item definition</button><button class="btn" data-legacy-open="ITEM:EDIT">Edit existing item</button></div>
+          </section>
+          <section class="panel legacy-item-panel">
+            <div class="panel-title"><strong>Search runtime code</strong><span id="legacyItemState">sITEM / OpenItem / DorpItem</span></div>
+            <div class="legacy-item-search"><select id="legacyItemCode"><option value="">Loading codes and names…</option></select><button id="legacyItemLookupBtn" class="btn primary">Open item</button><button id="legacySelectionsRefresh" class="btn">Refresh lists</button></div>
+            <div id="legacyItemResult" class="legacy-item-result"><div class="empty">Look up the code before creating an OpenItem. New sITEM runtime codes remain blocked.</div></div>
+          </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="item"></div>
+        </section>
+
+        <section class="legacy-task-pane" data-legacy-pane="monster">
+          <section class="panel legacy-task-card">
+            <div class="panel-title"><strong>Monster — create/edit</strong><span>Monster INF Python-native</span></div>
+            <div id="legacyGuideMonster" class="legacy-requirements"><div class="empty">Loading requirements…</div></div>
+            <div class="legacy-task-actions"><button class="btn primary" data-legacy-open="MONSTER:CREATE">Create monster</button><button class="btn" data-legacy-open="MONSTER:EDIT">Edit monster</button><button class="btn" data-legacy-world="definitions">Encontrar no World Closure</button></div>
+            <details class="legacy-ops-wide">
+              <summary>Bulk EXP · Batch Editing</summary>
+              <p class="micro">Use logical paths, one per line. Formulas accept <code>EXP</code>, <code>LVL</code>, numbers, <code>+ - * / %</code> and parentheses. Preview is generated first; Stage creates bundles in <code>pt_build</code> and does not modify the server.</p>
+              <label>Monster INF paths<textarea id="legacyMonsterBulkPaths" spellcheck="false" placeholder="GameServer/Monster/13_Wolverine de Ouro.inf"></textarea></label>
+              <div class="legacy-ops-grid"><label>EXP Formula<input id="legacyMonsterBulkFormula" value="EXP" /></label><label>Max EXP (optional)<input id="legacyMonsterBulkMaxExp" type="number" min="0" /></label></div>
+              <div class="legacy-ops-buttons"><button id="legacyMonsterBulkPlanBtn" class="btn">Preview Bulk EXP</button><button id="legacyMonsterBulkStageBtn" class="btn primary" disabled>Stage Bulk EXP</button></div>
+              <pre id="legacyMonsterBulkResult" class="legacy-authoring-result">No Bulk EXP plan.</pre>
+            </details>
+            <details class="legacy-ops-wide">
+              <summary>Bulk Gold · Batch Editing</summary>
+              <p class="micro">Transforms only the first drop directive <code>Money</code> of each Monster INF, preserving the percentage and one or two range values. Formulas accept <code>GOLD</code>, <code>LVL</code>, numbers and <code>+ - * / %</code>. Preview first; Stage only generates reviewable bundles.</p>
+              <label>Monster INF paths<textarea id="legacyMonsterBulkGoldPaths" spellcheck="false" placeholder="GameServer/Monster/13_Wolverine de Ouro.inf"></textarea></label>
+              <div class="legacy-ops-grid"><label>Gold Formula<input id="legacyMonsterBulkGoldFormula" value="GOLD" /></label><label>Max Gold (optional)<input id="legacyMonsterBulkMaxGold" type="number" min="0" /></label></div>
+              <div class="legacy-ops-buttons"><button id="legacyMonsterBulkGoldPlanBtn" class="btn">Preview Bulk Gold</button><button id="legacyMonsterBulkGoldStageBtn" class="btn primary" disabled>Stage Bulk Gold</button></div>
+              <pre id="legacyMonsterBulkGoldResult" class="legacy-authoring-result">No Bulk Gold plan.</pre>
+            </details>
+          </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="monster"></div>
+        </section>
+
+        <section class="legacy-task-pane" data-legacy-pane="npc">
+          <section class="panel legacy-task-card">
+            <div class="panel-title"><strong>NPC — create/edit</strong><span>NPC definition + placement SPC</span></div>
+            <div id="legacyGuideNpc" class="legacy-requirements"><div class="empty">Loading requirements…</div></div>
+            <div class="legacy-task-actions"><button class="btn primary" data-legacy-open="NPC:CREATE">Create NPC</button><button class="btn" data-legacy-open="NPC:EDIT">Edit NPC</button><button class="btn" data-legacy-open="SPC:EDIT">Edit SPC placement</button><button class="btn" data-legacy-world="definitions">Encontrar no World Closure</button></div>
+          </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="npc"></div>
+        </section>
+
+        <section class="legacy-task-pane" data-legacy-pane="map">
+          <section class="panel legacy-task-card">
+            <div class="panel-title"><strong>Map / Field — server-side files</strong><span>SPM · SPP · SPC</span></div>
+            <div id="legacyGuideMap" class="legacy-requirements"><div class="empty">Loading requirements…</div></div>
+            <div class="legacy-field-actions">
+              <div><b>SPM · Spawns</b><span>Actors, bosses, limites and delay.</span><button class="btn primary" data-legacy-open="SPM:CREATE">Create SPM</button><button class="btn" data-legacy-open="SPM:EDIT">Edit SPM</button></div>
+              <div><b>SPP · Start points</b><span>200 canonical records: state, x, z.</span><button class="btn primary" data-legacy-open="SPP:CREATE">Create SPP</button><button class="btn" data-legacy-open="SPP:EDIT">Edit SPP</button></div>
+              <div><b>SPC · NPCs fixos</b><span>100 canonical records: NPC + position.</span><button class="btn primary" data-legacy-open="SPC:CREATE">Create SPC</button><button class="btn" data-legacy-open="SPC:EDIT">Edit SPC</button></div>
+            </div>
+            <p class="micro"><strong>Importante:</strong> this does not create the visual geometry/Stage of the map on the client. Stage 0.72 remains in the maps/client pipeline.</p>
+          </section>
+          <div class="legacy-authoring-mount" data-legacy-editor-mount="map"></div>
+        </section>
+
+        <section class="legacy-task-pane" data-legacy-pane="character">
+          <section class="panel legacy-task-card">
+            <div class="panel-title"><strong>Character / Account</strong><span id="legacyOpsCharacterState">userdata + userinfo · Python</span></div>
+            <p class="micro">Choose an identity that already exists in DataServer. Inspect is read-only; Level/XP, stats, and renames always generate a reviewable plan before apply.</p>
+            <div class="legacy-ops-grid">
+              <label>Character<select id="legacyCharacterName"><option value="">Loading characters…</option></select></label>
+              <div class="legacy-ops-buttons"><button id="legacyCharacterInspectBtn" class="btn primary">Inspect character</button></div>
+              <label>Level desejado<input id="legacyCharacterLevel" type="number" min="1" max="1000" placeholder="ex.: 120" /></label>
+              <div class="legacy-ops-buttons"><button id="legacyCharacterLevelPlanBtn" class="btn">Generate Level/XP plan</button></div>
+              <label class="legacy-ops-wide">Primary Stats (JSON)<textarea id="legacyCharacterFields" spellcheck="false">{
+  "Strength": 100,
+  "Spirit": 50,
+  "Talent": 90,
+  "Dexterity": 70,
+  "Health": 80
+}</textarea></label>
+              <div class="legacy-ops-buttons"><button id="legacyCharacterFieldsPlanBtn" class="btn">Generate stats plan</button></div>
+              <details class="legacy-ops-wide legacy-expert-fields">
+                <summary>Expert Mode · source-backed smCHAR_INFO fields</summary>
+                <p class="micro"><strong>Warning:</strong> these fields exist in the persisted ABI and reproduce capabilities from legacy editors, but combat-derived values may be recalculated by the game. Arbitrary offsets, login keys, runtime pointers, Level/XP, and item serials are not accepted.</p>
+                <label>Campos especialista (JSON)<textarea id="legacyCharacterExpertFields" spellcheck="false">{
+  "JOB_CODE": 0,
+  "Attack_Damage": [0, 0]
+}</textarea></label>
+                <div class="legacy-ops-buttons"><button id="legacyCharacterExpertFieldsPlanBtn" class="btn">Generate expert plan</button></div>
+              </details>
+              <label>Rename character to<input id="legacyCharacterNewName" type="text" placeholder="NovoNome" /></label>
+              <div class="legacy-ops-buttons"><button id="legacyCharacterRenamePlanBtn" class="btn">Planejar rename</button></div>
+              <label>Account<select id="legacyAccountName"><option value="">Loading accounts…</option></select></label>
+              <div class="legacy-ops-buttons"><button id="legacyAccountInspectBtn" class="btn">Inspect account</button></div>
+              <label>Rename account to<input id="legacyAccountNewName" type="text" placeholder="nova_account" /></label>
+              <div class="legacy-ops-buttons"><button id="legacyAccountRenamePlanBtn" class="btn">Plan account rename</button></div>
+              <div class="legacy-ops-wide legacy-subsection"><strong>Migrate / restore account between servers</strong><p class="micro">Replaces the button <code>Copy</code> with an explicit account-graph migration plan. Choose an existing account and a source server root. The plan copies userinfo, warehouse when present, and up to six referenced userdata files to the configured server. Collisions are blocked by default and any authorized replacement creates a backup.</p></div>
+              <label class="legacy-ops-wide">Source Server<input id="legacyAccountCopySourceRoot" type="text" placeholder="/path/ServidorAntigo" /></label>
+              <label class="legacy-checkbox"><input id="legacyAccountCopyAllowReplace" type="checkbox" /> Allow replacing identities that already exist at the destination (with backup)</label>
+              <div class="legacy-ops-buttons"><button id="legacyAccountCopyPlanBtn" class="btn">Plan account migration</button></div>
+            </div>
+            <pre id="legacyCharacterResult" class="legacy-authoring-result">Choose an operation. Writes require a reviewed plan, armed workspace, specific confirmation, and backup.</pre>
+          </section>
+        </section>
+
+        <section class="legacy-task-pane" data-legacy-pane="postbox">
+          <section class="panel legacy-task-card">
+            <div class="panel-title"><strong>Items / Postbox</strong><span id="legacyPostboxState">ItemDistributor + scanner userdata/warehouse</span></div>
+            <p class="micro">Distribution adds Postbox entries with a plan, backup, and atomic write. The duplicate scanner is read-only and uses actual persisted serials.</p>
+            <div class="legacy-ops-grid">
+              <label>Account<select id="legacyPostboxAccount"><option value="">Select an account</option></select></label>
+              <label>Character<select id="legacyPostboxCharacter"><option value="">Select a character</option></select></label>
+              <label>Item<select id="legacyPostboxItem"><option value="">Select code — name</option></select></label>
+              <label>Spec<select id="legacyPostboxSpec"><option value="0">Non Spec</option><option value="1">Fighter</option><option value="2">Mechanician</option><option value="3">Archer</option><option value="4">Pikeman</option><option value="5">Atalanta</option><option value="6">Knight</option><option value="7">Magician</option><option value="8">Priestess</option></select></label>
+              <label>Quantity<input id="legacyPostboxQuantity" type="number" min="1" max="10000" value="1" /></label>
+              <label>Mensagem<input id="legacyPostboxMessage" type="text" placeholder="mensagem optional" /></label>
+              <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyPostboxReadBtn" class="btn">Ler fila</button><button id="legacyPostboxPlanBtn" class="btn primary">Plan distribution</button></div>
+              <label class="legacy-ops-wide">Buscar item/serial<input id="legacyItemScanQuery" type="search" placeholder="item name, character, or account" /></label>
+              <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyItemScanBtn" class="btn">Escanear userdata + warehouse</button></div>
+              <div class="legacy-ops-wide legacy-subsection"><strong>Local Inventory · Proven Delete</strong><p class="micro">Inspect the inventory first. Delete removes only the selected record and the plan pins the slot identity/hash before allowing the write. We do not arbitrarily edit Code/Head/CheckSum or other item identifiers.</p></div>
+              <label>Origem<select id="legacyInventoryStore"><option value="userdata">Character / userdata</option><option value="warehouse">Account / warehouse</option></select></label>
+              <label>Character or account<select id="legacyInventoryKey"><option value="">Select an identity</option></select></label>
+              <label>Slot Index<input id="legacyInventoryRecordIndex" type="number" min="0" value="0" /></label>
+              <label>Slots for batch removal<input id="legacyInventoryBatchIndices" type="text" placeholder="ex.: 2, 5, 9" /></label>
+              <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyInventoryInspectBtn" class="btn">Inspect slots</button><button id="legacyInventoryDeletePlanBtn" class="btn danger">Planejar apagar slot</button><button id="legacyInventoryBatchDeletePlanBtn" class="btn danger">Planejar apagar slots</button></div>
+            </div>
+            <details class="legacy-danger-zone">
+              <summary>Global destructive operations</summary>
+              <p class="micro"><b>They are not cache cleanup.</b> These actions correspond to the historical buttons <code>User Item</code>/<code>WHItem</code>: they remove all persisted items from all characters or all warehouses. PT Asset Tool only generates a plan first, validates every hash, backs up every target before the first write, and requires a strong confirmation phrase.</p>
+              <div class="legacy-ops-buttons legacy-ops-wide">
+                <button id="legacyInventoryClearUserdataPlanBtn" class="btn danger">Plan removal of ALL character items</button>
+                <button id="legacyInventoryClearWarehousePlanBtn" class="btn danger">Plan removal of ALL warehouse items</button>
+              </div>
+            </details>
+            <pre id="legacyPostboxResult" class="legacy-authoring-result">No operation has been executed.</pre>
+          </section>
+        </section>
+
+        <section class="legacy-task-pane" data-legacy-pane="admin">
+          <section class="panel legacy-task-card">
+            <div class="panel-title"><strong>Admin local</strong><span id="legacyAdminState">localhost + SQLite</span></div>
+            <p class="micro">The operations below use local SQLite. The application detects server SQLite files, inspects the schema, and shows which database was selected before generating any plan.</p>
+            <div id="legacyAdminSummary" class="server-summary"><div class="empty">Loading local runtime…</div></div>
+            <div class="legacy-ops-grid">
+              <label class="legacy-ops-wide">SQLite database<select id="legacyDatabasePath"><option value="">Detecting local database…</option></select></label>
+              <label>SoD table<input id="legacySodTable" value="RunLog" /></label>
+              <label>Minimum participants<input id="legacySodMinimum" type="number" min="1" value="1" /></label>
+              <div class="legacy-ops-buttons"><button id="legacySodPlanBtn" class="btn">Plan SoD update</button></div>
+              <label>Character BPRank<select id="legacyBPRankCharacter"><option value="">Select a character</option></select></label>
+              <div class="legacy-ops-buttons"><button id="legacyBPRankPlanBtn" class="btn">Planejar marcar processado</button></div>
+              <label>Block account<select id="legacyBlockAccount"><option value="">Select an account</option></select></label>
+              <label>Motivo<input id="legacyBlockReason" placeholder="motivo" /></label>
+              <div class="legacy-ops-buttons"><button id="legacyBlockPlanBtn" class="btn">Planejar bloqueio SQLite</button></div>
+              <details class="legacy-ops-wide">
+                <summary>Hotuk Configuration</summary>
+                <p class="micro">Edits keys in <code>hotuk.ini</code> while preserving the rest of the file. The current runtime is localhost + SQLite; firewall/ODBC configuration and binary executable patching are not part of this workflow.</p>
+                <label>Path (optional)<input id="legacyHotukPath" type="text" placeholder="detectado automaticamente" /></label>
+                <label>Updates (JSON)<textarea id="legacyHotukUpdates" spellcheck="false">{}</textarea></label>
+                <div class="legacy-ops-buttons"><button id="legacyHotukPlanBtn" class="btn">Plan Hotuk change</button></div>
+              </details>
+              <label class="legacy-ops-wide">Log for PTprotector analysis<textarea id="legacyProtectorLog" spellcheck="false" placeholder="Paste log lines here…"></textarea></label>
+              <div class="legacy-ops-buttons legacy-ops-wide"><button id="legacyProtectorAnalyzeBtn" class="btn">Analyze log</button><button id="legacyServerLaunchPlanBtn" class="btn">Server.exe launch plan</button></div>
+            </div>
+            <pre id="legacyAdminResult" class="legacy-authoring-result">No operation has been executed.</pre>
+          </section>
+        </section>
+
+        <section class="legacy-task-pane" data-legacy-pane="world">
+          <section class="panel legacy-root-panel">
+            <div class="panel-title"><strong>World Closure — build game relationships</strong><span id="legacyAuditState">Loading…</span></div>
+            <div class="legacy-world-intro"><p>This is the discovery step: it cross-references <code>Field/SPM → Monster/NPC → item code → OpenItem → sITEM → DorpItem → client assets</code>. When a row is in <strong>REVIEW</strong>, select it: the panel explains the reason and shows the next action. Nothing is loaded into the editor until you explicitly click “Edit”.</p><button id="legacyAuditBtn" class="btn primary">Build / audit World Closure</button><button id="legacyExplorerRefresh" class="btn">Refresh results</button></div>
+            <div class="legacy-world-options"><label>Samples<input id="legacySampleLimit" type="number" min="1" max="500" value="80" /></label><label>@Tutoriais (optional)<input id="legacyTutorialRoot" type="text" placeholder="/path/@Tutoriais" /></label></div>
+          </section>
+          <div id="legacyMetrics" class="metrics server-metrics"></div>
+          <section class="panel legacy-explorer-panel">
+            <div class="panel-title"><strong>World Closure Explorer</strong><span id="legacyExplorerState">Latest report</span></div>
+            <div class="legacy-explorer-toolbar"><select id="legacyExplorerSection"><option value="items">Items / visual closure</option><option value="maps">Maps / SPM</option><option value="definitions">Monster / NPC definitions</option></select><input id="legacyExplorerSearch" type="search" placeholder="Filter code, path, monster, map…" /><select id="legacyExplorerStatus"><option value="">All states</option><option value="CLOSED">CLOSED</option><option value="REVIEW">REVIEW</option><option value="RESOLVED">RESOLVED</option><option value="AMBIGUOUS">AMBIGUOUS</option><option value="UNRESOLVED">UNRESOLVED</option></select></div>
+            <div class="legacy-explorer-layout"><div class="server-explorer-table"><table><thead id="legacyExplorerHead"></thead><tbody id="legacyExplorerRows"></tbody></table></div><aside id="legacyExplorerDetail" class="server-explorer-detail"><div class="empty">Select a row to view the complete closure and load the target into the editor.</div></aside></div>
+          </section>
+        </section>
+
+        <section class="panel legacy-ops-plan-panel hidden" id="legacyOpsPlanPanel">
+          <div class="panel-title"><strong>Python Persistence Plan</strong><span id="legacyOpsPlanState">Review before applying</span></div>
+          <pre id="legacyOpsPlanResult" class="legacy-authoring-result"></pre>
+          <div class="legacy-ops-apply"><label>Confirmation required<input id="legacyOpsConfirmation" type="text" placeholder="frase exibida pelo plan" /></label><button id="legacyOpsApplyBtn" class="btn primary">Apply reviewed plan</button></div>
+          <p class="micro">Apply works only with workspace/build armed. The backend reloads the persisted plan, checks drift, creates a backup, and uses the operation-specific confirmation phrase.</p>
+        </section>
+
+        <section class="panel legacy-authoring-panel" id="legacyAuthoringPanel">
+          <div class="panel-title"><strong id="legacyAuthoringTitle">Item — Python editor</strong><span id="legacyAuthoringState">Choose Create or Edit above</span></div>
+          <div class="legacy-authoring-toolbar"><select id="legacyAuthoringKind"></select><select id="legacyAuthoringMode"><option>EDIT</option><option>CREATE</option></select><input id="legacyAuthoringPath" type="text" placeholder="Path server-side" /><button id="legacyAuthoringInspectBtn" class="btn">Open / Inspect</button><button id="legacyAuthoringTemplateBtn" class="btn">Recarregar template</button></div>
+          <div id="legacyAuthoringCatalogHelper" class="legacy-item-search"><select id="legacyAuthoringCatalogEntry"><option value="">Semantic catalog: select a target</option></select><button id="legacyAuthoringUseCatalogBtn" class="btn primary">Usar mapeamento</button><span id="legacyAuthoringCatalogMeta" class="micro"></span></div>
+          <div id="legacyAuthoringItemHelper" class="legacy-item-search"><select id="legacyAuthoringItemCode"><option value="">Related item: name — code — canonical id</option></select><button id="legacyAuthoringInsertItemBtn" class="btn">Insert related item</button></div>
+          <div id="legacyAuthoringEntityHelper" class="legacy-item-search hidden"><select id="legacyAuthoringEntityRef"><option value="">Related entity</option></select><button id="legacyAuthoringInsertEntityBtn" class="btn">Inserir entidade no spec</button></div>
+          <div class="legacy-authoring-layout"><div><label class="legacy-authoring-label">Native Python / JSON spec<textarea id="legacyAuthoringSpec" spellcheck="false"></textarea></label><div class="legacy-authoring-actions"><button id="legacyAuthoringStageBtn" class="btn primary">Stage in pt_build</button><button id="legacyAuthoringPublishBtn" class="btn" disabled>Publish bundle</button><button id="legacyAuthoringRestoreBtn" class="btn">Restore bundle</button><button id="legacyAuthoringStatusBtn" class="btn">Transaction status</button></div><p class="micro">Workflow: <code>select target → inspect/create → stage → review manifest → publish → validate in-game → restore</code>. Publish is enabled only after a successful stage for this task.</p></div><pre id="legacyAuthoringResult" class="legacy-authoring-result">Choose a task above.</pre></div>
+        </section>
+        <div id="legacyAuthoringParking" class="hidden"></div>
+      
+</section>
+
+      <section id="tab-particles" class="tab">
+        <div class="server-hero panel">
+          <div>
+            <h2>Particle Editor · .part</h2>
+            <p>Inspection, staging and Blender frame samples. The preview may show a sequence of sampled frames, but it is NOT certified playback of particle effects in the Etervale runtime.</p>
+          </div>
+          <span class="badge">STAGING ONLY</span>
+        </div>
+        <section class="panel">
+          <div class="panel-title"><strong>Particle assets</strong><span id="particleCount">Loading…</span></div>
+          <div class="toolbar">
+            <input id="particleSearch" type="search" placeholder="Search .part…" />
+            <button id="particleRefresh" class="btn">Refresh</button>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(280px,34%) 1fr;gap:14px;align-items:start">
+            <div class="server-explorer-table" style="max-height:68vh;overflow:auto">
+              <table><thead><tr><th>Asset</th><th>Size</th></tr></thead><tbody id="particleRows"><tr><td colspan="2" class="empty">No assets loaded.</td></tr></tbody></table>
+            </div>
+            <div id="particleDetail"><div class="empty">Select um <code>.part</code> to inspect.</div></div>
+          </div>
+        </section>
+      </section>
+
+      <section id="tab-compare" class="tab">
+        <section class="panel compare-panel">
+          <div class="panel-title"><strong>Compare asset trees</strong><span>Read-only</span></div>
+          <div class="compare-form">
+            <label>Left tree<input id="compareLeft" type="text" placeholder="/path/client-a" /></label>
+            <label>Right tree<input id="compareRight" type="text" placeholder="/path/client-b" /></label>
+            <label>Extensions<input id="compareExt" type="text" placeholder="smd, inx, smb, bmp" /></label>
+            <label>Category<select id="compareCategory"><option value="">All</option><option>CHARACTER</option><option>MONSTER</option><option>NPC</option><option>UI</option><option>ITEM</option><option>MAP</option><option>EFFECT</option><option>TEXTURE</option><option>MODEL</option><option>CONFIG</option></select></label>
+            <label>Path contains<input id="comparePath" type="text" placeholder="char/tmABCD" /></label>
+            <label class="check"><input id="compareDiffOnly" type="checkbox" checked /> Show/export differences only</label>
+            <label class="check"><input id="compareHash" type="checkbox" /> Compare SHA-256 of common files</label>
+            <label class="check"><input id="compareCase" type="checkbox" /> Paths case-sensitive</label>
+            <div><button id="compareBtn" class="btn primary">Compare trees</button></div>
+            <p class="micro">Compares relative paths and sizes; SHA-256 is optional. Filters are applied before comparison. JSON/CSV/Markdown remain only in <code>pt_build</code>.</p>
+          </div>
+        </section>
+        <section class="panel compare-result-panel">
+          <div class="panel-title"><strong>Comparison Result</strong><span id="compareStatus">No comparison has been run.</span></div>
+          <div id="compareResult" class="compare-result"><div class="empty">Run a comparison to view the summary and differences here.</div></div>
+        </section>
+      </section>
+      <section id="tab-jobs" class="tab">
+        <section class="panel"><div class="panel-title"><strong>General Jobs</strong><button id="refreshJobs" class="btn small">Refresh</button></div><p class="micro" style="padding:0 12px">Workflows with their own page keep execution and results on that page. Client / Enrichment jobs stay in <strong>Client → Activity</strong> and Server / Enrichment jobs in <strong>Server → Activity</strong>.</p><div id="jobsList"></div></section>
+        <section class="panel console-panel"><div class="panel-title"><strong>Job Console</strong><div class="console-head-actions"><span id="consoleStatus">No job selected</span><button id="cancelJobBtn" class="btn small danger-outline" style="display:none">Cancel job</button></div></div><pre id="console">Select a job above.</pre><div id="jobInput" class="job-input hidden"><span>The validator is waiting for your evaluation:</span><div><button class="btn small" data-job-answer="y">PASS / Yes</button><button class="btn small danger-outline" data-job-answer="n">FAIL / No</button><button class="btn small" data-job-answer="s">SKIP</button></div><small>The response is sent to the same validator CLI process.</small></div></section>
+      </section>
+      <section id="tab-reports" class="tab"><section class="panel"><div class="panel-title"><strong>pt_build Reports</strong><div><button id="monsterNpcBtn" class="btn small">Monster/NPC Census</button> <button id="refreshReports" class="btn small">Refresh</button></div></div><div id="reportsList"></div></section></section>
+
+      <section id="tab-docs" class="tab">
+        <div class="guide-hero panel"><div><h2>How to Use the Tools</h2><p>The Design Tool handles inventory, inspection, 3D validation, and certified workflows. Asset Enrichment connects server content to the client through functional bundles. Use both together; do not try to resolve an entity by simply copying files with the same extension.</p></div><span class="badge">READ-ONLY BY DEFAULT · TRANSACTIONAL AUTHORING WHEN ARMED</span></div>
+        <div class="guide-grid">
+          <section class="panel guide-card"><h3>1. Design Tool / PT Asset Tool</h3><p><strong>Purpose:</strong> discover assets, understand bindings, validate SMD/SMB/INX/textures, and generate candidates in <code>pt_build</code> and track gates.</p><ol><li>Configure the <code>client_root</code>.</li><li>Run <strong>Doctor</strong> or <code>validate environment-auto</code>.</li><li>Use Catalog/Entities to find the asset.</li><li>Treat Structural, Binding, Visual, and Roundtrip as different levels of evidence.</li><li>Before any release, run the automatic gates indicated by readiness.</li></ol><p class="micro">Full manual: <code>docs/en/topics/DESIGN_TOOL.md</code></p></section>
+          <section class="panel guide-card"><h3>2. Asset Enrichment</h3><p><strong>Purpose:</strong> understand what a Monster, NPC, Field, or Item needs on the server side and how it connects to the client.</p><ol><li>Configure the <code>server_root</code>.</li><li>Run <strong>Analyze Asset Enrichment</strong>.</li><li>Use Census/Validation to measure gaps; content in REVIEW goes to <strong>Management Legacy · World Closure</strong>.</li><li>Do not treat <code>DataServer</code>, <code>LogItemData</code>, <code>PostBox</code>, WAR, or safety state as assets.</li><li>When a bundle requires SMD/SMB/INX, return to the certified Design Tool pipeline.</li></ol><p class="micro">Full manual: <code>docs/en/topics/ASSET_ENRICHMENT.md</code></p></section>
+          <section class="panel guide-card"><h3>3. Combined workflow</h3><p><strong>Monster/NPC:</strong> server definition → ZHOON → INI/INX → SMD/SMB → textures → spawn/placement.</p><p><strong>Field:</strong> stage → SPP/SPC/SPM → referenced entities.</p><p><strong>Item:</strong> OpenItem → code map → client catalog → model/icon → drops/shops.</p><p class="micro">End-to-end guide: <code>docs/en/topics/CLIENT_SERVER_WORKFLOW.md</code></p></section>
+          <section class="panel guide-card" data-manual-legacy-authoring="2026-09-23"><h3>4. Management Legacy</h3><p><strong>Purpose:</strong> manage server-side content and local persistence by workflow without mixing authoring, account/character, and administration.</p><ol><li><strong>Item / Monster / NPC / Map:</strong> choose the task; the editor appears inside that task and uses only the corresponding writers.</li><li><strong>Character / Account:</strong> choose an existing identity; inspect is read-only and changes become backed-up plans.</li><li><strong>Items / Postbox:</strong> choose <code>code — name</code> in the runtime/OpenItem catalog; distribution and deletes require a plan.</li><li><strong>Local admin:</strong> the database is SQLite detected by schema; SoD/BPRank/blocks do not use ODBC/SQL Server.</li><li><strong>World Closure:</strong> finds relationships/targets and routes to the correct task; REVIEW explains what is missing.</li><li><strong>Authoring:</strong> Stage writes only to <code>pt_build</code>; Publish requires the current stage manifest, arming, backup, and verification.</li></ol><p class="micro">Manual: <code>docs/en/topics/LEGACY_MANAGEMENT_AUTHORING.md</code></p></section>
+          <section class="panel guide-card" data-manual-aux-tools="2026-09-23"><h3>5. Particles, Compare, Jobs, and Reports</h3><p><strong>Particles:</strong> inspects <code>.part</code>, generates a preview plan without Blender, and uses configured Blender when visual rendering is requested.</p><p><strong>Compare:</strong> compares two trees by path/hash without modifying either one.</p><p><strong>Jobs:</strong> shows only jobs that do not have a dedicated surface; Client and Server keep activity/results on their corresponding pages.</p><p><strong>Reports:</strong> opens artifacts already produced in <code>pt_build</code>; it does not automatically rerun the census.</p><p><strong>Settings:</strong> mostra roots and dependencies efetivamente resolvidos pelo backend, incluindo Blender.</p></section>
+          <section class="panel guide-card"><h3>State glossary</h3><dl><dt>PASS</dt><dd>The executed gate passed.</dd><dt>REVIEW</dt><dd>There is enough data to investigate, but a decision/proof is still missing for automation.</dd><dt>BLOCKED</dt><dd>A required dependency or contract has not been proven.</dd><dt>PENDING</dt><dd>That gate has not been run yet.</dd><dt>Runtime review</dt><dd>Automated tests passed, but the result still needs to be observed in-game.</dd></dl></section>
+        </div>
+        <section class="panel guide-runbook" data-manual-legacy-runbook="2026-09-21"><div class="panel-title"><strong>Legacy Authoring — operational guide</strong><span>Audit discovers; Authoring changes</span></div><div class="chain"><div class="chain-row"><b>World Closure</b><span><code>REVIEW</code> is diagnostic. If the editable target is resolved, the row can be opened in Authoring.</span></div><div class="chain-row"><b>ITEM</b><span>OpenItem CREATE/EDIT for a code that already exists at runtime <code>sITEM</code>. New runtime code remains blocked.</span></div><div class="chain-row"><b>MONSTER</b><span>Stats/EXP, drops, money, extra drops, dialogs and linked file.</span></div><div class="chain-row"><b>NPC</b><span>Fields, dialogs and shops. Fixed placement uses SPC.</span></div><div class="chain-row"><b>SPM/SPP/SPC</b><span>Actors/boss/directives; start points; canonical fixed-NPC records.</span></div><div class="chain-row"><b>Safety</b><span>Stage → <code>pt_build</code>. Publish → hash preflight + backup + atomic replace + verify. Restore blocks drift.</span></div><div class="chain-row"><b>Errors</b><span>404 = identity/target does not exist; 409 = configuration/armamento pendente; 422 = valor/payload invalid. The UI shows the cause next to the task.</span></div></div><p class="micro">Full reference: <code>docs/en/getting_started/USER_MANUAL.md</code> and <code>docs/en/topics/LEGACY_MANAGEMENT_AUTHORING.md</code>.</p></section>
+        <section class="panel guide-runbook"><div class="panel-title"><strong>Recommended runbook</strong><span>From a clean environment to Release 1.0</span></div><div class="guide-steps"><div><b>01</b><span>VERIFY_PACKAGE</span><small>Confirms the distribution is complete.</small></div><div><b>02</b><span>Environment</span><small>Python, paths, Blender, hashes and isolamento.</small></div><div><b>03</b><span>Integration Regression</span><small>Client + server + outliers recentes.</small></div><div><b>04</b><span>Release 1 Auto</span><small>Full physical matrix; it may take time.</small></div><div><b>05</b><span>Runtime/Game</span><small>In-game integrated review.</small></div><div><b>06</b><span>Publish/Restore</span><small>Controlled promotion and rollback before 1.0.</small></div></div></section>
+      </section>
+
+      <section id="tab-settings" class="tab"><section class="panel settings"><h2>Integration</h2><dl id="settingsInfo"></dl><p class="micro">Roots can be persisted with <code>config set-client-root PATH</code> and <code>config set-server-root PATH</code>. The GUI uses the same configuration; the server remains read-only by default. The Asset Compiler publishes only typed and verified bundles with <code>ARM ASSET DEPLOY</code>; persistence/safety/logs remain blocked. The client can only be modified by verified bundle deploy/restore with separate authorization and a backup/rollback transaction.</p><h3>External / Python Dependencies</h3><div id="dependencyList" class="server-summary"><div class="empty">Loading dependency diagnostics…</div></div><p class="micro">The same diagnostics are available in the terminal with <code>pt-asset-tool dependencies</code>. Each item explains its purpose, why it is needed, and how to install/configure it when missing.</p><h3>Quick Glossary</h3><dl><dt>Binding</dt><dd>Proven relationship between model, INX configuration, and SMB skeleton/animation. It does not merely mean “attached part”.</dd><dt>SELF_CONTAINED</dt><dd>The model directly resolves its own animation context.</dd><dt>ROOT_SKELETON_BOUND</dt><dd>The model reuses a verified root/skeleton.</dd><dt>CONFIG_ONLY</dt><dd>Configuration exists, but a single sufficiently proven animation root does not yet exist.</dd><dt>PENDING</dt><dd>Gate/certification has not run yet; it does not mean the asset is defective.</dd><dt>N/A</dt><dd>The test does not apply to this asset type.</dd><dt>Structural</dt><dd>Validates format invariants before trusting Blender/writer; it does not prove visual appearance.</dd><dt>Visual</dt><dd>Opens a representation in Blender for human review; this alone is not proof of editability.</dd><dt>Roundtrip</dt><dd>Rebuilds/modifies a copy in <code>pt_build</code> and proves that only authorized changes occurred.</dd></dl><p class="micro">More details in the terminal: <code>pt-asset-tool explain bindings</code>, <code>explain statuses</code>, <code>explain structural</code>, <code>explain visual</code> and <code>explain roundtrip</code>.</p><h3>Design Principles</h3><ul><li>CLI backend is the only authority for parse/validate/write.</li><li>Client and Server are independent roots; bundles may cross both, but persistence/logs/state are never assets.</li><li>UI annotations live under <code>pt_build/ui_state_v0100.json</code>.</li><li>No shell command interpolation: every action uses a fixed allowlist.</li><li>Build/edit actions require a session arm and still remain subject to backend fail-closed gates.</li><li>Client deploy/restore uses <code>ARM CLIENT DEPLOY</code>; Asset Bundle publish/rollback uses <code>ARM ASSET DEPLOY</code>. Both require a verified transaction, backup, and drift gate.</li></ul><button id="shutdownBtn" class="btn danger-outline">Stop UI server</button></section></section>
+    </main>
+  </div>
+  <div id="toast"></div>
+  <div id="modal" class="modal hidden"><div class="modal-card"><h3>Arm workspace/build actions</h3><p>This temporarily enables actions that create/edit files in <code>pt_build</code>. It does not authorize deployment to the client.</p><p>Type <code>ARM BUILD WRITES</code>:</p><input id="armConfirm" /><div class="modal-actions"><button id="armCancel" class="btn">Cancel</button><button id="armConfirmBtn" class="btn primary">Arm for 15 min</button></div></div></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

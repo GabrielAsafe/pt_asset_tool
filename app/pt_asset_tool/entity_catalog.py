@@ -146,6 +146,28 @@ def _physical_entity_descriptor(path: str, category: str, folder: str = '', fold
             'folder_root': root,
             'identity_evidence': 'CANONICAL_ACTOR_FOLDER',
         }
+    if cat == 'MAP_FIELD':
+        # A field is one game entity, not an entity for each .spm/.spp/.spc
+        # file. The game uses distinct client scene and server field files.
+        # Normalization is restricted to source-proven Field locations; generic
+        # filenames elsewhere are NOT merged by a loose basename guess.
+        parts = pathlib.PurePosixPath(path).parts
+        field_name = None
+        if len(parts) >= 3 and parts[0].casefold() == 'field':
+            field_name = parts[1]
+        elif (len(parts) == 3 and parts[0].casefold() == 'gameserver'
+              and parts[1].casefold() == 'field'):
+            match = re.fullmatch(r'(.+?)(?:\.ase)?\.(?:spm|spp|spc)', parts[2], flags=re.I)
+            if match:
+                field_name = match.group(1)
+        if field_name:
+            return {
+                'entity_key': f'MAP_FIELD|field:{field_name.casefold()}',
+                'semantic_group': 'MAP_FIELD',
+                'display_name': field_name,
+                'folder_root': f'Field/{field_name}',
+                'identity_evidence': 'CLIENT_SERVER_FIELD_ID_AND_NATIVE_FIELD_SUFFIX',
+            }
     if cat in {'EFFECT', 'MAP_FIELD'}:
         root = _norm(folder_path)
         name = str(folder or '')
@@ -845,6 +867,7 @@ def _entity_summary(entity: dict[str, Any]) -> dict[str, Any]:
     """
     keep = (
         'entity_key', 'semantic_group', 'display_name', 'folder_root',
+        'in_game_names', 'in_game_name_count', 'in_game_name_source',
         'identity_evidence', 'known_canonical_entity', 'asset_count', 'total_bytes',
         'role_counts', 'extension_counts', 'representative_model',
         'representative_preview', 'registry_evidence', 'registry_asset_count',
@@ -865,6 +888,7 @@ def _entity_search_text(entity: dict[str, Any]) -> str:
         return cached
     text = ' '.join([
         str(entity.get('display_name') or ''),
+        ' '.join(entity.get('in_game_names') or []),
         str(entity.get('folder_root') or ''),
         ' '.join(str(x) for x in (entity.get('role_counts') or {})),
         ' '.join(str(x) for x in (entity.get('all_paths') or [])),
@@ -882,19 +906,42 @@ def query_built_entities(
     group: str = '',
     q: str = '',
     limit: int = 500,
+    ext: str = '',
+    source: str = '',
 ) -> dict[str, Any]:
     entities = list(entities)
     group = group.strip().upper()
+    ext = str(ext or '').strip().casefold()
+    if ext and not ext.startswith('.'):
+        ext = '.' + ext
+    source = str(source or '').strip().lower()
+    if source not in ('', 'client', 'server', 'linked'):
+        raise ValueError('ENTITY_SOURCE_FILTER_INVALID')
     if group == 'MAP':
         group = 'MAP_FIELD'
     terms = [x.casefold() for x in q.split() if x.strip()]
+    # Extension options come from the full group, not the first limited page.
+    extension_facets = Counter()
     out = []
     for e in entities:
         if group and e.get('semantic_group') != group:
             continue
+        extension_facets.update({k: 1 for k, n in (e.get('extension_counts') or {}).items() if n})
+        if ext and not (e.get('extension_counts') or {}).get(ext, 0):
+            continue
+        paths = e.get('all_paths') or []
+        has_server = any(str(x).casefold().startswith('gameserver/') for x in paths)
+        has_client = any(not str(x).casefold().startswith('gameserver/') for x in paths)
+        if source == 'client' and not has_client:
+            continue
+        if source == 'server' and not has_server:
+            continue
+        if source == 'linked' and not (has_server and has_client):
+            continue
         if terms and not all(t in _entity_search_text(e) for t in terms):
             continue
         out.append(_entity_summary(e))
+    matched = len(out)
     out = out[: max(1, min(2000, int(limit)))]
     counts = Counter(x.get('semantic_group') for x in entities)
     return {
@@ -908,6 +955,8 @@ def query_built_entities(
             'item_priority': 'runtime DorpItem + registry model/material relations; visual bundles do not merge runtime item identities',
         },
         'live_entity_count': len(entities),
+        'matched_entity_count': matched,
+        'extension_facets': dict(sorted(extension_facets.items())),
         'live_group_counts': dict(counts),
         'known_seed_entity_count': int((seed or {}).get('entity_count') or 0),
         'items': out,

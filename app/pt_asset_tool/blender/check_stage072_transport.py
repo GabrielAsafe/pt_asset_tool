@@ -11,6 +11,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from pt_asset_tool.stage072_corpus import parse_stage072
+from pt_asset_tool.stage072_uv_float32 import uv_transport_error
+from pt_asset_tool.stage072_position_float32 import position_transport_error
 
 UV_PREFIX = "PT_STAGE072_TEXLINK_STAGE_"
 COLOR_NAME = "PT_STAGE072_VERTEX_COLOR"
@@ -37,7 +39,11 @@ def main(argv):
     mesh = obj.data
     errors = []
     max_pos_error = 0.0
+    max_pos_python64_intermediate_delta = 0.0
+    max_light_pos_error = 0.0
+    max_light_python64_intermediate_delta = 0.0
     max_uv_error = 0.0
+    max_uv_python64_intermediate_delta = 0.0
     max_color_error = 0.0
 
     if obj.get("pt_stage072_source_sha256") != parsed["sha256"]:
@@ -48,11 +54,17 @@ def main(argv):
         errors.append(f"face count {len(mesh.polygons)} != {len(payload['faces'])}")
 
     for i, (v, src) in enumerate(zip(mesh.vertices, payload["vertices"])):
-        expected = (src["x"] / 256.0, src["y"] / 256.0, src["z"] / 256.0)
-        err = max(abs(float(v.co[j]) - expected[j]) for j in range(3))
+        # The importer passes exact fixed-point/256 Python numbers to Blender;
+        # MeshVertex.co persists float32. Compare the *persistable* value, not
+        # Python's wider intermediate, so a real one-ULP modification fails.
+        err, python64_delta = position_transport_error(
+            tuple(float(v.co[j]) for j in range(3)),
+            (src["x"], src["y"], src["z"]),
+        )
         max_pos_error = max(max_pos_error, err)
-        if err > 1e-6 and len(errors) < 20:
-            errors.append(f"vertex {i} position mismatch {err}")
+        max_pos_python64_intermediate_delta = max(max_pos_python64_intermediate_delta, python64_delta)
+        if err != 0.0 and len(errors) < 20:
+            errors.append(f"vertex {i} binary32 position mismatch {err}")
 
     depth_attr = mesh.attributes.get("PT_STAGE072_TEXLINK_DEPTH")
     mid_attr = mesh.attributes.get("PT_STAGE072_MATERIAL_ID")
@@ -79,12 +91,18 @@ def main(argv):
                 continue
             tl = payload["texlinks"][ti]
             for corner, li in enumerate(poly.loop_indices):
-                expected = (float(tl["u"][corner]), 1.0 - float(tl["v"][corner]))
                 got = layer.data[li].uv
-                err = max(abs(float(got[0])-expected[0]), abs(float(got[1])-expected[1]))
+                # Source V is binary32, but 1.0 - V is evaluated in binary64
+                # by Python. The Blender Float2 UV layer persists binary32.
+                # Compare the exact *persistable* value, without loosening
+                # the tolerance for real corruption of one or more UVs.
+                err, old_delta = uv_transport_error(
+                    (float(got[0]), float(got[1])), tl["u"][corner], tl["v"][corner]
+                )
                 max_uv_error = max(max_uv_error, err)
-                if err > 2e-6 and len(errors) < 20:
-                    errors.append(f"face {i} stage {stage} corner {corner} UV mismatch {err}")
+                max_uv_python64_intermediate_delta = max(max_uv_python64_intermediate_delta, old_delta)
+                if err != 0.0 and len(errors) < 20:
+                    errors.append(f"face {i} stage {stage} corner {corner} binary32 UV mismatch {err}")
 
     colors = mesh.color_attributes.get(COLOR_NAME)
     if colors is None:
@@ -102,9 +120,14 @@ def main(argv):
     if len(lights) != len(payload["lights"]):
         errors.append(f"light metadata count {len(lights)} != {len(payload['lights'])}")
     for i, (objl, src) in enumerate(zip(lights, payload["lights"])):
-        expected_pos = (src["x"]/256.0, src["y"]/256.0, src["z"]/256.0)
-        if max(abs(float(objl.location[j])-expected_pos[j]) for j in range(3)) > 1e-6 and len(errors) < 20:
-            errors.append(f"light {i} position mismatch")
+        light_err, light_python64_delta = position_transport_error(
+            tuple(float(objl.location[j]) for j in range(3)),
+            (src["x"], src["y"], src["z"]),
+        )
+        max_light_pos_error = max(max_light_pos_error, light_err)
+        max_light_python64_intermediate_delta = max(max_light_python64_intermediate_delta, light_python64_delta)
+        if light_err != 0.0 and len(errors) < 20:
+            errors.append(f"light {i} binary32 position mismatch {light_err}")
         for key in ("type", "x", "y", "z", "range", "r", "g", "b"):
             if int(objl.get(f"pt_stage072_{key}", -999999999)) != int(src[key]) and len(errors) < 20:
                 errors.append(f"light {i} metadata {key} mismatch")
@@ -143,7 +166,13 @@ def main(argv):
         "loops": len(mesh.loops),
         "max_texlink_depth": int(parsed["max_texlink_depth"]),
         "max_position_abs_error": max_pos_error,
+        "position_precision_policy": "EXACT_BINARY32_AFTER_FIXEDPOINT_DIV256",
+        "max_position_python64_intermediate_delta": max_pos_python64_intermediate_delta,
+        "max_light_position_abs_error": max_light_pos_error,
+        "max_light_python64_intermediate_delta": max_light_python64_intermediate_delta,
         "max_uv_abs_error": max_uv_error,
+        "uv_precision_policy": "EXACT_BINARY32_AFTER_V_FLIP",
+        "max_uv_python64_intermediate_delta": max_uv_python64_intermediate_delta,
         "max_color_abs_error": max_color_error,
         "light_metadata_count": len(lights),
         "errors": errors,

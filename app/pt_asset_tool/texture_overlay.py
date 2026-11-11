@@ -257,6 +257,31 @@ def prepare_texture_overlay(*, asset, resolver, root: pathlib.Path, work: pathli
         ext = src.suffix.lower()
         if ext == ".bmp" and src.read_bytes()[:2] != b"BM":
             raw = src.read_bytes()
+            # The physical Etervale corpus contains genuine JPEG/JFIF files
+            # under a .bmp name (e.g. mo_g_012_01.bmp).  Recognise by header
+            # and verify/decode with Pillow; never run protected-BMP transforms
+            # on a JPEG or rewrite the client file.
+            from .stage072_preview_jpeg import is_jfif_in_bmp, convert_jfif_bmp_preview
+            if is_jfif_in_bmp(raw):
+                try:
+                    jpeg = convert_jfif_bmp_preview(src, dst)
+                    rows.append({
+                        "logical": logical_n, "physical": str(src), "prepared": str(dst),
+                        "status": "JPEG_IN_BMP_PREVIEW_CONVERTED_RUNTIME_ALIAS" if runtime_alias else "JPEG_IN_BMP_PREVIEW_CONVERTED",
+                        "runtime_alias": runtime_alias, "required_by_faces": required,
+                        "affects_ready": required, **jpeg,
+                    })
+                except Exception as exc:
+                    if required:
+                        required_failures += 1
+                    else:
+                        historical_unused_failures += 1
+                    rows.append({
+                        "logical": logical_n, "physical": str(src),
+                        "status": "JPEG_IN_BMP_PREVIEW_DECODE_FAIL", "required_by_faces": required,
+                        "affects_ready": required, "error": f"{type(exc).__name__}: {exc}",
+                    })
+                continue
             legacy_exc = None
             try:
                 bmp = _load_bmp_core(root)
@@ -380,6 +405,7 @@ def prepare_texture_overlay(*, asset, resolver, root: pathlib.Path, work: pathli
 
 _STAGE072_PREPARED_OK = {
     "LINK_READY", "BMP_PROTECTED_DECODED", "BMP_SHIP_PROTECTED_DECODED", "TGA_READY",
+    "JPEG_IN_BMP_PREVIEW_CONVERTED", "JPEG_IN_BMP_PREVIEW_CONVERTED_RUNTIME_ALIAS",
     "LINK_READY_RUNTIME_ALIAS", "BMP_PROTECTED_DECODED_RUNTIME_ALIAS", "BMP_SHIP_PROTECTED_DECODED_RUNTIME_ALIAS", "TGA_READY_RUNTIME_ALIAS",
 }
 

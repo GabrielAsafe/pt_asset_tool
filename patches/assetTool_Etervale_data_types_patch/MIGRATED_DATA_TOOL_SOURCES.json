@@ -1,0 +1,776 @@
+{
+  "schema": "etervale.asset-tool-data-tool-import/v1",
+  "source_archive": "contentETools.zip",
+  "source_archive_sha256": "b0472e82878fae52dfff34d1bab6cdf246a9b3e7f4d05ea7df12974d9214fb5b",
+  "files": [
+    {
+      "origin": "tools/content_port/schemas/gameplay_config.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/gameplay_config.schema.json",
+      "source_sha256": "bca507f210642a72091825dc87f301a8971660708ec46fd97d3b7542596200e6",
+      "target_sha256": "bca507f210642a72091825dc87f301a8971660708ec46fd97d3b7542596200e6",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/localization_catalog.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/localization_catalog.schema.json",
+      "source_sha256": "8af9156b0b020a37df63b03c6f76ea9b83765ec46e6cb0bc8ebf96df786da0eb",
+      "target_sha256": "8af9156b0b020a37df63b03c6f76ea9b83765ec46e6cb0bc8ebf96df786da0eb",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/monster_definition.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/monster_definition.schema.json",
+      "source_sha256": "1dc1b6ac3f9c5af23ce154ce05cdf8fafb1916ddcdeb8ee395e8f73268033e7f",
+      "target_sha256": "1dc1b6ac3f9c5af23ce154ce05cdf8fafb1916ddcdeb8ee395e8f73268033e7f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/npc_definition.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/npc_definition.schema.json",
+      "source_sha256": "88953cffcf5026da74c6f260f430ab0c33440089dd57fee4d32b809f4778602f",
+      "target_sha256": "88953cffcf5026da74c6f260f430ab0c33440089dd57fee4d32b809f4778602f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/stage_spawn.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/stage_spawn.schema.json",
+      "source_sha256": "e07012df0574b16c039f59ea6cfed28e3308204f4cf3add113de3a53186c98e8",
+      "target_sha256": "e07012df0574b16c039f59ea6cfed28e3308204f4cf3add113de3a53186c98e8",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/fixed_npcs.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/fixed_npcs.schema.json",
+      "source_sha256": "ecbafaf74bad3c7e4262d1031b1a571032449d3b4f5f060b3d4573fe494efce9",
+      "target_sha256": "ecbafaf74bad3c7e4262d1031b1a571032449d3b4f5f060b3d4573fe494efce9",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/stage_start_points.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/stage_start_points.schema.json",
+      "source_sha256": "5a48a30aa2a7388335b501477078e0e668b4780efa6a942afb8686b5fa98b36a",
+      "target_sha256": "5a48a30aa2a7388335b501477078e0e668b4780efa6a942afb8686b5fa98b36a",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/map_catalog.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/map_catalog.schema.json",
+      "source_sha256": "5120176a32d715b7ad769eb0a972e25fc9ee0ca9dfdc75cf5de1169c945715de",
+      "target_sha256": "5120176a32d715b7ad769eb0a972e25fc9ee0ca9dfdc75cf5de1169c945715de",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/equipment_sets.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/equipment_sets.schema.json",
+      "source_sha256": "40353aac92509c2564f56f73415a03152398df323c5842bd0993b2a972338db7",
+      "target_sha256": "40353aac92509c2564f56f73415a03152398df323c5842bd0993b2a972338db7",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/experience_balance.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/experience_balance.schema.json",
+      "source_sha256": "4f2740ed4de0c2a9dbd41b5128eb1829024fee8ec80f2d020ae79d948aa8c91c",
+      "target_sha256": "4f2740ed4de0c2a9dbd41b5128eb1829024fee8ec80f2d020ae79d948aa8c91c",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/head_cosmetics.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/head_cosmetics.schema.json",
+      "source_sha256": "fa432b71ad345d8896d1d76d8b52d2858acef997e58537dc97a28a7ad4a0f157",
+      "target_sha256": "fa432b71ad345d8896d1d76d8b52d2858acef997e58537dc97a28a7ad4a0f157",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/model_config.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/model_config.schema.json",
+      "source_sha256": "4048196ce7a37bd309f263c7098685027fd7234a6bc32d3bde66331a417c9bc8",
+      "target_sha256": "4048196ce7a37bd309f263c7098685027fd7234a6bc32d3bde66331a417c9bc8",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/world_phases.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/world_phases.schema.json",
+      "source_sha256": "56ce1630ef8aceea30a48656e24c94480fa0582e297f5f3d79dd7c06bc251625",
+      "target_sha256": "56ce1630ef8aceea30a48656e24c94480fa0582e297f5f3d79dd7c06bc251625",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/world_story_campaigns.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/world_story_campaigns.schema.json",
+      "source_sha256": "c62595a8534720dded697852c1075b3c78c94edf6e380420458bd9c0de7ee934",
+      "target_sha256": "c62595a8534720dded697852c1075b3c78c94edf6e380420458bd9c0de7ee934",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/canonical_text_resource.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/canonical_text_resource.schema.json",
+      "source_sha256": "53d7025b7182a49ee57bb434360c22fe7fefe592e69c5bce7a0fc33846bdf382",
+      "target_sha256": "53d7025b7182a49ee57bb434360c22fe7fefe592e69c5bce7a0fc33846bdf382",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/schemas/item_definition.schema.json",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/schemas/item_definition.schema.json",
+      "source_sha256": "cc682ca99f5a1df0648f5ea3c501b3ae494d849fc2dca0dc654317ea128f9cce",
+      "target_sha256": "cc682ca99f5a1df0648f5ea3c501b3ae494d849fc2dca0dc654317ea128f9cce",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/tests/test_content_port.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/tests/test_content_port.py",
+      "source_sha256": "dfe6c54c538a96f9bec5333e7134b8908ca072468f155083b85fb4ad040d9a80",
+      "target_sha256": "dfe6c54c538a96f9bec5333e7134b8908ca072468f155083b85fb4ad040d9a80",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/tests/test_map_pipeline.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/tests/test_map_pipeline.py",
+      "source_sha256": "948ef395df58db331caac9d505bb167cd479688047b401ba0e8f3b7df49e970b",
+      "target_sha256": "948ef395df58db331caac9d505bb167cd479688047b401ba0e8f3b7df49e970b",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/tests/test_maps.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/tests/test_maps.py",
+      "source_sha256": "0dd1d2c779b5effb5532fd0d82031988a6bafe380ece5dd00c5a6fd5a457e0f3",
+      "target_sha256": "0dd1d2c779b5effb5532fd0d82031988a6bafe380ece5dd00c5a6fd5a457e0f3",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/tests/test_dynamic_map_capacity.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/tests/test_dynamic_map_capacity.py",
+      "source_sha256": "6706a47d7aa5ec3ce07ca6db990065583ff06567e6f315dfa41792f7c4052c91",
+      "target_sha256": "6706a47d7aa5ec3ce07ca6db990065583ff06567e6f315dfa41792f7c4052c91",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/tests/test_item_profile_policy.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/tests/test_item_profile_policy.py",
+      "source_sha256": "ebfa3221d6542ff5cb21f9c8e72f06f85cfd89491d96ef168b9c141fde461a3b",
+      "target_sha256": "ebfa3221d6542ff5cb21f9c8e72f06f85cfd89491d96ef168b9c141fde461a3b",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/tests/test_compile_stage_spawns_localization.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/tests/test_compile_stage_spawns_localization.py",
+      "source_sha256": "6a7625b3e8bd16a79b22d272c96abf1c360c3d79dafc0ada037d9b459dca580f",
+      "target_sha256": "6a7625b3e8bd16a79b22d272c96abf1c360c3d79dafc0ada037d9b459dca580f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/active_tokens.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/active_tokens.py",
+      "source_sha256": "7b084a84f27f134bfd61928f47c5c7cbfea2a508b2b8e96c950311572c102756",
+      "target_sha256": "7b084a84f27f134bfd61928f47c5c7cbfea2a508b2b8e96c950311572c102756",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/build_text_pipeline.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/build_text_pipeline.py",
+      "source_sha256": "0868abf5bedd40831c09fed7b877589084d533975c16ad1cce0e8c98424553a6",
+      "target_sha256": "0868abf5bedd40831c09fed7b877589084d533975c16ad1cce0e8c98424553a6",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/canonicalize_stage_spawns.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/canonicalize_stage_spawns.py",
+      "source_sha256": "d068efb4066935df142b29f88dac96bb21ebb96eb164f10ca8cfeffc8cdfcb1c",
+      "target_sha256": "d068efb4066935df142b29f88dac96bb21ebb96eb164f10ca8cfeffc8cdfcb1c",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/canonicalize_text_content.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/canonicalize_text_content.py",
+      "source_sha256": "b5d465f6da404cc750508925431268201992868b39d7fd9c39886e67865945ce",
+      "target_sha256": "b5d465f6da404cc750508925431268201992868b39d7fd9c39886e67865945ce",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/classify_migration_coverage.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/classify_migration_coverage.py",
+      "source_sha256": "b9955698854f397a77f030d4e95f5baaba68b9f42d2e1ffd145943b71304fb0e",
+      "target_sha256": "b9955698854f397a77f030d4e95f5baaba68b9f42d2e1ffd145943b71304fb0e",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compare_map_shadows.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compare_map_shadows.py",
+      "source_sha256": "6b0e563cb3141cff92e6b1f4d224efc7345f02e93ab036b56d83750eb8310750",
+      "target_sha256": "6b0e563cb3141cff92e6b1f4d224efc7345f02e93ab036b56d83750eb8310750",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_gameplay_config.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_gameplay_config.py",
+      "source_sha256": "fc026f256844a4234720fd71467b398933f31cd65fd40b9b45cba0e0362eae12",
+      "target_sha256": "fc026f256844a4234720fd71467b398933f31cd65fd40b9b45cba0e0362eae12",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_shadow.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_shadow.py",
+      "source_sha256": "f912c6ffe6f013d1f83fcf2ad091ae2504dd0237beea55fa65a09a4f0b560552",
+      "target_sha256": "f912c6ffe6f013d1f83fcf2ad091ae2504dd0237beea55fa65a09a4f0b560552",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_stage_spawns.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_stage_spawns.py",
+      "source_sha256": "c19a1ba47025186ebfe87366bdf3c40d651b2012d4f195e38e443150ce11d782",
+      "target_sha256": "c19a1ba47025186ebfe87366bdf3c40d651b2012d4f195e38e443150ce11d782",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/import_corpus.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/import_corpus.py",
+      "source_sha256": "64a04749eaa6c8ca7e5ca97873cbbaf97d6485110f03d83653761de2d84a9d23",
+      "target_sha256": "64a04749eaa6c8ca7e5ca97873cbbaf97d6485110f03d83653761de2d84a9d23",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_binary.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_binary.py",
+      "source_sha256": "a45aa459d56786a6b15d5191c4bb58fbbeae47e0af94a9847453878e185dbf4c",
+      "target_sha256": "a45aa459d56786a6b15d5191c4bb58fbbeae47e0af94a9847453878e185dbf4c",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_definitions.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_definitions.py",
+      "source_sha256": "19101cf5115c57c89ea43a9aa2fade1702ee42e67444bc17c3139f37dbccd973",
+      "target_sha256": "19101cf5115c57c89ea43a9aa2fade1702ee42e67444bc17c3139f37dbccd973",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_gameplay_config.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_gameplay_config.py",
+      "source_sha256": "de73ab48e442895167c12d9f97acd618985983c80dd345b18568d002bf662560",
+      "target_sha256": "de73ab48e442895167c12d9f97acd618985983c80dd345b18568d002bf662560",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_maps.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_maps.py",
+      "source_sha256": "9ea889a411f08082f7c8f614e9778e3a966db7d1d71fb33baf40dc74150a0a6c",
+      "target_sha256": "9ea889a411f08082f7c8f614e9778e3a966db7d1d71fb33baf40dc74150a0a6c",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/legacy_text.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/legacy_text.py",
+      "source_sha256": "dc593979601d9ea9590fa75290e3c7fefe0f8d87148b283fc01b0f5c633c7762",
+      "target_sha256": "dc593979601d9ea9590fa75290e3c7fefe0f8d87148b283fc01b0f5c633c7762",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/source_tokens.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/source_tokens.py",
+      "source_sha256": "366653e7ec61cff203d5641193b94bc49b15fba82f0d46357630e5bdaeaf3289",
+      "target_sha256": "366653e7ec61cff203d5641193b94bc49b15fba82f0d46357630e5bdaeaf3289",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_relations.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_relations.py",
+      "source_sha256": "17f624167fb44417992f0b8791715dd0ce193a99cb0c0a943b6692c370dc3f7a",
+      "target_sha256": "17f624167fb44417992f0b8791715dd0ce193a99cb0c0a943b6692c370dc3f7a",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_shadow.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_shadow.py",
+      "source_sha256": "bd69960d5f718f0f4d411f98eb25ce587aec3299aeb55179cddc214ad0b07cfa",
+      "target_sha256": "bd69960d5f718f0f4d411f98eb25ce587aec3299aeb55179cddc214ad0b07cfa",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_stage_spawns_canonical.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_stage_spawns_canonical.py",
+      "source_sha256": "6d5f431f8d0b2bf3c7cfc5ac89ab2ae46cc1f5caae8dde3303ecf801787d1348",
+      "target_sha256": "6d5f431f8d0b2bf3c7cfc5ac89ab2ae46cc1f5caae8dde3303ecf801787d1348",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_stage_spawns.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_stage_spawns.py",
+      "source_sha256": "2251820976835715d4e8bd5dbe057d50d5ee2edd62c5c5b0df4a24acf98f6515",
+      "target_sha256": "2251820976835715d4e8bd5dbe057d50d5ee2edd62c5c5b0df4a24acf98f6515",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/FIELD_RUNTIME_SFLD_V1.md",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/FIELD_RUNTIME_SFLD_V1.md",
+      "source_sha256": "f8b87190ca27a4b515eddb43b43e064c2de42fda2d21149d3348275961c1f87d",
+      "target_sha256": "f8b87190ca27a4b515eddb43b43e064c2de42fda2d21149d3348275961c1f87d",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_canonical_schemas.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_canonical_schemas.py",
+      "source_sha256": "2cc4253747931ce6807107b5541c18814a3f7d73e24ca70beca8db05c18bf97f",
+      "target_sha256": "2cc4253747931ce6807107b5541c18814a3f7d73e24ca70beca8db05c18bf97f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/migrate_field_runtime.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/migrate_field_runtime.py",
+      "source_sha256": "35f0eac11984e783bda84a1e0a84527f60dd693b68ee8ce5d6fa9f3d65f3637d",
+      "target_sha256": "35f0eac11984e783bda84a1e0a84527f60dd693b68ee8ce5d6fa9f3d65f3637d",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/import_field_runtime_legacy.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/import_field_runtime_legacy.py",
+      "source_sha256": "0a233c7d078cfaeb7a823f844ff4422227c5e05da0afb8f613342fd9f261eb37",
+      "target_sha256": "0a233c7d078cfaeb7a823f844ff4422227c5e05da0afb8f613342fd9f261eb37",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_gameplay_reference.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_gameplay_reference.py",
+      "source_sha256": "6a437c9f851f8f74242c2b8cce3c19a877c760a6c4f7f1f0d73d1274bc8e230a",
+      "target_sha256": "6a437c9f851f8f74242c2b8cce3c19a877c760a6c4f7f1f0d73d1274bc8e230a",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/fix_amanda_enzo_canonical.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/fix_amanda_enzo_canonical.py",
+      "source_sha256": "ed790d19d1c9f5de089d87c586a98ed2d38a7bf5fa5076ea193f9144a79e1d5f",
+      "target_sha256": "ed790d19d1c9f5de089d87c586a98ed2d38a7bf5fa5076ea193f9144a79e1d5f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_gameplay_reference.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_gameplay_reference.py",
+      "source_sha256": "7515f0c2cbaedc8305cbf7ffebefe0042768d0859922e5bec917f8d5c31d9b2d",
+      "target_sha256": "7515f0c2cbaedc8305cbf7ffebefe0042768d0859922e5bec917f8d5c31d9b2d",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/fix_amanda_enzo_identity_v3.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/fix_amanda_enzo_identity_v3.py",
+      "source_sha256": "c6c8cad7a86afbbee4fa4c1ae39eb9d84aa1e982227803a5b32ff9d2c325240b",
+      "target_sha256": "c6c8cad7a86afbbee4fa4c1ae39eb9d84aa1e982227803a5b32ff9d2c325240b",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_gameplay_closure.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_gameplay_closure.py",
+      "source_sha256": "c960e4eba1c3f33b908922f92fc5816b51eb33ca13e56567080f77f5c0194620",
+      "target_sha256": "c960e4eba1c3f33b908922f92fc5816b51eb33ca13e56567080f77f5c0194620",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_maps.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_maps.py",
+      "source_sha256": "8e8ee5ae5593ba00c643f02d5ad8adf72bed1adf3b4ac688fa590677913733eb",
+      "target_sha256": "8e8ee5ae5593ba00c643f02d5ad8adf72bed1adf3b4ac688fa590677913733eb",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/semanticize_maps.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/semanticize_maps.py",
+      "source_sha256": "1aa168edcd5f49062c7f9a667750094187cc2e83cbe4e2a1cdc76920b9f508bf",
+      "target_sha256": "1aa168edcd5f49062c7f9a667750094187cc2e83cbe4e2a1cdc76920b9f508bf",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/extract_legacy_maps.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/extract_legacy_maps.py",
+      "source_sha256": "27fc69218f4b8a667ea10d0396ef1dc9db22690af1550c4eb2dac77f087e96f0",
+      "target_sha256": "27fc69218f4b8a667ea10d0396ef1dc9db22690af1550c4eb2dac77f087e96f0",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/SMAP_V1.md",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/SMAP_V1.md",
+      "source_sha256": "bb98bb306a2f122f48697bf64bc5b3b09618b498c5f484947ec841a01819212d",
+      "target_sha256": "bb98bb306a2f122f48697bf64bc5b3b09618b498c5f484947ec841a01819212d",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/sync_model_config_catalog.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/sync_model_config_catalog.py",
+      "source_sha256": "307acc14a127268e96329ce5c0858b7a7590749de15eaf6f2ba21a166ce84a50",
+      "target_sha256": "307acc14a127268e96329ce5c0858b7a7590749de15eaf6f2ba21a166ce84a50",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_extended_content.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_extended_content.py",
+      "source_sha256": "ffa67215824c13a2f7fc089d76fc3664a996535c75a433e3cabee09b0c270f3a",
+      "target_sha256": "ffa67215824c13a2f7fc089d76fc3664a996535c75a433e3cabee09b0c270f3a",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_coin_shop.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_coin_shop.py",
+      "source_sha256": "550189f97eeab9afd3c985c1e69a5f84fec5ab42bdfc1a6833884d81a684c0ba",
+      "target_sha256": "550189f97eeab9afd3c985c1e69a5f84fec5ab42bdfc1a6833884d81a684c0ba",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_coin_shop.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_coin_shop.py",
+      "source_sha256": "e380395cb4fccc11e9bcdef4db8065072a260a8e8690e61493b1ff7b8fe059e5",
+      "target_sha256": "e380395cb4fccc11e9bcdef4db8065072a260a8e8690e61493b1ff7b8fe059e5",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/manage_npc_shop.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/manage_npc_shop.py",
+      "source_sha256": "d81e92957a523b32f43d57fcbb3c64939592870c446b80508ec4d94b6ce5edb1",
+      "target_sha256": "d81e92957a523b32f43d57fcbb3c64939592870c446b80508ec4d94b6ce5edb1",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/npc_shop_overrides.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/npc_shop_overrides.py",
+      "source_sha256": "759b84780e448bf9e33ce6a459b01b37d4deefcd71f767f6e1924c9e9086a2db",
+      "target_sha256": "759b84780e448bf9e33ce6a459b01b37d4deefcd71f767f6e1924c9e9086a2db",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_coin_shop_catalog.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_coin_shop_catalog.py",
+      "source_sha256": "9959a946d23653ba40009a433ffd5bceb9c16c99e45c83e9b48ab4e48a10e550",
+      "target_sha256": "9959a946d23653ba40009a433ffd5bceb9c16c99e45c83e9b48ab4e48a10e550",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_npc_shop_catalog.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_npc_shop_catalog.py",
+      "source_sha256": "4d8c61cde195b4e9dc8813479e05f9564942ccdbb0d9a8ed31a35982927adc7c",
+      "target_sha256": "4d8c61cde195b4e9dc8813479e05f9564942ccdbb0d9a8ed31a35982927adc7c",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_wing_quest_authority.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_wing_quest_authority.py",
+      "source_sha256": "42be0cf8b7ed82d435537f0ca177e13d71e3fdcecd0b0917942cf7a850072efb",
+      "target_sha256": "42be0cf8b7ed82d435537f0ca177e13d71e3fdcecd0b0917942cf7a850072efb",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_build_reproducibility.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_build_reproducibility.py",
+      "source_sha256": "148e5ecb4a7e75d12c43c2a575cb003d212912c0d8c66231b84baed4b9d89e2e",
+      "target_sha256": "148e5ecb4a7e75d12c43c2a575cb003d212912c0d8c66231b84baed4b9d89e2e",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/materialize_localization_catalog.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/materialize_localization_catalog.py",
+      "source_sha256": "c8a41bd9e51829fdda03842076222ec7371f8793fda4ce08040500f39686469c",
+      "target_sha256": "c8a41bd9e51829fdda03842076222ec7371f8793fda4ce08040500f39686469c",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/sync_linked_text_resources_pt.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/sync_linked_text_resources_pt.py",
+      "source_sha256": "57405d07e5d0c9a72a9dfcec4cbb2473663a6b3dd3f0f7fb9e4c8583e6eb0c8b",
+      "target_sha256": "57405d07e5d0c9a72a9dfcec4cbb2473663a6b3dd3f0f7fb9e4c8583e6eb0c8b",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_canonical_text.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_canonical_text.py",
+      "source_sha256": "d218ac34c9079ff6d0fa651d994911c2088e3929a366bec0adf2fbf47806330a",
+      "target_sha256": "d218ac34c9079ff6d0fa651d994911c2088e3929a366bec0adf2fbf47806330a",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/recover_target_map_spawns.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/recover_target_map_spawns.py",
+      "source_sha256": "2b15d60b79c3bed3148b64de942086754fb8127dc553bdb9be51df471f9665ba",
+      "target_sha256": "2b15d60b79c3bed3148b64de942086754fb8127dc553bdb9be51df471f9665ba",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/README.md",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/README.md",
+      "source_sha256": "e53f038c204894fb59075cce982f935e7028a068106a8828621db8f5dc0943d9",
+      "target_sha256": "e53f038c204894fb59075cce982f935e7028a068106a8828621db8f5dc0943d9",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_definitions.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_definitions.py",
+      "source_sha256": "6cf93c1461ef77d523c9b627fd1db30cbf744706434d4ca902c9dca5c46023f7",
+      "target_sha256": "6cf93c1461ef77d523c9b627fd1db30cbf744706434d4ca902c9dca5c46023f7",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/item_profile_policy.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/item_profile_policy.py",
+      "source_sha256": "b6853ba1b1ca924dfbe2a8894a929163399a797ac3c19b0e8e3b1ce5816fbea7",
+      "target_sha256": "b6853ba1b1ca924dfbe2a8894a929163399a797ac3c19b0e8e3b1ce5816fbea7",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/materialize_item_profiles.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/materialize_item_profiles.py",
+      "source_sha256": "0c9966f27c44a5f78e3180fe2f75f4f432c5e7d65d7e3d07ef5ec50ca509dc3c",
+      "target_sha256": "0c9966f27c44a5f78e3180fe2f75f4f432c5e7d65d7e3d07ef5ec50ca509dc3c",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_compiled_item_materialization.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_compiled_item_materialization.py",
+      "source_sha256": "079ecb609a2febeb5734bbef79c80f4fc99c238e4f161980851bc5326921dd20",
+      "target_sha256": "079ecb609a2febeb5734bbef79c80f4fc99c238e4f161980851bc5326921dd20",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_monster_runtime_limits.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_monster_runtime_limits.py",
+      "source_sha256": "0a9fdfcc6a0a2c91cfa6ac2651ed4024cb12d7765f71a7c781f610522cafc965",
+      "target_sha256": "0a9fdfcc6a0a2c91cfa6ac2651ed4024cb12d7765f71a7c781f610522cafc965",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_single_entry_map_policy.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_single_entry_map_policy.py",
+      "source_sha256": "7f7e715afcf91992ab6cc59b36b8f2c08c4969baf8d7c3cb48281c9d92deee19",
+      "target_sha256": "7f7e715afcf91992ab6cc59b36b8f2c08c4969baf8d7c3cb48281c9d92deee19",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_skin_reforms.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_skin_reforms.py",
+      "source_sha256": "bfcafaacafec546b51b9d4707f6b95055c1738179b23250923191daa772846fd",
+      "target_sha256": "bfcafaacafec546b51b9d4707f6b95055c1738179b23250923191daa772846fd",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/consolidate_canonical_content.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/consolidate_canonical_content.py",
+      "source_sha256": "95e204259675aeaddffb4264a1c3d6369a2b23ee793b5280c8fb4c1ab34cda1f",
+      "target_sha256": "95e204259675aeaddffb4264a1c3d6369a2b23ee793b5280c8fb4c1ab34cda1f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/sync_item_profile_382a.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/sync_item_profile_382a.py",
+      "source_sha256": "0795c0ba22c4e17955479f5bed345f0d237066267f5928ebe3d829d4d820e4d4",
+      "target_sha256": "0795c0ba22c4e17955479f5bed345f0d237066267f5928ebe3d829d4d820e4d4",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/client_profile_map_383a.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/client_profile_map_383a.py",
+      "source_sha256": "65771117e18daeec1b0e9dc1f9912b3855453743b06b096e6a08cd06ef7caa15",
+      "target_sha256": "65771117e18daeec1b0e9dc1f9912b3855453743b06b096e6a08cd06ef7caa15",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/sync_client_profile_383a.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/sync_client_profile_383a.py",
+      "source_sha256": "efa81dc085a9f98b7cf059dffded0c73da375c8702f52c597646872da6bbda81",
+      "target_sha256": "efa81dc085a9f98b7cf059dffded0c73da375c8702f52c597646872da6bbda81",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_item_profile_pack.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_item_profile_pack.py",
+      "source_sha256": "a93c1ed2ba0ac357a4cd04f38d9548ca2ce4e5f970b646cbc70c181d03139df0",
+      "target_sha256": "a93c1ed2ba0ac357a4cd04f38d9548ca2ce4e5f970b646cbc70c181d03139df0",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_field_runtime.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_field_runtime.py",
+      "source_sha256": "83252434bc63d66ff8dd837e7e477b44faedbd88b6d1f8c551514134d252da44",
+      "target_sha256": "f769524fd4e1a7c3b0ff3b6466b248100581480366b0b2bf5b6a269fe6d9c9d8",
+      "adapted": true
+    },
+    {
+      "origin": "tools/content_port/inspect_field_runtime.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_field_runtime.py",
+      "source_sha256": "e1e44f81ce516bbb75f021330dc5bf858c7ca99905606c1abbbdec65241c4acc",
+      "target_sha256": "e1e44f81ce516bbb75f021330dc5bf858c7ca99905606c1abbbdec65241c4acc",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/build_gm_spawn_runtime_386a.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/build_gm_spawn_runtime_386a.py",
+      "source_sha256": "330468651d2a652e938e7ca1c60c3ef73b524215b84f44261394acd1839caa7f",
+      "target_sha256": "330468651d2a652e938e7ca1c60c3ef73b524215b84f44261394acd1839caa7f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/content_analizer_validator_compiler_publisher.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/content_analizer_validator_compiler_publisher.py",
+      "source_sha256": "802accf175c634d6a9b5d7e0c155eb40d38b01fad8c5529c2c90e3c9457b716a",
+      "target_sha256": "802accf175c634d6a9b5d7e0c155eb40d38b01fad8c5529c2c90e3c9457b716a",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_item_visual_registry.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_item_visual_registry.py",
+      "source_sha256": "8cf60c03a4f347fd4347d8fbf5f79f955151553451e56a603143d9ce1128ce04",
+      "target_sha256": "8cf60c03a4f347fd4347d8fbf5f79f955151553451e56a603143d9ce1128ce04",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_visual_bindings_v2.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_visual_bindings_v2.py",
+      "source_sha256": "dd0abae43f90771436080d539cb6691fa9d9fa40772ad81fa2e4757d6e6740ca",
+      "target_sha256": "dd0abae43f90771436080d539cb6691fa9d9fa40772ad81fa2e4757d6e6740ca",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/build_from_canonical.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/build_from_canonical.py",
+      "source_sha256": "157a1f4577e622723bf5a854264ac1d126a88a7b8d14a4b59962d2f07fd11e3e",
+      "target_sha256": "157a1f4577e622723bf5a854264ac1d126a88a7b8d14a4b59962d2f07fd11e3e",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_localization.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_localization.py",
+      "source_sha256": "c6abf5aa99400b5a8afe0a40f2b0fe7eb980aa133a744034469fd92d8b043ea5",
+      "target_sha256": "c6abf5aa99400b5a8afe0a40f2b0fe7eb980aa133a744034469fd92d8b043ea5",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/compile_text_resources.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/compile_text_resources.py",
+      "source_sha256": "d62b665486eddbaffb8f131ccc07b3696c6332fb1f0eebc8b1a26904d0bf22ad",
+      "target_sha256": "d62b665486eddbaffb8f131ccc07b3696c6332fb1f0eebc8b1a26904d0bf22ad",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/deploy_runtime_content.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/deploy_runtime_content.py",
+      "source_sha256": "66e8d9517cc95d7e948963f3f6211fb12d0632f381387ef47306d4fac0316d19",
+      "target_sha256": "66e8d9517cc95d7e948963f3f6211fb12d0632f381387ef47306d4fac0316d19",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_localization.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_localization.py",
+      "source_sha256": "60c3a614d4cfe58dca857af9be53178bffaebdd27e646c576f0fe71d569bc237",
+      "target_sha256": "60c3a614d4cfe58dca857af9be53178bffaebdd27e646c576f0fe71d569bc237",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/inspect_text_resources.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/inspect_text_resources.py",
+      "source_sha256": "355f899ca61772126c930973febcafa27eee04c58eefb437a8f0585aa03f3bf4",
+      "target_sha256": "355f899ca61772126c930973febcafa27eee04c58eefb437a8f0585aa03f3bf4",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/quarantine_legacy_runtime_content.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/quarantine_legacy_runtime_content.py",
+      "source_sha256": "f32b7df95e503b851a0bcf6da8bd8c6372b8ee5684f7d0438797346d3d18fc9f",
+      "target_sha256": "f32b7df95e503b851a0bcf6da8bd8c6372b8ee5684f7d0438797346d3d18fc9f",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_internal_runtime_contract.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_internal_runtime_contract.py",
+      "source_sha256": "70d1a0b426008da56ed137b89a0889ff514861ce5a251685b647e1f19b1fc0dd",
+      "target_sha256": "70d1a0b426008da56ed137b89a0889ff514861ce5a251685b647e1f19b1fc0dd",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_legacy_localization_bridge.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_legacy_localization_bridge.py",
+      "source_sha256": "8afec993cdf7162c15f6c964ceecf7b6b84ade348b81db8461985dde2e768964",
+      "target_sha256": "8afec993cdf7162c15f6c964ceecf7b6b84ade348b81db8461985dde2e768964",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/validate_runtime_pack_resolution.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/validate_runtime_pack_resolution.py",
+      "source_sha256": "3c98addbdb85ea8ee9e65c351c3d0ba8fd543aadb7a4f1fb1f2d210778919921",
+      "target_sha256": "3c98addbdb85ea8ee9e65c351c3d0ba8fd543aadb7a4f1fb1f2d210778919921",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_port/sres_embedded_localization.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_port/sres_embedded_localization.py",
+      "source_sha256": "a3b706d252c84de8413268beecc1b940d8f9d3671ec5f424e0c70ea4f8eab735",
+      "target_sha256": "a3b706d252c84de8413268beecc1b940d8f9d3671ec5f424e0c70ea4f8eab735",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_workbench/summit_content_workbench.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_workbench/summit_content_workbench.py",
+      "source_sha256": "5b343726394055a05a4f0fb7d56df4aace82297407363defeb6194a137e272b9",
+      "target_sha256": "5b343726394055a05a4f0fb7d56df4aace82297407363defeb6194a137e272b9",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_workbench/README.md",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_workbench/README.md",
+      "source_sha256": "688ce0197e804615335e4e4acf8d35fe9b55c7a0b936d933e44473ef0546aff8",
+      "target_sha256": "688ce0197e804615335e4e4acf8d35fe9b55c7a0b936d933e44473ef0546aff8",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_workbench/summit_content_workbench_v2.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_workbench/summit_content_workbench_v2.py",
+      "source_sha256": "f56910fe6e863daf1d011637df66f9e4ebe697b6f06f150c45f064c5b2b5bdbd",
+      "target_sha256": "f56910fe6e863daf1d011637df66f9e4ebe697b6f06f150c45f064c5b2b5bdbd",
+      "adapted": false
+    },
+    {
+      "origin": "tools/content_workbench/README_V2.md",
+      "target": "app/pt_asset_tool/legacy_data_tools/content_workbench/README_V2.md",
+      "source_sha256": "b9a6ed08bc155ff5b1e150e5a94e1b66e67582151b295ce7a94d61ec48b88db5",
+      "target_sha256": "b9a6ed08bc155ff5b1e150e5a94e1b66e67582151b295ce7a94d61ec48b88db5",
+      "adapted": false
+    },
+    {
+      "origin": "tools/inspect_native_ase_265.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/ase_inspect/inspect_native_ase_265.py",
+      "source_sha256": "2fbb1e54db590e74c28ab479505d8c930439baa56bc1fef4915fd8b3eea008d9",
+      "target_sha256": "2fbb1e54db590e74c28ab479505d8c930439baa56bc1fef4915fd8b3eea008d9",
+      "adapted": false
+    },
+    {
+      "origin": "tools/inspect_ase_geometry_uv_266.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/ase_inspect/inspect_ase_geometry_uv_266.py",
+      "source_sha256": "17379eb879a4bcd567e046cd9b3609cb76c9f785ff430a1da3f1030e38e85c43",
+      "target_sha256": "17379eb879a4bcd567e046cd9b3609cb76c9f785ff430a1da3f1030e38e85c43",
+      "adapted": false
+    },
+    {
+      "origin": "tools/inspect_ase_face_material_269.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/ase_inspect/inspect_ase_face_material_269.py",
+      "source_sha256": "67eee31747500313c95476c4a7e54330675d3f13d59736f4abcc9dd23aec6626",
+      "target_sha256": "67eee31747500313c95476c4a7e54330675d3f13d59736f4abcc9dd23aec6626",
+      "adapted": false
+    },
+    {
+      "origin": "tools/inspect_ase_materialless_271.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/ase_inspect/inspect_ase_materialless_271.py",
+      "source_sha256": "e9e6bdb69cf49a6af21fc9201ac370ecd3a0cb8591eba0d4f291a393b97d755e",
+      "target_sha256": "e9e6bdb69cf49a6af21fc9201ac370ecd3a0cb8591eba0d4f291a393b97d755e",
+      "adapted": false
+    },
+    {
+      "origin": "tools/inspect_ase_bone_hierarchy_273.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/ase_inspect/inspect_ase_bone_hierarchy_273.py",
+      "source_sha256": "7b04ce90fdb73cdf937dd339d362e1d14e2c7a87a546ba298347ae64092a95ab",
+      "target_sha256": "7b04ce90fdb73cdf937dd339d362e1d14e2c7a87a546ba298347ae64092a95ab",
+      "adapted": false
+    },
+    {
+      "origin": "tools/inspect_ase_empty_material_274.py",
+      "target": "app/pt_asset_tool/legacy_data_tools/ase_inspect/inspect_ase_empty_material_274.py",
+      "source_sha256": "82d2cd7593ba24521a19adcdc0faaf43cd750a365fd1ef831d4aec6e999dcfcf",
+      "target_sha256": "82d2cd7593ba24521a19adcdc0faaf43cd750a365fd1ef831d4aec6e999dcfcf",
+      "adapted": false
+    }
+  ],
+  "adaptations": [
+    {
+      "file": "app/pt_asset_tool/legacy_data_tools/content_port/compile_field_runtime.py",
+      "reason": "in-process nested Python invocation supports frozen portable build"
+    }
+  ]
+}

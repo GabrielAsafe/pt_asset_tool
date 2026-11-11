@@ -1,0 +1,29 @@
+{
+  "format": "PT_ASSET_INCREMENTAL_PATCH_V1",
+  "patch_id": "etervale-v19-stage072-view-f32-stable-rebase",
+  "base": "ETERVALE_V18_STAGE072_POSICAO_FLOAT32",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/open_stage072_preview.py",
+      "kind": "modified",
+      "old_sha256": "da4eb4016f70dfd0f18f0dbbb733a0aa1b72774a06869dd5a6bcea172e81ad17",
+      "sha256": "851850044afee10486c3cae900a1c97cd399fbf9df8c445851b5db0c1759cf9c"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_view_paint_v12.py",
+      "kind": "modified",
+      "old_sha256": "e5780151a96d13efbc81661cf22e3611f483daf0f5ed0be812cd56910ef5a8a0",
+      "sha256": "ea37294a2e4fd9ca9ba4dfe61880346914ed1f3e48219740821a0d47f9923464"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_view_rebase_f32_v19.py",
+      "kind": "new",
+      "sha256": "7bd871f7b29f2b468a4071703756b34ac59fc241306ef4f03d39c26a870605cb"
+    },
+    {
+      "path": "docs/etervale/V19_STAGE072_STABLE_FLOATING_ORIGIN_VIEW.md",
+      "kind": "new",
+      "sha256": "4f5bdbf24d738c8d1aaebb534a47833c4b2947b4a48b31e28c7f76987d17ccb5"
+    }
+  ]
+}

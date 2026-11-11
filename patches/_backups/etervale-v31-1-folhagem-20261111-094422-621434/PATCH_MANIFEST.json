@@ -1,0 +1,30 @@
+{
+  "patch_id": "etervale-v31-1-assisted-pick-light-review-stability",
+  "description": "V31.1: bounded pixel-snap picking, hide heavy LOD0 preview during editing, lightweight highlight and incremental face masks, preserving V31 JSON and Stage",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/environment_residual_v31.py",
+      "kind": "modified",
+      "old_sha256": "189cada9e86463874571ded20fdc0eaf31d14ec460eebd8b90448bf9bb871bcc",
+      "sha256": "99441bc42f0d97c907f6114a6571269fad031aaa39f5bddba17ab3699e87d7bc"
+    },
+    {
+      "path": "app/pt_asset_tool/residual_review_v31_1.py",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "6518ff8d8f75b238b80b63a4b6d1542937839b1b9a03a8ee781072217342f20a"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_environment_v31_1_stability.py",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "bbe8b44fed15e761b4ca0b4be04e0f5a86385e79b0a6a4821a7a32602c7805be"
+    },
+    {
+      "path": "docs/etervale/V31_1_CLIQUE_LEVE_E_ESTABILIDADE.md",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "acaf03ab993b59188c30b921e3327d751ce8378e2a2e0d8db80b1bff8b276c10"
+    }
+  ]
+}

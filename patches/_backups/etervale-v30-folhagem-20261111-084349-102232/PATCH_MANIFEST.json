@@ -1,0 +1,36 @@
+{
+  "description": "V30: optional 99-group LOD0 preview of residual foliage and wall-contact trial; one proxy; no runtime edits",
+  "files": [
+    {
+      "kind": "modified",
+      "old_sha256": "6062480f6d506825268e588d96d1d12a9e3370fe33b9ef388eea9e6d016e6580",
+      "path": "app/pt_asset_tool/blender/stage072_environment_v26.py",
+      "sha256": "f19c9f2776548fe2c2dc2a0615e0678eadf95c582ffbf5848b6130db9a8586b8"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/pt_asset_tool/blender/environment_wall_probe_v30.py",
+      "sha256": "05c88134ee8c235c3c1515a0e461d428d8092cb14bb7dca73c10da6ebfdd2437"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/pt_asset_tool/environment_batch_v30.py",
+      "sha256": "a5175a0701527d00f3e958a0bbce0d36fb9fc28a34f57b480f4c6e71b43a887b"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/dev_tests/test_etervale_environment_v30_coverage.py",
+      "sha256": "acce670f2aada4a340ebb38de21b8e2503fc62e5ee7caefca6521542759efde3"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "docs/etervale/V30_COBERTURA_FOLHAGEM_PAREDES.md",
+      "sha256": "196f1ef4eb66ded7b4364f5679ea36973a9236ba896b52cf3bdce3e16a20ff78"
+    }
+  ],
+  "patch_id": "etervale-v30-full-foliage-and-wall-trial-preview"
+}

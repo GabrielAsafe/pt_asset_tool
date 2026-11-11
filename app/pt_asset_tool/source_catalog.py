@@ -75,15 +75,23 @@ def configured_source_roots(
     except Exception:
         cfg = {}
 
+    # The old Summit C/C++ scanner must not silently treat a persisted legacy
+    # source tree as the C# Etervale authority. In unified mode an explicit
+    # argument/environment override is still permitted for deliberate legacy
+    # investigations, but persisted legacy roots are ignored here.
+    from .app_config import configured_etervale_root
+    in_unified_mode = configured_etervale_root(project_root) is not None
+    configured_current = cfg.get('source_root') if not in_unified_mode else None
+    configured_reference = cfg.get('reference_source_root') if not in_unified_mode else None
     current = _safe_resolve(
         source_root
         or os.environ.get('PT_SOURCE_ROOT')
-        or (cfg.get('source_root') if isinstance(cfg.get('source_root'), str) else None)
+        or (configured_current if isinstance(configured_current, str) else None)
     )
     reference = _safe_resolve(
         reference_source_root
         or os.environ.get('PT_REFERENCE_SOURCE_ROOT')
-        or (cfg.get('reference_source_root') if isinstance(cfg.get('reference_source_root'), str) else None)
+        or (configured_reference if isinstance(configured_reference, str) else None)
     )
 
     out: list[SourceTree] = []

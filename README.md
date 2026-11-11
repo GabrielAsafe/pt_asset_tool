@@ -81,3 +81,13 @@ See `docs/tematicos/SUMMIT_ASSET_MIGRATION_AUDIT.md` and `RUN_SUMMIT_ASSET_MIGRA
 A versão atual inclui `app/pt_asset.py texture-material` para restaurar imagens à resolução atual (incluindo DEDXT 1× com pesos externos/verificados), gerar normal/height e demos parallax **offline**, fazer auditoria read-only de meshes e revisão de candidatos por hash. A interface inclui **Client / Enrichment → Texture Enhancement → Material Lab**. Não há publicação automática de mapas, nem alteração dos shaders do cliente. Consulte [a documentação do Material Lab](docs/tematicos/TEXTURE_MATERIAL_LAB_POS_UPSCALE.md) para comandos e limites do motor.
 
 Material Lab pós-upscale: instalação do patch cumulativo e manual detalhado em `docs/tematicos/MATERIAL_LAB_GUIA_FINAL_PATCH_CUMULATIVO.md`. O processo 1× não repete o upscale e a exportação `export-approved` destina-se apenas a testes offline; mapas/meshes in-game continuam não certificados.
+
+## Etervale data-format tooling import
+
+The legacy canonical data-format inspectors, compilers, JSON schemas and ASE readers
+from the previous source are now included under
+`app/pt_asset_tool/legacy_data_tools/`, with safe CLI entrypoints via
+`python3 app/pt_asset.py data-types --help`. The old `Content/` data is **not**
+automatically installed or treated as an Etervale runtime source. Native Etervale
+C# readers remain in their project and can be discovered through the single
+`Etervale-git` repository root. See `docs/etervale/DATA_TYPE_TOOLS.md`.

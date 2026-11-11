@@ -1,7 +1,17 @@
 from __future__ import annotations
 
+import math
+import pathlib
+import sys
+
 import bpy
-from mathutils import Matrix, Vector
+from mathutils import Matrix, Vector, Euler
+
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from pt_asset_tool.stage072_view_axes import GAME_TO_BLENDER_VIEW_MATRIX, VIEW_AXIS_PROFILE
+
 
 
 VIEW_COLLECTION = "PT_STAGE072_VIEW_PROXY"
@@ -82,11 +92,31 @@ def _build_stage_view_proxies(source_objects, center, view_scale):
     col = _new_collection(VIEW_COLLECTION)
     proxies = []
 
-    rebase = Matrix.Scale(float(view_scale), 4) @ Matrix.Translation(-center)
+    # Convert the legacy Y-up, left-handed Stage basis to Blender Z-up,
+    # right-handed coordinates. The determinant -1 fixes preview face winding
+    # (Ricarten ground is otherwise visible from underneath, not from above).
+    # Only this disposable proxy receives the transform: source mesh/SMD,
+    # face order, normals, texlinks and UV data stay unchanged.
+    # Float32 safety: never compose the huge absolute source translation with
+    # the small normalized scale before applying it to geometry. Blender's
+    # Matrix/mesh coordinates are binary32; precomposing scale @ translation
+    # loses low bits for stages placed far from the game-world origin (e.g.
+    # Field/Boss/dark_boss.smd, centre approximately X=198296, Z=241892).
+    #
+    # Sequential mesh transforms first bring the world coordinates near zero,
+    # then scale and convert Y-up to Blender Z-up. This preserves the existing
+    # determinant -1 / face-winding behavior and all UV/material attributes.
+    # Only the private proxy mesh is transformed; the source mesh is untouched.
+    axis_matrix = Matrix(GAME_TO_BLENDER_VIEW_MATRIX)
+    center_translation = Matrix.Translation(-center)
+    normalized_scale = Matrix.Scale(float(view_scale), 4)
     for idx, src in enumerate(source_objects):
         mesh = src.data.copy()
         mesh.name = f"{src.data.name}_VIEW_PROXY"
-        mesh.transform(rebase @ src.matrix_world)
+        mesh.transform(src.matrix_world)
+        mesh.transform(center_translation)
+        mesh.transform(normalized_scale)
+        mesh.transform(axis_matrix)
         mesh.update()
 
         name = VIEW_STAGE_PREFIX if idx == 0 else f"{VIEW_STAGE_PREFIX}_{idx:02d}"
@@ -97,8 +127,9 @@ def _build_stage_view_proxies(source_objects, center, view_scale):
         proxy["pt_stage072_view_only"] = True
         proxy["pt_stage072_source_object"] = src.name
         proxy["pt_stage072_source_world_center"] = [float(x) for x in center]
-        proxy["pt_stage072_view_transform"] = "VIEW_POSITION=(SOURCE_WORLD_POSITION-SOURCE_BOUNDS_CENTER)*VIEW_SCALE"
+        proxy["pt_stage072_view_transform"] = "BLENDER_VIEW=SWAP_YZ((SOURCE_WORLD_POSITION-SOURCE_BOUNDS_CENTER)*VIEW_SCALE)"
         proxy["pt_stage072_view_scale"] = float(view_scale)
+        proxy["pt_stage072_view_axis_profile"] = VIEW_AXIS_PROFILE
         proxies.append(proxy)
 
         src.hide_set(True)
@@ -116,13 +147,14 @@ def _build_light_view_proxies(center, view_scale):
         and not o.name.startswith(VIEW_LIGHT_PREFIX)
     ]
 
+    axis = Matrix(GAME_TO_BLENDER_VIEW_MATRIX).to_3x3()
     for src in source_lights:
         suffix = src.name.removeprefix("PT_STAGE072_LIGHT_")
         proxy = bpy.data.objects.new(f"{VIEW_LIGHT_PREFIX}{suffix}", None)
         proxy.empty_display_type = "SPHERE"
         proxy.empty_display_size = float(getattr(src, "empty_display_size", 1.0) or 1.0)
         source_world = src.matrix_world.translation.copy()
-        proxy.location = (source_world - center) * float(view_scale)
+        proxy.location = axis @ ((source_world - center) * float(view_scale))
         proxy.hide_render = True
         proxy["pt_stage072_view_proxy"] = True
         proxy["pt_stage072_view_only"] = True
@@ -130,6 +162,7 @@ def _build_light_view_proxies(center, view_scale):
         proxy["pt_stage072_source_world_location"] = [float(x) for x in source_world]
         proxy["pt_stage072_view_location"] = [float(x) for x in proxy.location]
         proxy["pt_stage072_view_scale"] = float(view_scale)
+        proxy["pt_stage072_view_axis_profile"] = VIEW_AXIS_PROFILE
         _copy_custom_properties(src, proxy)
         col.objects.link(proxy)
 
@@ -144,6 +177,11 @@ def _build_light_view_proxies(center, view_scale):
         source_col.hide_render = True
 
     return len(source_lights)
+
+
+def set_stage_view_rotation(region_3d):
+    """Start above the Y-up game ground (Blender +Z), with a slight tilt."""
+    region_3d.view_rotation = Euler((math.radians(38.0), 0.0, math.radians(-25.0)), 'XYZ').to_quaternion()
 
 
 def _configure_viewports(radius):
@@ -175,6 +213,7 @@ def _configure_viewports(radius):
             r3d = space.region_3d
             r3d.view_location = Vector((0.0, 0.0, 0.0))
             r3d.view_distance = max(10.0, radius * 1.35)
+            set_stage_view_rotation(r3d)
             try:
                 r3d.view_perspective = "PERSP"
             except Exception:
@@ -209,6 +248,8 @@ def configure_stage072_view():
     scene["pt_stage072_view_radius"] = float(view_radius)
     scene["pt_stage072_view_scale"] = float(view_scale)
     scene["pt_stage072_view_semantics"] = "DISPOSABLE_FLOATING_ORIGIN_SCALED_PROXY_SOURCE_DATA_UNCHANGED"
+    scene["pt_stage072_view_axis_profile"] = VIEW_AXIS_PROFILE
+    scene["pt_stage072_view_basis_determinant"] = -1
     scene["pt_stage072_view_offset"] = [float(-x) for x in center]
 
     # Avoid displaying the game coordinates as kilometres/metres in the viewer.
@@ -250,6 +291,7 @@ def configure_stage072_view():
     print(
         "PT_STAGE072_VIEW=PASS "
         "mode=FLOATING_ORIGIN_SCALED_PROXY "
+        f"axis_profile={VIEW_AXIS_PROFILE} face_winding=VIEW_ONLY_HANDEDNESS_CONVERTED "
         f"source_center=({center.x:.6f},{center.y:.6f},{center.z:.6f}) "
         f"source_dims=({dims.x:.6f},{dims.y:.6f},{dims.z:.6f}) "
         f"view_scale={view_scale:.9g} view_max_dim={source_max_dim * view_scale:.6f} "

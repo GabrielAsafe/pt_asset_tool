@@ -1,6 +1,7 @@
 # Machine-local/generated PT Asset Tool state
 app/pt_build/
-
+/patches
+/AssetsForAutomaticSubstitution
 # Python/test caches
 **/__pycache__/
 *.py[cod]

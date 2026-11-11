@@ -1,0 +1,39 @@
+{
+  "patch_id": "etervale-v24-stage072-trunk-guided-tree-groups",
+  "description": "Stage072 V24: trunk-guided regrouping of V23 leaf fragments, with review and Blender inspection",
+  "requires": "V23.1",
+  "source_assets_modified": false,
+  "files": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "sha256": "f9a329afad7dc0eab590ad27d90cdfa56a35fe79627d0a38039c5be72b538fb2",
+      "size": 36359,
+      "old_sha256": "ef8a011ca254e594287f4c0debfc387bdecd14522062ec60fe341dd43d284f79"
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/stage072_tree_groups_v24.py",
+      "sha256": "5e968178df899d071bb884d87f8dfe429088cba8c36ae3299c3284c60cbe255f",
+      "size": 10870
+    },
+    {
+      "kind": "new",
+      "path": "app/pt_asset_tool/blender/stage072_tree_group_v24.py",
+      "sha256": "0cd881ebc21e4b14661a5863df65db693f7fd23c22cabd78cfb602b6983274f6",
+      "size": 12711
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_stage072_tree_groups_v24.py",
+      "sha256": "707cbc34352e08b14ad46ee3e53e99f04560cabd878faa8f4f22f9b45cd1c26d",
+      "size": 5722
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/V24_AGRUPAR_FOLHAGEM_POR_TRONCO.md",
+      "sha256": "e1ca3937e713995d7af7dc0d00fd6ec77f0ec5b5bcaf97442be537baa935f935",
+      "size": 3613
+    }
+  ]
+}

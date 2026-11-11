@@ -1,0 +1,100 @@
+{
+  "schema": "etervale.asset-tool-data-types-validation/v1",
+  "scope": "legacy_compilers_vs_supplied_contentETools_zip",
+  "results": [
+    {
+      "type": "SMAP",
+      "imported_compiler_output": "client.maps.smap",
+      "legacy_reference_pack": "maps_client.smap",
+      "sha256": "8e58269f62754744712dae9a626005d379250d8d80370c700499499698f145a0",
+      "reference_sha256": "8e58269f62754744712dae9a626005d379250d8d80370c700499499698f145a0",
+      "byte_identical": true,
+      "bytes": 29560
+    },
+    {
+      "type": "SMAP",
+      "imported_compiler_output": "server.maps.smap",
+      "legacy_reference_pack": "maps_server.smap",
+      "sha256": "2c18f1e368c8e606991d199a9cd960d45a388db6979a790d3367fd038923ed36",
+      "reference_sha256": "2c18f1e368c8e606991d199a9cd960d45a388db6979a790d3367fd038923ed36",
+      "byte_identical": true,
+      "bytes": 29560
+    },
+    {
+      "type": "SCFG",
+      "imported_compiler_output": "definitions_client.scfg",
+      "legacy_reference_pack": "definitions_client.scfg",
+      "sha256": "ec5875c67497f6138357b9d7408b91219835312a3b008ef8b3ea2b2368b976cb",
+      "reference_sha256": "ec5875c67497f6138357b9d7408b91219835312a3b008ef8b3ea2b2368b976cb",
+      "byte_identical": true,
+      "bytes": 791227
+    },
+    {
+      "type": "SCFG",
+      "imported_compiler_output": "definitions_server.scfg",
+      "legacy_reference_pack": "definitions_server.scfg",
+      "sha256": "509abacf4b31e3614031eeab7e5a086d64950267ef6d7fdd0e99f6643fdc0f52",
+      "reference_sha256": "509abacf4b31e3614031eeab7e5a086d64950267ef6d7fdd0e99f6643fdc0f52",
+      "byte_identical": true,
+      "bytes": 872192
+    },
+    {
+      "type": "SRES",
+      "imported_compiler_output": "text.sres",
+      "legacy_reference_pack": "text_resources.sres",
+      "sha256": "4a3f8d85225f32718d613a9815b19dc83a0b89c4a8a1d1862743f0e87ce71dce",
+      "reference_sha256": "4a3f8d85225f32718d613a9815b19dc83a0b89c4a8a1d1862743f0e87ce71dce",
+      "byte_identical": true,
+      "bytes": 3422157
+    },
+    {
+      "type": "SGCF",
+      "imported_compiler_output": "text.sgcf",
+      "legacy_reference_pack": "gameplay_config.sgcf",
+      "sha256": "55067c012579aa34011eaf3a9839395b501ccce42c8e87e0b9607001124b1f77",
+      "reference_sha256": "55067c012579aa34011eaf3a9839395b501ccce42c8e87e0b9607001124b1f77",
+      "byte_identical": true,
+      "bytes": 37187
+    },
+    {
+      "type": "SGRF",
+      "imported_compiler_output": "gameplay_reference.sgrf",
+      "legacy_reference_pack": "gameplay_reference.sgrf",
+      "sha256": "50cc01ef5d6f3911011f163a9e39c7aac97ef4c8d334d7400bd46d85300f445f",
+      "reference_sha256": "50cc01ef5d6f3911011f163a9e39c7aac97ef4c8d334d7400bd46d85300f445f",
+      "byte_identical": true,
+      "bytes": 71792
+    },
+    {
+      "type": "SCSP",
+      "imported_compiler_output": "coin_shop.scsp",
+      "legacy_reference_pack": "coin_shop.scsp",
+      "sha256": "5e4617a3a3d8b59373a8a64827676853d9ee6dff4a7bf87976502de9d04f0232",
+      "reference_sha256": "5e4617a3a3d8b59373a8a64827676853d9ee6dff4a7bf87976502de9d04f0232",
+      "byte_identical": true,
+      "bytes": 5212
+    },
+    {
+      "type": "SSKM",
+      "imported_compiler_output": "skin_reforms.sskm",
+      "legacy_reference_pack": "skin_reforms.sskm",
+      "sha256": "ce6518d62f941d1ea54834eb07f0c3aa13e357938e64f34491df4f02d3d3e691",
+      "reference_sha256": "ce6518d62f941d1ea54834eb07f0c3aa13e357938e64f34491df4f02d3d3e691",
+      "byte_identical": true,
+      "bytes": 1480
+    },
+    {
+      "type": "SFLD",
+      "imported_compiler_output": "stage_spawns.sfld",
+      "legacy_reference_pack": "field_runtime.sfld",
+      "sha256": "1eda0634ef6d14240e6f07ce17a357668e0b1b2a3c7d2b20071ac74fcbb2c8b3",
+      "reference_sha256": "1eda0634ef6d14240e6f07ce17a357668e0b1b2a3c7d2b20071ac74fcbb2c8b3",
+      "byte_identical": true,
+      "bytes": 144408
+    }
+  ],
+  "byte_identical_count": 10,
+  "runtime_compatibility_etervale": "NOT_TESTED",
+  "native_cs_reader_execution": "NOT_TESTED",
+  "note": "Only legacy content compiler compatibility was tested; original unprofiled definitions.scfg output differs without profile options"
+}

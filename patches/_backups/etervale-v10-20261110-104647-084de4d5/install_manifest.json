@@ -1,0 +1,27 @@
+{
+  "format": "ETERVALE_PATCH_INSTALL_V1",
+  "patch": "/home/gabriel/Transfer\u00eancias/pt_asset_tool/patches/etervale_V10_SMD_COLLISION_CATALOG_LAYOUT_patch.zip",
+  "project": "/home/gabriel/Transfer\u00eancias/pt_asset_tool",
+  "changes": [
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/smd_preview_batch.py"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.js"
+    },
+    {
+      "kind": "modified",
+      "path": "app/pt_asset_tool/ui_static/app.css"
+    },
+    {
+      "kind": "new",
+      "path": "app/dev_tests/test_etervale_v10_smd_collision_catalog_layout.py"
+    },
+    {
+      "kind": "new",
+      "path": "docs/etervale/V10_SMD_COLLISION_CATALOG_LAYOUT.md"
+    }
+  ]
+}

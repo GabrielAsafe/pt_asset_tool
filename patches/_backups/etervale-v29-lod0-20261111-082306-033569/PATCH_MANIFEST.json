@@ -1,0 +1,30 @@
+{
+  "description": "Preview-only 56 trunk-bearing V24/V25 trees as collection instances of verified LOD0; Geometry Nodes face mask on existing V19 proxy, no game writes",
+  "files": [
+    {
+      "kind": "modified",
+      "old_sha256": "a1932be28e92ad2ac2ee2c3c933491132b3b2928047dc6c684511b7e9fd0f586",
+      "path": "app/pt_asset_tool/blender/stage072_environment_v26.py",
+      "sha256": "6062480f6d506825268e588d96d1d12a9e3370fe33b9ef388eea9e6d016e6580"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/pt_asset_tool/environment_batch_v29.py",
+      "sha256": "50c8fc1299d4a75ff14195c69cb15e23f9f82c5cdc594ca18788546d9b49ef5b"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "app/dev_tests/test_etervale_environment_v29_batch.py",
+      "sha256": "96bb6bb3378906c4800145e6dafee7c9735e85ee8202c8870872d2ff7eface2b"
+    },
+    {
+      "kind": "new",
+      "old_sha256": "",
+      "path": "docs/etervale/V29_TESTE_GLOBAL_LOD0_ARVORES.md",
+      "sha256": "b140678791b2766b80f584c304e800695714fe93f91f1e85eda9e566896cacdf"
+    }
+  ],
+  "patch_id": "etervale-v29-all-trunk-trees-shared-lod0-preview"
+}

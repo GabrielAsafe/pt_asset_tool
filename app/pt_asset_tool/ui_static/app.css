@@ -88,3 +88,177 @@ main{min-width:0;padding:22px 26px 38px}header{display:flex;justify-content:spac
 .donor-recovery-deploy{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(280px,1.3fr) auto;gap:8px;align-items:center;padding:10px 12px;border-top:1px solid var(--line)}
 @media(max-width:1000px){.donor-recovery-deploy{grid-template-columns:1fr}}
 .donor-recovery-diagnostic{margin:8px 0;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:12px;opacity:.9}
+
+/* Etervale V6: responsive catalog + workspace navigation, independent of browser zoom */
+#app,main,.tab,.panel,.catalog-layout,.catalog-panel{min-width:0;max-width:100%;box-sizing:border-box}
+.catalog-layout{grid-template-columns:minmax(0,1.65fr) minmax(0,0.9fr)}
+.catalog-panel{overflow:hidden}
+#tab-catalog .toolbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));align-items:center;gap:8px}
+#tab-catalog .toolbar>input,#tab-catalog .toolbar>select{min-width:0;width:100%;box-sizing:border-box;grid-column:auto}
+#tab-catalog .toolbar>#search{grid-column:span 2}
+#tab-catalog .toolbar>.check{white-space:normal}
+#tab-catalog .view-toggle{min-width:0;align-self:start}
+#tab-catalog .table-wrap{max-width:100%;overflow:auto}
+#tab-catalog table{min-width:760px}
+.catalog-advanced{align-self:center;min-width:0;color:var(--muted);font-size:11px}
+.catalog-advanced>summary{cursor:pointer;white-space:normal}
+.catalog-advanced .check{margin:8px 0;white-space:normal}
+.catalog-advanced small{display:block;line-height:1.4}
+.workspace-switcher{display:flex;gap:8px;flex-wrap:wrap;padding:10px;margin-bottom:12px;border:1px solid var(--line);border-radius:9px;background:var(--panel)}
+.workspace-switcher.hidden{display:none}
+.workspace-switcher button{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:9px 11px;color:var(--text);cursor:pointer}
+.workspace-switcher button.active{border-color:var(--accent);background:rgba(92,148,255,.15)}
+.validation-frame-panel{overflow:hidden}
+.validation-frame-panel iframe{display:block;width:100%;height:min(76vh,1100px);min-height:480px;border:0;background:var(--panel2)}
+#tab-entities .entity-toolbar{grid-template-columns:repeat(auto-fit,minmax(min(100%,175px),1fr));gap:8px;align-items:center}
+#tab-entities .entity-toolbar>#entitySearch{min-width:0;grid-column:span 2}
+#tab-entities .entity-toolbar>*{min-width:0;max-width:100%;box-sizing:border-box}
+.catalog-star{border:0;background:none;color:var(--muted);cursor:pointer;font-size:18px;line-height:1;padding:4px 8px}
+.catalog-star.on{color:#f4ca69}
+.catalog-star:focus-visible{outline:2px solid var(--accent);border-radius:6px}
+.entity-category-counts{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.entity-category-counts>span{color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:2px 5px;font-size:10px}
+.particle-motion-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 0}
+.particle-motion-controls button{background:var(--panel2);color:var(--text);border:1px solid var(--line);padding:6px 12px;border-radius:7px}
+@media(max-width:1450px){.catalog-layout{grid-template-columns:minmax(0,1fr)}.detail-panel{max-height:none}}
+@media(max-width:850px){#tab-catalog .toolbar>#search,#tab-entities .entity-toolbar>#entitySearch{grid-column:1/-1}}
+@media(max-width:550px){#tab-catalog .toolbar{grid-template-columns:minmax(0,1fr)}#tab-catalog .toolbar>#search{grid-column:auto}.workspace-switcher button{flex:1 1 100%}}
+
+/* V7: Etervale native surface + accessible particle layout; hidden is always respected */
+[hidden]{display:none !important}
+.etervale-legacy-only > summary {cursor:pointer; padding:12px 4px; font-weight:650}
+.etervale-contract-reference {opacity:.92}
+.etervale-ai-status {margin:10px 0 14px;overflow-wrap:anywhere}
+.particle-layout {display:grid;grid-template-columns:minmax(0, min(36%, 440px)) minmax(0,1fr);gap:14px;align-items:start;min-width:0}
+.particle-layout > *, .particle-detail {min-width:0;max-width:100%;overflow-wrap:anywhere}
+.particle-detail .server-explorer-table {max-width:100%;overflow-x:auto}
+#particleRows td.path {max-width:30rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#particleDetail .panel {min-width:0}
+#particleDetail input {min-width:0!important;max-width:100%}
+#particlePageInfo {white-space:nowrap}
+@media (max-width:880px){.particle-layout{grid-template-columns:minmax(0,1fr)}.particle-layout > .server-explorer-table{max-height:35vh !important}}
+@media (max-width:500px){#tab-particles .toolbar{display:flex;flex-wrap:wrap;gap:8px}#particleSearch{flex:1 1 100%;min-width:0}}
+
+/* V8: diagnostics only in Settings; safe responsive forms. */
+.settings-operations{border:1px solid var(--line);border-radius:10px;padding:12px;margin:14px 0;background:var(--panel2)}
+.settings-operations h3{margin:0 0 10px}.settings-operations p{overflow-wrap:anywhere}
+.settings-inline-form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.settings-inline-form input{flex:1 1 320px;min-width:0;max-width:100%}
+.smd-job-diagnostics{border-top:1px solid var(--line);margin:6px 12px;padding:7px 0}.smd-job-diagnostics summary{cursor:pointer;color:var(--muted)}
+.smd-job-diagnostics pre{max-height:190px;white-space:pre-wrap;overflow:auto;overflow-wrap:anywhere;font-size:11px;color:var(--muted)}
+@media(max-width:540px){.settings-inline-form{flex-direction:column;align-items:stretch}.settings-inline-form input{width:100%}}
+
+#entityNameDbStatus{overflow-wrap:anywhere}
+
+/* V9: bounded texture selection. Fits 390px and browser zoom. */
+.enhancement-selection{padding:12px;margin:12px;border:1px solid var(--line);border-radius:9px;min-width:0}
+.enhancement-selection-heading,.enhancement-selection-footer{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.enhancement-selection-controls{display:flex;align-items:end;flex-wrap:wrap;gap:8px;margin:12px 0}
+.enhancement-selection-controls label{display:flex;flex-direction:column;flex:1 1 180px;min-width:0;gap:4px}
+.enhancement-selection-controls label>input,.enhancement-selection-controls label>select{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+.enhancement-selection-controls button{flex:0 1 auto}
+.enhancement-file-list{display:grid;gap:2px;max-height:320px;overflow-y:auto;overflow-x:hidden;min-width:0;padding:5px;border:1px solid var(--line);border-radius:6px}
+.enhancement-file-row{display:flex;gap:8px;align-items:flex-start;min-width:0;padding:5px 7px;border-radius:5px;overflow-wrap:anywhere}
+.enhancement-file-row:hover{background:var(--panel2)}
+.enhancement-file-row input{flex:0 0 auto;margin-top:3px}
+.enhancement-file-row span{min-width:0;overflow-wrap:anywhere;word-break:break-word}
+.enhancement-selection-footer{margin:9px 0}
+.enhancement-selection>.micro{padding:0!important;margin:8px 0 0!important}
+@media(max-width:550px){.enhancement-selection-controls button{flex:1 1 100%}.enhancement-file-list{max-height:260px}}
+
+
+/* Etervale V10: shared viewport height; only inner asset areas scroll.
+   In a narrow viewport the panels stack, each with its own scroll. */
+#tab-catalog .catalog-layout {
+  grid-template-columns:minmax(0,1.6fr) minmax(300px,.95fr);
+  grid-template-rows:minmax(0,1fr);
+  align-items:stretch;
+  min-height:0;
+  height:var(--catalog-viewport-height,calc(100dvh - 220px));
+  gap:12px;
+}
+#tab-catalog .catalog-panel {
+  display:grid;
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+  min-height:0; height:100%; overflow:hidden;
+}
+#tab-catalog .catalog-panel > .table-wrap,
+#tab-catalog .catalog-panel > .gallery {
+  height:auto; max-height:none; min-height:0; min-width:0;
+  overflow:auto; overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+#tab-catalog .detail-panel {
+  min-height:0; max-height:none; height:100%;
+  overflow:auto; overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+#tab-catalog #catalogSmdPreviewTools {min-width:0; max-height:min(190px,35dvh);overflow-y:auto;box-sizing:border-box}
+#tab-catalog .catalog-panel > .toolbar {min-width:0; max-height:34dvh;overflow-y:auto}
+@media (max-width:1180px) {
+  #tab-catalog .catalog-layout {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto auto; height:auto; min-height:0;
+  }
+  #tab-catalog .catalog-panel {
+    height:min(76dvh,680px); min-height:310px;
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+  }
+  #tab-catalog .detail-panel {height:auto;min-height:260px;max-height:min(60dvh,550px)}
+}
+@media (max-width:550px) {
+  #tab-catalog .catalog-panel {height:min(85dvh,680px);min-height:300px}
+  #tab-catalog .catalog-panel > .toolbar {max-height:31dvh}
+  #tab-catalog #catalogSmdPreviewTools {max-height:28dvh}
+}
+/* ETERVALE_V11_GALLERY_IMAGE_RATIO_BEGIN
+ * Repara o catálogo após o layout de altura fixa V10.
+ * A área de scroll pode ter altura fixa; os cartões dentro dela NÃO podem
+ * repartir essa altura entre todas as linhas da página.
+ * Isto não altera nem reprocessa nenhuma imagem ou preview SMD.
+ */
+#tab-catalog #galleryMode.gallery {
+  /* Os tracks do grid crescem com o conteúdo, não encolhem até zero. */
+  grid-template-rows: none !important;
+  grid-auto-rows: max-content !important;
+  align-content: start !important;
+  align-items: start !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+#tab-catalog #galleryMode.gallery > .asset-card {
+  /* Nunca repartir a altura da viewport pelos cartões. */
+  height: auto !important;
+  min-height: 0;
+  max-height: none !important;
+  align-self: start !important;
+  display: block !important;
+  overflow: hidden;
+}
+#tab-catalog #galleryMode.gallery > .asset-card > .thumb {
+  /* Reservar a altura real da miniatura independentemente do número de linhas. */
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: 118px !important;
+  min-height: 118px !important;
+  max-height: 118px !important;
+  flex: 0 0 118px !important;
+  overflow: hidden;
+}
+#tab-catalog #galleryMode.gallery > .asset-card > .thumb > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+}
+#tab-catalog #galleryMode.gallery > .asset-card > .card-body {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden;
+}
+/* ETERVALE_V11_GALLERY_IMAGE_RATIO_END */

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://summit.local/schemas/world_story_campaigns.schema.json",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "campaigns"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "summit.world-story-campaigns/v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "active_runtime": {
+      "type": "boolean"
+    },
+    "campaigns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/campaign"
+      }
+    }
+  },
+  "$defs": {
+    "objective": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "target"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "kill_monster",
+            "turn_in_item",
+            "complete_quest",
+            "interact_npc",
+            "event_score",
+            "custom_counter"
+          ]
+        },
+        "target": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "subject_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "per_player_cap": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    },
+    "phase": {
+      "type": "object",
+      "required": [
+        "value",
+        "next_value",
+        "objectives"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "next_value": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "objectives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/objective"
+          }
+        }
+      }
+    },
+    "campaign": {
+      "type": "object",
+      "required": [
+        "id",
+        "phase_flag",
+        "monotonic",
+        "phases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^world\\."
+        },
+        "phase_flag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "monotonic": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "phases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/phase"
+          }
+        }
+      }
+    }
+  }
+}

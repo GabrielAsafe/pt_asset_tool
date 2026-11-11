@@ -1,0 +1,39 @@
+{
+  "format": "PT_ASSET_INCREMENTAL_PATCH_V1",
+  "patch_id": "etervale-v14-stage072-uv-binary32-residual-triage",
+  "base": "ETERVALE_V13_STAGE072_TODOS_MAPAS",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/check_stage072_transport.py",
+      "kind": "modified",
+      "old_sha256": "5f982039df73c1c260f58bfd3467a087246668117a812f62004f5063f1a4b5ef",
+      "sha256": "06882fa15cf38973bb11fb1284e24a0b1bf0e3399ea5b29b096e0c04376e597d"
+    },
+    {
+      "path": "app/pt_asset_tool/validation.py",
+      "kind": "modified",
+      "old_sha256": "4c25732c3934f62df81416c0049ec5d6950a60af90ae76bed9659d7be2746f05",
+      "sha256": "f1c690885fdd315d9bc4177da6dbc0eb85f1df6267c60f7fbb2fe329aaa9ba89"
+    },
+    {
+      "path": "app/pt_asset_tool/stage072_uv_float32.py",
+      "kind": "new",
+      "sha256": "344aa807a0f920ac8332d8c793650db0f0802eaa0ec4239b254caef31c4213a1"
+    },
+    {
+      "path": "app/pt_stage072_v14_residual_triage.py",
+      "kind": "new",
+      "sha256": "b1b6a6537072c5737c95b9edbcbf352499f654eac6486cb5b3cc1229feeb3c8e"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_stage072_uv_f32_v14.py",
+      "kind": "new",
+      "sha256": "49d5d95abc3c7e25882741f579acac4efc4eb07b5605195d5a74dc94c3fdfda4"
+    },
+    {
+      "path": "docs/etervale/V14_STAGE072_UV_F32_TRIAGE.md",
+      "kind": "new",
+      "sha256": "a34939c2083487affa4a8e0de4929145afdd5a7af802d157872c174723533195"
+    }
+  ]
+}

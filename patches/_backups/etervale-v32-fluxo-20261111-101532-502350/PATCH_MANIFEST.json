@@ -1,0 +1,48 @@
+{
+  "patch_id": "etervale-v32-compact-tree-or-leaves-actions",
+  "description": "V32 compact single-panel Stage tree/leaves decisions, reversible LOD0 tree instances, V31 atomic state compatibility",
+  "files": [
+    {
+      "path": "app/pt_asset_tool/blender/environment_residual_v31.py",
+      "kind": "modified",
+      "old_sha256": "99441bc42f0d97c907f6114a6571269fad031aaa39f5bddba17ab3699e87d7bc",
+      "sha256": "a9a278cc1970d8f959ffba06acd1e16dbb1ca2fe151226beb977e0513878246e"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_environment_v26.py",
+      "kind": "modified",
+      "old_sha256": "8999069471d07a5b2728da905029f7c88444a9452211c732633bb921221577f7",
+      "sha256": "801ec79adf2922cbe045aad41cec28f3cab19cab45356d4864d0d3a9a5d99f8d"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_semantic_paint.py",
+      "kind": "modified",
+      "old_sha256": "1ae96cbb869f5491d81bc1cd2f37843ef446d242b95dc6dfa427d61932223509",
+      "sha256": "8dbae604867689a7e46f7acec8c4fe5f51ef37eaa74ed6d816751b26718c611e"
+    },
+    {
+      "path": "app/pt_asset_tool/blender/stage072_textures_v27.py",
+      "kind": "modified",
+      "old_sha256": "9dabe77f409bc37a305f3253782b874834fdf3f69e6060fc5f876eea4d9f13b4",
+      "sha256": "42b96b4c04ed582f23d5be8d905c90404687f23d6b522bb3f26b1ee59a8c3e50"
+    },
+    {
+      "path": "app/pt_asset_tool/residual_actions_v32.py",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "c61bf6a5957ab262b348654bff6107c2103eda112caeb5a2de48a829276394a3"
+    },
+    {
+      "path": "app/dev_tests/test_etervale_environment_v32_semantic_actions.py",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "edb8bddf8dd556b03f4c5d6f4fa31c5f7a389dce37f08ef001f36a1c01f01cc3"
+    },
+    {
+      "path": "docs/etervale/V32_FLUXO_CONCISO_SELECAO_COM_DESTINO.md",
+      "kind": "new",
+      "old_sha256": "",
+      "sha256": "9d53a755fcb77916816a58dafbcce583912a284ab0001a05c8fd0fc1d9e5eee5"
+    }
+  ]
+}
